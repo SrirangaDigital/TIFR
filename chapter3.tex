@@ -1,0 +1,100 @@
+\chapter{Distributions and Partial Differential Operators}\label{chap3}
+
+\setcounter{pageoriginal}{0}
+\section*{$C^{\infty}$ functions with compact support}\pageoriginale
+
+Let $\Omega$ be a non-empty open set in $\mathbb{R}^{n}(n\geq 1)$. A funciton $f:\Omega\to \mathbb{R}$ (or $\Omega\to \mathbb{C}$) is said to be $C^{\infty}$ (resp. $C^{k}$) function if partial derivatives of all orders (resp. order $\leq k$) exist and are continuous. The support of $f$, denoted Supp $f$ is the closure of the set of points $x\in \Omega$ such that $f(x)\neq 0$. We shall be interested in the vector space $\mathcal{D}(\Omega)$ of $C^{\infty}$ functions in $\Omega$ with compact support.
+
+Let us first convince ourselves that there are $C^{\infty}$ functions with compact support different from the constant function $0$.
+
+\begin{exers*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Let $\beta$ be the function defined over $\mathbb{R}$ by
+\begin{align*}
+\beta(x) &= e^{-\frac{1}{1-x^{2}}}\quad\text{for}\quad |x|<1\\[3pt]
+ &= 0\qquad\quad\! \text{for}\quad |x|\geq 1
+\end{align*}
+Show that $\beta$ is a $C^{\infty}$ function, $\nequiv 0$.
+
+\item Let $\beta$ be the function defined in $\mathbb{R}^{n}$ by
+\begin{align*}
+\beta(x) &= e^{-\frac{1}{1-r^{2}}}\quad\text{for}\quad r<1\\[3pt]
+&= 0\qquad\quad\! \text{for}\quad r>1
+\end{align*}
+where $r=|x|=\sqrt{x^{2}_{1}+\cdots+x^{2}_{n}}$.
+
+\item Show that $\mathcal{D}(\Omega)$ is an infinite dimensional vector space.
+\end{enumerate}
+\end{exers*}
+
+We can use the function $\beta$ to approximate any continuous function with compact support by $C^{\infty}$ functions with compact support and thus construct a large number of such functions.
+
+\begin{proposition}\label{chap3-prop1}
+Let\pageoriginale $f$ be a continuous function with compact support in $\mathbb{R}^{n}$. Then there exists a sequence of $C^{\infty}$ functions $\{\varphi_{n}\}$ in $\mathbb{R}^{n}$, whose supports are contained in a fixed compact set containing supp $f$, such that $\varphi_{n}$ tends uniformly to $f$.
+\end{proposition}
+
+To prove the proposition we use the concept of regularisation by convolution.
+
+\section*{Convolution of functions}
+
+Let $f$ be a continuous function (defined in $\mathbb{R}^{n}$) and $g$ a continuous function with compact support. Define the convolution of $f$ and $g$, to be the function $f\ast g$ given by
+$$
+(f\ast g)(x)=\int\limits_{\mathbb{R}^{n}}f(x-y)g(y)dy
+$$
+If $A$ and $B$ are subsets of $\mathbb{R}^{n}$ we denote by $A+B$ the set of points in $\mathbb{R}^{n}$ which can be written in the form $x+y$, $x\in A$, $y\in B$ i.e., $A+B$ is the image of $A\times B\subset \mathbb{R}^{n}\times \mathbb{R}^{n}$, by the map $\mathbb{R}^{n}\times \mathbb{R}^{n}\to \mathbb{R}^{n}$ given by $(x,y)\mapsto x+y$. It is clear that if $A$ and $B$ are compact so is $A+B$.
+
+\begin{exer*}
+If $A$ is closed and $B$ is compact show that $A+B$ is closed.
+\end{exer*}
+
+\begin{lemma}\label{chap3-lem1}
+$\Supp (f\ast g)\subset \Supp f+\Supp g$.
+\end{lemma}
+
+\begin{proof}
+Note that for fixed $x$, the support of the function $\psi(y)=f(x-y)$ is $x$-$\Supp f$, for $y\in \Supp \psi$ if and only if $x$-$y\in \Supp f$. Hence if $x\not\in \Supp f+\Supp g$ we have $\Supp \psi \cap \Supp g=\emptyset$; otherwise if $z\in \Supp \psi \cap \Supp g$, we would have $z\in \Supp g$ and $z\in x - \Supp f$ which would mean that $x\in \Supp f + \Supp g$. We then have
+$$
+f\ast g(x)=\int f(x-y)h(y)dy=0
+$$
+for the integrand is zero if $x\not\in \Supp f+\Supp g$. Lemma \ref{chap3-lem1} follows from the previous\pageoriginale exercise.
+\end{proof}
+
+\begin{lemma}\label{chap3-lem2}
+\begin{itemize}
+\item[\rm(a)] $f\ast g$ is a continuous function.
+
+\item[\rm(b)] If $f$ is a $C^{\infty}$ function $f\ast g$ is a $C^{\infty}$ function.
+\end{itemize}
+\end{lemma}
+
+The Lemma follows from
+
+\begin{proposition}\label{chap3-prop2}
+Let $K(x,y)$ be a (real valued) function defined in $U\times \mathbb{R}^{n}$ where $U$ is an open set in $\mathbb{R}^{m}$.
+\begin{itemize}
+\item[\rm(a)] Assume that $|K(x,y)|\leq g(y)$ for $x\in U$ where $g(y)$ is a non-negative integrable function and that for each $y\in \mathbb{R}^{n}$, $K(x,y)$ is a continuous function of $x$. Then the function $h(x)=\int\limits_{\mathbb{R}^{n}}K(x,y)dy$ is continuous in $x$.
+
+\item[\rm(b)] Assume further that for each $y\in \mathbb{R}^{n}$, $K(x,y)$ is a $C^{1}$ function in $x$ and $\left|\dfrac{\partial K}{\partial x_{i}}(x,y)\right|\leq f(y)$ for $i=1,\ldots,m,x\in U$ where $f(y)$ is a non-negative integrable function. Then $h$ is a $C^{1}$ function and
+$$
+\frac{\partial h}{\partial x_{i}}(x)=\int\limits_{\mathbb{R}^{n}}\frac{K(x,y)}{x_{i}}dy.
+$$
+\end{itemize}
+\end{proposition}
+
+\noindent
+{\bf Proof of the proposition.}~Exercise. Use the mean value theorem of differential calculus and the Lebesgue dominated convergence theorem.
+
+Before proceeding to prove proposition \ref{chap3-prop1} let us note
+
+\begin{lemma}\label{chap3-lem3}
+For any $\epsilon > 0$, there exists a non-negative $C^{\infty}$ function $\rho_{\epsilon}$ in $\mathbb{R}^{n}$ with $\rho_{\epsilon}(x)>0$ for $|x|<\epsilon$ whose support is in the closed ball $B_{\epsilon}$ of radius $\epsilon$ around the origin and such that $\int \rho_{\epsilon}(x)dx=1$.
+\end{lemma}
+
+\begin{remark*}
+$\rho_{\epsilon}$ are called smooth approximate identities or mollifiers.
+\end{remark*}
+
+\begin{proof}
+%raghu 03, last 4 lines
+\end{proof}
