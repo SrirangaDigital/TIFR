@@ -96,5 +96,471 @@ $\rho_{\epsilon}$ are called smooth approximate identities or mollifiers.
 \end{remark*}
 
 \begin{proof}
-%raghu 03, last 4 lines
+Let $\rho_{1}$ be the function:
+$$
+\rho_{1}(x)=
+\begin{matrix}
+k^{-1}e^{-\frac{1}{1-|x|^{2}}} & \text{for}\quad ||x||<1\\[3pt]
+0 & \text{for}\quad ||x||\geq 1
+\end{matrix}
+$$
+where\pageoriginale
+$$
+\int\limits_{||x||\leq 1}e^{-\left(\frac{1}{1-x^{2}}\right)}dx=k.
+$$
+Define $\rho_{\epsilon}(x)=\dfrac{1}{\epsilon^{n}}\rho_{1}\left(\dfrac{x}{\epsilon}\right)$. We have $\Supp \rho_{\epsilon}\subset B_{\epsilon}$ and
+$$
+\int \rho_{q}(x)dx=\int \rho_{1}\left(\frac{x}{\epsilon}\right)\dfrac{dx}{\epsilon^{n}}=\int \rho_{1}(x)dx=1.
+$$
 \end{proof}
+
+\noindent
+{\bf Proof of Proposition \ref{chap3-prop1}.}~ Let $0<\epsilon \leq 1$. Consider the function $\rho_{\epsilon}\ast f$. By Lemma \ref{chap3-lem2}, $\rho_{\epsilon}|\ast f$ is a $C^{\infty}$ function. Moreover, by Lemma \ref{chap3-lem1},
+$$
+\Supp (\rho_{\epsilon}\ast f)\subset \Supp f+B_{\epsilon}\subset \Supp f+B_{1}
+$$
+and $\Supp f+B_{1}$ is a compact set, Now,
+\begin{align*}
+(\rho_{\epsilon}\ast f)(x)-f(x) &= \int\limits_{\mathbb{R}^{n}}(f(y)-f(x))\rho (x-y)dy\\[4pt]
+&= \int\limits_{x-B_{\epsilon}}(f(y)-f(x))\rho_{\epsilon}(x-y)dy,
+\end{align*}
+as $\int \rho (x-y)dy=1$ and $\Supp \rho_{\epsilon}(x-y)=x-B_{\epsilon}$. Now $y\in x-B_{\epsilon}$ means $y-x\in B_{\epsilon}$ means $y-x\in B_{\epsilon}$ or $|y-x|\leq \epsilon$. By the uniform continuity of $f$, given $\delta > 0$ there exists $\epsilon>0$ such that, for $|y-x|\leq \epsilon$ we have $\left|f(x)-f(y)\right|<\delta$. Hence
+\begin{align*}
+\left| (\rho_{\epsilon}\ast f)(x)-f(x)\right| &\leq \int \left|f(y)-f(x)\right|\rho_{\epsilon}(x-y)dy\\[4pt]
+&\leq \delta \int \rho_{\epsilon}(x-y)dy\\[4pt]
+&\leq \delta.
+\end{align*}
+Since $\delta$ is arbitrary, we see that $\rho_{1/n}\ast f$ tends to uniformly to $f$. 
+
+(Note: the usual roles of $\epsilon$ and $\delta$ are reversed here !).
+
+\begin{remark*}
+The proposition is also valid for open sets $\Omega$ in $\mathbb{R}^{n}$, as is seen by choosing $\epsilon$ small so that $\Supp f+B_{\epsilon}\subset \Omega$.
+\end{remark*}
+
+\begin{proposition}[Fundamental Lemma of calculus of variations]\label{chap3-prop3}
+Let\pageoriginale $f$ be a continuous function in an open set $\Omega$ in $\mathbb{R}^{n}$. If $\int f\varphi=0$ for every $\varphi \in \mathcal{D}(\Omega)$, then $f=0$.
+\end{proposition}
+
+We first prove
+
+\begin{lemma}\label{chap3-lem4}
+Let $f$ be a continuous function in $\Omega$. If $\int f\psi = 0$ for every continuous function with compact support in $\Omega$, then $F=0$.
+\end{lemma}
+
+\begin{proof}
+We may assume that $f$ is real valued. Let us first suppose that $f$ has compact support. Then since $\int f^{2}=0$ we have $f=0$. If $f$ does not have compact support, let $x_{0}\in \Omega$ and $\chi$ a continuous function with compact support such that $\chi\equiv 1$ in a neighbourhood of $x_{0}$. Then $\chi f$ has compact support, is equal to $f$ in a neighbourhood of $x_{0}$ and $\int (\chi f)\psi =\int f(\chi \psi)=0$ for every continuous function with compact support (ast $\chi\psi$ is continuous with compact support).
+\end{proof}
+
+Since $\chi f$ has compact support, we have $\chi f=0$ by the earlier remark and hence $f\equiv 0$ in a neighbourhood of $x_{0}$. Since $x_{0}\in \Omega$ is arbitrary the Lemma follows.
+
+\noindent
+{\bf Proof of Proposition \ref{chap3-prop2}.}~ By Lemma \ref{chap3-lem4}, it is enough to show that $\int f\psi=0$ for every continuous function $\psi$ with compact support. By Proposition \ref{chap3-prop1} (see Remark at the end of the proof of that proposition) we can find a sequence $\varphi_{n}\in \mathcal{D}(\Omega)$ with $\Supp \varphi_{n}$ contained in a fixed compact set $K$ with $\supp \psi \subset K$, such that $\varphi_{n}\to \psi$ uniformly. Hence
+\begin{align*}
+\int\limits_{\Omega}f\psi dx &= \int\limits_{K}f\psi dx =\lim\limits_{n\to \infty}\int\limits_{K}f\varphi_{n}dx=\lim\limits_{n\to \infty}\int\limits_{\Omega}f\varphi_{n}dx\\[4pt]
+&=0.
+\end{align*}
+
+\begin{remark*}
+Proposition\pageoriginale \ref{chap3-prop2} can also be proved as follows. Let $f$ be real valued. Suppose $f(x_{0})\neq 0$ for some $x_{0}$. By the continuity of $f$ we can assume $f(x)\neq 0$ in a neighbourhood $U$ of $x_{0}$ and we may also assume without loss of generality that $f(x)>0$ in $U$. Let $\varphi$ be a non-negative $C^{\infty}$ function with compact support with $\supp \varphi\subset U$. Then $\int f\varphi dx>0$, a contradiction.
+\end{remark*}
+
+
+\begin{exers*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Show that $\mathcal{D}$ is dense in $L^{p}(\mathbb{R}^{n})$ for $1\leq p<\infty$ (proved by truncation and regularisation. By truncation we mean the following. If $f\in L^{p}$, let $f_{n}$ be the function equal to $f$ inside the ball of radius $n$ and equal to zero outside. Then $f_{n}\to f$ in $L^{p}$. Then approximate $f_{n}$ by elements of $\mathcal{D}(\mathbb{R}^{n})$ by regularisation).
+
+What happens in the case of $L^{\infty}$?
+
+\item Let $f$ be a locally summable in $\Omega$ (i.e., summable over every compact set). If $\int f_{\varphi}=0$ for every $\varphi\in \mathcal{D}(\Omega)$ show that $f$ is almost everywhere zero.
+\end{enumerate}
+\end{exers*}
+
+\begin{theorem}[$C^{\infty}$ partition of unity]\label{chap3-thm1}
+Let $\Omega$ be an open set in $\mathbb{R}^{n}$ and $(\Omega_{i})_{i\in I}$ be an open covering of $\Omega$. Then there exist $C^{\infty}$ functions $\varphi_{i}$ on $\Omega$ such that
+\begin{itemize}
+\item[\rm(a)] $\varphi_{i}\geq 0$
+
+\item[\rm(b)] Support of $\varphi_{i}$ is contained in $\Omega_{i}$
+
+\item[\rm(c)] the supports of $\varphi_{i}$ form a locally finite set i.e., given a compact set $K$ of $\Omega$ there exists a finite set $J\subset I$ such that $\Supp \varphi_{i}\cap K=\emptyset$ for $i\not\in J$.
+
+\item[\rm(d)] $\sum\limits_{i\in I}\varphi_{i}(x)=1$ for every $x\in \Omega$. (Note that, by {\rm c}), $\varphi_{i}(x)\neq 0$ only for a finite number of $\alpha$.) 
+\end{itemize}
+\end{theorem}
+
+\begin{remark*}
+The\pageoriginale functions $\{\varphi_{i}\}$ are said to constitute a $C^{\infty}$ partition of unity subordinate to the open covering $\Omega_{i}$.
+\end{remark*}
+
+\begin{proof}
+Let us suppose that $\{\Omega_{i}\}$ is a locally finite covering of $\Omega$ by relatively compact open sets $\Omega_{i}$. Let $\{\Omega'_{i}\}$ be a shrinking of $\{\Omega_{i}\}$ i.e., $\{\Omega'_{i}\}$ is an open cover with $\overline{\Omega}'_{i}\subset \Omega_{i}$ and $\{\Omega''_{i}\}$ a shrinking of $\Omega'_{i}$. Let $\psi_{i}$ be a continuous function from $\mathbb{R}^{n}$ to the closed interval $(0,1)$ such that $\psi_{i}\equiv 1$ on $\overline{\Omega}''_{i}$ and equal to zero on the complement of $\Omega'_{i}$. Now we can choose $\epsilon_{i}>0$ such that $\overline{\Omega}'_{i}+B_{\epsilon_{i}}\subset \Omega_{i}$. With the notation of Lemma \ref{chap3-lem3}, consider the function $\eta_{i}= \rho_{\epsilon_{i}}\ast \psi_{i}$. Now support of $\eta_{i}$ in $\mathbb{R}^{n}$ is contained in $\Omega_{i}$ and $\eta_{i}$ is strictly positive on $\Omega''_{i}$. (To see this note that
+$$
+\eta_{i}(x)=\int\limits_{x-B_{\epsilon_{i}}\cap \overline{\Omega}'_{i}}\rho_{\epsilon_{i}}(x-y)\psi_{i}(y)dy
+$$
+Now the integrand is $\geq 0$. Hence
+\begin{align*}
+\eta_{i}(x) &\geq \int\limits_{x-B_{\epsilon}\cap \Omega''_{i}}\rho_{\epsilon_{i}}(x-y)dy(\text{as ~ } \psi_{i}\equiv 1 \text{~~ on~~ } \Omega''_{i})\\[4pt]
+&= \int\limits_{B_{\epsilon_{i}}\cap \{x-\Omega''_{i}\}}\rho_{\epsilon_{i}}(z)dz>0\quad\text{if}\quad x\in \Omega''_{i}
+\end{align*}
+and $B_{\epsilon_{i}}\cap x-\Omega''_{i}$ is a non-empty open set and $\rho_{\epsilon}>0$ in $|x|<\epsilon$). Consider the sum $\sum\limits_{i\in I}\eta_{i}(x)$; only finite number of terms of this sum are $\nequiv 0$ on a compact neighbourhood of $x$. Thus the sum defines a $C^{\infty}$ function which is moreover $>0$ as $\Omega''_{i}$ form a covering. Define $\varphi_{i}(x)=\dfrac{\eta_{i}(x)}{\sum\limits_{k\in I}\eta_{k}(x)}$.
+
+The $\{\varphi_{i}\}$ satisfy the required conditions.
+
+Now suppose $\{\Omega_{i}\}_{i\in I}$ is an arbitrary open cover. Since $\Omega$ is paracompact one can find a locally finite refinement of $\{\Omega_{i}\}$ by relatively compact open sets $\{\Omega_{j}\}_{j\in J}$; we will have a map $r:J\to I$ such that for\pageoriginale for each $j\in J$, $\Omega_{j}\subset \Omega_{r(j)}$. As we have shown above, there exists a $C^{\infty}$ partition of unity $\{\alpha_{j}\}$ subordinate to the covering $\{\Omega_{j}\}$. For $i\in I$, put $\varphi_{i}=\sum\limits_{\gamma (j)=i}\alpha_{j}$. Each $x$ in $\Omega$ has a neighbourhood in which only a finitely many $\alpha_{j}$ are $\nequiv 0$ and hence $\varphi_{i}$ is a $C^{\infty}$ function in $\Omega$. Since $\Supp \alpha_{j}$ form a locally finite family of closed sets, $B_{i}=\bigcup\limits_{\gamma(j)=i} \Supp \alpha_{j}$ is a closed set, which is contained in $\Omega_{i}$. Since $\varphi_{i}(x)=0$ for $x\not\in B_{i}$, $\Supp \varphi_{i}\subset \Omega_{i}$. Moreover the family $B_{i}$ is locally finite. In fact for every $x\in \Omega$ there exists a neighbourhood $U$ of $x$ and a finite subset $L$ of $J$ such that $U\cap \Omega_{j}=\emptyset$ for $j\in L$; it follows that $U\cap B_{i}=\emptyset$ for $i\not\in \gamma(L)$. Finally 
+$$
+\sum\limits_{i\in I}\varphi_{i}(x)=\sum\limits_{i\in I}\sum\limits_{\gamma(j)=i}\alpha_{j}(x)=\sum\limits_{j\in J}\alpha_{j}(x)=1.
+$$
+Thus the theorem is proved.
+\end{proof}
+
+\begin{exer*}
+Let $U_{1}$ and $U_{2}$ be relatively compact open subset of $\Omega$ with $\overline{U}_{1}\subset U_{2}$ show that there exists a $C^{\infty}$ function on $\Omega$ with $\varphi\equiv 1$ on $U_{1}$ and $\supp \varphi\subset U_{2}$.
+\end{exer*}
+
+\section*{Distribution in $\mathbb{R}$}
+
+Let us for simplicity first define distributions on $\mathbb{R}$. Let $\mathcal{D}$ denote the space of $C^{\infty}$ functions with compact support, defined over $\mathbb{R}$. Suppose $f$ is a continuous function on $\mathbb{R}$. Consider the map $T_{f}:\mathcal{D}\to \mathbb{R}$ defined by $\varphi \mapsto \int\limits_{\mathbb{R}^{n}}f\varphi dx$. We have, $c$
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $T_{f}(\lambda_{1}\varphi_{1}+\lambda_{2}\varphi_{2})=\lambda_{1}T_{f}(\varphi_{1})+\lambda_{2}T_{f}(\varphi_{2})$, \ for \ $\lambda_{1}$, $\lambda_{2}\in \mathbb{R}$,
+
+\item if $\varphi_{n}\in \mathcal{D}$, $\Supp \varphi_{n}\subset K$, a fixed compact set and $\varphi_{n}\to 0$ uniformly, then $T_{f}(\varphi_{n})\to 0$.
+\end{enumerate}
+
+Note that if $f$ and $g$ are continuous functions and $T_{f}=T_{g}$ then $f=g$ by Proposition \ref{chap3-prop2}. Thus we can identify $f$ with $T_{f}$.
+
+We\pageoriginale can generalise a bit; suppose $\mu$ is a measure on $\mathbb{R}$ and define $T_{\mu}(\varphi)=\int \varphi d\mu$. Then $T_{\mu}$ satisfies (1) and (2) with $T_{f}$ replaced by $T_{\mu}$.
+
+\begin{defi*}
+A distribution is a linear map $T:\mathcal{D}(\mathbb{R})\to \mathbb{R}$ such that the following condition holds; if $\varphi_{n}\in \mathcal{D}$ is a sequence with $\supp \varphi_{n}$ contained in a fixed compact set $K$ and $\varphi_{n}\to 0$ uniformly and $\dfrac{d^{k}\varphi_{n}}{dx^{k}}\to 0$ uniformly for all $k\geq 1$, then $T(\varphi_{n})$ tends to zero.
+\end{defi*}
+
+\begin{examples*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item If $f$ is a continuous (more generally, locally summable) function $T_{f}$ is a distribution. By the fundamental lemma of calculus of variations, if $T_{f}=T_{g}$ then $f=g$ if $f$ and $g$ are continuous.
+
+\item the map $\varphi\to \varphi(0)$ defines a distribution called the Dirac measure. It is denoted by $\delta$.
+\end{enumerate}
+\end{examples*}
+
+\section*{Derivative of a distribution.}
+
+Suppose $f$ is a $C^{1}$ function. Let us compute the distribution defined by $\dfrac{df}{dx}$. We have, for $\varphi\in \mathcal{D}$,
+\begin{align*}
+T_{\frac{df}{dx}}(\varphi) &= \int\limits_{\mathbb{R}}\frac{df}{dx}\varphi dx =\int\limits^{\ell}_{-\ell}\frac{df}{dx}\varphi,\quad\text{with~ } \supp \varphi\subset [-\ell,\ell]\\[4pt]
+&= (f\varphi)^{\ell}_{-\ell}-\int\limits^{\ell}_{-\ell}f\cdot \frac{d\varphi}{dx}dx\quad\text{(integration by parts)}\\[3pt]
+&= -\int\limits_{\mathbb{R}}f\frac{d\varphi}{dx}dx\\[3pt]
+&= -T_{f}\left(\frac{d\varphi}{dx}\right).
+\end{align*}
+
+This shows how we should define the derivative of a distribution $T$. Define $\dfrac{dT}{dx}(\varphi)=-T\left(\dfrac{d\varphi}{dx}\right)$.
+
+\begin{exer*}
+Show that $\dfrac{dT}{dx}$ is a distribution.
+\end{exer*}
+
+Essentially the derivative is defined by transposition.
+
+More\pageoriginale generally we define $\dfrac{d^{k}T}{dx^{k}}$
+$$
+\dfrac{d^{k}T}{dx^{k}}(\varphi)=(-1)^{k}T\left(\dfrac{d^{k}\varphi}{dx^{k}}\right)
+$$
+
+\begin{example*}
+Consider the Heaviside function
+$$
+H(x)=
+\begin{cases}
+1 & \text{for}\quad x\geq 0\\[3pt]
+0 & \text{for}\quad x<0.
+\end{cases}
+$$
+$H$ defines a distribution which we shall denote also by $H$. We shall calculate $\dfrac{dH}{dx}$. For $\varphi \in \mathcal{D}$,
+\begin{align*}
+\frac{dH}{dx}(\varphi) &= -\int\limits_{\mathbb{R}}H(x)\dfrac{d\varphi}{dx}=-\int\limits^{\infty}_{0}\varphi'(x)dx\\[4pt]
+&= -\int\limits^{\ell}_{0}\varphi'(x)dx\quad\text{with}\quad \varphi=0\text{~~ for~~ } x\geq \ell\\[4pt]
+&=-\{\varphi(\ell)-\varphi(0)\}\\[4pt]
+&= \varphi(0)\\[4pt]
+&= \delta (\varphi).
+\end{align*}
+Thus $\dfrac{dH}{dx}$ is the Dirac distribution $\delta$.
+\end{example*}
+
+\section*{Multiplication of a distribution by a $C^{\infty}$ function.:}
+
+Let $f$ be a $C^{\infty}$ function and $T$ a distribution on $\mathbb{R}$. Define a distribution $fT$ by $(fT)(\varphi)=T(f\varphi)$, noting that $f\varphi \in \mathcal{D}$.
+
+\begin{exer*}
+Show that $fT$ defines a distribution by checking the ``Continuity'' condition. Hint: Use the Leibniz formula:
+$$
+\dfrac{d^{k}(f\varphi)}{dx^{k}}=\sum\limits_{\ell \leq k}\dfrac{k!}{\ell !(k-\ell)!}\cdot \dfrac{d^{\ell}f}{dx^{k}}\dfrac{d^{k-\ell}\varphi}{dx^{k-\ell}}
+$$
+\end{exer*}
+
+\begin{exer*}
+Prove that $\dfrac{d}{dx}(fT)=\dfrac{df}{dx}T+f\cdot \dfrac{dT}{dx}$. Prove also the generalized Leibniz formula.
+\end{exer*}
+
+\section*{Ordinary differential operators with $C^{\infty}$ coefficients.}
+
+Let $L=a_{k}\left(\dfrac{d}{dx}\right)^{k}+a_{k-1}\left(\dfrac{d}{dx}\right)^{k-1}+\cdots + a_{0}$, where $a_{i}$ are $C^{\infty}$ functions on $\mathbb{R}$, be\pageoriginale a linear differential operator in one variable with $C^{\infty}$ coefficients. If $T$ is a distribution $LT=a_{k}\dfrac{d^{k}T}{dx \ k}+\cdots+a_{0}T$ is defined as a distribution, since successive derivatives and multiplication of a distribution by a $C^{\infty}$ function are defined. We can consider the differential equation $LT=S$ where $S$ is distribution; in particular the homogeneous equation $LT=0$. 
+
+A simple computation shows that for $\varphi\in \mathcal{D}$, $(LT)(\varphi)=T(L^{\ast}\varphi)$ where $L^{\ast}$ is the adjoint operator defined by
+$$
+L^{\ast}(\varphi)=(-1)^{k}\dfrac{d^{k}(a_{k}\varphi)}{dx^{k}}+(-1)^{k-1}\dfrac{d^{k-1}}{dx \ k^{-1}}(a_{k-1}\varphi)+\cdots+a_{0}.
+$$
+Thus $LT=0$ if and only if $T(L^{\ast}\varphi)=0$ for every $\varphi\in \mathcal{D}$. If $a_{k}$ are constant
+$$
+L^{\ast}=(-1)^{k}a_{k}\left(\dfrac{d}{dx}\right)^{k}+(-1)^{k-1}a_{k-1}\left(\dfrac{d}{dx}\right)^{k-1}+\cdots+a_{0}.
+$$
+
+\begin{defi*}
+Let $L$ be a linear differential operator with constant coefficients. A distribution $T$ is said to be a fundamental (or elementary) solution for $L$ if $LT=\delta$ where $\delta$ is the Dirac distribution.
+\end{defi*}
+
+\begin{example*}
+The Heaviside function is a fundamental solution for $\dfrac{d}{dx}$.
+\end{example*}
+
+\begin{exer*}
+Let $F$ be the function defined by
+$$
+F(x)=
+\begin{cases}
+e^{-\lambda x} & \text{for}\quad x\geq 0\\[3pt]
+0 & \text{for}\quad x<0
+\end{cases}
+$$
+where $\lambda \in \mathbb{R}$. Show that $F$ is a fundamental solution for the operator $\dfrac{d}{dx}+\lambda$.
+\end{exer*}
+
+\begin{exer*}
+Find a fundamental solution for the operator \ $\dfrac{d^{2}}{dx^{2}}$.
+\end{exer*}
+
+\section*{Distribution on open subsets of $\mathbb{R}^{n}$.}
+
+We shall use the following notation : $\alpha$ will stand for $(\alpha_{1},\ldots,\alpha_{n})$ where $\alpha_{i}$ are non-negative integers. We shall denote by $|\alpha|$ the integer $\alpha_{1}+\cdots+\alpha_{n}$. $D^{\alpha}$ will stand for the differential\pageoriginale operator $\left(\dfrac{\partial}{\partial x_{1}}\right)^{\alpha_{1}}\ldots \left(\dfrac{\partial}{\partial x_{n}}\right)^{\alpha_{n}}$ in $\mathbb{R}^{n}$. We define $\alpha!=\alpha_{1}!\ldots \alpha_{n}!$. We write $\beta \leq \alpha$ if $\beta_{1}\leq \alpha_{1}$ for $i=1,\ldots,n$. If $\beta\leq \alpha$ define $\alpha-\beta$ by $(\alpha_{1}-\beta_{1},\ldots,\alpha_{n}-\beta_{n})$.
+
+\begin{exer*}
+If $f$ and $g$ are two $C^{\infty}$ real valued functions show that
+$$
+D^{\alpha}(fg)=\sum\limits_{\beta\leq \alpha}\frac{\alpha!}{\beta!(\alpha-\beta)!}D^{\beta}f\cdot D^{\alpha-\beta}g\quad \text{(Leibniz formula)}
+$$
+\end{exer*}
+
+Let $\Omega$ be an open set (non-empty) in $\mathbb{R}^{n}$ and let $\mathcal{D}(\Omega)$ denote the space of $C^{\infty}$ real (or complex) functions with compact support in $\Omega$. (A function is said to be $C^{\infty}$ if partial derivatives of all orders exist and are continuous).
+
+\begin{defi*}
+A distribution in $\Omega$ is a linear map $T:\mathcal{D}(\Omega)\to \mathbb{R}$ (or $\mathbb{C}$) such that the following condition holds: if $\varphi_{n}\in \mathcal{D}(\Omega)$ is sequence such that $\supp \varphi_{n}$ is contained in a fixed compact set $K$ and such that for each multi-index $\alpha D^{\alpha}\varphi_{n}$ tends to zero uniformly then $T(\varphi_{n})$ tends to zero.
+\end{defi*}
+
+We denote the vector space of distributions on $\Omega$ by $\mathcal{D}'(\Omega)$. If $T$ is a distribution in $\Omega$ we define $\dfrac{\partial T}{\partial x_{i}}$ by:
+$$
+\left(\dfrac{\partial T}{\partial x_{i}}\right)(\varphi)=-T\left(\dfrac{\partial \varphi}{\partial x_{i}}\right)\varphi \in \mathcal{D}(\Omega).
+$$
+
+Then $\dfrac{\partial T}{\partial x_{i}}$ is a distribution. More generally we define $D^{\alpha}T$ by:
+$$
+(D^{\alpha}T)(\varphi)=(-1)^{|\alpha|}T(D^{\alpha}\varphi).
+$$
+
+If $\psi$ is a $C^{\infty}$ function in $\Omega$ the distribution $\psi T$ is defined by:
+$$
+(\psi T)(\varphi)=T(\psi \varphi).
+$$
+
+\begin{exer*}
+If $\psi$ is a $C^{\infty}$ function and $T$ a distribution, prove that
+$$
+D^{\alpha}(\psi T)=\sum\limits_{\beta\leq \alpha}\dfrac{\alpha!}{\beta!(\alpha-\beta)!}D^{\beta}\psi\cdot D^{\alpha-\beta}T
+$$
+\end{exer*}
+
+A\pageoriginale linear differential operator $L$ with $C^{\infty}$ coefficients is of the form $\sum\limits_{|\alpha|\leq m}a_{\alpha}D^{\alpha}$ where $a_{\alpha}$ are $C^{\infty}$ functions in $\Omega$. If $T$ is a distribution, $LT$ is defined as a distribution. The equation $LT=0$ is equivalent to $T(L^{\ast}\varphi)=0$ for every $\varphi\in \mathcal{D}$, where $L^{\ast}$ denotes the adjoint of $L$ defined by
+$$
+L^{\ast}\varphi =\sum\limits_{\alpha \leq m}(-1)^{\alpha}D^{\alpha}(a_{\alpha}\varphi).
+$$
+
+Let $L$ be a linear differential operator with constant coefficients in $\mathbb{R}^{n}$, (i.e., $a_{\alpha}$ are constant functions). A distribution $T$ on $\mathbb{R}^{n}$ is said to be a {\em fundamental solution} for $L$ if $LT=\delta$, where $\delta$ is the Dirac distribution in $\mathbb{R}^{n}$ defined by $\delta(\varphi)=\varphi(0)$, $\varphi \in U\mathbb{R}^{n}$).
+
+\section*{Support and singular support of a distribution.}
+
+Let $\Omega'$ be an open subset of $\Omega$. Let $\varphi\in \mathcal{D}(\Omega')$ and $\widetilde{\varphi}$ be the function on $\Omega$ defined to be equal to $\varphi$ on $\Omega$ and zero on $\Omega-\Omega'$. Then $\widetilde{\varphi}\in \mathcal{D}(\Omega)$. If $T$ is a distribution on $\Omega$, we define the restriction of $T$ to $\Omega'$, denoted $T|_{\Omega'}$, by
+$$
+\left(T\big|_{\Omega}\right)(\varphi)=T(\widetilde{\varphi})\quad\text{for}\quad \varphi\in (\Omega').
+$$
+
+\begin{lemma}\label{chap3-lem5}
+Let $\{\Omega_{i}\}$ be an open cover of $\Omega$. Let $T\in \mathcal{D}'(\Omega)$. If $T|_{\Omega_{i}}=0$ for every $i$, then $T=0$.
+\end{lemma}
+
+\begin{proof}
+Let $\varphi_{i}$ be a $C^{\infty}$ partition of unity subordinate to the covering $\{\Omega_{i}\}$. Let $\varphi\in \mathcal{D}(\Omega)$. Then $\varphi=\sum \varphi \varphi_{i}$, the summation being finite (for $\Supp \varphi_{i}$ intersects the compact set $\Supp \varphi$ only for finitely many $i$). Moreover $\Supp (\varphi \varphi_{i})\subset \Supp \varphi \cap \Supp \varphi_{i}$. Since $\Supp \varphi \cap \Supp \varphi_{i}$ is a compact set in $\Omega$ (being the intersection of a compact set and a closed set) we see that $\varphi\varphi_{i}$ is a $C^{\infty}$ function with compact support contained in $\Omega_{i}$. Since $T$ is linear, $T(\varphi)=\sum T(\varphi \varphi_{i})=0$, as by hypothes $T(\psi)=0$ for\pageoriginale $\psi\in \mathcal{D}(\Omega)$ with $\Supp \psi \subset \Omega_{i}$ for some $i$.
+\end{proof}
+
+\begin{proposition}
+Let $\Omega$ be an open subset of $\mathbb{R}^{n}$. Let $U$ be the union of all open subsets $\Omega'$ of $\Omega$ such that $T|_{\Omega'}=0$. Then $T|_{U}=0$.
+\end{proposition}
+
+\begin{proof}
+Apply the previous lemma to $U$ and the open covering of $U$ given by $\Omega'$.
+\end{proof}
+
+The proposition shows that there is a largest open set $U\subset \Omega$ such that $T|U=0$. The complement of $U$ is called the {\em support} of the distribution $T$.
+
+\begin{exers*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Let $\{\Omega_{i}\}$ be an open cover $\Omega$. Let $T_{i}$ be a distribution in $\Omega_{i}$ such that $T_{i}\big|_{\Omega_{i}\cap \Omega_{j}}=T_{j}\big|_{\Omega_{i}\cap \Omega_{j}}$ for $\Omega_{i}\cap \Omega_{j}\neq \emptyset$. Show that there exists a unique distribution $T$ in $\Omega$ such that $T|\Omega_{i}=T_{i}$.
+
+\item If $f$ is a continuous function then $\Supp T_{f}=\Supp f$, where $T_{f}$ is the distribution defined by $f$.
+\end{enumerate}
+\end{exers*}
+
+The {\em singular support} of a distribution is defined to be the complement of the largest open set in which $T$ coincides with a $C^{\infty}$ function. To see that this definition makes sense, we have to verify the following: $U_{i}$ are open in $\Omega$ and $T|_{U_{i}}$ is a $C^{\infty}$ function, then $T|_{U_{i}U_{i}}$ is a $C^{\infty}$ function. This follows from the next Lemma which is a consequence of the fundamental lemma of calculus of variations.
+
+\begin{lemma*}
+If $f_{1}$ and $f_{2}$ are $C^{\infty}$ functions in open sets $U_{1}$ and $U_{2}$ and the distributions $T_{f_{1}}$ and $T_{f_{2}}$ coincide in $U_{1}\cap U_{2}$ then $f_{1}=f_{2}$ in $U_{1}\cap U_{2}$. Note that Sing $\Supp T\subset \Supp T$.
+\end{lemma*}
+
+\begin{exer*}
+What are the supports and singular supports of (a) the Heaviside function (b) the Dirac measure.
+\end{exer*}
+
+\section*{Fundamental solution for the Laplacian.}
+
+We shall construct explicitly a fundamental solution for the Laplace operator $\Delta =\sum\limits_{i=1}\dfrac{\partial^{2}}{\partial x^{2}}$ in\pageoriginale $\mathbb{R}^{n}$. For $n=1$, the function
+$$
+E(x)=
+\begin{cases}
+x &\text{for}\quad x\geq 0\\[3pt]
+0 &\text{for}\quad x<0
+\end{cases}
+$$
+is a fundamental solution for $\dfrac{d^{2}}{dx^{2}}$. We shall first consider the case $n=2$. 
+
+\begin{theorem}\label{chap3-thm2}
+The locally summable function $-\dfrac{1}{2\pi}\log \left(\dfrac{1}{r}\right)$ is a fundamental solution for the Laplacian $\Delta$ in $\mathbb{R}^{2}(r=x^{2}+y^{2})$.
+\end{theorem}
+
+\begin{remark*}
+Since the volume element in $\mathbb{R}^{2}$ is given by $r\;drd \theta$ the function $\log r$ is locally summable.
+\end{remark*}
+
+\begin{exer*}
+Prove that $r\log r\to 0$ as $r\to 0$.
+\end{exer*}
+
+\noindent
+{\bf Proof of the theorem.}~
+We start with the Green's formula
+$$
+\int\limits_{\partial\Omega}P\,dx+Q\,dy=\int\limits_{\Omega}\left(\frac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)dx \ dy
+$$
+where $\Omega$ is a bounded domain in $\mathbb{R}^{2}$ with smooth boundary $\partial \Omega$ and $P$ and $Q$ are $C^{\infty}$ functions in $\overline{\Omega}$ i.e., in an open set containing $\overline{\Omega}$. Choose $P=-u\dfrac{\partial v}{\partial y}$ and $Q=u\dfrac{\partial v}{\partial x}$ where $u$ and $v$ are $C^{\infty}$ functions in $\overline{\Omega}$. We have
+$$
+\frac{\partial Q}{\partial x}=u\dfrac{\partial^{2}v}{\partial x^{2}}+\frac{\partial u}{\partial x}\dfrac{\partial v}{\partial x}\quad\text{and}\quad -\frac{\partial P}{\partial y}=u\frac{\partial^{2}v}{\partial y^{2}}+\dfrac{\partial u}{\partial y}\dfrac{\partial v}{\partial y}.
+$$
+Hence
+\begin{gather*}
+\int\limits_{\Omega}u \ \Delta \ v \ dx \ dy +\int\limits_{\Omega}\left(\frac{\partial u}{\partial x}\cdot \frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\dfrac{\partial v}{\partial y}\right)dx \ dy\\[4pt]
+=\int\limits_{\Omega}u\left(-\frac{\partial v}{\partial y}dx+\frac{\partial v}{\partial x}dy\right)
+\end{gather*}
+Interchanging $u$ and $v$ and by subtraction we get
+\begin{align*}
+\int (u \Delta v- v\Delta u)dx \ dy &= \int\limits_{\Omega}u\left(-\frac{\partial v}{\partial y}dx+\dfrac{\partial v}{\partial x}dy\right)\\[4pt]
+&\quad - \int\limits_{\Omega}v\left(-\frac{\partial u}{\partial y}dx+\frac{\partial u}{\partial x}dy\right).
+\end{align*}
+
+We shall apply this to the annular region $\Omega$ bounded by two concentric circles with centre at the origin and radii $R_{1}$ and $R_{2}$ respectively $(0<R_{2}<R_{1})$.\pageoriginale We now compute $\dfrac{\partial v}{\partial y}dx+\dfrac{\partial v}{\partial x}dy$ on the circle of radius $r$. Put $x=r\cos \theta$, $y=r\sin \theta$. Then $dx=-r\sin \theta d\theta=-y d\theta$ and $dy=r\cos \theta \ d\theta=x \ d\theta$. Hence
+\begin{align*}
+-\frac{\partial v}{\partial y}dx+\frac{\partial v}{\partial x}dy &= \left(y\frac{\partial v}{\partial y}+x\frac{\partial v}{\partial x}\right)d\theta\\[4pt]
+&= \left(\frac{x}{r}\frac{\partial v}{\partial x}+\frac{y}{r}\dfrac{\partial v}{\partial y}\right)r \ d \theta\\[4pt]
+&= \frac{\partial v}{\partial r}\cdot r\cdot d\theta
+\end{align*}
+where $\dfrac{\partial v}{\partial r}=\dfrac{x}{r}\dfrac{\partial v}{\partial x}+\frac{y}{r}\dfrac{\partial v}{\partial y}$. In our case the outer circle is oriented positively and the inner one negatively. Hence the Green's formula becomes
+\begin{align*}
+& \int\limits_{\Omega} (u\Delta v - v\Delta u)dx \ dy\\[3pt]
+&\quad =\int\limits_{2\pi}\left(u\dfrac{\partial v}{\partial x}-u\frac{\partial u}{\partial x}\right)R \ d\theta -\left(\int\left(u\cdot \frac{\partial v}{\partial r}-v\frac{\partial u}{\partial r}\right)r \ d\theta\right)\\[3pt]
+&\quad =\int\limits_{0}\left(u(R_{1},\theta)\frac{\partial v}{\partial y}(R_{1},\theta)-v(R_{1},\theta)\dfrac{\partial u}{\partial y}(R_{1},\theta)\right)d\theta\\[3pt]
+&\qquad -\left[\int\limits^{2\pi}_{0}\left[u(R_{2},\theta)\frac{\partial v}{\partial r}(R_{2},\theta)-v(R_{2},\theta)\frac{\partial u}{\partial r}(R_{2},\theta)d\theta\right]\right].
+\end{align*}
+
+In the above formula take $u=\log \dfrac{1}{r}$, $v=\varphi\in \mathcal{D}(\mathbb{R}^{2})$ and $R$ so large that $\Supp\varphi$ is contained in the open disc of radius $R$ around the origin. Then the first integral on the right vanishes. Moreover the function $\log \dfrac{1}{r}=-\log r$ is a harmonic function in $\mathbb{R}^{2}-\{0\}$ i.e., satisfies $\Delta u=0$ in $\mathbb{R}^{2}\{0\}$. In face if $\omega=\log r$, $\omega=\log \sqrt{x^{2}+y^{2}}=\dfrac{1}{2}\log (x^{2}+y^{2})$. We have 
+$$
+\frac{\partial \omega}{\partial x}=\frac{1}{2}\frac{2x}{x^{2}+y^{2}}=\frac{x}{x^{2}+y^{2}}\quad\text{and}\quad \frac{\partial^{2}\omega}{\partial x^{2}}=\dfrac{y^{2}-x^{2}}{(x^{2}+y^{2})^{2}}.
+$$
+Similarly \ $\dfrac{\partial^{2}\omega}{\partial y^{2}}=\dfrac{x^{2}-y^{2}}{(x^{2}+y^{2})^{2}}$. Hence $\dfrac{\partial^{2}\omega}{\partial x^{2}}+\dfrac{\partial^{2}\omega}{\partial y^{2}}=0$. Thus
+\begin{gather*}
+\int\limits_{U_{R}}\log \left(\frac{1}{r}\right)(\Delta \varphi)dx \ dy=-\int\limits^{2\pi}_{0}\log \left(\frac{1}{R_{2}}\right)\frac{\partial \varphi}{\partial r}(R_{2},\theta)R_{2}d\theta\\[4pt]
++\int\limits^{2\pi}_{0}\varphi \frac{\partial \log (\frac{1}{r})}{\partial r}(R_{2})\cdot R_{2}d\theta.
+\end{gather*}\pageoriginale
+Now
+$$
+\int\limits_{\mathbb{R}^{2}}\log \left(\frac{1}{r}\right)\Delta \varphi dx \ dy =\lim\limits_{R_{2}\to 0}\int\limits_{\Omega_{r}}\log \left(\frac{1}{r}\right)\Delta (\varphi)dx \ dy.
+$$
+Since 
+$$
+\frac{\partial \varphi}{\partial r}=\frac{x}{r}\frac{\partial \varphi}{\partial x}+\frac{y}{r}\frac{\partial \varphi}{\partial x}\quad\text{and}\quad \left|\frac{x}{r}\right|\leq 1 \frac{y}{r}\leq 1
+$$
+we see that $\dfrac{\partial \varphi}{\partial r}$ is bounded say by $M$. Hence
+$$
+\left| \int \log \left(\frac{1}{R_{2}}\right)\frac{\partial \varphi}{\partial r}R_{2}d\theta\right|\leq M.\quad 2\pi |R_{2}\log R_{2}|
+$$
+tends to zero as $R_{2}\to 0$. On the other hand,
+\begin{align*}
+\int\limits^{2\pi}_{0}\frac{\partial \log \left(\frac{1}{r}\right)}{\partial r}(R_{2})\cdot R_{2}d\theta &= -\int\limits^{2\pi}_{0}\varphi(R_{2},\theta)\cdot \frac{1}{R_{2}}\cdot R_{2}d\theta\\[4pt]
+&=-\int\limits^{2\pi}_{0}\varphi (R_{2},\theta)d\theta.
+\end{align*}
+Now
+\begin{align*}
+\int\limits^{2\pi}_{0}\varphi (R_{2},\theta)d\theta &= \int\limits^{2\pi}_{0}[\varphi(R_{2},\theta)-\varphi(0)]d\theta+\int\limits^{2\pi}_{0}\varphi(0)d\theta\\[4pt]
+&= \int\limits^{2\pi}_{0}(\varphi(R_{2},\theta)-\varphi(0))d\theta-2\pi\cdot \varphi(0).
+\end{align*}
+But $\psi_{R_{2}}(\theta)=\varphi(R_{2},\theta)-\varphi(0)$ tends uniformly to zero on the unit circle as $R_{2}\to 0$. (In fact by the continuity $\varphi$, given $\epsilon>0$ there exists $\delta > 0$ such that $|\varphi(r,\theta)-\varphi(0)|<\epsilon$ \ for \ $r<\delta$). Hence
+\begin{align*}
+& \lim\limits_{R_{2}\to 0}\int\limits^{2\pi}_{0}(\varphi(R_{2},\theta)-\varphi(0))d\theta=0\quad\text{and}\\[4pt]
+& \lim\limits_{R_{2}\to 0}\int\limits^{2\pi}_{0}\varphi(R_{2},\theta)d\theta=2\pi \varphi(0).
+\end{align*}
+Thus,
+$$
+\int\limits_{\mathbb{R}^{2}}\log \left(\frac{1}{r}\right)(\Delta \varphi)dx \ dy = 2\pi\varphi(0)=-2\pi \delta(\varphi)
+$$
+i.e., $-\dfrac{1}{2\pi}\log\left(\dfrac{1}{r}\right)$ is a fundamental solution for $\Delta$.
+
+\begin{exer*}
+Prove\pageoriginale that the locally summable function $\dfrac{1}{\pi^{z}}$ is a fundamental solution for the Cauchy-Riemann operator $\dfrac{\partial}{\partial \overline{z}}=\dfrac{1}{2}\left(\dfrac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right)$ in the complex plane.
+\end{exer*}
+
+\begin{theorem}\label{chap3-thm3}
+Let $n\geq 3$. Put $N=(n-2)H$ where $H$ is the volume of the unit sphere $|x|=1$ in $\mathbb{R}^{n}$. Then the locally summable function $-\dfrac{1}{N}\cdot \dfrac{1}{r^{n-2}}$ is a fundamental solution for the Laplacian in $\mathbb{R}^{n}$.
+\end{theorem}
+
+\begin{remark*}
+We shall use in the proof the Green's formula
+$$
+\int\limits_{\Omega}(u\Delta v=v\Delta u)dx=\int\limits_{\Omega}\left(u\frac{\partial v}{\partial n}-U\frac{\partial u}{\partial n}\right)ds
+$$
+where $\dfrac{\partial}{\partial n}$ denotes the exterior unit normal and $ds$ the volume element on the boundary $\partial\Omega$. This follows from the Divergence Theorem:
+$$
+\int\limits_{\Omega}\left(\sum \frac{\partial P_{i}}{\partial x_{i}}\right)dx=\int\limits_{\partial \Omega}\overrightarrow{P}\cdot \overrightarrow{\nu} \ dx,\text{~~ where~~ } \overrightarrow{P}\text{~~ is the ``vector''~~} (P_{1},\ldots P_{n})
+$$
+and $\nu$ the exterior unit normal $(P\cdot \nu=\sum P_{1}\nu_{i})$. By applying the divergence theorem with $P_{i}=u\dfrac{\partial v}{\partial x_{i}}$ we get
+\begin{align*}
+\int\limits_{\Omega}u \Delta v \ dx+\int\limits_{\Omega}\sum \dfrac{\partial u}{\partial x_{i}}\dfrac{\partial v}{\partial x_{i}}dx &= \int\limits_{\Omega}u\left(\sum r_{i}\dfrac{\partial v}{\partial x_{i}}\right)ds\\[4pt]
+&= \int\limits_{\Omega}u\dfrac{\partial v}{\partial n}ds.
+\end{align*}
+by interchanging $u$ and $v$ and by subtracting we get the Green's formula.
+\end{remark*}
+
+\noindent
+{\bf Proof of the Theorem.}~
+Apply the Green's formula
+$$
+\int\limits_{\Omega}(u\Delta v-v\Delta u)dx=\int\limits_{\Omega}\left(u\dfrac{\partial v}{\partial n}-\nu \frac{\partial u}{\partial n}\right)ds
+$$
+with $u=\dfrac{1}{r^{n-2}}$, $v=\varphi\in \mathcal{D}(\mathbb{R}^{n})$ to the region $\Omega$ bounded by spheres of radii $R_{1}$ and $R_{2}$ $0<R_{2}<R_{1}$ where $R_{1}$ is chosen so large that the support of $\varphi$ is contained in $|x|<R_{1}$. We check easily that $\dfrac{1}{r^{n-2}}$ is a harmonic function in the complement of the origin. Noting that on the inner sphere the exterior normal is given by $\dfrac{\partial}{\partial ????}$ we get, as the last theorem,
