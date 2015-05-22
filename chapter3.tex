@@ -564,3 +564,559 @@ $$
 \int\limits_{\Omega}(u\Delta v-v\Delta u)dx=\int\limits_{\Omega}\left(u\dfrac{\partial v}{\partial n}-\nu \frac{\partial u}{\partial n}\right)ds
 $$
 with $u=\dfrac{1}{r^{n-2}}$, $v=\varphi\in \mathcal{D}(\mathbb{R}^{n})$ to the region $\Omega$ bounded by spheres of radii $R_{1}$ and $R_{2}$ $0<R_{2}<R_{1}$ where $R_{1}$ is chosen so large that the support of $\varphi$ is contained in $|x|<R_{1}$. We check easily that $\dfrac{1}{r^{n-2}}$ is a harmonic function in the complement of the origin. Noting that on the inner sphere the exterior normal is given by $\dfrac{\partial}{\partial ????}$ we get, as the last theorem,
+\begin{align*}
+\int\limits_{|x|\geq R_{2}}\frac{1}{r^{n-2}}\Delta \varphi dx &= -\int\limits_{B_{1}}\frac{1}{R^{n-2}_{2}}\frac{\partial \varphi}{\partial r}(R_{2},\omega)R^{n-1}_{2}d\omega\\[4pt]
+&\quad + \int\limits_{B_{1}}\varphi (R_{2},\omega)\frac{\partial}{\partial r}\left(\frac{1}{r^{n-2}}\right)(R_{2})R^{n-1}_{2}d\omega
+\end{align*}\pageoriginale
+where $B_{1}$ is the unit sphere, $d\omega$ the volume element on $B_{1}$. Since the volume element in $\mathbb{R}^{n}$ is $r^{n-1} dr \ d\omega$, the function $\dfrac{1}{r^{n-2}}$ is locally summable and
+$$
+\int\limits_{\mathbb{R}^{n}}\frac{1}{r^{n-2}}\Delta \varphi dx = \lim\limits_{R_{2}\to 0}\int\limits_{r\geq R_{2}}\frac{1}{r^{n-2}}\Delta \varphi dx.
+$$
+Now as in the last theorem,
+$$
+\int\limits_{B_{1}}\frac{\partial \varphi}{\partial r}(r,\omega)R_{2}d\omega \to 0\text{~~~ as~~~ } R_{2}\to 0
+$$
+while
+\begin{align*}
+\int\limits_{B_{1}}\varphi \frac{\partial}{\partial r}\left(\frac{1}{r^{n-2}}\right)(R_{2})\cdot R^{n-1}_{2}d\omega &= \int\limits_{B_{1}}\varphi\left(-(n-2)r^{-(n-2)-1}\right)r^{n-1}d\omega\\[4pt]
+&= -(n-2)\int\limits_{B_{1}}\varphi(R_{2},\omega)d\omega\\[4pt]
+&\to -(n-2)\varphi(0)x\text{~~ volume of~~ } B_{1}
+\end{align*}
+as $R_{2}\to 0$, which proves the theorem.
+
+\section*{Hypo-elliptic differential operators with constant coefficients.}
+
+\begin{defi*}
+Let $L$ be a linear differential operator with $C^{\infty}$ coefficients in an open set $\Omega \subset \mathbb{R}^{n}$. We say that $L$ is {\em hypo-elliptic} if the following holds: if $T$ is a distribution in $\Omega$ and $LT$ is $C^{\infty}$ in an open subset $\Omega'$ of $\Omega$, then $T$ is $C^{\infty}$ in $\Omega'$.
+\end{defi*}
+
+Thus $L$ is said to be hypo-elliptic if for every distribution $T$, singular support of $T$ = Singular support of $LT$. (Note that for any differential operator $L$ with $C^{\infty}$ coefficients sing $\supp LT \subset \Sing \Supp T$).
+
+\begin{remark*}
+For\pageoriginale $x\in \Omega$, consider the characteristic form 
+$$
+P_{m}(x,\xi)=\sum\limits_{|\alpha|=m}a_{\alpha}(x)\xi^{\alpha},
+$$ 
+where $\xi=(\xi_{1},\ldots,\xi_{n})\in \mathbb{R}^{n}$ and $\xi^{\alpha}=\xi^{\alpha_{1}}_{1}\ldots \xi^{\alpha_{n}}_{n}$. We say that $L$ is elliptic at $x$ if $P_{m}(x,\xi)\neq 0$ for $\xi\neq 0$ and that $L$ is elliptic in $\Omega$ if it is elliptic at all $x\in \Omega$. It is a well-known theorem that elliptic operators are hypo-elliptic and hence the above terminology. We shall prove this result at least in some special cases. There are hypo-elliptic operators which are not elliptic.
+\end{remark*}
+
+The operator $\dfrac{\partial^{2}}{\partial x\partial y}$ in $\mathbb{R}^{2}$ is not hypo-elliptic; for if $f(x)$ is a $C^{2}$ function of $x$ which is not $C^{\infty}$, then $\psi(x,y)=f(x)$ satisfies $\dfrac{\partial^{2}\psi}{\partial x\partial y}=0$. 
+
+\begin{proposition}\label{chap3-prop5}
+Suppose that for every distribution $S$ with compact support we have $\Sing \Supp S=\Sing \Supp LS$. Then $L$ is hypo-elliptic.
+\end{proposition}
+
+\begin{proof}
+Let $T$ be a distribution such that $LT$ is $C^{\infty}$ in an open set $\Omega'$. Let $x_{0}\in \Omega'$ and $\varphi\in \mathcal{D}(\Omega)$ with $\varphi\equiv 1$ in an open set $U\subset \Omega'$ and containing $x_{0}$. Put $S=\varphi T$. Then $S$ has compact support and $S|_{U}=T|_{???}$. If $L=\sum\limits_{|\alpha|\leq m}a_{\alpha}D^{\alpha}$, we have, using the Leibniz formula,
+$$
+LS=\sum\limits_{|\alpha|\leq m}a_{\alpha}\varphi D^{\alpha}T+\left\{\sum\limits_{|\alpha|\leq m}, \sum\limits_{\substack{\beta\neq 0\\ \beta\leq \alpha}}C_{\alpha,\beta}a_{\alpha}D^{\beta}\varphi D^{\varphi-\beta}T\right\}
+$$
+with some constants $C_{\alpha,\beta}$. The first term on the right is equal to $LT$ in $U$ as $\varphi=1$ on $U$. In each of the terms in the bracket $\varphi$ is differentiated atleast once; since $\varphi\equiv 1$ on $U$, the expression in the bracket vanishes in $U$. Hence $LS$ is $C^{\infty}$ in $U$. By hypothesis $S$ is $C^{\infty}$ in $U$ which implies that $T$ is $C^{\infty}$ in $U$. Thus $T$ is $C^{\infty}$ in a neighbourhood of each point of $\Omega'$ i.e., $T$ is $C^{\infty}$ in $\Omega'$. This completes the proof.
+\end{proof}
+
+\begin{coro*}
+If\pageoriginale $L$ is hypo-elliptic in an open set $\Omega$ and $\Omega'$ is an open subset of $\Omega$, then $L$ is hypo-elliptic in $\Omega'$.
+\end{coro*}
+
+\begin{proof}
+If $T$ is a distribution with compact support in $\Omega'$, $T$ can be considered as a distribution $\widehat{T}$ in $\Omega$ and $LT=L\widehat{T}$.
+\end{proof}
+
+\begin{theorem}\label{chap3-thm4}
+Let $L$ be a linear differential operator with constant coefficients in $\mathbb{R}^{n}$ having a fundamental solution which is $C^{\infty}$ outside the origin. Then $L$ is hypo-elliptic in $\mathbb{R}^{n}$ and in open subsets in $\mathbb{R}^{n}$.
+\end{theorem}
+
+For the proof we need the notion of convolution of distributions.
+
+\section*{Convolution of distributions.}
+
+Let $\mathcal{D}'(\mathbb{R}^{n})$ resp. $\epsilon'(\mathbb{R}^{n})$ denote the vector space of distributions (resp. distributions with compact supports) in $\mathbb{R}^{n}$. We shall define for $S\in \epsilon'$ and $T\in \mathcal{D}'$ a distribution $S\ast T\in \mathcal{D}'(\mathbb{R}^{n})$ satisfying the following conditions.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $S\ast T$ is bilinear in $S$ and $T$ i.e.,
+\begin{gather*}
+(\lambda S_{1}+\mu S_{2})\ast T=\lambda (S_{1}\ast T)+\mu (S_{2}\ast T),\\[3pt]
+S_{\ast}(\lambda T_{1}+\mu T_{2})=\lambda (S\ast T_{1})+\mu (S\ast T_{2})\\[3pt]
+\text{for}\quad \lambda, \mu\in \mathbb{C}, S, S_{1},S_{2}\in \epsilon', T, T_{1}, T_{2}\in \mathcal{D}'.
+\end{gather*}
+
+\item $\delta \ast T=T$ where $\delta$ is the Dirac distribution. More generally, $\delta_{h}\ast T=\tau_{h}(T)$. Here $\delta_{h}$ the Dirac distribution at the point $h\in \mathbb{R}^{n}$ defined by $\delta_{h}(\varphi)=\varphi(h)$ and $\tau_{h}(T)$ is defined by $\tau_{h}(T)(\varphi)=T(\tau_{-h}\varphi)$ where $\tau_{h}(\varphi)x)=\varphi(x-h),\varphi\in \mathcal{D}(\mathbb{R}^{n})$.
+
+\item $\dfrac{\partial \delta}{\partial x_{k}}\ast T=\dfrac{\partial T}{\partial x_{k}}$.
+
+\item The convolution of a finite number of distributions such that all but one have compact supports is associative and commutative.
+
+\item $S\ast T$ is a $C^{\infty}$ function if $S$ or $T$ is a $C^{\infty}$ function.
+
+\item $\Supp (S\ast T)\subset \Supp S+\Supp T$.
+\end{enumerate}
+
+From\pageoriginale these we get
+$$
+\frac{\partial}{\partial x_{k}}(S\ast T)=\dfrac{\partial \delta}{\partial x_{k}}\ast (S\ast T)\ast \dfrac{\partial S}{\partial x_{k}}\ast T=S\ast \dfrac{\partial T}{\partial x_{k}}.
+$$
+More generally, if $L$ is a linear differential operator with constant coefficients we have
+\begin{align*}
+& L(S\ast T)=LS\ast T=S\ast LT\\[3pt]
+& L\delta \ast T=LT.
+\end{align*}
+
+If $f$ is a continuous function with a compact support we had defined $f\ast g$ by $h(x)=(f\ast g)(x)=\int\limits_{\mathbb{R}^{n}}f(x-y)g(y)dy$.
+
+Let $\varphi\in \mathcal{D}(\mathbb{R}^{n})$. We have
+\begin{align*}
+h(\varphi) &= \int\limits_{\mathbb{R}^{n}}\varphi(x)\left(\int\limits_{\mathbb{R}^{n}}f(x-y)g(y)dy\right)dx\\[3pt]
+&= \int\limits_{\mathbb{R}^{n}\times \mathbb{R}^{n}}f(x-y)\varphi(x)g(y)dx \ dy.
+\end{align*}
+
+Make the change of variables $\xi=x-y$, $\eta=y$. We find that
+$$
+h(\varphi)=\int\limits_{\mathbb{R}^{n}\times \mathbb{R}^{n}}\varphi(\xi+\eta)f(\xi)g(\eta)d\xi \ d\eta.
+$$
+
+We may write this as:
+$$
+h(\varphi)=(f\otimes g)(\psi)
+$$
+where $f\otimes g$ is the function on $\mathbb{R}^{n}\times \mathbb{R}^{n}$ defined by $(f\otimes f)(\xi,\eta)=f(\xi)g(\eta)$ and $\psi$, by $\psi(\xi,\eta)=\varphi(\xi+\eta)$. We may view this as the value of the distribution $(f\otimes g)$ on the `test-function' $\psi$. Note, however, that in general $\psi$ does not belong to $\mathcal{D}(\mathbb{R}^{n}\times \mathbb{R}^{n})$; so $(f\otimes g)(\psi)$ does not a priori make sense. But under our hypothesis the supports of $(f\otimes g)$ and $\psi$ intersect in a compact set. In fact, let $A=\Supp g$, which is compact. Then $\Supp (f\otimes g)\subset \mathbb{R}^{n}\times A$. If $\Supp \varphi=K$, then $\Supp \psi$ consists of points $(\xi,\eta)$\pageoriginale such that $\xi+\eta\in K$. So the intersection $I$ of the supports has the property that for $(\xi,\eta)\in I$, $\xi+\eta \in K$ and $\eta\in A$ i.e., $\xi \in K-A$, $\eta\in A$. Thus $I\subset K-A\times A$ which is a compact set.
+
+\section*{Tensor product of two distributions.}
+
+Let $S$(resp. $T$) be a distribution on $\mathbb{R}^{n}$ (resp. $\mathbb{R}^{m}$). Then there exists a unique distribution $S\otimes T$ on $\mathbb{R}^{n}\times \mathbb{R}^{m}$ such that $(S\otimes T)(u\otimes v)=S(u)T(v)$, where $u\in \mathcal{D}(\mathbb{R}^{n})$ and $v\in \mathcal{D}(\mathbb{R}^{m})$. If $\varphi\in \mathcal{D}(\mathbb{R}^{n}\times \mathbb{R}^{m})$, $(S\otimes T)(\varphi)$ is calculated by ``Fubini's Theorem''.
+\begin{align*}
+(S\otimes T) (\varphi) &= S_{x}(T_{y}\varphi (x,y))\\[3pt]
+&= T_{y}(S_{x}\varphi(x,y));
+\end{align*}
+here $x\mapsto T_{y}\varphi(x,y)$ is a $C^{\infty}$ function with compact support in 
+$$
+\mathbb{R}^{n} \ S_{x}(T_{y}(\varphi(x,y)))
+$$
+is the value of the distribution on this function. Moreover $\Supp (S\otimes T)=\Supp S\times \Supp T$. For proof see, L. Schwartz, T.D. Vol. I, Chapter IV.
+
+\begin{exers*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Prove that $D^{\alpha}_{x}D^{\beta}_{y}(S_{x}\otimes T_{y})=D^{\alpha}_{x}S_{x}\otimes D^{\beta}_{y}T_{y}$.
+
+\item Show that the characteristic function of the set $\{x_{1}\geq 0, x_{2}\geq 0\}$ in $\mathbb{R}^{2}$ is a fundamental solution for the operator $\dfrac{\partial^{2}}{\partial x_{1}\partial x_{2}}$.
+
+\item Show that $H(x_{1})\otimes \ldots \otimes H(x_{n})$ is a fundamental solution of the operator $\dfrac{\partial^{n}}{\partial x_{1}\ldots \partial x_{n}}$ in $\mathbb{R}^{n}$.
+
+\item Find a fundamental solution for the operator $\dfrac{\partial}{\partial x_{i}}$ in $\mathbb{R}^{n}$.
+\end{enumerate}
+\end{exers*}
+
+\section*{Convolution of distribution}
+
+(T.D. Vol. II, Ch. VI). if $S$, $T\in \mathcal{D}'(\mathbb{R}^{n})$ we shall try to define $S\ast T$ by:
+$$
+(S\ast T)(\varphi)=(S\otimes T)(\varphi(\xi+\eta))
+$$
+where\pageoriginale $\varphi \in \mathcal{D}(\mathbb{R}^{n})$. In
+general $\varphi(\xi+\eta)$ does not belong to $\mathcal{D}$ and so
+the above definition does not make sense. This leads to the following
+question: if $T\in \mathcal{D}'(\mathbb{R}^{h})$ and $\psi$ a
+$C^{\infty}$ function in $\mathbb{R}^{h}$, when does $T(\psi)$ make
+sense? We shall show that $T(\psi)$ can be defined if $\Supp T\cap
+\Supp \psi$ is compact. Let us first consider the case $\Supp T$ is
+compact, $\Supp \psi$ being arbitrary. Let $\varphi \in \mathcal{D}$
+which is $\equiv 1$ in an open set containing $\Supp T$. Define
+$T(\psi)$ to be $T(\varphi\psi)$. The definition does not depend on
+the choice of $\varphi$. For if $\varphi_{1}$ is another such
+function,
+$T(\varphi\psi)-T(\varphi,\psi)=T((\varphi-\varphi_{1})\psi)$ and the
+support of $(\varphi-\varphi_{1})\psi$ is contained in the complement
+of $\Supp T$; hence $T((\varphi-\varphi_{1})\psi)=0$. More generally
+if $K=\Supp T\cap \Supp \psi$ is compact, take $\varphi\in
+\mathcal{D}$ with $\varphi\equiv 1$ in a neighbourhood of $K$ and
+define $T(\psi)$ to be $T(\varphi\psi)$. As before we see that
+$T(\psi)$ is independent of the choice of $\varphi$. In fact if
+$\varphi_{1}$ is another such function, we have
+\begin{align*}
+\Supp (\varphi-\varphi_{1})\psi &\subset \Supp \psi \cap K\\[3pt]
+&= \Supp \psi \cap \{\supp T \cup \Supp \psi\}\\[3pt]
+&= \Supp \psi \cap \Supp T\\[3pt]
+&\subset \Supp T.
+\end{align*}
+Note that $T(\psi)=0$, if $\Supp T\cap \Supp \psi=\emptyset$, the
+empty set.
+
+\begin{remark*}
+Let $\epsilon$ denote the space of $C^{\infty}$ functions. Let us
+denote by $\epsilon'$ the vector space of linear maps $R:\epsilon\to
+\mathbb{C}$ such that the following condition is satisfies: if
+$\{\psi_{n}\}\in \epsilon$ is a sequence such that
+$D^{\alpha}\psi_{n}$ tends uniformly to zero on every compact set for
+every multi-index $\alpha$, then $R(\psi_{n})\to 0$. If $T$ is a
+distribution with compact support and $\psi\in \epsilon$, define\pageoriginale
+$T(\psi)$ as above. Clearly, $T\in \epsilon'$. Conversely if $R\in
+\epsilon'$, it is not hard to see that $R$ is determined by its
+restriction to $\mathcal{D}\subset \xi$ and that $R|_{\mathcal{D}}$
+defines a distribution with compact support (T.D. Vol. I, Chap. III,
+\S\ 7). Hence we use the notion $\xi'$ for the space of distributions
+with compact supports.
+\end{remark*}
+
+We now proceed to defined the convolution of two distributions, one of
+which has compact support. Let $S\in \epsilon'(\mathbb{R}^{n})$, $T\in
+\mathcal{D}'(\mathbb{R}^{n})$ and $\varphi\in
+\mathcal{D}(\mathbb{R}^{n})$. Using the fact that $\Supp (S\otimes
+T)=\Supp S\times \Supp T$, we see (as in the case of $f\otimes g$ and
+$\psi$ earlier) that $\Supp (S\otimes T)\cap \Supp \psi$ is compact
+where $\psi(\xi,\eta)=\varphi(\xi+\eta)$. We define
+$$
+(S\ast T)(\varphi)=(S\otimes T)(\varphi(\xi+\eta)).
+$$
+
+\begin{theorem}\label{chap3-thm5}
+Let $S$ and $T$ be distributions in $\mathbb{R}^{n}$, such that one of
+them at least, say $S$, has compact support. Then there exists a
+well-determined distribution, denoted by $S\ast T$ or $T\ast S$ such
+that for $\varphi\in (\mathbb{R}^{n})$,
+$$
+(S\ast T)(\varphi)=S_{\xi}\otimes T_{\eta}(\varphi(\xi+\eta)).
+$$
+Moreover,
+\begin{align*}
+(S\ast T)(\varphi) &= S_{\xi}(T_{\eta}(\varphi(\xi+\eta)))\\[3pt]
+&= T_{\eta}(S_{\xi}(\varphi(\xi+\eta))).
+\end{align*}
+\end{theorem}
+
+If $S$ has compact support, $S_{\xi}\varphi(\xi+\eta)$ is a
+$C^{\infty}$ function in $\eta$ with compact support and
+$T_{\eta}(S_{\xi}(\varphi(\xi+\eta)))$ is well-defined. On the other
+hand $T_{\eta}(\varphi(\xi+\eta))$ is a $C^{\infty}$ function in $\xi$
+and since $S$ has compact support
+$S_{\xi}(T_{\eta}(\varphi(\xi+\eta)))$ is well-defined. $(S\ast T)$ is
+called the convolution of $S$ and $T$.
+
+\section*{Properties of convolution}\pageoriginale
+
+The convolution product satisfies the properties listed earlier. Let
+us verify some of them,
+\begin{itemize}
+\item[(a)] $\delta\ast T=T$.
+
+\begin{tabbing}
+$(\delta\ast T)(\varphi)$ \==
+  $T_{\eta}(\delta_{\xi}\varphi(\xi+\eta))$\\[5pt]
+\>= $T_{\eta}(\varphi(\eta))$\\[5pt]
+\>= $T(\varphi)$.
+\end{tabbing}
+
+\item[(b)]
+\begin{tabbing}
+$(\delta_{h}\ast T)(\varphi)$ \==
+  $T_{\eta}((\delta_{h})_{\xi}\varphi(\xi+\eta))$\\[5pt]
+\>= $T_{\eta}(\varphi(\eta+h))$\\[5pt]
+\>= $T(\tau_{-h}(\varphi))$\\[5pt]
+\>= $(\tau_{h}T)(\varphi)$.
+\end{tabbing}
+
+\item[(c)] 
+\begin{tabbing}
+$\left(\dfrac{\partial\delta}{x_{k}}\ast T\right)(\varphi)$
+  \== $T_{\eta}\left(\left(\dfrac{\partial \delta}{\partial
+    x_{k}}\right)_{\xi}\varphi(\xi+\eta)\right)$\\[5pt]
+\>= $T_{\eta}\left(-\left(\dfrac{\partial}{\partial
+  \xi_{k}}\varphi(\xi+\eta)(0)\right)\right)$\\[5pt]
+\>= $T_{\eta}\left(-\dfrac{\partial \varphi}{\partial
+  \eta_{k}}\right)$\\[5pt]
+\>= $\dfrac{\partial T}{\partial x_{k}}(\varphi)$.
+\end{tabbing}
+\end{itemize}
+Hence\quad $\dfrac{\partial \delta}{\partial x_{n}}\ast
+T=\dfrac{\partial T}{\partial x_{k}}$.
+
+\begin{prop*}
+$\Supp (S\ast T)\subset \Supp S+\Supp T$.
+\end{prop*}
+
+\begin{proof}
+Let $U$ be the open complement of the closed set $\Supp S+\Supp T$. If
+$\varphi\in \mathcal{D}(\mathbb{R}^{n})$ with $\Supp \varphi\subset
+\Omega$ we have to show that $(S\ast T)(\varphi)=0$. The support of
+$\varphi(\xi+\eta)$ is contained in the open set in
+$\mathbb{R}^{n}\times \mathbb{R}^{n}$ defined by $\xi+\eta\in U$. On
+the other hand the $\Supp (S\otimes T)=\Supp S\times \Supp T$ so that
+for $(\xi,\eta)\in \Supp (S\times T)$ we have $\xi+\eta\in \Supp
+S+\Supp T$. Thus $\Supp (S\otimes T)\cap \Supp
+\varphi(\xi+\eta)=\emptyset$. Hence $(S\ast T)(\varphi)=S\otimes
+T(\varphi(\xi+\eta))=0$. 
+\end{proof}
+
+\begin{coro*}
+If\pageoriginale $S$ and $T$ have compact supports so does $S\ast T$.
+\end{coro*}
+
+\begin{proposition}\label{chap3-prop6}
+The value of $S\ast T$ in an open set $\Omega$ depends only on the
+value of $T$ in the open set $\Omega-\Supp S$.
+\end{proposition}
+
+\begin{proof}
+The intersection of the supports of $S\otimes T$ and
+$\varphi(\xi+\eta)$ is contained in the open set $\mathbb{R}^{n}\times
+(\Omega-\Supp S)$. Hence $(S\otimes T)(\varphi(\xi+\eta))$ is known if
+one knows $S$ everywhere and $T$ in $\Omega-\Supp S$.
+\end{proof}
+
+\begin{remark*}
+If $\Supp S$ is small and near $0$, then $\Supp(S\ast T)$ is contained
+in a small neighbourhood of $\Supp T$ and the value of $S\ast T$ in an
+open set $\Omega$ depends only on that of $T$ in a small neighbourhood
+of $\overline{\Omega}$.
+\end{remark*}
+
+\section*{Regularisation of a distribution.}
+
+Let $T$ be a distribution and $\alpha$ a $C^{\infty}$ function with
+compact support. Then the function $\theta(x)=T_{y}\alpha(x-y)$ is a
+$C^{\infty}$ function with $\dfrac{\partial \theta}{\partial
+  x_{k}}=T_{y}\left(\dfrac{\partial}{\partial x_{k}}\alpha
+(x-y)\right)$ (See T.DI, Ch. IV, Theorem II). We shall show that
+$\theta=T\ast\alpha$. In fact,
+\begin{align*}
+(T\ast \alpha) (\varphi) &=
+  T_{\xi}(\alpha_{\eta}(\varphi(\xi+\eta)))\\[3pt]
+&= T_{\xi}\int \alpha(\eta)\varphi(\xi+\eta)d\eta\\[3pt]
+&= T_{\xi}\int \alpha(x-\xi)\varphi(x)dx\\[3pt]
+&= (T_{\xi}\otimes \varphi(x))(\alpha(x-\xi))\\[3pt]
+&= \varphi_{x}\{T_{\xi}\alpha(x-\xi)\}\\[3pt]
+&= \varphi_{x}(\theta_{x})\\[3pt]
+&= \theta(\varphi).
+\end{align*}
+
+\begin{theorem}
+Let $T$ be a distribution and $\alpha$ a $C^{\infty}$ function such
+that the support of one of them at least is compact. Then $T\ast
+\alpha$ is a $C^{\infty}$ function (called the regularisation of $T$
+by $\alpha$) and $T\ast \alpha$ is given by
+$(T\ast\alpha)(x)=T_{y}\alpha(x-y)$. Moreover
+$$
+\frac{\partial T}{\partial x_{k}}(T\ast \alpha)=T\ast \frac{\partial
+  \alpha}{\partial x_{k}}.
+$$\pageoriginale
+\end{theorem}
+
+Suppose that $L$ is a linear differential operator with constant
+coefficients and $E$ is a fundamental solution for $L$ (one knows that
+any such $L\neq 0$ has a fundamental solution). If $S$ is a
+distribution with compact support the equation $LT=S$ can be
+solved. In fact let $T=S\ast E$. Then $L(T)=S\ast L(E)=S\ast
+\delta=S$. Moreover the representation $T=S\ast E$ enables one to read
+off regularity properties of $T$ from those of $S$ and $E$. We shall
+use the latter remark to prove Theorem \ref{chap3-thm4}.
+
+\begin{exer*}
+Let $T$ be a distribution in an open set $\Omega$ in $\mathbb{R}^{n}$
+such that $D^{\alpha}T$ is in $L^{1}$ on every compact subset of
+$\Omega$ for $|\alpha|\leq n$. Show that $T$ is a continuous
+function. (This is a special case of famous Sobolev's Lemma).
+\end{exer*}
+
+\noindent
+{\bf Hint:}~ Show first that it is enough to prove in the case where
+$T$ has compact support. Thus use convolution by the fundamental
+solution 
+$$
+H(X_{1})\otimes\ldots\otimes H(X_{n})\quad\text{of}\quad
+\partial^{n}/\partial x_{1}\ldots \partial x_{n}.
+$$
+
+\begin{proposition}\label{chap3-prop7}
+Let $S$ be a distribution with compact support and $T$ a distribution
+whose singular support is compact. Then we have
+$$
+\Sing \Supp (S\ast T)\subset \Sing \Supp S+\Sing \Supp T.
+$$
+\end{proposition}
+
+\begin{proof}
+The idea of the proof is to decompose $T$ (resp. $S$) into a sum of
+distribution whose support is contained in an arbitrarily small
+neighbourhood of the singular support of $T$ (resp. of $S$) and a
+$C^{\infty}$ function (resp. with compact support).
+
+Let $A_{1}=\Sing \Supp T$ and $A_{2}=\Sing \Supp S$. Let
+$K=A_{1}+A_{2}$ and let $x_{0}\in V=CK$. Let $U$ be a relatively
+compact neighbourhood of $x_{0}$ with\pageoriginale $\overline{U}\subset V$. Choose
+$\epsilon>0$ such that $K+B_{\epsilon}\subset \overline{U}$, where
+$B_{\epsilon}$ is the closed ball of radius $\epsilon$ around the
+origin. Consider the open sets
+$V_{1}=A_{1}+\displaystyle{\mathop{B}^{0}}_{\epsilon/2}$ and
+$V_{2}=A_{2}+\displaystyle{\mathop{B}^{0}}_{\epsilon/2}$ containing
+$A_{1}$ and $A_{2}$ respectively. Let $\varphi_{1}$
+(resp. $\varphi_{2}$) be an element of $\mathcal{D}(\mathbb{R}^{n})$
+with $\varphi_{1}\equiv 1$ (resp. $\varphi_{2}\equiv 1$) in a
+neighbourhood of $A_{1}$ (resp. $A_{2}$) and $\Supp \varphi_{1}\subset
+V_{1}$ (resp. $\Supp \varphi_{2}\subset V_{2}$). We then have
+$$
+T=\varphi_{1}T+(1-\varphi_{1})T=T_{1}+T_{2}
+$$
+say, and
+$$
+S=\varphi_{2}S+(1-\varphi_{2})S=S_{1}+S_{2}.
+$$
+We have $\Supp T_{1}\subset V_{1}$ and $T_{2}$ is
+$C^{\infty}$. Similarly, $S_{1}$ and $S_{2}$ have compact supports,
+$\Supp S_{1}\subset V_{2}$ and $S_{2}$ is $C^{\infty}$. On the other
+hand,
+\begin{align*}
+(S\ast T) &=(S_{1}+S_{2})\ast (T_{1}+T_{2})\\[3pt]
+&= S_{1}\ast T_{1}+S_{1}\ast T_{2}+S_{2}\ast T_{1}+S_{2}\ast T_{2}.
+\end{align*}
+Since $S_{2}$ and $T_{2}$ are $C^{\infty}$, $S_{1}\ast T_{2}$,
+$S_{2}\ast T_{1}$ and $S_{2}\ast T_{2}$ are $C^{\infty}$ in
+$\mathbb{R}^{n}$. Moreover
+\begin{align*}
+\Supp (S_{1}\ast T_{1}) &\subseteq \Supp S_{1}+\Supp T_{1}\\[4pt]
+&\subseteq
+A_{1}+\displaystyle{\mathop{B}^{0}}_{\epsilon/2}+A_{2}+\displaystyle{\mathop{B}^{0}}_{\epsilon/2}\\[4pt]
+&\subseteq A_{1}+B_{\epsilon/2}+A_{2}+B_{\epsilon/2}\\[4pt]
+&\subseteq A_{1}+A_{2}+(B_{\epsilon/2}+B_{\epsilon/2})\\[4pt]
+&\subseteq A_{1}+A_{2}+B_{\epsilon}\\[4pt]
+&\subseteq \overline{U}.
+\end{align*}
+Hence $S_{1}\ast T_{1}$ vanishes in $U$. It follows that $S\ast T$ is
+$C^{\infty}$ in $U$.
+\end{proof}
+
+\begin{coro*}
+If $E$ is a distribution whose singular support is contained in
+$\{0\}$ and $S$ a distribution with compact support, then $E\ast S$ is
+$C^{\infty}$ in\pageoriginale any open set where $S$ is $C^{\infty}$.
+\end{coro*}
+
+\begin{proof}
+Bu Proposition \ref{chap3-prop7} we have
+$$
+\Sing \Supp (E\ast S)\subset \{0\}+\Sing \Supp S=\Sing \Supp S.
+$$
+\end{proof}
+
+\noindent
+{\bf Proof of Theorem \ref{chap3-thm4}} (on hypo-ellipticity)
+
+By Corollary to Proposition \ref{chap3-prop7}, it enough to prove that
+$L$ is hypo-elliptic in $\mathbb{R}^{n}$. Using Proposition
+\ref{chap3-prop5}, it is enough to prove that if $S$ is a distribution
+with compact support then $S$ is $C^{\infty}$ in any open set where
+$LS$ is $C^{\infty}$. Let $E$ be a fundamental solution for $L$ which
+is $C^{\infty}$ outside the origin. Then $E\ast LS=LE\ast S=\delta\ast
+S=S$. Now the theorem follows from Corollary to Proposition.
+
+\section*{Analytic hypo-elliptic operators}
+
+\begin{defi*}
+Let $L=\sum\limits_{|\alpha|\leq m}a_{\alpha}D^{\alpha}$ be a
+differential operator where $a_{\alpha}$ are analytic functions in an
+open set $\Omega$ of $\mathbb{R}^{n}$. We say that $L$ is analytic
+hypo-elliptic if the following condition is satisfied: if $T$ is
+distribution in $\Omega$ and $LT$ is an analytic function in an open
+subset $\Omega'$ of $\Omega$ then $T$ is an analytic function in $\Omega'$.
+\end{defi*}
+
+\begin{theorem}\label{chap3-thm7}
+Let $L$ be linear differential operator with constant coefficients in
+$\mathbb{R}^{n}$. If $L$ has a fundamental solution which is analytic
+in the complement of the origin, then $L$ is analytic-hypo-elliptic in
+any open subset $\Omega$ of $\mathbb{R}^{n}$.
+\end{theorem}
+
+For the proof we need
+
+\begin{proposition}\label{chap3-prop8}
+Let $E$ be a distribution which is analytic outside a compact set $A$
+and $v$ a $C^{\infty}$ function with compact support. Then $E\ast v$
+is analytic outside $A+\Supp v$, is\pageoriginale analytic in the
+complement of the support of $v$.
+\end{proposition}
+
+\noindent
+{\bf Proof of Proposition \ref{chap3-prop8}.} 
+Let $x_{0}\in V=\mathcal{C}K$ where $K=A+\Supp v$. Let $U$ be a relatively
+compact neighbourhood of $x_{0}$ with $\overline{U}\subset V$. Choose
+$\epsilon>0$ such that $K+B_{\epsilon}\subset \mathcal{C}\overline{U}$, where
+$B_{\epsilon}$ is the closed ball of radius $\epsilon$ around the
+origin. Let $\varphi\in \mathcal{D}(\mathbb{R}^{n})$ with
+$\varphi\equiv 1$ in a neighbourhood $A$ and with $\Supp
+\varphi\subset A+\displaystyle{\mathop{B}^{0}}_{\epsilon}$. Then
+$E=E_{1}+E_{2}$ where $E_{1}=\varphi E$ and
+$E_{2}+(1-\varphi)E$. Since $\Supp E_{1}\subset A+B_{\epsilon}$, we
+have $\Supp (E_{1}\ast v)\subset A+B_{\epsilon}+\Sup v\subset
+K+B_{\epsilon}$. Hence $E_{1}\ast v=0$ in $U$. So it is sufficient to
+prove that $E_{2}\ast v$ is analytic in $U$.
+
+We claim that
+$$
+D^{\alpha}(E_{2}\ast v)=(1-\varphi)D^{\alpha}E\ast
+v\quad\text{in}\quad U.
+$$ 
+In fact,
+\begin{align*}
+D^{\alpha}(E_{2}\ast v) &= D^{\alpha}((1-\varphi)E)\ast v\\[3pt]
+&= \left\{(1-\varphi)D^{\alpha}E+\sum\limits_{\substack{\beta\neq
+    0\\ \beta\leq \alpha}}
+D^{\beta}(1-\varphi)D^{\varphi-\beta}E\right\}\ast v\\[4pt]
+&= (1-\varphi)D^{\alpha}E\ast v+S\ast v
+\end{align*}
+where $S$ is a distribution whose support is contained in
+$A+B_{\epsilon}$; this is because $(1-\varphi)=1$ in
+$\mathcal{C}(A+B_{\epsilon})$ and $D^{\beta}(1-\varphi)=0$ for $\beta\neq
+0$. Hence, $\Supp (S\ast v)\subset A+\beta_{\epsilon}+\Supp v\subset
+\overline{U}$, so that $S\ast v=0$ in $U$. This shows that
+$$
+D^{\alpha}(E_{2}\ast v)=(1-\varphi)D^{\alpha}E\ast
+v\quad\text{in}\quad U.
+$$
+
+So it is enough to estimate $(1-\varphi)D^{\alpha}E\ast v$ in
+$U$. Note that $(1-\varphi)D^{\alpha}E$ is a $C^{\infty}$ function so
+that $\eta_{\alpha}=(1-\varphi)D^{\alpha}E\ast v$ is a
+$C^{\infty}$\pageoriginale function. For $x\in U$, we have
+$$
+\eta_{\alpha}(x)=\int ((1-\varphi)D^{\alpha}E)(y)v(x-y)dy
+$$
+where the integration is performed over $K_{1}=(\overline{U}-\Supp
+U)\cap \Supp \{(1-\varphi)D^{\alpha}T\}$. Now $K_{1}$ is a compact set
+in $\mathcal{C}A$ and as $T$ is analytic in $\mathcal{C}A$, we have
+$$
+|D^{\alpha}T(y)|\leq MC^{|\alpha|}\alpha!,\quad\text{for}\quad y\in K,
+$$
+with positive constants $M$ and $C$. Hence for $x\in U$,
+\begin{align*}
+|\eta_{\alpha}(x)| &\leq
+\int\limits_{K_{1}}|1-\varphi(y)||D^{\alpha}T(y)||v(x-y)|dy\\[3pt]
+&\leq (1+\Sup |\varphi|)\cdot MC^{|\alpha|}\alpha!\int
+|v(x-y)|dy\\[3pt]
+&\leq (1+\Sup |\varphi|)MC^{|\alpha|}\alpha!\int v(y)dy\\[3pt]
+&\leq M_{1}\cdot C^{|\alpha|}\cdot a!
+\end{align*}
+Hence\quad $\displaystyle{\mathop{\Sup}_{x\in U}}\;|D^{\alpha}(E_{2}\ast
+  v)|\leq M_{1}C^{|\alpha|}\alpha!$, so that $E_{2}\ast v$ is analytic
+  in $U$. This completes the proof of Proposition \ref{chap3-prop8}.
+
+\noindent
+{\bf Proof of Theorem \ref{chap3-thm7}.}~
+Let $U$ be an open set where $LT$ is analytic. Let $x_{0}\in U$. We
+can find, by the Cauchy-kowalewski theorem, an analytic function $u$
+in a neighbourhood $V$ of $x_{0}$, $V\subset U$, such that
+$Lu=LT$. (Here we use the fact that given a non-zero polynomial in
+$(x_{1},\ldots,x_{n})$, we can assume, by a linear change of
+variables, that it is of the form
+$a\xi^{m}_{n}+\sum\limits_{\substack{|\alpha|\leq
+    m\\ \alpha_{n}<m}}b_{\alpha}\xi^{\alpha}$ \ with \ $a\neq 0$). Let
+$S=T-u$ in $V$ and $\varphi\in \mathcal{D}(\mathbb{R}^{n})$ be a
+cut-off function with $\varphi=1$ in a neighbourhood $W$ of $x_{0}$
+and $\Supp \varphi \subset V$. Then $L(\varphi S)=LS=0$ in $W$ (see
+the proof of Proposition \ref{chap3-prop8}) and $\varphi S$ is a
+$C^{\infty}$ function in $\mathbb{R}^{n}$ with compact support. If $E$
+is a fundamental solution for $L$ which is analytic
+outside\pageoriginale the origin, we have $\varphi S=E\ast L(\varphi
+S)$. Now $L(\varphi S)=0$ in $W$ and hence, by Corollary to
+Proposition \ref{chap3-prop8}, we see that $\varphi S$ is analytic in
+$W$. But $T-u=S=\varphi S$ in $W$ and hence $T-u$ is analytic in $W$;
+since $u$ is analytic in $W$, $T$ is also analytic in $W$. This proves
+Theorem \ref{chap3-thm7}.
