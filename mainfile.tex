@@ -10,13 +10,25 @@
 \floatstyle{plain}
 \floatplacement{Figure}{H}
 \input macros
-\textwidth=11cm
-\textheight=17cm
 \allowdisplaybreaks
+
+
+\usepackage[papersize={140mm,215mm},textwidth=110mm,
+textheight=170mm,headheight=6mm,headsep=4mm,topmargin=17.5mm,botmargin=1.15cm,
+leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
+
 
 
 
 \makeatletter
+\def\@fnsymbol#1{\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or
+  \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger
+  \or \ddagger\ddagger\or \mathsection\mathsection 
+  \or \mathparagraph\mathparagraph \or \|\|\or *{*}*
+  \or \dagger\dagger\dagger \or \ddagger\ddagger\ddagger\or
+  \mathsection\mathsection\mathsection\or \mathparagraph\mathparagraph
+  \mathparagraph \or \|\|\|\else\@ctrerr\fi}}
+   \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \renewenvironment{thebibliography}[1]
      {\section*{\bibname}%
@@ -59,7 +71,7 @@
 \begin{document}
 
 \frontmatter
-%\input preface
+\input titlepage
 
 \tableofcontents
 
@@ -70,6 +82,7 @@
 \input chapter2
 \input chapter3
 \input chapter4
+\input appendix
 
 
 \end{document}
