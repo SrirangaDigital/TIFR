@@ -1,0 +1,209 @@
+\chapter{Lecture 6} % lecture 6
+
+ \begin{defi*}
+A homomorphism\pageoriginale $\phi:(A,R,S) \to (B,P,Q)$ consists of
+homomorphisms 
+$(A,R) \to  (B,P)$ and $(A,S) \to  (B,Q)$ (in the sense already
+defined), where  the homomorphism $A \to B$ is the same in both
+cases. 
+ \end{defi*} 
+ 
+ A homomorphism $\phi : (A,R,S) \to (B,P,Q)$ induces a map $\phi:R
+ \times S \to P \times Q$. We now consider the following diagram: 
+\[
+\xymatrix{
+(A,R \times S)\ar[r]^{\phi} \ar[d]_{\alpha}  \ar@{-}[dr]^{\beta\phi} &
+  (B,P \times Q) \ar[r]^{\theta} \ar[d]_{\beta}& (C,T\times U)\ar[d]_{\gamma}\\
+(A,R\otimes_AS) \ar[r]_{\bar{\phi}} & (B,P\otimes_BQ)
+  \ar[r]_{\bar{\theta}} & (C, T \otimes_C U)
+}
+\]
+
+ Here $\phi$, $\theta$ are the  induced maps and $\alpha$, $\beta$, $\gamma$
+ the bihomomorphisms included in the  definition of tensor
+ products. Further, the homomorphism $\phi$ induces a unique
+ homomorphism $\bar{\phi}$ as indicated, such that $\bar{\phi} \alpha
+ = \beta \phi$, and  similarly $\bar{\phi}\beta = \gamma \theta$. From
+ the uniqueness, we have $\overline{\theta \phi}= \delta bar{\phi}$. If
+ $\phi$ is the identity then $\bar{\phi}$ also is the identity.     
+ 
+ \textit{The operator of taking the tensor product commutes with the 
+   operation of taking the direct limit}. 
+
+ \begin{proof}
+Let $\{ A_\lambda , R_\lambda, S_\lambda, \phi_{\mu
+  \lambda}\}_{\lambda,\mu \in \Omega}$ be a direct system, where each
+$A_\lambda$ is a commutative ring with unit element, $R_\lambda$  and
+$S_\lambda$ are unitary $A_\lambda$-modules and $\phi_{\mu \lambda}:
+(A_\lambda, R_\lambda, S_\lambda) \to (A_\mu, R_\mu, S_\mu)$ are
+homomorphisms. Then, since $\bar{\phi}_{\lambda \lambda}$ is the
+identity and $\bar{\phi}_{\nu \lambda}= \overline{\phi_{\nu
+    \mu}\phi_{\mu \lambda}}= \bar{\phi}_{\nu \lambda} \cdot \bar{\phi}_{\nu
+  \lambda}(\lambda < \mu < \nu)$, the system $\{ A_\lambda, R_\lambda
+\otimes_{A_\lambda} S_\lambda, \bar{\phi}_{\mu \lambda}\}$ is a direct
+system. Let its direct limit be denoted  by $(A,Q)$. 
+ \end{proof} 
+\[
+\xymatrix{
+(A_{\lambda}, R_{\lambda}, S_{\lambda}) \ar[r]^{\phi_{\mu\lambda}}
+  \ar[dd]_{\alpha_{\lambda}} & (A_{\mu} , R_{\mu}, S_{\mu})
+  \ar[r]^{\phi_\mu} \ar[dd]_{\alpha_{\mu}}& (A,R,S) \ar[dd]_{\beta}
+  \ar[dr]^f & \\ 
+& & & (B,T)\\
+(A_{\lambda}, R_{\lambda} \otimes_{A_{\lambda}} S_{\lambda})
+  \ar[r]_{\bar{\phi}_{\mu\lambda}} & (A_{\mu} , R_{\mu}
+  \otimes_{A_{\mu}} S_{\mu}) \ar[r]_{\bar{\phi}_{\mu}} & (A,Q)
+  \ar[ur]_{\bar{f}}  &
+}
+\]\pageoriginale
+
+We define a bihomomorphism $\beta : (A, R, S) \to (A, Q)$ as
+$$
+\beta (r, s) = \bar{\phi}_\lambda \alpha_\lambda (r_\lambda ,
+s_\lambda), 
+$$
+where $r_\lambda$ and $s_\lambda$ are representatives of $r \in R$,
+$s \in S$, for the same $\lambda$. Since 
+$$ 
+\bar{\phi}_\mu \alpha_\mu (\phi_{\mu \lambda} r_\lambda,\phi_{\mu
+  \lambda} s_\lambda)=\bar{\phi}_\mu \bar{\phi}_{\mu \lambda}
+\alpha_\lambda (r_\lambda, s_\lambda)= \bar{\phi}_\lambda
+\alpha_\lambda (r_\lambda,s_\lambda), 
+$$
+$\beta : (R, S) \to Q$ is independent of the choice of
+representatives. For a suitable choice of representatives, 
+\begin{align*}
+\beta (r, bs + cs') & = \bar{\phi}_\lambda \alpha_\lambda (r_\lambda ,
+b_\lambda s_\lambda + c_\lambda s'_\lambda )\\ 
+ & = \bar{\phi}_\lambda ((b_\lambda \cdot \alpha_\lambda (r_\lambda,
+s_\lambda ) + c_\lambda \cdot \alpha_\lambda (r_\lambda , s'_\lambda ))\\ 
+ & = \bar{\phi}_\lambda (b_\lambda ) \cdot \bar{\phi}_\lambda
+\alpha_\lambda (r_\lambda , s_\lambda ) + \phi_\lambda (c_\lambda )
+\bar{\phi}_\lambda \alpha_\lambda (r_\lambda , s'_\lambda )\\ 
+ & = b \cdot  \beta (r, s) + c \cdot \beta (r, s')
+\end{align*}
+and similarly
+$$
+\beta (br + cr' , s) = b \cdot  \beta (r, s) + c \cdot  \beta (r', s) 
+$$
+
+Thus $\beta : (R, S) \to Q$ is verified to be a
+bihomomorphism. Clearly im $\beta$ generates $Q$, for, each $q \in Q$
+has a representative $q_\lambda$ in some $R_\lambda
+\otimes_{A_\lambda} S_\lambda$ and, since im $\alpha_\lambda$
+generates $R_\lambda \otimes_{A_\lambda} S_\lambda$, $q_\lambda =
+\sum^k_{i=1}a_i$. $\alpha_\lambda (r_i, s_i)$, $a_i \in
+A_\lambda$, $r_i \in R_\lambda$, $s_i \in S_\lambda$. Then 
+$$
+q = \sum^k_{i = 1}\phi_\lambda (a_i) \bar{\phi}_\lambda \alpha_\lambda
+(r_i, s_i) = \sum^k_{i = 1} \phi_\lambda (a_i) \beta (\phi_\lambda r_i,
+\phi_\lambda s_i) 
+$$
+which\pageoriginale proves that im $\beta$ generates $Q$.
+
+We now show that $Q$ together with the bihomomorphism $\beta: (R, S)\break
+\to Q$ is the tensor product $R \otimes_A S$. To do this, let $f : (A,
+R, S) \to (B, T)$ be any bihomomorphism, then for each $\lambda$, $f
+\phi_\lambda : (A_\lambda , R_\lambda , S_\lambda) \to (B, T)$ is also
+a bihomomorphism, hence it induces a unique homomorphism
+$\bar{f}_\lambda : (A_\lambda, R_\lambda \otimes_{A_\lambda} S_\lambda
+) \to (B,T)$ where for each $\lambda < \mu$, $\bar{f}_\mu
+\bar{\phi}_{\mu \lambda} \cdot \alpha_\lambda = \bar{f}_\mu \alpha _\mu
+\phi_{\mu \lambda} = f \phi_\mu \phi_{\mu \lambda} = f \phi_\lambda =
+\bar{f}_\lambda \alpha_\lambda$. Hence, since im $\alpha_\lambda$
+generates $R_\lambda \otimes_{A_\lambda} S_\lambda$, $\bar{f}_\mu
+\bar{\phi}_{\mu \lambda} = \bar{f}_\lambda$. Therefore there is a
+unique homomorphism $\bar{f} : (A, Q) \to (B, T)$ with $\bar{f}
+\bar{\phi}_\lambda = \bar{f}_\lambda$. Then 
+$$
+\bar{f} \beta (r, s) = \bar{f}\bar{\phi}_\lambda \alpha_\lambda
+(r_\lambda , s_\lambda) =\bar{f}_\lambda \alpha_\lambda (r_\lambda,
+s_\lambda) = f \phi_\lambda (r_\lambda, s_\lambda) = f(r, s); 
+$$
+and the proof of the statement is complete.
+
+
+\medskip
+\noindent{\textbf{Presheaves.}}
+
+Let $\Omega$ be the set of all open sets of $X$, with the order
+relation $\supset$, i.e. $U \supset V$ is equivalent to saying that
+$U < V$. then $U \supset U$ and if $U \supset V$ and  $V \supset W$
+then $U \supset W$ and given $U, V$ there exists $W = U \cap V$ with
+$U \supset W$, $V \supset W$; hence $\Omega$ is a directed set. 
+
+\begin{defi*}
+A presheaf of modules over a base space $X$ is a direct system
+$\{A_U, S_U, \phi_{VU} \}$ indexed by $\Omega$, such that $(A_\phi, S_\phi) =
+(0, 0)$, where $\phi$ is the empty set. 
+\end{defi*}
+
+For a presheaf over $X$, the index set $\Omega$ is always the family
+of all open sets of $X$. 
+
+The\pageoriginale definition of a presheaf includes, as a special case, the
+definition of a presheaf of $B$-modules, presheaf of rings with unit
+element and a presheaf of abelian groups. 
+
+\setcounter{exam}{9}
+\begin{exam}\label{chap6:exam10}%exam 10
+Let $X$ be the complex sphere, $A_U$ the ring of all functions
+analytic in $U$ if $U$ is a non-empty open set and $A_\phi = O$; and,
+if $f \in A_U$ and $U \supset V$, let $\phi_{VU} f = f  | V$,
+i.e. $\phi_{VU}$ is the restriction homomorphism. Then $\{A_U,
+\phi_{VU}\}$ is a presheaf of rings with unit element. 
+\end{exam}
+
+
+\noindent
+\medskip
+{\bf Presheaf of sections.} Let $\mathfrak{a}$ be a sheaf of rings \textit{with
+  unit} and $\mathscr{S}$ a sheaf of $\mathfrak{a}$-modules. For each
+open $U$, the ring $\Gamma (U, \mathscr{S})$ is a unitary $\Gamma (U,
+\mathfrak{a})$-module. If $V \subset U$, let 
+$$
+\phi_{VU}: (\Gamma (U, \mathfrak{a}), \Gamma (U, \mathscr{S})) \to
+(\Gamma (V, \mathfrak{a}), \Gamma (V, \mathscr{S})) 
+$$
+denote the restriction homomorphism. By convention $\Gamma(\phi,
+a)=o$,  $\Gamma\break (\phi, \mathscr{S})= o$ where $\phi$ denotes the empty
+set. Thus $\{\Gamma (U, \mathfrak{a}), \Gamma (U, \mathscr{S}),
+\phi_{VU}\}$ is a presheaf denoted by $(\bar{\mathfrak{a}}, \bar{\mathscr{S}})$,
+and is called the presheaf of sections of $(\mathfrak{a},\mathscr{S})$.  
+
+For each $x \in X$ let $\Omega_x$ denote the family of all
+open subsets of $X$ containing $x$. Then $\Omega_x$ is a subdirected
+set of $\Omega$. If $\{A_U, S_U, \phi_{VU}\}$ is a presheaf, let
+$(A_x, S_x)$ denote the direct limit of the subsystem \break $\{A_U, S_U,
+\phi_{VU}\}$ indexed by $\Omega_x$, and let $\phi_{xU} : (A_U, S_U)
+\to (A_x, S_x)$ be the homomorphism which sends each element into its
+equivalence class. If $a \in A_U$, its image $\phi_{xU}a = a_x$ is
+called the \textit{germ} of a at $x$; similarly for $s \in S_U$. We
+will denote by\pageoriginale $\bar{a}: U \to \bigcup\limits_x A_x$ the
+function for 
+which $\bar{a}(x) = a_x$, and similarly for $\bar{s}: U \to \bigcup
+\limits_x S_x$. For each $W \subset U$ we write $a_W = \bar{a} (W)=
+\{a_x : x \in W \}$, and similarly for $s_W$. 
+
+[For instance, in Example \ref{chap6:exam10}, if $f$ is analytic in
+  $U$, $x \in U$ 
+  the germ $f_x$ is the class of those functions each of which
+  coincides with $f$ in some neighbourhood of $x$.] 
+
+Let $A= \bigcup_x A_x$,  $S = \bigcup_x S_x$. Define $\tau : A \to X$,
+$\pi: S \to X$ by $\tau (A_x) = x$, $\pi (S_x)=x$. Then $\tau \bar{a}:
+U \to U$, $\pi \bar{s}: U \to U$ are the identity maps on $U$. 
+
+We can take $\{a_U \}_ U$, $a \in A_U$ as a \textit{base for open sets
+  in} $A$. For, $\{a_U\}$ covers $A$ and if $p \in a_U \cap b_V$,  $x
+=\tau (p)$, we have $p=a_x =b_x$ with $a \in A_U$, $b \in A_V$ and $x
+\in U \cap V$. Then for some $W$ with $x \in W \subset U \cap
+V$, $\phi_{WU} \; a = \phi_{WV} \;b=c$ say. Since 
+$$
+\phi_{xU} a = \phi_{xW} \phi_{WU}a = \phi_{xW} c = \phi_{xW} \phi_{WV}
+b= \phi_{xV}b \text{ for each } x \in W,    
+$$
+we have $c_W= a_W = b_W$. Then $p \in c_W = a_W = b_W \subset a_U \cap
+b_V$. Similarly the sets $\{s_U\}$ form a base for open sets in $S$. 
+
+

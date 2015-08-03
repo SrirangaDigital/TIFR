@@ -1,0 +1,2071 @@
+\chapter{Fractional Mean Values}\label{c6}
+
+\section{Upper and Lower Bounds for Fractional mean Values}\label{c6:sec6.1}
+
+IN THIS CHAPTER\pageoriginale we are going to study the asymptotic
+behaviour of the integral 
+\begin{equation}
+I_k(T,\sigma) : = \int\limits^T_0 |\zeta(\sigma + it)|^{2k} dt
+\label{c6:eq6.1} 
+\end{equation}
+when $\frac{1}{2} \leq \sigma <1$ and $k \geq 0$ is not necessarily an
+integer. If $k$ is not an integer, then it is natural to expect that
+the problem becomes more difficult. In the most important case when
+$\sigma =\frac{1}{2}$ we shall set $I_k (T,\frac{1}{2}) = I_k (T)$, in
+accordance with the notation used in Chapter \ref{c4}. When $k$ is an
+integer, we can even obtain good lower bounds for $I_k (T+H) - I_k(T)$
+for a wide range of $H$, by using a method developed by
+R. Balasubramanian and K. Ramachandra. This will be done in Section
+\ref{c6:sec6.4}. In this section we shall use the method of
+D.R. Heath-Brown, which is based on a convexity technique. Actually
+this type of approach works indeed for any real $k \geq 0$, but when
+$k$ is not rational it requires the Riemann hypothesis to yield sharp
+results. Since $I$ prefer not to work with unproved hypotheses such as
+the Riemann hypothesis is, henceforth it will be assumed that $k \geq
+0$ is rational. Now we shall formulate the main result of this
+section, which will be used in Section \ref{c6:sec6.2} to yield an
+asymptotic formula for certain fractional mean values, and in Section
+\ref{c6:sec6.3} for the study of the distribution of values of
+$|\zeta(\frac{1}{2} + it)|$. This is 
+
+\setcounter{thm}{0}
+\begin{thm}\label{c6:thm6.1}
+If $k \geq 0$ is a fixed rational number, then
+\begin{equation}
+I_k (T) = \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it \right)
+\right|^{2k} dt \gg T(\log T)^{k_2}.\label{c6:eq6.2} 
+\end{equation}
+
+If $m \geq 1$\pageoriginale is an integer, then uniformly in $m$ 
+\begin{equation}
+T(\log T)^{1/m^2} \ll I_{1/m} (T) \ll T(\log
+T)^{1/m^2}. \label{c6:eq6.3} 
+\end{equation}
+\end{thm}
+
+Before we proceed to the proof of Theorem \ref{c6:thm6.1} we shall
+make some preliminary remarks and prove several lemmas. 
+
+Already in Chapter \ref{c1} we encountered the divisor function
+$d_k(n)$, which represents the number of ways $n$ may be written as a
+product of $k$ factors, where $k(\geq 2)$ is a fixed integer. In case
+$k \geq 0$ is not an integer, we define $d_k(n)$ by 
+\begin{equation}
+\zeta^k (s) = \prod_p (1-p^{-s})^{-k} = \sum\limits^\infty_{n=1} d_k
+(n) n^{-s} (\re s >1). \label{c6:eq6.4} 
+\end{equation}
+Here a branch of $\zeta^k(s)$ is defined by the relation
+\begin{equation}
+\zeta^k(s) = \exp (k \log \zeta(s)) = \exp \left(-k \sum\limits_p
+\sum\limits^\infty_{j=1} j^{-1} p^{-js} \right) \; (\re s >
+1).\label{c6:eq6.5} 
+\end{equation}
+
+Note that the above definition makes sense even if $k$ as an arbitrary
+complex number. It shows that $d_k(n)$ is a multiplicative function of
+$n$ for a given $k$. If $p^{\alpha}$ is an arbitrary prime power, then
+from (\ref{c6:eq6.4}) we have 
+\begin{equation}
+d_k(p^{\alpha}) = (-1)^{\alpha} \binom{-k}{\alpha} =
+\frac{k(k+1)\ldots (k+\alpha-1)}{\alpha !} = \frac{\Gamma
+  (k+\alpha)}{\Gamma (k) \alpha !},\label{c6:eq6.6} 
+\end{equation}
+so that by multiplicativity
+\begin{equation}
+d_k(n) = \prod_{p^{\alpha}||n} \frac{\Gamma (k+\alpha)}{\Gamma(k)
+  \alpha!}. \label{c6:eq6.7} 
+\end{equation}
+
+From (\ref{c6:eq6.6}) it follows then that always $d_k(n) \geq 0$ for
+$k \geq 0$, the function $d_k(n)$ is an increasing function of $k$ for
+fixed $n$, and moreover for fixed $k \geq 0$ and any $\epsilon > 0$ we
+have $d_k(n) \ll_\epsilon n^{\epsilon}$. Now we state 
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{c6:lem6.1}
+For fixed $k \geq 0$ there exists $c_k > 0$ such that 
+\begin{equation}
+\left(\sigma - \frac{1}{2} \right)^{-k^2} \ll \sum\limits^N_{n=1}
+d^2_k(n) n^{-2\sigma} \ll \left( \sigma -\frac{1}{2}\right)^{-k^2}
+\label{c6:eq6.8} 
+\end{equation}
+uniformly\pageoriginale for $1/2 + c_k/\log N \leq \sigma \leq 1$ and 
+\begin{equation}
+\log^{k^2} N \ll \sum\limits^{N}_{n=1} d^2_k(n) n^{-1} \ll \log^{k^2}
+N.\label{c6:eq6.9} 
+\end{equation}
+
+Moreover, if $k =1/m$ and $m\geq 1$ is an integer, then
+(\ref{c6:eq6.9}) holds uniformly in $m$, and also (\ref{c6:eq6.8}) if
+$1/2 + c / \log N \leq \sigma \leq 1$ for a suitable constant $c >0$.  
+\end{lemma}
+
+\medskip
+\noindent{\textbf{PROOF OF LEMMA \ref{c6:lem6.1}.}} By taking $\sigma
+=1/2 + c_k / 
+\log N$ and noting that we then have $n^{-1} \ll n^{-2\sigma} \ll
+n^{-1}$ for $1 \leq n \leq N$, we see that (\ref{c6:eq6.9}) follows
+from (\ref{c6:eq6.8}). By induction on $\alpha$ it follows that  
+{\fontsize{10}{11}\selectfont
+$$
+d^2_k (p^\alpha) = \left( \frac{k (k+1) \ldots (k+ \alpha -1)}{\alpha
+  !}\right)^2 \leq \frac{k^2 (k^2 +1) \ldots (k^2+ \alpha -1)}{\alpha
+  !} = d_{k^2} (p^\alpha), 
+$$}
+whence by multiplicativity $d^2_k(n) \leq d_{k^2}(n)$ for $n \geq 1$. This gives
+\begin{align*}
+\sum\limits^{N}_{n=1} d^2_k (n) n^{-2\sigma} & \leq
+\sum\limits^N_{n=1} d_{k^2} (n) (n)^{-2\sigma} \leq
+\sum\limits^{\infty}_{n=1} d_{k^2} (n) n^{-2\sigma}\\ 
+&  = \zeta^{k^2} (2\sigma) \ll \left(\sigma -\frac{1}{2}
+\right)^{-k^2}, 
+\end{align*}
+and this bound is uniform for $k \leq k_0$. To prove the lower bound
+in (\ref{c6:eq6.8}) write $f(n) : = d^2_k(n) \mu^2(n)$, $\sigma =1/2 +
+\delta$. Then 
+\begin{align}
+\sum\limits^N_{n=1} d^2_k (n) n^{-2\sigma} & \geq \sum\limits^N_{n=1}
+f(n) n^{-1-2\delta} \geq \sum\limits^\infty_{n=1} f(n)n^{-1-2\delta}
+\left(1-\left(\frac{n}{N}\right)^{\delta} \right)\notag\\ 
+& = S (1+ 2\delta) - N^{-\delta} S (1+\delta),
+\label{c6:eq6.10} 
+\end{align}
+where for real $s >1$
+$$
+S(s) : = \sum\limits^\infty_{n=1} f(n) n^{-s} = \prod_p \left(1+k^2
+p^{-s}\right) = \zeta^{k^2} (s) g_k(s) 
+$$
+with 
+$$
+g_k (s) : = \exp \left( -\sum\limits_p  \left\{\log \left(1+k^2
+p^{-s}\right) + k^2 \log \left(1-p^2\right) \right\}\right). 
+$$
+
+Thus $g_k(s)$ is continuous, and so it is bounded for $1 \leq s \leq
+2$. If $0 < A_k \leq g_k (s) \leq B_k$\pageoriginale and $C_k \leq
+(s-1) \zeta(s) \leq D_k$ for $1 \leq s \leq 2$, then we have 
+$$
+S(1+2\delta) - N^{-\delta} S(1+\delta) \geq A_k C^{k^2}_k (2
+\delta)^{-k^2} - N^{-\delta} B_k D^{k^2}_k \delta^{-k^2}. 
+$$
+
+Since $\sigma \geq 1/2 + c_k / \log N$ we have $N^\delta \geq \exp
+(c_k)$, and if $c_k$ is so large that  
+$$
+\exp (c_k) \geq 2 \frac{B_k}{A_k} \left(\frac{D_k}{C_k}\right)^{k^2},  
+$$
+then we shall have
+$$
+S(1+ 2 \delta) - N^{-\delta} S (1+\delta) \gg \delta^{-k^2},
+$$
+and consequently the lower bound in (\ref{c6:eq6.8}) will follow from
+(\ref{c6:eq6.10}). For $k \leq k_0$ the argument shows that the lower
+bound is also uniform, to taking $k=1/m$, $m \geq 1$ an integer, the
+last part of Lemma \ref{c6:lem6.1} easily follows. 
+
+The next two lemmas are classical convexity results from complex
+function theory, in the from given by R.M. Gabriel \cite{Gabriel1},
+and their proof will not be given here. 
+
+\begin{lemma}\label{c6:lem6.2}
+Let $f(z)$ be regular for $\alpha < \re z < \beta$ and continuous for
+$\alpha \leq \re z \leq\beta$. suppose $f(z) \to 0$ as $|\im z| \to
+\infty$ uniformly for $\alpha \leq \re z \leq \beta$. Then for $\alpha
+\leq \gamma \leq \beta$ and any $q >0$ we have 
+\begin{equation}
+\int\limits^\infty_{-\infty} |f(\gamma + it)|^q dt \leq
+\left(\int\limits^{\infty}_{-\infty} |f(\alpha + it)|^q dt
+\right)^{\frac{\beta-\gamma}{\beta-\alpha}}
+\left(\int\limits^\infty_{-\infty} |f(\beta + it)|^q dt
+\right)^{\frac{\gamma-\alpha}{\beta-\alpha}}. 
+\label{c6:eq6.11}
+\end{equation}
+\end{lemma}
+
+\begin{lemma}\label{c6:lem6.3}
+Let $R$ be the closed rectangle with vertices $z_0$, $\bar{z}_0$,
+$-z_0$, $-\bar{z}_0$. Let $F(z)$ be continuous on $R$ and regular on
+the interior of $R$. Then 
+\begin{equation}
+\int\limits_L |F(z)|^q |dz| \leq \left( \int\limits_{P_1} |F(z)|^q
+|dz|\right)^{\frac{1}{2}} \left(\int\limits_{P_2} |F(z)|^q |dz|
+\right)^{\frac{1}{2}} \label{c6:eq6.12}
+\end{equation}
+for any $q \geq 0$, where $L$ is the line segment from $\frac{1}{2}
+(\bar{z}_0 - z_0)$ to $\frac{1}{2} (z_0 -\bar{z}_0)$, $P_1$ consists
+of the three line segments connecting $\frac{1}{2} (\bar{z}_0 - z_0)$,
+$\bar{z}_0$, $z_0$ and $\frac{1}{2} (z_0- \bar{z}_0)$, and $P_2$ is
+the mirror image of $P_1$ in $L$. 
+\end{lemma}
+
+We shall\pageoriginale first apply Lemma \ref{c6:lem6.2} to $f(z) =
+\zeta (z) \exp((z-i\tau)^2)$, $\alpha = 1 - \sigma$, $\beta = \sigma$,
+$\gamma = \frac{1}{2}$, where $\frac{1}{2} \leq \sigma \leq
+\frac{3}{4}$, $q = 2k > 0$ and $\tau \geq 2$. By the functional
+equation $\zeta(s) = x (s) \zeta(1-s)$, $x(s) \asymp |t|^{\frac{1}{2}
+  - \sigma}$ we have  
+$$
+\zeta(\alpha + it) \ll |\zeta (\beta + it)| (1+|t|)^{\sigma
+  -\frac{1}{2}}, 
+$$
+whence
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& \int\limits^\infty_{-\infty} |f(\alpha + it)|^{2k} dt \ll
+  \int\limits^{\infty}_{-\infty} |\zeta(\sigma + it)|^{2k}
+  (1+|t|)^{k(2\sigma-1)} e^{-2k(t-\tau)^2} dt\\ 
+& \ll \left(\int\limits^{\frac{1}{2} \tau}_{-\infty} +
+  \int\limits^{\infty}_{3\tau/2} \right) (1+|t|)^{2k}
+  e^{-2k(t-\tau)^2} dt +\tau^{k(2\sigma -1)} \int\limits^{3\tau
+    /2}_{\tau/2} |\zeta(\sigma + it)|^{2k} e^{-2k(t-\tau)^2} dt\\ 
+& \ll e^{-2k\tau^2/5} + \tau^{k(2\sigma-1)}
+  \int\limits^\infty_{-\infty} |\zeta(\sigma+it)|^{2k}
+  e^{-2k(t-\tau)^2} dt. 
+\end{align*}}
+
+The above bound is also seen to hold uniformly for $k=1/m$, $m \leq
+(\log \log T)^{\frac{1}{2}}$, which is a condition that we henceforth
+assume. Since $(\beta -\gamma) / (\beta - \alpha) = (\gamma - \alpha)
+/ (\beta - \alpha) = 1/2$, (\ref{c6:eq6.11}) gives then 
+\begin{align*}
+& \int\limits^\infty_{-\infty} \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^{2k} e^{-2k(t-\tau)^2} dt\\ 
+& \ll e^{-2k\tau^2/5} + \tau^{k(\sigma -\frac{1}{2})}
+  \int\limits^{\infty}_{-\infty} |\zeta(\sigma + it)|^{2k}
+  e^{-2k(t-\tau)^2} dt. 
+\end{align*}
+
+If we define 
+$$
+w(t) : = \int\limits^{2T}_T e^{-2k(t-\tau)^2} d\tau
+$$
+and integrate the last bound for $T \leq \tau \leq 2T$, then we obtain 
+
+\begin{lemma}\label{c6:lem6.4}
+Let $\frac{1}{2} \leq \sigma \leq \frac{3}{4}$, $k > 0$ and $T \geq
+2$. Then 
+\begin{equation}
+J \left(\frac{1}{2} \right) \ll T^{k(\sigma -\frac{1}{2})} J(\sigma) +
+e^{-k T^2/3}, \label{c6:eq6.13}
+\end{equation}
+where
+$$
+J(\sigma): = \int\limits^\infty_{-\infty} |\zeta(\sigma + it)|^{2k}
+w(t) dt. 
+$$
+
+Also (\ref{c6:eq6.13}) holds uniformly for $k = 1/m$, where $m\geq 1$
+is an integer such that $m \leq (\log \log T)^{\frac{1}{2}}$. 
+\end{lemma}
+
+Next we\pageoriginale take $f(z) = (z-1) \zeta(z) \exp ((z-i\tau)^2)$
+(so that $f(z)$ is entire, because $z-1$ cancels the pole of
+$\zeta(z)$ at $z =1$), $\gamma =\sigma$, $\alpha = 1/2$, $\beta =
+3/2$, $q = 2k > 0$, $1/2 \leq \sigma \leq 3/4$, and $\tau \geq
+2$. Then 
+\begin{align*}
+& \int\limits^\infty_{-\infty} \left| f \left(\frac{1}{2} + it
+  \right)\right|^{2k} dt \ll \int\limits^{3 \tau /2}_{\tau/2} \left|f
+  \left(\frac{1}{2} + it \right)\right|^{2k} dt + e^{-2k\tau^2 /5}\\ 
+& \ll \tau^{2k} \int\limits^{3\tau/2}_{\tau/2} 
+\left|\zeta \left(\frac{1}{2} + it \right)\right|^{2k} 
+e^{-2k (t-\tau)^2} dt + e^{-2k \tau^2/5},
+\end{align*}
+and similarly
+\begin{align*}
+& \int\limits^\infty_{-\infty} \left| f \left(\frac{3}{2} + it
+  \right)\right|^{2k} dt \ll \tau^{2k} \int\limits^{3\tau/2}_{\tau/2}
+  \left|\zeta \left(\frac{3}{2} + it \right)\right|^{2k} e^{-2k
+    (t-\tau)^2} dt + e^{-2k\tau^2/5}\\ 
+& \ll \tau^{2k} \int\limits^{3\tau /2}_{\tau/2} e^{-2k (t-\tau)^2} dt
+  + e^{-2k\tau^2 /5} \ll \tau^{2k}. 
+\end{align*}
+
+From (\ref{c6:eq6.11}) we conclude that
+{\fontsize{10pt}{12pt}\selectfont
+\begin{equation}
+\int\limits^\infty_{-\infty} |f(\sigma + it)|^{2k} dt \ll \tau^{2k}
+\left(\int\limits^\infty_{-\infty} \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2k}e^{-2k(t-\tau)^2} dt \right)^{\frac{3}{2} - \sigma} +
+e^{-k\tau^2/3}. \label{c6:eq6.14}
+\end{equation}}
+
+But we have
+\begin{align}
+\int\limits^\infty_{-\infty} |\zeta(\sigma + it)|^{2k} e^{-2k
+  (t-\tau)^2} dt &\ll \int\limits^{3\tau/2}_{\tau/2} |\zeta(\sigma +
+it)|^{2k} e^{-2k (t - \tau)^2} dt + e^{-2k\tau^2/5}\notag \\ 
+& \ll \tau^{-2k} \int\limits^{3\tau/2}_{\tau/2} |f(\sigma + it)|^{2k}
+dt + e^{-2k\tau^2/5} \label{c6:eq6.15}\\
+& \leq \tau^{-2k} \int\limits^\infty_{-\infty} |f(\sigma + it)|^{2k} dt
++ e^{-2k\tau^2/5}.\notag 
+\end{align}
+
+In case $k = 1/m$ we have to observe that, for $T \leq \tau \leq 2T$,  
+$$
+\int\limits^{3\tau/2}_{\tau/2} e^{-2(t-\tau)^2/m} dt \ll
+m^{\frac{1}{2}} 
+$$
+instead of $\ll 1$. We combine (\ref{c6:eq6.15}) with
+(\ref{c6:eq6.14}) and integrate for $T \leq \tau \leq 2T$. By using
+H\"older's inequality we obtain then  
+
+\begin{lemma}\label{c6:lem6.5}
+Let\pageoriginale $\frac{1}{2} \leq \sigma \leq \frac{3}{4}$, $k>0$
+and $T \geq 2$. Then 
+$$
+J(\sigma) \ll T^{\sigma -1/2} J \left(\frac{1}{2} \right)^{3/2 -
+  \sigma} + e^{-kT^2/4}, 
+$$
+and if $k =1/m$, $m \geq 1$ is an integer, then uniformly for $m \leq
+(\log \log T)^{\frac{1}{2}}$ we have  
+$$
+J(\sigma) \ll \left(m^{\frac{1}{2} }T\right)^{\sigma-\frac{1}{2}}
+J\left(\frac{1}{2}\right)^{\frac{1}{2}(3-2\sigma)} + e^{-T^2 / (4m)}. 
+$$
+\end{lemma}
+
+Since (\ref{c6:eq6.2}) is trivial for $k=0$, we may henceforth assume
+that $k=u/v$, where $u$ and $v$ are positive coprime integers, so that
+for (\ref{c6:eq6.3}) we have $k = u/v$ with $u=1$, $v = m$. In the
+former case let $N=T^{\frac{1}{2}}$ and in the latter $N =
+T^{\frac{3}{4}}$. We also write 
+$$
+S(s) : = \sum\limits_{n \leq N} d_k (n) n^{-s},\quad g(s): = \zeta^u(s) -
+S^v (s). 
+$$
+
+We apply now Lemma \ref{c6:lem6.2} to the function $f(z) = g(z) \exp
+(u(z-i\tau)^2)$ with $\gamma =\sigma$, $\alpha = 1/2$, $\beta = 7/8$
+and $q = 2 /v$. Hence 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{equation}
+\int\limits^\infty_{-\infty} |f(\sigma + it)|^{\frac{2}{v}} dt \leq
+\left(\int\limits^\infty_{-\infty} \left|f \left(\frac{1}{2} + it
+\right)\right|^{\frac{2}{v}} dt \right)^{\frac{7-8\sigma}{3}}
+\left(\int\limits^\infty_{-\infty} \left|f \left(\frac{7}{8} + it
+\right)\right|^{\frac{2}{v}} dt \right)^{\frac{8\sigma - 4}{3}}.
+\label{c6:eq6.16} 
+\end{equation}}
+
+Note that, for $\frac{1}{2} \leq \re s \leq 2$, trivial estimation gives
+$$
+S(s) \ll N^{\epsilon + 1 - \re s} + 1 \ll T,
+$$
+thus
+\begin{equation}
+g(s) \ll (T + |t|)^{u+v}  \quad \left(\frac{1}{2} \leq \re s \leq 2,
+\; |s-1| \leq \frac{1}{10} \right).\label{c6:eq6.17} 
+\end{equation}
+
+It follows that
+\begin{align}
+\int\limits^\infty_{-\infty} \left|f \left(\frac{7}{8} + it
+\right)\right|^{\frac{2}{v}} dt & = \int\limits^{3\tau/2}_{\tau/2} 
+\left|f\left(\frac{7}{8} + it \right)\right|^{\frac{2}{v}} dt\notag\\  
+& \quad +  O \left( \left(\int\limits^{\frac{1}{2} \tau}_{-\infty} +
+\int\limits^\infty_{\frac{3\tau}{2}} \right) (T +|t|)^{2+2k} e^{-2k
+  (t-\tau)^2} dt\right)\notag\\ 
+& = \int\limits^{3\tau/2}_{\tau/2} \left|f \left(\frac{7}{8} + it
+\right)\right|^{\frac{2}{v}} dt + O \left(T^{2+2k}
+e^{-k\tau^2/3}\right). \label{c6:eq6.18} 
+\end{align}
+
+At this point we shall use Lemma \ref{c6:lem6.3}, which allows us to
+avoid the singularity of $\zeta(s)$ at $s=1$. We take $z_0 =
+\dfrac{3}{8} + \dfrac{1}{2} i\tau$, $F(z) = f\left(z - \frac{7}{8} -
+i\tau \right)$\pageoriginale and $q =\dfrac{2}{v}$. For the integrals
+in (\ref{c6:eq6.12}) we then have  
+$$
+\int\limits_L |F(z)|^q |dz| = \int\limits^{3\tau/2}_{\tau/2} \left|f 
+\left(\frac{7}{8} + it \right)\right|^{\frac{2}{v}} dt 
+$$
+and 
+\begin{align}
+& \int\limits_{P_1} |F(z)|^q |dz|\label{c6:eq6.19}\\
+& = \int\limits^{3\tau/2}_{\tau/2} \left|f \left(\frac{5}{4} + it
+  \right)\right|^{\frac{2}{v}} dt + \int\limits^{5/4}_{7/8} \left\{
+  \left|f \left(\eta + \frac{1}{2} i \tau \right)\right|^{\frac{2}{v}}
+  + \left|f  \left(\eta + \frac{3 i \tau}{2}
+  \right)\right|^{\frac{2}{v}}\right\} d\eta. \notag 
+\end{align}
+
+By (\ref{c6:eq6.17}) we have
+$$
+f\left(\eta + \frac{1}{2} i \tau \right) \ll (T + \tau)^{u+v}
+e^{-\frac{1}{4} u\tau^2} 
+$$
+and similarly for $f\left(\eta+ \dfrac{3 i \tau}{2} \right)$. Thus the
+second integral on the right of (\ref{c6:eq6.19}) is $\ll T^{2 + 2k}
+\exp (-k\tau^2/3) $ and similarly 
+$$
+\int\limits_{P_2} |F(z)|^q |dz| = \int\limits^{3 \tau/2}_{\tau/2}
+\left|f \left(\frac{1}{2} + it \right)\right|^{\frac{2}{v}} dt + O
+\left(T^{2+2k} e^{-k \tau^2/3}\right).  
+$$
+
+Lemma \ref{c6:lem6.3} therefore yields
+\begin{align*}
+& \int\limits^{3\tau /2}_{\tau/2} \left|f \left(\frac{7}{8} + it
+  \right)\right|^{\frac{2}{v}} dt\\ 
+& \ll \left(\int\limits^{\infty}_{-\infty} \left|f \left(\frac{1}{2} +
+  it \right)\right|^{\frac{2}{v}} dt \right)^{\frac{1}{2}}
+  \left(\int\limits^{\infty}_{-\infty} \left|f \left(\frac{5}{4} + it
+  \right)\right|^{\frac{2}{v}} dt \right)^{\frac{1}{2}} + T^{2+2k}
+  e^{-k\tau^2/7}, 
+\end{align*}
+since by (\ref{c6:eq6.17})
+$$
+\int\limits^{3\tau /2}_{\tau/2} \left\{ \left|f \left(\frac{1}{2} + it 
+\right)\right|^{\frac{2}{v}} dt + \left|f \left(\frac{5}{4} + it
+\right)\right|^{\frac{2}{v}}  \right\} dt \ll (T + \tau)^{2+2k}. 
+$$
+
+From (\ref{c6:eq6.16}) and (\ref{c6:eq6.18}) we now deduce 
+\begin{align*}
+\int\limits^\infty_{-\infty} |f (\sigma + it)|^{\frac{2}{v}} dt &\ll
+\left(\int\limits^\infty_{-\infty} \left|f\left(\frac{1}{2} + it
+\right)\right|^{\frac{2}{v}} dt \right)^{\frac{5-4\sigma}{3}} \left(
+\int\limits^{\frac{3\tau}{2}}_{\frac{1}{2} \tau} \left|f \left(\frac{5}{4}
++ it \right)\right|^{\frac{2}{v}} dt \right)^{\frac{4\sigma -2}{3}}\\ 
+&\quad + \left(\int\limits^\infty_{-\infty} \left|f \left(\frac{1}{2}
++ it \right)\right|^{\frac{2}{v}} dt \right)^{\frac{7-8\sigma}{3}}
+\left(T^{2+2k} e^{-k\tau^2/7} \right)^{\frac{8\sigma -4}{3}}. 
+\end{align*}
+
+We integrate\pageoriginale this for $T \leq \tau \leq 2T$ and write
+$$
+K(\sigma) : = \int\limits^\infty_{-\infty} |g(\sigma +
+it)|^{\frac{2}{v}} w (t) dt, 
+$$
+whence
+\begin{align}
+K(\sigma) & \ll K \left(\frac{1}{2} \right)^{\frac{5-4\sigma}{3}}
+\left\{ \int\limits^{2T}_T \int\limits^{3 \tau/2}_{\tau/2}\left|g
+\left(\frac{5}{4} + it \right)\right|^{\frac{2}{v}}  e^{-2k
+  (t-\tau)^2}d 
+\tau dt\right\}^{\frac{4\sigma -2}{3}}\label{c6:eq6.20}\\ 
+&\quad + K \left(\frac{1}{2} \right)^{\frac{7-8\sigma}{3}}
+\left(e^{-kT^2/8}\right)^{\frac{8 \sigma - 4}{3}}\notag \\ 
+&\ll K \left(\frac{1}{2} \right)^{\frac{5-4\sigma}{3}}
+\left\{\int\limits^{3T}_{\frac{1}{2} T} \left|g \left(\frac{5}{4} + it
+\right)\right|^{\frac{2}{v}} dt\right\}^{\frac{4\sigma-2}{3}} + K
+\left(\frac{1}{2} \right)^{\frac{7-8\sigma}{3}} e^{-\frac{kT^2(2\sigma 
+    -1)}{6}}.\notag 
+\end{align}
+
+From the definition of $g(s)$ we have
+$$
+g(s) = \sum\limits_{n > N} a_n n^{-s} \quad (\re s >1)
+$$
+with $0 \leq a_n \leq d_u(n)$, so that $a_n \leq 1$ if $u=1$, in
+particular for $k=1/m$. By the mean value theorem for Dirichlet
+polynomials (see (\ref{c1:eq1.15})) we find that 
+\begin{align*}
+& \int\limits^{3T}_{\frac{1}{2}T} \left|g \left(\frac{5}{4} + it
+  \right)\right|^2 dt \ll T \sum\limits_{n > N} a^2_n n^{-5/2} +
+  \sum\limits_{n > N} a^2_n n^{-3/2}\\ 
+& \ll TN^{-3/2} (\log N)^{u^2-1} + N^{-\frac{1}{2}} (\log N)^{u^2-1}
+  \ll TN^{-3/2} (\log N)^{u^2-1} 
+\end{align*}
+since $N \leq T$ and 
+$$
+\sum\limits_{n \leq x} d^2_u (n) \ll x (\log x)^{u^2-1}.
+$$
+
+Therefore by H\"older's inequality for integrals we obtain
+$$
+\int\limits^{3T}_{\frac{1}{2} T} \left|g \left(\frac{5}{4} + it
+\right)\right|^{\frac{2}{v}} dt \ll T^{1-\frac{1}{v}}
+\left(TN^{-\frac{3}{2}} \log^{u^2-1} T\right)^{\frac{1}{v}} =
+TN^{-\frac{3}{2v}} (\log T)^{\frac{u^2-1}{v}}. 
+$$
+
+From (\ref{c6:eq6.20}) we then obtain
+
+\begin{lemma}\label{c6:lem6.6}
+Let\pageoriginale $\frac{1}{2} \leq \sigma \leq \frac{3}{4} $, $T \geq
+2$. If $k=u/v$, where $u$ and $v$ are positive coprime integers, then 
+$$
+K(\sigma) \ll K \left(\frac{1}{2} \right)^{\frac{5-4\sigma}{3}}
+\left(TN^{-\frac{3}{2v}} (\log T)^{k-\frac{1}{v}}
+\right)^{\frac{4\sigma-2}{3}} + K \left(\frac{1}{3}
+\right)^{\frac{7-8\sigma}{3}} e^{-\frac{kT^2 (2\sigma -1)}{6}}, 
+$$
+where
+$$
+K(\sigma) = \int\limits^\infty_{-\infty} |g(\sigma +
+it)|^{\frac{2}{v}} w (t) dt. 
+$$
+
+If $k =1 / m$, $m \geq 1$ is an integer, then uniformly for $m \leq
+(\log \log T)^{\frac{1}{2}}$ we have  
+$$
+K(\sigma) \ll K \left(\frac{1}{2} \right)^{\frac{5-4\sigma}{3}}
+\left(m^{\frac{1}{2}} TN^{-\frac{3}{2m}} \right)^{\frac{4\sigma -
+    2}{3}} + K \left(\frac{1}{2} \right)^{\frac{7-8\sigma}{3}}
+e^{-\frac{T^2 (2\sigma-1)}{6m}}. 
+$$
+\end{lemma}
+
+\medskip
+\noindent{\textbf{PROOF OF \ref{c6:thm6.1}.}} As a companion to the
+integrals $J(\sigma)$ and $K(\sigma)$ we define 
+$$
+L(\sigma) : = \int\limits^\infty_{-\infty} |S(\sigma + it)|^2 w(t) dt
+\quad \left(\frac{1}{2} \leq \sigma \leq\frac{3}{4}\right).  
+$$
+
+To estimate $L(\sigma)$ note that
+$$
+w(t) = \int\limits^{2T}_T e^{-2k(t-\tau)^2} d\tau \ll \exp \left(-(T^2
++ t^2) k/18\right) 
+$$
+for $t \leq 0$ or $t \geq 3T$. Since $S(\sigma + it) \ll T$ we have 
+$$
+L(\sigma) = \int\limits^{3T}_0 |S(\sigma + it)|^2 w(t) dt + O(1). 
+$$
+
+Moreover $w(t) \ll 1$ for all $t$, and $w(t) \gg 1$ for $4T / 3 \leq t
+\leq 5T/3$. Thus the mean value theorem for Dirichlet polynomials
+yields 
+$$
+\int\limits^{3T}_0 |S(\sigma + it)|^2 dt = \sum\limits_{n \leq N}
+d^2_k (n) n^{-2\sigma} (3T+O(n))  \ll T \sum\limits_{n \leq N}
+d^{2}_k(n) n^{-2\sigma} 
+$$ 
+and
+$$
+\int\limits^{5T/3}_{4T/3} |S(\sigma + it)|^2 dt = \sum\limits_{n \leq
+  N} d^2_k (n) n^{-2 \sigma} \left(\frac{T}{3} +  O(n)\right) \gg T
+\sum\limits_{n\leq N} d^2_k (n) n^{-2\sigma}. 
+$$
+
+Hence\pageoriginale we may deduce from (\ref{c6:eq6.8}) of Lemma
+\ref{c6:lem6.1} that 
+\begin{equation}
+T \left(\sigma -\frac{1}{2} \right)^{-k^2} \ll L(\sigma) \ll T
+\left(\sigma -\frac{1}{2} \right)^{-k^2}\label{c6:eq6.21} 
+\end{equation}
+for $1/2 + c_k / \log T \leq \sigma \leq 3/4$, and from
+(\ref{c6:eq6.9}) that  
+\begin{equation}
+T(\log T)^{k^2} \ll L \left(\frac{1}{2} \right) \ll T(\log
+T)^{k^2}. \label{c6:eq6.22} 
+\end{equation}
+
+In case $k = 1/m$ we obtain, as in the previous discussion, an extra
+factor $m^{\frac{1}{2}}$, and (\ref{c6:eq6.21}) and (\ref{c6:eq6.22})
+become, uniformly for\,$m \leq\!(\log \log T)^{\frac{1}{2}}$,  
+\begin{equation}
+m^{\frac{1}{2}} T \left(\sigma -\frac{1}{2} \right)^{-1/m^2} \ll
+L(\sigma) \ll m^{\frac{1}{2}} T\left(\sigma -\frac{1}{2}
+\right)^{-1/m^2}\label{c6:eq6.23} 
+\end{equation}
+for $1/2+c/\log N \leq \sigma \leq 3/4$, and 
+\begin{equation}
+  m^{\frac{1}{2}} T (\log T)^{1/m^2} \ll L\left(\frac{1}{2}\right) \ll 
+  m^{\frac{1}{2}} T (\log T)^{1/m^2}. \label{c6:eq6.24}
+\end{equation}
+
+We trivially have 
+\begin{align*}
+& |S^v (s)|^{2/v} = |\zeta^{u} (s) - g(s)|^{2/v}\\
+& \leq (2\max (|\zeta^{\mu} (s)|, |g(s)|))^{2/v} \ll |\zeta(s)|^{2k} +
+|g(s)|^{2/v}, 
+\end{align*}
+whence
+\begin{equation}
+L(\sigma) \ll J(\sigma) + K(\sigma).\label{c6:eq6.25}
+\end{equation}
+
+Similarly
+\begin{equation}
+J(\sigma) \ll L(\sigma) + K(\sigma) \label{c6:eq6.26}
+\end{equation}
+and 
+\begin{equation}
+K \left(\frac{1}{2} \right) \ll L \left(\frac{1}{2} \right) + J
+\left(\frac{1}{2} \right).\label{c6:eq6.27} 
+\end{equation}
+
+In case $K(\frac{1}{2}) \leq T$ we have from (\ref{c6:eq6.25}) (with
+$\sigma =\frac{1}{2}$) and (\ref{c6:eq6.22})  
+\begin{equation}
+T(\log T)^{k^2} \ll J \left(\frac{1}{2}
+\right)\label{c6:eq6.28} 
+\end{equation}
+
+Similarly (\ref{c6:eq6.26}) and (\ref{c6:eq6.22}) show that
+$K\left(\dfrac{1}{2} \right) \leq T$ implies  
+\begin{equation}
+J \left(\frac{1}{2} \right) \ll T (\log
+T)^{k^2}. \label{c6:eq6.29} 
+\end{equation}\pageoriginale
+
+Thus we shall assume $K(\frac{1}{2}) \geq T$ and show that
+(\ref{c6:eq6.28}) holds, and for $k = 1/m$ (\ref{c6:eq6.29}) also
+holds (with the additional factor $m^{\frac{1}{2}}$). From these
+estimates Theorem \ref{c6:thm6.1} will be deduced. From Lemma
+\ref{c6:lem6.6} we have, assuming $K(\dfrac{1}{2}) \geq T$, 
+{\fontsize{10}{12}\selectfont
+\begin{align}
+K(\delta) &\ll K \left(\frac{1}{2} \right) \left\{K \left(\frac{1}{2}
+\right)^{\frac{2-4\sigma}{3}} \left(TN^{-\frac{3}{2v}} (\log
+T)^{k-\frac{1}{v}} \right)^{\frac{4\sigma-2}{3}} + K \left(\frac{1}{2}
+\right)^{\frac{4-8\sigma}{3} } e^{-\frac{kT^2 (4\sigma -3)}{12}}
+\right\}\notag\\ 
+&\leq K \left(\frac{1}{2} \right) \left\{ \left (N^{-\frac{3}{2v}}
+(\log T)^{k-\frac{1}{v}} \right)^{\frac{4\sigma - 2}{3}} + \left(T^{-2}
+e^{-\frac{1}{4}k T^2}\right)^{\frac{4\sigma -2}{3}} \right\} 
+\label{c6:eq6.30}\\
+&\ll K \left(\frac{1}{2} \right) N^{\frac{1-2\sigma}{v}} (\log
+T)^{(k-\frac{1}{v})(\frac{4\sigma -2}{3})}.\notag  
+\end{align}}
+
+Now we turn  to the proof of (\ref{c6:eq6.2}), noting that the proof
+of (\ref{c6:eq6.3}) is based on very similar ideas. From
+(\ref{c6:eq6.25}), (\ref{c6:eq6.27}) and (\ref{c6:eq6.30}) we have,
+since now $N = T^{\frac{1}{2}}$ and $k = u/v $, 
+$$ 
+L(\sigma) \ll J(\sigma) + \left(L \left(\frac{1}{2} \right) + J
+\left(\frac{1}{2} \right) \right) \left(T \log^B
+T\right)^{\frac{1-2\sigma}{4v}},  
+$$
+where $B = (8-8u)/3$. Thus either 
+\begin{equation}
+L(\sigma) \ll L \left(\frac{1}{2} \right) \left(T \log^B
+T\right)^{\frac{1-2\sigma}{4v}} \label{c6:eq6.31} 
+\end{equation}
+or 
+\begin{equation}
+L(\sigma) \ll J \left(\frac{1}{2} \right) \left(T \log^B
+T\right)^{\frac{1-2\sigma}{4v}} + J(\sigma), 
+\label{c6:eq6.32}
+\end{equation}
+and by using Lemma \ref{c6:lem6.5} the latter bound gives
+\setcounter{equation}{31}
+\begin{equation}
+L(\sigma ) \ll T^{\sigma-\frac{1}{2}} J \left(\frac{1}{2}
+\right)^{\frac{3}{2}-\sigma} + (T \log^B T)^{\frac{1-2\sigma}{4v}} J
+\left(\frac{1}{2} \right) + e^{-\frac{1}{4} kT^2}. \label{add-c6:eq6.32}
+\end{equation}
+
+Write $\sigma =\dfrac{1}{2} + \dfrac{\eta}{\log T}$, where $\eta >0$
+is a parameter. Then (\ref{c6:eq6.21}), (\ref{c6:eq6.31}) and
+(\ref{c6:eq6.22}) yield, for some constant $c(k) >0$, 
+$$
+T \left(\sigma -\frac{1}{2} \right)^{-k^2} \leq c(k) T (\log T)^{k^2}
+e^{-\eta / (2v)}. 
+$$
+
+Hence\pageoriginale
+$$
+e^{-\frac{\eta}{2v}} \leq \eta^{k^2} c(k),
+$$
+which is false if $\eta = \eta(k)$ is sufficiently large. Thus for
+this value of $\eta$ (\ref{c6:eq6.32}) holds, and using
+(\ref{c6:eq6.21}) it gives 
+$$ 
+T \log^{k^2} T \ll L(\sigma) \ll J \left(\frac{1}{2}
+\right)^{\frac{1}{2} (3-2\sigma)} + J \left(\frac{1}{2} \right) + 1, 
+$$
+and (\ref{c6:eq6.28}) follows. But recall that $w(t) \ll 1$ for all
+$t$ and  
+$$
+w(t) \ll \exp (-k(t^2 + T^2)/18)
+$$
+for $t \leq 0$ and $t \geq 3T$. Thus
+$$
+J \left(\frac{1}{2} \right) \ll I_k(3T) +
+\left(\int\limits^0_{-\infty} + \int\limits^{\infty}_{3T} \right)
+e^{-k(t^2 + t^2)/20} dt \ll I_k(3T) + e^{-kT^2/20}, 
+$$
+so that (\ref{c6:eq6.2}) follows from (\ref{c6:eq6.28}). Similarly for
+the case $k=1/m$, $m \geq 1$ an integer in (\ref{c6:eq6.3}) we obtain
+the result from  
+\begin{equation}
+m^{\frac{1}{2}} T(\log T)^{1/m^2} \ll J \left(\frac{1}{2} \right) \ll
+m^{\frac{1}{2}}  T  (\log T)^{1/m^2}\label{c6:eq6.33} 
+\end{equation}
+because in this case $w(t) \ll m^{\frac{1}{2}}$ always, and $w(t) \gg
+m^{\frac{1}{2}}$ for $4 T /3 \leq t \leq 5T/3$. Thus (\ref{c6:eq6.33})
+gives in the case of the upper bound 
+$$ 
+m^{\frac{1}{2}} \left(I_{1/m} \left(\frac{5T}{3} \right) - I_{1/m}
+\left(\frac{4 T}{3} \right) \right) \ll J \left(\frac{1}{2} \right)
+\ll m^{\frac{1}{2}} T (\log T)^{1/m^2}. 
+$$
+
+Replacing $T$ by $(4/5)^{n}T$ and summing over $n$ we obtain the upper
+bound in (\ref{c6:eq6.3}), and the lower bound is proved as in the
+previous case. One obtains (\ref{c6:eq6.33}) from the corresponding
+estimates of the previous case and chooses $\sigma =\dfrac{1}{2} +
+\dfrac{Dm}{\log T}$, where $D >0$ is a suitable large constant. 
+
+In the analysis concerning the case $k = 1/m$ we have made the
+assumption that $m\leq (\log \log T)^{\frac{1}{2}}$. Therefore it
+remains to prove (\ref{c6:eq6.3}) when $m \geq m_0 = [(\log \log
+  T)^{\frac{1}{2}}]$. In that case 
+$$ 
+I_{1/m} (T) = \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt \geq T + \circ (T) \gg T(\log T)^{1/m^2} 
+$$
+for\pageoriginale $m \geq m_0$ and $T \to \infty$. This follows from
+Lemma \ref{c6:lem6.7} of the next section, whose proof is independent
+of Theorem \ref{c6:thm6.1}. To deal with the upper bound, denote by
+$A_1$ the set of numbers $t \in [0,T]$ such that $|\zeta(\frac{1}{2} +
+it)| \leq 1$, and let $A_2$ be the complement of $A_1$ in the interval
+$[0,T]$. Then 
+\begin{align*}
+& I_{1/m} (T) = \left(\int\limits_{A_1} + \int\limits_{A_2} \right)
+  \left|\zeta \left(\frac{1}{2} + it \right)\right|^{2/m} dt \leq T +
+  \int\limits_{A_2} \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^{2/m_\circ} dt\\ 
+& \leq T + \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^{2/m_\circ} dt \ll T + T(\log T)^{m^{-2}_0} \ll T
+  (\log T)^{m^{-2}}, 
+\end{align*}
+since the upper bound in (\ref{c6:eq6.3}) holds for $m =m_0$.
+
+\section{An Asymptotic formula for mean values}\label{c6:sec6.2}
+
+In this section we shall consider the limit
+\begin{equation}
+\lim\limits_{T \to \infty} \frac{1}{T} \int\limits^T_0 \left|\zeta
+\left(\frac{1}{2} + it \right)\right|^\lambda dt =1,
+\label{c6:eq6.34} 
+\end{equation}
+or equivalently
+\begin{equation}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^\lambda dt = T + \circ (T) \quad (T \to \infty)
+\label{c6:eq6.35} 
+\end{equation}
+when $\lambda \geq 0$. If $\lambda$ is fixed, then (\ref{c6:eq6.34})
+(or (\ref{c6:eq6.35})) cannot hold in view of the lower bound in
+Theorem \ref{c6:thm6.1}. On the other hand, (\ref{c6:eq6.34}) is
+trivial if $\lambda=0$. Therefore one feels that for certain $\lambda
+= \lambda(T)$, tending sufficiently quickly to zero as $T \to \infty$,
+(\ref{c6:eq6.34}) will hold. It seems interesting to determine
+precisely the range of $\lambda = \lambda(T)$ for which
+(\ref{c6:eq6.35}) holds. This is achieved in 
+
+\begin{thm}\label{c6:thm6.2}
+If $\psi (T)$ denotes an arbitrary positive function such that $\Psi
+(T) \to \infty$ as $T \to \infty$, then for  
+$$
+0 \leq \lambda \leq (\Psi (T) \log \log T)^{-\frac{1}{2}}
+$$
+we have
+\begin{equation}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^\lambda dt = T + \circ (T) \quad (T \to
+\infty).\label{c6:eq6.36} 
+\end{equation}
+
+Moreover\pageoriginale (\ref{c6:eq6.36}) cannot hold for $\lambda \geq
+C (\log \log T)^{-\frac{1}{2}}$ and a suitable $C>0$. 
+\end{thm}
+
+To prove Theorem \ref{c6:thm6.2} we shall prove the corresponding
+upper and lower bound estimates. The latter is contained in the
+following lemma, which was already used in the discussion of the lower
+bound in Theorem \ref{c6:thm6.1} in Section \ref{c6:sec6.1}. 
+
+\begin{lemma}\label{c6:lem6.7}
+For any $\lambda \geq 0$
+\begin{equation}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} +
+it\right)\right|^\lambda dt \geq T + \circ (T) \quad (T \to \infty)
+. \label{c6:eq6.37} 
+\end{equation}
+\end{lemma}
+
+\medskip
+\noindent{\textbf{PROOF OF LEMMA \ref{c6:lem6.7}.}}
+Let, as usual, $N(\sigma, T)$ denote the number of complex zeros $\rho
+= \beta + i\gamma$ of $\zeta(s)$ such that $\beta \geq \sigma$, $0 <
+\gamma \leq T$. From J.E. Littlewood's classical lemma (see Section
+9.1 of E.C. Titchmarsh \cite{Titchmarsh1}) on the zeros of an analytic
+function in a rectangle, it follows that 
+\begin{align*}  
+2\pi \int\limits_1{\sigma_0} N (\sigma, T) d \sigma & =
+\int\limits^T_0 \log |\zeta(\sigma_0 + it)| dt  - \int\limits^T_0
+\log |\zeta(2+it)| dt\\ 
+&\quad + \int\limits^{2}_{\sigma_0} \arg \zeta(\sigma + iT) d \sigma + 
+K(\sigma_0), 
+\end{align*}
+where $K(\sigma_0)$ is independent of $T$, and $\frac{1}{2} \leq
+\sigma_0 \leq 1$. However, uniformly for $\sigma \geq \frac{1}{2}$ we
+have $\arg \zeta(\sigma + it) \ll \log t$ if $t$ is not the ordinate
+of a zero of $\zeta(s)$. For $\sigma >1$ we have  
+$$
+\log \zeta(s) = \sum\limits_p \sum\limits^\infty_{m=1} m^{-1} p^{-ms}, 
+$$
+hence with $|\Lambda_1(n)| \leq 1$ we have
+$$
+\int\limits^T_0 \log |\zeta(2 + it)| dt = \re \left\{
+\sum\limits^\infty_{n=2} \Lambda_1(n) n^{-2} \frac{n^{-iT} -1}{\log n}
+\right\} = O(1). 
+$$
+
+Therefore we obtain
+\begin{equation}
+2 \pi \int\limits^{1}_{\sigma_0} N(\sigma, T) d \sigma = \int\limits^T_0 \log |\zeta(\sigma_0 + it)|dt + O(\log T).\label{c6:eq6.38}
+\end{equation}
+
+Since\pageoriginale $N (\sigma, T) \geq 0$ for all $\sigma$ and $T$,
+(\ref{c6:eq6.38}) gives with $\sigma_0 = \frac{1}{2}$ 
+$$
+0 \leq 2 \pi \int\limits^1_{\frac{1}{2}} N(\sigma, T) d \delta =
+\int\limits^T_0 \log \left|\zeta\left(\frac{1}{2} + it\right)\right|dt
++ O(\log T),  
+$$
+hence for a suitable $C > 0$
+\begin{equation}
+\int\limits^T_0 \log \left|\zeta \left(\frac{1}{2} + it \right)\right|
+dt \geq - C\log T.\label{c6:eq6.39} 
+\end{equation}
+
+Now recall that, if $a < b$, $f(t) \geq 0$ for $a \leq t \leq b$, $f
+\in C [a,b]$, then  
+\begin{equation}
+\frac{1}{b-a} \int\limits^b_a \log f(t) dt \leq \log
+\left(\frac{1}{b-a} \int\limits^b_a f(t) dt
+\right),\label{c6:eq6.40} 
+\end{equation}
+which is an easy consequence of the inequality between the arithmetic
+and geometric means of nonnegative numbers. Hence, for $\lambda > 0$
+and $f(t) = |\zeta(\frac{1}{2} + it)|$, (\ref{c6:eq6.40}) gives 
+\begin{align*}
+\int\limits^T_0 \log \left|\zeta \left(\frac{1}{2} + it \right)\right|
+dt &= \frac{1}{\lambda} \int\limits^T_0 \log \left|\zeta
+\left(\frac{1}{2} + it \right)\right|^{\lambda} dt\\
+&\leq \frac{T}{\lambda} \log \left(\frac{1}{T}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^\lambda dt \right), 
+\end{align*}
+and so using (\ref{c6:eq6.39}) we obtain
+$$
+\frac{1}{T} \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{\lambda} dt \geq e^{-\frac{\lambda C \log T}{T}} \geq 
+e^{-\frac{2C\log T}{T}} = 1 + O \left(\frac{\log T}{T} \right) 
+$$
+for $0 < \lambda \leq 2$. For $\lambda = 0$ (\ref{c6:eq6.37}) is
+trivial, for $\lambda \geq 2$ it follows by H\"older's inequality for
+integrals and the weak bound 
+$$
+\int\limits^{T}_0 \left|\zeta \left(\frac{1}{2} + it \right)\right|^2
+dt \gg T \log T. 
+$$
+
+\medskip
+\noindent{\textbf{PROOF OF THEOREM \ref{c6:thm6.2}.}} We shall show
+that for  
+$$
+0 \leq \lambda \leq (\psi (T) \log \log T)^{-\frac{1}{2}}
+$$
+we have
+\begin{equation}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^\lambda dt \leq T + \circ (T) \quad (T \to
+\infty). \label{c6:eq6.41} 
+\end{equation}
+
+Take $m = [(\log \log T)^{\frac{1}{2}}]$. Then by H\"older's
+inequality and the upper bound in\pageoriginale (\ref{c6:eq6.3}) we
+have, for some $C_1 > 0$, 
+\begin{align*}
+& \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^\lambda dt \leq \left(\int\limits^T_0 \left|\zeta
+  \left(\frac{1}{2} + it \right)\right|^{2/m} dt \right)^{\frac{1}{2}
+    m \lambda} T^{1-\frac{1}{2} m\lambda}\\ 
+& \leq \left(C_1 T (\log T)^{1/m^2}\right)^{\frac{1}{2} m\lambda}
+  T^{1-\frac{1}{2}m\lambda} = TC^{\frac{1}{2} m\lambda}_1 (\log
+  T)^{\lambda/(2m)} = T + \circ (T). 
+\end{align*}
+
+Namely 
+$$
+0 \leq \lambda / (2m) \leq \left(\frac{1}{2} + \circ (1) \right)
+\psi^{-\frac{1}{2}} (T) (\log \log T)^{-1}, 
+$$
+hence, as $T \to \infty$,
+$$
+(\log T)^{\lambda/(2m)} = 1 + \circ (1),\quad C^{\frac{1}{2} m \lambda}_1
+= 1+\circ (1). 
+$$
+
+This establishes (\ref{c6:eq6.41}) and in view of (\ref{c6:eq6.37})
+proves the first part of Theorem \ref{c6:thm6.2}. 
+
+To obtain that (\ref{c6:eq6.36}) cannot hold for $\lambda > C(\log
+\log T)^{-\frac{1}{2}}$ and a suitably chosen $C$, we use the lower
+bound in (\ref{c6:eq6.3}) with 
+$$
+m = \left[C^{-1}_3 (\log \log T)^{-\frac{1}{2}}\right] \quad (C_3 > 0 ).
+$$
+
+This gives with some $C_2 > 0$
+\begin{align}
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt & \geq C_2 T (\log T)^{1/m^2} = C_2 T \exp
+\left(C^2_3 + \circ (1)\right)\label{c6:eq6.42} \\ 
+& \geq C_2 T \exp \left(\frac{1}{2} C^2_3 \right) \geq 2T\notag
+\end{align}
+for $C_2 \geq (2\log (2/C_2))^{\frac{1}{2}}$ if $C_2 <2 $, and the
+bound given by (\ref{c6:eq6.42}) is trivial otherwise. Hence as $T \to
+\infty$ 
+\begin{align*}
+\lambda_0 & = \frac{2}{m} = 2 /\left[C^{-1}_3 (\log \log
+  T)^{\frac{1}{2}}\right] = (2C_3 + \circ (1)) (\log \log
+T)^{-\frac{1}{2}}\\ 
+&  \quad 3 C_3 (\log \log T)^{-\frac{1}{2}} = \lambda_1,
+\end{align*}
+say. But if for some $\lambda_0 > 0$
+$$
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it \right)
+\right|^{\lambda_0} dt \geq w T,  
+$$
+then for $\lambda > \lambda_0$ H\"older's inequality gives 
+$$
+ 2T \leq \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+ \right)\right|^{\lambda_0} dt \leq \left(\int\limits^T_0 \left|\zeta
+ \left(\frac{1}{2} + it \right)\right|^{\lambda} dt
+ \right)^{\lambda_0/\lambda} T^{1-\lambda_0/\lambda}. 
+$$\pageoriginale
+and so
+$$
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^\lambda dt \geq 2^{\lambda/\lambda_0} T \geq 2T. 
+$$
+
+Therefore (\ref{c6:eq6.36}) cannot hold for $\lambda > C (\log \log
+T)^{-\frac{1}{2}}$, $C = 3 C_3$, where $C_3$ is as above. This
+completes the proof of Theorem \ref{c6:thm6.2}. 
+
+\section{The values Distribution on the Critical line}\label{c6:sec6.3}
+
+From (\ref{c6:eq6.3}) we may deduce some results on the distribution
+of values of $|\zeta(\frac{1}{2} + it)|$. The order of
+$|\zeta(\frac{1}{2} + it)|$ remains, of course, one of the most
+important unsolved problems of analytic number theory. But the
+following two theorems, due to M. Jutila, show that the corresponding
+``statistical'' problem may be essentially solved. 
+
+\begin{thm}\label{c6:thm6.3}
+Let $T \geq 2$, $1 \leq V \leq \log T$, and denote by $M_T(V)$ the set
+of numbers $t \in [0,T]$ such that $|\zeta(\frac{1}{2} + it)| \geq
+V$. Then the measure of the set $M_T(V)$ satisfies 
+\begin{equation}
+\mu(M_T (V)) \ll T \exp \left\{ -\frac{\log^2 V}{\log \log T} \left(1
++ O \left( \frac{\log V}{\log \log T}\right) \right)\right\}
+\label{c6:eq6.43} 
+\end{equation}
+and also
+\begin{equation}
+\mu (M_T (V)) \ll T \exp \left(-c\frac{\log^2 V}{\log \log T} \right)
+\label{c6:eq6.44} 
+\end{equation}
+for some constant $c >0$.
+ \end{thm}
+
+\begin{coro*}
+Let $\Psi (T)$ be any positive function such that $\Psi (T) \to
+\infty$ as $T \to \infty$. Then 
+$$
+\left|\zeta \left(\frac{1}{2} + it \right)\right| \leq \exp 
+\left(\Psi (T) (\log \log T)^{\frac{1}{2}}\right) 
+$$
+for the numbers $t \in [0,T]$ which do not belong to an exceptional
+set of measure $\circ(T)$. 
+\end{coro*}
+
+\begin{thm}\label{c6:thm6.4}
+There\pageoriginale exist positive constants $a_1, a_2$ and $a_3$ such
+that for $T \geq 10$ we have 
+$$
+\exp \left(a_1 (\log \log T)^{\frac{1}{2}}\right) \leq \left|\zeta
+\left(\frac{1}{2} + it \right)\right| \leq \exp \left(a_2 (\log \log
+T)^{\frac{1}{2}}\right) 
+$$
+in a subset of measure at least $a_3T$ of the interval $[0,T]$.
+\end{thm}
+
+\medskip
+\noindent{\textbf{PROOF OF THEOREM \ref{c6:thm6.3}.}} It is enough to
+restrict $V$ to the range 
+$$
+(\log \log T)^{\frac{1}{2}} \leq \log V \leq \log \log T. 
+$$
+
+Namely for $\log V < (\log \log T)^{\frac{1}{2}}$ the $\exp (\ldots)$
+terms in (\ref{c6:eq6.43}) and (\ref{c6:eq6.44}) are bounded, so the
+bounds in question both reduce to $\mu(M_T (V))\break \ll T$, which is
+trivial, and $\log V \leq \log \log T$ is equivalent to our assumption
+that $V \leq \log T$. Now by (\ref{c6:eq6.3}), for any integer $m \geq
+1$, 
+$$
+\mu(M_T (V)) V^{2/m} \leq \int\limits^T_0 \left|\zeta
+\left(\frac{1}{2} + it \right)\right|^{2/m} dt \ll T(\log T)^{1/m^2},  
+$$
+whence
+\begin{equation}
+\mu(M_T(V)) \ll T(\log T)^{1/m^2} V^{-2/m}.\label{c6:eq6.45}
+\end{equation}
+
+As a function of $m$, the right-hand side of (\ref{c4:eq4.45}) is
+minimized for $m = \log \log T/\log V$. Since $m$ must be an integer,
+we take  
+$$
+m = [\log \log T / \log V],
+$$
+so that (\ref{c6:eq6.45}) yields then (\ref{c6:eq6.43}) and
+(\ref{c6:eq6.44}). 
+
+\medskip
+\noindent{\textbf{PROOF OF THEOREM \ref{c6:thm6.4}.}} Let $0 < A < 1$
+be a constant to be chosen sufficiently small later, and let $m = [(A
+  \log \log T)^{\frac{1}{2}}] -a$, where $a$ is 0 or 1 so that $m$ is
+an even integer. We suppose $T \geq \exp \left(\exp \dfrac{4}{A}
+\right)$, so that $m$ is positive, and denote by $b_1, b_2, \ldots$
+positive, absolute constants. 
+
+Denote by $E$ the set of points $t \in [0,T]$ such that
+\begin{equation}
+\exp \left((A \log \log T)^{\frac{1}{2}}\right) \leq \left|\zeta
+\left(\frac{1}{2} + it \right)\right| \leq \exp \left(A^{-1} (\log
+\log T)^{\frac{1}{2}}\right),\label{c6:eq6.46}
+\end{equation}
+and let $F = [0,T] \backslash E$. If we can show that 
+\begin{equation}
+\int\limits_F \left|\zeta \left(\frac{1}{2} + it \right)\right|^{2/m}
+dt \leq b_1 T,\label{c6:eq6.47} 
+\end{equation}
+then\pageoriginale Theorem \ref{c6:thm6.4} follows from
+(\ref{c6:eq6.47}) and the lower bound in (\ref{c6:eq6.3}). Indeed the
+latter gives, by our choice of $m$, 
+$$
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt \geq b_2 e^{1/A} T, 
+$$
+whence by (\ref{c6:eq6.47}) with sufficiently small $A$ we have
+\begin{align*} 
+\int\limits_E \left|\zeta \left(\frac{1}{2} + it \right)\right|^{2/m} dt &=
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt\\ 
+&\quad-\int\limits_F \left|\zeta \left(\frac{1}{2} + it \right)\right|^{2/m} dt \geq
+\frac{1}{2} b_2 e^{\frac{1}{A}} T. 
+\end{align*}
+
+Consequently, by the defining property (\ref{c6:eq6.46}) of the set
+$E$, 
+$$
+\mu(E) \left\{ \exp \left(A^{-1} (\log \log T)^{\frac{1}{2}}\right)
+\right\}^{2/m} \geq \frac{1}{2} b_2 e^{1/A} T, 
+$$
+which gives
+$$
+\mu(E) \geq \frac{1}{2} b_2 \left\{\exp \left(A^{-1} - b_3
+A^{-3/2}\right) \right\} T. 
+$$
+
+Thus Theorem \ref{c6:thm6.4} holds with $a_1 = A^{\frac{1}{2}}$, $a_2
+= A^{-1}$, $a_3 = \dfrac{1}{2} b_2 \exp\break (A^{-1} - b_3 A^{-3/2})$. 
+
+It remains to prove (\ref{c6:eq6.47}). Let $F'$ denote the subset of
+$F$ in which 
+$$
+\left|\zeta \left(\frac{1}{2} + it \right)\right| < \exp \left((A \log
+\log T)^{\frac{1}{2}}\right), 
+$$
+and let $F'' = F \backslash F'$. Then trivially
+\begin{equation}
+\int\limits_{F'} \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt \leq b_4 T.\label{c6:eq6.48}
+\end{equation}
+
+Further, using (\ref{c6:eq6.3}) and noting that $m$ is even, we have
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align}
+\int\limits_{F''} \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2/m} dt & \leq \left\{ \exp \left(A^{-1} (\log \log
+T)^{\frac{1}{2}}\right) \right\}^{-2/m} \int\limits^T_0 \left|\zeta
+\left(\frac{1}{2}+it \right)\right|^{4/m} dt\notag\\
+& \leq b_5 \exp \left(-b_6 A^{-3/2} + b_7 A^{-1}\right) T \leq b_8
+T.\label{c6:eq6.49}
+\end{align}}
+
+Here $b_8$ may be taken to be independent of $A$, for example $b_8 =
+b_5$ if $A \leq (b_6 / b_7)^2$. Combining (\ref{c6:eq6.48}) and
+(\ref{c6:eq6.49}) we obtain (\ref{c6:eq6.47}), completing the proof of
+Theorem \ref{c6:thm6.4}.  
+
+One can also ask the following more general question, related to the
+distribution of $\zeta(\frac{1}{2} + it)$, or equivalently $\log
+\zeta(\frac{1}{2} + it)$ (if $\zeta(\frac{1}{2} + it) \neq
+0$). Namely, if we are given a measurable set\pageoriginale $E
+(\subseteq \mathbb{C})$ with a positive Jordan content, hos often does
+$\log \zeta(\frac{1}{2} + it)$ belong to $E$? This problem was
+essentially solved in an unpublished work of A. Selberg, who showed
+that 
+\begin{equation}
+\lim\limits_{T \to \infty} \frac{1}{T} \mu \left(0 \leq t \leq T;
+\frac{\log \zeta (\frac{1}{2} + it)}{\sqrt{\log \log t}} \in E \right)
+= \frac{1}{\pi} \iint\limits_E e^{-x^2 -y^2} dx \; dy,\label{c6:eq6.50} 
+\end{equation}
+where as before $\mu(\cdot)$ is the Lebesgue measure. Roughly
+speaking, this result says that $\log\zeta(\frac{1}{2} + it) /
+\sqrt{\log \log t}$ is approximately normally distributed. From
+(\ref{c6:eq6.50}) one can deduce the asymptotic formula 
+\begin{equation}
+\int\limits^T_0 \log \left|\zeta \left(\frac{1}{2} + it \right)
+-a\right| dt = (2\pi)^{-\frac{1}{2}} T (\log \log T)^{\frac{1}{2}} +
+O_a (T), \label{c6:eq6.51} 
+\end{equation}
+where $a \neq 0$ is fixed.
+
+Independently of Selberg's unpublished work, A. Laurin\v cikas
+obtained results on the value distribution of $|\zeta(\frac{1}{2} +
+it)|$ and $|L(\frac{1}{2} + it, x)|$ in a series of papers. As a
+special case of (\ref{c6:eq6.50}) he proved 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{equation}
+\lim\limits_{T \to \infty} \frac{1}{T} \mu  \left(0 \leq t \leq T :
+\frac{\log |\zeta \left(\frac{1}{2} + it \right)|}{\sqrt{\frac{1}{2}
+    \log \log T}} \leq y \right) = (2\pi)^{-\frac{1}{2}}
+\int\limits^y_{-\infty} e^{-\frac{1}{2} u^2} du,  
+\label{c6:eq6.52}
+\end{equation}}
+which is of course stronger and more precise than Theorem
+\ref{c6:thm6.4}. It is interesting that Laurin\v cikas obtains
+(\ref{c6:eq6.52}) by applying techniques from probabilistic number
+theory to the asymptotic formula 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{equation}
+I_x (T) = \int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2x} dt = T (\log T)^{x^2} \left(1+O\left((\log \log
+T)^{-\frac{1}{4}}\right)\right), \label{c6:eq6.53} 
+\end{equation}}
+which holds uniformly for $k_T \leq k \leq k_0$, where $k_T = \exp
+(-(\log \log T)^{\frac{1}{2}})$, $k_0$ is an arbitrary positive number
+and  
+\begin{equation}
+x = \left(\left[k^{-1} \sqrt{2 \log \log T}\right] \pm
+5\right)^{-1}.\label{c6:eq6.54} 
+\end{equation}
+
+The crucial result, which is (\ref{c6:eq6.53}), is proved by using the
+method employed by D.R. Heath-Brown in proving Theorem
+\ref{c6:thm6.1}. This involves the use of convexity techniques, but
+since the argument requires asymptotic\pageoriginale formulas instead
+of upper and lower bounds, it is technically much more involved than
+the proof of Theorem \ref{c6:thm6.1}, although the underlying ideas
+are essentially the same. For example, instead of the bounds
+(\ref{c6:eq6.8}) and (\ref{c6:eq6.9}) furnished by Lemma
+\ref{c6:lem6.1}, for the proof of (\ref{c6:eq6.53}) one requires the
+following asymptotic formulas: 
+\begin{align}
+& \sum\limits_{n \leq N} d^2_x (n) n^{-2\sigma} = H(x) (2\sigma
+  -1)^{-x^2} + O \left(N^{1-2\sigma} (\log
+  N)^{x^2}\right)\label{c6:eq6.55}\\ 
+& \quad + O \left((2\sigma -1)^{-x^2} \Gamma \left(x^2 + 1, (2\sigma -1)
+  \log N\right)\right)\notag\\ 
+& \quad + O \left((2\sigma -1) \log^{\frac{1}{2}} N\right) + O
+  \left((2\sigma -1)^{-x^2} (\log \log T)^{-\frac{1}{2}}\right) \notag
+\end{align}
+and 
+\begin{equation}
+\sum\limits_{n \leq N} d^2_x(n) n^{-1} = \frac{H(x)}{\Gamma(x^2 +1)}
+(\log T)^{x^2} \left(1+O \left((\log \log
+T)^{-1}\right)\right). \label{c6:eq6.56} 
+\end{equation}
+
+Both (\ref{c6:eq6.55}) and (\ref{c6:eq6.56}) are uniform in $k \in
+[k_T, k_0]$, in (\ref{c6:eq6.55}) one has $\sigma > 1/2$, and moreover 
+\begin{align*}
+& H(x) : = \prod_p \left\{(1-p^{-1})^{x^2} \sum\limits^\infty_{r=0}
+  d^2_x (p^r) p^{-r} \right\},\\ 
+& \Gamma (s,y) : = \int\limits^{\infty}_y x^{s-1} e^{-x} dx. 
+\end{align*}
+
+We shall not reproduce here the details of the arguments leading to
+(\ref{c6:eq6.55}) - (\ref{c6:eq6.56}) and eventually to
+(\ref{c6:eq6.53}) and (\ref{c6:eq6.52}). We only remark here that, in
+order to get the asymptotic formulas that are needed, the weighted
+analogue of $J(\sigma)$ (and correspondingly other integrals) in
+Theorem \ref{c6:thm6.1} is defined somewhat differently now. Namely,
+for $\sigma \geq 1/2$ one sets 
+$$
+J_x (\sigma) = \int\limits^\infty_{-\infty} |\zeta(\sigma + it)|^{2x}
+w (t) dt,\quad w(t) = \int\limits^T_{\log^2 T} \exp \left(-2\eta(t - 2
+\tau)^2\right) 
+d \tau, 
+$$
+where $\eta = x k^{-1}$. The modified form of the weight function
+$w(t)$ is found to be more expedient in the proof of (\ref{c6:eq6.53})
+than the form of $w(t)$ used in the proof of Theorem \ref{c6:thm6.1}. 
+
+\section{Mean Values Over Short Intervals}\label{c6:sec6.4}
+
+In this\pageoriginale section we shall investigate lower bounds for 
+\begin{equation}
+I_k (T + H) - I_k (T) = \int\limits^{T+H}_T
+\left|\zeta\left(\frac{1}{2} + it\right)\right|^{2k}
+dt\label{c6:eq6.57}  
+\end{equation}
+when $T \geq T_0$, $k \geq 1$ is a fixed integer, and this interval
+$[T, T+H]$ is ``short'' in the sense that $H = \circ (T)$ as $T \to
+\infty$. The method of proof of Theorem \ref{c6:thm6.1}, which works
+for all rational $k>0$, will not produce good results when $H$ is
+relatively small in comparison with T. Methods for dealing
+successfully with the integral in (\ref{c6:eq6.57}) have been
+developed by K. Ramachandra, who alone or jointly with
+R. Balasubramanian, obtained a number of significant results valid in
+a wide range for $H$. Their latest and sharpest result on
+(\ref{c6:eq6.57}), which follows from a general theorem, is the
+following 
+
+\begin{thm}\label{c6:thm6.5}
+Let $k \geq 1$ be a fixed integer, $T \geq T_0$ and $(\log \log T)^2
+\leq H \leq T$. Then uniformly in $H$ 
+\begin{equation}
+\int\limits^{T+H}_T \left|\zeta \left(\frac{1}{2} + it \right)
+\right|^{2k} dt \geq \left(c'_k + O (H^{-1/8}) + O \left(\frac{1}{\log H} \right)
+\right) H \log^{k^2} H, \label{c6:eq6.58} 
+\end{equation}
+where 
+\begin{equation}
+c'_k = \frac{1}{\Gamma (k^2 + 1)} \prod\limits_p \left\{
+\left(1-p^{-1}\right)^{k^2} \sum\limits^\infty_{m=0} \left(\frac{\Gamma
+  (k+m)^2}{\Gamma(k) m!}\right) p^{-m}\right\}.   
+\label{c6:eq6.59}
+\end{equation}
+\end{thm}
+
+\begin{proof}
+Note that (\ref{c6:eq6.58}) is a remarkable sharpening of Theorem
+\ref{c1:thm1.5}, and that it is also true unconditionally. Since 
+\begin{equation}
+\sum\limits_{n \leq x} d^2_k(n) \sim b'_k x \log^{k^2-1} x,\quad
+\sum\limits_{n\leq x} d^2_k (n) n^{-1} \sim c'_k \log^{k^2} x,
+\label{c6:eq6.60} 
+\end{equation}
+it is seen that instead of (\ref{c6:eq6.58}) it is sufficient to prove 
+\begin{equation}
+\int\limits^{T+H}_T \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2k} dt \geq \sum\limits_{n \leq H} \left(H+ O(H^{7/8})
++ O(n)\right) d^2_k (n) n^{-1}. \label{c6:eq6.61} 
+\end{equation}
+\end{proof}
+
+To this end let\pageoriginale
+\begin{align}
+F(t) : & = \zeta^k \left(\frac{1}{2} + it \right) - \sum\limits_{n
+  \leq H} d_k(n) n^{-\frac{1}{2}-it} - \sum\limits_{H < n \leq H +
+  H^{\frac{1}{4}}} d_k(n) n^{-\frac{1}{2} -it}\label{c6:eq6.62}\\ 
+& = \zeta^k \left(\frac{1}{2}+it \right) - F_1(t) - F_2(t),\notag 
+\end{align}
+say, and assume that (\ref{c6:eq6.61}) is false. Then it follows that 
+\begin{equation}
+\int\limits^{T+H}_T \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2k} dt \leq 2H \sum\limits_{n \leq H} d^2_k(n)
+n^{-1}.\label{c6:eq6.63} 
+\end{equation}
+
+By using the mean value theorem for Dirichlet polynomials (see
+(\ref{c1:eq1.15})) we obtain 
+\begin{equation}
+\int\limits^{T+H}_T |F_1(t)|^2 dt \leq 2 H \sum\limits_{n \leq H}
+d^2_k (n) n^{-1},\label{c6:eq6.64} 
+\end{equation}
+and also
+\begin{align}
+& \int\limits^{T+H}_T |F_2(t)|^2  dt  \ll H\sum\limits_{H < n \leq H +
+    H^{\frac{1}{4}}} d^2_k(n) n^{-1}\label{c6:eq6.65}\\[5pt] 
+& \ll \sum\limits_{H < n \leq H + H^{\frac{1}{4}}} d^2_k(n) \ll
+  H^{\frac{1}{2}} \ll H \sum\limits_{n \leq H} d^2_k (n) n^{-1}\notag 
+\end{align}
+since trivially $d_k(n) \leq n^{1/8}$ for $n \geq n_0$. Thus by
+(\ref{c6:eq6.62}) 
+\begin{align}
+& \int\limits^{T + H}_T |F(t)|^2 dt \ll \int\limits^{T+H}_T
+  \left(\left|\zeta \left(\frac{1}{2} + it \right)\right|^2 +
+  |F_1(t)|^2 + |F_2(t)|^2 \right) dt\label{c6:eq6.66}\\ 
+& \ll H \sum\limits_{n \leq H} d^2_k (n) n^{-1},\notag 
+\end{align}
+and consequently from (\ref{c6:eq6.63}) - (\ref{c6:eq6.65}) we obtain
+by the Cauchy-Schwarz inequality 
+\begin{align}
+& \int\limits^{T+H}_T |F(t) F_2(t)| dt \ll H^{\frac{7}{8}}
+  \sum\limits_{n \leq H} d^2_k (n) n^{-1},\label{c6:eq6.67}\\ 
+& \quad \int\limits^{T+H}_T |F_1(t)F_2(t)| dt  \ll H^{\frac{7}{8}}
+  \sum\limits_{n\leq H} d^2_k(n) n^{-1}.\notag  
+\end{align}
+
+We now\pageoriginale introduce the multiple averaging, which will have
+the effect of making certain relevant integrals in the sequel
+small. Let  $U=H^{7/8}$ and $r \geq 1$ a large, but fixed integer. Set 
+$$
+\int\limits_{(r)} \Psi (t) dt: = U^{-r} \int\limits^U_0 du_r
+\int\limits^U_0 du_{r-1} \ldots \int\limits^U_0 du_1
+\int\limits^{T+H-u_1 -u_2 - \ldots - u_r}_{T + U + u_1 + u_2 + \ldots
+  + u_r} \Psi (t) dt.  
+$$
+
+Thus if $\Psi (t) \geq 0$ for $T \leq t \leq T + H$ and $\Psi (t)$ is
+integrable, we have 
+\begin{equation}
+\int\limits^{T+H}_T \Psi (t) dt \geq \int\limits_{(r)} \Psi (t) dt
+\geq \int\limits^{T+H-(r+1)U}_{T+(r+1)U} \Psi(t)
+du.\label{c6:eq6.68} 
+\end{equation}
+
+From (\ref{c6:eq6.62}) we have 
+$$
+\zeta^k \left(\frac{1}{2} + it \right) = F_1(t) + F_2(t) + F(t), 
+$$
+hence
+\begin{align*}
+\left|\zeta \left(\frac{1}{2}+ it \right)\right|^{2k} & = |F_1 (t)|^2
++ |F_2 (t)|^2 + |F(t)|^2\\ 
+&\quad + 2 \re \left\{ \overline{F_1(t)} F_2(t) + \overline{F_1(t)}
+F(t) + \overline{F_2(t)} F(t) \right\}. 
+\end{align*}
+
+This gives
+\begin{align}
+&\int\limits^{T+H}_T \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^{2k} dt \geq \int\limits_{(r)} \left|\zeta
+  \left(\frac{1}{2} + it \right)\right|^{2k} 
+  dt \int\limits_{(r)} |F_1(t)|^2 dt\geq
+  \label{c6:eq6.69}\\ 
+&\quad{} + 2 \re  \left\{ \int\limits_{(r)} \overline{F_1(t)} F(t)
+  dt\right\} +  O \left(\int\limits_{(r)} \left\{ |F_1(t) F_2(t)| +
+  |F_2(t) F(t)|\right\} dt \right).\notag 
+\end{align}
+
+The integrals in the error terms are majorized by the integrals in
+(\ref{c6:eq6.67}). Thus using once again (\ref{c1:eq1.15}) we obtain 
+\begin{align}
+& \int\limits^{T+H}_T \left|\zeta \left(\frac{1}{2} + it
+  \right)\right|^{2k} dt \geq \int\limits^{T+H - (r+1) U}_{T + (r+1)
+    U} |F_1(t)|^2 dt \label{c6:eq6.70}\\ 
+&\quad +  2 \re \left\{ \int\limits_{(r)} \overline{F_1(t)} F(t) dt
+  \right\} + O \left(H^{7/8} \sum\limits_{n \leq H} d^2_k(n)
+  n^{-1}\right)\notag\\ 
+& = \sum\limits_{n \leq H} \left(H + O(H^{7/8}) + O (n)\right)
+  d^2_k(n) n^{-1} + 2 \re \left\{ \int\limits_{(r)} \overline{F_1(t)}
+  F(t) dt\right\}.\notag 
+\end{align}\pageoriginale
+
+We assumed that (\ref{c6:eq6.61}) is false. Therefore if we can prove that 
+\begin{equation}
+\int\limits_{(r)} \overline{F_1(t)} F(t) dt \ll H^{7/8} \sum\limits_{n
+  \leq H} d^2_k(n) n^{-1}, \label{c6:eq6.71} 
+\end{equation}
+we shall obtain a contradiction, which proves (\ref{c6:eq6.61}) and
+consequently (\ref{c6:eq6.58}). Let 
+$$ 
+A(s) : = \sum\limits_{n \leq H} d_k(n) n^{-s},\quad B(s): = \zeta^{k}
+(s) - \sum\limits_{n \leq H + H^{\frac{1}{4}}} d_k(n) n^{-s}.  
+$$
+
+Then by Cauchy's theorem
+$$
+\int\limits_D A(1-s) B(s) ds = 0,
+$$
+where $D$ is the rectangle with vertices $\frac{1}{2} + i (T + U + u_1
++ \ldots + u_r)$, $2 + i (T + U + u_1 + \ldots + u_r)$, $2+ i(T+ H-u_1
+- \ldots - u_r)$, $\frac{1}{2} + i (T + H - u_1 - \ldots -
+u_r)$. Hence 
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+& U^{-r} \int\limits^U_0 du_r \int\limits^U_0 du_{r-1} \ldots
+  \int\limits^U_0 du_1 \int\limits_D A(1-s) B (s) ds\\ 
+& = U^{-r} \int\limits^U_0 du_r \int\limits^U_0 du_{r-1} \ldots
+  \int\limits^U_0 du_1 \left(\int\limits_{I_1} + \int\limits_{I_2}  +
+  \int\limits_{I_3} + \int\limits_{I_4} \right) A(1-s) B(s) ds = 0,  
+\end{align*}}
+where $I_1$ and $I_3$ are the left and right vertical sides of $D$,
+and $I_2$ and $I_4$ are the lower and upper horizontal sides,
+respectively. If we denote, for $1 \leq n \leq 4$, 
+$$
+J_4 = U^{-r} \int\limits^U_0 du_r \int\limits^U_0 du_{r-1} \ldots
+\int\limits^U_0 du_1 \int\limits_{I_n} A (1-s) B(s) ds  
+$$
+and observe that 
+$$
+J_1 = i \int\limits_{(r)} \overline{F_1(t)}  F(t) dt,
+$$
+then (\ref{c6:eq6.71}) will follow if we can show that 
+\begin{align}
+& J_2 \ll H^{7/8} \sum\limits_{n \leq H} d^2_k (n) n^{-1},
+  \label{c6:eq6.72}\\[4pt] 
+& J_3 \ll H^{7/8} \sum\limits_{n\leq H} d^2_k (n) n^{-1},
+  \label{c6:eq6.73} 
+\end{align}\pageoriginale
+and 
+\begin{equation}
+J_4 \ll H^{7/8} \sum\limits_{n \leq H} d^2_k (n)
+n^{-1}. \label{c6:eq6.74} 
+\end{equation}
+
+To prove (\ref{c6:eq6.73}) note that, for $\re s > 1$,
+$$
+B(s) = \zeta^k (s) - \sum\limits_{m\leq H + H^{\frac{1}{4}}}
+d_k(m)m^{-s} = \sum\limits_{m > H + H^{\frac{1}{4}}} d_k(m) m^{-s}. 
+$$
+
+Therefore
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+J_3 &= U^{-r} \int\limits^U_0 du_r \ldots \int\limits^U_0 du_1
+\int\limits^{2+i(T+H -u_1 - \ldots - u_r)}_{2+i(T+U+u_1 + \ldots +
+  u_r)} A(1-s) B(s) ds\\ 
+& = i U^{-r} \sum\limits_{n \leq H} \sum\limits_{m > H +
+  H^{\frac{1}{4}}} d_k(m)m^{-2} nd_k (n) \int\limits^U_0 du_r \ldots
+\int\limits^U_0 du_1 \int\limits^{T+H-u_1 -\ldots -
+  u_r}_{T+U+u_1+\ldots + u_r} \left(\frac{n}{m} \right)^{it} dt\\ 
+& \ll_r U^{-r} \sum\limits_{n\leq H} \sum\limits_{m> H+
+  H^{\frac{1}{4}}} d_k(m) m^{-2} nd_k (n) \left(\log\frac{m}{n}
+\right)^{-r-1}. 
+\end{align*}}
+
+But for $m,n$ in the last sum we have
+$$
+\log \frac{m}{n} \geq \log \frac{H+H^{\frac{1}{4}}}{H} \geq
+\frac{1}{2} H^{-\frac{3}{4}}, 
+$$
+and since $U =H^{7/8}$ we obtain
+\begin{align*}
+ J_3 &  \ll_r H^{7/8} H^{-(r+1)/8} \sum\limits_{n \leq H} nd_k(n)
+ \sum\limits_{m>H} d_k(m) m^{-2}\\ 
+& \ll_r H^{7/8} H^{-(r+1)/8} H \log^{2k-2} H \ll_r H^{7/8}
+ \log^{k^2-1} H 
+\end{align*}
+for any $r \geq 7$.
+
+It remains to prove (\ref{c6:eq6.72}) and (\ref{c6:eq6.74}). Since
+both proofs are similar, only the details for the latter will be
+given. Set for brevity\pageoriginale 
+$$
+G(s) : = A (1-s) B (s), \; T_r : = T + U + u_1 + \ldots + u_r. 
+$$ 
+
+Then we have
+\begin{equation}
+J_4 = U^{-r} \int\limits^{U}_0 du_r \ldots \int\limits^{U}_0 du_1
+\int\limits^2_{\frac{1}{2}} G(\sigma + iT_r) d \sigma ,
+\label{c6:eq6.75} 
+\end{equation}
+and by the theorem of residues we may write 
+\begin{equation}
+G(\sigma+ iT_r) =\frac{1}{2\pi ie} \int\limits_E G(w+ \sigma + iT_r)
+\exp \left(-\cos \frac{w}{A} \right) \frac{dw}{w},
+\label{c6:eq6.76} 
+\end{equation}
+where $A > 0$ is a constant, and $E$ is the rectangle with vertices
+$\frac{1}{2} - \sigma + iT - iT_r$, $2+iT-iT_r$, $2+i(T+H-T_r)$,
+$\frac{1}{2} - \sigma + i (T+H-T_r)$, whose vertical sides are $I_5,
+I_7$ and horizontal sides are $I_6, I_8$, respectively. The kernel
+function $\exp \left(-\cos \dfrac{w}{A} \right)$, which is essentially
+the one used in the proof of Theorem \ref{c1:thm1.3}, is of very rapid
+decay, since 
+$$
+\left|\exp \left(-\cos \frac{w}{A} \right)\right| = \exp \left( -\cos
+\frac{u}{A} \cdot ch \frac{v}{A}\right) \quad (w=u+iv, \; A > 0). 
+$$
+
+We insert (\ref{c6:eq6.76}) in (\ref{c6:eq6.75}), obtaining
+$$
+J_4 = J_5 + J_6 + J_7 + J_8,
+$$
+say, where $J_n (n = 5,6,7,8)$ comes from the integral over $I_n$. For
+$w = u+ iv$ on $I_6$ and $I_8$ we have $|v| \geq U = H^{7/8}$,
+consequently for $A = 10$ 
+\begin{align}
+\left|\exp \left(-\cos \frac{w}{A} \right)\right| &= \exp \left(-\cos
+\frac{u}{10}\cdot ch \frac{v}{10}  \right) \leq \exp
+\left(-\frac{1}{2} \cos \left(\frac{1}{5} \right) e^{|v|/10}
+\right)\notag\\ 
+&\leq \exp \left(-\frac{1}{2} \cos \left(\frac{1}{5} \right)  e
+H^{7/8}/10\right) \ll_C T^{-C}\label{c6:eq6.77} 
+\end{align}
+for any fixed $C>0$, since $H \geq (\log \log T)^2$. In fact, one
+could increase the range for $H$ in Theorem \ref{c6:thm6.5} to $H \geq
+(\log \log T)^{1+\delta}$ for any fixed $\delta > 0$ at the cost of
+replacing the error term $O(H^{-1/8})$ by a weaker one. From
+(\ref{c6:eq6.77}) it easily follows that the contribution of $J_6 +
+J_8$ is negligible. 
+
+Consider\pageoriginale now
+\begin{align}
+J_5 & = \frac{U^{-r}}{2 \pi i e} \int\limits^U_0 du_r \ldots
+\int\limits^{U}_0 du_2 \int\limits^2_{\frac{1}{2}}\notag\\ 
+& \qquad \left\{ \int\limits^U_0 du_1 \int\limits_{I_5} G (w+ \sigma +
+i T_r) \exp \left(-\cos \frac{w}{A} \right) \frac{dw}{w} \right\}. 
+\label{c6:eq6.78}
+\end{align}
+
+On $I_5$ we have  $w = \frac{1}{2} - \sigma +i (v-T_r)$, $T \leq v
+\leq T + H$. Thus the integral in curly brackets in (\ref{c6:eq6.78})
+becomes (with $A=10$) 
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+& i \int\limits^{T+H}_T G \left(\frac{1}{2} + iv \right) dv
+  \int\limits^U_0 \exp \left\{-\cos \left(\frac{1}{2} - \sigma + i
+  \left(v - T - u_1 - \ldots - u_r \right)/ 10 \right) \right\}\\[5pt] 
+& \qquad \frac{du_1}{\frac{1}{2} - \sigma + i (v - T - u_1 - \ldots -
+    u_r)}\\[5pt] 
+& \ll \int\limits^{T+H}_T \left|G\left(\frac{1}{2} + iv\right)\right|
+  dv \int\limits^U_0 \exp \left\{-\frac{1}{2} \cos \left(\frac{
+    \frac{1}{2} - \sigma}{10}\right) \cdot e^{-|v-T-u_1-\ldots - u_r|}
+  \right\}\\  
+& \qquad \frac{du_i}{\left((\delta - 1/2)^2 + (u_1 + T + \ldots + u_r
+    - v)^2\right)^{1/2}}.  
+\end{align*}}
+
+The presence of the exponential factor makes the portion of the
+integral over $u_1$, for which $|u_1 + T + \ldots + u_r -v| \geq 1$,
+to be $O(1)$. The remaining portion for which $|u_1 + T + \ldots + u_r
+-v| < 1$ is majorized by  
+{\fontsize{10}{12}\selectfont
+\begin{gather*}
+\int\limits^{v-T-U-\ldots - u_r +1}_{v - T - U-\ldots - u_r - 1}
+\frac{du_1}{\left((\sigma -\frac{1}{2})^2 + (u_1 + T + \ldots + u_r
+  -v)^2\right)^{\frac{1}{2}}} = \int\limits^1_{-1}
+\frac{dx}{\left((\sigma -\frac{1}{2})^2 + x^2\right)^{\frac{1}{2}}}\\[5pt] 
+= \log \frac{1+\left((\sigma -\frac{1}{2})^2 +
+  1\right)^{\frac{1}{2}}}{-1 + \left((\sigma -\frac{1}{2})^2
+  +1\right)^{\frac{1}{2}}} \ll \log \frac{1}{\sigma -\frac{1}{2}}.  
+\end{gather*}}
+
+Hence we obtain
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& J_5 \ll U^{-1} \int\limits^{T + H}_T \left|G \left(\frac{1}{2} + iv
+  \right)\right| dv \int\limits^2_{\frac{1}{2}} \left(\log \frac{1}{\sigma
+    -\frac{1}{2}} \right)^{-1} d \sigma\\ 
+& \ll U^{-1} \int\limits^{T+H}_T \left|G \left(\frac{1}{2} + iv
+  \right)\right| dv = U^{-1} \int\limits^{T+H}_T |F_1(t) F(t)| dt \ll
+  H^{\frac{1}{8}} \sum\limits_{n \leq H} d^2_k(n) n^{-1}, 
+\end{align*}}
+on using (\ref{c6:eq6.64}) and (\ref{c6:eq6.66}) coupled with the
+Cauchy-Schwarz inequality. 
+ 
+Finally we consider
+$$ 
+J_7 = \frac{U^{-r}}{2 \pi i e} \int\limits^U_0 du_r \ldots
+\int\limits^U_0 du_1 \int\limits^2_{\frac{1}{2}} d
+\sigma\int\limits_{I_7} G(w+ \sigma + i T_r) \exp \left(-\cos
+\frac{w}{10} \right) \frac{dw}{w}. 
+$$
+
+On $I_7$\pageoriginale we have $w = 2 + iv$, $T - T_r \leq v \leq T +
+H - T_r$. Since $|T - T_r| = |U + u_1 + \ldots + u_r| \geq H^{7/8}$,
+$|T+ H - T_r| \geq H^{7/8}$, the presence of $\exp\left(-\cos
+\frac{w}{10} \right)$ makes it possible to replace, in the integral
+over $w$, the range for $v$ by $(-\infty, \infty)$ with a negligible
+error. In the remaining integral we may interchange, in view of the
+absolute convergence, the order of integration. We are left with  
+\begin{align*}
+& \frac{1}{2\pi e} \int\limits^{\infty}_{-\infty} \exp \left(-\cos
+  \left(\frac{2+iv}{10} \right) \right) \frac{dv}{2+iv}\\ 
+& \qquad \left\{ U^{-r} \int\limits^2_{\frac{1}{2}} d \sigma
+  \int\limits^U_0 du_r \ldots \int\limits^U_0 du_1 G \left(2+ \sigma +
+  i (v+ T_r)\right)\right\}. 
+\end{align*}
+
+But we have
+\begin{align*}
+& G(2 + \sigma + i (v+ T_r)) = A(-1-\sigma - iv - iT_r) B (2+ \sigma +
+  iv + iT_r)\\ 
+&\quad = \sum\limits_{m> H + H^{\frac{1}{4}}} \sum\limits_{n \leq H}
+  d_k(m) m^{-2 - \sigma} d_k(n) n^{\sigma +1} \left(\frac{n}{m}
+  \right)^{i(v+T+ U+ u_1 + \ldots + u_r)}. 
+\end{align*}
+
+If we proceed as in the case of the estimation of $J_3$ and carry out
+the integrations over $u_1,u_2, \ldots u_r$, we readily seen that the
+contribution of $J_7$ is $O(1)$ if $r$ is sufficiently large. This
+completes the proof of the theorem. It may be noted that essentially
+the multiple averaging accounts for the shape of the lower bound in
+(\ref{c6:eq6.58}), while the kernel function introduced in
+(\ref{c6:eq6.76}) regulates the permissible range for $H$. 
+
+\newpage
+
+\begin{center}
+\textbf{NOTES FOR CHAPTER 6}
+\end{center}
+
+The method\pageoriginale of D.R. Heath-Brown \cite{Heath-Brown4},
+where (\ref{c6:eq6.2}) was proved, is based on a convexity
+technique. This is embodied in Lemma \ref{c6:lem6.2} and Lemma
+\ref{c6:lem6.3}, both of which are due to R.M. Gabriel
+\cite{Gabriel1}. The bounds given by (\ref{c6:eq6.3}), which have the
+merit of being uniform in $m$, were proved by M. Jutila
+\cite{Jutila2}, who modified the method of Heath-Brown
+\cite{Heath-Brown4}. Lemmas \ref{c6:lem6.1}, \ref{c6:lem6.4},
+\ref{c6:lem6.5} and \ref{c6:lem6.6} are from Heath-Brown
+\cite{Heath-Brown4}. 
+
+E.C. Titchmarsh was the first to prove that if $k$ is a fixed natural
+number, then 
+$$
+\int\limits^{\infty}_0 \left|\zeta \left(\frac{1}{2} + it
+\right)\right|^{2k} e^{-\delta t} dt \gg_k \frac{1}{\delta} \left(\log
+\frac{1}{\delta} \right)^{k^2} 
+$$
+for $0 < \delta \leq \frac{1}{2}$ (see Theorem 7.19 of his book
+\cite{Titchmarsh1}). From this it is easy to deduce that  
+$$
+\limsup\limits_{T \to \infty} \left\{I_k (T) T^{-1} (\log
+T)^{k^2}\right\} > 0. 
+$$
+
+Improving upon this K. Ramachandra (see his series of papers
+\cite{Ramachandra3}) was the first to obtain lower bounds of the type
+(\ref{c6:eq6.2}). His method uses averaging techniques which do not
+depend on the aforementioned results of Gabriel, and besides it is
+capable of obtaining results valid over short intervals. In \cite[Part
+II]{Ramachandra3}, he shows that 
+\begin{equation} 
+\int\limits^{T+H}_T \left. \left|\frac{d^\ell}{ds^{\ell}}
+(\zeta{k}(s)) \right|_{s = \frac{1}{2} +it} \right| dt > C_{k,\ell} H
+(\log H)^{\lambda},\label{c6:eq6.79} 
+\end{equation}
+where $100 \leq (\log T)^{1/m} \leq H \leq T$. Here $k, m,\ell$ are
+any fixed natural numbers, $T \geq T_\circ (k,\ell,m)$, $\lambda =
+\ell + \dfrac{1}{4} k^2$, $C_{k,\ell} > 0$ is a constant which depends
+on $k,\ell$. If the kernel $\exp (z^{4a+2})$ that Ramachandra used  is
+replaced by his kernel $\exp (\sin^2 z)$, then the range for $H$ can
+be taken as $C_k \log \log T \leq H \leq T$ (as mentioned in Notes for
+Chapter \ref{c1}, the latter type of kernel is essentially best
+possible). Upper bounds for the integral in (\ref{c6:eq6.79}) are
+obtained by Ramachandra in \cite[Part
+  III]{Ramachandra3};\pageoriginale one of the results is that 
+\begin{equation}
+\int\limits^{T+H}_T \left|\zeta^{(\ell)} \left(\frac{1}{2} + it
+\right)\right|dt \ll H (\log T)^{\frac{1}{4}+ \ell}
+\label{c6:eq6.80} 
+\end{equation}
+for $\ell \geq 1$ a fixed integer, $H = T^{\lambda}$, $\frac{1}{2} <
+\lambda \leq 1$. From (\ref{c6:eq6.79}) and (\ref{c6:eq6.80}) we infer
+that 
+$$
+T(\log T)^{\frac{1}{4}} \ll \int\limits^T_0 \left|\zeta
+\left(\frac{1}{2} + it \right)\right|dt\ll T(\log T)^{\frac{1}{4}}, 
+$$
+but it does not seem possible yet to prove (or disprove) that, for
+some $C>0$, 
+$$
+\int\limits^T_0 \left|\zeta \left(\frac{1}{2} + it \right)\right| dt
+\sim CT (\log T)^{\frac{1}{4}} \quad (T \to \infty). 
+$$
+
+The lower bound results are quite general (for example, they are
+applicable to ordinary Dirichlet $L$-series, $L$-series of number
+fields and so on), as was established by Ramachandra in \cite[Part
+  III]{Ramachandra3}. The climax of this approach is in
+Balasubramanian-Ramachandra 
+\cite{Balasubramanian and Ramachandra5} (see also Ramachandra's papers
+\cite{Ramachandra5}, \cite{Ramachandra7}, \cite{Ramachandra8}). Their
+method is very general, and gives results like 
+$$
+I_k (T+H) - I_k(T) \geq C'_k H (\log H)^{k^2} \left( 1+ O \left(
+\frac{\log \log T}{H} \right)  + O \left(\frac{1}{\log G} \right)
+\right) 
+$$
+uniformly for $c_k \log \log T \leq H \leq T$, if $k \geq 1$ is a
+fixed integer (and for all fixed $k>0$, if the Riemann hypothesis is
+assumed). Bounds for $I_k(T+H) - I_k(T)$ for irrational $k$ were also
+considered by K. Ramachandra (see \cite[Part II]{Ramachandra6}), 
+and his latest result
+is published in \cite[Part III]{Ramachandra6}. 
+
+Theorem \ref{c6:thm6.2} is from A. Ivi\'c - A. Perelli \cite{Ivic and
+  Perelli1}, which contains a discussion of the analogous problem for
+some other zeta-functions. 
+
+E.J. Littlewood's lemma, mentioned in the proof of Lemma
+\ref{c6:lem6.7}, is proved in Section 9.9 of E.C. Titchmarsh
+\cite{Titchmarsh1}. Suppose that $\Phi(s)$ is meromorphic in and upon
+the boundary of the rectangle $\mathscr{D}$ bounded by the lines $t =
+0$, $t = T(>0)$, $\sigma = \alpha$, $\sigma =\beta$ $B > \alpha)$, and
+regular\pageoriginale and not zero on $\sigma =\beta$. Let $F(s) =
+\log \Phi (s)$ in the neighborhood of $\sigma =\beta$, and in general
+let 
+$$
+F(s) = \lim\limits_{\epsilon \to 0 +} F(\sigma + it + i \epsilon). 
+$$
+
+If $\nu(\sigma',T)$ denotes the excess of the number of zeros over the
+number of poles in the part of the rectangle for which $\sigma >
+\sigma'$, including zeros or poles on $t = T$, but not these on $t=0$,
+then Littlewood's lemma states that 
+$$ 
+\int\limits_{\mathbb{D}} F(s) ds = - 2 \pi i
+\int\limits^{\beta}_{\alpha} \nu(\sigma, T) d \sigma. 
+$$
+
+Theorem \ref{c6:thm6.3} and Theorem \ref{c6:thm6.4} were proved by
+M. Jutila \cite{Jutila2}.  
+
+A comprehensive account on the distribution of values of $\zeta(s)$,
+including proofs of Selberg's results (\ref{c6:eq6.50}) and
+(\ref{c6:eq6.51}), is to be found in the monograph of D. Joyner
+\cite{Joyner1}. 
+
+A. Laurin\v cikas' results on the distribution of $|\zeta(\frac{1}{2}
++ it)|$, some of which are mentioned at the end of Section
+\ref{c6:sec6.3}, are to be found in his papers \cite{Laurincikas1},
+\cite{Laurincikas2}, \cite{Laurincikas3}, \cite{Laurincikas4}. For
+example, the fundamental formula (\ref{c6:eq6.52}) is proved in
+\cite[Part I]{Laurincikas3} under the Riemann hypothesis, while
+\cite[Part II]{Laurincikas3} contains an 
+unconditional proof of this result. 
+
+Theorem \ref{c6:thm6.5} is a special case of a general theorem due to
+R. Balasubramanian and K. Ramachandra \cite{Balasubramanian and
+  Ramachandra5}. I am grateful for their permission to include this
+result in my text. 
+
+\begin{thebibliography}{99}
+\bibitem{Anderson1} R.J. Anderson,\pageoriginale On the function $Z(t)$ associated with the Riemann zeta-function, J. Math. Anal. Appl. 118(1986), 323-340.
+
+\bibitem{Apostol1} T.M. Apostol, Modular functions and Dirichlet series in Number Theory, GTM 41, Springer Verlag, Berlin-Heidelberg-New York, 1976.
+
+\bibitem{Atkinson1} F.V. Atkinson, The mean value of the zeta-function on the critical line, Proc. London Math. Soc. (2) 47(1941), 174-200.
+
+\bibitem{Atkinson2} F.V. Atkinson, The mean value of the Riemann zeta-function, Acta Math. 81(1949), 353-376.
+
+\bibitem{Atkinson3} F.V. Atkinson, The Riemann zeta-function, Duke Math. J. 17 (1950), 63-68.
+
+\bibitem{Balasubramanian1} R. Balasubramanian, An improvement of a theorem of Titchmarsh on the mean square of $|\zeta(\frac{1}{2} + it)|$, Proc. London Math. Soc. (3) 36(1978), 540-576.
+
+\bibitem{Balasubramanian2} R. Balasubramanian, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$ IV, Hardy-Ramanujan J. 9 (1986), 1-10.
+
+\bibitem{Balasubramanian and Ramachandra1} R. Balasubramanian and K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$ III, Proc. Indian Acad. Sci. 86A (1977), 341-351.
+
+\bibitem{Balasubramanian and Ramachandra2} R. Balasubramanian and K. Ramachandra, On an analytic continuation of $\zeta(s)$, Indian J. Pure Appl. Math. 18(1987), 790-793.
+
+\bibitem{Balasubramanian and Ramachandra3} R. Balasubramanian and K. Ramachandra, Some local convexity theorems\pageoriginale for the zeta-function like analytic functions. Hardy Ramanujan J. 11 (1988), 1-12.
+
+\bibitem{Balasubramanian and Ramachandra4} R. Balasubramanian and K. Ramachandra, A lemma in complex function theory I, Hardy-Ramanujan J. 12 (1989), 1-5 and II, ibid. 12 (1989), 6-13.
+
+\bibitem{Balasubramanian and Ramachandra5}  R. Balasubramanian and K. Ramachandra, Proof of some conjectures on the mean-value of Titchmarsh series I, Hardy-Ramanujan J. 13(1990), 1-20, and II, to appear.
+
+\bibitem{Balasubramanian Ivic and Ramachandra1} R. Balasubramanian, A. Ivi\'c and K. Ramachandra, The mean value of the Riemann zeta-function on the line $\sigma =1$, to appear. 
+
+\bibitem{Bartz1} K. Bartz, On an effective order estimate of the Riemann zeta-function in the critical strip, Monatshefte Math. 109(1990), 267-270.
+
+\bibitem{Bohr1} H. Bohr, Almost periodic functions, Chelsea, New York, 1947.
+
+\bibitem{Bombieri and Iwaniec1} E. Bombieri and H. Iwaniec, On the order of $\zeta(\frac{1}{2} + it)$, Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4) 13(1986), 449-472, and ibid. 13(1986), 473-486.
+
+\bibitem{Bruggeman1} R.W. Bruggeman, Fourier coefficients of cusp forms, Invent. Math. 45(1978), 1-18.
+
+\bibitem{Bump1} D. Bump, Automorphic forms on $GL(3,\mathbb{R})$, LNM 1083, Springer Verlag, Berlin etc., 1984.
+
+\bibitem{Bump2} D. Bump, The Rankin-Selberg method: a survery, in ``Number theory, trace formulas and discrete groups'', Symp. in honour of A. Selberg, Oslo 1987, Academic Press, Boston etc., 1989, pp. 49-110.
+
+\bibitem{Chandrasekharan and Narasimhan1} K. Chandrasekharan and R. Narasimhan, Hecke's functional equation and arithmetical identities, Annals of Math. 74 (1961), 1-23.
+
+\bibitem{Chandrasekharan and Narasimhan2} K. Chandrasekharan and R. Narasimhan, Functional equations with multiple gamma factor and the average order of arithmetical functions, Annals of Math. 76(1962), 93-136.
+
+\bibitem{Chandrasekharan and Narasimhan3} K. Chandrasekharan and R. Narasimhan, Approximate functional equations\pageoriginale for a class of zeta-functions, Math. Ann. 152(1963), 30-64.
+
+\bibitem{Conrey and Ghosh1} J.B. Conrey and A. Ghosh, On mean values of the zeta-function, Mathematika  31(1984), 159-161.
+
+\bibitem{Conrey and Ghosh2} J.B. Conrey and A. Ghosh, A mean value theorem for the Riemann zeta-function at its relative extrema on the critical line, J. London Math. Soc. (2) 32(1985), 193-202.
+
+\bibitem{Conrey and Ghosh3} J.B. Conrey and A. Ghosh, On mean values of the zeta-functions II, Acta Arith. 52(1989), 367-371.
+
+\bibitem{Conrey and Ghosh4} J.B. Conrey and A. Ghosh, Mean values of the Riemann zeta-function III, to appear in Proc. Symp. Analytic Number Theory, Amalfi 1989.
+
+\bibitem{Conrey Ghosh and Gonek1} J.B. Conrey, A. Ghosh and S.M. Gonek, Mean values of the Riemann zeta-function with applications to the distribution of zeros, in ``Number theory, trace formulas and discrete groups'', Symp. in honour of A. Selberg, Oslo 1987, Academic Press, Boston etc., 1989, pp. 185-199.
+
+\bibitem{Corradi and Katai1} K. Corr\'adi and I. K\'atai, Egy megjegyz\'es K.S. Gangadharan, ``Two classical lattice point problems'' cim\"u dolgozat\'ahoz (in Hungarian), MTA III Ost\'aly K\"ozlem\'enyei 17(1967), 89-97.
+
+\bibitem{Deshouillers and Iwaniec1} J.-M. Deshouillers and H. Iwaniec, Kloosterman sums and the Fourier coefficients of cusp forms, Invent. Math. 70 (1982), 219-288.
+
+\bibitem{Deshouillers and Iwaniec2} J.-M. Deshouillers and H. Iwaniec, An additive divisor problem, J. London Math. Soc. (2) 26(1982), 1-14.
+
+\bibitem{Deshouillers and Iwaniec3} J.-M. Deshouillers and H. Iwaniec, Power mean-values for the Riemann zeta-function, Mathematika 29(1982), 202-212.
+
+\bibitem{Deshouillers and Iwaniec4} J.-M. Deshouillers and H. Iwaniec, Power mean-values for Dirichlet's polynomials and the  Riemann zeta-function II, Acta Arith. 43(1984), 305-312.
+
+\bibitem{Estermann1} T. Estermann, On the representation of a number as the sum of two products, Proc. London Math. Soc. (2) 31(1930), 123-133.
+
+\bibitem{Estermann2} T. Estermann,\pageoriginale \"Uber die Darstellung einer Zahl als Differenz von zwei Produkten, J. Reine Angew. math. 164 (1931), 173-182.
+
+\bibitem{Estermann3} T. Estermann, On Kloosterman's sum, mathematika 8(1961), 83-86.
+
+\bibitem{Estermann4} T. Estermann, Introduction to modern prime number theory, Cambridge University Press, Cambridge, 1969.
+
+\bibitem{Fouvry and Tenenbaum1} E. Fouvry and G. Tenenbaum, Sur la corr\'elation des fonctions de Piltz, Rivista Mat. Iberoamericana $1 N^\circ 3$ (1985), 43-54.
+
+\bibitem{Gabcke1} W. Gabcke, Neue Herleitung und explizite Restabsch\"atzung der Riemann-Siegel-Formel, Mathematisch-Naturwissenschaftliche Fakult\"at der Georg-August Universit\"at zu G\"ottingen, Dissertation, G\"ottingen, 1979.
+
+\bibitem{Gabriel1} R.M. Gabriel, Some results concerning the integrals of moduli of regular functions along certain curves, J. London Math. Soc. 2 (1927), 112-117.
+
+\bibitem{Gangadharan1} K.S. Gangadharan, Two classical lattice point problems, Proc. Cambridge Philos. Soc. 57(1961), 699-721.
+
+\bibitem{Goldfeld1} D. Goldfeld, Analytic number theory on $GL(n,\mathbb{R})$, in ``Analytic number theory and Diophantine problems'', Progr. Math. 78, Birkha\"user, Basel-Stuttgart, 1987, pp. 159-182.
+
+\bibitem{Goldfeld2} D. Goldfeld, Kloosterman zeta-functions for $GL(n,\mathbb{Z})$, Proc. Intern. Congress of Mathematicians, Berkeley, Calif. 1986, Berkeley, 1987, pp. 417-424. 
+
+\bibitem{Goldfeld and Sarnak1} D. Goldfeld and P. Sarnak, Sums of Kloosterman sums, Invent. Math. 71 (1983), 243-250.
+
+\bibitem{Good1} A. Good, Approximative Funktionalgleichungen und Mittelwertsatze, die Spitzenformen assoziiert sind, Comment. Math. Helv. 50(1975), 327-361.
+
+\bibitem{Good2} A. Good, Ueber das quadratische Mittel der Riemannschen Zeta-function auf der kritischen Linie, Comment. Math. Helv. 52 (1977), 35-48.
+
+\bibitem{Good3} A. Good,\pageoriginale Ein $\Omega$-Resultat f\"ur das quadratische Mittel der Riemannschen Zetafunktion auf der kritischen Linie, Invent. Math. 41(1977), 233-251. 
+
+\bibitem{Good4} A. Good, Beitraege zur Theorie der Dirichletreihen, die Spitzen-formen zugeordnet sind, J. Number Theory 13(1981), 18-65.
+
+\bibitem{Good5} A. Good, The square mean of Dirichlet series associated with cusp forms, Mathematika 29(1982), 278-295.
+
+\bibitem{Good6} A. Good, On various means involving the Fourier coefficients of cusp forms, Math. Zeit. 183(1983), 95-129.
+
+\bibitem{Graham1} S.W. Graham, An algorithm for computing optimal exponent pairs, J. London Math. Soc. (2) 33(1986), 203-218.
+
+\bibitem{Hafner1} J.L. Hafner, New omega theorems for two classical lattice point problems, Invent. Math. 63(1981), 181-186.
+
+\bibitem{Hafner2} J.L. Hafner, On the average order of a class of arithmetical functions, J. Number Theory  15(1982), 36-76.
+
+\bibitem{Hafner3} J.L. Hafner, New omega results in a weighted divisor problem, J. number Theory 28(1988), 240-257.
+
+\bibitem{Hafner and Ivic1} J. L. Hafner and A. Ivi\'c, On the mean square of the Riemann zeta-function on the critical line, J. number Theory 32(1989), 151-191.
+
+\bibitem{Hardy1} G.H. Hardy, Ramanujan, Chelsea, New York, 1962.
+
+\bibitem{Hardy and Littlewood1} G.H. Hardy and J.E. Littlewood, The  approximate functional equation in the theory of the zeta-function, with applications to the divisor problems of Dirichlet and Piltz, Proc. London Math. Soc.(2) 21(1922), 39-74.
+
+\bibitem{Hardy and Littlewood2} G.H. Hardy and J.E. Littlewood, The approximate functional equation for $\zeta(s)$ and $\zeta^2(s)$, Proc. London Math. Soc. (2) 29(1929), 81-97.
+
+\bibitem{Hecke1} E. Hecke, Ueber Modulfunktionen und die Dirichletschen Reihen mit Eulerscher Produktentwicklung I, Math. Ann. 114(1937), 1-28.
+
+\bibitem{Heath-Brown1} D.R. Heath-Brown,\pageoriginale The twelfth power moment of the Riemann zeta-function, Quart. J. Math. (Oxford) 29(1978), 443-462.
+
+\bibitem{Heath-Brown2} D.R. Heath-Brown, The mean value theorem for the Riemann zeta-function, Mathematika 25(1978), 177-184.
+
+\bibitem{Heath-Brown3} D.R. Heath-Brown, the fourth power moment of the Riemann zeta-function, Proc. London Math. Soc. (3) 38(1979), 385-422.
+
+\bibitem{Heath-Brown4} D.R. Heath-Brown, Fractional moments of the Riemann zeta-function, J. London Math. Soc. (2) 24(1981), 65-78.
+
+\bibitem{Heath-Brown5} D.R. Heath-Brown, The divisor function $d_3(n)$ in arithmetic progressions, Acta Arith. 47(1986), 29-56.
+
+\bibitem{Heath-Brown and Huxley1} D.R. Heath-Brown and M.N. Huxley, Exponential sums with a difference, Proc. London Math. Soc. (3) 61(1990), 227-250.
+
+\bibitem{Hooley1} C. Hooley, On the greatest prime factor of a cubic polynomial, J. Reine Angew. Math. 303/304 (1978), 21-50.
+
+\bibitem{Huxley1} M.N. Huxley, Introduction to Kloostermania, in ``Elementary and analytic theory of numbers'', Banach Center Publications Vol. 17, PWN - Polish Scientific Publishers, Warsaw 1985, pp. 217-305.
+
+\bibitem{Huxley2} M.N. Huxley, Exponential sums and lattice points, Proc. London Math. Soc. (3) 60(1990), 471-502.
+
+\bibitem{Huxley3} M.N. Huxley, Exponential sums and the Riemann zeta-function, in ``Number theory'' (eds. J.-M. De Koninck and C. Levesque), Walter de Gruyter, Berlin-New York 1989, pp. 417-423.
+
+\bibitem{Huxley4} M.N. Huxley, Exponential sums and the Riemann zeta-function, IV, to appear.
+
+\bibitem{Huxley5} M.N. Huxley, Exponential sums and rounding error, Proc. London Math. Soc. (3), in press.
+
+\bibitem{Huxley and Watt1} M.N. Huxley and N. Watt, Exponential sums and the Riemann zeta-function, Proc. London Math. Soc. (3) 57(1988), 1-24.
+
+\bibitem{Huxley and Watt2} M.N. Huxley and N. Watt, Exponential sums with a parameter, Proc. London Math. Soc. (3) 59(1989), 233-252.
+
+\bibitem{Huxley and Kolesnik1} M.N. Huxley and G. Kolesnik,\pageoriginale Exponential sums and the Riemann zeta-function III, Proc. London Math. Soc. (3), to appear in 62(1991).
+
+\bibitem{Ingham1} A.E. Ingham, Mean value theorems in the theory of the Riemann zeta-function, Proc. London Math. Soc. (2) 27(1926), 273-300.
+
+\bibitem{Ivic1} A. Ivi\'c, The Riemann zeta-function, John Wiley \& Sons, New York, 1985.
+
+\bibitem{Ivic2} A. Ivi\'c, Sums of products of certain arithmetical functions, Publs. Inst. Math. Belgrade 41(55) (1987), 31-41.
+
+\bibitem{Ivic3} A. Ivi\'c, On some integrals involving the mean square formula for the Riemann zeta-function, Publs. Inst. Math. Belgrade 46(60) (1989), 33-42.
+
+\bibitem{Ivic4} A. Ivi\'c, Large values of certain number-theoretic error terms, Acta Arith. 56(1990), 135-159.
+
+\bibitem{Ivic and Motohashi1} A. Ivi\'c and Y. Motohashi, A note on the mean value of the zeta and $L$-functions VII, Proc. Japan Acad. Ser. A 66(1990), 150-152.
+
+\bibitem{Ivic and Motohashi2} A. Ivi\'c and Y. Motohashi, On the fourth power moment of the Riemann zeta-function, to appear.
+
+\bibitem{Ivic and Perelli1} A. Ivi\'c and A. Perelli, Mean values of certain zeta-functions on the critical line, Litovskij Mat. Sbornik 29(1989), 701-714.
+
+\bibitem{Iwaniec1} H. Iwaniec, Fourier coefficients of cusp forms and the Riemann zeta-function, Expos\'e No. 18, S\'eminaire de Th\'eorie des Nombres, Universit\'e Bordeaux, 1979/80.
+
+\bibitem{Iwaniec2} H. Iwaniec, On mean values for Dirichlet's polynomials and the Riemann zeta-function, J. London Math. Soc. (2) 22(1980), 39-45.
+
+\bibitem{Iwaniec3} H. Iwaniec, Non-holomorphic modular forms and their applications, in ``Modular forms'' (R.A. Rankin ed.), Ellis Horwood, West Sussex, 1984, pp. 157-197.
+
+\bibitem{Iwaniec4} H. Iwaniec, Promenade along modular forms and analytic number theory, in ``Topics in analytic number theory'' (S.W. Graham and J.D. Vaaler eds.), University of Texas Press, Austin 1985, 221-303.
+
+\bibitem{Joyner1} D. Joyner,\pageoriginale Distribution theorems for $L$-functions, Longman Scientific \& Technical, Essex, 1986.
+
+\bibitem{Jutila1} M. Jutila, Riemann's zeta-function and the divisor problem, Arkiv Mat. 21(1983), 75-96, and II, to appear. 
+
+\bibitem{Jutila2} M. Jutila, On the value distribution of the zeta-function on the critical line, Bull. London Math. Soc. 15(1983), 513-518.
+
+\bibitem{Jutila3} M. Jutila, Transformation formulae for Dirichlet polynomials, J. Number Theory 18(1984), 135-156.
+
+\bibitem{Jutila4} M. Jutila, On the divisor problem for short intervals, Ann. Univ. Turkuensis Ser. A I 186(1984), 23-30.
+
+\bibitem{Jutila5} M. Jutila, On a formula of Atkinson, in ``Coll. Math. Soc. J. Bolyai 34. Topics in classical number theory, Budapest 1981'', North-Holland, Amsterdam 1984, 807-823.
+
+\bibitem{Jutila6} M. Jutila, On exponential sums involving the divisor function, J. Reine Angew. Math. 355(1985), 173-190.
+
+\bibitem{Jutila7} M. Jutila, On the approximate functional equation for $\zeta^2(s)$ and other Dirichlet series, Quart. J. Math. Oxford (2) 37 (1986), 193-209.
+
+\bibitem{Jutila8} M. Jutila, Remarks on the approximate functional equation for $\zeta^2(s)$, in ``The very knowledge of coding'', Univ. of Turku, Turku, 1987, 88-98.
+
+\bibitem{Jutila9} M. Jutila, A method in the theory of exponential sums, LN 80, Tata Institute of Fundamental Research, Bombay, 1987 (publ. by Springer Verlag, Berlin-New York).
+
+\bibitem{Jutila10} M. Jutila, The fourth power moment of the Riemann zeta-function over a short interval, in ``Coll. Math. Soc. J. Bolyai 54. Number Theory, Budapest 1987'', North-Holland, Amsterdam 1989, 221-244.
+
+\bibitem{Jutila11} M. Jutila, Mean value estimates for exponential sums, in ``Number Theory, Ulm 1987'', LNM 1380, Springer Verlag, Berlin-New York 1989, 120-136, and II, Arch. Math. 55(1990), 267-274.
+
+\bibitem{Jutila12} M. Jutila, Mean value estimates for exponential sums with applications to $L$-functions, Acta Artih. 57(1990), in print.
+
+\bibitem{Jutila13} M. Jutila,\pageoriginale Transformations of exponential sums, to appear in Proc. Symp. Anal. Number Theory, Amalfi, 1989.
+
+\bibitem{Katai1} I. K\'atai, The number of lattice points in a circle (Russian), Ann. Univ. Sci. Budapest Rolando E\"otv\"os, Sect, Math. 8(1965), 39-60.
+
+\bibitem{Kober1} H. Kober, Eine Mittelwertformel der Riemannschen Zetafunktion, Compositio Math. 3(1936), 174-189.
+
+\bibitem{Kratzel1} E. Kr\"atzel, Lattice points, VEB Deutscher Verlag der Wissenschaften, Berlin, 1988.
+
+\bibitem{Kuznetsov1} N.V. Kuznetsov, The distribution of norms of primitive hyperbolic classes of the modular group and asymptotic formulas for the eigenvalues of the Laplace-Beltrami operator on a fundamental region of the modular group, Soviet Math. Dokl. 10 (1978), 1053-1056.
+
+\bibitem{Kuznetsov2} N.V. Kuznetsov, Petersson's conjecture for cusp forms of weight zero and Linnik's conjecture. Sums of Kloosterman sums (Russian), Mat. Sbornik 111(1980), 335-383.
+
+\bibitem{Kuznetsov3} N.V. Kuznetsov, Mean value of the Hecke series associated with cusp forms of weight zero (Russian), Zap. Nau\v cn. Sem. LOMI 109 (1981), 93-130.
+
+\bibitem{Kuznetsov4} N.V. Kuznetsov, Convolution of the Fourier coefficients of the Eisenstein-Maass series (Russian), Zap. Nau\v cn. Sem. LOMI 129 (1983), 43-84.
+
+\bibitem{Kuznetsov5} N.V. Kuznetsov, Sums of Kloostermann sums and the eighth power moment of the Riemann zeta-function, in ``Number theory and related topics'', Tata Institute of Fundamental Research, published by Oxford University Press, Oxford 1989, pp. 57-117.
+
+\bibitem{Landau1} E. Landau, \"Uber die Gitterpundte in einem Kreise, G\"ottinger Nachrichten 1923, 58-65.
+
+\bibitem{Laurincikas1} A. Laurin\v cikas, On the zeta-function of Riemann on the critical line (Russian), Litovskij Mat. Sbornik 25(1985), 114-118.
+
+\bibitem{Laurincikas2} A. Laurin\v cikas,\pageoriginale On the moments of the zeta-function of Riemann on the critical line (Russian), Mat. Zametki 39(1986), 483-493.
+
+\bibitem{Laurincikas3} A. Laurin\v cikas, The limit theorem for the Riemann zeta-function on the critical line I(Russian), Litovskij Mat. Sbornik 27 (1987), 113-132; II. ibid. 27(1987), 489-500.
+
+\bibitem{Laurincikas4} A. Laurin\v cikas, A limit theorem for Dirichlet $L$-functions on the critical line (Russian), Litovskij Mat. Sbornik 27(1987), 699-710.
+
+\bibitem{Linnik1} Y.V. Linnik, Additive problems and eigenvalues of the modular operators, Proc. Internat. Congress Math. Stockholm (1962), 270-284.
+
+\bibitem{Maass1} H. Maass, \"Uber eine neue Art von nichtanalytischen automorphen Funktionen und die Bestimmung Dirichletscher Reihen durch Funktionalgleichungen, Math. Ann. 121(1949), 141-183.
+
+\bibitem{Matsumoto1} K. Matsumoto, The mean square of the Riemann zeta-function in the critical strip, Japan. J. Math. New Ser. 15(1989), 1-13.
+
+\bibitem{Meurman1} T. Meurman, The mean twelfth power of Dirichlet $L$-functions on the critical line, Annal. Acad. Sci. Fennicae Ser. A Math., Dissertation, Helsinki, 1984.
+
+\bibitem{Meurman2} T. Meurman, A generalization of Atkinson's formula to $L$-functions, Acta Arith. 47(1986)m 351-370.
+
+\bibitem{Meurman3} T. Meurman, On the mean square of the Riemann zeta-function, Quart. J. Math. (Oxford) (2) 38(1987), 337-343.
+
+\bibitem{Meurman4} T. Meurman, On exponential sums involving Fourier coefficients of Maass wave forms, J. Reine Angew. Math. 384(1988), 192-207.
+
+\bibitem{Meurman5} T. Meurman, Identities of the Atkinson type for $L$-functions, unpublished manuscript.
+
+\bibitem{Meurman6} T. Meurman, On the order of the Maass $L$-function on the critical line. Coll. Math. Soc. J. Bolyai 51. Number Theory, Budapest 1987, North-Holland, Amsterdam, 1989, 325-354.
+
+\bibitem{Montgomery and Vaughan1} H.L. Montgomery and R.C. Vaughan, Hilbert's inequality, J. London Math. Soc. (2) 8(1974), 73-82.
+
+\bibitem{Motohashi1} Y. Motohashi, An asymptotic series for an additive divisor problem, Math. Zeit. 170(1980), 43-63.
+
+\bibitem{Motohashi2} Y. Motohashi,\pageoriginale A note on the approximate functional equation for $\zeta^2(s)$, Proc. Japan Acad. Ser. 59 A (1983), 392-396; II ibid. 59 A (1983), 469-472; III ibid. 62 A (1986), 410-412.
+ 
+\bibitem{Motohashi3} Y. Motohashi, A note on the mean value of the zeta and $L$-functions I, Proc. Japan Acad. Ser. 61 A (1985), 222-224; II ibid. 61 A (1985), 313-316; III ibid. 62 A (1986), 152-154; IV ibid. 62 A (1986), 311-313; V ibid. 62 A (1986), 399-401; VI 65 A (1989), 273-275.
+
+\bibitem{Motohashi4} Y. Motohashi, Riemann-Siegel formula, Lecture Notes, University of Colorado, Boulder, 1987.
+
+\bibitem{Motohashi5} Y. Motohashi, A spectral decomposition of the product of four zeta-values, Proc. Japan Acad. Ser. 65 A (1989), 143-146.
+
+\bibitem{Motohashi6} Y. Motohashi, An explicit formula for the fourth power mean of the Riemann zeta-function, to appear.
+
+\bibitem{Motohashi7} Y. Motohashi, Spectral mean values of Maass waveform $L$-functions, to appear.
+
+\bibitem{Motohashi8} Y. Motohashi, The mean square of $\zeta(s)$ off the critical line, unpublished manuscript.
+
+\bibitem{Ogg1} P. OGG, On a convolution of $L$-series, Invent. Math. 7(1969), 297-312.
+
+\bibitem{Oppenheim1} A. Oppenheim, Some identities in the theory of numbers, Proc. London Math. Soc. (2) 26(1927), 295-350.
+
+\bibitem{Panteleeva1} E.I. Panteleeva, On the divisor problem of Dirichlet in number fields (Russian), Mat. Zametki 44(1988), 494-505.
+
+\bibitem{Preissmann1} E. Preissmann, Sur une inegalit\'e de Montgomery-Vaughan, Enseignement Math. 30(1984), 95-113.
+
+\bibitem{Preissmann2} E. Preissmann, Sur la moyenne quadratique du terme de reste du probl\`eme du cercle, C.R. Acad. Sci. Paris S\'er. I 303 (1988), 151-154.
+
+\bibitem{Ramachandra1} K. Ramachandra,\pageoriginale Application of a theorem of Montgomery-Vaughan to the zeta-function, J. London Math. Soc. (2) 10(1975), 482-486.
+
+\bibitem{Ramachandra2} K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$ II, Acta Math. Sci. Hung. 30(1977), 7-13; VII. Ann. Acad. Sci, Fenn. Ser. A Math. 14(1989), 27-40;Hardy-R.J.13(1990), 28-33.
+
+\bibitem{Ramachandra3} K. Ramachandra, Some remarks on the mean value of the Riemann zeta-function anf other Dirichlet series I, hardy-Ramanujan J. 1(1978), 1-15; II. ibid. 3(1980), 1-24; III. Annales Acad. Sci. Fenn. Ser. A Math. 5(1980), 145-158.
+
+\bibitem{Ramachandra4} K. Ramachandra, Some remarks on a theorem of Montgomery and Vaughan, J. Number Theory 11(1979), 465-471.
+
+\bibitem{Ramachandra5} K. Ramachandra, Progress towards a conjecture on the mean value of Titchmarsh series, in ``Recent progress in analytic number theory. Symposium Durham 1979 (Vol. 1)'', Academic Press, London 1981. pp. 303-318; II. Hardy-Ramanujan J. 4(1981), 1-12; III. (with R. Balasubramanian) Acta Arith. 45(1986), 309-318. 
+
+\bibitem{Ramachandra6} K. Ramachandra, Mean values of the Riemann zeta-function and other remarks I, in ``Coll. Math. Soc. J. Bolyai 34. Topics in classical number theory Budapest 1981'', North-Holland, Amsterdam. 1984, pp. 1317-1347; II. in Proc. I.M. Vinogradov Conference (Moscow, 1981), Trudy Mat. Inst. AN SSSR 163(1984), 200-204; III. Hardy-Ramanujan J. 6(1983), 1-21.
+
+\bibitem{Ramachandra7} K. Ramachandra, Titchmarsh series, in ``Number Theory (eds. J. M. De Koninck and C. Levesque), Qu\'ebec 1987'', Walter de Gruyter, Berlin-New York, 1989, pp. 811-814.
+
+\bibitem{Ramachandra8} K. Ramachandra, Proof of some conjectures on the mean-value of Titchmarsh series with application to Titchmarsh's phenomenon, Hardy-Ramanujan J. 13(1990), 21-27.
+
+\bibitem{Ramachandra and Sankaranarayanan1} K. Ramachandra and A. Sankaranarayanan, On some theorems of Littlewood and Selberg I, to appear.
+
+\bibitem{Ramanujan1} S. Ramanujan, Collected Papers, Chelsea, New York, 1962.
+
+\bibitem{Ram Murthy1} M. Ram Murth,\pageoriginale Oscillations of Fourier coefficients of modular forms, Math. Ann. 262(1983), 431-446.
+
+\bibitem{Rankin1} R.A. Rankin, Contributions to the theory of Ramanujan's function $\tau(n)$ and similar arithmetical functions II. The order of the Fourier coefficients of integral modular forms, Proc. Cambridge Phil. Soc. Math. 35(1939), 357-372.
+
+\bibitem{Richert1} H.-E. Richert. Zur Absch\"atzung der Riemannschen Zetafunktion in der N\"ahe der Vertikalen $\sigma =1$, Math. Ann. 169(1967), 97-101.
+
+\bibitem{Selberg1} A. Selberg, Bemerkungen \"uber eine Dirichletsche Reihe, die mit der Theorie der Modulformen nahe verbunden ist, Archiv Math. Naturvidenskab B 43(1940), 47-50.
+
+\bibitem{Selberg2} A. Selberg, On the estimation of Fourier coefficients of modular forms, Proc. Symp. Pure Math. VIII, AMS, Providence, R.I, 1965, pp. 1-15.
+
+\bibitem{Shiu1} P. Shiu, A Brun-Titchmarsh theorem for multiplicative functions, J. Reine Angew.Math. 31(1980), 161-170.
+
+\bibitem{Siegel1} C.L. Siegel, \"Uber Riemann's Nachlass zur analytischen Zahlen-theorie, Quell. Stud. Gesch. Mat. Astr. Physik 2(1932), 45-80.
+
+\bibitem{Srinivasan1} S. Srinivasan, A footnote to the  large sieve, J. Number Theory 9(1977), 493-498.
+
+\bibitem{Terras1} A. Terras, Harmonic analysis on symmetric spaces and applications I, Springer Verlag, Berlin etc., 1985.
+
+\bibitem{Titchmarsh1} E.C. Titchmarsh, The theory of the Riemann zeta-function (2nd ed. revised by D.R. Heath-Brown), Clarendon Press, Oxford, 1986.
+
+\bibitem{Tong1} K.-C. Tong, On divisor problems III, Acta Math. Sinica 6(1956), 515-541.
+
+\bibitem{Vinogradov1} A.I. Vinogradov, Poincar\'e series on $SL(3,\mathbb{R})$ (Russian), Zap. Nau\v cn. Sem. LOMI 160(1987), 37-40.
+
+\bibitem{Vinogradov2} A.I. Vinogradov,\pageoriginale Analytic continuation of $\zeta_3(s,k)$ to the critical strip. Arithmetic part (Russian), Zap. nau\v cn. Sem. LOMI 162(1987), 43-76.
+
+\bibitem{Vinogradov3} A.I. Vinogradov, The $SL_n$-technique and the density hypothesis (Russian), Zap. Nau\v cn. Sem. LOMI 168(1987), 5-10.
+
+\bibitem{Vinogradov and Tahtadzjan1} A.I. Vinogradov and L.A. Tahtad\v zjan, Theory of Eisenstein series for the group $SL(3,\mathbb{R})$ and its application to a binary problem (Russian), Zap. Nau\v cn. Sem. LOMI 76(1978), 5-53.
+
+\bibitem{Vinogradov and Tahtadzjan2} A.I. Vinogradov and L.A. Tahtad\v zjan, An estimate of the residue of Rankin's $L$-series, Soviet Math. Dokl. 26(1982), 528-531.
+
+\bibitem{Voronoi1} G.F. Voronoi, Sur une fonction transcendante et ses applications \`a la sommation de quelques s\'eries, Ann. \'Ecole Normale 21(3) (1904), 207-268; 21(3) (1904), 459-534.
+
+\bibitem{Voronoi2} G.F. Voronoi, Sur le d\'eveloppement, \`a l'\'etude des fonctions cylindriques, des sommes doubles $\sum f (pm^2 + 2 q mn + rn^2)$, o\`u $pm^2 + 2 q mn + rn^2$ est une forme quadratique \`a coefficients entiers (Verh. III Math. Kng. Heidelberg), Teubner, Leipzig, 1905, pp. 241-245.
+
+\bibitem{Watson1} G.N. Watson, A treatise on the theory of Bessel functions, 2nd ed., Cambridge University Press, Cambridge, 1944.
+
+\bibitem{Watt1} N. Watt, Exponential sums and the Riemann zeta-function, II, J. London Math. Soc. (2) 39(1989), 385-404.
+
+\bibitem{Weil1} A. Weil, On some exponential sums, Proc, National Acad. Sci. USA 34(1948), 204-207.
+
+\bibitem{Zavorotnyi1} N.I. Zavorotnyi, On the fourth moment of the Riemann zeta-function (Russian), Preprint, Vladivostok, Far Eastern Research Center of the Academy of Sciences of U.S.S.R. 1986, 36 pp.
+
+\end{thebibliography}

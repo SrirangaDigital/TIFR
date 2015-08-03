@@ -1,0 +1,1747 @@
+\part{Filtering Theory} %%% part 2
+
+
+\setcounter{section}{-1}
+\section{Introduction} %sec 0
+ 
+ Suppose\pageoriginale $\{ x_t\}$ is a signal process which represents
+ the state of a system, but cannot be observed directly. We observe a
+ related process $\{ y_t\}$. Our aim is to get an expression for the
+ ``best estimate'' of $x_t$, given the history of $\{y_t\}$ upto time
+ $t$.   
+ 
+ In Section \ref{part2:sec1}, we give quick derivations of the
+ ``Kalman filter'' for 
+ the linear systems, and nonlinear filtering equations, that of
+ Fujisaki, Kallianpur and Kunita and Zakai's equation for unnormalized
+ conditional density (Kallianpur \cite{key19}, Davis and Marcus
+ \cite{key8}). In 
+ section \ref{part2:sec2}, we will study pathwise solutions of differential
+ equations. In section \ref{part2:sec3}, we will study the ``Robust'' theory of
+ filtering as developed by Clark \cite{key5}, Davis \cite{key10} and Pardoux
+ \cite{key20}. Here the above filtering equations are reduced to
+ quasi-deterministic form and solved separately for each observation
+ sample path. Also, we will look here into some more general cases of
+ filtering developed by Kunita \cite{key17}, where the existence of
+ conditional density functions is proved using methods related the
+ theory of ``Stochastic flows''.  
+  
+ \section[Linear and Nonlinear Filtering Equations....]{Linear and
+   Nonlinear Filtering Equations\hfill\break Kal\-man Filter 
+   (Davis \cite{key11})}\label{part2:sec1}%sec 1 
+  
+ Suppose\pageoriginale that the ``signal process'' $x_t$ satisfies the
+ liner stochastic differential equation 
+ \begin{equation*}
+   dx_t  =  Ax_t  dt  +  c  dV_t  \tag{1}\label{part2:sec1:eq1}
+ \end{equation*}
+ where $V_t$ is some Wiener process. ``Observation'' $y_t$ is given by 
+ \begin{equation*}
+   dy_t =  Hx_t  dt  +   dW_t   \tag{2}\label{part2:sec1:eq2}
+ \end{equation*}
+ where $W_t$ is a Wiener process independent of $V_t$. Assume $x_o
+ \sim N(o,P_o)$. To get a physical model, suppose we write (\ref{part2:sec1:eq2}) as   
+ $$
+ \frac{dy_t}{dt} = Hx_t + \frac{dW_t}{dt}
+ $$
+ then $\dfrac{dW_t}{dt}$ corresponds to white noise and
+ $\dfrac{dy_t}{dt}$ is the `` physical'' observation. 
+ 
+ The filtering problem is to calculate `best estimate' of $x_t$ given\break
+ $(y_s, s \le t)$. There are two formulations for Kalman filter.  
+\begin{enumerate}[{\bf (a)}]
+\item \textbf{Strict Sense:} If $(V_t, W_t)$ are Brownian motions then
+   $(x_t, y_t)$ is a Guassian process. Then $\hat{x}_t = E [x_t |y_s,
+   s \le t]$ is the ``best estimate'' in the sense of minimizing $E
+   (x_t - z)^2$ over all $y_t$-measurable, square integrable random
+   variables $z$, where  
+   $$
+   y_t = \sigma \{Y_s, s \le t \}.
+   $$
+   Because of normality, $\hat{x}_t$ is a liner function of $(y_s, s
+   \le t)$. 
+
+ \item \textbf{Wide Sense Formulation:}\pageoriginale Do not suppose
+   $V_t, W_t$ are 
+   normally distributed. Just suppose that the $i^{th}$ coordinates
+   $V^i_t, W^i_t$ are uncorrelated and $E V^i_t V^i_s = t \Lambda s$; $E
+   W^i_t W^i_s = t \Lambda s$, i.e., $V^i, W^i$ are orthogonal increment
+   processes. Now look for the best linear estimate of $x_t$ given
+   $(y_s, s \le t)$. This will coincide with $E(x_t|y_t)$ in strict
+   sense case. 
+
+   Calculating $\hat{x}_t$ is a Hilbert space projection problem. The
+   random variables we consider belong to $L^o_2 (\Omega, F,
+   \mathbb{P})$ which is a Hilbert space with inner product $(X,Y) = E
+   X  Y$, where $o$ denotes the elements are of zero mean. For any
+   process, say $y_t$ define $H^y = L (y_t, t \ge o)$, the linear span
+   of $y_t$; this is a linear subspace. Then if $\hat{z}$ denotes the
+   projection of $z$ onto $H^y$, then  
+ \end{enumerate} 
+$$
+\| z -\hat{z}\| = \min_{U \in  H^y}\|z -U\|.
+$$
+ 
+Let $\hat{x}_t$ be projection of $x_t$ onto $H^y_t = L (y_s, s \le
+t)$. Then the ``Innovations process'' $\nu_t$ is defined by 
+\begin{equation*}
+  d \nu_t = dy_t - H \hat{x}_t dt. \tag{3}\label{part2:sec1:eq3}
+\end{equation*} 
+ 
+The Innovations process $\nu_t$ has the following properties:
+ \begin{enumerate}[(i)]
+ \item  $\nu_t$ is an orthogonal increments process.
+
+ \item $H^y_t = H^{\nu}_t$.
+
+ \item $H^\nu_t = \left\{ \int\limits_o^t  g (s) d \nu_s, ~g \in  ~
+   L_2 [o,t]\right\}$. 
+\end{enumerate}
+
+Then\pageoriginale $\hat{x}_t$ satisfies the linear equation
+\begin{align*}
+  d \hat{x}_t & = A \hat{x}_t dt + P(t) H' d \nu_t\\
+  \hat{x}_o & = 0 \tag{4}\label{part2:sec1:eq4}
+\end{align*}
+where the error covariance $P(t)=E(x_t- \hat{x}_t)(x_t- \hat{x}_t)'$, (`
+denotes the transpose). 
+\begin{align*}
+  & P(t) \text{ satisfies the ``Riccati equation'' }\\
+  & \dfrac{d}{dt}P(t)= AP(t)+ P(t)A' +CC'- P'(t)HH'P(t)\\
+  & P(o)= P_o=Cov (x_o).
+\end{align*} 
+ 
+ The above equation (\ref{part2:sec1:eq4}) is the \textit{Kalman Filter}.
+ 
+\medskip
+ \noindent{\textbf{Derivation of Kalman Filter equation:}}
+ From  properties (ii), (iii) we know  
+ $$
+ \hat{x}_t = \int\limits_{o}^t g(t,s)d \nu_s
+ $$
+ for some $g$ such that 
+ $$
+ \int\limits_{o}^t g^2(t,s) ds < \infty.
+ $$
+ 
+ Now using projection, $x_t -\hat{x}_t \perp \nu_s, s \le t$. So
+ \begin{align*}
+   Ex_t \nu'_s &= E \hat{x}_t \nu'_s \\
+   &= E\left( \int\limits_{o}^t g(t,u)dv_u \right)\nu'_s\\
+   &= \int\limits_{o}^t g(t,u) du.
+ \end{align*} 
+ 
+ Hence
+ $$
+ g(t,s)= \frac{d}{ds}Ex_t \nu'_s.
+ $$
+ 
+ Write\pageoriginale innovations process as 
+ \begin{align*}
+   &d\nu_t = H \tilde{x}_t dt+ dW_t \text{ where } \tilde{x}_t = x_t -
+   \hat{x}_t.\\ 
+   &E x_t \nu'_s = \int\limits_{o}^s E(x_t \tilde{x'}_u))H' du.
+ \end{align*}
+ 
+ Now
+ $$
+ x_t = \phi(t,u) x_u + \int\limits_{u}^t \phi(t,r) C dV_r
+ $$
+ where $\phi$ is the transition matrix of $A$. So
+ \begin{align*}
+   E x_t \nu'_s &= \int\limits_{o}^s  \phi (t, u) (\tilde{x}_u
+   \tilde{x'}_u) H' du\\ 
+   &= \int\limits_{o}^s \phi (t,u) P(u) H' du\\
+   g(t,s)&= \phi(t,s) P(s) H'.
+ \end{align*}  
+  So
+  $$
+  \hat{x}_t = \int\limits_{o}^t \phi(t,s) P(s) H' d \nu_s.
+  $$
+  
+  But this is the unique solutions of (\ref{part2:sec1:eq4}).
+  
+\medskip
+\noindent{\textbf{Important Points:}}
+\begin{itemize}
+\item[\rm (1)] It is a recursive estimator. 
+
+\item[\rm (2)] In the strict sense version $\hat{x}_t$ is a sufficient
+  statistic for the conditional distribution of $x_t$ given $(y_s, s
+  \le t)$, since this distribution is $N(\hat{x}_t, P(t))$ and $P(t)$
+  is nonrandom.  
+\end{itemize}
+  
+  \begin{exercise}[Constant Signal] %exer 1.1 
+      Let $x_t = \theta$ with $E(\theta)=0$, Var
+    $(\theta)= \sigma^2$ and  
+    $$
+    dy_t= \theta dt + dW_t 
+    $$  
+    with\pageoriginale $\theta$ independent of $W_t$. Show directly by
+    projection that   
+    $$
+    \hat{\theta}_t =\frac{1}{t+ \frac{1}{\sigma^2}} y_t.
+    $$  
+  \end{exercise} 
+
+Now show that the Kalman filter gives the same result.
+ 
+\medskip
+ \noindent{\textbf{Nonlinear Filtering}}
+ 
+ Suppose ``signal'' $x_t$ is a Markov process and ``observation''
+ $y_t$ is given by  
+ $$
+ dy_t = h(x_t)dt +dW_t,
+ $$
+ generally $h$ is a bounded measurable function (extra smoothness
+ condition will be added later). Assume that for each $t,x_t$ and
+ $(W_u- W_v), u,v \ge t$ are independent, which allows for the
+ ``feedback'' case. Our objective is to calculate in recursive from
+ the ``estimates'' of $x_t$. to do this, it is necessary to compute the
+ condition of $x_t$ given  
+ $$
+ y_y = \sigma \{y_s, s \le t\}.
+ $$
+ 
+\medskip
+ \noindent{\textbf{The Innovations Approach to Nonlinear Filtering}}
+ 
+ This approach was originally suggested by Kailath for the linear case
+ and by Kailath and Frost for nonlinear filtering. The definitive
+ formulation of the filtering problem from the innovations standpoint
+ was given by Fujiskki, Kallianpur and Kunita \cite{key18}. 
+ 
+\medskip
+ \noindent{\textbf{Innovations Processes:}}\pageoriginale
+ Consider process $y_t$ satisfying  
+ \begin{equation*}
+   dy_t =z_t dt+ dW_t,  t \in  [o,T] \tag{5}\label{part2:sec1:eq5}
+ \end{equation*} 
+ where $W_t$ is Brownian motion and assume
+ \begin{equation*}
+   E \int\limits_{o}^T z^2_s ds< \infty \tag{6}\label{part2:sec1:eq6}
+\end{equation*} 
+and the ``feedback'' condition is satisfied. Let 
+$$
+\hat{z}_t = E[z_t |y_t].
+$$
+
+More precisely $\hat{z}_t$ is the ``predictable projection'' of $z_t$
+onto $y_t$. The innovations process is then  
+\begin{equation}
+  d \nu_t = dy_t - \hat{z}_y dt. \tag{7}\label{part2:sec1:eq7}
+\end{equation}
+
+\medskip
+\noindent{\textbf{Note (i):}}
+  $\nu_t$  is a Brownian motion w.r.t. $y_t$, i.e., $\nu_t$ is a $y_t$
+  martingale and $<\nu>_t$. If $F^\nu_t= \sigma\{\nu_s,s \le t\}$, the
+  question is whether $F^\nu_t=F^y_t$. It has been shown that in
+  general, this is not true. But if (i) holds and $(z_t), (W_t)$ are
+  independent, then Allinger-Mitter proved that $F^\nu_t= F^y_t$. 
+
+
+\medskip
+\noindent{\textbf{Note (ii):}}
+  All $y_t$-martingales are stochastic integrals $w.r.t$. $(\nu_t)$,
+  i.e., if $M_t$ is a $y_t$-martingale, then there is a $g$ such that  
+  $$ 
+  \int\limits_{o}^T g^2_s ds < \infty ~a.s. 
+  $$
+  and
+  $$
+  M_t = \int\limits_{o}^t g_s d \nu_S. 
+  $$ 
+
+This is true even if $F^\nu_t \neq F^y_t$, but note that $(g_s)$ is
+adapted to $F^y_t$, not necessarily to $F^\nu_t$. 
+
+\medskip
+\noindent{\textbf{A General Filtering Formula:}}\pageoriginale Take an
+$F_t$-martingale $n_t$, process $(\alpha_t)$ satisfying  
+$$
+E \int\limits_{o}^T |\alpha_s|^2 ds < \infty
+$$
+and $F_o$ measurable random variable $\xi_o$ with $E \xi^2_o < \infty$.
+
+\noindent
+Now define an $F_t$ semi-martingale $\xi_t$ by 
+\begin{equation*}
+\xi_t = \xi_o + \int\limits_{o}^t \alpha_s ds + n_t. \tag{8}\label{part2:sec1:eq8}
+\end{equation*}
+Since $< W, W >_t =t$, we have 
+$$
+<n,W>_t = \int\limits_{o}^t \beta_s ds
+$$
+for some $\beta_t$ and for any martingale $n_t$. Let 
+$$
+\hat{\xi}_t= E[\xi_t|y_t].
+$$
+
+Then $\hat{\xi}_t$ satisfies the following stochastic differential
+equation 
+\begin{equation*}
+  \hat{\xi}_t= \hat{\xi}_o +\int\limits_{o}^t \hat{\alpha}_s ds +
+  \int\limits_{o}^t [\widehat{\xi_s z_s} + \hat{\xi}_s \hat{z}_s+
+    \hat{\beta}_s] d \nu_s.  \tag{9}\label{part2:sec1:eq9} 
+\end{equation*}
+
+\begin{proof}
+Define
+$$
+\mu_t = \hat{\xi}_t - \hat{\xi}_o = \int\limits_{o}^t \hat{\alpha}_s ds 
+$$
+\end{proof}
+
+Then $\mu_t$ is a $y_t$- martingale. So there is some integrable
+function $\eta$ such that 
+\begin{equation}
+  \mu_t= \int\limits_{o}^t \eta_s d \nu_s. \tag{10}\label{part2:sec1:eq10}
+\end{equation}
+
+Now\pageoriginale we will identity the form of $n_t$, using ideas of Wong
+\cite{key28}. Using (\ref{part2:sec1:eq5}) and (\ref{part2:sec1:eq8})
+and I to formula,  
+$$
+\xi_t y_t=\xi_o y_o + \int \limits_o^t \xi_s (z_s ds +dW_s)+ \int
+\limits ^t_o y_s(a_s ds+dn_s) 
+$$
+
+Now calculate $\hat{\xi}_t y_t$ using (\ref{part2:sec1:eq7}) and
+(\ref{part2:sec1:eq10}), 
+$$
+\hat{\xi}_t y_t=\hat{\xi}_o y_o+\int \limits ^t_o \hat{\xi}_s
+(\hat{z}_s ds +dv_s)+\int \limits ^t_o y_s (\hat{a}_s ds +\eta_sdv_s)
++\int \limits^t_o \eta _s ds. 
+$$
+
+Now for $t \geq s$,
+$$
+E\left[\xi_t y_t- \hat{\xi}_t y_t|y_s\right]=0.
+$$
+
+So
+$$
+E \left[\int\limits^t_s \left((\widehat {\xi_u z_u})
+-\hat{\xi}_u \hat{z}_u +\hat{\beta}_u -{\eta}_u\right) du |y_s \right] =0. 
+$$
+
+Let
+$$
+V(u)=\widehat{\xi_u z_u}-\hat{\xi}_u\hat{z}_u+\hat{\beta}_u-\eta_u.
+$$
+
+Then $V(u)$ is predictable process and
+$$
+E\left[\int^t_s V(u)du|F_s\right]=0.
+$$
+
+This is,
+$$
+\int \limits _{A \times [s,t]}V(u)du dP=0 \forall s,t \geq s, A \in
+F_s. 
+$$
+
+The class of sets $A \times [s,t]$ generates $P$, the predictable
+    $\sigma$-field. Hence $V(u, \omega) =0$ a.e. $dt * dP$. Hence the
+    result. 
+
+    Formula\pageoriginale (\ref{part2:sec1:eq9}) is not a recursive equation for
+    $\hat{\xi}_t$. Still 
+    we can use it to obtain more explicit results for filtering of
+    Markov processes. Let ($x_t$) be a Markov process and
+    $A,\mathcal{D}(A)$ be generator, i.e., for $f \in \mathcal{D}(A)$
+    then 
+$$
+C^f_t = f(x_t)-f(x_s)- \int \limits ^t_s Af(x_u)du 
+$$
+is a martingale. Suppose
+$$
+<C^f, W>_t = \int \limits^t_o Zf(x_s)ds
+$$
+for some function $Zf$. Introduce the notation
+$$
+\prod_t (f)=E[f(x_t)|y_t]
+$$
+
+Now apply (\ref{part2:sec1:eq9}) with $\xi_t=f(x_t); Af(x_s)=\alpha_s, C^f_t=n_t$ and
+$z_t=h(x_t)$ to get Fujisaki-Kallianpur-Kunita filtering formula 
+\begin{equation*}
+  \Pi_t(f)= \Pi_o (f)+ \int \limits^t_o \Pi_s (Af)ds+ \int \limits^t_o
+     \left[\Pi_s (Df)-\Pi_s (h)\Pi_s (f)\right]dv_s  \tag{11}\label{part2:sec1:eq11}  
+\end{equation*}
+where 
+$$
+Df(x)=Zf(x)+h(x)f(x). 
+$$
+
+If we interpret $\Pi _t$ as the conditional distribution of $x_t$
+given $y_t$, so that 
+$$
+\Pi_t (f)= \int f(x)\Pi _t (dx)= E[f(x_t)|y_t],
+$$
+then (\ref{part2:sec1:eq11}) is a measure-valued stochastic differential equation, and
+gives an infinite-dimensional recursive equation for filtering. 
+
+
+\begin{exercise} %%%% 1.2
+  Derive\pageoriginale the Kalman filter from the
+  Fujisaki-Kallianpur-Kunita equation. 
+\end{exercise}
+
+\medskip
+\noindent{\textbf{The Unnormalized (Zakai) Equations:}}
+
+Introduce a new probability measure $P_o$ on ($\Omega,F$) with $t \in
+[o,T]$ by 
+$$
+\frac {dP_o}{dP}=\exp \left(- \int \limits^T_o h(x_s)dW_s
+-\frac{1}{2}\int \limits^T_o h^2(x_s)ds\right). 
+$$
+
+Since $h$ is bounded, $P_o$ is probability measure and ($y_t$) is a
+$P_o$-Brownian motion. Also 
+\begin{align*}
+< C^f_t, y >_t & = <C^f_t, w >_t\\
+& = \int \limits ^t_o Zf(x_s)ds.
+\end{align*}
+
+Note that, in general, $C^f_t$ is a semi-martingale under $P_o$ but
+$<.,.>$ is invariant under absolutely continuous change of
+measure. Also if $Z=o$, then $x_t$ has the same distribution under
+either measure. Let 
+$$
+\wedge_T=\frac{dP}{dP_o}= \exp \left(\int \limits ^T_o
+h(x_s)dy_s-\frac{1}{2}\int \limits^T_o h^2 (x_s)ds \right). 
+$$
+
+Let $E_o$ denote the expectation under $P_o$. Then it can be calculated
+that under measure $P_o$, 
+\begin{align*}
+  \Pi _t (f) & = E[f(x_t) | y_t]\\
+  & = \frac{E_o [f(x_t)A_t|y_t]}{E_o [A_t | y_t]}\\
+  &= : \frac{\sigma_t (f) }{\sigma_t(1)}.
+\end{align*}
+
+Then\pageoriginale $\sigma_t(f)$ is an unnormalized conditional
+distribution since 
+$\sigma_t(1)$ does not depend on $f$. To obtain a<n equation satisfied
+by $\sigma_t$, we need a semi-martingale representation for
+$\sigma_t(1)$. First we have  
+\begin{equation*}
+  d \Lambda_t  =  h(x_t) \Lambda _t dy_t \tag{12}\label{part2:sec1:eq12}
+\end{equation*}
+i.e.,
+$$
+\Lambda_t = 1+ \int \limits ^t_o h(x_s) \Lambda_s
+  dy_s 
+$$
+also $\Lambda_t$ is a ($F_t, P_o$) martingale. Then as before 
+$$
+\hat{\Lambda}_t=E_o [\Lambda_t| y_t]
+$$
+is a $y_t$-martingale, so there exists some $y_t$-adapted integrand
+$\eta _t$ such that 
+\begin{equation*}
+  \hat{\Lambda}_t=1+ \int \limits^t_o \eta _s dy_s \tag{13}\label{part2:sec1:eq13}
+\end{equation*}
+
+To identify $\eta_t$, we use the same technique as in deriving the
+$FKK$ equation. Calculate using (\ref{part2:sec1:eq12}) and I to's rule, 
+\begin{gather*}
+  \Lambda_t y_t= \int \limits^t_o \Lambda_t dy_s + \int \limits^t_o y_s
+  \Lambda_s h(x_s)dy_s + \int \limits^t_o\Lambda_s h(x_s)ds.
+\end{gather*}
+
+Calculating using (\ref{part2:sec1:eq13}) and Ito's rule,
+$$
+\hat{\Lambda}_ty_t = \int \limits_o^t \hat {\Lambda}_s dy_s +\int
+\limits_o^t y_s \eta_s dy_s + \int \limits_o^t  \eta_s ds. 
+$$
+
+Now 
+$$
+E_o[\Lambda_t y_t- \hat{\Lambda}_t y_t |y_s]=o \text{ for } t \geq s, 
+$$
+so we get
+$$
+\eta_t = \widehat{\Lambda (t)h(x_t)}: = E_o [\Lambda_th(x_t)|y_t].
+$$
+
+So\pageoriginale (\ref{part2:sec1:eq13}) becomes
+ag\begin{equation*}
+\hat{\Lambda}_t = 1 + \int \limits \hat {\Lambda}_s \Pi_s (h)dy_s
+\tag{14}\label{part2:sec1:eq14} 
+\end{equation*}
+
+This has a unique solution
+\begin{align*}
+\hat{\Lambda}_t  & = \exp \left(\int \limits^t_o \Pi_s (h) dy_s-
+\frac{1}{2} \int \limits^t_o \Pi^2_s(h) ds \right)\\ 
+&= \sigma _t (1)
+\end{align*}
+
+\begin{theorem}%%% 1.1
+  $\sigma _t(f)$ satisfies the ``Zakai equation''
+  \begin{align*}
+    d\sigma _t(f) & = \sigma _t (Af) dt + \sigma _t(Df) dy_t
+    \tag{15}\label{part2:sec1:eq15}\\ 
+    \sigma _o(f) & = \Pi _o (f)=E [f(x_t)].
+  \end{align*}
+\end{theorem}
+
+\begin{proof}
+Direct calculation using (\ref{part2:sec1:eq11}),
+(\ref{part2:sec1:eq14}) and the fact that  
+$$
+\sigma _t(f)= \hat{\Lambda}_t \Pi_t (f).
+$$
+\end{proof}
+
+\begin{coro} %Corollary 1.1
+  There is a one-to-one relation between Zakai equation and $FKK$
+  equation, in that whenever $\sigma_t$ satisfies Zakai equation,
+  $\sigma_f(f)/\break\sigma_t (1)$ satisfies (\ref{part2:sec1:eq11}), and
+  whenever $\prod _t   (f)$ satisfies (\ref{part2:sec1:eq11}), 
+  $$
+  \Pi _t (f) \exp \left(\int \limits^t_o \Pi_s (h)dy_s- \frac{1}{2}
+  \int \limits^t_o \Pi_s (h)ds \right) 
+  $$
+satisfies Zakai equation.
+\end{coro}
+
+\medskip
+\noindent{\textbf{The Zakai Equation with Stratonovich
+    Integrals:}}\pageoriginale 
+
+Recall
+$$
+\int \limits^t_o u_s \circ dv_s := \int \limits^t_o u_s dv_s +
+\frac{1}{2}<u,v>_t 
+$$
+where $o$ denotes a Stratonovich Stochastic integral and $u$ and $v$
+are continuous semi-martingales. We have to calculate
+$<\sigma.(Df),y>_t$. From Zakai equation 
+$$
+d \sigma_t(Df)= \sigma_t(ADf)dt + \sigma _t (D^2 f)dy_t.
+$$
+So
+$$
+d < \sigma.(Df), y>_t =  \sigma_t(D^2f)dt.
+$$
+So the Stratonovich version of the Zakai equation is 
+\begin{align*}
+  d \sigma_t (f) & = \sigma_t (Af)dt+ \sigma_t (Df) o dy_t-
+  \frac{1}{2}\sigma_t (D^2f)dt\\ 
+  &= \sigma_t (Lf)dt+\sigma_t (Df)o dy_t
+\end{align*}
+where
+$$
+Lf(x)=Af(x)- \frac{1}{2}D^2f(x).
+$$
+
+\medskip
+\noindent{\textbf{Application to Diffusion Process:}}
+
+Consider a process $x_t \in \mathbb{R}^d$ satisfying
+\begin{equation*}
+  df(x_t)=X_o f(x_t)dt +X_jf(x_t)o dB_t^j \tag{16}\label{part2:sec1:eq16}
+\end{equation*}
+for arbitrary smooth $f$, where $X_o, \ldots,X_r$ are vector fields on
+$\mathbb{R}^d$ we suppose that $<B^j,W>_t= \alpha ^jt$ for some
+constants $\alpha^1,\ldots, \alpha^r$ 
+
+Note\pageoriginale that $A$ is the generator of $x_t$ under measure
+$P$ (not $P_o$). This is given by  
+$$
+Af(x)=X_o f(x)+ \frac{1}{2}\sum_j X^2_j f(x).
+$$
+
+\begin{proof}
+  Rewrite (\ref{part2:sec1:eq16}) in Ito form. Replace $f$ by $X_kf$
+  in (\ref{part2:sec1:eq16}).  
+  $$
+  dX_kf(x_t)=X_oX_kf(x_t)dt+ X_i X_k f(x_t)o dB^j_t.
+  $$
+\end{proof}
+
+Then
+$$
+d<X_kf,B^k>_t= X_k^2f(x_t)dt.
+$$
+
+Then Ito version of (\ref{part2:sec1:eq16}) is 
+$$
+df(x_t)=\left(X_o+ \frac{1}{2}\sum X^2_j \right)f (x_t)dt+X_jf(x_t)dB^j_t.
+$$
+So
+$$
+A=X_O+ \frac{1}{2}\sum X^2_j
+$$
+and\footnote{We sometimes use the convention of implied summation over 
+  repeated indices.}  
+$$
+C^f_t= \int \limits_o^t X_j f(x_s) dB^j_s.
+$$
+
+\begin{prop} %%% 1.1
+  For $Z$ given by
+  $$
+  <C^f,W>_t= \int Zf(x_s)ds.
+  $$
+  with $Zf = \sigma^j X_j, Z$ is a vector field.
+\end{prop}
+
+\begin{proof}
+  \begin{align*}
+    d <C^f, W> & = d < \int X_j fd B^j, W>\\
+    &= X_j fd < B^j, W> \\
+    &= \alpha^j X_j f(x_t) dt.
+  \end{align*}
+  So\pageoriginale
+  \begin{align*}
+    D & = Z +h \\
+    & = \alpha^i X_i + h.
+  \end{align*}
+\end{proof}
+
+\begin{prop} %% 1.2
+  There exist vector fields $Y_o Y_1, \ldots Y_r$ such that
+  $$
+  A - \frac{1}{2} D^2 = \frac{1}{2} \sum_{j} Y^2_j + Y_o - \frac{1}{2} Dh.
+  $$
+\end{prop}
+
+\begin{proof}
+  \begin{align*}
+    D^2 f & = ( \alpha^i X_i + h) ( \alpha^j X_j f + hf)\\
+	  & = \alpha^i  \alpha^j X_i X_jf +  \alpha^i X_i (hf) +
+    \alpha^j h X_j f + h^2f\\ 
+    & = \alpha^i \alpha^j X_i X_j f + hZf + Dhf.
+  \end{align*}
+\end{proof}
+
+Let $\alpha = (\alpha^1 \alpha^2, \ldots \alpha^r)'$ and suppose 
+$I- \alpha \alpha'$ is nonnegative definite. Write $(I-
+\alpha \alpha')= \Delta \Delta'$ and let $X=(X_1, \ldots, X_r)'$. 
+$$
+X' \Delta \Delta'X = \sum X^2_i -\alpha^i  \alpha^j X_i X_j.
+$$
+
+So define $Y= \Delta'X$. Then $Y_i 's$ are vector fields and 
+\begin{align*}
+  A - \frac{1}{2} D^2 & = \frac{1}{2} \sum_i Y^2_i - hZ + X_o -\frac{1}{2} Dh\\
+  & = \frac{1}{2} \sum_i Y^2_i + Y_o - \frac{1}{2} Dh
+\end{align*}
+where $Y_o =X_o - hZ$. It remains to check that $I - \alpha \alpha'
+\geq o$. Take $\xi \in  \mathbb{R}^r$ with $|\xi|=1$. Then  
+\begin{align*}
+  \xi' (I - \alpha \alpha') \xi & = 1 - (\alpha' \xi)^2\\
+  & \geq 1 |\alpha|^2 \\
+  & \geq 0.
+\end{align*}
+
+Since\pageoriginale $| \alpha |^2 \leq 1$, for 
+\begin{align*}
+  < \sum_i \alpha^i B^i, W>_t & = \sum_i \alpha_i< B^i, W>_t \\
+  & = |\alpha|^2 t
+\end{align*}
+
+So $\alpha^2 t = E U W_t$, where $U = \sum_i \alpha^i B^i$.
+$$
+|\alpha|^4 t^2 \leq E U^2 t = |\alpha|^2 t^2.
+$$
+
+So we have Zakai equation in Ito's form 
+$$
+d \sigma_t(f) = \sigma_t(Af) dt + \sigma_t(Df) dy_t
+$$
+
+With vector fields $X_0,X_1, \ldots X_r$ and in Stratonovich form 
+$$
+d \sigma_t(f) = \sigma_t(Lf) + \sigma_t(Df) o dy_t
+$$
+ 
+With vector Fields $Y_0,Y_1, \ldots Y_r$ plus a ``0$^{\rm th}$-order''
+term. Now we investigate what sort of process is $x_t$ under the
+measure $P_o$. 
+
+\begin{prop} %%%% 1.3
+  Under $P_o, x_t$ satisfies the equation
+  \begin{equation*}
+    df(x_t) = Y_o f(x_t) dt + Zf(x_t) o dy_t + Y_j f(x_t) o db^j_t
+    \tag{17}\label{part2:sec1:eq17} 
+  \end{equation*}
+  where $b^1, \ldots b^r$ are independent standard Brownian
+  motions independent of $y_t$ 
+\end{prop}
+
+\begin{proof}
+  Recall the Girsanov transformation. Under $P, B^1, \ldots B^r$ are
+  independent and $< B^j, W>_t = \alpha^j t$. Now  
+  $$
+  \frac{dP_o}{dP} = \exp \left(M_t - \frac{1}{2}< M, M>_t\right)
+  $$
+  where $M$ is a $P$-martingale. Under $P_o, B^j_t - < B^j, M>_t$
+  is a\pageoriginale martingale and hence a Brownian motion. Here
+  \begin{gather*}
+    M_t= - \int \limits^t_o h(x_s) dW_s;\\
+    d< B^j, M > = - \alpha ^j h(x_t) dt.
+  \end{gather*}
+\end{proof}
+
+So under $P_o$,
+$$
+dV^j_t = dB^j_t + \alpha^j h(x_t) dt
+$$
+are independent Brownian motions, but $V^j$ is not independent of
+$y_t$, in fact $< V^j, y >_t = \alpha^j t$. 
+
+Now define $\tilde{b}^j_t =V^j_t - \alpha_j y_t$, then $< \tilde{b}^j,
+y > =0$, and this implies $\tilde{b}^j, y$ are independent. But the
+$\tilde{b}^j$ are now not independent. In fact, 
+\begin{equation*}
+  < b^j, b^k>_t =
+  \begin{cases}
+    - \alpha^j  \alpha^k t &\text{ for } k \neq j \\
+    1- (\alpha^j)^2 t & \text{ for } k = j
+  \end{cases}
+\end{equation*}
+So
+\begin{align*}
+  < \tilde{b}^j,\tilde{b}^k>_t & = \left[< \tilde{b}^j, \tilde{b}^k
+    >_t\right] \\
+  & = (I- \alpha \alpha')t.
+\end{align*}
+
+Let ($I- \alpha \alpha')= \Delta \Delta'$ as before and define $b_t =
+\Delta^{' -1}\tilde{b}_t$. 
+
+Then $\tilde{b}_t = \Delta' \tilde{b}_y$ and $<b>_t =$ It. So 
+\begin{align*}
+  df(x_t) & = X_o f(x_t) dt + X_j f(x_t)  o dB^i \\
+  & = X_o f(x_t) dt + X_j f(x_t)  o (-\alpha^j h(x_t)dt+ \alpha^j dy_t
+  + d\tilde{b}^j_t)\\ 
+  & = (X_o f(x_t) - hZf(x_t))dt+Zf(x_t)ody_t+Y_j f(x_t) o d\tilde{b}^j_t \\
+  & = Y_o f(x_t) dt + Zf(x_t) o dy_t + Y_j f(x_t) o \text{ d } \tilde{b}^j_t
+\end{align*}
+where\pageoriginale $Y_o f = X_of - hZf $ and $Y = \Delta' X$.
+
+The so called \textit{Kallianpur- Striebel Formula}  gives the
+solution $\sigma_t$ of the Zakai equation as a function space integral
+in the following form, where $x_t$ is functional of ($y,b^1, \ldots
+b^r$).  
+$$
+\sigma_t(f) = E_o \left[ f(x_t) \exp \left( \int \limits^t_o h(x_s) dy_s -
+  \frac{1}{2} \int \limits^t_o h^2 (x_s)ds \right) y_t \right] 
+$$
+i.e., as a function of $y$, we have 
+{\fontsize{10pt}{12pt}\selectfont
+$$
+\sigma_t(f)(y) = \int \limits_{C^r[o,t]} \left[ f(x_t) \exp \left(\int
+  \limits^t_o h(x_s) dy_s- \frac{1}{2} \int \limits^t_o h^2
+  (x_s)ds\right) \right] \mu_w (db^1) \ldots\mu_w(db^r)  
+$$}\relax
+where $\mu_w (db)$ is the Wiener measure on $C[\circ, T]$.
+
+
+
+\section{Pathwise Solutions of Differential
+  Equations}\label{part2:sec2}%%% 2 
+
+Consider the Doss- Sussman construction for the equation
+\begin{align*}
+  \dot{x} &= b(x) + g(x)\dot{w}\tag{1}\label{part2:sec2:eq1}\\
+  x(o) &=x
+\end{align*}
+where $w \in  C'(\mathbb{R}_+)$. Let $\phi (t,x) $ be the
+``flow'' of $g,$ i.e., 
+\begin{align*}
+  \frac{\partial}{\partial^t} \phi (t,x) & = g(\phi (t,x)) \\
+  \phi(o,x) & =  x.
+\end{align*}
+
+If\pageoriginale $b=o$, then it is immediate that the solution of
+(\ref{part2:sec1:eq1}) is  
+$$
+x_t = \phi (w(t),x).
+$$
+If $b \neq o$, then the solution  of (\ref{part2:sec1:eq1}) is of the form
+\begin{equation*}
+  x_t = \phi (w(t), \eta(t)) \tag{2}\label{part2:sec2:eq2}
+\end{equation*}
+where $\eta(t)$ satisfies some $ODE$. With $x(t)$ defined by (\ref{part2:sec1:eq2}),
+$$
+\dot{x}(t) = g(x(t))\dot{w}(t) + \phi_x(w(t), \eta(t))\dot{\eta}(t)
+$$
+and we require that 
+$$
+\phi_x (w(t), \eta(t))\dot{\eta}(t) = b(\phi(w(t), \eta(t))).
+$$
+So $x(t)$ satisfies (\ref{part2:sec2:eq1}) if $\eta(t)$ satisfies
+\begin{align*}
+  \dot{\eta} & = (\phi_x(w(t), \eta(t)))^{-1} b(\phi (w(t), \eta(t))) \\
+  \eta (o) &= x
+\end{align*}
+
+\medskip
+\noindent{\textbf{Coordinate-free form:}}
+ Let 
+\begin{align*}
+X_o f(x) & = b(x) \frac{df}{dx}\\
+X_1 f(x) & = g(x) \frac{df}{dx}\\
+\xi_t(x)   & =  \phi (w(t),x).
+\end{align*}
+
+Define
+$$
+(\xi^{-1}_{t*}X_o) f(x) =X_o (f o \xi^{-1}_t) (\xi_t(x)).
+$$
+Then the equation for $\eta(t)$ can be expressed as
+
+\begin{align*}
+  \frac{d}{dt}f(\eta _t)& = ( \xi ^{-1}_{t*}X_o) f(\eta_ t)\\
+  \eta_o &= x, 
+\end{align*}
+for\pageoriginale 
+\begin{align*}
+  (\xi ^{-1}_{t*}X_o) f(\eta _t) &=b (\xi _t (x)) \frac{d}{dx}
+  f(\xi^{-1}_{t}(x)) |_{\xi _t (x)}\\ 
+  &= b(\xi _t (x)) \frac{d}{dx} f(x) \frac{d}{dx} (\xi ^{-1}_{t} (x))
+  |_{\xi _t (x)}\\ 
+  &= b(\xi_t (x)) \frac{d}{dx} f(x) (\xi _x (x))^{-1}. \tag{$\ast$}
+\end{align*}
+
+Since $\xi ^{-1}(\xi (x)) = x $ and so 
+$$
+\frac{d}{dx} (\xi^{-1}(\xi (x))) \frac{d}{dx} \xi (x) = 1. 
+$$
+
+When $x \in  \mathbb{R}^d $, then
+\begin{align*}
+  X_o f(x) & = \sum_{i=1}^{d}b^i (x) \frac{\partial f(x)}{\partial x_i} \\
+  X_1f(x)&= \sum_{i=1}^{d} g^i (x) \frac{\partial f(x)}{\partial x_i} 
+\end{align*}
+
+
+Then $(*)$ is of the form
+\begin{align*}
+  (\xi ^{-1}_{t*} X_o)f(\eta_{t})&= \sum_{i=1}^{d} b^i (x)
+  \frac{\partial}{\partial x_i} \{f \circ \xi^{-1}_{t}\}|_{\xi_{t}(x)}\\ 
+  &=\sum_{j=1}^d \sum_{i=1}^{d} \frac{\partial f(x)}{ \partial x_i}
+  \frac{\partial (\xi ^{-1}_{t})^j}{\partial x_i}(x). 
+\end{align*}
+
+So the same results apply for $x_t \in  \mathbb{R}^d$, but
+generally \textit{not} for more than one ``input'', i.e., for vector
+$w(t)$.  
+
+\medskip
+\noindent{\textbf{Interpretation:}}
+$x_t$ defined by (\ref{part2:sec2:eq2}) makes sense for any $w(. ) \in  C (
+\mathbb{R}_{+})$. In particular, if $w(t)$ is a sample path of
+Brownian\pageoriginale motion, then what equation does $x_t$ satisfy?  
+
+\noindent 
+Answer: the Stratonovich equation
+\begin{equation*}
+  dx_t= b(x_t)dt + g(x_t) o dw_t \tag{3}\label{part2:sec2:eq3}
+\end{equation*}
+
+
+\begin{exercise} %%%%  2.1
+  Expand $x_t$ given by (\ref{part2:sec2:eq2}) using Ito's calculus
+  and show that it   satisfies (\ref{part2:sec2:eq3}).  
+
+  The following examples show that the pathwise solution idea cannot
+  generally be extended to ``multi-input'' equations.  
+\end{exercise}
+
+\begin{example} %Example 2.1
+  Let
+  \begin{align*}
+    &\dot{x} = g^1 (x) \dot{w}^1 + g^2 (x)\dot{w}^2\\
+    &x(o)=x. 
+  \end{align*}
+  
+  The solution should be of form
+  \begin{equation*}
+    x_t = h (w^1_t, w_t^2 ).  \tag{4}\label{part2:sec2:eq4}
+  \end{equation*}
+  
+  Then with $h_1(w^1, w^2)= \dfrac{\partial}{ \partial w^1} h(w^1,
+  w^2)$ etc., we have  
+  $$ 
+  \dot{x}_t = h_1 \dot{w}^1 + h_2 \dot{w}^2
+  $$
+  \begin{align*}
+    h_1(w_t^1, w_t^2) &= g^1 o h(w_t^1, w_t^2)\\
+    h_2 (w_t^1, w_t^2) &= g^2 o h(w_t^1, w_t^2)
+  \end{align*}
+  and
+  \begin{align*}
+    h_{12} (w_t^1, w_t^1) &= g_x^1 o h. h_2 = (g _x ^1 o h) (g^2 o h)\\
+    h_{21}(w_t^1, w_t^2) & = ( g_x^2 o h )(g^1 o h ). 
+  \end{align*}
+
+  So we must have
+  $$
+  g^1 g_x^2 = g^2 g^1_x. 
+  $$
+  
+  Define\pageoriginale the Lie bracket [$X_1, X_2$] $= X_1 X_2 - X_2 X_1 $. Now
+  \begin{align*}
+    X_1 X_2 f &= g^1 \frac{d}{dx} \left(g^2 \frac{df}{dx}\right)\\
+    & g^1 g^2_x f_x + g^1 g^2 f_{xx}. 
+  \end{align*}
+  
+  Therefore
+  $$
+  [X_1, X_2]f = (g^1 g_x^2 - g^2 g_x^1 ) f_x. 	
+  $$
+  
+  So a necessary condition for (\ref{part2:sec2:eq4}) to hold is that 
+  $$
+  \displaylines{\hfill  [X_1, X_2]=0 \hfill \cr
+  \text{i.e.,}\hfill X_1X_2 = X_2X_1. \hfill }
+  $$
+\end{example}
+
+\begin{exercise}%%% 2.2
+  Consider 
+  $$ 
+  \dot{X}= \sum_{i=1}^{n} g^i (x) \dot{w}^i. 
+  $$
+  
+  Let $\phi ^i (t, x)$ be the flow of $g^i$ and $\xi ^{i}_{t}(x)= \phi
+  ^i (w_{t}^{i}, x)$. Then show that  
+  $$
+  x_t = \xi _t^1 o \xi _t^2 o \ldots o \xi ^{n}_{t}
+  $$
+  if $[X^i, X^j]= 0 ~\forall i, j$. 
+\end{exercise}
+
+With one input, $|| w^{n}-w|| \to 0$ implies $x_t ^n \to x_t$, where
+$|| \cdot || $ is the sup norm. But with inputs $w^1, w^2$, the
+solution map generally is not continuous.  
+
+\begin{example}[Sussmann \cite{key23}]%%% 2.2
+ Let\pageoriginale $t \in  [ 0, 1]$ and 
+  \begin{gather*}
+    \dot{x}^n = Ax^{n}\dot{w}^{1, n}+ Bx^n \dot{w}^{2, n}\\
+    x(o)=x_o
+  \end{gather*}
+  where $A, B$ are $n \times n$ matrices with
+  $$
+  [A, B]= AB - BA \neq 0. 
+  $$
+
+  Partition $[0,1]$ into $n$ equal intervals $I^n_j =
+  \left[\dfrac{j-1}{n}, \dfrac{j}{n}\right], j=1, 2, \ldots,
+  n$. Partition each 
+  $I_j^n$ into four equal intervals $I_{j, i}^{n}, i = 1, 2, 3,
+  4$. Define $w^{1, n}$ to be equal to $4n^{1/2}$ for $t \in 
+  I_{j, 1}^{n} $ to $-4n^{1/2}$ for $I_{j, 2}^n $, and to zero for all
+  other $t$. Similarly, let $\dot{w}^{2, n} $ be equal to $4n^{1/2}$
+  for $t \in  I_{j, 2}^n $ to $-4n^{1/2}$ for $t \in 
+  I_{j, 4}^n$, and to zero for all other $t$.  
+\end{example}
+
+  Then
+  $$
+  w^{i, n}(t) =\int_o^t \dot{w}^{i, n}(s) ds, i. = 1, 2. 
+  $$
+  
+  Clearly $\dot{w}^{i, n}$ converges to zero uniformly as $n
+  \rightarrow \infty, i = 1, 2$. Let $s =n^{-1/2}$, then 
+  \begin{align*}
+    x^n (1/n)&= e^{Bs}e^{-As}e^{Bs}e^{As} x_o\\
+    &= e^{ \tau}x_o. 
+  \end{align*}
+
+  We use the Baker-Campbell -Hausdorff formula $e^A e^B = e^C$ where
+  $$
+  C= A + B + \frac{1}{2} [A, B]+ \frac{1}{12}\{ [[B, A], A] + [[B, A],
+    B]\}+ \cdots  
+  $$
+  we get
+  $$
+  \tau = [B, A] \frac{1}{n} + o(1/n). 	
+  $$
+  So\pageoriginale
+  \begin{align*}
+    x^n (1)&= e^{n \tau }x_o\\
+    &=e^{([B, A]+ o(1/n))}x_o
+  \end{align*}
+  Hence
+  $$
+  \lim_{n \rightarrow \infty} x_t ^n = e^{t[B, A]}x_o. 
+  $$
+
+
+
+
+
+
+
+
+
+
+\section{Pathwise Solution of the Filter
+  Equation}\label{part2:sec3}%%% 3    
+ 
+Consider the equation
+$$
+df(x_t) = Y_o f(x_t)dt + Zf(x_t) o dy_t +Y_i f(x_t) o db_t^i. 
+$$
+
+To express this pathwise in $(y_t)$, let $\phi (t, x)$ be the integral
+curve of $Z$ and $\xi _t (x) = \phi (y(t), x)$. Define $\eta_t $ as
+follows: 
+\begin{align*}
+  df (\eta_t) & = ( \xi _{t}^{-1*} Y_o ) f(\eta_t ) dt + ( \xi
+  _{t*}^{-1} Y_j) f(\eta_t ) \circ db_t^j\\ 
+  \eta_o & =x.\\  
+\intertext{Then}
+  x_t & = \xi _t o \eta_t\\
+  &= \phi (y(t), \eta (t)). 
+\end{align*}
+
+The generator of $\eta$ is 
+$$
+A_t^* = \xi_{t*}^{-1} Y_o + \frac{1}{2} \sum_j \left(\xi _{t*}^{-1} 
+Y_j \right)^2.   
+$$
+
+\medskip
+\noindent{\textbf{The Kallianpur-Striebel Formula:}}
+\pageoriginale Recall 
+\begin{align*}
+  \sigma_t (f) &= E ^{(b)}\left[f(x_t) \exp \left(\int_{o}^{t} h (x_s)dy_s -
+    \frac{1}{2} \int_{o}^{t} h^2 (x_s)ds\right)\right]\\ 
+  &= E^{(b)}\left[f(x_t)\exp \left(\int_{o}^{t}h(x_s) o dy_s - \frac{1}{2}
+    \int_{o}^{t} Dh (x_s)ds\right)\right] 
+\end{align*}
+where $D=Z + h $. 
+
+\medskip
+\noindent{\textbf{Notation:}}
+  For any diffeomorphism $\psi : M \to M, \psi ^* : C^{\infty} (M) \to
+  C^{\infty}(M) $ is given by 
+  $$
+  \psi ^* f(x) = f o \psi (x) = f(\psi (x)). 
+  $$
+  So
+  $$
+  \displaylines{\hfill  f(x_t) = \xi ^*_t f(\eta_t), \hfill \cr
+    \text{and} \hfill
+  \sigma _t (f) = E^{(b)} \left[ \xi^*_t f ( \eta _t ) \exp \left(\int_o ^t
+    \xi _s^* h ( \eta _s) o dy_s -\frac{1}{2} \int_o ^* Dh (\eta_s )
+    ds \right)\right] }
+  $$
+  The next step is to remove ``ody''. Define 
+  $$
+  H(t, x)= \int_o^t \phi _s ^* h (x) ds. 
+  $$
+  
+  Calculate $H(y_t, \eta_t)$ using Stratonovich calculus
+  $$
+  dH(y_t, \eta_t) = \xi _t ^* h (\eta_t )ody_t + \xi _{t*}^{-1} Y_o
+  Hy_s ( \eta_s)ds + \xi _{t*}^{-1} Y_i Hy_s ( \eta_s)o db^i _s.  
+  $$
+
+\medskip
+\noindent{\textbf{Notation:}}
+  \begin{align*}
+    g_s (x)& = H(y(s), x)\\
+    y^*_j &= \xi ^{-1}_{t*} Y_j\\
+    B_s f(x) &= \phi_s ^* f(x) \exp \left( \int_o ^s \phi _u ^* h (x)
+    du\right).  
+  \end{align*}
+
+  Finally,\pageoriginale we get 
+  $$
+  \sigma _t (f) = E^{(b)} [ By_{(t)} f( \eta_t) \alpha _t ^o (y)]
+  $$
+  where the multiplicative functional $\alpha _t ^s $ is given by 
+  \begin{multline*}
+  \alpha_t ^s (y) = \exp\left[ \int_s ^t Y_j ^* g_u ( \eta_u )db_u^j -
+    \frac{1}{2} \int _s ^t ( Y _j ^* )^2 g_u ( \eta_u ) du\right.\\
+    \left.-\int_s^t  Y_o ^* g_u ( \eta_u ) du - \frac{1}{2} \int_s ^t \xi _u
+    ^* Dh (n_u )du\right] 
+  \end{multline*}
+
+  So $\sigma _ t(f) $ is now pathwise in $y$ with $\sigma _ t(f) :
+  C[o, t] \to \mathbb{R}$ and ($\sigma_{t}(f) /\break \sigma_{t}$
+  (\ref{part2:sec3:eq1})) is a version of $E[f(x_t)|y_t]$. Now we want
+  to compute $ \sigma _t (f)$  recursively.   
+
+\medskip
+\noindent{\textbf{(a) \quad Multiplicative Functional Approach:}}
+
+Let $(x_t)$ be a Markov process with extended generator $(A,
+\mathcal{D} (A))$. The associated semigroup on $B(E) $ is  
+
+$$
+T_{s, t}f(x) = E_{s, x}[f(x_t)] 
+$$
+$\alpha _t ^s (s \leq t) $ is a \textit{multiplicative functional}
+$(m. f. )$ of $(x_t)$ if $\alpha _t ^s $ is $\sigma\{x_u, s \leq u
+\leq t\}$-measurable and for $r \leq s \leq t $,  
+$$
+\alpha _t ^r = \alpha _s^r \alpha_t^s. 
+$$
+
+Corresponding to $\alpha _t ^s $ there is a semigroup defined by 
+$$
+T_{s, t}^{\alpha} f(x) = E_{s, x}\left[f(x_t) \alpha_t^s\right]. 
+$$
+
+In particular, 
+$$
+T_{s, t}^{\alpha} 1= E_{s, x}[\alpha_t ^s]. 
+$$
+
+It\pageoriginale is a Markov (or Sub-Markov) semigroup when
+$$
+E_{s, x} ~ [\alpha^s_t] = 1~(\le 1).
+$$
+
+If $(x_t)$ is a homogeneous Markov process, $\alpha^s_t$ is a
+homogeneous m.f. if 
+$$
+\displaylines{\hfill
+  \alpha^s_t = \alpha^{s+r}_{t+r} ~ o ~ \theta_r\hfill \cr
+  \text{where }\hfill
+  \theta_r ~ x_t = x_{t+r}.\hspace{2cm}\hfill}
+$$
+
+Then
+$$
+\alpha^s_t = \alpha^o_{t-s} ~ o ~ \theta_{-s}.
+$$
+
+So denoting $\alpha_t = \alpha^o_t $, the $m.f$. property is 
+$$
+\alpha_{t+s} = \alpha_t.\alpha_s ~ o ~ \theta_t.
+$$
+
+Now we want to find the generator of 
+$$
+T^{\alpha}_t ~ f(x) = E_x(f(x_t) ~ \alpha_t).
+$$
+
+Suppose for the moment that $\alpha_t \leq 1, \forall ~ t$. Then
+$\alpha_t $ is monotone decreasing. In this cases $\alpha_t$
+corresponds to ``killing'' at rate $(-d\alpha_t/\alpha_t)$. It is
+possible to construct an ``$\alpha$-subprocess'' which is a Markov
+process $x_t$ such that  
+$$
+E_x[f(x^\alpha_t)] = T^\alpha_t ~ f(x).
+$$
+
+See Blumenthal and Getoor \cite{key1}. Define the extended generator of
+$T^\alpha$ to be the extended generator of $x^\alpha_t$, i.e., 
+$$
+f(x^\alpha_t) - f(x^\alpha_o) - \int\limits^t_o ~ A^\alpha f(x^\alpha_s)ds
+$$
+is\pageoriginale a local Martingale if $f ~ \in  ~ D(A^\alpha)$. This says
+(excluding stopping) 
+$$
+\displaylines{\hfill
+  E\left[f(x^\alpha_t) -f(x^\alpha_s) - \int\limits_s^t ~ A^\alpha
+    f(x^\alpha_u)du | F_s\right] = 0 \hfill \cr
+  \text{or}\hfill
+  E_{x_s}[\alpha_{t-s} ~ f(x_t)] -f(x_s) -E_{x_s}\int\limits_s^t
+  \alpha_{u-s}A^{\alpha}f(x_u)du = 0. \hfill}
+$$
+
+So equivalently, $f ~ \in  ~ D(A^\alpha)$ if 
+$$
+\alpha_t ~ (f(x_t) - f(x) - \int\limits^t_o ~ \alpha_s A^\alpha f(x_s)ds
+$$
+is a local Martingale $(P_x)$ for every $x$.
+
+This characterizes $A^\alpha$ even when the condition $\alpha_t \leq
+1$ is not satisfied, so we adopt it as our definition. 
+
+\begin{example}% example 3.1
+  Let $\gamma_t = \exp \left(-\int\limits^t_o ~ V(x_s)ds\right)$ where $V ~
+  \in  ~ B(E)$. Take $f~ \in  ~ D(A)$ and compute 
+  \begin{align*}
+    d(\gamma_t ~ f(x_t)) & = \gamma_t ~ A ~ f(x_t)~ dt + \gamma_t~ d~
+    M_t ~ f - V(x_t)~f(x_t)~\gamma_t ~dt.\\ 
+    \gamma_tf(x_t) -f(x) & = \int\limits_o^t ~ \gamma_s[Af(x_s) -
+      V(x_s)f(x_s)]~ds + \int\limits^t_o ~ \gamma_s ~ dM_sf. 
+  \end{align*}
+  So
+  $$
+  A ^{\gamma}f(x) = Af(x) -V(x)f(x).
+  $$
+\end{example}
+
+\begin{example}%example 3.2
+Let\pageoriginale $\beta_t = \dfrac{a(x_t)}{a(x_o)}$
+where a $\in  ~ D(A)$ and $a(x) > o ~ \forall ~ x$. Then 
+$$
+T^\beta_t ~ g(x) = \frac{1}{a(x)} ~ T_t(af)(x).
+$$
+\end{example}
+
+\begin{exercise}%%%%3.1
+  Show that 
+  $$
+  A ^{\beta}f(x) = \frac{1}{a(x)} ~ A(af)(x).
+  $$
+  
+  Now suppose $x_t$ satisfies
+  $$
+  df(x_t) = X_of(x_t)dt + X_j ~ f(x_t) ~ o ~ dw^j_t.
+  $$
+\end{exercise}
+
+Take $g ~ \in  ~ C^\infty_b(E)$ and define
+\begin{equation}
+  \delta_t = \exp\left(-\int\limits^t_o X_jg(x_u)dw^j_u - \frac{1}{2}
+  \int\limits^t_o \sum_j(X_j g(x_u))^2 du\right).\tag{1}\label{part2:sec3:eq1} 
+\end{equation}
+
+If we define
+$$
+\frac{dP^\delta_x}{dP_x} = \delta_t,
+$$
+then
+$$
+d \tilde{w}^j_t = dw^j_t + X_j~ g(x_t)dt
+$$
+is a $P^\delta_x$ - Brownian motion. Thus
+$$
+df(x_t) = (X_o f (x_t) - \sum_j X_j g(x_t)X_j f(x_t))dt + X_jf(x_t)o ~
+d\tilde{w}^{-j}_t. 
+$$
+
+Now $\delta_t$ is a $m.f$. of $x_t$ (as will be verified below) and 
+$$
+E_x[f(x_t)\delta_t] = E^\delta_x[f(x_t)].
+$$
+
+So\pageoriginale 
+$$
+A ^{\delta}f(x) = \left(X_o - \sum_j X_j g(x_t)X_j\right)f +
+\frac{1}{2} \sum_j X_j^2 ~ f. 
+$$
+
+The three examples here are related by 
+$$
+\int\limits^t_o ~X_j ~g(x_s)dw^j_s = g(x_t) - g(x) - \int\limits^t_o
+~Ag(x_s)ds. 
+$$
+
+Using this in (\ref{part2:sec3:eq1}), we see that $\delta_t$ factors
+$$
+\delta_t = \beta_t ~ \gamma_t
+$$
+with 
+\begin{align*}
+  V(x) & = - Ag(x) + \frac{1}{2} ~ \sum_j ~(X_j~g(x))^2\\
+  a(x) & = e^{-g(x)}.
+\end{align*}
+So
+$$
+A ^{\delta}f(x) = e^g ~ A(e^{-g}f) - \left(Ag - \frac{1}{2}\sum_j
+(X_jg)^2\right) f(x).
+$$
+So
+$$
+e^gA(e^{-g}f) = Af - \sum (X_jg) X_j f - \left(Ag + \frac{1}{2} \sum_j
+(X_jg)^2 \right) f. 
+$$
+
+\begin{exercise}%%%% 3.2
+  Verify that this result is correct by direct calculation of $e^g A
+  (e^{-g}f)$. 
+\end{exercise}
+
+We have the unnormalized solution of filtering problem as 
+$$
+\sigma_t(f) = E[B_{y_t} ~ f(\eta_t) \alpha^o_t(y)]
+$$
+for $y ~ \in  ~ C[o,T]$. Here $\eta_t$ is a diffusion,
+$\alpha^o_t(y)$ is a m.f. of $\eta_t$. Now 
+\begin{multline*}
+  \alpha^s_t(y)  = \exp \left(-\int\limits^t_s Y^*_j g(\eta_u)db^j_u -
+  \frac{1}{2}\int\limits^t_s \sum_j (Y^*_jg_u(\eta_u))^2du\right)\\ 
+   \times \exp\left(\frac{1}{2}\int\limits^t_s \sum_j (Y^*_jg_u(\eta_u))^2
+  du - \frac{1}{2}\int\limits^t_s (Y^*_j)^2 g_u(\eta_u)du\right.\\ 
+  \left.- \int\limits^t_s Y^*_og_u(\eta_u)du - \frac{1}{2}\int\limits^t_s
+  \xi^*_u Dh(\eta_u)du\right). 
+\end{multline*}
+
+This\pageoriginale factors $\alpha^s_t$ into product of a
+``Girsanov'' $m.f$. and a 
+``Feynman-Kac'' $m.f$. Hence the corresponding generator is 
+\begin{align*}
+A^y_t f  = A^*_t f  - \sum_j Y^*_j ~ g_t  Y^*_j f
+ + \left[\frac{1}{2} \sum_j (Y^*_jg_t)^2 - A^* g_t -
+   \frac{1}{2}\xi^*_t Dh\right] f.
+\end{align*}
+
+\begin{prop}%%% 3.1
+  $A^y_t f = B_{y_t} \left(A - \frac{1}{2}D^2\right)B^{-1}_{y_t}$.
+\end{prop}
+
+\begin{proof}
+  This can be verified by a straightforward but somewhat lengthy
+  calculation, using the expansion for $e^gAe^{-g}$ obtained
+  previously, once has obtained an expression for $B^{-1}_t$. Recall
+  that $B_t$ is defined by  
+  $$
+  B_tf(x) = f(\xi(t,x)) \exp \int\limits^t_o h(\xi(u,x))du.
+  $$
+\end{proof}
+
+It is a group of operators with generator $D = Z + h$. The inverse
+$B^{-1}_t$ is given as follows. Let $g(x) = B_t f(x)$, then 
+\begin{align*}
+  f(x) & = B^{-1}_t g(x)\\
+  & = g(\xi(-t,x)) \exp \left(-\int\limits^t_o h(\xi(u,\xi(-t,x)))du
+  \right)\\ 
+  & = g(\xi^{-1}(t,x)) \exp \left( -\int\limits^t_o
+  h(\xi^{-1}(s,x))ds\right). 
+\end{align*}
+
+\begin{example}[Independent ``signal'' and ``noise'']\pageoriginale
+%%%% example 3.3 
+  Take  $ Z  = 0$, then $ \xi(t,x) = x$  and
+\begin{align*}
+  A^y_t f(x) & = e^{h(x)y(t)} \left(A
+  -\frac{1}{2}h^2\right)(e^{-y(t)h(.)}f(.))(x)\\ 
+  & = e^{hy(t)} A e^{-hy(t)} f - \frac{1}{2}h^2 f.
+\end{align*}
+\end{example}
+
+It is easy to see that this must be the right formula. The
+calculations have been carried out for arbitrary $y  \in  C[o,
+  T]$ but $A^y_t$ depends only on $y(t)$. So $A^y_t = A^{\bar{y}}_t$
+where $\bar{y}(s) \equiv y(t)$ ($t$ fixed). Now 
+\begin{align*}
+  \sigma_t(f)(\bar{y}) & = E\left[f(x_t)e^{h(x_t)\bar{y}_t} \exp
+    \left(-\int\limits^t_o \bar{y}(s)dh(x_s) - \frac{1}{2}\int\limits^t_o
+    h^2(x_s)ds\right)\right]\\ 
+  & = E\left[f(x_t)e^{h(x_t)\bar{y}_t} \exp \left(-\bar{y}(t)h(x_s) +
+    \bar{y}(t)h(x_o)- \frac{1}{2}\int\limits^t_o h^2 (x_s)ds\right)\right]\\ 
+  & = E\left[f(x_t)e^{h(x_t)y_t}\frac{\exp \left(-y(t)h(x_t)\right)}{\exp
+      (-y(t)h(x_o))}. \exp \left(-\frac{1}{2}\int\limits^t_o
+    h^2(x_s)ds\right)\right].  
+\end{align*}
+
+So we have separated into two functionals and the result follows.
+
+\medskip
+\noindent{\textbf{Direct Solution of Zakai Equation:}}
+ We will consider a slight generalization from the original Zakai
+ equation. Define  
+\begin{align*}
+  L & = \frac{1}{2}\sum_j Y^2_j + Y_o + h_o\\
+  D & = Z + h
+\end{align*}
+where\pageoriginale $Y_i,Z$ are smooth vector fields; $h,h_o$ are $C^\infty_b$
+functions (Previously, we had $h_o = -\dfrac{1}{2}Dh$). Write $\langle
+f, \mu \rangle$ for $\int ~ f ~d_\mu$ and consider the measure-valued
+equation 
+\begin{equation*}
+  d \langle f, \sigma_t \rangle =  \langle Lf,\sigma_t \rangle dt +
+  \langle Df,\sigma \rangle \circ ~ dy_t\tag{2}\label{part2:sec3:eq2}  
+\end{equation*}
+where $\langle f, \sigma. \rangle = f(x)$ i.e., $\sigma_o =
+\delta_x$. The solution can be expressed as follows: Define $x_t$ by   
+$$
+df(x_t) = Zf(x_t).dy_t + Y_of(x_t)dt + Y_j(x_t) \circ db^j_t, x_o = x, 
+$$
+where $b_j$ are Brownian motion independent of $y$. Then the solution
+is 
+$$
+\sigma_t(f) = E^b\left[ f(x_t)\exp\left(\int^t_o h_o (x_s)ds + \int^t_o
+  h(x_s) \circ dy_s \right) \right]. 
+$$
+
+Kunita \cite{key17} show that this solution is unique if coefficients are\break
+smooth and bounded. Now the question is whether $\sigma_t$ has a
+density. 
+
+\begin{theorem}% theorem 3.1
+  \begin{equation}
+    \langle f,\sigma_t \rangle = \langle B_{y_t} f,\nu_t \rangle
+    \tag{3}\label{part2:sec3:eq3}  
+  \end{equation}
+  where 
+  $$
+  B_{y_t} f(x) = \langle f, \mu_t \rangle 
+  $$
+  and $\mu_t,\nu_t$ satisfy the equations
+  \begin{align*}
+    d < f, \mu_t >  &= <Df, \mu_t > ~ ody_t  \tag{4}\label{part2:sec3:eq4}  \\
+    < f, \mu_0 >  &= f(x) \\
+    d < f, \nu_t >  &= <  B_{y_{t}}~  L ~ B^{-1}_{y_{t}}, \nu_t ~  >
+    dt. \tag{5}\label{part2:sec3:eq5}  
+  \end{align*}
+\end{theorem}
+
+
+\begin{proof}
+  If\pageoriginale  $ L= o $, then (\ref{part2:sec3:eq4}) is the same
+  as  (\ref{part2:sec3:eq2}); so the   solution  of (\ref{part2:sec3:eq4}) is   
+  $$
+  <f, \mu_t  > = f(x_t) \exp \left( \int \limits^{t}_{o}  h(x_s)
+  \circ dy_s \right)  
+  $$
+  where  $ x_t $ satisfies 
+  $$
+  df (x_t) = Zf (x_t) ody_t.
+  $$
+\end{proof}
+
+But this has pathwise solution  $ x_t  = \xi (y_t, x ) $. The
+previous definition of  $B$ was  
+$$
+B_{y_{t}} f (x) = f ( \xi (y_t,x)) \exp \left( \int \limits^{y_t}_{o}
+h (\xi (u,x )) du \right).  
+$$
+
+Now,
+$$
+ d \left( \int \limits^{y_t}_{o} h ( \xi (u,x )) du \right) =  h  (
+ \xi ( y_t,x )) ody_t.  
+$$
+
+So (\ref{part2:sec3:eq3}) holds with $B_t$ defined as before. Now 
+\begin{align*}
+  d < B_{y_{t}} f, \nu_t >  &= d' < B_{y'_t} f,\nu_t > + < B_{y_t} f,
+  \dot{\nu}_t > dt \\ 
+  &= B_{y_t}  L ~ B_{y_t}^{-l} ~ B_{y_t} f, \nu_t > dt +
+  <B_{y_t} D \, f, \nu_t > ody_t\\  
+  & \hspace{5cm}\text{ by  (\ref{part2:sec3:eq5})  and
+    (\ref{part2:sec3:eq4})}.\\  
+  &=  <B_{y_t} L \,f, \nu_t > dt  + <  B_{y_t} ~  D\, f, \nu_t > ody_t.
+\end{align*}
+This verifies (\ref{part2:sec3:eq2}).
+
+\begin{prop} %%%  3.2
+ Suppose\pageoriginale  $\nu_t $ has a density function  $q_t (z,x
+ )$  \footnote{Here $ z $ is the  ``dummy
+   variable'' and $x$ refers  of the initial condition in  
+   (\ref{part2:sec3:eq2}), i.e., $\sigma_0 = \delta_x $}.  Then  for  $ t > o. \sigma_t $
+   has density   
+   \begin{equation} 
+   \rho_t (V) = q_t ( \xi^{-1} ( y_t, V ) x) \exp \left( \int \limits^{
+     y_t}_{o} h ( \xi^{-1} ( s, V )) ds \right)  
+     \times \mid  \frac{\partial}{\partial V} \xi^{-1} ( y_t, V)
+     \mid \tag{6}\label{part2:sec3:eq6}  
+   \end{equation}
+   where $ \mid \dfrac{d \xi^{-1}}{d V} \mid  $  is the Jacobian of
+   the map  $ V  \rightarrow \xi^{-1} ( y_t, V )$. 
+\end{prop}
+
+\begin{proof}
+  If $\nu_t$ has a density $q_t$, then
+  \begin{align*}
+    < f, \sigma_t > &= \int B_{y_{t}} f (z) q_t (z,x) dz \\
+    &= \int f(\xi ( y_t,z )) \exp ( \int \limits^{y_t}_{o} h ( \xi
+    (u,z ))du ) q_t (z,x) dz. \\ 
+  \end{align*}
+  Changing the variable to $ V = \xi ( y_t,z ) $ gives  (\ref{part2:sec3:eq6}).
+\end{proof}
+
+\begin{theorem}[Bismut \cite{key2}]%Thm 3.2
+ $ \nu_t $  has $ C^\infty $-density if the $Y_i$ 
+  are ``smooth'' vector fields,  i.e., 
+  coefficients are bounded with bounded derivatives of all orders
+  and  $ Y_1, \ldots, Y_n $ satisfy the ``restricted
+  H\"ormander  condition''  $ H: $-  Consider  vector  fields 
+  $ Y_i,$   $[ Y_i, Y_j]$, $[[ Y_i, Y_j ], Y_k] \ldots$.   At
+  each  $x$  the  restrictions of these vector fields to
+  $ x $ span $ T_x ( M ) $. 
+\end{theorem}
+
+In local coordinates  $ Y_i = \sum \limits_{i}  b_i  (x) \dfrac{
+  \partial}{\partial x_i}, \ldots $ etc.  So the condition says the
+vectors  $b$ etc. span $\mathbb{R}^d $  at each  $x$. Recall, $
+B_{y_{t}}  ~ L B_{y_{t}}^{-1}= A ^*_t  + ~ ( 1^{\text{st}} $   and  $
+0^{\text{th}}$ order terms)  
+$$
+A^* = \sum_{i} ( \xi ^{-1}_{t*} Y_i )^2 + \cdots 
+$$
+
+Now
+$$
+\xi^{-1}_{t^*} [ Y_i, Y_j ] = [\xi^{-1}_{t^*}  Y_i, \xi^{-1}_{t^*} Y_j]
+~\text{ etc }. 
+$$
+
+So\pageoriginale if $ Y_i $ satisfy the H\"ormander condition, then 
+$(\xi^{-1}_{t*}Y_i)$ satisfies it. 
+
+H\"ormander's own result requires coefficients to be  $ C^\infty $ in $
+( t,x ) $. Here the coefficients are continuous  (but not even   $
+C^1$)  in $t$. Bismut's version  of Malliavin calculus shows that the
+result still holds with this degree of smoothness in $t$. 
+
+In the filtering problem, the ``signal process'' involved vector fields
+$ X_1, X_2, \ldots X_n, X_0 $ and $ Y = \Delta X $, where $ \Delta $
+is nonsingular if  $ \mid \alpha \mid  < 1 $. Then $ X=\Delta^{-1} Y
+$. So   
+$$
+\left[ \ldots[[ X_{i_{1}}, X_{i_{2}}] X_{i_{3}}] \ldots X_{i_{k}}\right]   =
+\sum_{j} c_j \left[ \ldots [[ Y_1 \delta, Y_2 \delta],Y_3 \delta]
+  \ldots  Y_{i n,j} \delta \right]. 
+$$
+
+So if the  ``$X$''  Lie brackets span $ \mathbb{R}^d $  then there must
+be a  collection of  ``$Y$''  brackets which also span  $
+\mathbb{R}^d $. The  H\"ormander condition for $X$ with $ \mid \alpha
+\mid  < 1 $ implies the existence of density. 
+
+\medskip
+\noindent{\textbf{The  Case of Vector  Observations:}}  Let 
+$dy^i = h_i ( x_t ) dt + dW^{0,i}_t, W^{0,i} $ are independent Brownian
+motions. $ \alpha $  will now be a matrix, 
+$$
+\alpha_{ij} t = < W^{0,i}, W^{0,j} >.
+$$
+
+Consider the  following cases. $ (a) $  Independent signal and  noise:
+Here  $ \alpha_{ij} = 0 \forall i,j $. Then whole theory goes through
+unchanged.  
+
+Then\pageoriginale (\ref{part2:sec3:eq2}) becomes
+$$
+d < f, \mu_t > = \sum_{i} < h_i f, \mu_t > ody^i_t
+$$
+with solution
+ \begin{align*}
+   < f, \mu_t > &=  \exp \left( \sum_{i} y_i (t) h (x)\right) f (x) \\
+   &= \prod_{i} \exp  ( y_i (t)h (x)) f (x) \\
+ \end{align*}
+ 
+ So this gives pathwise solution as  before.
+ 
+
+ \medskip
+ \noindent{\textbf{Another  Point of  View:}}
+ The  Kallianpur-Striebel formula is 
+ \begin{align*}
+   \sigma_t (f) &=  E^{(x)} \left[ f (x_t ) \exp \left( \sum_{i}  ~ \int
+     \limits^{t}_{i} h_i (x_s ) dy^i_s ~ - \frac{1}{2} \sum
+     \limits_{i} \int \limits^{t}_{o} ~ h^2_i (x_s ) ds \right) \right]\\ 
+   &=   E^{(x)} \left[ f (x_t ) \prod_{i} e^{y^{i} (t) h (x_t)} \exp \left(
+     \sum_{i}  ~ \int \limits^{t}_{o} y^i ( s ) dh_i (x_s )\right.\right.\\ 
+     &= \left.\left. \frac{1}{2} \left( \sum_{i}  ~ \int \limits^{t}_{o} ~
+     h^2_i ( x_s ) ds \right)\right) \right].  
+ \end{align*}
+ 
+
+ \medskip 
+ \noindent{\textbf{(b) The  General Case:}}
+ Here we have no ``pathwise''  theory  (except under very artificial
+ conditions)  but the same theory goes through  a.s. (Wiener
+ measure). There is no continuous  extension to the  whole of $ C^p
+ [ o,T ]$. In this case, equation (\ref{part2:sec3:eq2}) becomes  
+ $$
+\displaylines{\hfill 
+  d < f, \mu_t > = \sum_{i} < D_i f, \mu_t > ody^i_t\hfill \cr
+  \text{where}\hfill 
+  D_i =  Z_i + h  \text{ and  }   Z_i \text{ is a vector field }.\hfill}
+ $$
+ 
+ A pathwise  solution only exists if  $ D_i's $ commute, which is very
+ artificial. But, as before, the solution can be expressed as  
+ \begin{equation}
+   < f, \mu_t > = f (x_t ) \exp  \left( \sum_{i} \int \limits^{t}_{0}
+   h_i (x_s )  ody^i_s\right) \tag{7}\label{part2:sec3:eq7}  
+ \end{equation}
+  where\pageoriginale  $ x_t $ satisfies 
+ \begin{align*}
+   df (x_t )  &=  \sum_{i} D_i f ( x_t ) ody^i_t \\
+   x_o  &= x. \\
+ \end{align*} 
+ 
+ Regard  $ \mu $ as the  operator mapping  $ f \rightarrow < f, \mu_t>
+ $. Then ``stochastic flow'' theory  (Elworthy \cite{key13}, Kunita
+ \cite{key17}, Bismut \cite{key2} says that if  $ D_i's $ have smooth 
+ coefficients then  $ x \rightarrow x_t (x, \omega ) $ is  a
+ diffeomorphism   a.a. $\omega$, and so the  inverse map $x^{-1}_t
+ (x) $ exists. We have to calculate  $ \mu^{-1} _t $. Generalize
+ (\ref{part2:sec3:eq7})  slightly to   
+ \begin{align*}
+   < f, \mu_{s,t }    &>   =  f (x_t,t ) \exp \left( \sum_{i} \int
+   \limits^{t}_{s} h_i ( x_r,r ) ~ ody^i_r\right) \\ 
+  df  ( x_t,t ) &=  \sum_{i} ~  D_i f( x_t,t ) ~ o ~ dy^i_t ~ t \ge s \\
+  x_s &= x.
+ \end{align*} 
+ 
+\begin{prop}[Kunita \cite{key17}]%%%  3.3
+  \begin{equation}
+    \mu^{-1}_{s,t} (f(x)) = f (x^{-1}_{s,t} (x))  \exp \left( -
+    \sum_{i} \int\limits^{t}_{s} ~ h_i ( x^{-1}_{r,t}  (x)) \circ
+    \hat{d}y^i_r \right)    \tag{8}\label{part2:sec3:eq8}  
+  \end{equation}
+  where ``$o \hat{d}$'' means  backwards Stratonovich integral. Here
+  define $ \sigma - $ fields $ F_{r,t}~ r\leq t$, by 
+  $$
+  F_{r,t} = \sigma \left\{  y^i_u - ~ y^i_v, ~ r \leq u,v \leq t,i  = 1,2,
+  \ldots, d \right\}. 
+  $$
+ 
+Then $ \int\limits^{t}_{s} \phi_r \hat{d} y^i $  is a  well
+  defined  backward $I$  to integral if $ \phi_r $  is a
+  backward semimartingale  w.r.t. $(F_{r,t})_{r \leq t} 
+  $. Then the\pageoriginale Stratonovich integral is defined as
+  usual. If $\Phi_r$ is  continuous, then 
+  $$
+  \int \phi_r o \hat{d} y^i_r = \sum_{k} \Phi \left( \frac{t^n_k
+    +t^n_{k+1}}{2}\right) \left(y^{i}_{k^n_{k+1}}- y^i_{t^n_k}\right) 
+  $$
+
+  So $\mu^{-1}_{s,t}(x)$ is well defined by (\ref{part2:sec3:eq8}). Now verify that 
+  \begin{align*}
+  \int\limits_{s}^t h_i  \left(x^{-1}_{r,t}(p)\right) &\circ \hat{d}
+  y^i_r \big|_{p =x_{s,t}(x)}\\ 
+  & = \int\limits_{s}^t h_i(x_{s,r}) o d y^i_r.
+  \end{align*}
+  This checks that $\mu^{-1}_{s,t}(\mu_{s,t}(x)) =x$. 
+\end{prop}
+  
+  Now all remaining calculations go through as before \textit{but only}
+  a.s. (Wiener measure). 
+  
+  More general results on existence of densities have been obtained by
+  Bismut and Michel \cite{key3} 
+
+\begin{thebibliography}{99}
+\bibitem{key1} {R.M. BLUMENTHAL and R.K. GETOOR},\pageoriginale  Markov
+  processes and Potential theory, Academic press, New York 1968.  
+
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibitem{key2} {J.M. BISMUT,  Martingales},  The
+  Malliavin calculus and Hypoellicity under general Hormander
+  conditions: Z. Wahrscheinlichkeitstheorie 56 (1981) 469-505. 
+
+\bibitem{key3} {J.M. BISMUT and D. MICHEL}, Diffusions
+  conditionelles I, II,  J. Functional Analysis 44 (1981),
+  174-211, 45 (1982) 274-292. 
+
+\bibitem{key4} {R. BOEL, P. VARAIYA and E. WONG}, Martingales on
+  jump processes. I Representation results, SIAM J. Control
+  13 (1975) 999-1021. 
+
+\bibitem{key5} {J.M.C. CLARK}, The design of robust
+  approximations to the Stochastic differentials equations of
+  nonlinear filtering, Communication Systems and Random Process
+  Theory, ed. J.K. Skwirzynski, NATO  Advanced Study Institute Series,
+  Sijthoff and Noordhoff, Alphen aan den Rijn, 1978. 
+
+\bibitem{key6} {M.H.A. DAVIS}, The representation of Martingales
+  of jump processes, SIAM J. Control and Optimization 14
+  (1976) 623-638.  
+
+\bibitem{key7} {M.H.A. DAVIS}, Piecewise-deterministic Markov
+  Processes, a general class of non-diffusion Stochastic models, to
+  appear in J. Royal Statist. Soc. (B). 
+
+\bibitem{key8} {M.H.A. DAVIS and S.I. MARCUS}, An Introduction
+  to nonlinear filtering, Stochastic Systems: The Mathematics of
+  Filtering and Identification and Applications ed. M. Hazewinkel and
+  J.C. Willems, 1981 
+
+\bibitem{key9} {M.H.A. Davis}, Pathwise\pageoriginale nonlinear filtering,
+  Stochastic Systems,  The Mathematics of Filtering and Identification
+  and applications ed. M. Hazewinkel and J.C. Willems, Reidel
+  (1981) 505-528.  
+
+\bibitem{key10} {M.H.A. Davis}, On multiplicative functional
+  transformation arising in nonlinear filtering theory,
+  Z. Wahrscheinlichkeits theorie Verw. Geb. 54, (1980) 125-139. 
+
+\bibitem{key11} {M.H.A. DAVIS}, Linear Estimation and Stochastic
+  Control, Champan  \& Hall, London 1977. 
+
+\bibitem{key12} {C. DELLACHERIE and P.A. MEYER}, Probablity and
+  Potentials, North-Holland 1978. 
+
+\bibitem{key13} {K.D.ELWORTHY}, Stochastic dynamical systems and
+  their flows, Stochastic Analysis, ed. A. Friedman and M. Pinsky,
+  Acadenic Press, New York 1978. 
+
+\bibitem{key14} {R.J. ELLOTT}, Stochastic Calculus and
+  Applications Springer-Verlag 1982. 
+
+\bibitem{key15} {N. EL Karovi, Les aspectes probabilistes du
+  controle stochastique, in Lecture Notes in Mathematics, 876,
+  Springer-Verlag 1981 
+
+\bibitem{key16} {B.V. GNEDENKO and I. I. KOVALENKO},
+  Introduction to the theory of Mass Service[Russian]
+  Moscow, 1966. 
+
+\bibitem{key17} {H. KUNITA}, Densities of a measure-valued process
+  governed by a stochastic partial differential equation, Systems and
+  Control letters 1 (1981) 100-104. 
+
+\bibitem{key18} {H. KUNITA}, Stochastic partial differential
+  equations connected with nonlinear filtering, Nonlinear filtering
+  and Stochastic Control, Lecture Notes in Mathematics 972,
+  Springer-Verlag, Berlin 1982. 
+
+\bibitem{key19} {G. KALLIANPUR}, Stochastic\pageoriginale Filtering
+  theory},  Springer-Verlag, 1980. 
+
+\bibitem{key20} {E. PARDOUX,  Equations du filtering non-linear,
+  de la prediction et du lissage}, Stochastics 6 (1982) 193-231. 
+
+\bibitem{key21} {S. R. PLISKA, Controlled jump processes},
+  Stochastic processes and their applications 3 (1979) 259-282. 
+
+\bibitem{key22} {Z. ROSBERG, P.P. VARAIYA and J. C. WALRAND},
+  Optimal Control of Service in Tandem Queues, IEEE
+  Trans. Automatic Control 27 (1982) 600-610. 
+
+\bibitem{key23} {H.J. SUSSMAN}, On the gap between deterministic
+  and Stochastic ordinary differential equations, The Annals of
+  Probability 6 (1978) 19-41. 
+
+\bibitem{key24} {D. VERMES}, Optimal dynamic control of a useful
+  class of randomly jumping processes, report
+  pp-80-15. International Institute for Applied Systems Analysis,
+  Laxenburg, Australia, 1980. 
+
+\bibitem{key25} {D. VERMES}, Optiomal Control of
+  Piecewise-deterministic Processes, Preprint, Bolyai Institute,
+  University of Szeged, Hungary 1983 (to appear in Stochastics) 
+
+\bibitem{key26} {R.B. VINTER and R.M. LEWIS}, A necessary and
+  sufficient condition for optimality of Dynamic Programming type,
+  Making no apriori assumption on the controls, SIAM J. Control and
+  Optimization 16 (1978) 571-583. 
+
+\bibitem{key27} {A.D. WENTZELL}, A course in the theory of
+  Stochastic processes, McGraw-Hill Inc. 1981. 
+
+\bibitem{key28} {E. WONG}, Recent Progress in Stochastic
+  Processes-a survey. IEEE Trans. Inform. Theory, IT-19, 1973,
+  262-275. 
+
+\bibitem{key29} {F.A.VAN DER DUYA SCHOUTON, Markov\pageoriginale
+  Decision Drift Processes}, Mathematics Centre Tract, Amsterdam 1983.  
+
+\bibitem{key30} {A.A. YUSHKEVICH, Continuous-time Markov decision
+  processes with interventions}, Stochastics 9 (1983) 235-274. 
+
+\bibitem{key31} {R. RISHEL}, Dynamic programming and minimum
+  principles for systems with jump Markov disturbances, SIAM
+  J. Control 13 (1975) 338-371. 
+\end{thebibliography}
+
+

@@ -1,0 +1,816 @@
+\chapter{Convex Lower Semicontinuous Functionals}\label{chap8}
+
+{\bf Introduction.}~ In\pageoriginale Chapter \ref{chap5} we
+introduced the concept of subdifferential of a convex lower
+semicontinuous function $\Phi$. We observed that $\dom \p \Phi\subset
+\dom \Phi$. Here we prove a result of Br{\o}ndsted and Rockafellar
+\cite{key18} which show that $\dom \p \Phi$ is dense in $\dom
+\Phi$. The main ingredients in the proof are the Ekeland Variational
+Principle again and a calculus of subdifferentials. The proof here
+follows Aubin-Ekeland \cite{key6} and differs from the original one
+and also from that in Ekeland-Temam \cite{key36}. 
+
+\begin{proposition}\label{chap8-prop8.1}
+Let $\Phi$, $\Psi:X\to \mathbb{R}\cup \{+\infty\}$ be two convex lower
+semicontinuous functionals defined in a Banach space $X$ and such that
+$\Phi\equiv +\infty$ and $\Psi\equiv +\infty$. Then
+\begin{gather*}
+\p(t\Phi)(x)=t\p\Phi(x),\q \forall t>0\q \forall x\in
+X\tag{8.1}\label{chap8-eq8.1}\\
+\p(\Phi+\Psi)(x)\subset \p\Phi(x)+\p\Psi(x)\q \forall x\in
+X.\tag{8.2}\label{chap8-eq8.2} 
+\end{gather*}
+
+Moreover if there is $\overline{x}\in \dom \Phi\cap \dom \Psi$ where
+one of the functionals is continuous then there is equality in
+\eqref{chap8-eq8.2}. 
+\end{proposition}
+
+\begin{proof}
+\eqref{chap8-eq8.1} and \eqref{chap8-eq8.2} are straightforward. The
+last assertion is proved using the Hahn Banach theorem; see the
+details in Ekeland-Temam \cite{key36}.
+\end{proof}
+
+\noindent
+{\bf Subdifferential and Differentiability.}~ The reader has surely
+observed that these two notions are akin. Indeed, subdifferentials
+were introduced to go through situations when one does not have a
+differential. This was precisely\pageoriginale what occurred in
+Chapter \ref{chap5}. We have the following result
+
+\begin{proposition}\label{chap8-prop8.2}
+Let $\Phi:X\to \mathbb{R}\cup\{+\infty\}$ be a convex lower
+semicontinuous function. Suppose that $\Phi$ is Goteaux differentiable
+at a point $x_{0}\in \dom \Phi$, i.e., there exists an element of
+$X^{*}$, denoted by $D\Phi(x_{0})$, such that
+\begin{equation*}
+\Phi(x_{0}+tv)=\Phi(x_{0})+t\la D\Phi(x_{0}),v\ra+o(t),\q \forall v\in
+X.\tag{8.3}\label{chap8-eq8.3} 
+\end{equation*}
+[The above expression is to hold for small $t$; how small is $t$
+  depends on $v$].
+
+Then
+\begin{equation*}
+x_{0}\in \dom \p \Phi\q\text{and}\q D\Phi(x_{0})\in \p
+\Phi(x_{0}).\tag{8.4}\label{chap8-eq8.4} 
+\end{equation*}
+
+Moreover
+\begin{equation*}
+\p \Phi(x_{0})=D\Phi(x_{0}).\tag{8.5}\label{chap8-eq8.5}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+To prove \eqref{chap8-eq8.4} we have to show that
+\begin{equation*}
+\Phi(y)\geq \Phi(x_{0})+\la D\Phi(x_{0}),y-x_{0}\ra,\q \forall y\in
+X.\tag{8.6}\label{chap8-eq8.6} 
+\end{equation*}
+
+It $\Phi(y)=+\infty$ there is nothing to do. Assume that $y\in
+\dom\Phi$. So the whole segment connecting $x_{0}$ to $y$ is in $\dom
+\Phi$, and we have
+$$
+\Phi(x_{0}+t(y-x_{0}))\leq (1-t)\Phi(x_{0})+t\Phi(y).
+$$
+
+Using \eqref{chap8-eq8.3} we get, for small $t$:
+$$
+\Phi(x_{0})+t\la D\Phi(x_{0}),y-x_{0}\ra +o(t)\leq
+(1-t)\Phi(x_{0})+t\Phi(y) 
+$$
+which implies \eqref{chap8-eq8.4} readily. Next, let us suppose that
+$\overline{\mu}\in \p \Phi(x_{0})$:
+\begin{equation*}
+\Phi(y)\geq \Phi(x_{0})+\la\overline{\mu},y-x_{0}\ra\q y\in
+X.\tag{8.7}\label{chap8-eq8.7} 
+\end{equation*}
+
+Now given $v\in X$ we know by assumption \eqref{chap8-eq8.3} that
+$x_{0}+tv$, for small $t$, is in $\dom \Phi$. So from
+\eqref{chap8-eq8.7} 
+$$
+\Phi(x_{0}+tv)-\Phi(x_{0})\geq t\la \overline{\mu},v\ra.
+$$
+
+Assuming $t>0$, dividing through by $t$ and passing to the limit we
+obtain $\la D\Phi(x_{0}),v\ra\geq \la \overline{\mu},v\ra$ for all
+$v\in X$, which implies $\overline{\mu}=D\Phi(x_{0})$.
+\end{proof}
+
+\begin{theorem}[Br{\o}ndsted-Rockafellar \cite{key18}]\label{chap8-thm8.3}
+Let $X$ be a Banach space and $\Phi:X\to \mathbb{R}\cup\{+\infty\}$ a
+convex lower semicontinuous function, such that\pageoriginale
+$\Phi\equiv +\infty$. Then $\dom \p\Phi$ is dense in $\dom \Phi$. More
+precisely, for any $\overline{x}\in \dom\Phi$, there exists a sequence
+$(x_{k})$ in $X$ such that
+\begin{gather*}
+||x_{k}-\overline{x}||\leq 1/k\tag{8.8}\label{chap8-eq8.8}\\
+\Phi(x_{k})\to \Phi(\overline{x})\tag{8.9}\label{chap8-eq8.9}\\
+\p\Phi(x_{k})\neq \emptyset\q\text{for all}\q
+k.\tag{8.10}\label{chap8-eq8.10} 
+\end{gather*}
+\end{theorem}
+
+\begin{proof}
+The set
+$$
+E=\{(x,a)\in X\times \mathbb{R}:\Phi(x)\leq a\}
+$$
+[called the {\em epigraph} of $\Phi$] is closed and convex. (Prove!)
+Since $E\neq X$ we can take $(x_{0},a_{0})\not\in E$ and use Hahn
+Banach theorem: there exists $\mu\in X^{*}$ and $\alpha\in \mathbb{R}$
+such that
+\begin{equation*}
+\Psi(x)\equiv \Phi(x)-\la \mu, x\ra -\alpha>0\q\text{for all}\q x\in
+X.\tag{8.11}\label{chap8-eq8.11} 
+\end{equation*}
+[there is a small step to get \eqref{chap8-eq8.11} from Hahn-Banach;
+  see a similar situation in the proof of Proposition
+  \ref{chap5-prop5.4}]. Now let us apply Theorem \ref{chap4-thm4.2} to
+$\Psi$ with $\epsilon/2=\Psi(\overline{x})-\Inf_{X}\Psi$. So for each
+$\lambda=1/k$, $k\in\mathbb{N}$, we obtain $x_{k}$ such that
+\eqref{chap8-eq8.8} holds, and moreover
+\begin{gather*}
+\Psi(x_{k})\leq \Psi(\overline{x})\tag{8.12}\label{chap8-eq8.12}\\
+\Psi(x_{k})<\Psi(x)+\epsilon k||x_{k}-x||\q\forall x\neq
+x_{k}.\tag{8.13}\label{chap8-eq8.13} 
+\end{gather*}
+
+Next consider the functional $\Theta:X\to \mathbb{R}\cup \{+\infty\}$
+defined by
+$$
+\Theta(x)=\Psi(x)+\epsilon k||x-x_{k}||,
+$$
+which is convex and lower semicontinuous. From \eqref{chap8-eq8.13} it
+follows that $x_{k}$ is the (unique) global minimum of $\Theta$. So
+$0\in \p \Theta(x_{k})$. Let $\Gamma:X\to \mathbb{R}$ be the convex
+lower semicontinuous functional defined by $\Gamma(x)=||x-x_{k}||$. By
+\ref{chap8-prop8.1} it follows that there are $z^{*}\in \p
+\Psi(x_{k})$ and $w^{*}\in \p\Gamma(x_{k})$ such that
+$0=z^{*}+\epsilon kw^{*}$. Using Proposition \ref{chap8-prop8.1} once
+more and Proposition \ref{chap8-prop8.2} we see that there exists
+$x^{*}\in \p \Phi(x_{k})$ such that $z^{*}=x^{*}-\mu$, proving
+\eqref{chap8-eq8.10}. To prove \eqref{chap8-eq8.9} we rewrite
+\eqref{chap8-eq8.12} in terms of $\Phi$:
+\begin{equation*}
+\Phi(x_{k})\leq \Phi(\overline{x})+\la
+\mu,x_{k}-\overline{x}\ra.\tag{8.14}\label{chap8-eq8.14} 
+\end{equation*}
+
+Using \eqref{chap8-eq8.8} and \eqref{chap8-eq8.14} we have lim\,sup
+$\Phi(x_{k})\leq \Phi(\overline{x})$. On the other hand, since $\Phi$
+is weakly lower semicontinuous we obtain $\Phi(\overline{x})\leq
+\lim\inf\Phi(x_{k})$. There two last inequalities prove
+\eqref{chap8-eq8.12}. 
+\end{proof}
+
+\noindent
+{\bf The Duality Mapping.}~ Let\pageoriginale $X$ be a Banach
+space. In the theory of monotone operators $T:X\to 2^{X^{*}}$ a very
+important role is played by the so-called duality mapping. It
+essentially does in Banach space the job done by the identity in
+Hilbert spaces. The {\em duality mapping} $J:X\to 2^{X^{*}}$ is
+defined for each $x\in X$ by $J0=0$ and
+\begin{equation*}
+Jx=\{\mu\in X^{*}:\la
+\mu,x\ra=||x||^{2},||\mu||=||x||\},\q\text{for}\q x\neq
+0,\tag{8.15}\label{chap8-eq8.15} 
+\end{equation*}
+where we use the same notation for norms in both $X$ and
+$X^{*}$. Expression \eqref{chap8-eq8.15} is equivalent to.
+$$
+Jx=\{\mu\in X^{*}:\la \mu, x\ra\geq ||x||^{2}, ||\mu||\leq ||x||\}.
+$$
+
+We can show directly from the definition, using Hahn-Banach, that $Jx$
+is a non-empty $w^{*}$-closed convex subset of $X^{*}$, for each $x\in
+X$. However, we will prove that and much more using the results on
+subdifferentials proved in Chapter \ref{chap5}, after we prove the
+following proposition.
+
+\begin{proposition}\label{chap8-prop8.4}
+Let $X$ be a Banach space, and $\Phi:X\to \mathbb{R}$ the functional
+defined by $\Phi(x)=\frac{1}{2}||x||^{2}$. Then
+\begin{equation*}
+\p\Phi=J.\tag{8.16}\label{chap8-eq8.16}
+\end{equation*}
+\end{proposition}
+
+\begin{remark*}
+A study of generalized duality mappings can be found in Browder
+\cite{key23}. 
+\end{remark*}
+
+\begin{proof}
+Let $\mu\in \p \Phi(x)$. It suffices to consider $x\neq 0$, since
+$\p\Phi(0)=0$ and $J0=0$. Then
+\begin{equation*}
+\frac{1}{2}||y||^{2}\geq \frac{1}{2}||x||^{2}+\la \mu,y-x\ra\q\forall
+\in X.\tag{8.17}\label{chap8-eq8.17} 
+\end{equation*}
+
+Let $t>0$ and $v\in X$ be arbitrary, and replace in
+\eqref{chap8-eq8.17} $y$ be $x+tv$:
+$$
+t\la \mu,v\ra \leq \frac{1}{2}||x+tv||^{2}-\frac{1}{2}||x||^{2}\leq
+t||x||~||v||+\frac{1}{2}t^{2}||v||^{2}. 
+$$
+
+Dividing through by $t$ and passing to the limit
+$$
+\la \mu, v\ra \leq ||x||~||v||\q\forall v\in X.
+$$
+
+This implies $||\mu||\leq ||x||$. On the other hand, let $y=tx$ in
+\eqref{chap8-eq8.17}: 
+\begin{equation*}
+\frac{1}{2}(t^{2}-1)||x||^{2}\geq (t-1)\la
+\mu,x\ra.\tag{8.18}\label{chap8-eq8.18} 
+\end{equation*}
+
+For\pageoriginale $0<t<1$ we obtain from \eqref{chap8-eq8.18}
+$\frac{1}{2}(t+1)||x||^2\leq \la \mu,x\ra$. Letting $t\to 1$ we have
+$\la \mu,x\ra\geq ||x||^{2}$, completing the proof that $\mu\in
+Jx$. The other way around, assume now that $\mu\in Jx$, and we claim
+that \eqref{chap8-eq8.17} holds. Let us estimate the right side of
+\eqref{chap8-eq8.17} using the properties of $\mu$:
+$$
+\la \mu,y\ra -\la \mu,x\ra+\frac{1}{2}||x||^{2}\leq
+||x||~||y||-||x||^{2}+\frac{1}{2}||x||^{2}, 
+$$
+and clearly the right side of the above inequality is $\leq
+\frac{1}{2}||y||^{2}$. 
+\end{proof}
+
+\setcounter{remark}{0}
+\begin{remark}\label{chap8-rem1}
+If $\mu\in J(x_{0})$ it follows from the above that $\mu$ {\em
+  supports the ball} of radius $||x_{0}||$ around $0$ at the point
+$x_{0}$. Indeed if $||y||\leq ||x_{0}||$, then $\la \mu,y\ra\leq \la
+\mu,x_{0}\ra$. I.e. $\Sup\{\la\mu,y\ra:||y||\leq
+||x_{0}||\}=\la\mu,x_{0}\ra$. 
+
+Conversely, if a functional $\mu$ supports the unit ball at a point
+$x_{0}$, then $\mu\in J(||\mu||x_{0})$. Indeed, from
+$$
+\la \mu,x_{0}\ra=\Sup_{||y||\leq 1}\la \mu,y\ra
+$$
+we obtain $\la \mu,x_{0}\ra=||\mu||$, which proves the claim.
+\end{remark}
+
+\begin{remark}\label{chap8-rem2}
+Let us call $\mathcal{R}(J)=\cup \{Jx:x\in X\}$. If $X$ is a reflexive
+Banach space, the above remark says that $\mathcal{R}(J)=X^{*}$. If
+$X$ is not reflexive there is a result of R. C. James \cite{key49}
+which says that there are functionals which do not support the unit
+ball. So for non reflexive Banach spaces $\mathcal{R}(J)\neq
+X^{*}$. However the Bishop Phelps theorem proved in Chapter
+\ref{chap7} says that $\mathcal{R}(J)$ is {\em dense} in $X^{*}$, for
+all Banach spaces.
+\end{remark}
+
+\noindent
+{\bf G\^ateaux Differentiability of the Norm.}~ As in the previous
+section let $\Phi(x)=\frac{1}{2}||x||^{2}$. Since $\Phi:X\to
+\mathbb{R}$ is continuous and convex we have by Proposition
+\ref{chap5-prop5.4} that
+\begin{equation*}
+\lim\limits_{t\downarrow 0}\frac{\Phi(x+ty)-\Phi(x)}{t}=\Max_{\mu\in
+  J_{x}}\la \mu,y\ra,\q t>0.\tag{8.19}\label{chap8-eq8.19} 
+\end{equation*}
+
+It follows from \eqref{chap8-eq8.19} that
+\begin{equation*}
+\lim\limits_{t\uparrow 0}\frac{\Phi(x+ty)-\Phi(x)}{t}=\Min_{\mu\in
+  Jx}\la \mu,y\ra,\q t<0.\tag{8.20}\label{chap8-eq8.20} 
+\end{equation*}
+
+The\pageoriginale functional $\Phi$ is G\^ateaux differentiable if and
+only if the two limits in \eqref{chap8-eq8.19} and
+\eqref{chap8-eq8.20} are equal and in fact there is a continuous
+linear functional, noted by $D\Phi(x)$ and called the G\^ateaux
+derivative at $x$, such there limits are equal to $\la
+D\Phi(x),y\ra$. So the existence of the G\^ateaux derivative of $\Phi$
+at a certain point $x$ implies that
+$$
+\Max_{\mu\in Jx}\la \mu,y\ra=\Min_{\mu\in Jx}\la \mu,y\ra\q\text{for
+  all}\q y\in Y.
+$$
+
+Clearly this implies that $Jx$ is a singleton, and $Jx=D\Phi(x)$. The
+converse is clearly true: if $Jx$ is singleton then
+\eqref{chap8-eq8.19} and \eqref{chap8-eq8.20} imply that $\Phi$ is
+G\^ateaux differentiable at $x$ and $D\Phi(x)=Jx$. So we have proved.
+
+\begin{proposition}\label{chap8-prop8.5}
+Let $X$ be a Banach space. $\Phi(x)=\frac{1}{2}||x||^{2}$ is G\^ateaux
+differentiable at a point $x$ if and only if $Jx$ is a
+singleton. Moreover $Jx=D\Phi(x)$. In particular, the duality mapping
+is singlevalued, $J:X\to X^{*}$, if and only if
+$\Phi(x)=\frac{1}{2}||x||^{2}$ is G\^ateaux differentiable at all
+points $x\in X$.
+\end{proposition}
+
+
+\setcounter{remark}{0}
+\begin{remark}\label{chap8-addrem1}
+Which geometric properties of the Banach space $X$ give a singlevaled
+duality mapping? For the definitions below let $B_{1}=\{x\in
+X:||x||\leq 1\}$ and $\p B_{1}=\{x\in X:||x||=1\}$. In the terminology
+introduced in Chapter \ref{chap7}, we see from the Hahn Banach theorem
+that all points of $\p B_{1}$ are support points, i.e.\@ given $x\in
+\p B_{1}$ there exists a functional $\mu\in X^{*}$ such that
+$$
+\Sup_{B_{1}}\mu=\la \mu,x\ra.
+$$
+
+In geometric terms we say that the ball $B_{1}$ has a hyperplane of
+support at each of its boundary points. A Banach space $X$ is said to
+be {\em strictly convex} if given $x_{1}$, $x_{2}\in \p B_{1}$, with
+$x_{1}\neq x_{2}$, then $||tx_{1}+(1-t)x_{2}||<1$ for all
+$0<t<1$. Another way of saying that it is: each hyperplane of support
+touches $\p B_{1}$ at a unique point. (Or still $\p B_{1}$ contains no
+line segments). A Banach space $X$ is said to be {\em smooth} if each
+point $x\in \p B_{1}$ possesses only one hyperplane of
+support. Examples in $\mathbb{R}^{2}$ with different norms: (i) the
+Euclidean norm $||x||^{2}=x^{2}_{1}+x^{2}_{2}$ is both strictly convex
+and smooth; (ii) the sup norm $||x||=\Sup\{|x_{1}|,|x_{2}|\}$ is
+neither strictly convex non smooth; (iii) the norm whose unit ball is
+$\{(x_{1},x_{2}):-1\leq x_{1}\leq 1,x^{2}_{1}-1\leq x_{2}\leq
+1-x^{2}_{1}\}$ is strictly convex but not smooth: (iv) the norm whose
+unit ball is the union of the three sets next is smooth but not
+strictly convex:
+$$
+\{(x_{1},x_{2}):-1\leq x_{1},x_{2}\leq 1\},\{(x_{1},x_{2}):x_{1}\geq
+1,(x_{1}-1)^{2}+x^{2}_{2}\leq 1\}
+$$
+and
+$$
+\{(x_{1},x_{2}):x_{1}\leq -1,(x_{1}+1)^{2}+x^{2}_{2}\leq 1\}.
+$$
+\end{remark}
+
+\begin{remark}\label{chap8-addrem2}
+With\pageoriginale the terminology of the previous remark, Proposition
+\ref{chap8-prop8.5} states: ``$\Phi(x)=\frac{1}{2}||x||^{2}$\,{\em is
+  G\^ateaux differentiable if and if $X$ is smooth}''. No condition on
+reflexivity is asked from $X$.
+\end{remark}
+
+\begin{remark}\label{chap8-addrem3}
+If $X^{*}$ is strictly convex then $J$ is singlevalued. Indeed, for
+each $x_{0}\in X$, $Jx_{0}$ is a convex subset of the set $\{\mu\in
+X^{*}:||\mu||=||x_{0}||\}$, which is a singleton in the case when
+$X^{*}$ is strictly convex. So $X^{*}$ strictly convex implies that
+$X$ is smooth, in view of Proposition \ref{chap8-prop8.5} and Remark
+\ref{chap8-addrem2} above.
+\end{remark}
+
+\begin{remark}\label{chap8-addrem4}
+There is a duality between strict convexity and smoothness in finite
+dimensional Banach spaces: $X$ is strictly convex [resp.\@ smooth] if
+and only if $X^{*}$ is smooth [resp.\@ strictly convex]. Such a result
+does not extend to all Banach spaces, see Beauzamy \cite[p. 186]{key8}
+for an example. However this is true for reflexive Banach spaces. This
+was first proved by \u{S}mulian \cite{key75}, and it follows readily
+from Remark \ref{chap8-addrem3} above and Remark \ref{chap8-addrem5}
+below. 
+\end{remark}
+
+\begin{remark}\label{chap8-addrem5}
+$X^{*}$ smooth implies $X$ strictly convex. Indeed suppose that $X$ is
+  not strictly. Then there are $x_{1}$, $x_{2}\in \p B_{1}$ such that
+  $\overline{x}=\frac{1}{2}(x_{1}+x_{2})\in \p
+  B_{1}$. $J\overline{x}\in \p B^{*}_{1}$ where $\p B^{*}_{1}=\{\mu\in
+  X^{*}:||\mu||=1\}$. We now claim that $x_{1}$ and $x_{2}$ viewed as
+  elements of $X^{**}$ are two support functionals of $B^{*}_{1}$ at
+  $J\overline{x}$, contradicting the smoothness of $X^{*}$. In fact
+\begin{equation*}
+1=\la J\overline{x},\overline{x}\ra=\frac{1}{2}\la
+J\overline{x},x_{1}\ra+\frac{1}{2}\la
+J\overline{x},x_{2}\ra\tag{8.21}\label{chap8-eq8.21} 
+\end{equation*}
+implies $\la J\overline{x},x_{1}\ra=1$ and $\la
+J\overline{x},x_{2}\ra=1$, proving the claim.
+\end{remark}
+
+\noindent
+{\bf Frechet Differentiability.}~ We know that a functional $\Phi:X\to
+\mathbb{R}$ which is G\^ateaux differentiable is not in general
+Fr\'echet differentiable. However
+
+\begin{proposition}\label{chap8-prop8.6}
+Let $X$ be a Banach space, A functional $\Phi:X\to \mathbb{R}$ is
+continuously Fr\'echet differentiable (i.e.\@ $C^{1}$) if and only if
+it is continuously G\^ateaux differentiable.
+\end{proposition}
+
+\begin{proof}
+One of the implications is obvious. Let us assume that $\Phi$ is
+G\^ateaux differentiable in a neighborhood $V$ of point $u_{0}\in X$
+and that the mapping $x\in V\mapsto D\Phi(x)\in X^{*}$ is
+continuous. We claim that $D\Phi(u_{0})$ is the Fr\'echet
+derivative\pageoriginale at $u_{0}$, and, indeed:
+\begin{equation*}
+\Phi(u_{0}+v)-\Phi(u_{0})-\la
+D\Phi(u_{0}),v\ra=o(v).\tag{8.22}\label{chap8-eq8.22} 
+\end{equation*}
+
+The real-valued function $t\in [0,1]\mapsto \Phi(u_{0}+tv)$ is
+differentiable for small $v$. So by the mean value theorem
+$\Phi(u_{0}+v)-\Phi(u_{0})=\la D\Phi(u_{0}+\tau v),v\ra$, which holds
+for small $v$ and some $\tau\in [0,1]$. So we could estimate the left
+side of \eqref{chap8-eq8.22} by $|D\Phi(u_{0}+\tau v)-D\Phi(u_{0})|$,
+and using the continuity of the G\^ateaux derivative we finish.
+\end{proof}
+
+It is clear that a functional $\Phi:X\to \mathbb{R}$ could be Frechet
+differentiable without being $C^{1}$. However this is not the case if
+$\Phi(x)=\frac{1}{2}||x||^{2}$. 
+
+\begin{proposition}\label{chap8-prop8.7}
+Let $X$ be a Banach space. If $\Phi(x)=\frac{1}{2}||x||^{2}$ is
+Fr\'echet differentiable [which implies Gateaux differentiable and $\p
+  \Phi=J$, where $J$ is singlevalued] then $J:X\to X^{*}$ is a
+continuous mapping.
+\end{proposition}
+
+\begin{remark*}
+Without additional assumptions on the Banach space, a single-valued
+duality mapping $J:X\to X^{*}$ is continuous from the strong topology
+of $X$ to the $w^{*}$-topology of $X^{*}$. For simplicity let us
+sketch the proof using sequences. Since the $w^{*}$-topology needs not
+to be metrizable, filters should be used, see Beauzamy
+\cite[p. 177]{key24}. Let $x_{n}\to x$ in $X$. Since
+$||Jx_{n}||_{X^{*}}\leq$ const, there is $\mu\in X^{*}$ such that
+$$
+Jx_{n}\displaystyle{\mathop{\rightharpoonup}^{w^{*}}}\mu. 
+$$
+
+We claim that $\mu=Jx$. First, from $\la
+Jx_{n},x_{n}\ra=||x_{n}||^{2}$ we conclude $\la
+\mu,x\ra=||x||^{2}$. Next given $\epsilon>0$ there exists $u\in X$
+with $||u||=1$ such that $||\mu||\leq \la \mu,u\ra+\epsilon$. So
+$||\mu||\leq \la Jx_{n},u\ra+\epsilon\leq ||x_{n}||+\epsilon$ for
+large $n$. Passing to the limit, and since $\epsilon>0$ is arbitrary
+$||\mu||\leq ||x||$.\hfill$\Box$
+\end{remark*}
+
+\noindent
+{\bf Proof of Proposition \ref{chap8-prop8.7}.}~ Suppose by
+contradiction that there is a sequence $x_{n}\to x$ and $r>0$ such
+that $||Jx_{n}-Jx||>2r$, for all $n$. So for each $n$ there exists
+$y_{n}\in X$, $||y_{n}||=1$ such that
+\begin{equation*}
+\la Jx_{n}-Jx,y_{n}\ra>2r.\tag{8.23}\label{chap8-eq8.23}
+\end{equation*}
+
+Using the Frechet differentiability of $\Phi$ we can find $\delta>0$
+such that 
+\begin{equation*}
+|\Phi(x+y)-\Phi(x)-\la Jx,y\ra|\leq r||y||\q\text{for}\q ||y||\leq
+\delta.\tag{8.24}\label{chap8-eq8.24} 
+\end{equation*}
+
+On\pageoriginale the other hand we have
+\begin{equation*}
+\Phi(x+\delta y_{n})-\Phi(x_{n})\geq \la Jx_{n},x+\delta
+y_{n}-x_{n}\ra.\tag{8.25}\label{chap8-eq8.25} 
+\end{equation*}
+
+Now using \eqref{chap8-eq8.24} we estimate
+$$
+\la Jx_{n}-Jx,\delta y_{n}\ra\leq \Phi(x+\delta y_{n})-\Phi(x_{n})+\la
+Jx_{n},x_{n}-x\ra-\la Jx,\delta y_{n}\ra 
+$$
+which is equal to
+\begin{equation*}
+\Phi(x+\delta y_{n})-\Phi(x)-\la Jx,\delta
+y_{n}\ra+\Phi(x)-\Phi(x_{n})+\la
+Jx_{n},x_{n}-x\ra.\tag{8.26}\label{chap8-eq8.26} 
+\end{equation*}
+
+The first three terms in \eqref{chap8-eq8.26} we estimate using
+\eqref{chap8-eq8.24}. So starting with \eqref{chap8-eq8.23} we get
+$$
+2r\delta<r\delta+\Phi(x)-\Phi(x_{n})+||x_{n}||~||x_{n}-x||
+$$
+which implies that $\Phi(x_{n})$ does not converge to $\Phi(x)$. This
+contradicts the continuity of $\Phi$.\hfill$\Box$ 
+
+As a consequence of the previous propositions we have the following
+characterization of Fr\'echet differentiability of the norm:
+
+\begin{proposition}\label{chap8-prop8.8}
+Let $X$ be a Banach space. $\Phi(x)=\frac{1}{2}||x||^{2}$ is Frechet
+differentiable if and only if the duality mappings is singlevalued and
+continuous. 
+\end{proposition}
+
+\begin{remark*}
+Which geometric properties of the Banach space $X$ give a continuous
+singlevalued duality mapping? We start with a condition introduced by
+\u{S}mulian \cite{key75}. $X^{*}$ satisfies {\em condition} $(S)$ if
+for each $x\in \p B_{1}$ we have
+\begin{equation*}
+\lim\limits_{\delta\to 0}\diam
+A_{x}(\delta)=0,\tag{8.27}\label{chap8-eq8.27} 
+\end{equation*}
+where $A_{x}(\delta)=\{\mu\in X^{*}:\la \mu,x\ra\geq 1-\delta\}\cap
+B^{*}_{1}$. 
+\end{remark*}
+
+\begin{proposition}\label{chap8-prop8.9}
+Let $X$ be a Banach space. The duality mapping is singlevalued and
+continuous if and only if $X^{*}$ satisfies $(S)$.
+\end{proposition}
+
+\begin{proof}
+(i) First assume $(S)$. Suppose that there exists $x\in \p B_{1}$ such
+  that $Jx$ contains $\mu_{1}\neq \mu_{2}$. Clearly $\mu_{1}$,
+  $\mu_{2}\in A_{x}(\delta)$, for all $\delta>0$, and
+  $||\mu_{1}-\mu_{2}||>0$ negates \eqref{chap8-eq8.27}. To show the
+  continuity of $J$, it suffices to prove that if $x_{n}\to x$, with
+  $||x_{n}||=1$, then $Jx_{n}\to Jx$. We know that
+$$
+Jx_{n}\displaystyle{\mathop{\rightharpoonup}^{w^{*}}}Jx,
+$$
+so\pageoriginale it is enough to show that $(Jx_{n})$ is a Cauchy
+sequence. Given $\epsilon>0$, choose $\delta>0$ such that $\diam
+A_{x}(\delta)\leq \epsilon$. We know that $\la Jx_{n},x\ra\to \la
+Jx,x\ra=1$. So there exists $n_{0}$ such that $Jx_{n}\in
+A_{x}(\delta)$ for all $n\geq n_{0}$. Using condition $(S)$ we
+conclude that $||Jx_{n}-Jx_{m}||\leq \epsilon$ for all $n$, $m\geq
+n_{0}$.
+
+(ii)~ Conversely, assume by contradiction that $(S)$ does not hold,
+for some $x\in \p B_{1}$. So there exists $\epsilon_{0}>0$ such that
+for every $n\in \mathbb{N}$ we can find $\mu_{n}$, $\mu'_{n}$ in
+$B^{*}_{1}$ with the properties 
+$$
+\la \mu_{n},x\ra\geq 1-\frac{1}{n},\q \la \mu'_{n},x\ra \geq
+1-\frac{1}{n},\q ||\mu_{n}-\mu'_{n}||\geq \epsilon_{0}. 
+$$
+
+We have seen, Remark \ref{chap8-rem2}, that $\mathcal{R}(J)$ is dense
+in $X^{*}$. So we can find $x_{n}$, $y_{n}$ in $X$ such that
+\begin{gather*}
+\la Jx_{n},x\ra\geq 1-\frac{2}{n},\q \la Jy_{n},x\ra\geq
+1-\frac{2}{n},\q ||Jx_{n}-Jy_{n}||\geq
+\frac{\epsilon_{0}}{2},\tag{8.28}\label{chap8-eq8.28}\\ 
+||Jx_{n}||\leq 1+\frac{1}{n},\q ||Jy_{n}||\leq
+1+\frac{1}{n}.\tag{8.29}\label{chap8-eq8.29} 
+\end{gather*}
+
+Observe that the sequences $(Jx_{n})$, $(Jy_{n})$ are bounded in
+$X^{*}$. By the Banach Alaoglu Theorem, there exists $\mu$ and $\mu'$
+in $X^{*}$ such that
+$$
+Jx_{n}\displaystyle{\mathop{\rightharpoonup}^{w^{*}}}\mu,\q
+Jy_{n}\displaystyle{\mathop{\rightharpoonup}^{w^{*}}}\mu'. 
+$$
+(As usual take subsequences if necessary). Passing to the limit in
+\eqref{chap8-eq8.28} we obtain $\la \mu,x\ra\geq 1$, $\la
+\mu',x\ra\geq 1$. From \eqref{chap8-eq8.29} it follows that in fact we
+have $\la \mu,x\ra=\la \mu',x\ra=1$, which implies $\mu=\mu'=Jx$. On
+the other hand, from the last assertion in \eqref{chap8-eq8.28} we can
+find $z\in B_{1}$ such that
+$$
+\la Jx_{n}-Jy_{n},z\ra \geq \frac{\epsilon_{0}}{4}.
+$$
+
+Passing to the limit in this inequality we come to a contradiction.  
+\end{proof}
+
+\begin{remark*}
+Now we give a geometric condition which is sufficient to having the
+continuity and singlevaluedness of $J$. Some definitions. A Banach
+space $X$ is said to be {\em uniformly convex} (Clarkson \cite{key26})
+if given $\epsilon>0$ there exists $\delta=\delta(\epsilon)>0$ such
+that if $x$, $y\in \p B_{1}$ and $||\frac{1}{2}(x+y)||\geq 1-\delta$
+then $||x-y||\leq \epsilon$. A Banach space $X$ is said to be {\em
+  locally uniformly convex} (Lovaglia \cite{key58}) if given
+$\epsilon>0$ and $x_{0}\in\p B_{1}$ there exists
+$\delta=\delta(\epsilon,x_{0})$ such that if $x\in B_{1}$ and
+$||\frac{1}{2}(x+x_{0})||\geq 1-\delta$ then $||x-x_{0}||\leq
+\epsilon$. The previous two definitions can be given in terms of
+sequences as follows. $X$ is {\em uniformly convex} if given
+and\pageoriginale two sequences $(x_{n})$ and $(y_{n})$ in $B_{1}$
+such that $||\frac{1}{2}(x_{n}+y_{n})||\to 1$ then $||x_{n}-y_{n}||\to
+0$. $X$ is locally uniformly convex if given any point $x_{0}\in \p
+B_{1}$ and any sequence $(x_{n})$ in $B_{1}$ such that
+$||\frac{1}{2}(x_{0}+x_{n})||\to 1$ then $x_{n}\to x_{0}$. A Banach
+space $X$ is said to satisfy {\em Property} $H$ (Fan-Glicksberg
+\cite{key40}) if $X$ is strictly convex and
+\begin{equation*}
+x_{n}\rightharpoonup x_{0},\q ||x_{n}||\to ||x_{0}||\Rightarrow
+x_{n}\to x_{0}.\tag{8.30}\label{chap8-eq8.30} 
+\end{equation*}
+
+Hilbert spaces are uniformly convex. A uniformly convex Banach space
+is locally uniformly convex. A locally uniformly convex Banach space
+satisfies Property $(H)$. The first assertion is easily verified using
+the fact that $x+y$ is orthogonal to $x-y$, for $x$, $y\in \p
+B_{1}$. The second is trivial. And the third is proved as follows. It
+is clear that a locally uniformly convex Banach space is strictly
+convex. To prove \eqref{chap8-eq8.30} we may assume that
+$||x_{n}||\leq 1$ and $||x_{0}||=1$. We claim that
+$x_{n}\rightharpoonup x_{0}$ and $||x_{n}||\to ||x_{0}||$ implies that
+$||\frac{1}{2}(x_{n}+x_{0})||\to 1$. Once this is done, the fact that
+$X$ us supposed locally uniformly convex implies that $x_{n}\to
+x_{0}$. Suppose by contradiction that a subsequence of $(x_{n})$,
+denoted by $(x_{n})$ again, is such that
+$||\frac{1}{2}(x_{n}+x_{0})||\leq t<1$, for all $n$. Let $\mu\in
+Jx_{0}$. Then
+$$
+\la \mu,\frac{1}{2}(x_{0}+x_{n})\ra \leq \la \mu,tx_{0}\ra
+$$
+which implies $\frac{1}{2}+\frac{1}{2}\la \mu ,x_{n}\ra\leq
+t$. Passing to the limit we come to a contradiction.
+\end{remark*}
+
+\begin{proposition}\label{chap8-prop8.10}
+Let $X$ be a Banach space and suppose that $X^{*}$ is locally
+uniformly convex. Then the duality mapping is singlevalued and
+continuous. 
+\end{proposition}
+
+\begin{proof}
+Singlevaluedness is clear. Now let $x_{n}\to x_{0}$ in $X$. As in
+Proposition \ref{chap8-prop8.9} we may suppose $||x_{n}||=1$. We know
+that
+$$
+Jx_{n}\displaystyle{\mathop{\rightharpoonup}^{w^{*}}}Jx_{0}.
+$$
+
+Suppose by contradiction (passing to a subsequence) that
+$\frac{1}{2}||Jx_{n}+Jx_{0}||\leq t<1$. Then 
+$$
+(Jx_{n}+Jx_{0},x_{n}+x_{0})\leq 4t.
+$$
+
+On the other hand the left side of the above inequality is equal to
+$$
+(Jx_{n},x_{n})+(Jx_{0},x_{n})+(Jx_{n},x_{0})+(Jx_{0},x_{0})=2+(Jx_{0},x_{n})+(Jx_{n},x_{0}) 
+$$ 
+which converges to 4. Impossible!
+\end{proof}
+
+\begin{proposition}\label{chap8-prop8.11}
+Let\pageoriginale $X$ be a reflexive Banach space. Then $J$ is
+single-valued and continuous if and only if $X^{*}$ satisfies Property
+$H$. 
+\end{proposition}
+
+\begin{proof}
+It can easily be seen that, in the case of reflexive spaces, Property
+$H$ on $X^{*}$ implies the said properties on $J$. To prove the
+converse, we use Proposition \ref{chap8-prop8.9} and show that
+Property $S$ implies Property $H$ on $X^{*}$; of course reflexivity is
+used again. Suppose by contradiction that there exists a sequence
+$$
+\mu_{n}\rightharpoonup \mu_{0},\q ||\mu_{n}||\to ||\mu_{0}||,\q
+\mu\nrightarrow \mu_{0}.
+$$
+
+We may suppose without loss of generality that $||\mu_{n}||\leq 1$ and
+$||\mu_{0}||=1$. So there exist $\epsilon_{0}>0$ and sequences
+$(j_{n})$ and $(k_{n})$ going to $\infty$ such that
+\begin{equation*}
+||\mu_{j_{n}}-\mu_{k_{n}}||\geq
+\epsilon_{0}.\tag{8.31}\label{chap8-eq8.31} 
+\end{equation*}
+
+Since $J$ is singlevalued continuous and onto, we can find $x_{0}$ in
+$X$ with $||x_{0}||=1$ such that $\mu_{0}=Jx_{0}$. Consider the set
+$A_{x_{0}}(\delta)$ defined in \eqref{chap8-eq8.27} and choose
+$\delta>0$ such that $\diam A_{x_{0}}(\delta)<\epsilon_{0}/2$. Clearly
+$\mu_{n}\in A_{x_{0}}(\delta)$ for large $n$. But this contradicts
+\eqref{chap8-eq8.31}. 
+\end{proof}
+
+\noindent
+{\bf Uniform Fr\'echet Differentiability of the Norm.}~ In this
+seciton we limit ourselves to Proposition \ref{chap8-prop8.12}
+below. We refer to the books of Beauzamy \cite{key8} and Diestel
+\cite{key32} for more on this subject. A concept of uniform smoothness
+can be introduced and be shown to enjoy a duality with uniform
+convexity, just like smoothness and strict convexity do.
+
+\begin{proposition}\label{chap8-prop8.12}
+The duality mapping $J$ is singlevalued and uniformly continuous on
+bounded subsets of $X$ if and only if $X^{*}$ is uniformly convex. 
+\end{proposition}
+
+\begin{proof}
+(i) We first prove that $X^{*}$ uniformly convex implies the said
+  properties on $J$. From Proposition \ref{chap8-prop8.10} it follows
+  that $J$ is singlevalued and continuous. To prove uniform continuity
+  we preceed by contradiction. Assume that the exists $\epsilon_{0}>0$
+  and sequences $(x_{n})$, $(y_{n})$ in some fixed bounded subset of
+  $X$ such that
+$$
+||x_{n}-y_{n}||<\frac{1}{n}\q \text{and}\q ||Jx_{n}-Jy_{n}||\geq
+\epsilon_{0}. 
+$$
+
+We may assume that $||x_{n}||=||y_{n}||=1$. Now we claim that
+$\frac{1}{2}||Jx_{n}+Jy_{n}||\to 1$ as $n\to \infty$, arriving then at
+a contradiction through the use of the uniform convexity\pageoriginale
+of $X^{*}$. To prove the claim just look at the identity
+$$
+\la Jx_{n}+Jy_{n},x_{n}\ra=\la Jx_{n},x_{n}\ra+\la Jy_{n},y_{n}\ra+\la
+Jy_{n},x_{n}-y_{n}\ra 
+$$
+and estimate to obtain
+$$
+2\geq \la Jx_{n}+Jy_{n},x_{n}\ra\geq 2-2||x_{n}-y_{n}||.
+$$
+
+Now we assume that $J$ is singlevalued and uniformly continuous on
+bounded sets. By the fact that $\mathcal{R}(J)$ is dense in $X^{*}$ it
+suffices to show that given $\epsilon>0$ there exists a $\delta>0$
+such that
+\begin{equation*}
+||Jx-Jy||\geq \epsilon\Rightarrow \frac{1}{2}||Jx+Jy||\leq
+1-\delta\tag{8.32}\label{chap8-eq8.32} 
+\end{equation*}
+for $x$, $y\in \p B_{1}$. First we write an identity for $u$, $v\in \p
+B_{1}$ 
+\begin{equation*}
+\la Jx+Jy,u\ra=-\la Jx-Jy,v\ra+\la Jx,u+v\ra+\la Jy,
+u-v\ra.\tag{8.33}\label{chap8-eq8.33} 
+\end{equation*}
+
+Observe that the sup of the left side with respect to $u\in \p B_{1}$
+is the norm of $Jx+Jy$, and the sup of the first term in the right
+side with respect to $v\in \p B_{1}$ gives the norm of $Jx-Jy$. Next
+let $0<\epsilon'<\epsilon$ and choose $\overline{v}\in \p B_{1}$ such
+that
+\begin{equation*}
+\la Jx-Jy,\overline{v}\ra\geq \epsilon'.\tag{8.34}\label{chap8-eq8.34}
+\end{equation*}
+
+Now choose $0<\xi<\epsilon'$. By the uniform continuity of $J$ there
+is $\eta>0$ such that
+\begin{equation*}
+||Jz_{1}-Jz_{2}||\leq \xi\q \text{if}\q ||z_{1}-z_{2}||\leq
+4\eta.\tag{8.35}\label{chap8-eq8.35}
+\end{equation*}
+
+Now take $v=\eta\overline{v}$ in \eqref{chap8-eq8.33} and let us
+estimate separately the three terms in the right side of
+\eqref{chap8-eq8.33}. The first is trivially estimated by
+$-\epsilon'\eta$. The other two are estimated as follows:
+$$
+\la Jx,u+v\ra+\la Jy,u-v\ra\leq ||u+v||+||u-v||.
+$$
+
+Let $s=(u+v)/||u+v||$ and $d=(u-v)/||u-v||$, and write the
+identity 
+\begin{equation*}
+||u+v||+||u-v||=(Js,u)+(Jd,u)+(Js-Jd,v).\tag{8.36}\label{chap8-eq8.36} 
+\end{equation*}
+
+Then estimate \eqref{chap8-eq8.36} using \eqref{chap8-eq8.35} and get
+$$
+||u+v||+||u-v||\leq 2+\xi||v||\leq 2+\xi \eta.
+$$
+
+Finally\pageoriginale \eqref{chap8-eq8.33} is estimated by
+$-\epsilon'\eta+2+\xi\eta$, for all $u\in \p B_{1}$. So
+$$
+\frac{1}{2}||Jx+Jy||\leq 1-\frac{\epsilon'-\xi}{2}\eta.
+$$
+and \eqref{chap8-eq8.32} is proved.
+\end{proof}
+
+\begin{remark*}
+The functional $\Phi$ is said to be {\em uniformly Frechet
+  differentiable} if it is Frechet differentiable and if given
+$\epsilon>0$ there exists $\delta>0$ such that
+$$
+|\Phi(x+u)-\Phi(x)-\la \Phi'(x),u\ra|\leq \epsilon||u||
+$$
+for all $x\in B_{1}$ and all $||u||\leq \delta$. It is easy to see
+that the uniform differentiability of $\Phi$ is equivalent to $J$
+being singlevalued and uniformly continuous on bounded sets. So the
+norm of a Banach space is uniformely Frechet differentiable iff
+$X^{*}$ is uniformly convex. 
+\end{remark*}
+
+
+
+
+
+
+
+
+
+
+
+

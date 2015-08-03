@@ -1,0 +1,1521 @@
+\chapter{The Linear Sieve}\label{chap3} %\chap III
+
+THE\pageoriginale OBJECT OF this chapter is to develop a detailed account of the
+fundamental result of Rosser and Iwaniec on the linear sieve. Rosser's
+theory determines the optimal mainterm in the upper and lower bounds
+for linear sieve problems, and Iwaniec's theory enhances its power
+grea\-tly by introducing into it a highly flexible error - term. 
+
+We shall first study the nature of expected optimal upper and lower
+bounds for linear sieve problems by employing Rosser's sieving
+procedure described in the preceding chapter. This will lead us to a
+difference - differential equation, and solving it, we shall find the
+most suitable choice of the parameter $\beta$, which will, in turn, be
+fed back to a rigorous argument to prove Rosser's linear sieve. And an
+example due to Selberg will be used to confirm that Rosser's result is
+indeed optimal. Then we will focus our attention on the error - term
+in Rosser's linear sieve; we shall inject into our discussion the
+smoothing device introduced in the last section of the preceding
+chapter, and obtain Iwaniec's bilinear form for the error - term. 
+
+Throughout this chapter, we shall retain the notation and convention
+introduced in the preceding chapter. 
+
+\section{A Difference-Differential Equation}\label{chap3-sec3.1}\pageoriginale %sec 3.1
+
+First of all, we have to give a precise notion of the
+dimension of a sieve problem. 
+
+We require that $\delta$ which is introduced at \eqref{eq2.2.1} be not wild
+locally, and constant on average. Namely, we assume that there is a
+constant $A_1 > 0$ such that for all prime $p$  
+\begin{equation*}
+  0 \le \frac{\delta(p)}{P} \le 1 - \frac{1}{A_1}, \tag{3.1.1}\label{eq3.1.1}
+\end{equation*}
+and that there are constants $k, A_2 > 0$ and a positive parameter $L$
+which is not too large such that for any $2 \le u < v$ 
+$$
+-L \le \sum_{u \le p < v} \frac{\delta(p)}{P} \log~ p - k~ \log
+\frac{v}{u} \le A_2. 
+$$
+
+Then $S(A,z)$ is called a $k$ - \textit{dimensional sieve
+  problem}. And, in the present chapter, we are concerned with the
+case $k =1$ exclusively. Thus we assume throughout the sequel the
+conditions \eqref{eq3.1.1} and  
+\begin{equation*}
+ -L \le \sum_{u \le p < v} \frac{\delta(p)}{P} \log p - \log
+ \frac{v}{u} \le A_2. \tag{3.1.2} \label{eq3.1.2}
+\end{equation*}
+for any $2 \le u < v$. 
+
+It is known that \eqref{eq3.1.1} and \eqref{eq3.1.2} imply
+\begin{equation*}
+  \prod_{u \le p < v} \left(1 - \frac{\delta(p)}{P}\right)^{-1} \leq \frac{\log
+    v}{\log u} \left(1 + o\left(\frac{1}{\log u}\right)\right)
+  \tag{3.1.3} \label{eq3.1.3} 
+\end{equation*} 
+as well as\pageoriginale
+\begin{equation*}
+  \prod_{u \le p < v} \left(1 - \frac{\delta(p)}{p}\right)^{-1} = \frac{\log
+    v}{\log u} \left(1 + 0 \left(\frac{1}{\log u}\right)\right)
+  \tag{3.1.4} \label{eq3.1.4} 
+\end{equation*}
+ for any $2 \le u < v$, where the implied constants depend on $A_1$
+ and $A_2$ at most. In particular, \eqref{eq3.1.3} allows us to use THEOREM
+ \ref{chap2-thm7}. Also, in our argument, we shall make multiple use
+ of the basic  
+
+ \begin{Lemma}\label{chap3-lem11}%lemm 11
+   We assume \eqref{eq3.1.1} and \eqref{eq3.1.2}. Let $\psi(t)$ be a
+   non-nequative, 
+   monotone and continuous fuction for $t \ge \alpha > 0$. Then we have,
+   for any $2 \le u < v \le x^{1/1+\alpha}$, 
+   $$
+     \sum_{u \le p < v} \frac{\delta(p)}{P} V(p)\psi \left(\frac{\log
+       \frac{x}{p}}{\log p}\right) = V(v) \frac{\log v}{\log x} \int
+     \limits^{\frac{\log x}{\log u}}_{\frac{\log x}{\log v}} \psi (t - 1)
+     dt +  0(LMV(v) \frac{\log v}{\log^2 u})
+$$
+where
+$$
+M = \max \limits_{u \le \xi \le v}\psi \left(\frac{\log
+       \frac{x}{\xi}}{\log \xi}\right).
+$$
+\end{Lemma} 
+
+After these initial remarks, we now start the investigation leading to
+the determination of the optimal $\beta$ in the Rosser weights
+$\rho_\nu$ under the basic assumptions \eqref{eq3.1.1} and \eqref{eq3.1.2}. 
+
+To simplify the convergence problem which we shall encounter later, we
+introduce here another parameter $z_1$ such that  
+\begin{equation*}
+  z_1 \le \exp\left(\frac{\log y}{(\log \log y)^2 }\right),
+  \tag{3.1.5}\label{eq3.1.5} 
+\end{equation*}
+where\pageoriginale $y$ is the parameter which occurs in the definition of
+$\rho_\nu$. Further, we put 
+$$
+z=y^{1/s},
+$$
+and assume that 
+\begin{equation*}
+  0<s< \frac{\log y}{\log z_1} \tag{3.1.6}\label{eq3.1.6}
+\end{equation*}
+so that $z_1 <z$. Then we apply Rosser's identity (LEMMA \ref{chap2-lem8}) to the
+sequence 
+$$
+\{ a \in A; a \not\in  \Omega (p) \text{ for all } p< z_1 \},
+$$
+getting
+$$
+S(A,z)= \sum_{d|P(z_1,z)} \mu (d)_{\rho_ v} (d)S (A_d,z_1)+ (-1)^v
+\sum _{d|P(z_1,z)} \sigma_v (d) S (A_d, \rho (d)), 
+$$
+and thus
+\begin{equation*}
+(-1)^v \left\{ S(A,z)-\sum_{d|P(z_1,z)}\mu (d)_{\rho_ v} (d)S (A_d,z_1) \right\}
+  \ge 0, \tag{3.1.7}  \label{eq3.1.7}
+\end{equation*}
+where $P(z_1,z) = P(z)/ P(z_1)$. Similarly, we have
+\begin{equation*}
+V(z)=V(z_1)\sum_{d|P(z_1,z)}\mu (d)_{\rho_ v} \frac{\delta(d)}{d} 
+  + (-1)^v \sum_{d|P(z_1,z)} \sigma_v (d)\frac{\delta(d)}{d}
+  V(p(d)). \tag{3.1.8}\label{eq3.1.8}
+\end{equation*}
+
+To each $S(A_d,z_1)$ of \eqref{eq3.1.7} we apply THEOREM
+\ref{chap2-thm7}, and get 
+{\fontsize{10pt}{12pt}\selectfont
+$$
+(-1)^{\nu-1} \left\{ S(A_d, z_1)- XV(z_1)\frac{\delta(d)}{d} \left(1+ O
+\left(\exp \left(- \frac{h}{2} \log h\right)\right)\right) \right\} 
+\le \sum _{\substack {r|P(z_1)\\{r <z^h_1}}}|R_{dr}|,
+$$}\relax\pageoriginale
+where $h$ is at our disposal. Insertion of this into \eqref{eq3.1.7} gives
+\begin{align*}
+& (-1)^{v-1} \{ S(A,z)-XV (z)K_v (y,z; \delta) \}\\
+& \le \sum _{\substack {r|P(z_1)\\{r <z^h_1}}}|R_{d}|+ o\left\{ \exp \left(-
+\frac{h}{2} \log h\right) XV (z_1) \sum _{d|P(z_1,z)} \frac{\delta (d)\rho_v
+  (d)}{d} \right \},\tag{3.1.9}\label{eq3.1.9}
+\end{align*}
+where
+\begin{equation*}
+V(z)K_v (y,z; \delta)= V(z_1) \sum_{{d|P(z_1,z)}} \mu (d)_{\rho_v} (d)
+\frac{\delta (d)}{d}. \tag{3.1.10}\label{eq3.1.10} 
+\end{equation*}
+ 
+Since
+$$
+\sum_{d|P(z_1,z)} \frac{\delta (d) \rho_\nu (d)}{d} \le V(z_1)/V(z)
+$$
+and also we have \eqref{eq3.1.3}, the $O$-term of \eqref{eq3.1.9} is
+$$
+O\left\{ \exp \left(- \frac{h}{2} \log h\right) XV (z)(\log z)^2 \right\}.
+$$
+
+We now set
+$$
+h= \log \log y,
+$$
+and collecting above estimates, we get
+\begin{multline*}
+  (-1)^{v-1} \left\{ S(A,z)- XV(z) K_v(y,z; \delta) \right\}\\
+  \le \sum_{\substack{d|P(z)\\d <y_0}}|R_d|+XV (z) (\log y)^{-10_s -2}
+  \tag{3.1.11}\label{eq3.1.11} 
+\end{multline*}
+where\pageoriginale $y_0=y \exp (\log z_1 \log \log y)$.
+
+Next, we put
+$$
+H_v(y,z;\delta)= \max (0,K_v(y,z; \delta));
+$$
+obiviously, we have
+$$
+H_1(y,z; \delta)= K_1 (y,z; \delta).
+$$
+
+We should note also that \eqref{eq3.1.8} implies
+\begin{equation*}
+  H_1 (y,z; \delta)\ge 1 \ge H_0(y,z; \delta) \ge
+  0. \tag{3.1.12}\label{eq3.1.12} 
+\end{equation*}
+
+Hence our problem is now transformed into the asymtotic evaluation of
+$H(y,y^{1/s };\delta)$ in terms of $s$, i.e., we will seek for the
+continuous function $\phi _v (s)$ such that  
+\begin{equation*}
+\lim _{y \to \infty}H_\nu(y,y^{1/s} ;\delta)= \phi_v (s),
+\tag{3.1.13}\label{eq3.1.13} 
+\end{equation*}
+if it ever exists. Note that we are going to find a $\phi _v(s)$ not
+depending on $\delta$ apart the basic conditions \eqref{eq3.1.1} and
+\eqref{eq3.1.2}. 
+
+If \eqref{eq3.1.13} holds, and if we assume \eqref{eq2.2.6} with
+$y=y_0$, then we would have 
+\begin{equation*}
+  XV(y^{1/s})(\phi_0 (s)-o (1)) \le S(A,y^{1/s}) \le XV(y^{1/s})
+  (\phi_1 (s)+o (1)). \tag{3.1.14}  \label{eq3.1.14}
+\end{equation*}
+
+The direct proof of \eqref{eq3.1.13} seems to be quite difficult if not
+impossible. Thus we make a round-about, by assuming first the
+existence of the limit $\phi_v(s)$; on this assumption, we investigate
+its nature, and then feed the obtained information back to the actual
+proof of the asymptotic formula for $H_\nu(y,y^{1/s}; \delta)$. The
+optimal choice of $\beta$ will emerge out of this process. 
+
+Thus\pageoriginale let us assume more preciesely that \eqref{eq3.1.13}
+holds uniformly for all bounded $s$. Then  
+\begin{equation*}
+  \phi_v \text{~ is monotone~ }, \tag{3.1.15}\label{eq3.1.15}
+\end{equation*}
+since it is clear from \eqref{eq3.1.8} that $K_v (y,y^{1/s}; \delta)$ is
+monotone with respect to $s$ for each fixed $y$. Also, because of
+\eqref{eq3.1.12}, we have 
+\begin{equation*}
+  \phi_1 (s)\ge 1 \ge \phi_0 (s)\ge 0. \tag{3.1.16}\label{eq3.1.16}
+\end{equation*}
+
+Now, since we have \eqref{eq3.1.14}, the obervation made in \S
+\ref{chap2-sec2.2} on the 
+sieving limit suggests that if we want to let Rosser's sieving
+procedure simulate well the optimal one which is supported to exist,
+we should confine ourselves to the most critical case 
+\begin{equation*}
+  \beta = \inf \{ s; \phi_0 (s)> 0 \}. \tag{3.1.17}\label{eq3.1.17}
+\end{equation*}
+
+This shall we assume henceforth, and will turn out to be
+decisive. \eqref{eq3.1.10} gives 
+\begin{equation*}
+  V(y^{1/s}) K_1 (y,y^{1/s}; \delta)
+  =V(z_1)- \sum _{z_1 \le p< \min (y^{1/s},y^{\frac{1}{\beta+1}})}
+  \frac{\delta (p)}{p}V (p)K_0 (\frac{y}{p},p ; \delta),
+  \tag{3.1.18} \label{eq3.1.18} 
+\end{equation*}
+since $\rho_1(p)=1$ implies $p <y ^{\dfrac {1}{\beta +1}}$. So we
+have, for $s \le \beta +1$, 
+$$
+V(y^{1/s})K_1 (y, y^{1/s}; \delta)=V (y^{\frac {1}{\beta +1}})K_1
+(y,y^{\frac{1}{\beta +1}}; \delta), 
+$$
+that\pageoriginale is, for $s \le \beta +1$,
+\begin{align*}
+  s \phi _1 (s)&= (\beta +1)_{\phi_1}(\beta +1)\\
+  &= D,\tag{3.1.19}\label{eq3.1.19}
+\end{align*}
+say. On the other hand, if $\beta +1 + \varepsilon \le s$, then we have $(\log
+y/p)/ \log p \ge \beta + \varepsilon$ in \eqref{eq3.1.18}, and by the assumption
+\eqref{eq3.1.17}, we have 
+$$
+K_0 \left(\frac{y}{p}, p; \delta\right) = H_0 \left(\frac{y}{p},p; \delta\right)
+$$
+for sufficeintly large $y$. Thus, for $v > u \ge \beta +1+\varepsilon$ we
+have, by \eqref{eq3.1.18}, 
+\begin{align*}
+   V(y^{1/v}) H_1 (y,y^{1/v}; \delta)&-V (y^{1/u}) H_1 (y,y^{1/u}; \delta)\\
+  & =  \sum_{y^{\frac{1}{v}}\le p < y^{\frac{1}{u}}}
+  \frac{\delta{(p)}}{p} V(p)H_0 \left(\frac{y}{p},p; \delta\right). 
+\end{align*}
+
+But, by our present assumption, the last sum is equal to 
+$$
+(1+ o (1))_{y^{\frac{v}{1}}} \sum _{\le p < y^{1}{u}}
+\frac{\delta{(p)}}{p} V(p) \phi_0 \left(\frac {\log \frac{y}{p}} {\log
+  p}\right),  
+$$
+which, since $\phi _0$ is monotone and bounded (cf. \eqref{eq3.1.15} and
+\eqref{eq3.1.16}), can be expressed, with the aid of LEMMA
+\ref{chap3-lem11}, as  
+$$
+(1+0(1))\frac{1}{u} V (y^{\frac{1}{u}}) \int \limits ^v_u \phi_0 (t-1)dt,
+$$
+provided
+\begin{equation*}
+  L=0 (\log y) \tag{3.1.20}\label{eq3.1.20}
+\end{equation*}\pageoriginale
+
+We shall assume, in the sequel, this harmless condition on $L$. Thus we get
+$$
+u \frac{V(y^{1/v})}{V(y^{1/u})} H_1 (y,y^{\frac {1}{v}}; \delta)- u
+H_1 (y,y^{\frac {1}{v}}; \delta) = (1+o(1)) { \int\limits ^v_u} \phi_0
+(t-1)dt, 
+$$
+and by \eqref{eq3.1.4}
+$$
+v \phi _1 (v)-u \phi_1(u)= {\int \limits_u^v} \phi _0 (t-1)dt,
+$$
+for $\beta +1+ \varepsilon \le a<v$ with any fixed $\varepsilon >
+0$. But, because of 
+the continuity, we see that this holds for $\beta +1+  \le <v$;
+namely, we have 
+\begin{equation*}
+  (s \phi_1 (s))' = \phi_0 (s-1) \text{ for } \beta +1 \le
+  s. \tag{3.1.21}\label{eq3.1.21} 
+\end{equation*}
+
+Simirlarly, we have, for $v \ge u \ge \beta + \varepsilon$,
+\begin{align*} 
+  V (y^{\frac{1}{v}}) H_0(y,y^{\frac{1}{v}}) & - V(y^{\frac{1}{V}}) H_0
+  (y,y^{\frac{1}{v}}; \delta) 
+  = \sum_{y^{\frac{1}{v}}\leq p< y^{\frac{1}{u}}}
+  \frac{\delta{(p)}}{p}V(p)H_1 \left(\frac{y}{P},P; \delta\right),  
+\end{align*}
+provided $y$ is sufficiently large. Thus, as much the same way as above, we have
+$$
+v \phi_0 (v)-u \phi_0 (u)= \int \limits ^v_u \phi_1 (t-1)dt
+$$
+for $\max (1, \beta)<u<v$; here the condition $1 < u$ is needed
+bacause of \eqref{eq3.1.19}. And, we have $\beta \le 1$, the last equation
+contradicts the\pageoriginale boundedness of $\phi_0$. Hence we may
+assume hereafter that 
+\begin{equation*}
+  \beta >1. \tag{3.1.22}\label{eq3.1.22}
+\end{equation*}
+
+Then we have 
+\begin{equation*}
+  (s\phi_0 (s))' = \phi_1 (s-1) \text{ for } \beta \le s,
+  \tag{3.1.23}\label{eq3.1.23} 
+\end{equation*}
+which is of course supplemented by
+\begin{equation*}
+  \phi_0(s)=0 \text{ for } s \le \beta. \tag{3.1.24}\label{eq3.1.24}
+\end{equation*}
+
+Collecting \eqref{eq3.1.17}, \eqref{eq3.1.19},
+\eqref{eq3.1.21}-\eqref{eq3.1.24}, we are now led to the 
+investigation of the difference-differential equation \footnote{In the
+  sequel, we shall use the convention: $\phi_j \equiv \phi_v$ if 
+  $j \equiv v \pmod{2}$.}  
+\begin{equation*}
+  (s \phi_v (s))'= \phi_{v+1}(s-1) \text{ for } \beta \le s
+  \tag{3.1.25}\label{eq3.1.25} 
+\end{equation*}
+on the boundary condition
+\begin{align*}
+  s \phi_1(s)& =D, \phi _0 (s)=0 \text{ for } s \le \beta,
+  \tag{3.1.26}\label{eq3.1.26}\\ 
+  \phi_0(s) &\le 1 \le \phi_1 (s) \text{ for all } s >0,
+  \tag{3.1.27}\label{eq3.1.27} 
+\end{align*}
+where $\beta > 1$ and $D >0$ are to be determined so that
+\begin{equation*}
+\phi_0 (s)>0 \text{ for } s > \beta \tag{3.1.28}\label{eq3.1.28}
+\end{equation*}
+and the asymptotic formula \eqref{eq3.1.13} holds on the condition
+\eqref{eq3.1.20}. 
+
+\section{The Optimal Value of $\beta$}\label{chap3-sec3.2}% sec 3.2
+
+In this section, we shall now show a detailed solution of the last
+problem. This requires a little lengthy discussion, and 
+we\pageoriginale start with the following two important observations
+on the nature of the expected solution $\phi_v$. 
+\begin{Lemma}\label{chap3-lem12} %lemm 12
+  If $\phi_v$ satisfies \eqref{eq3.1.25}-\eqref{eq3.1.27}, then
+  $\phi_1$ and $\phi_0$ 
+  are strictly decreasing and increasing, respectively. In particular,
+  \eqref{eq3.1.28} is redundant. 
+\end{Lemma}
+
+To prove this, let $u_o$ be the least root of $\phi '_1 (u)=0$, if
+exists. By \eqref{eq3.1.25} and \eqref{eq3.1.26} $u_0 > \beta +1$. But
+we have, by 
+\eqref{eq3.1.25} and \eqref{eq3.1.27}, 
+\begin{align*}
+  0&= u_0 \phi '_1 (u_0)=\phi _0 (u_0-1)- \phi_1 (u_0) \le \phi_0
+  (u_0-1)-\phi_0 (u_0)\\ 
+  &= \phi '_0(u')= \frac{1}{u'} (\phi _0(u'))- \phi_1 (u'-1 ))\le
+  \frac {1}{u'}(\phi _1 (u')- \phi_1 (u'-1))\\ 
+  &= \frac{1}{u'}\phi '_1(u''),
+\end{align*}
+where $u_0-1<u' < u_0,u'-1< u'' < u'$. However, we have $\phi '_1
+(u'')<0$ because of the definition of $u_0$. Hence $\phi_1(u)$ is
+strictly decreasing. And so we have, for $u \ge \beta$, 
+$$
+u \phi '_0 (u)= \phi_1 (u-1)- \phi_0 (u) \ge \phi_1 (u-1)- \phi_1 (u)> 0
+$$
+whence $\phi _0(u)$ is strictly incresing for $u \ge \beta$.
+
+\begin{Lemma}\label{chap3-lem13}%lemm 13
+We assume \eqref{eq3.1.1} and \eqref{eq3.1.2}. Let $\phi_v$ be a solution of
+\eqref{eq3.1.25}-\eqref{eq3.1.27}. Then we have, for $2 \le u \le v
+\le y^{1/ \beta}$,  
+\begin{multline*}
+  V(v)\phi_v \left(\frac {\log y}{\log v}\right)=V (u) \sum _{d|P(u,v)} \mu
+  (d)\rho_v (d) \frac{\delta(d)}{d} \phi_{v+ \omega(d)} \left(\frac {\log
+    \frac{y}{d}}{\log u}\right) \\
+   + 0\left(L V(v) \frac{\log^2 v}{\log^3 u}\right),
+\end{multline*}\pageoriginale
+where $\rho_v (d)= \rho_v (d; y, \beta)$.
+\end{Lemma}
+
+To show this, we note firstly that the previous lemma allows us to
+appeal to LEMMA \ref{chap3-lem11}, and we have 
+$$
+  \sum_{u \le p <v} \frac{\delta (p)}{p}\phi_{v+1} \left(\frac {\log
+    \frac{y}{p}}{\log p}\right)=V(v)\frac{\log v}{\log y} \int
+  \limits^{\frac{\log y}{\log u}}_{\frac{\log y}{\log v}} \phi
+  _{v+1}(t-1)dt +0\left(V(v) L \frac{\log v}{\log^2 u}\right), 
+$$ 
+since $\phi_{v+1} \left(\frac {\log \frac{y}{\xi}}{\log \xi}\right)$ is bounded
+if $\xi \le y^{1/\beta}$; here, we should observe also that we have
+$\beta > 1$. But this integral is, by \eqref{eq3.1.4} and \eqref{eq3.1.25}, 
+\begin{align*}
+  &V(v) \frac{\log v}{\log y} \left\{ \frac{\log y}{\log u} \phi_v
+  \left(\frac{\log y}{\log u}\right)-\frac{\log y}{\log v}\phi_v
+  \left(\frac{\log y}{\log v}\right) \right\}\\ 
+  & =V(u)\phi_\nu \left(\frac{\log y}{\log u}\right)-V(v)\phi_\nu
+  \left(\frac{\log y}{\log v}\right)+o\left(LV(v) \frac{\log
+    v}{\log^2 u}\right).   
+\end{align*}
+
+Thus, noting that \eqref{eq3.1.26} implies $\phi_0 \left(\frac{\log
+  \frac{y}{P}}{\log P}\right)=0$ if $p^{\beta +1}\ge y$, we get 
+\begin{multline*}
+  V(v)\phi_v \left(\frac{\log y}{\log v}\right)=V(u) \phi_v \left(\frac{\log
+    y}{\log u}\right)\\ 
+  - \sum_{u \le p< v} \frac{\delta (p)}{p}\rho_v (p)
+  \phi_{v+1}\left(\frac{\log \frac{y}{p}}{\log p}\right)+ O\left(LV(v)\frac{\log
+    v}{\log^2 u}\right).  
+\end{multline*}
+
+This\pageoriginale is obviously the case $r=1$ of the formula
+\begin{align*}
+ & V(v)\phi_v \left(\frac{\log y}{\log v}\right) =V(u) \sum _{\substack
+    {d|P(u,v)\\{\omega (d)<r}}}\mu (d)\rho_v
+  (d)\frac{\delta(d)}{d}\phi_{v+\omega (d)} \left(\frac{\log
+    \frac{y}{d}}{\log u}\right)\\
+  &\qquad +(-1)^r \sum _{\substack {d|P(u,v)\\{\omega (d)=r}}} \rho_v
+  (d)\frac{\delta(d)}{d} V(p(d))\phi_{v+r}\left(\frac{\log
+    \frac{y}{d}}{\log p (d)}\right)\\ 
+  &\qquad + O\left(\frac{L}{\log ^2 u}\right) \left\{ V(v) \log v+ \sum
+  _{\substack {\omega (d)<r\\{d|P(u,v)}}}\frac{\delta(d)}{d} V(p(d)) \log p (d)
+  \right\} \tag{3.2.1}\label{eq3.2.1}
+\end{align*}
+
+We may establish this by induction on $r$: If $v+ \omega (d)\equiv
+0(mod 2)$ then $\rho_v (d)=1$ implies $p(d)^\beta < y/d,$ so 
+$$
+\phi_{\nu+\omega(d)+1}\left(\frac{\log \frac{y}{d \xi}}{\log 
+  \xi}\right)=o(1) 
+$$
+for $\xi < p(d)$. If $v+\omega (d) \equiv 1 \pmod{2}$, then the same
+holds obviously. Hence we have, as before, 
+\begin{multline*}
+  V(p(d)) \phi_{\nu + \omega (d)}\left(\frac{\log \frac{y}{d}}{\log p
+  (d)}\right)=V(u)\phi_{v+ \omega (d)} \left(\frac{\log
+  \frac{y}{d}}{\log u}\right)\\  
+  - \sum_{u \le p < p(d)}\frac{\delta(p)}{p}V(p)\phi_{v+ \omega
+  (d)+1}\left(\frac{\log \frac{y}{pd}}{\log p}\right)+ O\left(LV
+  (p(d)) \frac{\log p(d)}{\log^2 u}\right), 
+\end{multline*}
+where the left side is the one appearing in the second sum of
+\eqref{eq3.2.1}. Inserting this into \eqref{eq3.2.1} and eliminating
+the terms with those $pd$ such that 
+$$
+\phi_{v+ \omega (d)+1}\left(\frac{\log \frac{y}{pd}}{\log p}\right)=0,
+$$
+we\pageoriginale readily ontain \eqref{eq3.2.1} for $r+1$ in place of
+$r$. To conclude the 
+proof of the lemma, we need only to take $r$ sufficiently large in
+\eqref{eq3.2.1} and note that the error-term is, by \eqref{eq3.1.3}, 
+$$
+0\left\{ \frac{LV(v) \log v}{\log^2 u} \sum^ \infty _{j=0}
+\frac{1}{j!}\left(\sum _{u \le p < v} \frac{\delta (p)}{p}\right)^j
+\right\}= O\left(LV (v)\frac{\log^2 v}{\log^3 u}\right). 
+$$
+
+After these preperations, we can now proceed to the determination of
+$\beta$ and $D$, and so $\phi_v$. 
+
+Put
+$$
+G(u)= \phi_1(u)+ \phi_0 (u).
+$$
+
+Then by \eqref{eq3.1.25} we have, for $\beta \le u$,
+$$
+(u G(u))'=G(u-1)
+$$
+which gives
+$$
+|G'(u)|=\frac{1}{u}|G(u-1)-G(u)| \le \frac{1}{u} \max _{u-1 \le t \le
+  u} |G' (t)|. 
+$$
+
+Thus we have
+$$
+G'(u)=O\left(r (u+1)^{-1}\right)
+$$
+which implies obviously that there exists a constant $A$ such that 
+\begin{equation*}
+  G(u)=A+O(r (u)^{-1}) \tag{3.2.2}\label{eq3.2.2}
+\end{equation*}
+for $u \ge \beta$.
+
+On the other hand, if we put
+$$
+g(u)=\phi_1 (u)- \phi_0 (u)
+$$
+then\pageoriginale $g(u)\ge 0$ by \eqref{eq3.1.27}, and we have, for
+$u \ge \beta$, 
+\begin{align*}
+  \frac{d}{du} \int \limits ^u_{u-1} \xi g(\xi)d \xi &= ug(u)-(u-1)g (u-1)\\
+  &=ug(u)+(u-1)(ug(u))'\\
+  &= (u(u-1)g(u))', 
+\end{align*}
+since $(ug(u))'=-g(u-1)$ is implied by \eqref{eq3.1.25}. Hence we have 
+\begin{equation*}
+\int \limits ^u_{u-1}\xi g(\xi)d \xi = u(u-1)g(u)+C \tag{3.2.3}\label{eq3.2.3}
+\end{equation*}
+for $u \ge \beta$; setting $u= \beta$ and recalling \eqref{eq3.1.26}, we, have 
+$$
+C=(2- \beta)D.
+$$
+
+Then, by the monotonicity of $ug(u)$, one may deduce from \eqref{eq3.2.3} the
+asymptotic formula 
+\begin{equation*}
+g(u)= \frac {(\beta -2)D}{u^2} \left(1+ o\left(\frac {1}{u}\right)\right)+O(r
+(u)^{-1}). \tag{3.2.4} \label{eq3.2.4}
+\end{equation*}
+
+But we have $g(u)\ge 0$; so, we get, in particular,
+\begin{equation*}
+\beta \ge 2. \tag{3.2.5}\label{eq3.2.5}
+\end{equation*}
+
+From \eqref{eq3.1.27} and \eqref{eq3.2.4}, we infer that $A=2$ in
+\eqref{eq3.2.2}, and thus 
+$$
+\phi_v(u)=1+(-1)^{v-1} \frac{(\beta -2)D}{u^2} \left(1+ o\left(\frac
+    {1}{u}\right)\right)+O\left(r (u)^{-1}\right). 
+$$
+
+This shows clearly that $\beta =2$ is likely the most favourable
+choice in the sense that then $\phi_v(u)$ would converage to 1 very
+strongly as $u$ tends to infinity. The same can also be inferred from
+the combination of \eqref{eq3.1.10} and LEMMA \ref{chap3-lem13}, for it gives 
+$$
+V(y^{1/s})|\phi_\nu(s)-K_\nu(y,y^{1/s};\delta)|
+$$
+\begin{equation*}
+  \le V(z_1)\sum_{d|P(z_1,y^{1/s})}\rho_\nu
+  (d)\frac{\delta(d)}{d}|1-\phi_{\nu + \omega(d)}\left(\frac{\log y/d}{\log
+    z_1}\right)|+ o\left(LV(y^{1/s}) \frac{\log^2y}{\log^3 z_1}\right),
+  \tag{3.2.6}  \label{eq3.2.6}
+\end{equation*}\pageoriginale
+provided $s \ge \beta$; this could be small only when $\beta=2$.
+
+Therefore, we now put 
+\begin{equation*}
+\beta = 2; \tag{3.2.7}\label{eq3.2.7}
+\end{equation*}
+this would be the optimal value of $\beta$, for as we have mentioned
+already $\beta$ was to be taken as small as possible, and we have
+\eqref{eq3.2.5}. 
+
+Next, we shall determine the value of $D$ on the condition \eqref{eq3.2.7}. To
+this end, we consider the Laplace transform of $G(u)$: 
+$$
+A(\tau)= \int^\infty_2 e^{-\tau u} G(u)du.
+$$
+\eqref{eq3.1.25} and \eqref{eq3.1.26} with  $\beta = 2$ give
+$$
+(\tau(A(\tau))'=A(\tau)(1-e^{-\tau})- D(e^{-2 \tau}+\int\limits^3_2
+e^{-\tau u}(u-1)^{-1}(du). 
+$$
+
+Solving this differential equation on the boundary condition
+$A(\infty)=O$, we get 
+\begin{multline*}
+  \tau A(\tau)=D \int\limits^\infty_\tau \left(e^{-2t}+\int\limits^\infty_2
+  \frac{e^{-tu}}{u-1}du\right)\exp \\
+  \left(-\int\limits^\infty_1 \frac{e^{-u}}{u}du
+ -\int\limits^1_t \frac{e^{-u}-1}{u}du\right)dt
+ \times \exp\left(\int\limits^\infty_1 \frac{e^{-t}}{t}dt +
+ \int\limits^1_\tau \frac{e^{-t}}{t}dt\right). 
+\end{multline*}
+ 
+ Then\pageoriginale observing that
+ \begin{equation*}
+   \lim_{\tau \to + O}\tau A(\tau)=A=2, \tag{3.2.8}\label{eq3.2.8}
+ \end{equation*} 
+ and that
+ $$
+ \int\limits^1_0 \frac{1-e^{-t}}{t}dt-\int\limits^\infty_1
+ \frac{e^{-t}}{t}dt =\gamma ~\text{(Euler's contant)},~ 
+ $$
+ we have
+ $$
+  2e^\gamma = D\{h(2)+\int\limits^3_2 \frac{h(u)}{u-1}du \}
+ $$
+ where
+ $$
+ h(u)=\int\limits^\infty_o\exp \left(-tu-\int\limits^\infty_1
+ \frac{e^{-\xi}}{\xi}d \xi -\int\limits^1_t \frac{e^{-\xi}-1}{\xi}d
+ \xi\right)dt. 
+ $$
+ 
+ But it is easy to check
+ \begin{equation*}
+   uh'(u)= -h(u+1) (u > O); \tag{3.2.9}\label{eq3.2.9}
+ \end{equation*} 
+ this implies that
+ $$
+ \int\limits
+ ^3_2 \frac{h(u)}{u -1}du = h(1)-h(2),
+ $$
+ whence
+ $$ 
+ D=2 e^\gamma/h(1).
+ $$
+ 
+ On the other hane, \eqref{eq3.2.9} implies also that
+ \begin{align*}
+   h(1) & = - \lim_{u \to +O}uh'(u)\\
+   &=  \lim_{u \to +O}u \int\limits^\infty_o\exp\left(-tu -
+   \int\limits^\infty_1 \frac{e^{- \xi}}{\xi}d \xi -\int\limits^1_t
+   \frac{e^{-\xi}-1}{\xi}d \xi + \log t\right) dt \\ 
+   &=  \lim_{u \to +O}u \int\limits^\infty_o\exp \left(-tu -
+   \int\limits^\infty_t \frac{e^{- \xi}}{\xi}d \xi \right)dt, 
+\end{align*} 
+and\pageoriginale this limit is equal to $1$, whence we obtain
+$$
+D = 2e^\gamma.
+$$
+
+Collecting the above discussions, we see that \eqref{eq3.1.25} and
+\eqref{eq3.1.26} have now the new form: 
+\begin{align*}
+  (s \phi_\nu (s))' & = \phi_{\nu +1}(s-1) \text{ for } s \ge 2,\\
+  s \phi_1 (s) & =  2e^\gamma, \phi_0(s) =0 ~\text{ for }~0 < s \le
+  2. \tag{3.2.10} \label{eq3.2.10}
+\end{align*}
+
+And, in the sequal, we let $\phi_1$ and $\phi_0$ stand for the
+functions defined by this equation; in fact, it is clear that
+\eqref{eq3.2.10} defines two continuous functions inductively starting
+from the range $0 < s \le 2$. 
+
+Then apply the above argument to the equation \eqref{eq3.2.1}.
+
+We now have $C=0$ in \eqref{eq3.2.3}, whence we have
+\begin{equation*}
+  \phi_1(s) > \phi_o(s). \tag{3.2.11}\label{eq3.2.11}
+\end{equation*}
+
+On the other hand, this time we have $D=2e^\gamma ab$ initio, and
+through the analysis of the Laplace transform of $G = \phi_o+
+\phi_1$, we get $A=2$ again. Hence, by \eqref{eq3.2.2} and
+\eqref{eq3.2.3} with $\beta = 2$, we obtain 
+\begin{equation*}
+  \phi_\nu (s)=1+0(\Gamma(s)^{-1})(s \ge 2).\tag{3.2.12}\label{eq3.2.12}
+\end{equation*}
+
+Finally, we note that by LEMMA \ref{chap3-lem12} $\phi_1$ and $\phi_O$
+are strictly decreasing and increasing, respectively, as $s$ increases
+in the range\pageoriginale $s \ge 2$. 
+
+\section{Rosser's Linear Sieve}\label{chap3-sec3.3}%sec 3.3
+
+In this section, we shall demonstrate that the asymptotic relation
+\eqref{eq3.1.13} actually holds for the function $\phi_\nu$ defined by the
+equation \eqref{eq3.2.10}, and thus establish the fundamental result of Rosser
+on the linear sieve. 
+
+According to \eqref{eq3.2.6} and \eqref{eq3.2.12}, it suffices to
+consider the estimation of the sum 
+\begin{equation*}
+  \sum_{d|P(z_1,y^{1/s})}\frac{\rho_\nu(d)}{d} \delta(d)
+  \exp\left(-\frac{\log y/d}{\log z_1}\right), \tag{3.3.1}\label{eq3.3.1} 
+\end{equation*}
+where we should stress that we have $s \ge 2$; this is due to the fact
+that we have already fixed the value of $\beta$ to be $2$, and thus,
+in the sequel, we shall work on those $\rho_\nu$ with $\beta =2$. 
+
+To this end, we shall prove first the crucial
+
+\begin{Lemma}\label{chap3-lem14}%lemma 14
+Assuming \eqref{eq3.1.1} and \eqref{eq3.1.2} we have, for any $2 \le u
+\le v \le x^{1/2}$, 
+\begin{multline*}
+   \sum_{\substack{u \le p_2 < p_1 < v \\ {p^3_2 p_1 < x}}}
+   \frac{\delta(p_1 p_2)}{p_1 p_2} V(p_2) \exp\left(-\frac{\log x/p_1
+     p_2}{\log p_2}\right)\\ 
+   \le \eta V(v) \exp \left(-\frac{\log x}{\log v}\right) \left\{1+0
+   \left(L \frac{\log v}{\log^2 u}\right)\right\}^2 
+\end{multline*}
+where
+$$
+\eta= \frac{1}{2}\left(\frac{1}{3}+ \log 3\right) < 1.
+$$
+\end{Lemma}
+
+To\pageoriginale show this, we divide the sum to be estimated into two parts
+$\sum_1$ and $\sum_{II}$ according to $u \le p_1 < \min(v,x^{1/4})$
+and to $\max (u,x^{1/4})\le p_1 < v$, respectively. First, we consider
+the case where 
+\begin{equation*}
+  v \le x^{1/4}.\tag{3.3.2}\label{eq3.3.2}
+\end{equation*}
+
+Then we have $\sum_{II}=0$, and bu LEMMA \ref{chap3-lem11},
+\begin{align*}
+  \sum_I  &= \sum_{u \le p_1 < v} ~\sum_{u \le p_2 < p_1}\\ 
+   & =\sum_{u \le p_1 < v} \frac{\delta(p_1)}{p_1}
+  \left\{ \frac{V(p_1)\log p_1}{\log \frac{x}{p_1}} \int \limits^{\frac{\log
+      \frac{x}{p_1}}{\log u}}_{\frac{\log \frac{x}{p_1}}{\log v}}
+  e^{1-t}dt\right.\\
+  &\qquad \qquad \qquad \left. \vphantom{\int \limits^{\frac{\log
+      \frac{x}{p_1}}{\log u}}_{\frac{\log \frac{x}{p_1}}{\log v}}} 
+   + 0 \left( \frac{LV(p_1)\log p_1}{\log^2 u}  
+   \exp \left(-\frac{\log \frac{x}{p_1}}{\log p_1}\right)\right)\right\}\\
+   &\le \frac{e}{3}\left(1+ 0\left(L \frac{\log v}{\log^2
+    u}\right)\right) \sum_{u \le p < 
+    v} \frac{\delta(p)}{p}V(p) \exp \left(-\frac{\log \frac{x}{p}}{\log
+    p}\right), 
+\end{align*}
+since, according to \eqref{eq3.3.2}, we have
+$$
+\log p_1/\log \frac{x}{p_1} \le \frac{1}{3}.
+$$
+
+Thus, again bu LEMMA \ref{chap3-lem11}, we have
+ \begin{align*}
+   \sum_1 & \le \dfrac{e}{3}\left(1+ 0\left(L \dfrac{\log v}{\log^2
+     u}\right)\right)\\ 
+   & \times \left\{ \frac{V(v)\log v}{\log x} \int \limits^{\frac{\log
+       x}{\log u}}_{\frac{\log x}{\log v}} e^{1-t} dt+0\left(\frac
+       {LV(v)\log v}{\log^2 u} \exp\left(- \frac{\log x}{\log
+         v}\right)\right)\right\}\\  
+       & \le \frac{e^2}{12}\left(1+0\left(L\frac{\log v}{\log^2
+         u}\right)\right)^2 V(v)\exp\left(-\frac{\log x}{\log v}\right). 
+\end{align*}
+
+Next,\pageoriginale we consider the case where
+\begin{equation*}
+x^{1/4} \le v \le x^{1/2}. \tag{3.3.3}\label{eq3.3.3}
+\end{equation*}
+
+As before, we have
+\begin{align*}
+  \sum_I &= \sum_{u \le p_1 < x^{1/4}} \sum_{u \le p_2 < p_1}\\
+  &\le \frac{e}{3}\left(1+0\left(L \frac{\log v}{\log^2 u}\right)\right)
+  \sum_{u \le p< x^{1/4}} \frac{\delta(p)}{p} V(p) \exp \left(-\frac{\log
+  x/p}{\log p}\right)\\ 
+  &= \frac{e}{3}\left(1+0\left(L \frac{\log v}{\log^2
+    u}\right)\right)\left\{ \frac{V (v)\log 
+    v}{\log x} \int \limits^{\frac{\log x}{\log u}}_4 e^{1-t}dt +
+  0\left(\frac{LV(v)\log v}{\log^2 u}\right)\right\}\\ 
+  & \le \frac{e^{-2}}{2}\left(1 + 0\left(L\frac{\log v}{\log^2 u}\right)\right)^2
+  V(v)\frac{\log v}{\log x}.  
+\end{align*}
+
+On the other hand, we have 
+\begin{align*}
+  \sum_{II} & \le \sum_{ x^{1/4} \le p_1 < v} \,\sum_{u \le p_2 < (\frac{x}{p_1})^{1/3}} \\
+  & = \sum_{x^{1/4}\le p < v} \frac{\delta(p)}{p}\left\{\frac {V(p)\log
+    p}{\log\frac{x}{p}}\int \limits^{\frac{\log \frac{x}{p}}{\log
+      u}}_3 e^{1-t}dt + 0\left(\frac{LV(p)\log p}{\log^2 u}\right)\right\}\\ 
+  & \le e^{-2}\left(1+0\left(L \frac{\log v}{\log^2 u}\right)\right)
+  \sum_{ x^{1/4} \le p_1 
+    < v} \frac{\delta(p)}{p} \frac{\log p}{\log \frac{x}{p}}V(p)\\ 
+  & = e^{-2}\left(1+0\left(L \frac{\log v}{\log^2 u}\right)\right)\left\{
+  \frac{V(v)\log v}{\log 
+    x} \int \limits^4_{\frac{\log x}{\log v}} \frac{dt}{t-1}+0\left(L
+  \frac{V(v)\log v}{\log^2 u}\right)\right\}\\ 
+  &=e^{-2}\left(1+0\left(L \frac{\log v}{\log^2 u}\right)\right)^2
+  V(v)\frac{\log v}{\log x} 
+  \log \left(\frac{3}{\frac{\log x}{\log v}-1}\right). 
+\end{align*}
+
+Hence\pageoriginale we get
+$$
+\sum_I + \sum_{II} \le \Delta \left(\frac{\log x}{\log
+  v}\right)V(v)e^{-\frac{\log x}{\log v}}\left(1+0\left(L\frac{\log v}{\log^2
+  u}\right)\right)^2, 
+$$
+where 
+$$
+\Delta(\xi)=\left(\frac{1}{3}+ \log \frac{3}{\xi -1}\right)\frac{e{\xi
+    -2}}{\xi}, 
+$$
+and \eqref{eq3.3.3} is equaivalent to $2 \le \xi \le 4$.
+
+Now we have
+\begin{align*}
+  \frac{d}{d \xi} \Delta (\xi) &= \frac{\xi -1}{\xi^2}e^{\xi-2}\left\{
+  \frac{-\xi}{(\xi -1)^2}+\frac{1}{3}+\log \frac{3}{\xi -1}\right\}\\ 
+  &= \frac{\xi -1}{\xi^2}e^{\xi -2}\Delta_0(\xi),
+\end{align*}
+say. In the interval $2 \le \xi \le 4, \Delta_0(\xi)$ attains its
+maximum at $\xi =3$ and  
+$$
+\Delta_0(3)=\log \frac{3}{2}-\frac{5}{12}<0.
+$$
+
+Thus
+$$
+\max_{2 \le \xi \le 4} \Delta(\xi)= \Delta(2)=
+\frac{1}{2}\left(\frac{1}{3}+\log 3\right)> \frac{e^2}{12}, 
+$$
+Which gives rise to the assertion of the lemma.
+
+We now proceed to the proof of \eqref{eq3.1.13}. For this sake, we replace
+\eqref{eq3.1.20} by the stricter, but still harmless, condition 
+\begin{equation*}
+  L=0\left(\frac{\log y}{(\log \log y)^5}\right),
+  \tag{3.3.4}\label{eq3.3.4} 
+\end{equation*}
+and we set in the above discussion
+\begin{equation*}
+  z_1=\exp\left(\frac{\log y}{(\log \log y)^2}\right)
+  \tag{3.3.5}\label{eq3.3.5} 
+\end{equation*}\pageoriginale
+so that \eqref{eq3.1.5} is satisfied.
+
+We divide the sum \eqref{eq3.3.1} into two parts $\sum_1$ and $\sum_2$
+according to $\omega(d) < 2B$ and $\omega(d) \ge 2 B$, respectively:
+here $B$ is to satisfy 
+\begin{equation*}
+  3^B = \frac{1}{2} \log \log y. \tag{3.3.6}\label{eq3.3.6}
+\end{equation*}
+
+Then LEMMA \ref{chap2-lem9} (with $\beta=2$) implies that in $\sum_1$ we have 
+$$
+\frac{\log y/d}{\log z_1} > \frac{3^{-B}}{2}\frac{\log y}{\log z_1}=
+\log \log  y\, (\rho_\nu (d)=1), 
+$$ 
+whence we have, uniformly for $s \ge 2$,
+\begin{equation*}
+V(z_1)\sum_1 << V(y^{1/s})\frac{(\log \log y)^4}{\log y}
+\tag{3.3.7}\label{eq3.3.7} 
+\end{equation*}
+because of \eqref{eq3.3.5}.
+
+To estimate $\sum_2$, we note first that if $\rho_\nu (d)=1$ and $p(d)
+\ge w$ then 
+\begin{equation*}
+  V(w) \exp\left(-\frac{\log y/d}{\log w}\right) << V(p(d)) 
+  \exp\left(-\frac{\log y/d}{\log p(d)}\right); \tag{3.3.8} \label{eq3.3.8}
+\end{equation*}
+this follows from \eqref{eq3.1.3} and the fact that $\rho_\nu (d)=1$ implies
+$p(d) d < y$. Thus, for instance, we have 
+\begin{multline*}
+  V(z_1)\sum_{\substack {\omega(d)=2r+1 \\ { d| P(z_1,y^{1/s})}}}
+  \frac{\rho_0(d)\delta (d)}{d} \exp\left(-\frac{\log y/d}{\log z_1}\right)\\ 
+  << \sum_{\substack{z_1 \le p<y^{1/s}\\{\ell |P(p,y^{1/s})} \\{\omega
+        (\ell)=2r}}} \frac{\rho_0(l) \delta(p)
+    \delta(\ell)}{p^\ell}V(p) \exp\left(-\frac{\log y/p^\ell}{\log
+    p}\right),\tag{3.3.9} \label{eq3.3.9}
+\end{multline*}
+for\pageoriginale $\rho_0(p \ell)=\rho_0(\ell)$ in this sum. Using
+\eqref{eq3.3.8} once more, we see that the last sum is  
+\begin{align*}
+  & << \sum_{z_1 \le p<y^{1/s}} \frac{\delta(p)}{p} \sum_{\substack
+    {\ell |P(p,y^{1/s}\\{\omega(\ell)=2r}}} 
+  \frac{\rho_0(\ell)\delta(\ell)}{\ell}V(p(\ell))
+  \exp\left(-\frac{\log y/\ell}{\log p(\ell)}\right)\\ 
+  & << \log \log \log y \sum_{\substack {\ell
+      |P(p, y^{1/s}\\{\omega(\ell)=2r}}} 
+  \frac{\rho_0(\ell)\delta(\ell)}{\ell}V(p(\ell))
+  \exp\left(-\frac{\log y/\ell}{\log p(\ell)}\right),\\ 
+\end{align*}
+since we have
+\begin{gather*}
+  \sum_{z_1 \le p<y^{1/s}} \frac{\delta(p)}{p} \le \log \prod_{z_1 \le p
+    < y^{1/s}}\left(1- \frac{\delta(p)}{p}\right)-1\\ 
+  << \log \log \log y
+\end{gather*}
+because of \eqref{eq3.1.3} and \eqref{eq3.3.5}. But the last sum over
+$\ell$ is equal to 
+$$
+   \sum_{\substack{k|P(z_1,y^{1/s})\\{\omega(k)=2(r-1)}}}
+   \frac{\delta(k)\rho_0(k)}{k}\sum_{\substack{p^3_2p_1<y/k\\{z_1 \le
+         p_2 <p_1 <p(k)}}} \frac{\delta(p_1 p_2)}{p_1 p_2}
+   \exp\left(-\frac{\log \frac{y}{p_1 p_2 k}}{\log p_2}\right). 
+$$ 
+
+To the inner-sum we can apply LEMMA \ref{chap3-lem14}, since
+$\rho_0(k)=1$ and $\omega(k)\equiv 0 \pmod{2}$ imply $p(k)<
+(y/k)^{1/2}$; thus the last sum is  
+$$
+   \le \eta\left(1+0\left(L\frac{\log y}{\log^2 z_1}\right)\right)^2
+   \sum_{\substack{k|p(z_1,y^{1/s})\\{\omega(k)=2(r-1)}}}\frac{\delta(k)
+     \rho_0(k)}{k} V(p(k))\exp\left(-\frac{\log y/k}{\log p(k)}\right). 
+$$
+
+Hence, by induction on $r$, we see that the left side of \eqref{eq3.3.9} is,
+uniformly for $s \ge 2$, 
+$$
+<< \left\{ \eta \left(1+0\left(L \frac{\log
+  y}{\log^2_{z_1}}\right)\right)^2\right\}^r V(y^{1/s})\log \log \log y. 
+$$\pageoriginale
+
+In much the same way, we can show, more generally, that
+\begin{multline*}
+  V(z_1) \sum_{\substack{\omega (d) = j \\{d
+        |P(z_1,y^{1/s})}}}\frac{\rho_\nu (d)\delta(d)}{d}
+  \exp\left(-\frac{\log y/d}{\log z_1}\right) \\
+ << \left\{ \eta \left(1+0\left(L \frac{\log
+    y}{\log^2_{z_1}}\right)\right)^2\right\}^{j/2}
+  V(y^{1/s})\log \log \log y. 
+\end{multline*}
+uniformly for $s \ge 2$ and for all $j \ge 1$.
+
+Hence by \eqref{eq3.3.4}-\eqref{eq3.3.6}, we have, for any fixed
+$\eta' > \eta$, 
+$$
+\sum_2 << V(y^{1/s}) (\log \log y)^{\frac{\log \eta'}{\log 3}}.
+$$
+
+By this and \eqref{eq3.3.7}, we see that \eqref{eq3.3.1} is 
+$$
+0\left(\frac {V(y^{1/s})}{V(z_1)}(\log \log y)^{-3/10}\right),
+$$
+provided \eqref{eq3.3.4} holds and $s \le 2$.
+
+Therefore, by \eqref{eq3.2.6}, we obtain
+$$
+K_\nu (y,y^{1/s};\delta) = \phi_\nu (s)+ O(\log \log y)^{-3/10})
+$$
+uniformly for all bounded $s\ge 2$ on the assumptions \eqref{eq3.1.1},
+\eqref{eq3.1.2} and \eqref{eq3.3.4}, whence we have indeed proved
+\eqref{eq3.1.13}.   
+
+Summing up the above discussions, we have established
+
+\begin{theorem}[ROSSER'S LINEAR SIEVE]\label{chap3-thm9}%the 9
+ Provided\pageoriginale \eqref{eq3.1.1} and \eqref{eq3.1.2} with $L=O
+  \left(\dfrac{\log y}{(\log \log y)^5}\right)$ we have, uniformly for
+  all $s \ge   2$, 
+$$
+  (-1)^{\nu-1}\left\{S(A,y^{1/s}) - XV(y^{1/s}) (\phi_\nu (s)+O((\log \log
+  y)^{-3/10}))\right\} \le \sum_{d<y}|R_d|, 
+$$
+where $\phi_\nu$ is defined by \eqref{eq3.2.10}.
+\end{theorem}
+
+\begin{remark*}%\remar 0
+  According to \eqref{eq3.1.11}, the sum over $d$ on the right side should
+  have been extended up to $y_0$. But this blemish can easily be
+  removes by taking into account the basic properties of
+  $\phi_\nu(s)$. We should note also that we have actually established
+  this theorem on the assumption \eqref{eq3.1.6}, but if it is violated, then
+  the theorem follows from the fundamental lemma (THEOREM \ref{chap2-thm7}). 
+\end{remark*}
+
+Now it remains to show that Rosser's linear sieve is an optimal result
+in the sense that it is impossible to improve upon the main-term under
+the prescribed general conditions. 
+
+To this end, we introduce the sequence  
+$A^{(\nu)}(x)= \{ n < x$ ; the total number of prime factors of $n$
+is\}. congruent to $\nu \pmod{2}$  
+where $x$ is to tend to infinity. We have, for any $d < x$, 
+$$
+|A^{(\nu)}_{d}(x)| = \frac{x}{2d}+o\left(\frac{x}{d} \exp
+\left(-c\left(\log \frac{x}{d}\right)^{1/2}\right)\right).
+$$
+
+Thus we have
+$$
+X = x/2, \delta \equiv 1,
+$$\pageoriginale
+and we put
+$$  
+y=x \exp\left(-(\log x)^{1/2}\right).
+$$
+
+Then
+\begin{equation*}
+  \sum_{d<y}|R^{(\nu)}_{d}(x)|=O\left(x \exp \left(-c(\log
+  x)^{1/4}\right)\right). \tag{3.3.10} \label{eq3.3.10}
+\end{equation*}
+
+Also we have, for $s \le 2$,
+\begin{align*}
+  & S(A^{(1)}(x),x^{1/s}) = \pi (x) +O(x^{1/s}),\\
+  & S(A^{(0)}(x),x^{1/s}) = 0;
+\end{align*}
+that is, we have, for $1 < s \le 2$,
+\begin{equation*}
+  S(A^{(\nu)}(x),x^{1/s}) = XV(x^{1/s})\left(\phi_\nu (s)+O\left(\frac{1}{\log
+    x}\right)\right), \tag{3.3.11} \label{eq3.3.11}
+\end{equation*}
+where we have used Mertens' theorem:
+$$
+V(w) = \prod_{p < w}\left(1- \frac{1}{p}
+\right)= \frac{e^{- \gamma}}{\log w}\left(1+O\left(\frac{1}{\log
+  w}\right)\right).
+$$
+
+On the other hand, the Buchstab identity gives, for $s < t$,
+$$
+S(A^{(\nu)}(x),x^{1/s}) = S(A^{(\nu)}(x),x^{1/t}) - \sum_{x^{1/t}\le p
+  < x^{1/s}}S\left(A^{(\nu +1)}\left(\frac{x}{p}\right),p\right). 
+$$ 
+
+Thus, by LEMMA \ref{chap3-lem11} and \eqref{eq3.2.10}, we can
+inducively confirm that 
+\eqref{eq3.3.11} holds for all bounded $s \ge 2$. 
+
+But\pageoriginale the relation \eqref{eq3.3.11} yields readily
+$$
+S(A^{(v)}(x), y^{1/s}) = XV(y^{1/s}) (\phi_{\nu}(s) + 0 ((\log ~ x)^{-1/2}))
+$$
+for all bounded $s \geq 2$. Recalling \eqref{eq3.3.10}, this means that the
+main-term $XV(y^{1/s}) \phi_{\nu}(s)$ of THEOREM \ref{chap3-thm9} is
+asymptotically attained by the sequence $A^{(\nu)}(x)$. 
+
+It may  be worth remarking that for $A^{(\nu)}(x)$ Rosser's formula
+\eqref{eq2.1.14} with $\rho_{\nu}(d) = \rho_\nu (d; x, 2)$ and $\sigma_\nu (d)
+= \sigma_\nu (d; x, 2)$ takes the critical form 
+$$
+S(A^{(\nu)}(x), z) = \sum_{d | P (z)} \mu (d) \rho_\nu (d) |A^{(\nu)}_d (x) | ;
+$$
+namely, the second sum of \eqref{eq2.1.14} does not appear at all. Thus for
+$A^{(\nu)}(x)$, Rosser's truncation-iteration procedure of the
+Buchstab identity causes no essential loss. 
+
+\section{Iwaniec's Linear Sieve}\label{chap3-sec3.4}% sect 3.4
+
+Having determined the main-term in the linear sieve, we can now focus
+our attention onto the error-term, which has been left in a crude form
+in THEOREM 9: We shall inject the smoothing device developed in \S~
+\ref{chap2-sec2.3} into the argument leading to THEOREM
+\ref{chap3-thm9}. 	 
+
+As before, we assume always \eqref{eq3.1.1} and \eqref{eq3.1.2}.
+
+We begin our discussion by showing a smoothed version of LEMMA
+\ref{chap3-lem13} 
+(with $\beta = 2$ and $\phi_\nu$ defined by \eqref{eq3.2.10}). But to this
+end,\pageoriginale we have to specify the mode of the dissection of the interval
+[$z_1, z$) which was introduced in \S~ \ref{chap2-sec2.3}. We put 
+$$
+z = z_1z_2^J
+$$
+where $J$ is a large integer, and $z_1$, $z_2$ are large parameters to
+be determined later in terms of $z$. And we define $I$ to be one of
+the intervals 
+\begin{equation*}
+[z_1z^{j-1}_2, z_1 z_2^j)(1 \leq j \leq J). \tag{3.4.1}\label{eq3.4.1}
+\end{equation*}
+
+Further, in view of the result of \S~ \ref{chap3-sec3.2}, we set 
+$$
+\beta = 2
+$$
+in the definitions of $\Theta_\nu$ and $\Delta_\nu$ (cf. \eqref{eq2.3.4}).
+
+Then we shall show
+\begin{Lemma}\label{chap3-lem15}%lemm 15
+We assume  \eqref{eq3.1.1} and \eqref{eq3.1.2}. Let $\phi_\nu$ be
+defined by\break \eqref{eq3.2.10}, 
+and let $z \leq y^{1/2}$. Then we have 
+  \begin{align*}
+    V(z) \phi_\nu \left(\frac{\log y}{\log z}\right) &= V(z_1) \sum_K
+    (-1)^{\omega (K)} \Theta_\nu (K) \sum_{d \epsilon  K}
+    \frac{\delta (d)}{d} \phi_{\nu + \omega (d)}\left( \frac{\log
+      \frac{y}{d}}{\log z_1}\right)\\ 
+    & + 0\left\{ V(z) \frac{\log^2 z}{\log^3 z_1}\left(L + \log z_2 \log
+    \left(\frac{\log z}{\log z_1}\right) \right) \right\}. 
+\end{align*}
+\end{Lemma}
+
+We shall prove first that, for
+\begin{equation*}
+  d \epsilon  K, \Theta_\nu (K) = 1, \tag{3.4.2}\label{eq3.4.2}
+\end{equation*}
+we have
+\begin{align*}
+  V(p(d)) &\phi_{\nu + \omega (d)} \left(\frac{\log \frac{y}{d}}{\log p(d)}\right)
+  = V (z_1) \phi_{\nu + \omega (d)} \left(\frac{\log \frac{y}{d}}{\log
+    z_1}\right)  \\
+  & - \sum_{I < K } \lambda_\nu (KI) \sum_{p \epsilon  I}
+  \frac{\delta (p)}{p} V(p) \phi_{\nu + \omega (d) + 1}
+  \left(\frac{\log \frac{y}{dp}}{\log p}\right)\\ 
+  & + 0 \left\{\frac{V(p(d)) \log p(d)}{\log^2 z_1}  (L + \omega (d) \log
+  z_2)\right\},\tag{3.4.3}\label{eq3.4.3}  
+\end{align*}\pageoriginale
+where $\lambda_\nu$ is defined at \eqref{eq2.3.3}. In fact, since
+\eqref{eq3.4.2} implies  
+$$
+\phi_{\nu + \omega (d) + 1} \left(\frac{ \log \frac{y}{d \xi}}{\log
+  \xi}\right) = 0(1) 
+$$
+for $\xi < p(d)$, we have, just as in the proof of LEMMA
+\ref{chap3-lem13}, 
+\begin{multline*}
+  V(p(d)) \phi_{\nu + \omega (d)} \left(\frac{\log \frac{y}{d}}{\log p(d)}\right)
+  = V (z_1) \phi_{\nu + \omega (d)} \left(\frac{\log \frac{y}{d}}{\log
+    z_1}\right)\\ 
+  - \sum_{z_1 \leq p < p(d)} \frac{\delta (p)}{p} V(p) \phi_{\nu +
+  \omega (d) + 1 } \left(\frac{\log \frac{y}{d}}{\log p}\right) + O
+  \left( L \frac{ V (p(d)) \log p(d)}{\log^2z_1} \right). 
+\end{multline*}
+
+If $\nu + \omega (d) \equiv 0 \pmod{2}$, then the last sum over $p$ is
+\begin{equation*}
+  \sum_{I < K} \lambda_\nu (KI) \sum_{p \epsilon  I} \frac{\delta
+    (p)}{p} V(p) \phi_{\nu + \omega (d) + 1} \left(\frac {\log
+    \frac{y}{dp}}{\log P}\right) + o\left\{ \sum_{\substack{_p < p (d) pd
+      \epsilon  K}} \frac{\delta(p)}{P} V(p) \right\}
+  \tag{3.4.4} \label{eq3.4.4} 
+\end{equation*}
+because $\lambda_\nu (KI) = 1$, on our present assumption and
+\eqref{eq3.4.2}. This error-term is, by \eqref{eq3.1.3}, 
+\begin{equation*}
+  0\left(V (p(d) ) \log p (d) \frac{\log z_2}{\log^2
+    z_1}\right). \tag{3.4.5}\label{eq3.4.5} 
+\end{equation*}
+
+On\pageoriginale the other hand, if $\nu + \omega (d) \equiv 1 \pmod{2}$, then the
+sum over $p$ in question is represented as 
+\begin{equation*}
+  \sum_{\substack{I<K\\ (I)^3 (K) < y}} \sum_{p \epsilon  I} +
+  \sum_{\substack{I<K\\ (I)^3 (K) \geq y}}\sum_{p \epsilon  I} +
+  \sum_{\substack{p < p (d) \\ pd \epsilon  K}} \tag{3.4.6} \label{eq3.4.6}
+\end{equation*}
+where $(K) = (I_1)(I_2) \ldots (I_r)$ if $K = I_1 I_2 \ldots I_r$. The
+first double sum can be put in the form \eqref{eq3.4.4} without the
+error-term, and the last sum over $p$ has obviously the upper bound
+\eqref{eq3.4.5}. It remains to estimate the middle sum; it is equal to  
+\begin{equation*}
+  \sum_{\substack{I < K \\ (I)^3 (K) \geq y}} \sum_{\substack{ p
+      \epsilon  I\\ p^{3} < y / d\\ p < p (d)}}\frac{\delta(p)}{p}
+  V(p) \phi_0 \left( \frac{\log \frac{y}{dp}}{\log
+    p}\right). \tag{3.4.7} \label{eq3.4.7} 
+\end{equation*}
+
+Here we have, by the mean value theorem,
+\begin{align*}
+  \phi_0 \left( \frac{\log \frac{y}{dp}} {\log p}\right) 
+  & = \phi_0 \left(\frac{\log \frac{y}{dp}} {\log p}\right) - \phi_0 (2)\\ 
+  &  \ll \log \left(\frac{y}{dp^3}\right)/ \log p,
+\end{align*}
+which is
+$$
+\ll \omega (d) \log z_2 / \log z_1,
+$$
+for $p \epsilon  I, d \epsilon  K, (I)^3 (K) \geq y$ imply
+$$
+p^3 dz^{\omega (d) + 3}_2 \geq (I)^3 (K) \geq y.
+$$
+
+Thus\pageoriginale \eqref{eq3.4.7} is less than a constant multiple of 
+\begin{gather*}
+  \omega (d) \frac{\log z_2}{\log z_1} \sum_{ z_1  \leq p < p (d)}
+  \frac{\delta (p)}{p} V(p) \\ 
+  \ll \omega(d) \frac{\log z_2}{\log^2 z_1} V(p(d)) \log p(d).
+\end{gather*}
+
+Collecting these observations, we obtain \eqref{eq3.4.3}.
+
+In much the same way, we get
+\begin{align*}
+  V(z) \phi_\nu \left(\frac{\log y}{\log z}\right) &= V(z_1) \phi_\nu
+  \left(\frac{\log y}{\log z_1}\right) \\
+  & -\sum_I \lambda_\nu (I) \sum_{p \epsilon  I} \frac{\delta (p)}{p}
+  \phi_{\nu + 1} \left(\frac{\log \frac{y}{p}}{\log p}\right) V(p)\\ 
+  & + O\left\{ \frac{V(z) \log z}{\log^2 z_1} (L + \log z_2) \right\}. 
+\end{align*}
+
+Then the formula \eqref{eq3.4.3} allows us to iterate the last one, and after
+the infinite iteration we get the formula of the lemma, apart from
+the error-term which is 
+\begin{multline*}
+   O\left\{\frac{V(z) \log z}{\log^2 z_1} \sum^\infty_{r = 0} \frac{L + r
+    \log z_2}{r!} \left(\sum_{z_1 \leq p < z} \frac{\delta
+    (p)}{p}\right)^r\right\}\\  
+  = o\left\{V (z) \frac{\log^2_z}{\log^3 z_1} \left(L + \log z_2 \log
+  \left(\frac{\log z}{\log z_1}\right)\right)\right\},  
+\end{multline*}
+whence the assertion of the lemma.
+
+We are now at the stage to combine LEMMA \ref{chap2-lem10} with LEMMA
+\ref{chap3-lem15}. 
+
+For\pageoriginale this sake, we introduce very mild restrictions on $\delta$ and
+$L$. We assume that, for any $3 \leq u < v$,  
+\begin{equation*}
+  \sum_{u \leq p < v} \frac{\delta (p^2)}{p^2} = 0 ((\log \log
+  u)^{-1}), \tag{3.4.8} \label{eq3.4.8}
+\end{equation*}
+and that
+\begin{equation*}
+  L =  0\left(\frac{\log z}{\log \log z}\right). \tag{3.4.9}\label{eq3.4.9}
+\end{equation*}
+
+Further, we set in \eqref{eq3.4.1}
+\begin{equation*}
+  z_1 = z^{\tau^2}, z_2 = z^{\tau^9}, \tau = (\log \log z)^{-
+    \frac{1}{10}}; \tag{3.4.10} \label{eq3.4.10}
+\end{equation*}
+thus, in particular,
+\begin{equation*}
+J \leq (\log \log z)^{9/10}. \tag{3.4.11}\label{eq3.4.11}
+\end{equation*}
+
+Also, we assume, in the sequel, that
+\begin{equation*}
+y \geq z^2. \tag{3.4.12}\label{eq3.4.12}
+\end{equation*}
+
+Now by the fundamental lemma (THEOREM \ref{chap2-thm7}) we have, for a
+certain sequence $\{ \xi^{(\nu)}_f  \}$ which is independent of $d$, 
+\begin{equation*}
+  \begin{aligned}
+    (-1)^{\nu} \left\{ S(A_d, z_1) - \frac{\delta (d)}{d}XV (z_1) \left(1 + O
+    \left(\exp \left( - \frac{H}{2} \log H \right)\right)\right)
+    \right\} \\
+    \geq (-1)^{\nu} \sum_{\substack{f < z^{H}_1 \\ f | P(z_1)}}
+    \xi^{(\nu)}_f R_{df}\hspace{2cm}
+  \end{aligned}\tag{3.4.13}\label{eq3.4.13}  
+\end{equation*}
+where $d | P (z_1, z)$, and $H$ is at our disposal. We set
+$$
+H= \tau^{-1} = (\log \log z)^{1/10}.
+$$
+
+On\pageoriginale the other hand, modifying the inequality of LEMMA
+\ref{chap2-lem10} (with $\beta = 2$), we have 
+\begin{align*}
+(-1)^{\nu} &\left\{S(A, z) - XV(z_1) \sum_{K} \Theta_\nu (K)
+(-1)^{\omega(K)} \sum_{d \epsilon  K} \frac{\delta(d)}{d} \right\} \\
+  & \geq \sum_{K} \Theta_\nu (K) (-1)^{\nu + \omega (K)} \sum_{d
+    \epsilon  K} \left(S\left(A_d, z_1) - \frac{\delta (d)}{d} XV
+  (z_1\right)\right)\\  
+  & - \sum_{\substack{I < K \\ \omega (K) \equiv \nu + 1 \pmod{2}}}
+  \Theta_\nu (KI) \sum_{\substack{d \epsilon  K\\ p, p \epsilon 
+      I}} \left(S(A_{dpp'}, z_1) - \frac{\delta (dpp')}{dpp'} XV (z_1)\right)\\ 
+  & -\sum_{\substack{I < K \\ \omega (K) \equiv \nu + 1 \pmod{2}}}
+  \Theta_\nu (KI) \sum_{\substack{d \epsilon  K\\ p, p \epsilon 
+      I}}\frac{\delta (dpp')}{dpp'} XV (z_1). 
+\end{align*}
+
+Insertion of \eqref{eq3.4.13} into this yields
+\begin{align*}
+  (-1)^{\nu} & \left\{ S(A, z) - XV(z_i) \sum_{K} \Theta_\nu (K)
+  (-1)^{\omega (K)} \sum_{d \epsilon  K} \frac{\delta (d)}{d}\right\}\\ 
+  &\geq \sum_{K} \Theta_\nu (K) (-1)^{\nu + \omega (K)}
+  \sum_{\substack {d \epsilon  K\\ f < z^H_1 \\  f | P (z_1)}} \xi
+  f^{\nu + \omega (K))} R_df \tag{3.4.14}\label{eq3.4.14}\\ 
+  & -  \sum_{\substack{I < K\\ \omega(K) \equiv \nu + 1 \pmod{2}}}
+  \Theta_\nu (KI) \sum_{\substack{d \epsilon  K\\ P,P' \epsilon 
+      I\\ f < z^H_1\\ f| P(z_1)}} \xi^{(1)}_f R_{dpp'f}\\ 
+  & - o\left(\exp \left(-\frac{H}{2} \log H\right)\right) XV (z_1)
+  \sum_{K} \Theta_\nu (K) \sum_{d \epsilon  K} \frac{\delta
+    (d)}{d}\\ 
+  & - o(XV(z_1)) \sum_{I < K} \Theta_\nu (KI) \sum_{\substack{d
+      \epsilon  K\\ p, p' \epsilon  I}} \frac{\delta
+    (dpp')}{dpp'}. 
+\end{align*}\pageoriginale
+
+By \eqref{eq3.1.3}, \eqref{eq3.4.8} and \eqref{eq3.4.10}, the last
+$0-$ terms are easily estimated to be 
+\begin{equation*}
+  0 (XV(z) \tau^6 ). \tag{3.4.15}\label{eq3.4.15}
+\end{equation*}
+
+Also, by virtue of LEMMA \ref{chap3-lem15} the sum over $K$, $d$ on
+the left side of \eqref{eq3.4.14} is equal to 
+\begin{gather*}
+  XV(z) \left\{ \phi_\nu \left(\frac{\log y}{\log z}\right) + 0
+  (\tau^2) \right\} \\ 
+  + 0 \left\{XV(z_1) \sum_{d|P(z)} \frac{\rho_\nu (d) \delta
+    (d)}{d}|-\phi_{\nu + \omega (d)} \left(\frac{\log \frac{y}{d}}{\log
+    z_1}\right)| \right\},  \tag{3.4.16} \label{eq3.4.16}
+\end{gather*}
+because $\Theta_\nu (K) = 1$, $d\epsilon  K$ imply readily $\rho_\nu
+(d) =1$, where $\rho_\nu (d) = \rho_\nu (d; y, 2)$ is defined at
+\eqref{eq2.1.12}. We have to estimate this error-term on our present
+suppositions. As before, it is sufficient to consider sum 
+$$
+V(z_1) \sum_{d| P (z)} \frac{\rho_\nu (d)}{d} \delta (d) \exp \left(-
+\frac{\log \frac{y}{d}}{\log z_1}\right), 
+$$
+which is divided into two parts as
+\begin{equation*}
+  V(z_1) \sum_{\omega (d) < 2B'} + V(z_1) \sum_{\omega (d) \geq 2B'},
+  \tag{3.4.17}\label{eq3.4.17} 
+\end{equation*}
+where $B'$ is to satisfy
+$$
+3^{B'} = \tau^{-1} = (\log \log z)^{\frac{1}{10}}.
+$$\pageoriginale
+
+We have, by LEMMA \ref{chap2-lem9},
+\begin{align*}
+  V(z_1) \sum_{\omega (d) < 2B'} &\leq V(z_1) \sum_{d|p (z)}
+  \frac{\rho_\nu (d) \delta (d)}{d} \exp \left(-\frac{3^{-B'} \log y}{2 \log
+    z_1}\right) \\ 
+ &= 0 \left(V(z) \tau^{-4}
+  \exp\left(-\frac{1}{\tau}\right)\right). \tag{3.4.18}\label{eq3.4.18}
+\end{align*}
+
+On the other hand, LEMMA \ref{chap3-lem14} gives, as before,
+\begin{align*}
+  V(z_1) \sum_{\omega (d) \ge 2B'} & \ll V(z) \left\{ \eta \left(1 + 0\left(L
+  \frac{\log z}{\log^2z_1}\right)\right)^2\right\}^{B'} \\ 
+  & = V(z) \left\{ \eta (1 + 0 (\tau^6))\right\}^{B'} \\
+  & \le V(z) (\log \log z)^{- \frac{1}{50}},\tag{3.4.19}\label{eq3.4.19}
+\end{align*}
+in which we have used \eqref{eq3.4.9}.
+
+Collecting \eqref{eq3.4.14} - \eqref{eq3.4.19}, we obtain
+\begin{align*}
+  (-1)^\nu &\left\{ S(A,z) -XV(z) \left(\phi_\nu \left(\frac{\log y}{\log
+  z}\right) + 0 ((\log \log z))^{-\frac{1}{50}} \right)\right\} \\
+  &\geq \sum_{K} \Theta_\nu (K) (-1)^{\nu + \omega (K)}
+  \sum_{\substack{d \epsilon  K\\ f < z^\tau \\ f | P (z_1)}}
+  \xi^{\nu + \omega (K))_{f}}R_{df}\\ 
+  &- \sum_{\substack{I < K \\ \omega (K) \equiv \nu + 1 \pmod{2}}}
+  \Theta_\nu (KI) \sum_{\substack{ d \epsilon  K; p, p' \epsilon 
+      I \\ f < z^\tau, f | p (z_1)}} \xi^{(1)}_f
+  R_{dpp'f}. \tag{3.4.20}\label{eq3.4.20} 
+\end{align*}
+
+In\pageoriginale order to transform further these double sums, we make here a
+crucial observation. 
+\begin{Lemma}\label{chap3-lem16}%lema 16
+ Let $y = MN \geq z^2$ with arbitrary $M, N \geq 1$. Then
+   $\Theta_\nu (K) = 1$ implies that there exists a decomposition
+   $K=K_1 K_2$ such that $(K_1) < m, (K_2) < N$. Also, if $\Theta_\nu
+   (KI) = 1, I < K$ and $\omega (K) \equiv \nu + 1 \pmod{2}$, then we
+   have a decomposition $K = K_1K_2$ as above, and moreover, at least
+   one of the following three cases occurs: 
+   \begin{multline*}
+      \left\{ (K_1) (I) < M, (K_2) (I) < N\right\}, \left\{ (K_1)
+     (I)^2 < M, (K_2) < N \right\},\\
+      \left\{ (K_1) < M, (K_2) (I)^2 < N \right\}.
+   \end{multline*}
+\end{Lemma}
+
+To show this, let $K = I_1 I_2 \ldots I_r$, $I_1 > I_2 \ldots I_r$. We
+have $(I_I) < z \leq \sqrt{y} \leq \max (M, N)$; so $(I_1) < M$ or
+$(I_1) < N$. Let us assume that we have already the decomposition
+$I_1I_2\ldots I_j = K^{(j)}_1 K^{(j)}_2$ such that $(K^{(j)}_1) < M$
+and $(K^{(i)}_2) < N$. Since $\Theta_\nu (K) = 1$ gives obviously
+$(I_{j + 1})^2 (I_j) \ldots (I_1) < y$ for any $j \leq r - 1$, we have
+either $(K^{(j)}_1) (I_{j + 1}) < M$ or $(K^{(j)}_1) (I_{j + 1}) < N$;
+for, otherwise, we would have $(I_{j + 1})^{2} (K^{(j)}_1) (K^{(j)}_2)
+\geq MN = y$, a contradiction. Thus we get, inductively, the first
+assertion of the lemma. As for the second assertion, we note that the
+stated condition on $K, I$  implies $(K)(I)^3 < y$, which readily
+yields the claim. 
+
+We now return to \eqref{eq3.4.20}, and we assume that
+$$
+y = MN \geq z^2; M, N \geq 1.
+$$
+
+We\pageoriginale have, by the lemma just proved,
+\begin{gather*}
+  \sum_{K} \Theta_\nu (K) | \sum_{\substack{d \epsilon  K\\ f <
+      z^\tau \\ f| P(z_1)}} \xi^{(\nu + \omega  (K))}_f R_{df}| 
+  = \sum_{K} \Theta_\nu (K) | \sum_{\substack{ d_1 \epsilon 
+      K_1\\ d_2 \epsilon  K_2\\ f < z^\tau\\ f |P(z_1)}} \xi^{(\nu +
+    \omega  (K))}_f R_{df_1 d_2}|, 
+\end{gather*}
+where $K = K_1K_2$, $(K_1) < M$, $(K_2) < N$. But the last absolute
+value is obviously not larger than the expression 
+\begin{equation*}
+  \sup\limits_{\alpha, \beta} | \sum_{\substack{m < Mz^\tau \\ n < N}}
+  \alpha_m \beta_n R_{mn} | \tag{3.4.21} \label{eq3.4.21}
+\end{equation*}
+where $\alpha = \{\alpha_m\}$, $\beta = \{\beta _n\}$ are variable
+vectors such that $|\alpha_m| \le 1, |\beta_n \le 1|$.  On the other
+hand, by the second assertion of LEMMA \ref{chap3-lem16}, 
+the second sum on the
+right hand side of \eqref{eq3.4.20} can be written as 
+$$
+\sum_{\substack{I < K \\ \omega (K) \equiv \nu + 1 \pmod{2}}}
+\Theta_\nu (KI) \sum_{\substack{d_1 \epsilon  K_1\\ d_2 \epsilon 
+    K_2\\ p, p' \epsilon  I\\ f < z^\tau\\ f |P (z_1)}} \xi^{(1)}_f
+R_{d_1 d_2 pp' f'} 
+$$
+where $K= K_1K_2$ and one of the three cases listed in the lemma
+occurs. Let us assume, for example, that we have $(K_1)(I)^2 < M,
+(K_2) < N$.\pageoriginale Then we have $fd_1 pp' < Mz^\tau$ and $d_2 < N$; thus,
+again the inner sum is, in absolute value, not larger than the
+expression \eqref{eq3.4.21}. Other cases can be treated in just the same
+way. Finally, we observe that the number of admissible $K, I$ in the
+formula \eqref{eq3.4.20} does not exceed $2^{J + 2}$ which is less than log
+$z$, because of \eqref{eq3.4.11}. 
+
+Therefore we have now established
+\begin{theorem}[IWANIEC'S LINEAR SIEVE] \label{chap3-thm10}
+We assume \eqref{eq3.1.1},\break \eqref{eq3.1.2} and \eqref{eq3.4.8} with
+  $L = 0\left(\frac{\log z}{\log \log z}\right)$. Then we have, for
+  any $MN \ge z^2$,  
+  \begin{align*}
+    (-1)^{\nu -1} & \left\{ S(A,z)  - \left(\phi_\nu \left(\frac{\log
+      MN}{\log z}\right) + O
+    \left((\log \log z)^{-\frac{1}{50}}\right)\right) XV(z) \right\}\\ 
+    & < \log z ~\sup\limits_{\alpha, \beta } | \sum_{\substack{m < M
+        \\ n < N}} \alpha_m \beta_n R_{mn}|,  
+  \end{align*}
+where $\phi_\nu$ is defined by \eqref{eq3.2.10}, and $\alpha = \{\alpha_m\},
+\beta = \{\beta_n\}$ are variable vectors such that $|\alpha_m | \leq
+1, |\beta_n | \leq 1$. 
+\end{theorem}
+
+\begin{remark}
+In the above, we have actually proved this inequality with $Mz^\tau$
+in place of $M$ on the right side, but this blemish can easily be
+removed in much the same way as in the remark to THEOREM \ref{chap3-thm9}. 
+\end{remark}
+
+\begin{center}
+\textbf{NOTES (III)}
+\end{center}
+
+THEOREM \ref{chap3-thm9} was first proved by Rosser, but his work has
+never been published. Being anticipated some ten years by Rosser's 
+work,\pageoriginale but independently, Jurkat and Richert \cite{key36} proved
+essentially 
+the same result as THEOREM \ref{chap3-thm9} completely; in their
+remarkable proof 
+Selberg's sieve was used as an aid to start the truncation-iteration
+procedure of Buchstab's identity which is quite similar to that of
+Rosser. Rosser's argument is briefly sretched in Selberg's expository
+paper \cite{key75}, and also Iwaniec \cite{key28} worked out the full detail of
+this fundamental sieve idea. 
+
+Our proof of THEOREM \ref{chap3-thm9} follows the argument of
+Motohashi [\cite{key60}, I] 
+who combined some of important ideas of Jurkat and Richert with those
+of Rosser. This fact is embodied in LEMMA \ref{chap3-lem13} and LEMMA
+\ref{chap3-lem14}; 
+especially, LEMMA \ref{chap3-lem13} shows well how natural Rosser's
+idea is. The analysis of the difference-differential equation
+\eqref{eq3.1.25} which is 
+developed is \S~ \ref{chap3-sec3.2} is conducted partly by employing
+the ideas of de 
+Brui jn \cite{key9}; the use of Laplace transform is also indicated by
+Selberg \cite{key75}. Also we note that \eqref{eq3.1.3},
+\eqref{eq3.1.4} and LEMMA \ref{chap3-lem11}, 
+LEMMA \ref{chap3-lem12} are quoted from Halberstam and Richert
+[\cite{key12}, see p.53, p.144, p.214 and p.227, respectively]. 
+
+Our argument may be generalized, at least in principle, so as to
+include the K-dimensional sieve problems with $K\neq 1$, but then we
+should have t overcome anew the difficulty pertaining to the
+convergence problem arising from the infinite iteration
+procedure;\pageoriginale in 
+our case, this was  solved in LEMMA \ref{chap3-lem14}. For the general
+case, see Iwaniec's work \cite{key30} to which we owe much. 
+
+The observation that Rosser's linear sieve is optimal is due to
+Selberg \cite{key75} (cf. also \cite{key73}), and our example is quoted from
+there;  a related subject was studied by Bombieri \cite{key7} (cf. also
+Friedlamder and Iwanied \cite{key14}) in a more general setting.  
+
+THEOREM \ref{chap3-thm10} is due to Iwaniec \cite{key31}. This far-reaching
+improvement of 
+Rosser's linear sieve was a major event in the theory of sieve
+methods; it allows us to combine very effectively the linear sieve
+with various powerful analytical means, e.g. hybrid mean vale theorems
+for Dirichlet polynomials. Some of the deep consequences of such
+applications to fundamental problems in analytic number theory are
+surveyed in Iwaniec's own expository paper \cite{key33}; later in PART II
+we shall give an important application to the theory of the
+distribution of prime numbers.  
+
+One should note how nicely Iwaniec exploited the particular form of
+Rosser's weights $\rho_\nu$. Prior to Iwaniec's discovery Motohashi
+\cite{key52} did the same for Selberg's $\Lambda^2$-sieve.  
+
+The argument of \ref{chap3-sec3.4} is due to Motohashi [\cite{key60},
+  II] which is a 
+strai\-ghtforward refinement of the one developed in the preceding
+section; \- LEMMA \ref{chap3-lem16} is a refined version of Iwaniec's
+decisive observation. 
+
+\medskip
+\noindent
+\textbf{ADDENDUM\pageoriginale (\footnote{By the courtesy of Professor
+    Halberstam})}. After studying the first draft of the present
+chapter. Professor Halberstam kindly showed us the following
+penetrating observation.  
+
+From \eqref{eq3.1.10} and LEMMA \ref{chap3-lem13} (with $\rho = 2$ and
+$\phi_\nu$ defined 
+by\break \eqref{eq3.2.10}) we get, for $2 \leq z_1 < z \leq \sqrt{y}$, 
+\begin{multline*}
+  (-1)^\nu V (z) \left\{ K_\nu (y, z; \delta ) - \left(\phi \_\nu
+  \left(\frac{\log y}{\log z}\right) + O\left( L \frac{\log^2
+    z}{\log^3 z_1}\right) \right) \right\}\\
+  = V(z_1) \sum_{d | P(z_1. z)} (-1)^\nu \mu (d) \rho_\nu (d)
+  \frac{\delta (d)}{d} \left(1- \phi_{\nu + \omega (d)} \left(\frac{\log
+    \frac{y}{d}}{\log z_1}\right)\right).  \tag{i} 
+\end{multline*}
+
+But all summands on the right side are non-negative, and hence
+\begin{equation*}
+  (-1)^\nu K_\nu (y, z; \delta ) \geq (-1)^\nu \left(\phi_\nu \left(\frac{\log
+    y}{\log z}\right) + O\left( L \frac{\log^2 z}{\log^3
+    z_1}\right)\right),\tag{ii}  
+\end{equation*}
+which is essentially equivalent to the assertion of THEOREM
+\ref{chap3-thm9}. 
+
+Namely, we can demonstrate Rosser's linear sieve without proving
+painstakingly the convergence lemma (LEMMA \ref{chap3-lem14}); just
+the same can be 
+said about the corresponding part of our proof of Iwaniec's linear
+sieve. This is a remarkable observation, for, it may be applied
+equally well to the higher dimensional sieve situation and provide
+Rosser's sieve (in the sense of \cite{key30}) with a more accessible proof. 
+
+Our LEMMA \ref{chap3-lem14} is thus to be regarded as a means to
+ensure that what 
+was disregarded in deducing (ii) from (i) is, in fact, negligible.  

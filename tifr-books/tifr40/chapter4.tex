@@ -1,0 +1,1278 @@
+\chapter{The Fundamental Group}\label{chap4}
+
+Throughout\pageoriginale this chapter, we shall denote by $S$ a
+locally noetherian {\em connected} prescheme and by
+$\mathscr{C}=(\mathscr{E}t/S)$ the category of \'etale coverings of
+$S$. We note that the morphisms of $\mathscr{C}$ will all be \'etale
+coverings. 
+
+(See \ref{chap3-sec3.3.3} and the note at the end of Ch. \ref{chap3}).
+
+
+\section{Properties of the category
+  {$\mathscr{C}$}}\label{chap4-sec4.1} 
+
+\begin{itemize}
+\item[($\mathscr{C}_{0}$)] $\mathscr{C}$ has an initial object
+  $\emptyset$ (the empty prescheme) and a final object $S$.
+
+\item[($\mathscr{C}_{1}$)] Finite fibre-products exist in
+  $\mathscr{C}$, i.e., if $X\to Z$ and $Y\to Z$ are morphisms in
+  $\mathscr{C}$, then $\fprod{X}{Y}{Z}$ exists in $\mathscr{C}$ (see
+  (\ref{chap3-sec3.3.3})) 
+
+\item[($\mathscr{C}_{2}$)] If $X$, $Y\in\mathscr{C}$, then the
+  disjoint union $X\coprod Y\in\mathscr{C}$ (obvious).
+
+\item[($\mathscr{C}_{3}$)] Any morphism $u:X\to Y$ in $\mathscr{C}$
+  admits a factorisation of the form
+\[
+\xymatrix@=1.2cm{
+X\ar[rr]^{u}\ar[dr]_{u_{i}} & & Y\\
+ & Y_{1}\ar@{^{(}->}[ur]_{j}
+}
+\]
+where $u_{1}$ is an effective epimorphism, $j$ is a monomorphism and
+$Y=Y_{1}\coprod Y_{2}$, $Y_{2}\in\mathscr{C}$.
+\end{itemize}
+
+In\pageoriginale fact, $u$ is an \'etale covering so $u$ is both open
+and closed; if we write $u(X)=Y_{1}$ we have $Y=Y_{1}\coprod Y_{2}$
+and $u=u_{1}:X\to Y_{1}$ is then an effective epimorphism
+
+(see (\ref{chap3-prop3.4.2.1})).
+
+Further, this factorisation of $u$ into an epimorphism and a
+monomorphism is {\em essentially unique} in the sense that if
+\[
+\xymatrix@=1.2cm{
+X\ar[rr]^{u}\ar[dr]_{u'_{1}} & & Y\\
+ & Y_{1}\ar@{^{(}->}[ur]_{j'}
+}
+\]
+is another such factorisation, then there exists an isomorphism
+$\omega:Y_{1}\to Y'_{1}$ such that $u'_{1}=\omega\circ u_{1}$ and
+$j=j'\circ \omega$.
+
+(Because a factorisation into a product of an effective epimorphism
+and a monomorphism is unique).
+
+\begin{itemize}
+\item[($\mathscr{C}_{4}$)] If $X\in \mathscr{C}$ and $\mathfrak{g}$ is
+  a {\em finite} group of automorphisms of $X$ acting, say, to the
+  right on $X$, then the quotient $X/\mathfrak{g}$ of $X$ by
+  $\mathfrak{g}$ exists in $\mathscr{C}$ and the natural morphism
+  $X\xrightarrow{\eta}X/\mathfrak{g}$ is an effective epimorphism.
+\end{itemize}
+
+The quotient, if it exists, is evidently unique upto a canonical
+isomorphism; also $X$ is affine over $S$ and therefore the existence
+of $X/\mathfrak{g}$ has only to be proved in the case $X$, $S$ affine,
+say $X=\Spec A$, $S=\Spec B$ and $G=$ the group of $B$-automorphisms
+of $A$ corresponding to $\mathfrak{g}$. Then $\Spec A^{G}$ ($A^{G}$ is
+the ring of $G$-invariants of $A$) is the quotient we are looking
+for. (Compare with Serre, Groupes alg\'ebriques et corps de classes,
+p. 57). Our aim now is to show that $X/\mathfrak{g}$ is actually in
+$\mathscr{C}$. The question is again local and we may assume $X=\Spec
+A$, $S=\Spec B$, with\pageoriginale $B$ noetherian, and
+$X/\mathfrak{g}=\Spec A^{G}$ as above. $X\to S$ is finite and so
+$X/\mathfrak{g}\to S$ is also finite. It remains to show that this
+morphism is \'etale. In order to do this, we first make some
+simplifications. 
+
+Suppose that $S'\to S$ is a flat affine base-change. We have a
+commutative diagram:
+\[
+\xymatrix{
+X'=\fprod{X}{S'}{S}\ar[d]\ar[r] & Y'=\fprod{Y}{S'}{S}\ar[d]\ar[r] &
+\Spec B'=S'\ar[d]\\
+\Spec A=X \ar[r] & X/\mathfrak{g}=\Spec A^{G}=Y\ar[r] & \Spec B=S.
+}
+\]
+$\mathfrak{g}$ acts on $X'$ in the obvious way, as a group of
+$S'$-automorphisms of $X'$. We assert that $Y'=\fprod{Y}{S'}{S}$ is
+the quotient of $X'$ with respect to this action. Indeed, we have an
+exact sequence of $B$-algebras: $0\to A^{G}\to A\to
+\bigoplus\limits_{\sigma\in G}A$, where $A\to
+\bigoplus\limits_{\sigma\in G}A$ is the map given by $A\mapsto
+\sum\limits_{\sigma\in G}(a-a^{\sigma})$. Since $B'$ is $B$-flat, we
+get an exact sequence: $0\to \foprod{A^{G}}{B'}{B}\to
+\foprod{A}{B'}{B}\to \bigoplus\limits_{\sigma \in
+  G}(\foprod{A}{B'}{B})$ and this proves that the subring of
+invariants of $\foprod{A}{B'}{B}$ is $\foprod{A^{G}}{B'}{B}$; hence
+our assertion.
+
+Let $y\in Y=X/\mathfrak{g}$ and $s\in S$ be its image. Take for $B'$
+the local ring $\mathscr{O}_{s,S}$. Then there is a unique point
+$y'\in Y'=\fprod{Y}{S'}{S}$ over $y$ and one has
+$\mathscr{O}_{y',Y'}=\mathscr{O}_{y,Y}$; hence\pageoriginale $Y\to S$
+is \'etale at $Y\Leftrightarrow Y'\to S'$ is \'etale at $y'$. We may
+thus assume that $S=\Spec B$, $B$ a noetherian, local ring. In view of
+the following lemma, we may assume $B$ {\em complete}.
+
+\begin{lemma}\label{chap4-lem4.1.1}
+Let $X\xrightarrow{f}S$ be a morphism and $S'\xrightarrow{\varphi}S$ a
+faithfully flat base-change. Then $f$ is \'etale $\Leftrightarrow
+f_{(S')}$ is \'etale.
+\end{lemma}
+
+
+\begin{proof}
+$\Rightarrow$: is clear.
+
+$\Leftarrow$: flatness of $f$ is straightforward. To prove
+  non-ramification one observes that in view of (5)
+  (\ref{chap3-sec3.3.0}), one has 
+  $\Omega_{X'/S'}=\varphi^{\ast}(\Omega_{X/S})$; but $\varphi$ being
+  faithfully flat, $\Omega_{X'/S'}=0\Leftrightarrow \Omega_{X/S}=0$;
+  one now applies proposition \ref{chap3-prop3.3.2}.\hfill Q.E.D.
+\end{proof}
+
+Let $x_{1},\ldots,x_{n}$ be the points of $X$ over $s$. By hypothesis
+each $k(x_{i})/\break k(s)$ is a finite separable extension. We choose a
+sufficiently large finite galois extension $K$ of $k(s)$ such that
+each $k(x_{i})$ is imbedded in $K$. We now need the 
+
+\begin{lemma}\label{chap4-lem4.1.2}
+Let $B$ be a noetherian local ring with maximal ideal $\mathscr{M}$
+and residue field $k$. Let $K$ be an extension field of $k$. Then
+$\exists$ a noetherian local ring $C$ and a local homomorphism
+$\varphi:B\to C$ such that (i) $\varphi$ is $B$-flat and (ii)
+$C/\mathscr{M}C\cong K$. (see EGA. Ch. $\text{0}_{\text{III}}$,
+Prop. (10.3.1)).
+\end{lemma}
+
+In\pageoriginale addition if $[K:k]<\infty$, we can choose $C$ to be a
+finite $B$-algebra. (EGA. Ch. $0_{\text{III}}$, Cor. (10.3.2)).
+
+By making such a base-change $B\xrightarrow{\varphi}C$ we may assume
+that each $k(x_{i})$ is trivial over $k(s)$. Under these assumptions
+we get $A=\bigoplus\limits^{r}_{i=1}B$, a finite direct sum of copies
+of $B$. Under the action of $\mathfrak{g}$, the set
+$\{x_{1},\ldots,x_{n}\}$ splits into disjoint subsets
+$\{x_{1},\ldots,x_{l}\}$, $\{x_{l+1},\ldots,x_{m}\},\ldots$, on each
+of which $\mathfrak{g}$ acts transitively. The corresponding
+decomposition of $A$ will then be given by
+$A=(\bigoplus\limits^{l}_{i=1}B)\bigoplus
+(\bigoplus\limits^{m}_{i=l+1}B)\bigoplus\ldots$. The action of $G$ on
+each block, for instance, on a $(b_{1},\ldots,b_{l})\in
+\bigoplus\limits^{l}_{i=1}B$, will then be just a permutation. The
+subring $A^{G}$ will then be the direct sum
+$\Delta_{1}\oplus\ldots\oplus \Delta_{\alpha}\oplus\ldots$ where
+$\Delta_{1}$ is the diagonal of the block
+$\bigoplus\limits^{l}_{i=1}B$ and so on. Each $\Delta$ is evidently
+isomorphic to $B$. Our assertion that $X/\mathfrak{g}\to S$ is \'etale
+is now clear.
+
+Thus $X/\mathfrak{g}\in\mathscr{C}$; the natural morphism
+$X\xrightarrow{\eta}X/\mathfrak{g}$ is also then an \'etale
+covering. Therefore $\eta$ will be an open map and thus if $\eta$ is
+not surjective one could replace $Y$ by the image of $\eta$; this is
+clearly impossible. Hence $\eta$ is surjective and thus an effective
+epimorphism \ref{chap3-prop3.4.2.1}.
+
+\section{}\label{chap4-sec4.2}
+
+We shall\pageoriginale now define a covariant functor $F$ from
+$\mathscr{C}(\mathscr{E}t/S)$ to the category of finite sets. We shall
+fix once and for all a point $s\in S$ and an algebraically closed
+field $\Omega\supset k(s)$.
+
+For any $X\in\mathscr{C}$, $F(X)$, by definition, will be the set of
+geometric points of $X$ over $s\in S$, with values in $\Omega$, i.e.,
+is the set of all $S$-morphisms $\Spec \Omega\to X$ for which the
+diagram is commutative.
+\[
+\xymatrix{
+\Spec \Omega\ar[r]\ar[d] & X\ar[d]\\
+\Spec k(s)\ar[r] & S
+}
+\] 
+
+We observe that if $x\in X$ sits above $s\in S$, then giving an
+$S$-morphism $\Spec \Omega\to X$ whose image is $x\in X$ is equivalent
+to giving a $k(s)$-monomorphism of $k(x)$ into $\Omega$. Also note
+that for any $X\in \mathscr{C}$, $F(X)$ is a finite set whose
+cardinality equals the rank of $X$ over $S$.
+
+\medskip
+\noindent
+{\bf Properties of the functor {\boldmath$F$}.}
+\smallskip
+
+\begin{itemize}
+\item[$(F_{0})$] $F(X)=\emptyset\Leftrightarrow X=\emptyset$.
+
+\item[$(F_{1})$] $F(S)=$ a set with one element;
+
+$F(\fprod{X}{Y}{Z})=\fprod{F(X)}{F(Y)}{F(Z)}$, $\forall X$, $Y$, $Z\in
+  \mathscr{C}$. 
+
+\item[$(F_{2})$] $F(X_{1}\coprod X_{2})=F(X_{1})\coprod F(X_{2})$. 
+
+\item[$(F_{3})$] If\pageoriginale $X\xrightarrow{u}Y$ is an effective
+  epimorphism in $\mathscr{C}$, the map $F(u):F(X)\to F(Y)$ is {\em onto}.
+
+In fact, if $y\in Y$ is a point above $s\in S$ and $y=u(x)$, $x\in X$,
+then any $k(s)$-monomorphism of $k(y)$ to $\Omega$ extends to a
+$k(s)$-monomorphism of $k(x)$ to $\Omega$.
+
+\item[$(F_{4})$] Let $X\in\mathscr{C}$ and $\mathfrak{g}$ a finite
+  group of $S$-automorphisms of $X$ (acting to the right on $X$). Then
+  $\mathfrak{g}$ acts in a natural way (again to the right) on $F(X)$
+  as expressed by
+$$
+\Spec \Omega\to X\xrightarrow{\sigma\in\mathfrak{g}}X.
+$$
+
+The natural map $\eta:X\to X/\mathfrak{g}$ (see ($\mathscr{C}_{3}$))
+defines a surjection $F(\eta):F(X)\to F(X/\mathfrak{g})$ (see
+($F_{3}$)). In view of the commutativity of the diagram
+\[
+\xymatrix{
+\Spec \Omega \ar[r] & X\ar[dr]_{\eta} \ar[rr]^{\sigma\in \mathfrak{g}}
+& & X\ar[dl]_{\eta}\\ 
+ & & X/\mathfrak{g} & &
+}
+\]
+it follows that $F(\eta)$ descends to a surjection
+$\widetilde{\eta}:F(X)/\mathfrak{g}\to F(X/\mathfrak{g})$. We claim
+that $\widetilde{\eta}$ {\em is actually a bijection.} This follows
+immediately from the
+\end{itemize}
+
+\begin{lemma}\label{chap4-lem4.2.1}
+\begin{itemize}
+\item[\rm(i)] $\mathfrak{g}$ acts transitively on the fibres of $\eta$. 
+
+\item[\rm(ii)] Suppose\pageoriginale $y\in Y=X/\mathfrak{g}$ and $x\in
+  \eta^{-1}(y)$. Let $\mathfrak{g}_{d}(x)$ be the subgroup
+  $\{\sigma\in\mathfrak{g}:\sigma(x)=x\}$ (called the {\em
+    decomposition group of $x$}). Then we have:
+\begin{itemize}
+\item[\rm(a)] $k(x)/k(y)$ is a galois extension.
+
+\item[\rm(b)] the natural map $\mathfrak{g}_{d}(x)\to$ the galois group
+  $G({}^{k(x)}/k(y))$ is {\em onto}.
+\end{itemize}
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+\begin{itemize}
+\item[\rm(i)] We may assume $X=\Spec A$, $Y=X/\mathfrak{g}=\Spec A^{G}$
+  as before (both noetherian); also one knows that $A$ is finite on
+  $A^{G}$. Let $\mathscr{P}$, $\mathscr{P}_{1}$ be prime ideals of $A$
+  (i.e., points of $X$) such that $\mathscr{P}_{1}\neq
+  \sigma\mathscr{P}\ \forall\ \sigma \in G$, while $\mathscr{P}\cap
+  A^{G}=\mathscr{P}_{1}\cap A^{G}=\underline{p}$. We may assume
+  $\mathscr{P}$ and $\mathscr{P}_{1}$ maximal (otherwise apply the
+  flat base change $Y\leftarrow \Spec \mathscr{O}_{y,Y}$, where $y\in
+  Y$ corresponds to $\underline{p}$). Then there is an $a\in
+  \mathscr{P}_{1}$ such that $a\not\in \sigma \mathscr{P}\forall
+  \sigma$ (Chinese Remainder Theorem). Thus
+  $b=\prod\limits_{\sigma}\sigma(a)\not\in \mathscr{P}$; but $b\in
+  A^{G}$, so $b\in A^{G}\cap \mathscr{P}_{1}=A^{G}\cap
+  \mathscr{P}$-contradiction. 
+
+\item[\rm(ii)] We have a diagram:
+\[
+\xymatrix{
+A\ar[r] & A/\mathscr{P}\simeq k(x)\\
+A^{G}\ar[u]\ar[r] & A^{G}/\ub{p}\simeq k(y),\ar[u]
+}
+\]
+and\pageoriginale we know that $k(x)/k(y)$ is a finite, separable
+extension. Let $\theta\in A$ be such that
+$k(x)=k(y)(\overline{\theta})$. The polynomial
+$f=\prod\limits_{\sigma}(T-\sigma \theta)$ is in $A^{G}[T]$, has
+$\theta$ as a root and splits completely in $A[T]$. The reduction
+$\overline{f}$ of $f$ $\mod \ub{p}$ is in $k(y)[T]$, has
+$\overline{\theta}$ as a root and splits completely in $k(x)[T]$. It
+follows that $k(x)/k(y)$ is normal, hence galois. 
+
+Consider now the subgroup $G_{d}(\mathscr{P})$ of $G$ corresponding to
+$\mathfrak{g}_{d}(x)$. We have $\mathscr{P}\neq
+\sigma^{-1}\mathscr{P}\ \forall\ \sigma \not\in G_{d}(\mathscr{P})$ and
+by the Chinese Remainder Theorem we can choose a $\theta_{1}\in A$
+such that $\theta_{1}\equiv \theta(\text{mod}\mathscr{P})$ and
+$\theta_{1}\equiv 0(\text{mod} \sigma^{-1}\mathscr{P})$, $\forall
+\sigma\not\in G_{d}(\mathscr{P})$. 
+
+We have $k(x)=k(y)(\overline{\theta}_{1})$. Consider now the
+polynomial
+$\overline{g}=\prod\limits_{\sigma}(T-\overline{\sigma}\theta_{1})\in
+  k(y)[T]$. As $\overline{\theta}_{1}$ is a root of $\overline{g}$,
+  for every $\varphi\in G(^{k(x)}/k(y))$,
+  $\varphi(\overline{\theta}_{1})$ is also a root of $\overline{g}$;
+  hence
+  $\varphi(\overline{\theta}_{1})=\overline{\sigma}(\overline{\theta}_{1})$
+  for some $\sigma \in G$. But $\varphi(\overline{\theta}_{1})\neq 0$
+  and, by the choice of $\theta_{1}$,
+  $\overline{\sigma}(\overline{\theta}_{1})=0$ if $\sigma\not\in
+  G_{d}(\mathscr{P})$; hence
+  $\varphi(\overline{\theta}_{1})=\overline{\sigma}(\overline{\theta}_{1})$
+  for some $\sigma\in G_{d}(\mathscr{P})$, i.e.,
+  $\varphi=\overline{\sigma}$ for some $\sigma \in
+  G_{d}(\mathscr{P})$.\hfill Q.E.D.
+\end{itemize}
+\end{proof}
+
+\begin{itemize}
+\item[$(F_{5})$] If $u:X\to Y$ is a morphism in $\mathscr{C}$ such
+  that $F(u):F(X)\to F(Y)$ is a bijection, then $u$ is an isomorphism
+\end{itemize}
+
+From\pageoriginale the fact that $F(u)$ is a bijection it follows (see
+the remark at the end of Ch. \ref{chap3}) that the rank of $u:X\to Y$ is $1$
+at every $y\in Y$, hence (again by the same remark) $u$ is an
+isomorphism.
+
+A category which has the properties
+$(\mathscr{C}_{0}),\ldots,(\mathscr{C}_{4})$ of \ref{chap4-sec4.1} and from
+which there is given a functor $F$ into finite sets with the above
+properties $(F_{0}),\ldots, (F_{5})$ is called a {\em galois
+  category}; the functor $F$ itself is known as a {\em fundamental
+  functor}. 
+
+\section{}\label{chap4-sec4.3}
+Before we start our construction of the fundamental group of a galois
+category we motivate our procedure by two examples.
+
+\begin{exam}\label{chap4-exam1}
+Let $S$ be a connected, locally arcwise connected, locally simply
+connected topological space and $\mathscr{C}$ the category of
+connected coverings of $S$; the morphisms of $\mathscr{C}$ are
+covering maps. Let $X\xrightarrow{p}S$ be such a covering. Fix a point
+$s\in S$; we define $F(X)=p^{-1}(s)$. Then $(X,p)\mapsto p^{-1}(s)$ is
+a covariant functor $F:\mathscr{C}\to \calEns$.
+\end{exam}
+
+Each member of $\mathscr{C}$ determines (upto conjugacy) a sub-group
+of the fundamental group $\Pi_{1}(S,s)$; and to each subgroup $H$ of
+$\Pi_{1}(S,s)$ there corresponds a member of $\mathscr{C}$
+determining $H$. To the subgroup $\{e\}$ corresponds, what is known
+as, the universal covering $\widetilde{S}$ of $S$; and $\Pi_{1}(S,s)$
+is isomorphic to the group of $S$-automorphisms of $\widetilde{S}$,
+i.e., to the group of covering transformations of $\widetilde{S}$ over
+$S$. Further we have the isomorphism (in $\calEns$):
+$$
+\Hom_{\mathscr{C}}(\widetilde{S},X)\xrightarrow{\sim}F(X),\quad
+\forall X\in \mathscr{C}. 
+$$
+
+The\pageoriginale functor $F:\mathscr{C}\to \calEns$ is thus {\em
+  representable} in the following sense.
+
+\begin{defin}\label{chap4-defi4.3.1}
+A covariant functor $\mathscr{G}$ from a category $\mathscr{C}$ to
+$\calEns$ is {\em representable} if $\exists$ an object
+$Y\in\mathscr{C}$ such that:
+$$
+\Hom_{\mathscr{C}}(Y,X)\xrightarrow{\sim}\mathscr{G}(X)\ \forall\
+X\in\mathscr{C}.
+$$
+\end{defin}
+
+\begin{exam}\label{chap4-exam2}
+Let $k$ be a field and $\Omega$ a fixed algebraically closed field
+extension of $k$. Set $S=\Spec k$ and $\mathscr{C}=$ the category of
+connected \'etale coverings of $S$; any member of $\mathscr{C}$ is of
+the form $\Spec K$, where $K/k$ is a finite separable field
+extension. For any $X\in\mathscr{C}$ we define $F(X)=$ the set of
+geometric points of $X$ with values in $\Omega$. Then, $F(X)\simeq
+\Hom_{k}(K,\Omega_{s})$ is $X=\Spec K$, where $\Omega_{s}$ is the
+separable closure of $k$ in $\Omega$. If $\Omega_{s}$ is finite over
+$k$, we can further write $F(X)\simeq \Hom_{\mathscr{C}}(\Spec
+\Omega_{s},X)$ and the functor $F:\mathscr{C}\to$ (finite sets),
+defined above, will be representable. However this is {\em not} the
+case in general; out we can find an indexed, filtered family
+$(N_{i})_{i\in I}$ of finite galois extensions of $k$, (namely, the
+set of finite galois extensions contained in $\Omega_{s}$) such that
+for any $X\in\mathscr{C}$, we can find an $i_{0}=i_{0}(X)$ such that
+$F(X)\simeq \Hom_{\mathscr{C}}(\Spec N_{i},X)$, $\forall i\geq
+i_{0}(X)$. In other words, we may write
+$$
+F(X)\simeq \varinjlim_{i\in I} \Hom_{\mathscr{C}}(\Spec
+  N_{i},X),\quad \forall X\in \mathscr{C}
+$$
+and\pageoriginale the family $(\Spec N_{i})_{i\in I}$ is in fact a
+projective family of objects in $\mathscr{C}$.
+\end{exam}
+
+Suppose now that $\mathscr{C}$ is any category and
+$\mathscr{G}:\mathscr{C}\to \calEns$ is a covariant functor. If $X\in
+\mathscr{C}$ and $\xi\in \mathscr{G}(X)$, we write, as a matter of
+notation, $\mathscr{G}\xrightarrow{\xi}X$. If
+$\mathscr{G}\xrightarrow{\xi}X$, and $\mathscr{G}\xrightarrow{\eta}Y$
+and $X\xrightarrow{u}Y$ is a $\mathscr{C}$-morphism, we say that the
+diagram
+\[
+\xymatrix{
+\mathscr{G}\ar[rr]^{\xi}\ar[dr]^{\eta} && X\ar[dl]^{u}\\
+ & Y &
+}
+\]
+is commutative if $\mathscr{G}(u)(\xi)=\eta$.
+
+If $\mathscr{G}\xrightarrow{\xi}X$, then for any $Z\in\mathscr{C}$, we
+have a natural map $\Hom_{\mathscr{C}}(X,Z)\break \to \mathscr{G}(Z)$ defined
+by $u\mapsto \mathscr{G}(u)(\xi)$. 
+
+\begin{defin}\label{chap4-defi4.3.2}
+We say that $\mathscr{G}$ is {\em pro-representable} if $\exists$ a
+projective system $(S_{i},\varphi_{ij})_{i\in I}$ of objects of
+$\mathscr{C}$ and elements $\tau_{i}\in\mathscr{G}(S_{i})$ (called the
+canonical elements of $\mathscr{G}(S_{i})$) such that 
+\begin{itemize}
+\item[\rm(i)] the diagrams
+\[
+\xymatrix{
+\mathscr{G}\ar[rr]^{\tau_{i}}\ar[dr]_{\tau_{j}} && S_{i}\\
+ & S_{j}\ar[ur]_{\varphi_{ij}(j\geq i)} & 
+}
+\]
+are commutative.
+
+\item[\rm(ii)] for\pageoriginale any $Z\in\mathscr{C}$, the (natural) map
+$$
+\varinjlim_{i\in I} \Hom_{\mathscr{C}}(S_{i},Z)\to F(Z)
+$$
+is {\em bijective.}
+\end{itemize}
+\end{defin}
+
+In addition, if the $\varphi_{ij}$ are {\em epimorphisms} of
+$\mathscr{C}$, we say that $\mathscr{G}$ is {\em strictly
+  pro-representable.}
+
+Thus, our functor $F$ in Example \ref{chap4-exam2} is
+pro-representable. Example \ref{chap4-exam1} and \ref{chap4-exam2} show that
+representable and pro-representable functors arise naturally in the
+consideration of the fundamental group.
+
+\section{Construction of the Fundamental group}\label{chap4-sec4.4}
+
+\subsection{Main theorem}\label{chap4-sec4.4.1}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Let $\mathscr{C}$ be a galois category with a fundamental
+  functor $F$. Then there exists a pro-finite group $\pi$ (i.e., a
+  group $\pi$ which is a projective limit of finite discrete groups
+  provided with the limit topology) such that $F$ is an equivalence
+  between $\mathscr{C}$ and the category $\mathscr{C}(\pi)$ of finite
+  sets on which $\pi$ acts continuously.
+
+\item If $\mathscr{C}\xrightarrow{F'}\mathscr{C}(\pi')$ is another
+  such equivalence, then $\pi'$ is continuously isomorphic to $\pi$
+  and this isomorphism between $\pi$ and $\pi'$ is canonically
+  determined upto an inner automorphism of $\pi$.
+\end{enumerate}
+
+The\pageoriginale profinite group $\pi$, whose existence is envisaged
+in assertion (1) above will be called the {\em fundamental group} of
+the galois category $\mathscr{C}$.
+
+The theorem is a consequence of the following series of lemmas.
+
+\setcounter{subsubsection}{1}
+\setcounter{subdefin}{0}
+\begin{subdefin}\label{chap4-defi4.4.1.1}
+A category $\mathscr{C}$ is {\em artinian} if any ``decreasing''
+sequence
+$$
+T_{1}\hookleftarrow_{j_{1}}T_{2}\hookleftarrow_{j_{2}}T_{3}\hookleftarrow_{j_{3}}\ldots 
+$$
+of monomorphisms in $\mathscr{C}$ is stationary, i.e., the $j_{r}$ are
+isomorphisms for large $r$.
+\end{subdefin}
+
+A (covariant) functor $F:\mathscr{C}\to \calEns$ is {\em left-exact}
+if it commutes with finite products i.e., if $F(X\times Y)=F(X)\times
+F(Y)$ and if, for every {\em exact} sequence $\xymatrix{X\ar[r]^{u} &
+  Y\ar@<.2em>[r]^{u_{1}}\ar@<-.2em>[r]_{u_{2}} & Z}$ in $\mathscr{C}$,
+the sequence  
+\[
+\xymatrix{F(X)\ar[r]^{F(u)} &
+  F(Y)\ar@<.2em>[r]^{F(u_{1})}\ar@<-.2em>[r]_{F(u_{2})} & F(Z)}
+\] 
+is exact as a sequence of sets.
+
+If $\xymatrix{Y\ar@<.2em>[r]^{u_{1}}\ar@<-.2em>[r]_{u_{2}} & Z}$
+ are morphisms in $\mathscr{C}$, a {\em kernel} for $u_{1}$, $u_{2}$
+ in $\mathscr{C}$ is a pair $(X,u)$ with $X\in \mathscr{C}$ and
+ $u:X\to Y$ in $\mathscr{C}$ such that $\xymatrix{X\ar[r]^{u} &
+  Y\ar@<.2em>[r]^{u_{1}}\ar@<-.2em>[r]_{u_{2}} & Z}$ is exact in
+ $\mathscr{C}$. Clearly a kernal is determined uniquely upto an
+ isomorphism in $\mathscr{C}$. 
+
+\setcounter{sublemma}{1}
+\begin{sublemma}\label{chap4-lem4.4.1.2}
+Let\pageoriginale $\mathscr{C}$ be a category in which finite products
+exists. Then finite fibre-products exist in
+$\mathscr{C}\Leftrightarrow$ kernels exist in $\mathscr{C}$.
+\end{sublemma}
+
+\begin{proof}
+$\Rightarrow$~: Let
+  $\xymatrix{Y\ar@<.2em>[r]^{u_{1}}\ar@<-.2em>[r]_{u_{2}} & Z}$ be
+  morphisms in $\mathscr{C}$. We have a commutative diagram:
+\[
+\xymatrix{
+ & Z & \\
+Y\ar[ur]^{u_{1}}  & & Y\ar[ul]_{u_{2}}\\
+ &
+\fprod{Y}{Y}{Z}\ar[ul]^{p_{1}}\ar[ur]_{p_{2}}\ar[dr]^{(p_{1},p_{2})}
+&\\
+\fprod{(\fprod{Y}{Y}{Z})}{Y}{(Y\times Y)}\ar[ur]\ar[dr] & & Y\times
+Y\\
+ & Y\ar[ur]_{\text{diagonal}} &  
+}
+\]
+and it easily follows that $\fprod{(\fprod{Y}{Y}{Z}}{Y}{(Y\times Y)}$
+is a solution for the kernal of $u_{1}$ and $u_{2}$.
+
+$\Leftarrow$~: Suppose $X\xrightarrow{f}Z$ and $Y\xrightarrow{g}Z$ are
+morphisms in $\mathscr{c}$. If $p$ and $q$ are the canonical
+projections $X\times Y\xrightarrow{p}X$, $X\times Y\xrightarrow{q}Y$,
+we have an exact sequence:
+\[
+\xymatrix{
+\ker (fp,gq)\ar[r] & X\times Y\ar@<.2em>[r]^-{f_{p}}\ar@<-.2em>[r]_-{gq}
+& Z. 
+}
+\]
+
+It\pageoriginale follows that $\ker(fp,gq)$ is a solution for the
+fibre-product $\fprod{X}{Y}{Z}$.\hfill Q.E.D.
+\end{proof}
+
+In fact, we have shown that finite fibre products and kernels can be
+expressed in terms of each other. Hence, $F$ commutes with finite
+fibre-products $\Leftrightarrow$ it is left-exact.
+
+\begin{coro*}
+A fundamental functor is left-exact (see ($F_{1}$))
+\end{coro*}
+
+\begin{sublemma}\label{chap4-lem4.4.1.3}
+A galois category is artinian.
+\end{sublemma}
+
+\begin{proof}
+Let 
+$$
+T_{1}\hookleftarrow_{j_{1}}T_{2}\hookleftarrow_{j_{2}}\ldots
+\hookleftarrow_{j_{r-1}}T_{r}\hookleftarrow_{j_{r}}T_{r+1}\ldots
+$$
+be a decreasing sequence of monomorphisms in $\mathscr{C}$. We have
+then:
+\begin{align*}
+& T_{r+1}\xrightarrow{j_{r}}T_{r}\quad\text{is a monomorphism}\\
+\Leftrightarrow\ &
+T_{r+1}\xrightarrow[\Delta]{\sim}\fprod{T_{r+1}}{T_{r+1}}{T_{r}}\\
+\Rightarrow\ &
+F(T_{r+1})\xrightarrow[\Delta]{\sim}\fprod{F(T_{r+1})}{F(T_{r+1})}{F(T_{r})}\quad
+(\text{by\ } (F_{1}), (F_{5}))\\
+\Leftrightarrow\ &
+F(T_{r+1})\xrightarrow{F(j_{r})}F(T_{r})\quad\text{is a monomorphism.}  
+\end{align*}
+
+Since the $F(T_{r})$ are finite, this implies that the $F(j_{r})$ are
+isomorphisms for large $r$; we are through by $(F_{5})$.\hfill Q.E.D.
+\end{proof}
+
+
+\begin{sublemma}\label{chap4-lem4.4.1.4}
+Let\pageoriginale $\mathscr{C}$ be a galois category with a
+fundamental functor $F$. Then $F$ is strictly pro-representable.
+\end{sublemma}
+
+\begin{proof}
+With the notations of \ref{chap4-defi4.3.2}, consider the set
+$\mathscr{E}$ of pairs $(X,\xi)$ with $F\xrightarrow{\xi}X$. We order
+$\mathscr{E}$ as follows: 
+$$
+(X,\xi)\geq (X',\xi')\Leftrightarrow \exists\quad\text{a commutative diagram:}
+$$
+\[
+\xymatrix{
+F\ar[rr]^{\xi}\ar[dr]_{\xi'} & & X\ar[dl]\\
+ & X' &
+}
+\]
+
+We claim that $\mathscr{E}$ is {\em filtered} for this ordering; in
+fact, if $(X,\xi)$, $(X',\xi')\break \in\mathscr{E}$, in view of $(F_{1})$ we
+get a commutative diagram:
+\[
+\xymatrix@C=1.4cm@R=1.5cm{
+ & & X\\
+F\ar[urr]^{\xi}\ar[r]^{(\xi,\xi')}\ar[drr]^{\xi'} & X\times
+X'\ar[dr]^{p'}\ar[ur]_{p} & \\ 
+ & & X'
+}
+\]
+where $p$ and $p'$ are the natural projections.
+
+We\pageoriginale say that a pair $(X,\xi)\in\mathscr{E}$ is {\em
+  minimal} in $\mathscr{E}$ if for any commutative diagram
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\eta} & & X\\
+ & Y\ar@{^{(}->}[ur]_{j} & 
+}
+\]
+with a monomorphism $j$, one necessarily has that $j$ is an
+isomorphism.
+\begin{itemize}
+\item[(*)] Every pair in $\mathscr{E}$ is dominated, in this ordering,
+  by a minimal pair in $\mathscr{E}$.
+
+Observe that $\mathscr{C}$ is artinian (Lemma \ref{chap4-lem4.4.1.3}).
+
+\item[(**)] If $(X,\xi)\in\mathscr{E}$ is minimal and
+  $(Y,\eta)\in\mathscr{E}$ then a $u\in \Hom_{\mathscr{C}}(X,Y)$ in a
+  commutative diagram
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\eta} & & X\ar[dl]^{u}\\
+ & Y & 
+}
+\]
+is uniquely determined.
+\end{itemize}
+
+In fact, if $u_{1}$, $u_{2}\in \Hom_{\mathscr{C}}(X,Y)$ such that
+the\pageoriginale diagrams
+\[
+\vcenter{\xymatrix{
+F\ar[rr]^{\eta}\ar[dr]_{\xi} & & Y\\
+ & X\ar[ur]_{u_{1}}
+}}
+\quad\text{and}\quad 
+\vcenter{\xymatrix{
+F\ar[rr]^{\eta}\ar[dr]_{\xi} & & Y\\
+ & X\ar[ur]_{u_{2}}
+}}
+\]
+are commutative then by $(\mathscr{C}_{1})$ and Lemma \ref{chap4-lem4.4.1.2}
+$\ker (u_{1},u_{2})$ exists; since $F$ is left exact we get a
+commutative diagram
+\[
+\xymatrix@=1.5cm{
+F \ar[r]^{\eta}\ar[d]_{\xi}\ar[dr]_{\xi} & Y\\
+\ker(u_{1},u_{2})\ar@{^{(}->}[r]_{j} & X\ar@<.2em>[u]^{u_{1}}\ar@<-.2em>[u]_{u_{2}}
+}
+\]
+with a monomorphism $j$. As $(X,\xi)$ is minimal $j$ must be an
+isomorphism, i.e., $\underline{u_{1}=u_{2}}$.
+
+From (*), (**) it follows that the system $I$ of minimal pairs of
+$\mathscr{E}$ is {\em directed.}
+
+If $(X,\xi)\in I$, $(Y,\eta)\in\mathscr{E}$ and
+$u\in\Hom_{\mathscr{C}}(Y,X)$ appears in a commutative diagram
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\eta} && X\\
+ & Y\ar[ur]_{u} &
+}
+\]
+then\pageoriginale $u$ must be an effective epimorphism.
+
+In fact, be $(\mathscr{C}_{3})$ we get a factorisation
+\[
+\xymatrix@=1.2cm{
+Y\ar[rr]^{u}\ar[dr]_{u_{1}} & & X_{1}\coprod X_{2}=X\\
+ & X_{1}\ar@{^{(}->}[ur]_{j}
+}
+\]
+with an effective epimorphism $u_{1}$ and a monomorphism $j$. By
+$(F_{2})$ and $(F_{3})$ we then obtain a commutative diagram:
+\[
+\xymatrix{
+F\ar[rrr]^{\xi}\ar[drr]^{\xi}\ar[ddr]_{\eta} & & & X=X_{1}\coprod X_{2}\\
+ & & X_{1}\ar@{^{(}->}[ur]_{j} && \\ 
+& Y\ar[ur]_{u_{1}} & &
+}
+\]
+
+By minimality of $(X,\xi)$, it follows that $j$ is an isomorphism;
+thus $u$ is an effective epimorphism. In particular:
+\begin{itemize}
+\item[{*}{**}] The structure morphisms occurring in the projective
+  family $I$ are effective epimorphisms.
+\end{itemize}
+
+Consider now the natural map
+$$
+\varinjlim_{i\in I}\Hom_{\mathscr{C}}(S_{i},X)\to F(X),\quad X\in \mathscr{C}.
+$$
+
+By\pageoriginale (*) this is onto; by (**) it is injective. From
+({*}{**}) it thus follows that $F$ is strictly
+pro-representable.\hfill Q.E.D.
+\end{proof}
+
+\setcounter{subdefin}{4}
+\begin{subdefin}\label{chap4-defi4.4.1.5}
+Let $\mathscr{C}$ be a category with zero $(\emptyset)$ in which
+disjoint unions exist in $\mathscr{C}$. An $X\in\mathscr{C}$ is {\em
+  connected} in $\mathscr{C}\Leftrightarrow X\neq X_{1}\coprod X_{2}$
+in $\mathscr{C}$ with $X_{1}$, $X_{2}\neq \emptyset$.
+\end{subdefin}
+
+\begin{note*}
+In $(\mathscr{E}t/S)$, a prescheme is connected $\Leftrightarrow$ it
+is connected as a topological space.
+\end{note*}
+
+With the notations of the preceding lemma, we have:
+
+\setcounter{sublemma}{5}
+\begin{sublemma}\label{chap4-lem4.4.1.6}
+\begin{itemize}
+\item[\rm(i)] $(X,\xi)\in\mathscr{E}$ is minimal $\Leftrightarrow X$ is
+  connected in $\mathscr{C}$.
+
+\item[\rm(ii)] If $X$ is connected in $\mathscr{C}$, then any $u\in
+  \Hom_{\mathscr{C}}(X,X)$ is an automorphism.
+
+\item[\rm(iii)] For any $X\in\mathscr{C}$, $\Aut X$ acts on $F(X)$ as
+  follows:
+
+$F\xrightarrow{\xi}X\xrightarrow{\sigma \in \Aut X}X$. It
+  $X\in\mathscr{C}$ is connected, then for any $\xi \in F(X)$ the map
+  $\Aut X\to F(X)$ defined by $u\mapsto F(u)(\xi)=u\circ \xi$, is an
+  {\em injection}.
+\end{itemize}
+\end{sublemma}
+
+\begin{proof}
+\begin{itemize}
+\item[(i)] Suppose $X=X_{1}\coprod X_{2}$ in $\mathscr{C}$, $X_{1}$,
+  $X_{2}\neq \emptyset$ and that $(X,\xi)\in \mathscr{E}$; then $\xi
+  \in F(X)=F(X_{1})\coprod F(X_{2})$ say, $\xi \in F(X_{1})$. 
+
+We then have a commutative diagram
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\xi} & & X\\
+ & X_{1}\ar@{^{(}->}[ur]_{j} &
+}
+\]
+with\pageoriginale a monomorphism $j$ which is {\em not} an
+isomorphism. Thus $(X,\xi)$ is {\em not} minimal.
+
+
+On the other hand, let $X\in\mathscr{C}$ be connected and
+$(X,\xi)\in\mathscr{E}$. Suppose we have a commutative diagram:
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\eta} & & X\\
+ & Y\ar@{^{(}->}[ur]_{j} &
+}
+\]
+with a monomorphism $j$. By $(\mathscr{C}_{3})$ we get a
+factorisation:
+\[
+\xymatrix@=1.2cm{
+Y\ar[rr]^{j}\ar[dr]_{j_{1}} & & X=X_{1}\coprod X_{2}\\
+ & X_{1}\ar@{^{(}->}[ur]_{j_{2}} &
+}
+\]
+with an effective epimorphism $j_{1}$ and a monomorphism $j_{2}$. As
+$j$ is a monomorphism, so is $j_{1}$ and thus $j_{1}$ is an
+isomorphism; since $X$ is connected, $X_{2}=\emptyset$ and one gets
+that $j=j_{2}\circ j_{1}$ is an isomorphism.
+
+\item[(ii)] As $X$ is connected, it follows by $(\mathscr{C}_{3})$
+  that $u$ is an effective epimorphism; by $(F_{3})$, $F(u):F(X)\to
+  F(X)$ is onto and thus is a bijection ($F(X)$ finite). By $(F_{5})$
+  it follows that $u\in \Aut X$.
+
+\item[(iii)] Let\pageoriginale $u_{1}$, $u_{2}\in \Aut X$ such that
+  $F(u_{1})(\xi)=F(u_{2})(\xi)$, i.e., $\xi\in \ker
+  (F(u_{1}),F(u_{2}))=F(\ker(u_{1},u_{2}))$ ($F$ is left-exact). We
+  thus have a commutative diagram
+\[
+\xymatrix@R=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]_{\xi'} & & X\ar@<.2em>[r]^{u_{1}}\ar@<-.2em>[r]_{u_{2}} &X\\
+ & \ker (u_{1},u_{2})\ar@{^{(}->}[ur]_{j} & & 
+}
+\]
+with a monomorphism $j$; as $(X,\xi)$ is minimal by (i), $j$ is an
+isomorphism, in other words, $\underline{u_{1}=u_{2}}$.\hfill Q.E.D.
+\end{itemize}
+\end{proof}
+
+We briefly recall now the example \ref{chap4-exam2} of
+\ref{chap4-sec4.3}. Assertion (iii) of the above lemma simply says in this
+case that if $K/k$ is a finite separable extension field and if
+$\xi\in \Hom_{k}(K,\Omega)$, then the map $\Aut K\to
+\Hom_{k}(K,\Omega)$ given by $u\mapsto \xi\circ u$ is injective. We
+know that $K/k$ is galois $\Leftrightarrow$ this map is also
+onto. Following this, we now make the
+
+\setcounter{subdefin}{6}
+\begin{subdefin}\label{chap4-defi4.4.1.7}
+A connected-object $X\in\mathscr{C}$ is {\em galois} if for any
+$\xi\in F(X)$, the map $\Aut X\to F(X)$ defined by $u\mapsto u\circ
+\xi$ is a {\em bijection}. Note that this is equivalent to saying that
+the action of $\Aut X$ on $F(X)$ is {\em transitive}. Also observe
+that this definition is independent of $F$ because the cardinality of
+$F(X)$ is the degree of the covering $X$ over $S$; the action is
+already effective since $X$ is connected\pageoriginale (by (iii),
+Lemma \ref{chap4-lem4.4.1.6}). 
+\end{subdefin}
+
+\setcounter{sublemma}{7}
+\begin{sublemma}\label{lem4.4.1.8}
+If $F\xrightarrow{\eta}Y$, then there is a galois object
+$X\in\mathscr{C}$, a $\xi\in F(X)$ and a $u\in
+\Hom_{\mathscr{C}}(X,Y)$ such that the diagram
+\[
+\xymatrix@=1.2cm{
+F\ar[rr]^{\xi}\ar[dr]^{\eta} & & X\ar[dl]^{u}\\
+ & Y &
+}
+\]
+is commutative. In other words, the system $I_{1}$ of galois pairs of
+$\mathscr{E}$ is {\em cofinal} in $\mathscr{E}$.
+\end{sublemma}
+
+\begin{proof}
+Let $(S_{i})_{i\in I}$ be a projective system of minimal objects of
+$\mathscr{C}$ such that
+$$
+F\xleftarrow{\sim} \varprojlim_{i\in I}\Hom_{\mathscr{C}}(S_{i},*).
+$$
+
+Let $\eta_{1},\ldots,\eta_{r}$ be the elements of $F(Y)$. We can
+choose $i$ large enough such that as $u$ varies over
+$\Hom_{\mathscr{C}}(S_{i},Y)$, the $u\circ \tau_{i}$ give all the
+$\eta's$ ($\tau_{i}$ is the canonical element of $F(S_{i})$). We then
+get:
+$$
+F\xrightarrow{\tau_{i}}S_{i}\xrightarrow{\alpha}Y^{r}=\underbrace{Y\times\ldots\times
+  Y}_{r\text{\ times}}\xrightarrow{p_{j}}Y 
+$$
+where $p_{j}$ is the $j^{\text{th}}$ canonical projection $Y^{r}\to
+Y$; the elements $p_{j}\circ\alpha\circ \tau_{i}$, $1\leq j\leq r$,
+are precisely the elements $\eta_{1},\ldots,\eta_{r}$ of\pageoriginale
+$F(Y)$. By $(\mathscr{C}_{3})$ we get a factorisation:
+\[
+\xymatrix@=1.2cm{
+S_{i}\ar[rr]^{\alpha}\ar[dr]_{\alpha_{1}} & & Y^{r}\\
+ & X\ar@{^{(}->}[ur]_{\beta} &
+}
+\]
+with a monomorphism $\beta$ and an effective epimorphism
+$\alpha_{1}$. We claim that {\em $X$ is galois.}
+\begin{itemize}
+\item[(i)] {\bf {\boldmath$X$} is connected.}
+
+Suppose $X=X_{1}\coprod X_{2}$, $X_{1}$, $X_{2}$ in $\mathscr{C}$,
+$\neq \emptyset$; the element $\alpha_{1}\circ \tau_{i}\in F(X_{1})$,
+say. We can then choose a $j$ large enough for us to get a commutative
+diagram: 
+\[
+\xymatrix{
+ & S_{i}\ar[rr]^{\alpha_{1}} & & X=X_{1}\coprod X_{2}\\
+F\ar[ur]^{\tau_{i}}\ar[dr]_{\tau_{j}} & &  X_{1}
+\ar@{^{(}->}[ur]_{\alpha'} &\\
+ & S_{j}\ar[ur]_{\alpha'}\ar[uu]_{\varphi_{ij}} & & 
+}
+\]
+
+Hence $\beta'\circ\alpha'=\alpha_{1}\circ\varphi_{ij}$ is an
+epimorphism, which is absurd. 
+
+\item[(ii)] Set\pageoriginale $\xi=\alpha_{1}\circ\tau_{i}\in
+  F(X)$. We shall prove that the map $\Aut X\to F(X)$ defined by
+  $u\mapsto u\circ \xi$ is {\em onto}.
+
+Let $\xi'\in F(X)$; we may assume $i$ is so large that we get a
+commutative diagram:
+\[
+\xymatrix@C=1.4cm@R=1.5cm{
+ & & X\\
+F\ar[urr]^{\xi}\ar[r]^{\tau_{i}}\ar[drr]_{\xi'} & 
+S_{i}\ar[dr]^{\alpha'_{1}}\ar[ur]_{\alpha_{1}} & \\ 
+ & & X
+}
+\]
+
+Our aim is to find a $\sigma \in\Aut X$ such that
+$\alpha'_{1}=\sigma\circ \alpha_{1}$. Since $X$ is connected,
+$\alpha'_{1}$ is also an effective epimorphism. Since the manner in
+which a morphism in $\mathscr{C}$ is expressed as the composite of an
+effective epimorphism and a monomorphism is essentially unique, we
+will be through if we find a $\rho\in\Aut Y^{r}$ such that the diagram
+\[
+\xymatrix@C=1.4cm@R=1.5cm{
+ & & X\ar@{^{(}->}[r]^{\beta} & Y^{r}\ar[dd]^{\rho}\\
+F\ar[urr]^{\xi}\ar[r]^{\tau_{i}}\ar[drr]_{\xi'} & 
+S_{i}\ar[dr]^{\alpha'_{1}}\ar[ur]_{\alpha_{1}} & & \\ 
+ & & X\ar@{^{(}->}[r]^{\beta} & Y^{r}
+}
+\]
+is\pageoriginale commutative. By assumption the elements $p_{1}\circ
+\beta\circ \xi$, $1\leq j\leq r$, are all the distinct elements of
+$F(Y)$; so the morphisms $p_{j}\circ \beta\circ\alpha_{1}$ are all
+distinct. This means that the $p_{j}\circ\beta$ are all distinct;
+since $\alpha'_{1}$ is an effective epimorphism the $p_{j}\circ
+\beta\circ\alpha'_{1}$ are all distinct; and as $X$ is connected and
+$\beta$ is a monomorphism, it follows that the $p_{j}\circ \beta\circ
+\xi'$ are all distinct and therefore form the set $F(Y)$.
+\end{itemize}
+
+If we set $p_{j}\circ \beta\circ \xi =\eta_{j}$, $1\leq j\leq r$, and
+$p_{j}\circ \beta\circ \xi'=\eta_{\rho(j)}$, $1\leq j\leq r$, we get a
+permutation $\rho$ of the set $\{1,2,\ldots,r\}$; this permutation
+determines an automorphism of $Y^{r}$ with the required
+property.\hfill Q.E.D.
+\end{proof}
+
+By this lemma we may clearly assume now that $F$ is strictly
+pro-represented by a projective system $(S_{i})$ of galois objects of
+$\mathscr{C}$.
+
+Let $\mathfrak{g}_{i}=\Aut S_{i}$ and $\theta_{i}$ be the bijection
+$\mathfrak{g}_{i}\to F(S_{i})$ defined by $u\mapsto u\circ
+\mathscr{C}_{i}$ where $\mathscr{C}_{i}$ is the canonical element of
+$F(S_{i})$. For $j\geq i$, we define $\psi_{ij}:\mathfrak{g}_{j}\to
+\mathfrak{g}_{i}$ as the composite 
+$$
+\mathfrak{g}_{j}\xrightarrow{\theta_{j}}F(S_{j})\xrightarrow{F(\varphi_{ij})}F(S_{i})\xrightarrow{\theta^{-1}_{i}}\mathfrak{g}_{i}. 
+$$
+
+For any $u\in \mathfrak{g}_{j}$, $\psi_{ij}(u)$ is the uniquely
+determined automorphism of $S_{i}$ which makes either one (and hence
+also the other) of the diagrams\pageoriginale
+\[
+\vcenter{\xymatrix@C=1.2cm@R=.5cm{
+ & S_{i}\ar[r]^{\psi_{ij}(u)} & S_{i}\\
+F\ar[ur]^{\tau_{i}}\ar[dr]_{\tau_{j}} & &\\
+ & S_{j}\ar[r]_{u} & S_{j}\ar[uu]_{\varphi_{ij}}
+}}
+\qquad\qquad\qquad 
+\vcenter{\xymatrix@=1.5cm{
+S_{i}\ar[r]^{\psi_{ij}(u)} & S_{i}\\
+S_{j}\ar[u]_{\varphi_{ij}}\ar[r]_{u} & S_{j}\ar[u]_{\varphi_{ij}}
+}}
+\]
+commutative. It follows from this easily that the $\psi_{ij}$ are
+group homomorphisms.
+
+We thus obtain a projective system
+$\{\mathfrak{g}_{i},\psi_{ij}\}_{i\in I}$ of finite groups with each
+$\psi_{ij}$ surjective. Denote by $\{\pi_{i},\psi_{ij}\}_{i\in I}$ the
+projective system of the opposite groups. The group
+$\pi=\varprojlim_{i\in I}\pi_{i}$ with the limit topology is
+pro-finite and we shall prove that it is the fundamental group of the
+galois category $\mathscr{C}$; we denote it by $\pi_{1}(S,s)$ when
+$\mathscr{C}$ and $F$ are as in \ref{chap4-sec4.1} and \ref{chap4-sec4.2}.
+
+$\pi_{i}$ acts on $\Hom_{\mathscr{C}}(S_{i},X)$ to the left and hence
+$\pi$ acts continuously on the set
+$\varinjlim_{i}\Hom_{\mathscr{C}}(S_{i},X)\xrightarrow{\sim}F(X)$, to
+the left. Since $F(X)$ is finite, the action of $\pi$ on $F(X)$ comes
+from the action of some $\pi_{i}$ on $F(X)$.
+
+\setcounter{subsubsection}{8}
+\subsubsection{}\label{chap4-sec4.4.1.9}
+We\pageoriginale shall find it convenient now to introduce informally
+the notion of the procategory Pro $\mathscr{C}$ of $\mathscr{C}$. An
+object of Pro $\mathscr{C}=$ (called a pro-object of $\mathscr{C}$)
+will be a projective system $\widetilde{p}=(P_{i})_{i\in I}$ in
+$\mathscr{C}$. If $\widetilde{P}$, $\widetilde{P}'=(P'_{j})_{j\in J}$
+are pro-objects of $\mathscr{C}$, we define
+$\Hom(\widetilde{P},\widetilde{P}')$ as the double limit
+$\varprojlim_{j\in J}\varinjlim_{i\in
+  I}\Hom_{\mathscr{C}}(P_{i},P'_{j})$. An object of $\mathscr{C}$ will
+be considered an object of Pro $\mathscr{C}$ in a natural way.
+
+We may look at a pro-representable functor on $\mathscr{C}$, as a
+functor ``represented'' in a sense by a pro-object of
+$\mathscr{C}$. For instance, in the case of \ref{chap4-lem4.4.1.4}, we have:
+\begin{align*}
+F(X) & \xleftarrow{\sim} \varinjlim_{i\in
+  I}\Hom_{\mathscr{C}}(S_{i},X),\quad \forall X\in\mathscr{C}\\
+&\simeq \Hom_{\Pro\mathscr{C}}(\widetilde{S},X)
+\end{align*}
+where $\widetilde{S}$ is the pro-object $(S_{i})_{i\in I}$ of
+$\mathscr{C}$.
+
+Also for any $i\in I$,
+$\Hom_{\Pro\mathscr{C}}(\widetilde{S},S_{i})\simeq
+\Hom_{\mathscr{C}}(S_{i},S_{i})=\mathfrak{g}_{i}$ and we may then
+write:
+\begin{align*}
+\mathfrak{g}=\varprojlim_{i}\mathfrak{g}_{i} &=
+\varprojlim_{i}\Hom_{\mathscr{C}}(S_{i},S_{i})\\
+&=
+\varprojlim_{i}\Hom_{\Pro\mathscr{C}}(\widetilde{S},S_{i})=\Hom_{\Pro\mathscr{C}}(\widetilde{S},\widetilde{S}) 
+\end{align*}
+and hence $=\Aut_{\Pro\mathscr{C}}\widetilde{S}$.
+
+
+If\pageoriginale we call $\widetilde{S}$ a pro-representative of $F$
+(in the case $\mathscr{C}=(\mathscr{E}t/S)$ we call it a {\em
+  universal covering} of $S$) then $\pi$ is the opposite of the group
+of automorphisms of $\widetilde{S}$.
+
+\setcounter{sublemma}{9}
+\begin{sublemma}\label{lem4.4.1.10}
+Let $E\in\mathscr{C}(\pi)$; then $\exists$ an object
+$G(E)\in\mathscr{C}$, and a $\mathscr{C}(\pi)$-isomorphism
+$\gamma_{E}:E\to FG(E)$ such that the map
+$\Hom_{\mathscr{C}}(G(E),X)\break \to \Hom_{\mathscr{C(\pi)}}(E,F(X))$ given
+by $u\mapsto F(u)\circ\gamma_{E}$ is a bijection for all
+$X\in\mathscr{C}$. The assignment $E\mapsto G(E)$ can be extended to a
+functor $G:\mathscr{C}(\pi)\to\mathscr{C}$ such that $F$ and $G$
+establish an equivalence of $\mathscr{C}$ and $\mathscr{C}(\pi)$.
+\end{sublemma}
+
+\begin{proof}
+If $E=\coprod E_{i}$ is a decomposition of $E$ into connected sets in
+$\mathscr{C}(\pi)$ and if $G(E_{i})$ are defined we may define
+$G(E)=\coprod G(E_{i})$. We may thus assume that $\pi$ acts
+transitively on $E$. Fix an element $\mathscr{E}\in E$ and consider
+the surjection $\pi\to E$ defined by $\sigma\mapsto
+\sigma\cdot\mathscr{E}$. As $E$ is finite, there is an $i$ such that
+the diagram
+\[
+\xymatrix@=1.2cm{
+\pi \ar[rr]\ar[dr] && E\\
+& \pi_{i} \ar[ur]
+}
+\]
+($\pi\to \pi_{i}$ is the natural projection and $\pi_{i}\to E$ is the
+map $\sigma\mapsto \sigma\cdot \mathscr{E}$) is commutative. Let
+$H_{i}\subset \pi_{i}$ be the isotropy group of $\mathscr{E}$ in
+$\pi_{i}$. It is easily proved that the set $\pi_{i}/H_{i}$ of
+left-cosets of $\pi_{i}\text{mod}\cdot H_{i}$ is
+$\mathscr{C}(\pi)$-isomorphic to $E$. We\pageoriginale then define:
+$G(E)=G(\pi_{i}/H_{i})=S_{i}/H^{0}_{i}$, the quotient of $S_{i}$ by
+the opposite $H^{0}_{i}$ of $H_{i}$ (remark: $H^{0}_{i}\subset
+\mathfrak{g}_{i}\subset \Aut S_{i}$). By $(F_{4})$ we have:
+$F(G(E))=F(S_{i}/H^{0}_{i})\xleftarrow{\sim}F(S_{i})/H^{0}_{i}\simeq
+\pi_{i}/H_{i}\simeq E$, and hence a $\mathscr{C}(\pi)$-isomorphism
+$\gamma_{E}:E\to FG(E)$. If $j\geq i$ and $H_{j}\subset \pi_{j}$ is
+the isotropy group of $\mathscr{E}$ in $\pi_{j}$, then we have a
+$\mathscr{C}$-morphism $S_{j}/H^{0}_{j}\to S_{i}/H^{0}_{i}$; since
+$F(S_{j}/H^{0}_{j})\to F(S_{i}/H^{0}_{i})$ is a
+$\mathscr{C}(\pi)$-isomorphism, it follows from $(F_{5})$ that
+$S_{j}/H^{0}_{j}\xrightarrow{\sim}S_{i}/H^{0}_{i}$ and that $G(E)$ is
+independent of the choice of $i$ (upto a $\mathscr{C}$-isomorphism).
+
+Let $X\in\mathscr{C}$. Consider the map
+\begin{gather*}
+\omega:\Hom_{\mathscr{C}}(G(E),X)\to \Hom_{\mathscr{C(\pi)}}(E,F(X))\\
+u\mapsto F(u)\circ \gamma_{E}
+\end{gather*}
+\begin{itemize}
+\item[{\bf(i)}] {\bf {\boldmath$\omega$} is an injection:}
+
+Let $u_{1}$, $u_{2}\in \Hom_{\mathscr{C}}(G(E),X)$ be such that
+$F(u_{1})\circ \gamma_{E}=F(u_{2})\circ \gamma_{E}$. But
+$\gamma_{E}:E\to FG(E)$ is an isomorphism and so
+$\ker(F(u_{1}),F(u_{2}))\break {\displaystyle{\mathop{\hookrightarrow}_{\cong}}}FG(E)$, 
+i.e.,
+$F(\ker(u_{1},u_{2})){\displaystyle{\mathop{\hookrightarrow}_{\simeq}}}FG(E)$ 
+($F$ is left-exact). It follows from $(F_{5})$ that
+$\ker(u_{1},u_{2}){\displaystyle{\mathop{\hookrightarrow}_{\simeq}}}G(E)$,
+in other words, $u_{1}=u_{2}$.   
+
+\item[{\bf(ii)}] {\bf {\boldmath$\omega$}\pageoriginale is a surjection.}
+
+Let $E\xrightarrow{\alpha}F(X)$ be any $\mathscr{C}(\pi)$-morphism;
+put $\delta=\alpha(\mathscr{E})\in F(X)$. The
+$\Pro\mathscr{C}(\pi)$-morphism $\delta:\widetilde{S}\to X$ can be
+factored through some $S_{i}$:
+\[
+\xymatrix@=1.2cm{
+\widetilde{S}\ar[rr]^{\delta}\ar[dr]_{\tau_{i}} & & X\\
+ & S_{i}\ar[ur]_{\delta_{i}} &
+}
+\]
+
+Let $H'_{i}$ be the isotropy group of $\delta_{i}$ in $\pi_{i}$ then
+$H'_{i}\supset H_{i}$ where $H_{i}$ is as before (take $i$ large
+enough). By the construction of $G(E)=S_{i}/H^{0}_{i}$, we have a
+morphism $\dfrac{S_{i}}{H^{0}_{i}}\to X$ making the diagram
+\[
+\xymatrix@=1.2cm{
+\widetilde{S}\ar[r]^{\tau_{i}} & S_{i}\ar[rr]^{\delta_{i}}\ar[dr] &&
+X\\
+ & & S_{i}/H^{0}_{i}\ar[ur] &
+}
+\]
+commutative; one easily checks that this morphism goes to $\alpha$
+under $\omega$. It only remains to show that the assignment $E\mapsto
+G(E)$ can be extended to a functor. Let $E$, $E'\in\mathscr{C}(\pi)$ and
+$\theta\in \Hom_{\mathscr{C}(\pi)}\break (E,E')$. To\pageoriginale the
+composite $\gamma_{E'}\circ \theta:E\to FG(E')$ there corresponds a
+{\em unique} $\overline{\theta}\in \Hom_{\mathscr{C}}(G(E),G(E'))$
+such that the diagram
+\[
+\xymatrix@=1.2cm{
+E\ar[r]^{\theta}\ar[d]^{\gamma_{E}} & E'\ar[d]^{\gamma_{E'}}\\
+FG(E)\ar[r]_{F(\overline{\theta})} & FG(E')
+}
+\]
+is commutative. We set $G(\theta)=\overline{\theta}$. It follows
+easily that $G$ is a covariant functor from $\mathscr{C}(\pi)$ to
+$\mathscr{C}$. 
+\end{itemize}
+
+One now checks that there are functorial isomorphisms
+\begin{align*}
+&\Phi: I_{\mathscr{C}}\to G\circ F\\
+\text{and}\qquad & \Psi: I_{\mathscr{C(\pi)}}\to F\circ G,
+\end{align*}
+such that, for any $X\in \mathscr{C}$ and $E\in\mathscr{C}(\pi)$,
+\begin{align*}
+& F(X)\xrightarrow{F(\Phi(X))}FGF(X)\xrightarrow{\Psi^{-1}(F(X))}F(X)\\
+\text{and}\qquad
+& G(E)\xrightarrow{G(\Psi(E))}GFG(E)\xrightarrow{\Phi^{-1}(G(E))}G(E)
+\end{align*}
+and the identity maps.
+
+This completes the proof of assertion (1) of Theorem (\ref{chap4-sec4.4.1}).
+\end{proof}
+
+\begin{sublemma}\label{chap4-lem4.4.1.11}
+Let\pageoriginale $\mathscr{C}$ be a galois category and $F$, $F'$ be
+two fundamental functors $\mathscr{C}\to$ (finite sets). Suppose
+$\pi$, $\pi'$ are the profinite groups defined by $F$, $F'$
+respectively as above; then $\pi$ and $\pi'$ are continuously
+isomorphic and this isomorphism is canonically determined upto an
+inner automorphism of $\pi$.
+\end{sublemma}
+
+\begin{proof}
+We know that $F:\mathscr{C}\to \mathscr{C}(\pi)$ is an
+equivalence. Replacing $F'$ by $F'\circ G$ (with $G$ as before) we can
+assume that $\mathscr{C}=\mathscr{C}(\pi)$, that $F$ is the trivial
+functor identifying an object of $\mathscr{C}(\pi)$ with its
+underlying set and $\pi$ itself is the pro-object pro-representing
+this functor. Let $\widetilde{T}\in\Pro \mathscr{C}(\pi)$
+pro-represent $F'$; first we show that
+$\pi\xrightarrow{\sim}\widetilde{T}$ in $\Pro\mathscr{C}$.
+
+In order to do this, let $(T_{j})_{j\in J}$ be a projective family of
+galois objects (with respect to $F'$) of $\mathscr{C}$ such that
+$\widetilde{T}=\varprojlim_{j}T_{j}$; we denote the canonical maps
+$T_{j}\to T_{i}$ by $q_{ij}$ and $\widetilde{T}\to T_{j}$ by
+$q_{j}$. Let $t_{j}\in T_{j}$ be a coherent system of points and
+consider the continuous maps $\alpha_{j}:\pi\in T_{j}$ determined by
+$\alpha_{j}(e)=t_{j}$; there exists a continuous $\alpha:\pi\to
+\widetilde{T}$ such that
+\[
+\xymatrix@=1.2cm{
+\pi\ar[rr]^{\alpha}\ar[dr]_{\alpha_{j}} & & \widetilde{T}\ar[dl]^{q_{j}}\\
+& T_{j} & 
+}
+\]
+is commutative. We have $\alpha(e)=\widetilde{t}=(t_{j})\in
+\widetilde{T}$. The $T_{j}$ are connected, hence\pageoriginale
+$\alpha_{j}$ transitive and as $\pi$ is compact it follows that
+$\alpha$ is onto. Let $\mathfrak{H}$ be the isotropy group of
+$\widetilde{t}$, then we have
+$\pi/\mathfrak{H}\xrightarrow{\sim}\widetilde{T}$. ($\pi/\mathfrak{H}$
+is the set of left-cosets of $\pi\text{\,mod.\,}\mathfrak{H}$) and
+this is an isomorphism of topological spaces (it is a continuous map
+of compact Hausdorff spaces). However
+$F'=\Hom_{\Pro\mathscr{C}}(\widetilde{T},*)$ and then clearly
+$F'(X)=X^{\mathfrak{H}}$ (the points of $X$ invariant under
+$\mathfrak{H}$). We know that $F'(X)=\emptyset\Leftrightarrow
+X=\emptyset$; from this it follows that $\mathfrak{H}=(e)$ (take for
+$X$ the $\pi_{i}$ for larger and larger $i$). Hence
+$\alpha:\pi\xrightarrow{\sim}\widetilde{T}$ is an isomorphism of
+topological spaces. Our aim is to show that this is an isomorphism in
+$\Pro \mathscr{C}$.
+
+For this it is enough to show the following: if
+$\beta:\widetilde{T}\to \pi$ is $\alpha^{-1}$ and if $p_{i}:\pi\to
+\pi_{i}$ are the canonical maps then every $\beta_{i}=p_{i}\circ
+\beta:\widetilde{T}\to \pi_{i}$ must factor through some $T_{j}$. In
+other words, we must find some morphism $T_{j}\to \pi_{i}$ making the
+diagram 
+\[
+\xymatrix@=1.2cm{
+\widetilde{T}\ar[dr]^{\beta_{i}}\ar[r]^{\beta}\ar[d]_{q_{j}} &
+\pi\ar[d]^{p_{i}}\\ 
+T_{j}\ar[r] & \pi_{i}
+}
+\]
+commutative. For this we must show that given $i$, $\exists j\in J$
+such\pageoriginale that for every $t\in T_{j}$, $\exists$ an
+$s\in\pi_{i}$ such that $q^{-1}_{j}(t)\subset
+\beta^{-1}_{i}(s)$. Since the sets $\beta^{-1}_{i}(s)$ are open we can
+find for every point $x\in\beta^{-1}_{i}(s)$ an open neighbourhood
+$U_{x}$ of the form $q^{-1}_{j}(t_{x})$ for some $j_{x}\in J$ and
+$t_{x}\in T_{j_{x}}$, such that $U_{x}\subset
+\beta^{-1}_{i}(s)$. Since $\widetilde{T}$ is compact, $\exists$ a
+finite covering $U_{x_{1}},\ldots,U_{x_{N}}$ of $\widetilde{T}$ of
+this type and $j>\max(j_{x_{1}},\ldots,j_{x_{N}})$ satisfies our
+requirements. 
+
+This shows that $\pi\xrightarrow{\sim}\widetilde{T}$ in
+$\Pro\mathscr{C}$, and hence the map
+\begin{gather*}
+{\pi'}^{0}=\Aut_{\Pro \mathscr{C}}\widetilde{T}\to
+\Aut_{\Pro\mathscr{C}}\pi=\pi^{0}\\
+\rho\mapsto \beta\circ\rho\circ \alpha
+\end{gather*}
+is a group isomorphism; it remains to be shown that this map is
+continuous and hence a homeomorphism. Take a fixed
+$\gamma^{0}=\beta\circ \rho^{0}\circ \alpha$ in $\pi$, some $i\in I$
+and consider the commutative diagram
+\[
+\xymatrix@=1.2cm{
+\pi\ar[d]^{p_{i}}\ar[r]^{\gamma^{0}} & \pi\ar[d]^{p_{i}}\\
+\pi_{i}\ar[r]^{\gamma^{0}_{i}} & \pi_{i}
+}
+\]
+
+Let\pageoriginale $U$ be the neighbourhood of $\gamma^{0}$ consisting
+of all $\gamma\in \pi$ such that $p_{i}\circ
+\gamma=\gamma^{0}_{i}\circ p_{i}$. We want to find a neighbourhood $V$
+of $\rho^{0}$ such that $\beta\circ \rho\circ \alpha\in U\ \forall\
+\rho\in V$. There is an index $j\in J$ and $l\in I$ and morphisms
+making all the following diagrams
+\[
+\xymatrix@=1.2cm{
+\pi\ar[r]^{\alpha}\ar[d]^{p_{1}} &
+\widetilde{T}\ar[r]^{\rho^{0}}\ar[d]^{q_{j}} &
+\widetilde{T}\ar[d]^{q_{j}}\ar[r]^{\beta} & \pi\ar[dd]^{p_{i}}\\
+\pi_{l}\ar[d]^{p_{l}}\ar[r] & T_{j}\ar[r]^{\rho^{0}_{j}} &
+  T_{j}\ar[dr] & \\
+\pi_{i}\ar[rrr]^{\gamma^{0}_{i}} & & & \pi_{i}
+}
+\]
+commutative.
+
+Consider all $\rho:\widetilde{T}\to \widetilde{T}$ such that
+$q_{j}\circ\rho=\rho^{0}_{j}\circ q_{j}$; these $\rho$ form a
+neighbourhood $V$ of $\rho^{0}$ and $\beta\circ\rho\circ\alpha\in
+U\ \forall\ \rho\in V$. Hence we are through.
+
+Finally we observe that the isomorphism $\pi\to \pi'$ is fixed as soon
+as $\alpha:\pi\to \widetilde{T}$ is fixed and this is in turn fixed by
+the choice of $\widetilde{t}=(t_{j})\in\widetilde{T}$. By a different
+choice of $\widetilde{t}$ we obtain an isomorphism $\pi\to \pi'$ which
+differs from the first one by an inner automorphism of $\pi$ (or
+$\pi'$).\hfill Q.E.D. 
+\end{proof}
+
+\setcounter{subremark}{11}
+\begin{subremark}\label{chap4-rem4.4.1.12}
+One\pageoriginale can, in fact, show that $\Pro\mathscr{C}(\pi)$ is
+precisely the category of compact, totally disconnected (Hausdorff)
+topological spa\-ces on which $\pi$ acts continuously.
+\end{subremark}

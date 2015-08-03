@@ -1,0 +1,425 @@
+\chapter{Lecture}\label{part1:lec5}
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+Let\pageoriginale\  us consider some applications of formal differentiation of power
+series. Once again we start from the pentagonal numbers theorem:
+\begin{align*}
+  \prod^\infty_{m=1} (1-x^m) & = \sum^\infty_{\lambda =- \infty}
+  (-)^\lambda x^{\lambda (3 \lambda -1)/2}\\
+  & = \sum^\infty_{\lambda=-\infty} (-)^\lambda x^{\omega_\lambda},
+  \tag{1}\label{part1:lec5:eq1} 
+\end{align*}
+with $\omega_\lambda= \dfrac{\lambda(3 \lambda-1)}{2}$. Taking the
+logarithmic derivative - and this can be done piecemeal-
+$$
+\sum^\infty_{m=1} \frac{-mx^{m-1}}{1-x^m} =
+\frac{\sum\limits^\infty_{\lambda=-\infty} (-)^\lambda \omega_\lambda
+  x^{\omega_{\lambda-1}}}{\sum\limits^\infty_{\lambda=-\infty}
+  (-)^\lambda x^{\omega_\lambda}} 
+$$
+
+Multiplying both sides by $x$, 
+\begin{equation*}
+\sum^\infty_{m=1} \frac{-mx^{m}}{1-x^m} =
+\frac{\sum\limits^\infty_{\lambda=-\infty} (-)^\lambda \omega_\lambda
+  x^{\omega_\lambda}}{\sum\limits^\infty_{\lambda=-\infty}
+  (-)^\lambda x^{\omega_\lambda}} \tag{2} \label{part1:lec5:eq2}
+\end{equation*}
+
+The left side here is an interesting object called a Lambert series, with a
+structure not quite well defined; but it plays some role in number
+theory. Let us transform the Lambert series into a power series; it
+becomes
+$$
+- \sum^\infty_{m=1} m \sum^\infty_{k=1} x^{km} = -
+\mathop{\sum\sum}^\infty_{k_1 m=1} m x^{km},
+$$
+and these are all permissible power series, because though there are
+infinitely many of them, the inner ones begin with later and later
+terms. 
+
+Rearranging,\pageoriginale\  this gives
+\begin{align*}
+  - \sum_{n=km} \sum^\infty_{m=1} m x^n & = - \sum^\infty_{n=1} x^n
+  \sum_{m/n} m\\
+  & = - \sum^\infty_{n=1} \sigma (n) x^n,
+\end{align*}
+where $\sigma(n)$ denotes the sum of the divisors of $n$, $\sigma(n) =
+\sum\limits_{d|n} d$.
+
+(Let us study $\sigma (n)$ for a moment.
+$$
+\sigma(1) =1, \sigma(2)=3, \sigma_3=4, \sigma(5) =6; ~\text{indeed}~
+\sigma(p) = p+1
+$$  
+for a prime $p$. And $\sigma (n) = n+1$ implies that $n$ is
+prime. $\sigma(n)$ is not too big; there can be at most $n$ divisions 
+of $n$ and so roughly $\sigma(n) =O (n^2)$. In fact it is known that
+$\sigma(n) = O (n^{1+epsilon})$, $\in > 0$, that is, a little larger than the
+first power. We shall however not be studying $\sigma(n)$ in detail).
+
+Equation (\ref{part1:lec5:eq2}) can now be rewritten as 
+$$
+\sum^\infty_{n=1} \sigma(n) x^n
+\sum^\infty_{\lambda=-\infty}(-)^\lambda x^{\omega_\lambda} =
+\sum^\infty_{\lambda=-\infty}(-)^{\lambda-1} \omega_\lambda x^{\omega_\lambda}
+$$
+
+Let us look for the coefficient of $x^m$ on both sides. Remembering
+that the first few $\omega'_\lambda s$ are 0, 1, 2, 5, 7, 12, 15
+$\cdots$, the coefficient of $x^m$ on the left side is 
+$$
+\sigma(m) - \sigma(m-1) - \sigma(m-2) + \sigma(m-6)+ \sigma(m-7) -- ++
+    \cdots 
+$$ 
+
+On the right side the coefficient is $0$ most frequently, because the
+pentagonal numbers are rather rare, and equal to $(-)^{\lambda-1}
+\omega_\lambda$ exceptionally, when $m= \omega_\lambda$.
+$$
+\sigma(m) - \sigma(m-1) - \sigma(m-2) ++ -- \cdots = 
+\begin{cases}
+  \quad 0 & \text{usually},\\
+  (-)^{\lambda-1}\omega_\lambda & \text{for}~ m= \omega_\lambda.
+\end{cases}
+$$
+
+We\pageoriginale\  now single out $\sigma(m)$.
+
+We may write
+$$
+\sigma(m) = \sum_{0 < \omega_\lambda < m} (-)^{\lambda-1} \sigma(m-
+\omega_\lambda) + 
+\begin{cases}
+  0 & \text{usually},\\
+  (-)^{\lambda-1} \omega_\lambda & \text{for}~ m= \omega_\lambda 
+\end{cases}
+$$
+
+This is an additive recursion formula for $\sigma(n)$. We can make it
+even more striking. The inhomogeneous piece on the right side is a
+little annoying. $\sigma(m-m)$ can occur on the right side only for
+$m=\omega_\lambda$; $\sigma(0)$ does not make sense; however,
+\textit{for our purpose} let us define
+$$
+\sigma(m-m)=m.
+$$
+
+Then $\sigma(\omega_\mu- \omega_\mu)= \omega_\mu$, and the previous
+formula can now be written uninterruptedly as 
+\begin{equation*}
+  \sigma(m) = \sum_{0 < \omega_\lambda \leq m} (-)^{\lambda-1} \sigma
+  (m- \omega_\lambda)\tag{3}\label{part1:lec5:eq3}
+\end{equation*}
+
+We have proved earlier that
+\begin{equation*}
+  p(m) = \sum_{0 < \omega_\lambda \leq m} (-)^{\lambda-1} p
+  (m- \omega_\lambda)\tag{4}\label{part1:lec5:eq4}
+\end{equation*}
+which is a formula completely identical with (\ref{part1:lec5:eq3}). Here $p(m-m)=
+p(0)=1$. It is extraordinary that $\sigma(m)$ and $p(m)$ should have
+the same recursion formula, differing only in the definition of the
+term with $n=0$. This fact was noted by Euler. In fact $p(m)$ is
+increasing monotonically, while the growth of $\sigma(m)$ is more
+erratic. 
+
+There are more relations between $p(m)$ and $\sigma(m)$. Let us start
+again with the identity
+\begin{equation*}
+  \prod^\infty_{m=1} (1-x^m) \sum^\infty_{m=0} p(m) x^m
+  =1\tag{5}\label{part1:lec5:eq5} 
+\end{equation*}
+ 
+We\pageoriginale\  know that for a pair of power series $A$, $B$ such that $AB=1$, on
+taking logarithmic derivatives, we have $\dfrac{A'}{A} + \dfrac{B'}{B}
+=0$ or $\dfrac{A'}{A} =- \dfrac{B'}{B}$. So from (\ref{part1:lec5:eq5}),
+$$
+\displaylines{\hfill \sum^\infty_{m=1} \sigma(m) x^m =
+  \frac{\sum\limits^\infty_{n=0} n p(n) x^n}{\sum\limits^\infty_{n=0}
+    p(n) x^n}, \hfill \cr
+\text{or} \hfill \sum^\infty_{m=1} \sigma(m) x^m \sum^\infty_{k=0}
+p(k) x^k = \sum^\infty_{n=0} np(n) x^n.\hfill }
+$$
+
+Comparing coefficients of $x^n$,
+$$
+np(n) = \sum_{m+ k=n} \sigma (m) p(k),
+$$
+or more explicitly,
+\begin{equation*}
+  np(n) = \sum^\infty_{m=1} \sigma(m) p(n-m) \tag{6}\label{part1:lec5:eq6}
+\end{equation*}
+
+This is a bilinear relation between $\sigma(n)$ and $p(n)$. This can
+be proved directly also in the following way. Let us consider all the
+partitions of $n$; there are $p(n)$ such:
+\begin{align*}
+  n & = h_1 + h_2 + \cdots \\
+  n & = k_1 + k_2 + \cdots \\
+  n & = \ell_1 + \ell_2 + \cdots \\
+   & \dots \dots \dots 
+\end{align*}
+
+Adding up, the left side gives $np(n)$. Let us now evaluate the sum of
+the right sides. Consider a particular summand $h$ and let us look for
+those partitions in which $h$ figures. These are $p(n-h)$ partitions
+in which $h$ occurs at least once, $p(n- 2h)$ in which $h$ occurs at
+least twice; in general, $p(n- rh)$ in which $h$ occurs at least $r$
+times. Hence the number of those partitions which contain $h$
+\textit{exactly} $r$\pageoriginale\  times is $p (n-nh)- p(n-\overline{n+1} h)$. Thus the
+number of times $h$ occurs in all partitions put together is 
+$$
+\sum_{nh\leq n} n\left\{ p(n-nh) - (n-\overline{n+1} h)\right\}
+$$
+
+Hence the contribution from these to the right side will be
+$$
+h\sum_{nh\leq n} n\left\{ p(n-nh) - (n-\overline{n+1} h)\right\}= h
+\sum_{nh\leq n} p(n-nh)
+$$
+on applying partial summation. Now summing over all summands $h$, the
+right side becomes
+$$
+\sum_{h} h \sum_{nh \leq n} p(n-nh) =\ \sum_{n/m} \frac{m}{n} \sum_{m
+  \leq n} p(n-m),
+$$
+on putting $rh=m$; and this is 
+$$
+\sum_{m \leq n} p(n-m) \sum_{n.m} \frac{m}{n} = \sum^n_{m=1} p(n-m)
+  \sigma(m). 
+$$
+
+Let us make one final remark.
+
+Again from the Euler formula,
+\begin{align*}
+  \sum^\infty_{m=1} \sigma(m) x^m & = \frac{\sum\limits^\infty_{\lambda
+    =-\infty} (-)^{\lambda-1} \omega_\lambda x
+    ^{\omega_\lambda}}{\sum\limits^\infty_{\lambda =-\infty}
+    (-)^\lambda x^{\omega_\lambda}}\\
+  & = \frac{\sum\limits^\infty_{\lambda
+    =-\infty} (-)^{\lambda-1} \omega_\lambda x
+    ^{\omega_\lambda}}{\prod\limits^\infty_{m=1} (1- x^m)}\\
+  &= \sum\limits^\infty_{\lambda
+    =-\infty} (-)^{\lambda-1} \omega_\lambda x^{\omega_\lambda}
+  \sum^\infty_{m=0} p(m) x^m
+\end{align*}
+
+Comparing\pageoriginale\  the coefficients of $x^m$ on both sides,
+
+\begin{align*}
+  \sigma(m) & = p(m) - 1\cdot p(m-1) - 2\cdot p(m-2) + 5 \cdot p(m-5)\\
+&\qquad + 7\cdot p(m-7) - + \cdots\\
+  & = \sum_{0 \leq \omega_\lambda \leq m} (-)^{\lambda-1}
+  \omega_\lambda p(m-\omega_\lambda)
+\end{align*}
+
+This last formula enables us to find out the sum of the divisors
+provided that we know the partitions. This is not just a curiosity; it
+provides a useful check on tables of partitions computed by other
+means. 
+
+We go back to power series leading up to some of Ramanujan's
+theorems. Jacobi introduced the products
+$$
+\prod^\infty_{n=1} (1-x^{2n})(1+ \mathfrak{z}x^{2n-1}) (1+
+\mathfrak{z}^{-1} x^{2n-1}).
+$$
+
+This is a power series in $x$; though these are infinitely many
+factors they start with progressively higher powers. The coefficients
+this time are not polynomials in $z$ but from the field $R(z)$, the
+field of rational functions of $z$, which is a perfectly good
+field. Let us multiply out and we shall have a very nice surprise. The
+successive coefficients are:
+
+\begin{tabbing}
+  1 \quad \= \\
+  $x$ \>:  $\mathfrak{z}+  \mathfrak{z}^{-1}$ \qquad (note that this
+  is unchanged when $ \mathfrak{z}\to  \mathfrak{z}^{-1}$)\\
+  $x^2$ \> : $(1+1)=0$\\
+  $x^3$ \> : $(\mathfrak{z} + \mathfrak{z}^{-1}-  \mathfrak{z}-
+  \mathfrak{z}^{-1})=0$\\
+  $x^4$ \> : $(-1-1+ \mathfrak{z}^2+1+1+ \mathfrak{z}^{-2})=
+  \mathfrak{z}^2+ \mathfrak{z}^{-2}$ (again unchanged when
+  $\mathfrak{z} \to  \mathfrak{z}^{-1}$)\\
+  \> $\dots \dots \dots \dots $
+\end{tabbing}
+
+We\pageoriginale\  observe that non-zero coefficients are associated only with square
+exponents. We may therefore provisionally write 
+\begin{align*}
+  \prod^\infty_{n=1} (1-x^{2n}) (1+ \mathfrak{z}x^{2n-1})(1+
+  \mathfrak{z}^{-1} x^{2n-1}) & = 1+ \sum^\infty_{k=1}(\mathfrak{z}^k+
+  \mathfrak{z}^{-k}) x^{k^2}\\
+  & = \sum^\infty_{k=-\infty} \mathfrak{z}^k x^{k^2} \tag{7}\label{part1:lec5:eq7}
+\end{align*}
+(with the terms corresponding to $\pm k$ folder together). This is a
+$\mathcal{V}$- series; only quadratic exponents occur.
+
+We shall now prove the identity (\ref{part1:lec5:eq7}). But we have got to be
+careful. Consider the polynomial
+$$
+\Phi_N (x, \mathfrak{z}) = \prod^N_{n=1}
+(1-x^{2n})(1+\mathfrak{z}x^{2n-1}) (1+\mathfrak{z}^{-1} x^{2n-1})
+$$
+
+This consists of terms $\mathfrak{z}^j x^k$ with $-N \leq j \leq N$,
+$0 \leq k \leq N (N+1) + 2N^2= 3N^2+N$. We can rearrange with respect
+to powers of $z$. The coefficients are now polynomials in $x$. $z$ and
+$z^{-1}$ occur symmetrically.
+$$
+  \Phi_N (x, \mathfrak{z}) = C_\circ (x) +
+  (\mathfrak{z}+\mathfrak{z}^{-1}) C_1 (x) + (\mathfrak{z}^2+
+  \mathfrak{z}^{-2}) C_2(x)+ \cdots + (\mathfrak{z}^N +
+  \mathfrak{z}^{-N}) C_N (x).
+$$
+
+Let us calculate the $C's$. It is cumbersome to look for $C_\circ$,
+for so many cancellations may occur. It is easier to calculate
+$C_N$. Since the highest power of $z$ can occur only from the terms
+with the highest power of $x$, we have
+\begin{align*}
+  C_N (x) & = \prod^N_{n=1} (1-x^{2n}) \times x^{1+3+\cdots + (2N-1)}\\
+  & = x^{N^2} \prod^N_{n=1} (1-x^{2n})
+\end{align*}
+
+Now\pageoriginale\  try to get a recursion among the $C's$. Replacing $z$ by $zx^2$,
+we get
+$$
+\Phi_N (x, \mathfrak{z}x^2) = \prod^N_{n=1} (1-x^{2n})
+(1+\mathfrak{z}x^{2n+1}) (1+\mathfrak{z}^{-1} x^{2n-3}).
+$$
+
+Compare $\Phi_N (x, \mathfrak{z}x^2)$ and $\Phi_N (x, \mathfrak{z})$; these are
+related by the equation
+$$
+\Phi_N (x, \mathfrak{z}x^2) (1+\mathfrak{z}x)(1+\mathfrak{z}^{-1}
+x^{2N-1}) = \Phi_N (x,
+\mathfrak{z})(1+\mathfrak{z}x^{2n+1})(1+\mathfrak{z}^{-1} x^{-1})
+$$
+
+The negative power in the last factor on the right is particularly
+disgusting; to get rid of it we multiply both sides by $xz$, leading
+to
+\begin{multline*}
+\qquad \Phi_N (x, \mathfrak{z}x^2)(x \mathfrak{z}+ x^{2N}) = \Phi_N (x,
+\mathfrak{z}) (1+\mathfrak{z}x^{2N+1}),\\
+\text{or} \qquad (1+ \mathfrak{z}x^{2N+1})(C_\circ (x) +
+  (\mathfrak{z}+\mathfrak{z}^{-1}) C_1 (x) + \cdots + (\mathfrak{z}^N+
+  \mathfrak{z}^{-N}) C_N (x))\qquad \\
+  = (x \mathfrak{z}+ x^{2n}) (C_\circ (x) + (\mathfrak{z}x^2+
+  \mathfrak{z}^{-1} x^{-2}) C_1 (x)+\\
+  + (\mathfrak{z}^2 x^4+ \mathfrak{z}^{-2} x^{-4})C_2 (x)+\cdots +
+  (\mathfrak{z}^N x^{2N} + \mathfrak{z}^{-N} x^{-2N}) C_N (x) )
+\end{multline*}
+
+These are perfectly harmless polynomials in $x$; we may compare
+coefficients of $\mathfrak{z}^k$. Then
+$$
+\displaylines{\hfill C_k (x) + C_{k-1} (x) x^{2N+1}= C_k (x) x^{2k+2N}
+  + x^{2k-1} C_{k-1}(x),\hfill \cr
+  \text{or} \hfill C_k(x) (1-x^{2N+2k}) = C_{k-1} (x) x^{2k-1}
+  (1-x^{2N-2k+2}) \hfill }
+$$
+(We proceed from $C_k$ to $C_{k-1}$ since $C_N$ is already known).
+$$
+C_{k-1} (x) = \frac{x^{-2k+1}(1- x^{2N+2k})}{1-x^{2N-2k+2}} C_k(x)
+$$
+
+Since\pageoriginale\  $C_N (x) = x^{N^2} \prod\limits^N_{n=1} (1- x^{2n})$, we have in
+succession 
+\begin{align*}
+  C_{N-1} (x) & = x^{N^2-2N+1} \frac{1-x^{4N}}{1-x^2} \prod^N_{n=1}
+  (1-x^{2n})\\
+  & = x^{(N-1)^2} \prod^N_{n=2} (1-x^{2n}) \cdot (1-x^{4N});\\
+  C_{N-2}(x) & = x^{(N-2)^2} \prod^N_{n=3} (1-x^{2n})\cdot
+  (1-x^{4N})(1-x^{4N-2})\\
+  & \qquad \dots \dots \dots \dots
+\end{align*}
+
+In general,
+$$
+C_{N-j} (x) = x^{(N-j)^2} \prod^N_{n=j+1} (1-x^{2n}) \prod^{j-1}_{m=0} (1-x^{4N-2m})
+$$
+or, with $j= N-n$,
+\begin{equation*}
+  C_n (x) = x^{n^2} \prod^N_{n=N-n+1} (1-x^{2n}) \prod^{N-n-1}_{m=0}
+  (1-x^{4N-2m}) \tag{8}\label{part1:lec5:eq8}
+\end{equation*}
+
+Equation (\ref{part1:lec5:eq8}) leads to some congruence relations. The lowest terms of
+$C_n (x)$ have exponent
+$$
+n^2 +2 (N-n+1) = 2N + (n^2-2n+1) +1 \geq 2N+1
+$$
+
+Hence 
+\begin{equation*}
+  C_n (x) \equiv x^{k^2} \pmod{x^{2N+1}} \tag{9}\label{part1:lec5:eq9}
+\end{equation*}
+
+From the original formula,
+\begin{align*}
+  \Phi_N (x, \mathfrak{z})& = \prod^N_{n=1} (1-x^{2n})
+  (1+\mathfrak{z}x^{2n+1})(1+\mathfrak{z}^{-1} x^{2n-1})\\
+  & \equiv 1+ (\mathfrak{z}+\mathfrak{z}^{-1}) x+ (\mathfrak{z}^2 +
+  \mathfrak{z}^{-2}) x^4 + \cdots \pmod{x^{2N+1}}\\
+  & \equiv \sum^\infty_{k=-\infty} \mathfrak{z}^k x^{k^2} \pmod{x^{2N+1}},
+\end{align*}
+since\pageoriginale\  the infinite series does not matter, the higher powers being
+absorbed in the congruence. Hence
+$$
+\Phi_N (x, \mathfrak{z}) \equiv \prod^\infty_{n=1} (1-x^{2n})
+(1+\mathfrak{z}x^{2n-1})(1+\mathfrak{z}^{-1} x^{2n-1}) \pmod{x^{2N+1}}
+$$
+
+The new terms $x^{2N+2}, \ldots$, are absorbed by $\mod x^{2N+1}$. We
+have
+$$
+\prod^\infty_{n=1}
+(1-x^{2n})(1+\mathfrak{z}x^{2n-1})(1+\mathfrak{z}^{-1} x^{2n-1})
+\equiv \sum^\infty_{k=-\infty} \mathfrak{z}^k x^{k^2} \pmod{x^{2N+1}}
+$$
+
+Thus both expansions agree as far as we wish, and this is what we mean
+by equality of formal power series. Hence we can replace the
+congruence by equality, and Jacobi's identity (\ref{part1:lec5:eq7}) is proved. 
+
+As an application of this identity, we shall now give a new proof of
+the pentagonal numbers theorem. We replace $x$ by $y^3$, as we could
+consistently in the whole story; only read modulo $y^{6N+3}$. Then we
+have
+$$
+\prod^\infty_{n=1}
+(1-y^{6n})(1+\mathfrak{z}y^{6n-3})(1+\mathfrak{z}^{-1}y^{6n-3})
+=\sum^\infty_{k=-\infty} \mathfrak{z}^k y^{3k^2}
+$$
+
+We now do something which needs some justification. Replace $z$ by
+$-y$. This is something completely strange, and would interfere
+seriously with our reasoning. For $\Phi_N (y^3, \mathfrak{z})$ we had
+congruences modulo $y^{6N+3}$. If we replaced $z$ by $y^3$ nobody
+could forbid that. Since $z$ occurs in negative powers, the powers of
+$y$ might be lowered too by as much as $N$. We obtain polynomials in
+$y$ alone on both sides, but true modulo $y^{5N+3}$, because we\pageoriginale\  may
+have lowered powers of $y$. With this proviso it is justified to
+replace $z$ by $-y$; so that ultimately we have
+$$
+\prod^\infty_{n=1} (1-y^6)(1-y^{6n-2}) (1-y^{6n-4})= 
+\sum^\infty_{k=-\infty} (-)^k y^{3k^2+k} \pmod{y^{5N+3}}
+$$
+
+We can carry over the old proof step by step. Since we now have only
+even powers of $y$, this leads to
+$$
+\prod^\infty_{m=1} (1-y^{2m})= \sum^\infty_{k=-\infty} (-)^k y^{k(3k+1)}
+$$
+
+These are actually power series in $y^2$. Set $y^2=x$, then
+$$
+\prod^\infty_{m=1} (1-x^m) = \sum^\infty_{k=-\infty} (-)^K x^{k(3k+1)/2}
+$$
+which is the pentagonal numbers theorem.
+

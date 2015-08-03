@@ -1,0 +1,115 @@
+\chapter{Change of Variable Formula}\label{chap12}
+
+WE\pageoriginale SHALL PROVE the
+
+\begin{theorem*}
+Let $\sigma$ be any bounded progressively measurable function and $Y$
+be an Ito process. If $\lambda$ is any progressively measurable
+function such that
+$$
+E\left(\int\limits^{t}_{0}\lambda^{2}ds\right)<\infty,\ \forall t,
+$$
+then
+\begin{equation*}
+\int\limits^{t}_{0}\lambda
+d\xi(s,w)=\int\limits^{t}_{0}\lambda(s,w)\sigma(s,w)dY(s,w),\tag{*} 
+\end{equation*}
+where 
+$$
+\xi(t,w)=\int\limits^{t}_{0}\sigma(s,w)dY(s,w).
+$$
+\end{theorem*}
+
+\begin{proof}
+\setcounter{step}{0}
+\begin{step}%1
+Let $\lambda$ and $\sigma$ be both simple, with $\lambda$ bounded. By
+a refinement of the partition, if necessary, we may assume that there
+exist reals $0=s_{0}$, $s_{1},\ldots,s_{n},\ldots$ increasing to
+$+\infty$ such that $\lambda$ and $\sigma$ are constant on
+$[s_{j},s_{j+1})$, say $\lambda=\lambda_{j}(w)$,
+  $\sigma=\sigma_{j}(w)$, where $\lambda_{j}(w)$ and $\sigma_{j}(w)$
+  are $\mathscr{F}_{s_{j}}$-measurable. In this case (*) is a direct
+  consequence of the definition.
+\end{step}
+
+\begin{step}%2
+Let $\lambda$ be simple and bounded. Let $(\sigma_{n})$ be a sequence
+of simple bounded functions as in Lemma \ref{chap11-lem3}. Put
+$$
+\xi_{n}(t,w)=\int\limits^{t}_{0}\sigma_{n}(s,w)dY(s,w)
+$$
+
+By Step 1,
+\begin{equation*}
+\int\limits^{t}_{0}\lambda
+d\xi_{n}=\int\limits^{t}_{0}\lambda\sigma_{n}dY(s,w).\tag{**} 
+\end{equation*}\pageoriginale
+
+Since $\lambda$ is bounded, $\lambda\sigma_{n}$ converges to
+$\lambda\sigma$ in $L^{2}([0,t]\times\Omega)$. Hence, by definition,
+$\int\limits^{t}_{0}\lambda\sigma_{n}dY(s,w)$ converges to
+$\int\limits^{t}_{0}\lambda\sigma dY$ in probability.
+
+Further,
+\begin{align*}
+ \int\limits^{t}_{0}\lambda
+d\xi_{n}(s,w) &=\lambda(s_{0},w)[\xi_{n}(s_{1},w)-\xi_{n}(s_{0},w)]+\cdots\\
+&\q +\cdots+\lambda(s_{k},w)[\xi_{n}(t,w)-\xi_{n}(s_{k-1},w)],
+\end{align*}
+where $s_{0}<s_{1}<\ldots\ldots$ is a partition for $\lambda$, and
+$\xi_{n}(t,w)$ converges to $\xi(t,w)$ in probability for every
+$t$. Therefore
+$$
+\int\limits^{t}_{0}\lambda d\xi_{n}(s,w)
+$$
+converges in probability to 
+$$
+\int\limits^{t}_{0}\lambda d\xi(s,w).
+$$
+
+Taking limit as $n\to \infty$ in (**) we get
+$$
+\int\limits^{t}_{0}\lambda d\xi(s,w)=\int\limits^{t}_{0}\lambda \sigma
+dY(s,w).
+$$
+\end{step}
+
+\begin{step}%3
+Let $\lambda$ be any progressively measurable function with
+$$
+E(\int\limits^{t}_{0}\lambda^{2}ds)<\infty, \ \forall t.
+$$ 
+
+Let
+$\lambda_{n}$ be a simple approximation to $\lambda$ as in Lemma
+\ref{chap11-lem3}. Then, by Step 2,
+\begin{equation*}
+\int\limits^{t}_{0}\lambda_{n}(s,w)d\xi(s,w)=\int\limits^{t}_{0}\lambda_{n}(s,w)\sigma(s,w)dY(s,w).\tag{{*}**}
+\end{equation*}
+
+By definition, the left side above converges to
+$$
+\int\limits^{t}_{0}\lambda(s,w)d\xi(s,w)
+$$\pageoriginale
+in probability. As $\sigma$ is bounded $\lambda_{n}\sigma$ converges
+to $\lambda\sigma$ in $L^{2}([0,t]\times\Omega)$. Therefore
+\begin{align*}
+& P\left(\sup\limits_{0\leq t\leq
+  T}|\int\limits^{t}_{0}\lambda_{n}\sigma
+dY(s,w)-\int\limits^{t}_{0}\lambda\sigma\ dy(s,w)|\geq
+\epsilon\right)\\
+& ||a||_{\infty}1/\epsilon^{2}E\left(\int\limits^{t}_{0}(\lambda_{n}\sigma-\lambda\sigma)^{2}ds\right)
+\end{align*}
+(see proof of the main theorem leading to the definition of the
+stochastic integral). Thus
+$$
+\int\limits^{t}_{0}\lambda_{n}\sigma dY(s,w)
+$$
+converges to
+$$
+\int\limits^{t}_{0}\lambda\sigma\ dY(s,w)
+$$
+in probability. Let $n$ tend to $+$ in (***) to conclude the proof.
+\end{step}
+\end{proof}

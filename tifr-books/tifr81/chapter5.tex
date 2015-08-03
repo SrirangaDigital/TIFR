@@ -1,0 +1,813 @@
+\chapter{Variational Theorems of Min-Max Type}\label{chap5}
+
+\noindent
+{\bf Introduction.}~ In\pageoriginale this chapter we use the Ekeland
+Variational Principle to obtain a general variational principle of the
+min-max type. We follow closely Br\'ezis \cite{key13}, see also
+Aubin-Ekeland \cite{key6}. From this result we show how to derive the
+Mountain Pass Theorem of Ambrosetti and Rabinowitz \cite{key4}, as
+well as the Saddle Point and the Generalized Mountain Pass Theorems of
+Rabinowitz, \cite{key66} and \cite{key67} respectively.
+
+Let $X$ be a Banach space and $\Phi:X\to \mathbb{R}$ a $C^{1}$
+functional. Let $K$ be a compact metric space and $K_{0}\subset K$ a
+closed subset. Let $f_{0}:K_{0}\to X$ be a given (fixed) continuous
+mapping. We introduce the family
+\begin{equation*}
+\Gamma=\{f\in C(K,X):\q f=f_{0}\q\text{on}\q
+K_{0}\}\tag{5.1}\label{chap5-eq5.1} 
+\end{equation*}
+where $C(K,X)$ denotes the set of all continuous mappings from $K$
+into $X$. Now we define
+\begin{equation*}
+c={\displaystyle\mathop{\Inf}_{f\in
+    \Gamma}}\;{\displaystyle{\mathop{\Max}_{t\in
+      K}}}\,\Phi(f(t)),\tag{5.2}\label{chap5-eq5.2} 
+\end{equation*}
+where we observe that without further hypotheses $c$ could be
+$-\infty$.
+
+\begin{theorem}\label{chap5-thm5.1}
+Besides the foregoing notations assume that
+\begin{equation*}
+{\displaystyle\mathop{\Max}_{t\in K}}\;\Phi(f(t))>{\displaystyle\mathop{\Max}_{t\in K_{0}}}\;\Phi(f(t)),\q \forall f\in
+\Gamma.\tag{5.3}\label{chap5-eq5.3} 
+\end{equation*}
+
+Then given $\epsilon>0$ there exists $u_{\epsilon}\in X$ such that
+\begin{align*}
+c &\leq \Phi(u_{\epsilon})\leq c+\epsilon\\
+ &\q ||\Phi'(u_{\epsilon})||_{X^{\ast}}\leq \epsilon
+\end{align*}
+\end{theorem}
+
+\begin{remark*}
+Observe\pageoriginale that the functional $\Phi$ is not supposed to
+satisfy the $(PS)$ condition, see Chapter \ref{chap1}. The theorem
+above says that under the hypotheses there exists a {\em Palais--Smale
+  sequence}, that is, $(u_{n})$ in $X$ such that $\Phi(u_{n})\to c$
+and $\Phi'(u_{n})\to 0$. Consequently, if one assumes in addition that
+$\Phi$ satisfies the $(PS)$ condition, then there exists a critical
+point at leve $c:\Phi'(u_{0})=0$ and $\Phi'(u_{0})=c$.
+\end{remark*}
+
+The proof uses some facts from Convex Analysis which we now expound in
+a generality slight greater than actually needed here.
+
+\medskip
+\noindent
+{\bf The Subdifferential of a Convex Function.}~ Let $X$ be a Banach
+space and $\Phi:X\to \mathbb{R}\cup \{+\infty\}$ a convex lower
+semicontinuous functional, with $\Phi(x)\nequiv +\infty$. Let us denote
+the domain of $\Phi$ by $\dom \Phi=\{x\in X:\Phi(x)<\infty\}$. We
+define the {\em subdifferential} of $\Phi$, $\p \Phi:X\to 2^{X^{*}}$,
+by
+\begin{equation*}
+\p \Phi(x)=\{\mu\in X^{*}:\Phi(y)\geq \Phi(x)+\langle
+\mu,y-x\rangle,\q \forall y\in X\}.\tag{5.4}\label{chap5-eq5.4}
+\end{equation*}
+
+We observe that $\p\Phi(x)$ could be the empty set for some $x\in
+X$. Clearly this is the case if $x\not\in \dom \Phi$. However the
+following property has a straightforward proof.
+\begin{equation*}
+\p \Phi(x)\q \text{is a convex}\q w^{*}\text{-closed
+  set.}\tag{5.5}\label{chap5-eq5.5} 
+\end{equation*}
+
+In general $\p\Phi(x)$ is not bounded. [To get a good understanding
+  with pictures (!) consider simple examples. (i) $\Phi:\mathbb{R}\to
+  \mathbb{R}\cup \{+\infty\}$ defined by $\Phi(x)=0$ if $|x|\leq 1$
+  and $\Phi(x)=+\infty$ otherwise. (ii) $\Phi:\mathbb{R}\to
+  \mathbb{R}\cup \{+\infty\}$ defined by $\Phi(x)=1/x$ if $0<x\leq 1$
+  and $\Phi(x)=+\infty$ otherwise. (iii) $\Phi:\mathbb{R}\to
+  \mathbb{R}\cup\{+\infty\}$ defined by $\Phi(x)=|\tan x|$ if
+  $|x|<\pi/2$ and $\Phi(x)=+\infty$ otherwise].
+
+However the following result is true.
+
+\begin{proposition}\label{chap5-prop5.2}
+Let $\Phi:X\to \mathbb{R}\cup \{+\infty\}$ be a convex lower
+semicontinuous functional, with $\Phi(x)\equiv +\infty$. Let $x_{0}\in
+\dom \Phi$ and suppose that $\Phi$ is continuous at $x_{0}$. Then
+$\p\Phi(x_{0})$ is bounded and non-empty.
+\end{proposition}
+
+\begin{proof}
+Given $\epsilon>0$ there exists $\delta>0$ such that
+\begin{equation*}
+|\Phi(x)-\Phi(x_{0})|<\epsilon\q\text{if}\q
+|x-x_{0}|<\delta.\tag{5.6}\label{chap5-eq5.6} 
+\end{equation*}
+
+Let $v\in X$ with $||v||=1$ be arbitrary and take a (fixed) $t_{0}$,
+with $0<t_{0}<\delta$. For each $\mu\in \p \Phi(x_{0})$ taking in
+\eqref{chap5-eq5.4} $y=x_{0}+t_{0}v$ we obtain
+$$
+\Phi(x_{0}+t_{0}v)\geq \Phi(x_{0})+\langle\mu,t_{0}v\rangle,
+$$
+where\pageoriginale $\langle\,,\rangle$ denotes the duality pairing
+between $X^{*}$ and $X$. And using \eqref{chap5-eq5.6} we get $\langle
+\mu, v\rangle\leq$ $\epsilon/t_{0}$, which implies $||\mu||_{X^{*}}\leq
+\epsilon/t_{0}$. It remains to prove that $\p \Phi(x_{0})\neq
+\emptyset$. This will be accomplished by using the Hahn-Banach theorem
+applied to sets in the Cartesian product $X\times \mathbb{R}$. Let
+$$
+A=\{(x,a)\in X\times \mathbb{R}:x\in B_{\delta}(x_{0}),\q a>\Phi(x)\}
+$$
+where $B_{\delta}(x_{0})$ denotes the open ball of radius $\delta$
+around $x_{0}$. It is easy to check that $A$ is open and convex. Also,
+the point $(x_{0},\Phi(x_{0}))\not\in A$. So there exists a non-zero
+functional $(\nu,r)\in X^{*}\times \mathbb{R}$ such that
+\begin{equation*}
+\langle \nu,x_{0}\rangle+r\Phi(x_{0})\leq \langle\nu,x\rangle +ra,\q
+\forall (x,a)\in A.\tag{5.7}\label{chap5-eq5.7}
+\end{equation*}
+
+By taking $x=x_{0}$ in \eqref{chap5-eq5.7} we conclude conclude that
+$r>0$. So calling $\mu=-\nu/r$ we obtain
+$$
+-\langle \mu, x_{0}\rangle+\Phi(x_{0})\leq
+-\langle\mu,x\rangle+a\q\forall (x,a)\in A.
+$$
+
+By the continuity of $\Phi$ we can replace $a$ in the above inequality
+by $\Phi(x)$, and so we get
+\begin{equation*}
+\Phi(x)\geq \Phi(x_{0})+\langle \mu,x-x_{0}\rangle\q \forall x\in
+B_{\delta}(x_{0}).\tag{5.8}\label{chap5-eq5.8} 
+\end{equation*}
+
+To extend inequality \eqref{chap5-eq5.8} to all $x\in X$ and so
+finishing the proof we proceed as follows. Given $y\not\in
+B_{\delta}(x_{0})$, there exist $x\in B_{\delta}(x_{0})$ and $0<t<1$
+such that $x=ty+(1-t)x_{0}$. By convexity $\Phi(x)\leq
+t\Phi(y)+(1-t)\Phi(x_{0})$. This together with \eqref{chap5-eq5.8}
+completes the proof.
+\end{proof}
+
+\begin{remark*}
+If follows from Proposition \ref{chap5-prop5.2} and
+\eqref{chap5-eq5.5} that $\p \Phi(x)$ is a non-empty convex
+$\omega^{*}$-compact set at the points $x$ of continuity of $\Phi$
+where $\Phi(x)<+\infty$.
+\end{remark*}
+
+\begin{corollary}\label{chap5-coro5.3}
+If $\Phi:X\to \mathbb{R}$ is convex and continuous with $\dom\Phi=X$,
+then $\p \Phi(x)$ is a non-empty convex $\omega^{*}$-compact subset of
+$X^{*}$ forall $x\in X$.
+\end{corollary}
+
+\medskip
+\noindent
+{\bf The One-Sided Directional Derivative.}~ Let $\Phi:X\to
+\mathbb{R}$ be convex continuous function. It follows from convexity
+that the function: $t\in (0,\infty)\mapsto
+t^{-1}[\Phi(x+ty)-\Phi(x)]$\pageoriginale is increasing as $t$
+increases for every $x$, $y\in X$ fixed. Now let $\mu\in
+\p\Phi(x)$. One has
+\begin{equation*}
+\frac{\Phi(x+ty)-\Phi(x)}{t}\geq \langle \mu,y\rangle\q \forall
+t>0\tag{5.9}\label{chap5-eq5.9} 
+\end{equation*}
+
+It follows then that the limit as $t\to 0$ of the left side of
+\eqref{chap5-eq5.9} exists and it is $\geq \Max\{\langle
+\mu,y\rangle:\mu\in \p \Phi(x)\}$. Actually one has equality, as
+proved next.
+
+\begin{proposition}\label{chap5-prop5.4}
+Let $\Phi:X\to \mathbb{R}$ be convex and continuous. Then for each
+$x$, $y\in X$ one has
+\begin{equation*}
+\lim\limits_{t\downarrow 0}\frac{\Phi(x+ty)-\Phi(x)}{t}={\displaystyle\mathop{\Max}_{\mu\in
+  \p \Phi(x)}}\,\langle\mu,y\rangle.\tag{5.10}\label{chap5-eq5.10} 
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+Let $x$ and $y$ in $X$ be fixed and let us denote the left side of
+\eqref{chap5-eq5.10} by $\Phi'_{+}(x;y)$. In view of the discussion
+preceeding the statement of the present proposition, it suffices to
+exhibit a $\mu\in \p \Phi(x)$ such that $\Phi'_{+}(x;y)\leq
+\langle\mu,y\rangle$. To do that we consider the following two subsets
+of $X\times \mathbb{R}$:
+\begin{gather*}
+A=\{(z,a)\in X\times \mathbb{R}:a>\Phi(z)\}\\
+B=\{(x+ty,\Phi(x)+t\Phi'_{+}(x;y)):t\geq 0\},
+\end{gather*}
+which are the interior of the epigraph of $\Phi$ and a half-line
+respectively. It is easy to see that they are convex and $A$ is open.
+
+So by the Hahn-Banach theorem they can be separated: there exists a
+non-zero functional $(\nu,r)\in X^{*}\times \mathbb{R}$ such that
+\begin{equation*}
+\langle \nu,z\rangle +ra\geq \langle
+\nu,x+ty\rangle+r\{\Phi(x)+t\Phi'_{+}(x;y)\}\tag{5.11}\label{chap5-eq5.11} 
+\end{equation*}
+for all $(z,a)\in A$ and all $t\geq 0$. Making $z=x$ and $t=0$ in
+\eqref{chap5-eq5.11} we conclude that $r>0$. So calling $\mu=-\nu/r$
+and replacing $a$ by $\Phi(z)$ [here use the continuity of $\Phi$] we
+obtain 
+\begin{equation*}
+-\langle \mu, z\rangle+\Phi(z)\geq
+-\langle\mu,x+ty\rangle+\Phi(x)+t\Phi'_{+}(x;y)\tag{5.12}\label{chap5-eq5.12} 
+\end{equation*}
+which holds for all $z\in X$ and all $t\geq 0$. Making $t=0$ in
+\eqref{chap5-eq5.12} we conclude that $\mu\in \p \Phi(x)$. Next taking
+$z=x$ we get $\Phi'_{+}(x;y)\leq \langle \mu, y\rangle$, completing
+the proof.
+\end{proof}
+
+\medskip
+\noindent
+{\bf The Subdifferential of a Special Functional.}~ Let $K$ be a
+compact metric space and $C(K,\mathbb{R})$ be the Banach space of all
+real valued continuous functions\pageoriginale $x:K\to \mathbb{R}$,
+endowed with the norm $||x||=\max\{|x(t)|:t\in K\}$. To simplify our
+notation let us denote $E=C(K,\mathbb{R})$. By the Riesz
+representation theorem, see Dunford-Schwartz, \cite[p. 234]{key35} the
+dual $E^{*}$ of $E$ is isometric isomorphic to the Banach space
+$\mathcal{M}(K,\mathbb{R})$ of all regular countably additive
+real-valued set functions $\mu$ (for short: Radon measures) defined in
+the $\sigma$-field of all Borel sets in $K$, endowed with the norm
+given by the total variation:
+$$
+||\mu||=\sup
+\left\{\sum\limits^{k}_{i=1}|\mu(E_{i})|:\bigcup\limits^{k}_{i=1}E_{i}\subset
+E, E_{i}\cap E_{j}=\emptyset;\q \forall k=1,2,\ldots\right\}
+$$
+
+Next we recall some definitions. We say that a {\em Radon measure
+  $\mu$ is positive}, and denote $\mu\geq 0$ if $\langle
+\mu,x\rangle\geq 0$ for all $x\in E$ such that $x(t)\geq 0$ for all
+$t\in K$. We say that a {\em Radon measure $\mu$} has {\em mass one}
+if $\langle \mu,\pi\rangle=1$, where $\pi\in E$ is the function
+defined by $\pi(t)=1$ for all $t\in K$. We say that a {\em Radon
+  measure $\mu$ vanishes} in an open set $U\subset K$ if $\langle \mu,
+x\rangle=0$ for all $x\in E$ such that the support of $x$ is a compact
+set $K_{0}$ contained in $U$. Using partion of unit, one can prove
+that if $\mu$ vanishes in a collection of open sets $U_{\alpha}$, then
+$\mu$ also vanishes in the union $\mathsf{U} U_{\alpha}$. So there exists a
+largest open set $\widetilde{U}$ where $\mu$ vanishes. The support of
+the measure $\mu$, denoted by $\supp \mu$, is defined by $\supp
+\mu=K\backslash \widetilde{U}$. For these notions in the more general
+set-up of distributions, see Schwartz \cite{key72}. We shall need the
+following simple result. 
+
+\begin{lemma}\label{chap5-lem5.5}
+Let $x\in E$ be a function such that $x(t)=0$ for all $t\in \supp
+\mu$. Then $\langle \mu,x\rangle=0$.
+\end{lemma}
+
+\begin{proof}
+For each subset $A\subset K$ let us denote by $A_{\epsilon}=\{t\in
+K:\dist (t,A)<\epsilon\}$, where $\epsilon>0$. By Urysohn's Theorem
+there exists for each $n=1,2,\ldots$, a function $\varphi_{n}\in E$
+such that $\varphi_{n}(t)=0$ for $t\in (\supp \mu)_{1/n}$ and
+$\varphi_{n}(t)=1$ for $t\not\in (\supp \mu)_{2/n}$. Then the sequence
+$\varphi_{n}x$ converges to $x$ in $E$ and $\langle
+\mu,\varphi_{n}x\rangle\to \langle \mu, x\rangle$. Since the support
+of each $\varphi_{n}x$ is a compact set contained in
+$\widetilde{U}=K\backslash \supp \mu$, we have $\langle
+\mu,\varphi_{n}x\rangle=0$, and then the result follows. 
+\end{proof}
+
+\begin{proposition}\label{chap5-prop5.6}
+Using the above notation consider the functional
+$\Theta:E\to\mathbb{R}$ defined by
+$$
+\Theta(x)=\Max\{x(t):t\in K\}.
+$$
+
+Then $\Theta$ is continuous and convex. Moreover, for each $x\in E$,
+\begin{equation*}
+\mu\in \p \Theta(x)\Leftrightarrow \mu\geq 0,\langle
+\mu,\pi\rangle=1,\q \supp\mu\subset \{t\in
+K:x(t)=\Theta(x)\}.\tag{5.13}\label{chap5-eq5.13}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+The\pageoriginale convexity of $\Theta$ is straightforward. To prove
+the continuity, let $x$, $y\in E$. Then
+$$
+\Theta(x)-\Theta(y)=x(\overline{t})-\Max_{K y}\leq
+x(\overline{t})-y(\overline{t}), 
+$$
+where $\overline{t}\in K$ is a point where the maximum of $x$ is
+achieved. From the above inequality one obtains
+$$
+|\Theta(x)-\Theta(y)|\leq ||x-y||
+$$
+
+(ii) Let us prove \eqref{chap5-eq5.13} $\Leftarrow$. We claim that
+\begin{equation*}
+\Theta(y)\geq \Theta(x)+\langle \mu,y-x\rangle\q \forall y\in
+E.\tag{5.14}\label{chap5-eq5.14} 
+\end{equation*}
+
+The function $z=x-\Theta(x)\pi$ is in $E$ and $z(t)=0$ for $t\in \supp
+\mu$. Using Lemma \ref{chap5-lem5.5} we have that $\langle
+\mu,z\rangle=0$ which implies $\langle \mu,x\rangle=\Theta(x)$. So
+\eqref{chap5-eq5.14} becomes $\Theta(y)\geq \langle \mu,y\rangle$. But
+this follows readily from the fact that $\mu\geq 0$ and the function
+$u=\Theta(y)\pi-y$ is $\geq 0$. 
+
+(iii) Let us prove \eqref{chap5-eq5.13} $\Rightarrow$. Now we have
+that \eqref{chap5-eq5.14} holds by hypothesis. Let $z\in E$, $z\geq
+0$, be arbitrary and put $y=x-z$ in \eqref{chap5-eq5.14}; we obtain
+$$
+{\displaystyle{\mathop{\Max}_{K}}}\,(x-z)-{\displaystyle{\mathop{\Max}_{K}}}(x)\geq -\langle \mu,z\rangle.
+$$
+
+Since the left side of the above inequality is $\geq 0$ we get
+$\langle \mu,z\rangle\geq 0$. Next let $C\in \mathbb{R}$ be arbitrary
+and put $y=x+C\pi$ in \eqref{chap5-eq5.14}; we obtain
+$$
+\Max_{K}(x+C\pi)-\Max_{K}(x)\geq \langle \mu,C\pi\rangle=C\langle
+\mu,\pi\rangle. 
+$$
+
+Since the left side of the above inequality is $C$ we obtain $C\langle
+\mu,\pi\rangle \leq C$, which implies $\langle \mu,\pi\rangle
+=1$. Finally, in order to prove that the support of $\mu$ is contained
+in the closed set $S=\{t\in K:x(t)=\Theta(x)\}$ it suffices to show
+that $\mu$ vanishes in any open set $U\subset K\backslash S$. Let
+$z\in E$ be a function with compact support $K_{0}$ contained in
+$U$. Let
+$$
+\ell=\Theta(x)-\Max_{K_{0}}(x)>0,
+$$
+and choose $\epsilon>0$ such that $\pm \epsilon z(t)<\ell$, for all
+$t\in K$. Thus $x(t)\pm \epsilon z(t)<\Theta(x)$, and $\Theta(x\pm
+\epsilon z)=\Theta(x)$. So using \eqref{chap5-eq5.14} with $y=x\pm
+\epsilon z$ we obtain $\pm \epsilon \langle\mu,z\rangle\leq 0$ which
+shows that $\langle \mu,z\rangle=0$.
+\end{proof}
+
+Now we are ready to prove Theorem \ref{chap5-thm5.1}.
+
+\medskip
+\noindent
+{\bf Proof of Theorem \ref{chap5-thm5.1}.}~ (i) Viewing the use of the
+Ekeland Variational Principle\pageoriginale we observe that $\Gamma$
+is a complete metric space with the distance defined by
+$$
+d(f,g)=\Max\{||f(t)-g(t)||:t\in K\},\q \forall f,g\in \Gamma.
+$$
+
+Next define the functional $\Psi:\Gamma\to \mathbb{R}$ by
+$$
+\Psi(f)={\displaystyle{\mathop{\Max}_{t\in K}}}\Phi(f(t)).
+$$
+
+It follows from \eqref{chap5-eq5.3} that $\Psi$ is bounded
+below. Indeed $\Psi(f)\geq b$ for all $f\in \Gamma$, where
+$$
+b={\displaystyle{\mathop{\Max}_{t\in K_{0}}}}\Phi(f_{0}(t)).
+$$
+
+Next we check the continuity of $\Psi$ at $f_{1}\in\Gamma$. Given
+$\epsilon>0$, choose $\delta>0$ such that $|\Phi(x)-\Phi(y)|\leq
+\epsilon$ for all $y\in f_{1}(K)$ and all $x\in X$ such that
+$||x-y||\leq \delta$. Now for each $f\in \Gamma$ such that
+$d(f,f_{1})\leq \delta$ we have
+$$
+\Psi(f)-\Psi(f_{1})=\Phi(f(\overline{t}))-\Max_{t\in
+  K}\Phi(f_{1}(t))\leq \Phi(f(\overline{t}))-\Phi(f_{1}(\overline{t}))
+$$
+where $\overline{t}\in K$ is the point where the maximum of
+$\Phi(f(t))$ is achieved. Since
+$||f(\overline{t})-f_{1}(\overline{t})||\leq d(f,f_{1})<\delta$ we
+conclude that $\Psi(f)-\Psi(f_{1})\leq \epsilon$. And reverting the
+roles of $f$ and $f_{1}$ we obtain that $|\Psi(f)-\Psi(f_{1})|\leq
+\epsilon$, showing that $\Psi$ is continuous. Thus by Ekeland
+Variational Principle, given $\epsilon>0$ there exists a
+$f_{\epsilon}\in \Gamma$ such that
+\begin{gather*}
+c\leq \Psi(f_{\epsilon})\leq
+c+\epsilon\tag{5.15}\label{chap5-eq5.15}\\
+\Psi(f_{\epsilon})\leq \Psi(f)+\epsilon d(f,f_{\epsilon}),\q \forall
+f\in\Gamma.\tag{5.16}\label{chap5-eq5.16} 
+\end{gather*}
+
+(ii) Now we denote $\Gamma_{0}=\{k\in C(K,X):k(t)=0, \forall t\in
+K_{0}\}$. For any $k\in \Gamma_{0}$ and any $r>0$, we have
+$$
+\Phi(f_{\epsilon}(t)+rk(t))=\Phi(f_{\epsilon}(t))+r\langle
+\Phi'(f_{\epsilon}(t)),k(t)\rangle+o(rk(t)). 
+$$
+
+So
+$$
+{\displaystyle{\mathop{\Max}_{t\in K}}}\Phi(f_{\epsilon}(t)+rk(t))\leq {\displaystyle{\mathop{\Max}_{t\in
+  K}}}\{\Phi(f_{\epsilon}(t))+r\langle
+\Phi'(f_{\epsilon}(t)),k(t)\rangle\}+o(r||k||) 
+$$
+where $||k||={\displaystyle{\mathop{\max}_{t\in K}}}||k(t)||$. Using this in
+\eqref{chap5-eq5.16} with $f=f_{\epsilon}+rk$ we obtain
+\begin{equation*}
+{\displaystyle{\mathop{\Max}_{t\in K}}}\Phi(f_{\epsilon}(t))\leq {\displaystyle{\mathop{\Max}_{t\in
+  K}}}\{\Phi(f_{\epsilon}(t))+r\langle
+\Phi'(f_{\epsilon}(t)),k(t)\rangle\}+\epsilon
+r||k||\tag{5.17}\label{chap5-eq5.17} 
+\end{equation*}
+
+Now\pageoriginale we are in the framework of Proposition
+\ref{chap5-prop5.6}: the functions $x(t)=\Phi(f_{\epsilon}(t))$ and
+$y(t)=\langle \Phi'(f_{\epsilon}(t)),k(t)\rangle$ are in
+$E=C(K,\mathbb{R})$. So \eqref{chap5-eq5.17} can be rewritten as
+$$
+\frac{\Theta(x+ry)-\Theta(x)}{r}\geq -\epsilon||k||
+$$
+
+Taking limits as $r\downarrow 0$ and using Proposition
+\ref{chap5-prop5.4} we get
+\begin{equation*}
+{\displaystyle{\mathop{\Max}_{\mu\in \p \Theta(x)}}}\langle \mu,y\rangle \geq
+-\epsilon||k||\tag{5.18}\label{chap5-eq5.18} 
+\end{equation*}
+
+Observe that in \eqref{chap5-eq5.18} $y$ depends on $k$. Replacing $k$
+by $-k$ we obtain from \eqref{chap5-eq5.18}:
+\begin{equation*}
+\Min_{\mu\in \p \Theta(x)}\langle \mu,y\rangle \leq \epsilon
+||k||\tag{5.19}\label{chap5-eq5.19} 
+\end{equation*}
+where $\p\Theta(x)$ is the set of all Radon measures $\mu$ in $K$ such
+that $\mu\geq 0$, $\langle \mu, \Pi\rangle=1$ and $\supp \mu\subset
+K_{1}$ where $K_{1}=\{t\in K:\Phi(f_{\epsilon}(t))=\Max_{t\in
+  K}\Phi(f_{\epsilon}(t))\}$. Dividing \eqref{chap5-eq5.19} through by
+$||k||$ and taking Sup we get
+\begin{equation*}
+\Sup_{\substack{k\in \Gamma_{0}\\ ||k||\leq 1}} \Min_{\mu\in \p
+  \Theta(x)}\langle \mu,\langle
+\Phi'(f_{\epsilon}(\cdot)),k(\cdot)\rangle\rangle \leq
+\epsilon\tag{5.20}\label{chap5-eq5.20} 
+\end{equation*}
+
+Using von Neumann min-max Theorem \cite{key7} we can interchange the
+Sup and Min in the above expression. Now we claim
+\begin{equation*}
+\Sup_{\substack{k\in\Gamma_{0}\\ ||k||\leq 1}}\langle \mu,\langle
+\Phi'(f_{\epsilon}(\cdot)),k(\cdot)\rangle \rangle
+=\Sup_{\substack{k\in C(K,X)\\ ||k||\leq 1}}\langle \mu,\langle
+\Phi'(f_{\epsilon}(\cdot)),k(\cdot)\rangle\rangle\tag{5.21}\label{chap5-eq5.21} 
+\end{equation*}
+
+Indeed, since $K_{0}$ and $K_{1}$ are disjoint compact subsets of $K$
+one can find a continuous function $\varphi:K\to \mathbb{R}$ such that
+$\varphi(t)=1$ for $t\in K_{1}$, $\varphi(t)=0$ for $t\in K_{0}$ and
+$0\leq \varphi(t)\leq 1$ for all $t\in K$. Given any $k\in C(K,X)$
+with $||k||\leq 1$ we see that $k_{1}(\cdot)=\varphi(\cdot)k(\cdot)\in
+\Gamma_{0}$, $||k_{1}||\leq 1$ and
+$$
+\langle \mu, \langle
+\Phi'(f_{\epsilon}(\cdot)),k(\cdot)\rangle\rangle=\langle
+\mu,\langle\Phi'(f_{\epsilon}(\cdot)),k_{1}(\cdot)\rangle\rangle 
+$$
+because $\supp \mu\subset K_{1}$. So \eqref{chap5-eq5.21} is
+proved. Since $\mu\geq 0$ the right side of \eqref{chap5-eq5.21} is
+less or equal to
+$$
+\la\mu,\Sup_{\substack{k\in C(K,X)\\||k||\leq 1}}\la
+\Phi'(f_{\epsilon}(\cdot)),k(\cdot)\ra\ra 
+$$
+
+But the Sup in the above expression is equal to
+$||\Phi'(f_{\epsilon}(\cdot))||$. So coming back to
+\eqref{chap5-eq5.20} interchanged we get
+$$
+\Min_{\mu\in\p \Theta(x)}\la \mu,||\Phi'(f_{\epsilon}(\cdot))||\ra
+\leq \epsilon.
+$$
+
+Let\pageoriginale $\overline{\mu}\in\p \Theta(x)$ the measure that
+realizes the above minimum:
+$$
+\la \overline{\mu},||\Phi'(f_{\epsilon}(t))||\ra\leq \epsilon
+$$ 
+
+Since $\overline{\mu}$ has mass one and it is supported in $K_{1}$, it
+follows that, there exists $\overline{t}\in K_{1}$ such that
+$||\Phi'(f_{\epsilon}(\overline{t}))||\leq \epsilon$. Let
+$u_{\epsilon}=f_{\epsilon}(\overline{t})$. Since $\overline{t}\in
+K_{1}$ it follows that
+$$
+\Phi(u_{\epsilon})=\Max_{t\in K}\Phi(f_{\epsilon}(t))\equiv
+\Psi(f_{\epsilon}).
+$$
+
+So from \eqref{chap5-eq5.15} we have $c\leq \Phi(u_{\epsilon})\leq
+c+\epsilon$, completing the proof.\hfill$\Box$
+
+\setcounter{remark}{0}
+\begin{remark}\label{chap5-rem1}
+In the above proof, Von Neumann min-max theorem was applied to the
+function $G:\mathcal{M}(K,\mathbb{R})\times C(K,X)\to \mathbb{R}$,
+[$\mathcal{M}(K,\mathbb{R})$ endowed with the $w^{*}$-topology]
+defined by
+$$
+G(\mu,k)=\la \mu,\la \Phi'(f_{\epsilon}(\cdot)),k(\cdot)\ra\ra.
+$$
+
+Observe that $G$ is continuous and linear in each variable separately
+and that the sets $\Theta(x)$ and $\{k\in C(K,X):||k||\leq \}$ are
+convex, the former one being $w^{*}$-compact.
+\end{remark}
+
+\begin{remark}\label{chap5-rem2}
+Let $(g_{\alpha})$ be an arbitrary family of functions in
+$C(K,\mathbb{R})$, which are uniformly bounded. Then $g\equiv
+\sup_{\alpha}g_{\alpha}\in C(K,\mathbb{R})$. Since $g_{\alpha}\leq g$
+we have that for $\mu\in\mathcal{M}(K,\mathbb{R})$, $\mu\geq 0$, one
+has $\la \mu,g_{\alpha}\ra\leq \la \mu,g\ra$. This given
+$$
+\Sup_{\alpha}\la \mu,g_{\alpha}\ra\leq \la \mu,\Sup g_{\alpha}\ra.
+$$
+\end{remark}
+
+\smallskip
+\noindent
+{\bf Mountain pass Theorem and Variants}
+\smallskip
+
+Now we turn to showing that Theorem \ref{chap5-thm5.1} contains as
+special cases all three min-max theorems cited in the Introduction to
+this Chapter.
+
+\begin{theorem}[Mountain Pass Theorem \cite{key4}]\label{chap5-thm5.7}
+Let $X$ be a Banach space and $\Phi:X\to \mathbb{R}$ a $C^{1}$
+functional which satisfies the $(PS)$ condition. Let $S$ be a closed
+subset of $X$ which disconnets $X$. Let $x_{0}$ and $x_{1}$ be points
+of $X$ which are in distinct connected components of $X\backslash
+S$. Suppose that $\Phi$ is bounded below in $S$, and in fact the
+following condition is verified
+\begin{equation*}
+\Inf_{S}\Phi\geq b\q\text{and}\q
+\Max\{\Phi(x_{0}),\Phi(x_{1})\}<b.\tag{5.22}\label{chap5-eq5.22} 
+\end{equation*}
+
+Let\pageoriginale
+$$
+\Gamma=\{f\in C([0,1];X]):f(0)=x_{0},f(1)=x_{1}\}.
+$$
+
+Then
+$$
+c=\Inf_{f\in\Gamma}\Max_{t\in[0,1]}\Phi(f(t))
+$$
+is $>-\infty$ and it is a critial value. That is there exists
+$x_{0}\in X$ such that $\Phi(x_{0})=c$ and $\Phi'(x_{0})=0$.
+\end{theorem}
+
+\begin{remark*}
+The connectedness referred above is arcwise connectedness. So
+$X\backslash S$ is a union of open arcwise connected components, see
+Dugundji \cite[p. 116]{key34}. Thus $x_{0}$ and $x_{1}$, being in
+distinct components implies that any arc in $X$ connecting $x_{0}$ and
+$x_{1}$ intersept $S$. For instance $S$ could be a hyperplane in $X$
+or the boundary of an open set, [in particular, the boundary of a
+  ball].
+\end{remark*}
+
+\noindent
+{\bf Proof of Theorem \ref{chap5-thm5.7}.}~ It is an immediate
+consequence of Theorem \ref{chap5-thm5.1}. In view of the above
+remark, \eqref{chap5-eq5.22} implies \eqref{chap5-eq5.3}.\hfill$\Box$
+
+\begin{theorem}[Saddle Point Theorem \cite{key66}]\label{chap5-thm5.8}
+Let $X$ be a Banach space and $\Phi:X\to \mathbb{R}$ a $C^{1}$
+functional which satisfies the $(PS)$ condition. Let $V\subset X$ be a
+finite dimensional subspace and $W$ a complement of $V:X=V\oplus
+W$. Suppose that there are real numbers $r>0$ and $a<b$ such that
+\begin{equation*}
+\Inf_{W}\Phi\geq b\q \Max_{\p D}\Phi\leq
+a\tag{5.23}\label{chap5-eq5.23} 
+\end{equation*}
+where $D=V\cap B_{r}(0)$, $B_{r}(0)=\{x\in X:||x||<r\}$ and $\p
+D=\{x\in V:||x||=r\}$. Let
+$$
+\Gamma=\{f\in C(\overline{D},X):f(x)=x,\q \forall x\in \p D\},
+$$
+and
+$$
+c=\Inf_{f\in \Gamma}\Sup_{x\in\overline{D}}\Phi(f(x))
+$$
+
+Then $c>-\infty$ and it is a critical value.
+\end{theorem}
+
+\begin{proof}
+It suffices to show that \eqref{chap5-eq5.23} implies
+\eqref{chap5-eq5.3} and the result follows from Theorem
+\ref{chap5-thm5.1}. The sets $K$ and $K_{0}$ of said theorem are
+$\overline{D}$ and $\p D$ respectively. Let $f\in \Gamma$. Since the
+right side of \eqref{chap5-eq5.3} in view of \eqref{chap5-eq5.23} is
+$\leq a$, it suffices to prove that there is $x\in\overline{D}$ such
+that $f(x)\in W$ and then use \eqref{chap5-eq5.23} again. Let $P:X\to
+X$ be the linear projection over $V$ along $W$. So $f(x)\in W$ is
+equivalent to $Pf(x)=0$. Thus the question reduces in showing that the
+continuous mapping
+$$
+Pf:\overline{D}\to V
+$$
+has\pageoriginale a zero. Since $V$ is finite dimensional and $Pf=$
+identity on $\p D$ the result follows readily from Brouwer fixed point
+theorem. 
+\end{proof}
+
+\begin{remark*}
+The last step in the previous proof is standard. It can be proved in
+few lines using the Brouwer theory of topological degree. Consider the
+homotopy $H(t,\bigdot)\equiv tPf+(1-t)id:\overline{D}\to V$. Since
+$Pf(x)=x$ for $x\in \p D$ it follows that the homotopy is admissible
+and $deg(H(t,\bigdot),D,0)=$ const. Thus $deg(Pf,D,0)=deg(id,D,0)=1$
+and consequently $Pf$ has a zero. Another proof using Brouwer fixed
+point theorem instead uses the mapping $R\circ Pf:\overline{D}\to D$
+where $R$ is the radial retraction over $D:R(v)=v$ is $||v||\leq r$
+and $R(v)=rv/||v||$ elsewhere.
+\end{remark*}
+
+\begin{theorem}[Generalized Mountain Pass Theorem
+    \cite{key67}]\label{chap5-thm5.9} 
+Let $X$ be a Banach space and $\Phi:X\to \mathbb{R}\,a\,C^{1}$ functional
+which satisfies the $(PS)$ condition. As in the previous theorem let
+$X=V\oplus W$, $V$ finite dimensional. Let $w_{0}\in W$ be fixed and
+let $\rho<R$ be given positive real numbers. Let
+$Q=\{v+r\omega_{0}:v\in V,||v||\leq R,0\leq r\leq R\}$. Suppose that
+\begin{equation*}
+\Inf_{W\cap \p B_{\rho}}\Phi\geq b,\q \Max_{\p Q}\Phi\leq a,\q
+a<b,\tag{5.24}\label{chap5-eq5.24} 
+\end{equation*}
+where $\p B_{\rho}$ is the boundary of the ball $B_{\rho}(0)$. Let
+$$
+\Gamma=\{f\in C(Q,X):f(x)=x,x\in \p Q\},
+$$
+and
+$$
+c=\Inf_{f\in \Gamma}\Sup_{x\in Q}\Phi(f(x))
+$$
+
+Then $c>-\infty$ and it is a critical value.
+\end{theorem}
+
+\begin{proof}
+We apply Theorem \ref{chap5-thm5.1} with $K=Q$ and $K_{0}=\p Q$. It
+suffices then to show that \eqref{chap5-eq5.24} implies
+\eqref{chap5-eq5.3}. First we see that the right side of
+\eqref{chap5-eq5.3} is $\leq a$ in view of \eqref{chap5-eq5.24}. So by
+\eqref{chap5-eq5.24} again it is enough to show that for each given
+$f\in\Gamma$ there exists $x\in Q$ such that
+\begin{equation*}
+f(x)\in W\cap \p B_{\rho}.\tag{5.25}\label{chap5-eq5.25}
+\end{equation*}
+
+To prove that we use degree theory again. Let us define a mapping
+$g:Q\to V\oplus R_{\omega_{0}}$, as follows
+$$
+g(v+r\omega_{0})=(Pf(v+r\omega_{0}),||(I-P)f(v+r\omega_{0})||)
+$$
+
+Clearly $g$ is continuous and $g(v+r\omega_{0})=v+r\omega_{0}$ if
+$v+r\omega_{0}\in \p Q$. The point $(0,\rho)$ is in the interior of
+$Q$ relative to $V\oplus \mathbb{R}\omega_{0}$. So there exists
+$\overline{v}+\overline{r}\omega_{0}\in Q$ such\pageoriginale that
+$g(\overline{v}+\overline{r}\omega_{0})=(0,\rho)$. This proves
+\eqref{chap5-eq5.25}. 
+\end{proof}
+
+\noindent
+{\bf A useful and popular form of the Mountain Pass Theorem.}~ The
+following result follows from Theorem \ref{chap5-thm5.7} and Theorem
+\ref{chap5-thm5.10} below. $\Phi$ is $C^{1}$, {\em satisfies $(PS)$
+  and it is unbounded below. Suppose that $u_{0}$ is a strict local
+  minimum of $\Phi$. Then $\Phi$ possesses a critical point $u_{1}\neq
+  u_{0}$.} The definition of {\em strict minimum} is: there exists
+$\epsilon>0$ such that
+$$
+\Phi(u_{0})<\Phi(u),\q \forall 0<||u-u_{0}||<\epsilon.
+$$
+
+\begin{theorem}[On the nature of local minima]\label{chap5-thm5.10}
+Let $\Phi\in C^{1}(X,\mathbb{R})$ satisfy the Palais-Smale
+condition. Suppose that $u_{0}\in X$ is a local minimum, {\em i.e.}
+there exists $\epsilon>0$ such that
+$$
+\Phi(u_{0})\leq \Phi(u)\q\text{for}\q ||u-u_{0}||\leq \epsilon.
+$$
+
+Then given any $0<\epsilon_{0}\leq \epsilon$ the following alternative
+holds: either {\rm(i)} there exists $0<\alpha<\epsilon_{0}$, such
+that
+$$
+\Inf\{\Phi(u):||u-u_{0}||=\alpha\}>\Phi(u_{0})
+$$
+or {\rm(ii)} for each $\alpha$, with $0<\alpha<\epsilon_{0}$, $\Phi$
+has a local minimum at a point $u_{\alpha}$ with
+$||u_{\alpha}-u_{0}||=\alpha$ and $\Phi(u_{\alpha})=\Phi(u_{0})$. 
+\end{theorem}
+
+\begin{remark*}
+The above result shows that at a strict local minimum, alternative (i)
+holds. The proof next is part of the proof of Theorem
+\ref{chap5-thm5.10} below given in de Figueiredo-Solimini \cite{key43}.
+\end{remark*}
+
+\begin{proof}
+Let $\epsilon_{0}$ with $0<\epsilon_{0}\leq \epsilon$ be given, and
+suppose that (i) does not hold. So for any given fixed $\alpha$, with
+$0<\alpha<\epsilon_{0}$, one has
+\begin{equation*}
+\Inf\{\Phi(u):||u-u_{0}||=\alpha\}=\Phi(u_{0})\tag{5.26}\label{chap5-eq5.26} 
+\end{equation*}
+
+Let $\delta>0$ be such that
+$0<\alpha-\delta<\alpha+\delta<\epsilon_{0}$. Consider $\Phi$
+restricted to the ring $\mathcal{R}=\{u\in X:\alpha-\delta\leq
+||u-u_{0}||\leq \alpha+\delta\}$. We start with $u_{n}$ such that
+$$
+||u_{n}-u_{0}||=\alpha\q \text{and}\q \Phi(u_{n})\leq
+\Phi(u_{0})+\frac{1}{n}, 
+$$
+where the existence of such $u_{n}$ is given by
+\eqref{chap5-eq5.26}. Now we apply the Ekeland variational principle
+and obtain $v_{n}\in \mathcal{R}$ such that
+\begin{align*}
+& \Phi(v_{n})\leq \Phi(u_{n}),\q ||u_{n}-v_{n}||\leq
+\frac{1}{n}\q\text{and}\tag{5.27}\label{chap5-eq5.27}\\
+& \Phi(v_{n})\leq \Phi(u)+\frac{1}{n}||u-v_{n}||\q \forall u\in
+\mathcal{R}.\tag{5.28}\label{chap5-eq5.28} 
+\end{align*}\pageoriginale
+
+From the second assertion in \eqref{chap5-eq5.27} it follows that
+$v_n$ is in the interior of $\mathcal{R}$ for large $n$. We then take
+in \eqref{chap5-eq5.28} $u=v_{n}+tw$, where $\omega\in X$ with norm
+$1$ is arbitrary and $t>0$ is sufficiently small. Then using Taylor's
+formula and letting $t\to 0$ we get $||\Phi'(v_{n})||\leq
+\frac{1}{n}$. This together with the first assertion in
+\eqref{chap5-eq5.27} and (PS) gives the existence of a subsequence of
+$v_{n}$ (call it $v_n$ again) such that $v_{n}\to v_{\alpha}$. So
+$\Phi(v_{\alpha})=\Phi(u_{0})$, $\Phi'(v_{\alpha})=0$ and
+$||v_{\alpha}-u_{0}||=\alpha$. 
+\end{proof}
+
+
+\noindent
+{\bf A weaker form of the Mountain Pass Theorem.}~ The following
+wea\-ker form of the result presented in the last section appears in
+Rabinowitz \cite{key68}. He uses a sort of dual version of the
+Mountain Pass Theorem. The proof presented here is due to de
+Figueiredo-Solimini \cite{key43}. 
+
+\begin{proposition}\label{chap5-prop5.11}
+Let $\Phi\in C^{1}(X,\mathbb{R})$ satisfy $(PS)$ condition. Suppose
+that
+\begin{equation*}
+\Inf\{\Phi(u):||u||=r\}\geq
+\Max\{\Phi(0),\Phi(e)\}\tag{5.29}\label{chap5-eq5.29} 
+\end{equation*}
+where $0<r<||e||$. Then $\Phi$ has a critical point $u_{0}\neq 0$.
+\end{proposition}
+
+\begin{proof}
+The case when there is strict inequality in \eqref{chap5-eq5.29} is
+contained in Theorem \ref{chap5-thm5.7}. Therefore let us assume
+equality in \eqref{chap5-eq5.29}. If $e$ is local minimum we are
+through. So we may assume that there exists a point $e'$ near $e$
+where $\Phi(e')<\Phi(e)$. Therefore replacing $e$ by $e'$ two things
+may occur: either (i) we gain inequality in \eqref{chap5-eq5.29} and
+again Theorem \ref{chap5-thm5.7} applies and we finish, or (ii)
+equality persists and we have
+\begin{equation*}
+\Inf\{\Phi(u):||u||=r\}=\Phi(0)>\Phi(e).\tag{5.30}\label{chap5-eq5.30}
+\end{equation*}
+
+So we assume that \eqref{chap5-eq5.30} holds. Also we may assume that
+\begin{equation*}
+\Inf\{\Phi(u):||u||\leq r\}=\Phi(0)\tag{5.31}\label{chap5-eq5.31}
+\end{equation*}
+because otherwise Theorem \ref{chap5-thm5.7} would apply again and we
+would finish. But \eqref{chap5-eq5.31} says that $0$ is a local
+minimum. So we can apply Theorem \ref{chap5-thm5.10} and conclude.
+\end{proof}
+
+\begin{corollary}\label{chap5-coro5.12}
+Let $\Phi\in C^{1}(X,\mathbb{R})$ satisfy $(PS)$ condition. Suppose
+that $\Phi$ has two local minima. Then $\Phi$ has at least one more
+critical point.
+\end{corollary}
+
+\begin{proof}
+Use Theorems \ref{chap5-thm5.10} and \ref{chap5-thm5.7}.
+\end{proof}
+
+
+
+
+
+
+
+

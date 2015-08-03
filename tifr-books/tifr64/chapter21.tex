@@ -1,0 +1,201 @@
+\chapter{Integral Equations}\label{chap21}
+
+\begin{defi*}
+A\pageoriginale function $b:R^{d}\to R^{d}$ is said to be locally
+Lipschitz if given any $x_{0}\in R^{d}$ there exists an open set
+$U_{0}$ containing $x_{0}$ such that $b|_{U_{0}}$ is Lipschitz.
+\end{defi*}
+
+\setcounter{exercise}{0}
+\begin{exercise}\label{chap21-exer1}
+$b$ is locally Lipschitz iff $b|_{K}$ is Lipschitz for every compact
+  set $K$ i.e. iff $b|_{K}$ is Lipschitz for every closed sphere $K$.
+\end{exercise}
+
+\begin{exercise}\label{chap21-exer2}
+Every locally Lipschitz function is continuous.
+\end{exercise}
+
+\begin{theorem*}
+Let $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ be locally Lipschitz and
+$X:[0,\infty)\to   \mathbb{R}^{d}$ continuous. Then
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item the equation
+$$
+Y(t)=X(t)+\int\limits^{t}_{0}b(Y(s))ds\q (*)
+$$
+has a continuous solution near $0$, i.e. there exists an $\epsilon>0$
+and $a$ continuous function $Y:[0,\epsilon]\to R^{d}$ such that the
+above equation is satisfied for all $t$ in $[0,\epsilon]$.
+
+\item (Uniqueness) If $Y_{1}$, $Y_{2}$ are continuous solutions of the
+  above equation in $[0,T]$, then
+$$
+Y_{1}=Y_{2}\q\text{on}\q [0,T].
+$$ 
+\end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+(ii) (Uniqueness) Let $f(t)=|Y_{1}(t)-Y_{2}(t)|$. As $Y_{1}$, $Y_{2}$
+  are continuous, there exists a $k>0$ such that $|Y_{1}(t)|$,
+  $|Y_{2}(t)|\leq k$ for all $t$ in $[0,T]$. Choose $C$ such that
+  $|b(x)-b(y)|\leq C|x-y|$ for $|x|$, $|y|\leq k$ and
+  $C\sup\limits_{0\leq t\leq T}f(t)$. Then $f(t)\leq C$ and $f(t)\leq
+  C\int\limits^{t}_{0}f(s)ds$\pageoriginale so that $f(t)\leq
+  \frac{(ct)^{n}}{n!}$ for all $n=1,2,3,\ldots$. Thus
+  $Y_{1}(t)=Y_{2}(t)$, proving uniqueness.
+
+(i) (Existence) We can very well assume that $X(0)=0$. Let
+  $a=\inf\{t:|X(t)|\geq 1\}$,
+$$
+M>\sup \{|b(x)|:|x|\leq 2\},\q \alpha=\inf\{a,\frac{1}{M}\},
+$$
+$C\neq 0$, a Lipschitz constant, so that $|b(x)-b(y)|\leq C|x-y|$ for
+all $|x|$, $|y|\leq 2$. Define the iterations $Y_{0},Y_{1},\ldots$ by
+$$
+Y_{0}(t)=X(t),\q Y_{n+1}(t)=X(t)+\int\limits^{t}_{0}b(Y_{n}(s))ds
+$$
+for all $t\geq 0$. By induction, each $Y_{n}$ is continuous. By
+induction again, $|Y_{n}(t)-X(t)|\leq Mt$ for all $n$, $0\leq t\leq
+\alpha$. Again, by induction $|Y_{n+1}(t)-Y_{n}(t)|\leq
+\frac{M}{C}\frac{(Ct)^{n+1}}{(n+1)!}$ for $0\leq t\leq \alpha$. Again,
+by induciton $|Y_{n+1}(t)-Y_{n}(t)|\leq
+\frac{M}{C}\frac{(Ct)^{n+1}}{(n+1)!}$ for $0\leq t\leq \alpha$. Thus
+$Y_{n}(t)$ converges uniformly on $[0,\alpha]$ to a continuous
+function $Y(t)$ which is seen to satisfy the integral equation.
+\end{proof}
+
+\begin{remark*}
+Let $X:[-\delta,\infty)\to \mathbb{R}^{d}$ be continuous where $\delta>0$. Then
+  a similar proof guarantees that the equation (*) has a solution in
+  $[-\epsilon,\epsilon]$ for some $\epsilon>0$.
+
+Define $B(X)=\sup \{t:(*)$ has a solution in $[0,t]\}$. The theorem
+above implies that $0<B(X)\leq \infty$. $B(X)$ is called the {\em
+  exploding time}.
+\end{remark*}
+
+\begin{remark*}
+If $b$ is, in addition, either bounded or globally Lipschitz,\break
+$B(X)=\infty$ for every continuous $X:[0,\infty)\to \mathbb{R}^{d}$.
+\end{remark*}
+
+\begin{example*}
+Let\pageoriginale $b(y)=y^{2}$, $X(t)=0$. The equation
+$$
+Y(t)=x_{0}+\int\limits^{t}_{0}b(y(s))ds
+$$
+with $x_{0}>0$ has a solution
+$$
+Y(t)=\frac{1}{\frac{1}{x_{0}}-t},\ \forall t<\frac{1}{x_{0}};
+$$
+the solution explodes at $t=x^{-1}_{0}$.
+\end{example*}
+
+\begin{prop*}
+If
+$$
+B(w)<\infty,\q \text{then}\q \Lt\limits_{t\uparrow
+  B(w)}|y(t)|=+\infty.
+$$
+\end{prop*}
+
+\begin{proof}
+Suppose that $\varliminf\limits_{t\to B(w)}|y|=R<\infty$. Let
+$(t_{n})$ be a sequence increasing to $B(w)$ such that $|y(t_{n})|\leq
+R+1$, $\forall n$. Let
+$$
+\tau_{n}=\inf\{t\geq t_{n}:|y(t)-y(-_{n})|\geq 1\}.
+$$
+
+Then
+\begin{align*}
+1 &= |y(\tau_{n})-y(t_{n})|\\
+&\leq w(\tau_{n})-w(t_{n})|+(\tau_{n}-t_{n})\sup
+|b(\lambda)|\ldots,\ (1)\\
+&\qq \lambda\in S(y(t_{n}),1).
+\end{align*}
+
+Since $(t_{n})$ is bounded, we can choose a constant $M$ such that
+$$
+|w(t_{n})-w(t)|<\frac{1}{2}\q\text{if}\q|t-t_{n}|\leq M.
+$$
+
+Then using (1),
+$$
+\tau_{n}-t_{n}\geq \inf\{M,(2\sup|b(\lambda)|)^{-1}\q\text{where}\q
+\lambda\in S(Y(t_{n});1)
+$$
+
+Therefore
+$$
+\tau_{n}-t_{n}\geq \inf (M,(2\sup |b(\lambda)|)^{-1},\lambda\in
+S(0;R+2))=\alpha(\text{say})\forall\ n.
+$$\pageoriginale
+
+Chose $n$ such that $\tau_{n}>B(w)>t_{n}$. Then $y$ is bounded in
+$[t_{n},B(w)]$ and hence it is bounded in $[0,B(w))$. From the
+  equation
+$$
+y(t)=X(t)+\int\limits^{t}_{0}b(y(s))ds
+$$
+one then gets that $\Lt\limits_{t\to B(w)}y(t)$ exists. But this is
+clearly a contradiction since in such a case the solution exists in
+$[0,B(w)+\epsilon)$ for suitable $\epsilon$, contradicting the
+  definition of $B(w)$. Thus
+$$
+\varliminf\limits_{t\to B(w)}|y(t)|=+\infty
+$$
+and hence
+$$
+\lim\limits_{t\to B(w)}|y(t)|=+\infty.
+$$
+\end{proof}
+
+\begin{coro*}
+If $b$ is locally Lipschitz and bounded, then $B(X)=\infty$ for all
+$X$ in $C([0,\infty),\mathbb{R}^{d})$.
+\end{coro*}
+
+\begin{proof}
+Left as an exercise.
+\end{proof}
+
+\begin{prop*}
+Let $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ be locally Lipschitz and
+bounded. Define 
+$T:C([0,\infty),\mathbb{R}^{d})\to C([0,\infty),\mathbb{R}^{d})$ by $TX=Y$ where
+$$
+Y(t)=X(t)+\int\limits^{t}_{0}b(Y(s))ds.
+$$
+
+Then $T$ is continuous.
+\end{prop*}
+
+\begin{proof}
+Let $X$, $X^{*}:[0,\infty)\to \mathbb{R}^{d}$ be continuous, $K>0$ be
+  given. Let $Y_{0},Y_{1},\ldots,Y_{0}^{*},Y^{*}_{1},\ldots$ be the
+  iterations for $X$, $X^{*}$ respectively. Then $|Y_{n}(t)-X(t)|\leq
+  K||b||_{\infty}$ for $0\leq t\leq K$, $n=0,1,2,3,\ldots$, so that we
+  can find $R$ such that $|Y_{n}(t)|$, $Y^{*}_{n}(t)|\leq R$ for
+  $0\leq t\leq k$, $n=0,1,2,\ldots$,\pageoriginale Let $C\geq 1$ be
+  any Lipschitz constant for the function $b$ on $|x|\leq R$. Then
+\begin{align*}
+& |Y_{n}(t)-Y^{*}_{n}(t)|\leq \sup\limits_{0\leq t\leq
+    K}|X(t)-X^{*}(t)|\cdot (1+Ct+\frac{(Ct)^{2}}{2!}+\\
+& +\cdots +\frac{(Ct)^{n}}{n!})\quad\text{for}\quad 0\leq t\leq K,\q
+  n=0,1,2,3,\ldots .
+\end{align*}
+
+A $b$ is bounded, $Y_{n}$ converges uniformly to $Y$ on
+$[0,K]$. Letting $n\to \infty$, we get
+$$
+\sup\limits_{0\leq t\leq K}|(TX)t-TX^{*})t|\leq
+e^{ck}\sup\limits_{0\leq t\leq K}|X(t)-X^{*}(t)|,\ldots(2)
+$$
+where $c$ depends on $\sup\limits_{0\leq t\leq K}|X(t)|$,
+$\sup\limits_{0\leq t\leq K}|X^{*}(t)|$. The proof follows by (2).
+\end{proof}

@@ -1,0 +1,59 @@
+\documentclass[a4paper,twoside,11pt]{article}
+\usepackage[dvips,breaklinks]{hyperref}
+\usepackage{amsthm,mathrsfs,latexsym,amsmath,titlesec,enumerate,graphicx}
+\usepackage{txfonts,xspace}
+\usepackage{fancyhdr}
+\usepackage[all]{xy}
+
+\allowdisplaybreaks
+
+\newcounter{pageoriginal}
+\marginparwidth=15pt
+\marginparsep=10pt
+\marginparpush=5pt
+%\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+\newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
+} 
+\let\pageoriginaled\pageoriginale
+
+\usepackage[papersize={140mm,215mm},textwidth=110mm,
+textheight=170mm,headheight=6mm,headsep=4mm,topmargin=17.5mm,botmargin=1.15cm,
+leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+
+\lhead[\small\em \thepage]{}
+\rhead[]{\small\em \thepage}
+\chead[\small\em \leftmark]{\small\em \rightmark}
+\cfoot[]{}
+
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+\renewcommand\subsubsectionmark[1]{}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{Prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+
+
+\newtheoremstyle{nonum}{}{}{\rm}{}{\bfseries}{.}{ }{#1}
+\theoremstyle{nonum}
+\newtheorem{Proof}{Proof}
+\newtheorem{remark}{Remark}
+\newtheorem{THM}{Theorem}
+
+\def\Int{\mathrm{Int}}
+
+\begin{document}
+%\tableofcontents
+
+\input article
+
+\end{document}

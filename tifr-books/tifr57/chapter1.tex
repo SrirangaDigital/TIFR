@@ -1,0 +1,552 @@
+
+\part{Meromorphic Curves}\label{part1}
+
+\chapter{$G$-Adic Expansion and Approximate Roots}\label{part1:chap1}
+
+\section{Strict Linear Combinations}\label{part1:chap1:sec1}
+
+\begin{notn}\label{part1:chap1:sec1:notn1.1} %%% 1.1
+Let\pageoriginale $e$ be a non-negative integer and let $r=(r_0, r_1,\break
+\ldots , r_e)$ be an $(e+1)$-tuple of integers such that $r_0 \neq
+0$. We define 
+$$
+d_i (r)= g.c.d. (r_0, \ldots , r_{i-1}), \quad 1 \leq i \leq e+1. 
+$$ 
+\end{notn}
+
+Since $r_0 \neq 0$, we have $d_i (r) > 0$ for every $i$. Moreover, it is clear that $d_{i+1} (r)$ divides $d_i (r)$ for $1 \leq i \leq e$. We put $n_i (r) = d_i (r) / d_{i+1} (r)$ for $1 \leq i \leq e$.
+
+\begin{lemma}\label{part1:chap1:sec1:lem1.2} %%% 1.2
+Let $j$, $c$ be integers such that $1\leq j \leq e$ and $0 \leq c < n_j (r)$. If $n_j (r)$ divides $cr_j / d_{j+1} (r)$ then $c=0$.
+\end{lemma}
+
+\begin{proof}
+  Since \gcd $(d_j (r), r_j)= \gcd (r_0, \ldots r_j)= d_{j+1} (r)$, we have \gcd $(n_j (r),  r_j / d_{j+1}(r))=1$. Therefore if $n_j (r)$ divides $cr_j / d_{j+1} (r)$ then $n_j (r)$ divides $c$. Therefore, since $0 \leq c < n_j (r)$, we get $c=0$.
+\end{proof}
+
+\begin{lemma}\label{part1:chap1:sec1:lem1.3} %% 1.3
+  Let $j$, $c$ be integers $1 \leq j \leq e$ and let $c = \displaystyle{\sum^j_{i=0}} c_i r_i$ with $c_i \in \mathbb{Z}$ for $0 \leq i \leq j$. Assume that $0 < c_j < n_j (r)$. Let
+$$
+j' = \inf \Big\{ i \Big| 1 \leq i \leq e+1, d_i (r) ~\text{divides}~ c\Big\}.
+$$
+\end{lemma}
+
+Then $j' = j+1$. In particular, $d_1 (r)$ does not divides $c$ and $c \neq 0$.
+
+\begin{proof}
+  Since $d_{j+1}(r)$ divides $r_i$ for $0 \leq i \leq j$, it is clear that $d_{j+1} (r)$ divides $c$. Therefore $j' \leq j +1$. Next, since $0 < c_j < n_j (r)$, we see by lemma \ref{part1:chap1:sec1:lem1.2} that $n_j (r)$ does not divide $c_j r_j/ d_{j+1} (r)$. Therefore $d_j (r)$ does not divide $c_j r_j$. Since $d_j (r)$ divides $\displaystyle{\sum^{j-1}_{i=0}}c_i r_i$, we conclude that $d_j (r)$ does not divide $c$. This proves that $j' \geq j + 1$.
+\end{proof}
+
+\begin{defi}\label{part1:chap1:sec1:def1.4}
+  Let\pageoriginale $\Gamma$ be a subsemigroup of $\mathbb{Z}$. By a $\Gamma$- \textit{strict linear combination} $a$ of $r$ we mean an expression of the form
+$$
+  a = \sum_{i=0}^e a_i r_i
+$$ 
+with $a_0 \in \Gamma$ and $a_i \in \mathbb{Z}$, $0 \leq a_i < n_i (r)$ for $1 \leq i \leq e$. If $\Gamma = \mathbb{Z}^+$ then we call a $\Gamma$-strict linear combination of $r$ simply a \textit{strict linear combination} of $r$.
+\end{defi}
+
+\begin{prop} \label{part1:chap1:sec1:prop1.5}
+  Let $\Gamma$ be a subsemigroup of $\mathbb{Z}$ and let 
+  $$
+  a = \sum^e_{i=0} a_i r_i, \quad b= \sum_{i=0}^e b_i r_i
+  $$
+  be $\Gamma$- strict linear combinations of $r$. If $a=b$ then $a_i = b_i$ for every $i$, $o \leq i \leq e$.
+\end{prop}
+
+\begin{proof}
+  If the assertion is false then there exists an integer $j, 0 \leq j \leq e$, such that $a_j \neq b_j$ and $a_i = b_i$ for $j+1 \leq i \leq e$. We may assume without loss of generality that $a_j > b_j$. Writing $c=a-b$ and $c_i = a_i - b_i$ for every $i$, we get
+  $$
+  c= \sum^j_{i=0} c_i r_i, \quad c_j > 0.
+  $$
+
+Since $c=0$ and $r_0 \neq 0$, we have $j \geq 1$. Therefore we have $0 \leq a_j < n_j (r)$ and $0 \leq b_j < n_j (r)$, which shows that $0 < c_j < n_j (r)$, since $c_j > 0$. Therefore $c \neq 0$ by Lemma \ref{part1:chap1:sec1:lem1.3}. This is a contradiction.
+\end{proof}
+
+\begin{coro}\label{part1:chap1:sec1:coro1.6}
+  If an integer a can be expressed as $a$ $\Gamma$- strict linear combination of $r$ then such an expression of $a$ is unique.
+\end{coro}
+ 
+\begin{defi}\label{part1:chap1:sec1:def1.7}
+  Let $\Gamma, G$ be subsemigroups of $\mathbb{Z}$. We say $G$ is \textit{strictly generated} (\resp $\Gamma$- \textit{strictly generated}) by $r$ if $G$ coincides with the set of all strict (\resp $\Gamma$- strict) linear combinations of $r$.
+\end{defi}
+
+\begin{prop}\label{part1:chap1:sec1:prop1.8}
+  Assume\pageoriginale that $e \geq 1$ and $r_i \leq 0$ for $i=0,1$. If $- d_2 (r)$ can be expressed as a strict linear combination of $r$ then $r_0$ divides $r_1$ or $r_1$ divides $r_0$.
+\end{prop}
+
+\begin{proof}
+  Let $d_i = d_i (r)$, $1 \leq i \leq e+1$. Suppose $- d_2$ is a strict linear combination of $r$. Then
+  $$
+  - d_2 = \sum_{i=0}^e c_i r_i
+  $$
+  with $c_0 \in \mathbb{Z}^+$, $c_i \in \mathbb{Z}$, $0 \leq c_i < n_i (r)$ for $1 \leq i \leq e$. Since $- d_2 \neq 0$, there exists $i$, $0 \leq i \leq e$, such that $c_i \neq 0$. Let
+$$
+j = \sum\Big\{ i \Big| 0 \leq i \leq e, \quad c_i \neq 0\Big\}.
+$$
+\end{proof}
+
+Then we have
+$$
+-d_2 = \sum_{i=0}^j c_i r_i, \quad c_j \neq 0.
+$$
+
+Note that, since $r_0 \neq 0$, we have $r_0 < 0$ by assumption. Now, if $j=0$ then $- d_2 = c_0 r_0$, so that $r_0$ divides $d_2$. Therefore in this case $r_0$ divides $r_1$. Assume now that $j \geq 1$. Then $0 < c_j < n_j (r)$. Since $d_2$ divides $- d_2$, it follows from Lemma \ref{part1:chap1:sec1:lem1.3} that $j \leq 1$. Therefore $j=1$ and we have
+\begin{equation*}
+  -d_2 = c_0 r_0 + c_1 r_1 \tag{1.8.1}\label{part1:chap1:sec1:eq1.8.1}
+\end{equation*}
+with $c_0 \in \mathbb{Z}^+$, $c_1 \in \mathbb{Z}$ and $0 < c_1 < n_1 (r)$. The last inequalities mean, in particular, that $d_1/d_2 = n_1 (r) > 1$, so that
+$$
+-r_0= d_1 > d_2 = \text{\gcd} (r_0 , r_1).
+$$
+
+This shows that $r_1 \neq 0$, so that by assumption $r_1 < 0$. Therefore, since $d_2$ divides $r_1$, we get
+$$
+-d_2 \geq r_1 \geq c_1 r_1 \geq c_0 r_0 + c_1 r_1 =- d_2.
+$$
+
+This\pageoriginale gives $-d_2 = c_1 r_1$, so that $r_1$ divides $d_2$. Therefore $r_1$ divides $r_0$.
+
+\begin{prop}\label{part1:chap1:sec1:prop1.9}
+  Let $p$ be a positive integer and let $(u_1, \ldots , u_p)$ be a $p$-tuple of positive integers such that $u_i$ divides $u_{i+1}$ for $1 \le i \leq p -1$. Let $a_1, \ldots , a_p$, $b_1 , \ldots , b_p$ be non-negative integers such that
+\begin{equation*}
+  a_i < u_{i+1} /u_i ~\text{and}~ b_i < u_{i+1} / u_i ~\text{for}~ 1\leq i \leq p-1. \tag{1.9.1}\label{part1:chap1:sec1:eq1.9.1}
+\end{equation*}
+
+If 
+\begin{equation*}
+  \sum^p_{i=1} a_i u_i = \sum^p_{i=1} b_i u_i\tag{1.9.2}\label{part1:chap1:sec1:eq1.9.2}
+\end{equation*}
+then $a_i = b_i$ for every $i$, $1 \leq i \leq p$.
+\end{prop}
+
+\begin{proof}
+  Let $e = p-1$ and let $r= (r_0 , \ldots , r_e)$, where $r_1 = u_{e+1-i}$ for $0 \leq i \leq e$. Then $d_r (r)= u_{e+2 -i}$ for $1 \leq i \leq e+1$. Therefore $n_i (r)= u_{e+2-i} / u_{e+1-i}$ for $1 \leq i \leq e$. Let $a'_i = a_{e+1-i}, b'_i = b_{e+1-i}$ for $0 \leq i \leq e$. Then the equality (\ref{part1:chap1:sec1:eq1.9.2}) takes the form
+$$
+\sum^e_{i=0} a'_i r_i = \sum^e_{i=0} b'_1 r_i
+$$
+and conditions (\ref{part1:chap1:sec1:eq1.9.1}) take the form
+$$
+a'_i < n_i (r) ~and ~ b'_i < n_i (r)
+$$
+for $1 \leq i \leq e$. Moreover, we have $a'_0 \in \mathbb{Z}^+$ and $b'_0 \in \mathbb{Z}^+$. Now the assertion follows from Proposition \ref{part1:chap1:sec1:prop1.5} by taking $\Gamma = \mathbb{Z}^+$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% djvu 5
+\section{$G$-Adic Expansion of a Polynomial} \label{part1:chap1:sec2}
+
+\subsection{}\label{part1:chap1:sec2:ss2.1}
+Let\pageoriginale $R$ be a ring (commutative, with unity) and let $R[Y]$ be the poly nomial ring in one variable $Y$ over $R$. For $F \in R [Y]$, we write $\deg F$ for its $Y$-degree. We use the convention that $\deg 0 =- \infty$.
+
+\subsection{}\label{part1:chap1:sec2:ss2.2}
+
+Let $p$ be a positive integer and let $G= (G_1 , \ldots , G_p)$ be a $p$-tuple of elements of $R[Y]$ such that the following three conditions are satisfied:
+\begin{enumerate}[(i)]
+\item $G_i$ is monic in $Y$ and $\deg G_i > 0$ for every $i$, $1 \leq i \leq p$.
+  \item $\deg G_i$ divides $\deg G_{i+1}$ for every $i$, $1 \leq i \leq p-1$.
+    \item $\deg G_1 =1$.
+\end{enumerate}
+
+We put $u_i (G)=\deg(G_i)$ for $1 \leq i \leq p$, and $u_{p+1}(G)=\infty$. We then define $n_i (G)= u_{i+1}(G)/ u_i (G)$ for $1 \leq i \leq p$. Note that $n_p (G)=\infty$ and $n_i (G)$ is a positive integer for $1\leq i \leq p-1$. Let
+$$
+A (G)= \left\{ a= (a_1 , \ldots , a_p) \in \mathbb{Z}^p \Big| 0 \leq a_i < n_i (G) ~\text{for}~ 1 \leq i \leq p \right\}.
+$$
+For $a \in A(G)$, we put $G^a= G^{a_1}_{1}\cdots G_{p}^{a_p}$.
+
+\setcounter{thm}{2}
+\begin{defi}\label{part1:chap1:sec2:def2.3}
+An element $F \in R [Y]$ is called a strict polynomial in $G$ if $F$ has an expression of the form 
+$$
+F = \sum_{a \in A(G)} F_a G^a
+$$
+with $F_a \in R$ for every a and $G_a =0$ for almost all $a$. We write $R [G^A]$ for the set of strict polynomials in $G$. Note that $R[G^A]$ is the $R$-submodule of $R[Y]$ generated by the set $G^A= \left\{ G^a \Big| a \in A (G) \right\}$.
+\end{defi}
+
+\begin{lemma}\label{part1:chap1:sec2:lem2.4}
+  Let $a$, $b \in A (G)$. If $a \neq b$ then $\deg G^a \neq \deg G^b$.
+\end{lemma}
+
+\begin{proof}
+  This is immediate from Proposition \ref{part1:chap1:sec1:prop1.9}. For, by taking $u_i = u_i (G)$, $1 \leq i \leq p$, we have
+$$
+\deg G^a = \sum^p _{i=1} a_i u_i, \deg G^b = \sum^p_{i=1} b_i u_i.
+$$
+\end{proof}
+
+\begin{coro}\label{part1:chap1:sec2:coro2.5}
+  Let\pageoriginale 
+  $$
+  F = \sum_{a \in A (G)} F_a G^a
+  $$
+  be a strict polynomial in $G$. Then
+  $$
+  \deg F = \sup\limits_{a \in a (G)} \deg (F_a G^a).
+  $$
+\end{coro}
+
+In particular, if $G=0$ then $F_a =0$ for all $a \in A (G)$.
+
+\begin{coro}\label{part1:chap1:sec2:coro2.6}
+  $R[G^A]$ is a free $R$-module with $G^A$ as a free basis.
+\end{coro}
+
+\begin{defi}\label{part1:chap1:sec2:def2.7}
+  Let $F \in R [G^A]$. The expression
+  $$
+  F = \sum_{a \in A (G)} F_a G^a,
+  $$
+  which is unique by Corollary \ref{part1:chap1:sec2:coro2.6}, is called the $G$-adic expansion of $F$. 
+\end{defi}
+
+\begin{defi}\label{part1:chap1:sec2:def2.8}
+  For $F \in R [G^A]$, we define
+  $$
+  \Supp_G (F) = \left\{ a \in A (G) \Big| F_a \neq 0\right\}.
+  $$
+\end{defi}
+
+\begin{coro}\label{part1:chap1:sec2:coro2.9}
+  Let $F$ be a non-zero element of $R [G^A]$. Then 
+  $$
+  \deg F = \sup\limits_{a \in \Supp_G (F)} \deg G^a.
+  $$
+  More precisely, there exists a unique element $a \in \Supp_G (F)$ such that 
+  $$
+  \deg F = \deg G^a > \deg G^b
+  $$
+for every $b in \Supp_G (F)$, $b \neq a$.
+\end{coro}
+
+\begin{proof}
+  Immediate from Lemma \ref{part1:chap1:sec2:lem2.4}.
+\end{proof}
+
+\begin{lemma}\label{part1:chap1:sec2:lem2.10}
+  Let\pageoriginale $e$ be an integer, $1 \leq e \leq p$, and let $a_1 , \ldots , a_e$ be non-negative integers such that $a_i < n_i (G)$ for $1 \leq i \leq e$. Then $\displaystyle{\sum^e_{i=1}} a_i u_i (G)< u_{e+1} (G)$.
+\end{lemma}
+
+\begin{proof}
+  We use induction on $e$. If $e=1$ then $a_1 < n_1 (G)$ implies that $a_1 u_1 (G) < n_1 (G) u_1 (G) = u_2(G)$. Now, suppose $e\geq 2$. By induction hypothesis, we have $\displaystyle{\sum^{e-1}_{i=1}} a_i u_i (G) < u_e (G)$. Therefore
+\begin{align*}
+  \sum^e_{i=1} a_i u_i (G) & < u_e (G) + a_e u_e (G)\\
+  & = (1+ a_e) u_e (G)\\
+  & = n_e (G) u_e (G) \quad (\text{since}~ a_e < n_e (G))\\
+  &= u_{e+1} (G).
+\end{align*}
+\end{proof}
+
+\begin{lemma} \label{part1:chap1:sec2:lem2.11}
+  Let $e$ be an integer, $1 \leq e \leq p$. Let $a= (a_1 , \ldots , a_p)$ be an element of $A(G)$ such that $a_e \neq 0$ and $a_i =0$ for $e+1 \leq i \leq p$. Then $u_e (G) \leq \deg G^a< u_{e+1}(G)$.
+\end{lemma}
+
+\begin{proof}
+  we have $\deg G^a= \sum^p _{i=1}a_i u_i (G)= \sum^e_{i=1} a_i u_i (G)$. Therefore, since $a_e > 0$ and $a_i \geq 0$ for all $i$, we get $i_e (G) \leq \deg G^a$. The inequality $\deg G^a < u_{e+1} (G)$ follows from Lemma \ref{part1:chap1:sec2:lem2.10}.
+\end{proof}
+
+\begin{lemma}\label{part1:chap1:sec2:lem2.12}
+  Let $F$ be an element of $R[G^A]$ such that $F \notin R$. Let 
+  $$
+e= \sup \left\{ i \Big| 1 \leq i \leq p, \exists \; a \in \Supp_G (F) ~\text{with}~ a_i \neq 0\right\}.
+$$
+\end{lemma}
+
+Then $u_e (G) \leq \deg F< u_{e+1} (G)$.
+
+\begin{proof}
+  By Corollary \ref{part1:chap1:sec2:coro2.9} there exists $a \in \Supp_G (F)$ such that
+  \begin{equation*}
+    \deg F \deg G^a \geq G^b \tag{2.12.1}\label{part1:chap1:sec2:eq2.12.1}
+  \end{equation*}
+  for every $b \in \Supp_G (F)$. Since $F \notin R$, we have $a \neq 0$. For $b \in \Supp_G (F)$, $b \neq 0$, let
+$$
+e_b = \sup \left\{ i \Big| 1 \leq i \leq p, b_i\neq 0\right\}.
+$$
+\end{proof}
+
+Then\pageoriginale Lemma \ref{part1:chap1:sec2:lem2.11} 
+$u_{e_b} (G) \leq \deg G^b < u_{e_b}+ (G)$. Therefore it follows from (\ref{part1:chap1:sec2:eq2.12.1}) that we have
+\begin{equation*}
+  u_{e_a} (G) \leq \deg F < u_{e_{a}+1} (G) \tag{2.12.2}\label{part1:chap1:sec2:eq2.12.2}
+\end{equation*}
+and that $u_{e_b} (G) u_{e_a+1}(G)$ for every $b \in \Supp_G (F)$, $b \neq 0$. This last inequality shows that $e_b \leq e_a$, so that we get
+$$
+e \sup \left\{ e_b \Big| b \in \Supp_G (F), b \neq 0 \right\} = e_a.
+$$
+
+Now the lemma follows from (\ref{part1:chap1:sec2:eq2.12.2}).
+
+\begin{thm}\label{part1:chap1:sec2:thm2.13}
+  $R[G^A]= R[Y]$.
+\end{thm}
+
+\begin{proof}
+  We have to show that every element $F$ of $R[Y]$ belongs to $R[G^A]$. We do this by induction on $\deg F$. The assertion being clear for $\deg F \leq 0$, let us assume that $\deg F \geq 1$. Since $u_1 (G)=1$ and $u_{p+1}(G)= \infty$, there exists a unique integer $e$, $1 \leq e\leq p$, such that
+\begin{equation*}
+u_e (G) \leq \deg F < u_{e+1} (G).\label{part1:chap1:sec2:eq2.13.1}
+\end{equation*}
+\end{proof}
+
+Then there exists a unique positive integer $b_e$ such that 
+\begin{equation*}
+  b_e u_e (G) \leq \deg F < (b_e +1) u_e (G).\tag{2.13.2} \label{part1:chap1:sec2:eq2.13.2}
+\end{equation*}
+
+If follows from (\ref{part1:chap1:sec2:eq2.13.1}) that we have
+\eqn{b_e < n_e (G)\tag{2.13.3}\label{part1:chap1:sec2:eq2.13.3}}
+
+Since $G_e$ and hence $G_{e}^{b_e}$ is monic, there exist $Q$, $P \in R [Y]$ such that 
+\eqn{F = Q G_e^{b_e}+ P \tag{2.13.4} \label{part1:chap1:sec2:eq2.13.4}}
+and\pageoriginale
+\eqn{\deg P < \deg G_e^{b_e} = b_e u_e (G) \leq \deg F.\tag{2.13.5}\label{part1:chap1:sec2:eq2.13.5}}
+
+By induction hypothesis, $P \in R [G^A]$. Therefore it is enough to prove that $Q G^{b_e}_e \in R [G^A]$. From (\ref{part1:chap1:sec2:eq2.13.4}) and (\ref{part1:chap1:sec2:eq2.13.5}) we see that $\deg F = \deg (Q G_e^{b_e})$, which shows that we have
+\eqn{\deg Q = \deg F - b_e u_e (G) < \deg F. \tag{2.13.6}\label{part1:chap1:sec2:eq2.13.6}}
+
+Therefore, by induction hypothesis, $Q \in R [G^A]$. Writing
+\eqn{Q= \sum_{a \in A(G)} Q_a G^a, \quad Q_a \in R,}
+we get 
+\eqn{Q G_e^{b_e} = \sum_{a \in A (G)} Q_a G^a G_e^{b_e}.}
+
+It is therefore enough to show that
+\eqn{a+ (0, \ldots , b_e , \ldots , 0) \in A (G)}
+for every $a \in \Supp_G (Q)$. Since $b_e < u_e (G)$ by (\ref{part1:chap1:sec2:eq2.13.3}), it is enough to prove that $a_e=0$ for every $a \in \Supp_G (Q)$. This last assertion is clear if $Q \in R$. Assume therefore that $Q \notin R$. Then, since
+\begin{align*}
+  \deg Q & = \deg F - b_e u_e (G)  & (\text{by (\ref{part1:chap1:sec2:eq2.13.6})})\\
+  &< u_e (G)  & (\text{by (\ref{part1:chap1:sec2:eq2.13.2})}),
+\end{align*}
+we see by Lemma \ref{part1:chap1:sec2:lem2.12} that $a_e =0$ for every $a \in \Supp_G (Q)$. This completes the proof of the theorem.
+
+\begin{coro}\label{part1:chap1:sec2:coro2.14}
+Every element of $R[Y]$ has a unique $G$-adic expansion.
+\end{coro}
+
+\begin{proof}
+  Clear\pageoriginale from Theorem \ref{part1:chap1:sec2:thm2.13} and Corollary \ref{part1:chap1:sec2:coro2.6}
+\end{proof}
+
+\section{Tschirnhausen Operator}\label{part1:chap1:sec3}
+
+We preserve the notation of \ref{part1:chap1:sec2:ss2.1}
+
+\subsection{}
+
+Let $g \in R [Y]$ be a monic polynomial of positive degree. Let $G_1 = Y$, $G_2 =g$. Then the conditions (i) - (iii) of \ref{part1:chap1:sec2:ss2.2} are satisfied by $G= (G_1 , G_2)$ with $p=2$, and we note that we have $n_1 (G) =\deg g$, $n_2 (G)= \infty$ and 
+\eqn{A(G) = \left\{ a = (a_1 , a_2) \in \mathbb{Z}^+ \times \mathbb{Z}^+ \Big| < \deg g \right\}.}
+
+By Corollary \ref{part1:chap1:sec2:coro2.14} every element of $R[Y]$ has a unique $G = (Y, g)-$ adic expansion. Let $f \in R [Y]$ and let
+\eqn{f= \sum_{a \in A(G)} f_a Y^{a_1} g^{a_2}\tag{3.1.1} \label{part1:chap1:sec3:eq3.1.1}}
+be its $G$-adic expansion. For $i \in \mathbb{Z}^+$, let
+\eqn{C_f^{(i)} (g)= \sum_{\substack{a \in A (G)\\ a_2 = i}} f_a Y^{a_1}}
+
+Then we can rewrite (\ref{part1:chap1:sec3:eq3.1.1}) in the form
+\eqn{f = \sum_{i=0}^\infty C_f^{(i)} (g)g^i \tag{3.1.2}\label{part1:chap1:sec3:eq3.1.2}}
+with $C_f^{(i)}(g) \in R[Y]$, $\deg C_f^{(i)} (g)< \deg g$ and $C_f^{(i)}(g)=0$ for almost all $i$. The expression (\ref{part1:chap1:sec3:eq3.1.2}) is called the $g$-adic expansion of $f$. It follows from Corollary \ref{part1:chap1:sec2:coro2.14} that every element $f$ of $R[Y]$ has a unique $g$-adic expansion. In particular, if $f = \displaystyle{\sum^\infty_{i=0}} C_i g^i$ with $C_i \in R[Y]$, $\deg C_i < \deg g$ and $C_i=0$ for almost all $i$, then $C_i = C_f^{(i)} (g)$ for every $i$ and $f = \displaystyle{\sum^\infty_{i=0}} C_i g^i$ is the $g$-adic expansion of $f$. 
+ 
+\setcounter{thm}{1}
+\begin{lemma}\label{part1:chap1:sec3:lem3.2}
+  Let\pageoriginale $f \in R [Y]$. Suppose $f= \displaystyle{\sum^e_{i=0}} C_i g^i$, where $e$ is a nonnegative integer, $C_i \in R[Y]$ with $\deg C_i < \deg g$ for $0 \leq i \leq e$, and $C_e \neq 0$. Then $\deg f = e \deg g + \deg C_e$. In particular, we have
+\eqn{e \deg g \leq \deg f < (e+1) \deg g.}
+\end{lemma}
+
+\begin{proof}
+  For every $i$, $0 \leq i \leq e-1$, we have
+  \begin{align*}
+    \deg (C_i g^i) & = i \deg g + \deg C_i\\
+    & \leq (e-1) \deg g + \deg C_i\\
+    & < e \deg g\qquad (\text{since}~ \deg C_i < \deg g)\\
+    & \leq e \deg g + \deg C_e \qquad (\text{since}~ C_e \neq 0)\\
+    & = \deg (C_e g^e).
+  \end{align*}
+  This shows that $\deg f =e \deg g + \deg C_e$. The asserted inequalities now follow from the fact that $0 \leq \deg C_e < \deg g$.
+\end{proof}
+
+\begin{coro}\label{part1:chap1:sec3:coro3.3}
+  Let $f$ be an element of $R[Y]$ such that $f$ is monic and $\deg f = d \deg g$ for some non-negative integer $d$. Then
+\eqn{f = g^d + \sum^{d-1}_{i=0} C_i ^{(i)} (g) g^i.}
+\end{coro}
+
+\begin{proof}
+  Since $\deg f= d \deg g$, Lemma \ref{part1:chap1:sec3:lem3.2} shows that
+  \eqn{f = \sum^d_{i=0} C_f ^{(i)} (g) g^i}
+with $\deg C_f^{(d)}(g)=0$. This means that $C= C_f^{(d)} (g) \in R$. By Lemma \ref{part1:chap1:sec3:lem3.2} again, we have
+\eqn{\deg (f- C_g^d) = \deg \left( \sum^{d-1}_{i=0} C_f^{(i)} (g) g^i \right) < d \deg g.\tag{3.3.1} \label{part1:chap1:sec3:eq3.3.1}}
+
+Since\pageoriginale $\deg (C g^d) =d \deg g = \deg f$ and since both $f$ and $g$ are monic, it follows from (\ref{part1:chap1:sec3:eq3.3.1}) that $C=1$.
+\end{proof}
+
+\begin{defi}\label{part1:chap1:sec3:def3.4}
+  Let $d$ be a positive integer. Let $g \in R[Y]$ be a monic polynomial of positive degree and let $f \in R [Y]$ be a monic polynomial of degree $d \deg g$. Then we have
+\eqn{f= g^d + \sum_{i=0}^{d-1} C_f^{(i)} (g) g^i \tag{3.4.1}\label{part1:chap1:sec3:eq3.4.1}}
+by Corollary \ref{part1:chap1:sec3:coro3.3}. We call $C_f^{(d-1)}(g)$ the \textit{Tschirnhausen coefficient} in the  $g$-adic expansion of $f$ and denote it simply by $C_f (g)$. {\em If} $d$ {\em is a unit in} $R$ then the {\em Tschirnhausen transform} of $g$ with respect to $f$, denoted $\tau_f (g)$, is defined to be 
+\eqn{\tau_f (g) = g + d^{-1} C_f (g).}
+\end{defi}
+
+We call $\tau_f$ the {\em Tschirnhausen operator} with respect to $f$. Note that $\deg C_f (g) < \deg g$ and $\tau_f (g) \in R [Y]$ is monic with $\deg \tau_f (g)= \deg g$.
+
+{\em In \ref{part1:chap1:sec3:lem3.5} to \ref{part1:chap1:sec3:coro3.7} below, we preserve the notation of \ref{part1:chap1:sec3:def3.4}. We assume, moreover, that $d$ is a unit in $R$.}
+
+\begin{lemma}\label{part1:chap1:sec3:lem3.5}
+If $C_f (g) \neq 0$ then
+$$
+\deg C_f (g) = \deg (f- g^d)- (d-1) \deg g.
+$$
+\end{lemma}
+
+\begin{proof}
+  By \ref{part1:chap1:sec3:eq3.4.1} we have
+$$
+f- g^d = \sum^{d-1}_{i=0} C_f^{(i)} (g) g^i.
+$$
+Since $\deg C_f^{(i)}(g) < \deg g$ for every $i$, the above expression is the $g$-adic expansion of $f- g^d$. Therefore, since $C_f^{(d-1)} (g) = C_f (g) \neq 0$, we see by Lemma \ref{part1:chap1:sec3:lem3.2} that
+$$
+\deg (f- g^d) = (d-1) \deg g + \deg C_f (g).
+$$
+\end{proof}
+
+
+\begin{prop}\label{part1:chap1:sec3:prop3.6}
+~
+\begin{enumerate}[(i)]
+\item If\pageoriginale $C_f (g)=0$ then $C_f (\tau_f (g))=0$.
+\item If $C_f (g) \neq 0$ then $\deg C_f (\tau_f (g)) < \deg C_f (g)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+ ~
+\begin{enumerate}[(i)]
+\item is clear, since $\tau_f (g) = g$ if $C_f (g) =0$.
+\item Let $h= \tau_f (g) = g + d^{-1} C_f (g)$. Then we have
+\eqn{h^d = g^d + C_f (g) g^{d-1}+ k, \tag{3.6.1} \label{part1:chap1:sec3:eq3.6.1}}
+where 
+$$
+k= \sum^d_{i=2} \binom{d}{i} d^{-i} C_f (g)^{i} g^{d-i}.
+$$
+\end{enumerate}
+\end{proof}
+
+Let $c= \deg C_f (g)$. Then $0 \leq c < \deg g$. Therefore we have
+$$
+\deg k \leq 2 c + (d-2) \deg g < c + (d-1) \deg g.
+$$
+
+Now, from (\ref{part1:chap1:sec3:eq3.6.1}) we get
+\begin{align*}
+  f- h^d & = f- g^d - C_f (g) g^{d-1}-k\\
+  & = \sum^{d-2}_{i=0} C_f ^{(i)} (g) g^i -k \qquad (\text{by (\ref{part1:chap1:sec3:eq3.4.1})}).
+\end{align*}
+
+Since
+$$
+\deg \left(\sum^{d-2}_{i=0}  C_f ^{(i)} (g) g^i) < (d-1) \deg g \leq c + (d-1) \deg g\right)
+$$
+by Lemma \ref{part1:chap1:sec3:lem3.2} and since $\deg k < c + (d-1) \deg g$, we get
+$$
+\deg (f- h^d) < (d-1) \deg h+c.
+$$
+
+Therefore if $C_f (h) \neq 0$ then $\deg C_f (h) < c$ by Lemma \ref{part1:chap1:sec3:lem3.5}. If $C_f(h) =0$ then $\deg C_f (h) =- \infty < c$.\pageoriginale
+
+\begin{coro}\label{part1:chap1:sec3:coro3.7}
+$C_f ((\tau_f)^j (g)) = 0$ for all $j \geq \deg g$.
+\end{coro}
+
+\begin{proof}
+  This is clear from Proposition \ref{part1:chap1:sec3:prop3.6}, since $\deg C_f (g) < \deg (g)$.
+\end{proof}
+
+\section{Approximate Roots}\label{part1:chap1:sec4}
+
+\subsection{}\label{part1:chap1:sec4:ss4.1}
+
+Let $R$ be a ring (commutative, with unity) and let $R[y]$ be the polynomial ring in one variable $Y$ over $R$.
+
+\setcounter{thm}{1}
+\begin{prop}\label{part1:chap1:sec4:prop4.2}
+  Let $n, d$ be positive integers such that $d$ divides $n$. Let $f \in R [Y]$ be a monic polynomial of degree $n$. Let $g \in R[Y]$ be a monic polynomial. Then the following two conditions are equivalent:
+\begin{enumerate}[(i)]
+\item $\deg (f- g^d) < n - (n/d)$.
+\item $\deg g = n/d$ and $C_f (g)=0$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  (i) $\Rightarrow$ (ii). Since $g$ is monic, it is clear from (i) that $\deg g = n/d$. Therefore we get $\deg (f-g^d)< (d-1) \deg g$. this shows (by Lemma \ref{part1:chap1:sec3:lem3.2}) that the $g$-adic expansion of $f- g^d$ has the form
+$$
+f- g^d = \sum^{d-2}_{i=0} C_{f-g^d}^{(i)}(g) g^i.
+$$
+\end{proof}
+
+It follows that
+$$
+f = g^d + \sum^{d-2}_{i=0} C^{(i)}_{f- g^d} (g) g^i
+$$
+is the $g$-adic expansion of $f$ and $C_f(g) = C_f^{(d-1)} (g) =0$.
+
+(ii) $\Rightarrow$ (i). Since $\deg g = n/d$, we have $\deg f = d \deg g$. Therefore, since $C_f (g)=0$, we get
+$$
+f= g^d + \sum^{d-2}_{i=0} C_f^{(i)} (g) g^i
+$$
+by\pageoriginale Corollary \ref{part1:chap1:sec3:coro3.3}. Therefore
+\begin{align*}
+  \deg (f- g^d) & = \deg \left( \sum^{d-2}_{i=0} C_f ^{(i)} (g) g^i\right) &\\
+  & < (d-1) \deg g & (\text{by Lemma \ref{part1:chap1:sec3:lem3.2}})\\
+  & = n- (n/d).
+\end{align*}
+
+\begin{defi}\label{part1:chap1:sec4:def4.3}
+  Let $f \in R[Y]$ be a monic polynomial of positive degree $n$. Let $d$ be a positive integer such that $d$ divides $n$. An element $g$ of $R[Y]$ is called an {\em approximate $d$th root of $f$(with respect to $Y$)} if $g$ is monic and satisfies the equivalent conditions (i) and (ii) of Proposition \ref{part1:chap1:sec4:prop4.2}.
+\end{defi}
+
+\begin{thm}\label{part1:chap1:sec4:thm4.4}
+  Let $f \in R [Y]$ be a monic polynomial of positive degree $n$. Let $d$ be a positive integer such that $d$ divides $n$. Assume that $d$ is a unit in $R$. Then there exists a unique approximate $d$th root of $f$ with respect to $Y$.
+\end{thm}
+
+\begin{proof}
+  Let $g= (\tau_f)^{n/d}(Y^{n/d})$. Then $g$ is monic of degree $n/d$ and $C_f (g)=0$ by Corollary \ref{part1:chap1:sec3:coro3.7}. This proves the existence of an approximate $d$th root of $f$ with respect to $Y$.
+\end{proof}
+
+Now, suppose $g_1$, $g_2$ are approximate $d$th roots of $f$ with respect to $Y$. Then
+$$
+\deg (f- g_1^d) < n- (n/d) ~\text{and}~ \deg (f- g_2^d) < n- (n/d).
+$$
+
+Therefore
+\eqn{\deg (g_1^d - g_2^d) < n- (n/d).\tag{4.4.1} \label{part1:chap1:sec4:eq4.4.1}}
+
+Now, we have
+\eqn{g_1^d- g_2^d = (g_1- g_2) \sum_{i+ j=d-1} g_1^i g^j_2. \tag{4.4.2} \label{part1:chap1:sec4:eq4.4.2}}
+
+Since both $g_1$ and $g_2$ are monic of $\deg n/d$, $g_1^i g^j_2$ is monic of degree $(d-1)(n/d)$\pageoriginale for $i+j=d-1$. Therefore $d^{-1} \sum_{i + j= d-1} g_1^i g_2^i$ is monic with 
+\eqn{\deg \left( d^{-1} \sum_{i + j = d-1} g^i_1 g_2^j \right) = (d-1) (n/d) = n- (n/d).\tag{4.4.3} \label{part1:chap1:sec4:eq4.4.3}}
+
+It follows from \ref{part1:chap1:sec4:eq4.4.1}, \ref{part1:chap1:sec4:eq4.4.2} and \ref{part1:chap1:sec4:eq4.4.3} that $g_1-g_2=0$.
+
+\begin{notn}\label{part1:chap1:sec4:notn4.5}
+  We denote the approximate $d$th root of $f$ with respect to $Y$ by $App^d_Y (f)$.
+\end{notn}
+
+\begin{coro}\label{part1:chap1:sec4:coro4.6}
+  Let $f\in R [Y]$ be a monic polynomial of positive degree $n$. Let $d$ be a positive integer such that $d$ divides $n$. Assume that $d$ is a unit in $R$. Let $g \in R [Y]$ be any monic polynomial of degree $n/d$. Then
+$$
+(\tau_f)^j (g) = App^d_{Y}(f)
+$$
+for all $j \geq n/d$.
+\end{coro}
+
+\begin{proof}
+  Immediate from Corollary \ref{part1:chap1:sec3:coro3.7}.
+\end{proof}
+
+Let $S$ be a ring (commutative, with unity) and let $\sigma : R \to S$ be a (unitary) ring homomorphism. Denote again by $\sigma$ on $R$. Let $f \in R [Y]$ be a monic polynomial of positive degree $n$. Then $\sigma (f) \in S [Y]$ is also a monic polynomial of degree $n$. Let $d$ be a positive integer such that $d$ divides $n$. Assume that $d$ is a unit in $R$. Then $d$ is also a unit in $S$, and we have
+
+\begin{prop}\label{part1:chap1:sec4:prop4.7}
+  $App_Y^d (\sigma (f))= \sigma (App_Y^d(f))$.
+\end{prop}
+
+\begin{proof}
+  Put $g = App_Y^d (f)$. Then $\sigma (g)$ is monic of degree $n/d$. Moreover, we have $\sigma(f) - (\sigma (g))^d= \sigma(f- g^d)$. Therefore
+$$
+\deg (\sigma (f)- (\sigma (g))^d) < n- (n/d).
+$$
+This shows that $\sigma (g) = App_Y^d (\sigma (f))$.
+\end{proof}

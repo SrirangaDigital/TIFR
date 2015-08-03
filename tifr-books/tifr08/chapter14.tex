@@ -1,0 +1,260 @@
+\chapter{Lecture 14}\label{chap14}%Lect 14
+
+\section{G\r{a}rding's inequality}\label{chap14:sec1}
+
+For\pageoriginale the proof of the Friedrichs - Lax - Nirenberg theorem, we need 
+
+\noindent \textbf{G\r{a}rding's inequality}
+Let $R_1$ be a relatively compact subdomain of $R$ and let $L$ be a
+linear elliptic differential operator in $R$. There exist $\alpha > 0$
+and $\delta > 0$ such that for $\varphi \in \mathscr{D}^\infty
+(R_1)$, 
+$$
+\displaylines{\hfill
+(\varphi + \alpha (-1)^n L^* \varphi, \varphi) \ge \delta ||
+\varphi ||^2_n\hfill \cr 
+\text{where}\hfill
+|| \varphi ||^2_n = \int\limits_{R_1} \sum_{| s | \le n} | D^{(s)}
+\varphi |^2 dx. \hfill }
+$$
+
+Before proving the theorem, we prove a preliminary
+
+\begin{prop*}
+\begin{enumerate} [\rm (i)]
+\item Define for $\varphi \in \mathscr{D}^\infty (R_1)$
+ $$
+ ||| \varphi |||^2_j = \sum_{| s | = j} \int\limits_{R_1} \big |
+ D^{(s)} \varphi \big |^2 dx. 
+ $$
+ Then for $j < n$ there exists a positive constant $e^{j, n}$ such that 
+ $$
+ ||| \varphi |||_j \le e^{j, n} ||| \varphi |||_n
+ $$
+\item $\lim\limits_{\alpha \downarrow o} \sup\limits_{\varphi
+ \in \mathscr{D}^\infty (R_1)} \left \{ \dfrac{\alpha || \varphi
+ ||^2_{n-1}}{|| \varphi ||^2_o + \alpha || \varphi ||^2_n} \right\}$ 
+\item There exists positive constants $\mu$ and $\mu'$ such that for
+ $\varphi \in \mathscr{D}^\infty (R_1)$ 
+ $$
+ \sum_{| \rho | = | \sigma | = n} (D^\sigma a^{\rho, \sigma} D^\rho
+ \varphi, \varphi) \ge \mu ||| \varphi |||^2_n - \mu' || \varphi
+ ||_{n- 1} || \varphi ||_n 
+ $$
+\end{enumerate}
+\end{prop*} 
+
+\begin{proof}
+ \begin{enumerate} [(i)]
+ \item Let\pageoriginale
+  $$
+  \tilde{\varphi}(x) = 
+  \begin{cases}
+   \varphi(x) & x \in R_1\\
+   0 & x \in E^m - R_1
+  \end{cases}
+  $$
+  Then  
+  $$
+  \tilde{\varphi}(x) = \tilde{\varphi} (x_1, \ldots, x_m) =
+  \int\limits_{-\infty}^{x s} \frac{\partial (x_1, \ldots,
+   x_{s-1}, t, x_{s + 1}, \ldots, x_m)}{\partial t} dt 
+  $$
+  Hence by Schwarz's inequality
+  
+  $| \tilde{\varphi} (x) |^2 \le L \int\limits_{-\infty}^{\infty}
+  \big | \dfrac{\partial \tilde{\varphi}}{\partial x_s} \big |^2
+  dx_s$, where $L$ is the diameter of $R_1$. 
+  So
+  \begin{align*}
+   \int\limits_{R_1} | \varphi |^2 dx & = \int\limits_{R_1}
+   \tilde{\phi} |^2 dx\\ 
+   & \le L. \int\limits_{R_1} dx_1 \cdots dx_m \left \{
+   \int\limits_{- \infty}^{\infty} \big | \frac{\partial
+    \tilde{\varphi}}{\partial x_s} \big |^2 dx_s \right\}\\ 
+   & = L^2 \int\limits_{R_1} \big | \frac{\partial
+    \varphi}{\partial x_s} \big |^2 dx 
+  \end{align*}
+  Therefore
+  $$
+  || \varphi ||^2_o \le L^2 || \frac{\partial \varphi}{\partial x_s}
+  ||_o^2. 
+  $$
+  By repeated application of this inequality we get $(i)$.
+ \item Since
+  $$
+  \mathscr{F} D^{(s)} \tilde{\varphi} (y) = \prod^m_{j = 1} (2 \pi i
+  y_j)^{s_j} \phi(y), (\phi = \mathscr{F} \tilde{\phi}) 
+  $$
+  and $\mathscr{F}$ is a unitary transformation in $L_2$, we obtain
+  \begin{align*}
+   ||| \phi |||^2_l & = \sum_{ | s | = 1} \int\limits_{E^m} |
+   \mathscr{F} D^{(s)} \tilde{\varphi} |^2 dx\\ 
+   & = (2 \pi)^{2l} \sum_{| s | = 1} \int\limits_{E^m} \prod^m_{j=
+    1} y^{2s_j}_j | \Phi (y) |^2 dy. 
+  \end{align*}
+  Since 
+  $$
+  \frac{\alpha \sum_{| s | \le n- 1} \prod^m_{j = 1} y_j^{2s_j}}{1 +
+   \alpha \sum_{ | t | \le n } \prod^m_{j = 1} y_j^{2t_j}} 
+  $$
+  tends\pageoriginale to zero uniformly in $y$ as $\alpha \downarrow 0$.
+ \item is proved.
+ \item When $a^{n_1, \ldots, n_m;~ n'_1, \ldots, n'_m}(x)$ with
+  $$
+  \sum n_i = \sum n'_i = n
+  $$
+  are constant we have by partial integration and Fourier transform
+  \begin{align*}
+  \sum_{| \rho | = | \sigma | = n} & D^{(\sigma)} a^{\rho, \sigma}
+  D^{(\rho)} \varphi, \varphi) = \sum_{| \rho | = |\sigma| = n}
+  (-1)^n a^{\rho, \sigma} (D^\rho \varphi, D^\sigma \varphi) \\
+   & = \int\limits_{E^m} \sum_{\substack {| \rho | = n \\ | \sigma
+     | = n}} (2 \pi )^{2 n} y_1^{\rho_1} \cdots y_m^{\rho_m}
+   a^{\rho_1 \cdots \rho_m, \sigma_1 \cdots \sigma_m}
+   y_1^{\sigma_1} \cdots y_m^{\sigma_m}\\ 
+   & \ge \const \int\limits_{E^m} \sum_{| s | = n} | y_1^{s_1}
+   \cdots y_m^{s_m} |^2 ~ | \mathscr{F} \varphi (y) |^2 dy
+   |\mathscr{F} \varphi |^2 dy\tag{\text {making use of the
+    ellipticity}}\\ 
+   &= \const. \int\limits_{E^m} \sum_{| s | = n} | D^{(s)} \varphi |^2 dx\\
+   & \ge \const ||| \varphi |||^2_n.
+  \end{align*}
+
+  If $a^{\rho, \sigma} (x), (| \rho | = | \sigma | = n)$ are
+  non-constant, put 
+  $$
+  \varepsilon = \sup_{\rho, \sigma; x', x'' \in R_1} | a^{\rho,
+   \sigma} (x') - a^{\rho, \sigma} (x'') |. 
+  $$ 
+ \end{enumerate}
+\end{proof}
+
+Note that $\varepsilon$ may be taken to be arbitrarily small if we
+choose $R_1$ sufficiently small. Let $x^o$ be a fixed point of
+$R_1$. Put $a^{\rho, \sigma} (x^o) = a_o^{\rho, \sigma}$. 
+
+Let $\varphi \in \mathscr{D}^\infty (R_1)$. We have
+\begin{align*}
+  &\sum_{| \rho | = |\sigma| = n} (-1)^n (a^{\rho, \sigma}
+ D^{\rho_\varphi}, D^\rho \phi)\\
+  &= \sum_{| \rho |= | \sigma | = n }(-1)^n (a_o^{\rho, \sigma} D^\rho
+ \varphi, D^\sigma \varphi)_0+ \sum (-1)^n [ ((a^{\rho, \sigma} -
+  a_0^{\rho, \sigma}) D^\rho \varphi, D^\sigma \varphi )_o ];\\ 
+ &\hspace{1cm}| \sum (-1)^n (a^{\rho, \sigma}- a_o^{\rho, \sigma}) D^\rho
+ \varphi, D^\sigma \varphi)_o \le \varepsilon \sum_{| \rho | = |
+  \sigma | = n} || D^\rho \varphi ||_o || D^\sigma \varphi ||_0\\ 
+  &\le \const \varphi ||| \varepsilon |||^2_n.
+\end{align*}
+
+So
+\begin{align*}
+ \sum_{| \rho | = | \sigma | = n} (-1)^n (a^{\rho, \sigma} D^\rho
+ \varphi, D^{\sigma} \phi)  & \ge C_1 ||| \varphi |||^2_n - \const \varepsilon |||
+ \varphi |||^2_n\\ 
+ & \ge C_3 ||| \varphi |||^2_n (C_3 > 0).
+\end{align*}
+if\pageoriginale we choose, $R_1$ sufficiently small. This result enables us to
+deduce $(iii)$ for the general case. For any $\eta > 0$, $R_1$ can be
+covered by a finite number, say $N$, of open spheres $S_1, S_2,
+\ldots, S_N$ of radius $\eta / 2$. Let $S'_i$ be the sphere of radius
+$\eta$ concentric with $S_i$. Let $\varphi_i (x) \in C^\infty (E^m)$
+satisfy 
+
+$\varphi_i (x) > 0$ for $ x \in S_i, \varphi_i (x) = 0$ for $x \notin
+S'_i$ and $\varphi_i (x) \ge 0$ for $x \in E^m$. Then 
+$$
+\displaylines{\hfill 
+h_i (x) = (\varphi_i (x) / \sum^N_{j = 1} \varphi_j(x) ~
+)^{\frac{1}{2}}\hfill \cr
+\text{satisfies}\hfill 
+h_i (x) \in C^\infty (R_1), h_i (x) \ge 0 \text {and } \sum^N_{j= 1}
+h_j (x) \equiv 1 \text { or } R.\hfill } 
+$$
+
+Thus 
+\begin{multline*}
+ (-1)^n \sum_{| \rho | = | \sigma | = n} (a^{\rho, \sigma} D^\rho
+ \varphi, D^\rho \varphi)_o\\ 
+ = \sum^{N}_{j = 1} A_j = \sum^{N}_{j = 1} (-1)^n \sum_{| \rho | = |
+  \sigma | = n} 
+ (a^{\rho, \sigma} h_j D^\rho \varphi, h_j D^{(\sigma)} \varphi )_o
+\end{multline*}
+is such that
+$$
+A_j = (-1)^n \left\{ \sum_{| \rho | = | \sigma | = n} (a^{\rho, \sigma}
+D^\rho h_j \varphi, D^{(\sigma)} h_j \varphi )_o - R_j \right\} 
+$$ 
+where, by Leibnitz's formula,
+$$
+R_j = \sum_{| \rho' | \,\text{or}\, | \sigma'|< n} (c^{\rho' \sigma'} D^{\rho'}
+\varphi, D^{\sigma'} \varphi)_o 
+$$
+with bounded functions $C^{\rho', \sigma'}$. Thus, by Schwarz's inequality,
+$$
+| R_j | \le a_j || \varphi ||_{n - 1} || \varphi ||_n \quad (a_j =
+\text {constant } > 0). 
+$$
+
+For sufficiently small $\eta > 0$, we have, by the result obtained already,
+\begin{multline*}
+ (-1)^n \sum_{| \rho | = | \sigma | = n} (a^{\rho, \sigma} D^{\rho}
+ \varphi, D^\sigma \varphi ~ )_o\\ 
+ \le \sum^n_{j= 1} (\lambda_j ||| h_j |||^2_n - a_j || \varphi ||_{n
+  - 1} || \varphi ||_n ) ~(\lambda_j = \const > 0) 
+\end{multline*}
+
+Moreover, we have, by the same reasoning as above, 
+$$
+||| ~ h_j \varphi ~ |||^2_n \ge \int\limits_{R} h^2_j(x) \sum_{|~
+ \varrho ~ | = n} ~ | ~ D^{(\varrho)} \varphi(x) ~ |^2 dx - b_j ~ ||
+~\varphi ~ ||_{n-1} ~ || ~ \varphi ~ ||_n 
+$$
+with\pageoriginale constant $b_j > 0$. Therefore, by putting
+$$
+\lambda = \min (\lambda_j), \sum_{j=1}^{N} (\lambda_j ~ b_j + a_j) =
+\lambda', 
+$$
+we have
+$$
+(-1)^n \sum_{| ~ \varrho ~ | = | \sigma | = n} (a^{\rho, \sigma}
+D^{(\rho)} \phi, D^{(\sigma)}\phi)_o \ge \lambda ~ ||| ~
+\varphi |||^2_n - \lambda' ~|| ~ \varphi ~ ||_{n-1} ~ || \varphi ~
+||_n 
+$$
+
+\noindent \textbf{Proof of G\r{a}rding's inequality:}
+ We have, by integration by parts and from part $(iii)$ of the above
+ proposition, for $\alpha > 0$. 
+\begin{multline*}
+ (\varphi + \alpha (-1)^n ~ L^*\varphi,\varphi)_o \ge
+ (\varphi,\varphi)_o + \alpha (\mu ~||| ~ \varphi ~ |||^2_n - \mu' ~
+ ||~ \varphi ~ ||_{n-1} ~ || ~ \varphi ~ ||_n)\\ 
+ + \sum_{|\varrho | < n
+  | \sigma | \le n} ~ (C^{\varrho,\sigma} ~D^{(\varrho)} \varphi,
+ D^{(\sigma)}\varphi)_o 
+\end{multline*}
+where $C^{\varrho,\sigma}$ are bounded $C^\infty$ functions in
+$R_1$. Then by $(i)$ and Schwarz's inequality 
+$$
+(\varphi + \alpha (-1)^n L^* \varphi,\varphi) \ge ||\varphi||^2_o +
+\alpha\{\mu ||| \varphi|||^2_n - \eta || \varphi ||_{n-1} || \varphi
+||_n \} 
+$$
+with some positive constant $\eta$. Hence for any $\tauup > 0$ we
+have, remembering 
+$$
+|||~ \varphi ~ ||^2_n = || ~ \varphi ~ ||^2_n - \sum_{s < n} ~ ||
+~\varphi ~ ||^2_s 
+$$
+and using (i),
+\begin{multline*}
+ (\varphi + \alpha(-1)^n L^* \varphi,\varphi) \ge || ~ \varphi ~ ||^2_0\\
+ + \alpha \left\{\mu ~ || ~ \varphi ~ ||^2_n - \mu'' ~||~ \varphi ~
+ ||^2_{n-1} - \frac{\eta}{2} ~ \left(|| ~ \varphi ~ ||^2_{n-1} ~ \tauup + ||
+ ~ \varphi ~ ||^2_n ~ \tauup^{-1}\right)\right\} 
+\end{multline*}
+
+Then by taking $\tauup^{-1} > 0$ so small that $(\mu - \eta/2
+\tauup^{-1}) > 0$ and $\alpha > 0$ sufficiently small we obtain
+G\r{a}rding's inequality by $(ii)$. 

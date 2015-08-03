@@ -1,0 +1,730 @@
+\chapter{$B$-Module Theory}\label{chap2}
+
+Let\pageoriginale $k$ be an algebraically closed field. Let $H$ be an
+algebraic group over $k$. Let $V$ be vector space over $k$. A group
+morphism $H\to GL(V)$ is called a (rational) representation of
+$H$. When $G$ is reductive and connected we get a good hold on the
+representation theory of $G$ by looking at the representations of its
+Borel subgroup $B$. For example, Weyl's 
+highest weight theory\index{A}{highest weight theory [8]} in
+characteristic zero gives a description of irreducible representations
+of $G$ in terms of dominant characters of $B$. In this chapter we
+introduce the dual Joseph modules and relative Schubert modules. These
+two classes of $B$-modules are analogues of irreducible $G$-modules in
+characteristic zero.
+
+\label{page9}
+In the first section we prove the Frobenius reciprocity for our
+connected reductive group $G$ and its Borel subgroup $B$. Let $\C_{G}$
+denote the category of $G$-modules. The reciprocity implies that
+$\C_{G}$ is a full subcategory of $\C_{B}$.
+
+In the second section, we introduce the Joseph functor $H_{w}$ on the
+category of $B$-modules associated to a Schubert variety $X_{w}\subset
+G/B$.
+
+In the third section we introduce the dual Joseph modules. For a
+character $\lambda$, let $w=w_{\lambda}$ denote the minimal element of
+the Weyl group $W$ such that $w^{-1}\lambda \in X(T)^{-}=\{\mu\in
+X(T)\mid (\mu,\alpha)\leq 0$ for all roots $\alpha$ of $B\}$. The dual
+Joseph module $P(\lambda)$ is then defined as
+$H_{w}(w^{-1}\lambda)$. The relative Schubert module $Q(\lambda)$ is
+defined as the kernel of the restriction map from
+$H_{w}(w^{-1}\lambda)$ to the sections over the boundary $\p X_{w}$ of
+$X_{w}$. 
+
+In positive characteristic we do not have complete reducibility. In
+order to ``understand'' the indecomposable $B$-modules we introduce
+the concepts of excellent filtrations and relative Schubert
+filtrations. Indeed we will be studying the excellent filtrations
+extensively throughout these notes.
+
+We\pageoriginale finish this chapter by giving examples of modules
+with relative Schubert filtration.
+
+\section{Frobenius Reciprocity}\label{chap2-sec2.1}
+
+\label{page10}
+Let $H$ be an algebraic group. We call an $H$-module $M$ 
+{\em simple}\index{B}{simple module}
+(and the corresponding representation {\em
+  irreducible})\index{B}{irreducible representation} if $M\neq 0$
+and if $M$ has no $H$-submodules other than $0$ and $M$. It is called
+{\em indecomposable}\index{B}{indecomposable} 
+if it cannot be decomposed into a direct sum of
+two proper $H$-submodules and it is {\em semi-simple} if it is a
+direct sum of simple $H$-submodules. For any $M$ the sum of all its
+simple submodules is called the {\em socle}\index{B}{socle} of $M$ and denoted by
+$\soc_{H}M$ or simply $\soc M$ if it is clear which $H$ is
+considered. It is the largest semi-simple\index{B}{semi-simple} 
+$H$-submodule of $M$. Each
+one-dimensional $H$-module is simple. Let $\C_{B}$ and $\C_{G}$ denote
+the categories of $B$-modules and $G$-modules respectively.
+
+For a subgroup $H$ of $G$ and a $G$-module $M$ we can restrict the
+action of $G$ to $H$. This functor from $\C_{G}$ to $\C_{H}$ is called
+the {\em restriction functor}\index{B}{restriction functor} 
+and denoted by $\res^{G}_{H}(?)$. It
+takes an exact sequence of $G$-modules to an exact sequence of
+$H$-modules and thus it is an exact functor.
+
+Let $G$ be our reductive connected algebraic group. We fix once and
+for all a maximal torus $T$ and a Borel subgroup $B$ of $G$ containing
+$T$. Let $W$ be the Weyl group of $G$. Recall that our choice of $B$
+gives us a set of preferred generators $S=\{s_{1},\ldots,s_{l}\}$ of
+$W$, called simple reflections. Let $X(T)$ denote the set of
+characters of $T$. Recall that the Weyl group $W$ acts naturally on
+characters of $T$ and fix a $W$-invariant inner product on
+$X(T)\otimes \mathbb{R}$.
+
+Since $T\subset B$, $\res^{B}_{T}(M)$ is a $T$-module for any
+$B$-module $M$. As $T$ is diagonalisable, $M$ then decomposes as a
+direct sum of one-dimensional submodules. The character with which
+$T$ acts on a one-dimensional submodule is called the {\em weight} of
+that submodule. The direct sum of the one-dimensional submodules of
+$M$ having the same weight $\lambda$ is called the weight
+space\index{B}{weight space} 
+$M_{\lambda}$ of $M$. Let $\C_{\leq R}$ denote the category of
+$B$-modules all of whose weights are of length not more than $R$ with
+respect to the chosen $W$-invariant inner product on $X(T)\otimes
+\mathbb{R}$. For a $B$-module $M$, we denote by $M_{\leq R}$ the
+largest $B$-submodule of $M$ which is in $\C_{\leq R}$. This defines a
+left exact functor from $\C_{B}$ to $\C_{\leq R}$. For example, if
+$R=0$, then $M_{\leq R}$ is nothing else than $H^{0}(B,M)$, the
+subspace of $B$-fixed vectors in $M$.
+
+\begin{exercise}\label{chap2-exer2.1.1}
+Give\pageoriginale an example to show that the functor $M\mapsto
+M_{\leq R}$ is not right exact.
+\end{exercise}
+
+\label{page11}
+For $M\in \C_{B}$, let $\L(M)$ denote the associated $G$-vector
+bundle, (possibly infinite dimensional), on $G/B$, as introduced
+before. The group $G$ acts on $\L(M)$ and therefore we have a natural
+$G$ action on 
+$$
+H^{0}(G/B,\L(M)),
+$$ 
+cf.\@ Jantzen \cite[I 5.11
+  Remark]{key11}. We call this $G$-module $\ind^{G}_{B}(M)$. Thus we
+have a functor $\C_{B}\to \C_{G}$ given by $M\mapsto
+\ind^{G}_{B}(M)$. This functor is called the {\em induction
+  functor}.\index{B}{induction functor} The reader should note that in
+Jantzen's book the 
+induction functor is defined more algebraically but for us this
+equivalent definition will prove more useful.
+
+If $M$ were a $G$-module then the associated vector bundle $\L(M)$ is
+isomorphic with the trivial bundle $G/B\times M$. Further, as $G/B$ is
+a complete variety we have $H^{0}(G/B,\L(M))=M$. Therefore if $M\in
+\C_{G}$, then $\ind^{G}_{B}(M)=M$.
+
+\begin{remark}\label{chap2-rem2.1.2}
+If $P$ is a parabolic subgroup of $G$ then we define in a similar way
+the induction functor $\ind^{P}_{B}(?)$ by assigning the $P$-module
+$H^{0}(P/B,\L(M))$ to a $B$-module $M$. As before, if $M$ were a
+$P$-module, we get $\ind^{P}_{B}(M)=M$.
+\end{remark}
+
+\begin{remark}\label{chap2-rem2.1.3}
+The fibre over the $B$-fixed point $B/B$ of the vector bundle $\L(M)$
+is canonically isomorphic with $M$. Therefore the restriction map
+$H^{0}(G/B,\L(M))\to \L(M)|_{B/B}$ gives a natural $B$-equivariant
+morphism $\ind^{G}_{B}(M)\to M$. This map is called the {\em
+  evaluation map}.\index{B}{evaluation map}
+\end{remark}
+
+\begin{exercise}\label{chap2-exer2.1.4}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Prove that the evaluation map $\ind^{G}_{B}(M)\to M$ is an
+  isomorphism if $M$ is a $G$-module.
+
+\item Give examples to prove that this map need not be injective and
+  need not be surjective.
+\end{enumerate}
+\end{exercise}
+
+\begin{remark}\label{chap2-rem2.1.5}
+The functor $\ind^{G}_{B}(?)$ is left exact and commutes with forming
+direct sums, intersections of submodules, and direct
+limits\index{B}{direct limit} over 
+directed systems. (The latter property helps to understand the meaning
+of $\ind^{G}_{B}(M)$ for an infinite dimensional module $M$, as $M$ is
+a union of its finite dimensional submodules.) There is a 
+transitivity of induction,\index{B}{transitivity of induction} 
+that is, if $B\subseteq P$, then
+$\ind^{G}_{B}=\ind^{G}_{P}\circ \ind^{P}_{B}$. We also have the
+following tensor identity:\index{B}{tensor identity for induction}
+$$
+\ind^{G}_{B}(M\otimes \res^{G}_{B}(N))=(\ind^{G}_{B}(M))\otimes N
+$$
+for\pageoriginale any $G$-module $N$ and $B$-module $M$.
+\end{remark}
+
+\label{page12}
+The Frobenius reciprocity\index{B}{Frobenius reciprocity} says that the
+induction functor is right 
+adjoint of the restriction functor.
+
+\begin{proposition}[Frobenius reciprocity]\label{chap2-prop2.1.6}
+For any $G$-module $N$ and $B$-module $M$ we have
+$\Hom_{G}(N,\ind^{G}_{B}(M))=\Hom_{B}(\res^{G}_{B}(N),M)$. 
+\end{proposition}
+
+\begin{proof}
+Composing $N\to \ind^{G}_{B}(M)$ with the evaluation map
+$\ind^{G}_{B}(M)\to M$ gives us a natural map
+$\Hom_{G}(N,\ind^{G}_{B}(M))\to
+\Hom_{B}(\res^{G}_{B}(N),M)$. Conversely given a $B$-equivariant map
+$f:N\to M$ we associate to it a $G$-equivariant map $\tilde{f}:N\to
+\ind^{G}_{B}(M)$ by the formula $\tilde{f}(n)=(\overline{g}\mapsto
+\overline{(g,f(g^{-1}n))})$. 
+\end{proof}
+
+\begin{corollary}\label{chap2-coro2.1.7}
+One may view $\C_{G}$ as a full subcategory of $\C_{B}$.
+\end{corollary}
+
+\begin{proof}
+If $M$, $N\in \C_{G}$ then
+$\Hom_{G}(N,M))=\Hom_{G}(N,\ind^{G}_{B}\res^{G}_{B}M))=\Hom_{B}(\res^{G}_{B}(N),\res^{G}_{B}M)$. 
+\end{proof}
+
+\begin{remark}\label{chap2-rem2.1.8}
+As we will see, many questions about $G$-modules are special cases of
+questions about $B$-modules through this identification of $\C_{G}$
+with a subcategory of $\C_{B}$.
+\end{remark}
+
+\begin{remark}\label{chap2-rem2.1.9}
+Here $G$ need not be reductive, of course, and we will not hesitate
+to use the result more generally. We will often discuss only $G$
+and/or $B$, leaving it to the reader to find the scope of the
+arguments. When in doubt, consult \cite{key11}.
+\end{remark}
+
+In fact the identification of $\C_{G}$ with a full subcategory of
+$\C_{B}$ even works on the level of Ext groups. This is derived from
+the corollary using Kempf's Vanishing Theorem A.2.7. Indeed we have
+
+\begin{lemma}\label{chap2-lem2.1.10}
+Let $P$ be a parabolic subgroup containing $B$ and let $M$, $N$ be
+$P$-modules. Then $\Ext^{i}_{P}(M,N)=\Ext^{i}_{B}(M,N)$ for all $i$.
+\end{lemma}
+
+\begin{proof}
+In \cite[II Corollary 4.7]{key11} this is stated for $G$ and $P$
+instead of $P$ and $B$, but the argument is the same.
+\end{proof}
+
+\section{Joseph's Functors}\index{B}{Joseph's functors}\label{chap2-sec2.2}\pageoriginale 
+\label{page13}
+In characteristic zero, a rational representation of $G$ is completely
+reducible. Further, the irreducible $G$-modules are induced up from
+irreducible $B$-modules. We do not have such a nice result for
+representations of $G$ in characteristic $p>0$. In this section we
+define Joseph's functors. These functors will then lead us to study
+dual Joseph modules and relative Schubert modules which form some kind
+of building blocks for a class of representations of $B$ or $G$,
+sharing good properties with the $G$-modules of characteristic $0$.
+
+For a Schubert variety $X_{w}$ of $G/B$, we get a natural $B$ action
+on $H^{0}(X_{w},\L(M))$, the sections of the vector bundle
+$\L(M)|_{X_{w}}$ over $X_{w}$.
+
+\begin{definition}\label{chap2-defi2.2.1}
+The functors $H_{w}:\C_{B}\to \C_{B}$ given by the rule $M\mapsto
+H^{0}(X_{w},\L(M))$ are called {\em Joseph's functors}.
+\end{definition}
+
+\begin{remark}\label{chap2-rem2.2.2}
+The Joseph functors are also defined for Kac-Moody groups using
+cohomological algebra. (See \cite{key18}.) They are actually dual to
+the functors originally studied by Joseph in \cite{key12}, also with
+cohomological algebra. The above definition gives a kind of
+``representability'' of the Joseph Functors.
+\end{remark}
+
+\begin{remark}\label{chap2-rem2.2.3}
+It should be noted that for the element of largest length $w_{0}$ of
+$W$, the two functors $H_{w_{0}}$ and $\ind^{G}_{B}$ are the same. (Up
+to $\res^{G}_{B}$, which may safely be ignored from now on, because of
+Corollay \ref{chap2-coro2.1.7})
+\end{remark}
+
+\begin{remark}\label{chap2-rem2.2.4}
+We denote by $P_{s}$ the minimal parabolic subgroup associated to a
+simple reflection $s\in S$. The Schubert variety $X_{s}\subset G/B$ is
+the image of $P_{s}$ under the projection map. It is thus isomorphic
+with the complete variety $P_{s}/B$. Also, for any $B$-module $M$ the
+vector bundle $\L(M)$ on $P_{s}/B$ is isomorphic with the restriction
+of the vector bundle $\L(M)$ to $X_{s}\subset G/B$. We thus get that
+the functor $H_{s}:\C_{B}\to \C_{B}$ is the composition of two
+functors $\res^{P_{s}}_{B}\circ \ind^{P_{s}}_{B}$. That is, in this
+particular case, the module $H_{s}(M)$ is a $P_{s}$-module viewed as a
+$B$-module. 
+\end{remark}
+
+Recall that for an element $w\in W$, the length $l(w)$ of $w$ is the
+length of any of its reduced expressions in the chosen generators. It
+is independent of which reduced expression one is using and thus
+defines a integer valued function\pageoriginale on $W$. For any $w\in
+W$ and $s\in S$, the preferred set of generators, we have: $l(sw)\neq
+l(w)$ and in fact $l(sw)$ is either $l(w)+1$ or $l(w)-1$.
+\label{page14}
+\begin{proposition}\label{chap2-prop2.2.5}
+For $s\in S$, $w\in W$ and $M\in\C_{B}$, we have:
+\begin{itemize}
+\item[\rm(i)] $H_{s}H_{w}(M)=H_{w}(M)$\quad if $l(s\cdot w)=l(w)-1$.
+
+\item[\rm(ii)] $H_{s}H_{w}(M)=H_{sw}(M)$\quad if $l(s\cdot
+  w)=l(w)+1$. 
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Let $P_{s}$ denote the parabolic subgroup associated to the simple
+reflection $s\in W$. Consider the following diagram
+\[
+\xymatrix{
+P_{s}\times^{B}X_{w}\ar[d]^{\pi}\ar[r]^{m} & P_{s}X_{w}\subset G/B\\
+P_{S}/B
+}
+\]
+where the morphism $m$ is the multiplication map which descends to the
+fibre bundle.
+\begin{itemize}
+\item[(i):] $l(s\cdot w)=l(w)-1$.
+
+In this case the image of the multiplication map $m$ is
+$B_{S}BX_{w}\cup BX_{w}=X_{s\cdot w}\cup X_{w}=X_{w}$ by
+\cite[28.3]{key9}. Therefore the natural left action of $P_{s}$ on
+$G/B$ leaves $X_{w}$ invariant. The vector bundle $\L(M)$ on $G/B$ has
+a natural $G$ (and hence $P_{s}$) action. This gives a natural $P_{s}$
+action on $H^{0}(X_{w},\L(M))$. When restricted to $B$, this action
+gives the $B$-module action on $H_{w}(M)$. Therefore we have
+$H_{w}(M)\in \C_{P_{s}}\subset \C_{B}$. Hence
+$\ind^{P_{s}}_{B}(H_{w}(M))=H_{w}(M)$. Also we have
+$H_{s}(M)=\res^{P_{s}}_{B}\circ \ind^{P_{s}}_{B}(M)$. Thus by Remark
+\ref{chap2-rem2.1.2} we get that $H_{s}H_{w}(M)=H_{w}(M)$. 
+
+\item[(ii):] $l(s\cdot w)=l(w)+1$.
+
+Now the associated fibre bundle over $P_{s}/B$ in the above diagram is
+such that the multiplication morphism $m$ is birational and proper
+with $P_{s}X_{w}=X_{sw}$. As $X_{sw}$ is normal (cf.\@ \cite{key25}),
+this implies 
+$$
+m_{\ast}\O_{P_{s}\times^{B}X_{w}}=\O_{X_{sw}}
+$$ 
+(\cite[II Lemma 14.5]{key11}). For a $B$-module $M$, this gives
+\begin{align*}
+H_{sw}(M) &= H^{0}(X_{sw},\L(M))\\
+&= H^{0}(X_{sw},m_{\ast}\O_{P_{s}\times^{B}X_{w}}\otimes \L(M))\\
+&= H^{0}(P_{s}\times^{B}X_{w},m^{\ast}\L(M))\\
+&= H^{0}(P_{s}/B,\pi_{\ast}m^{\ast}\L(M)) 
+\end{align*}
+But\pageoriginale we have:
+$\pi_{\ast}m^{\ast}\L(M)=\L(H^{0}(X_{w},\L(M)))$. Therefore we get
+that:\label{page15}
+\begin{align*}
+H_{sw}(M) &= H^{0}(P_{s}\times^{B}X_{w},m^{\ast}\L(M))\\
+&= H^{0}(P_{s}/B,\L(H^{0}(X_{w},\L(M))))\\
+&= H_{s}(H_{w}(M)).
+\end{align*}
+\end{itemize}
+
+This proves the proposition.
+\end{proof}
+
+\begin{exercise}\label{chap2-exer2.2.6}
+Prove that $\pi_{\ast}m^{\ast}\L(M)=\L(H^{0}(X_{w},\L(M)))$. 
+\end{exercise}
+
+\begin{corollary}\label{chap2-coro2.2.7}
+Let $w\in W$ and let $w=s_{i_{1}}\ldots s_{i_{r}}$ be a 
+reduced expression.\index{B}{Joseph's functor!and reduced expression} Then $H_{w}=H_{s_{i_{1}}}\circ\cdots\circ H_{s_{i_{r}}}$. 
+\end{corollary}
+
+Let $k_{\lambda}$ denote the one-dimensional $B$-module on which $B$
+acts via a character $\lambda$. We denote by $\L(\lambda)$ its
+associated line bundle and by $H_{w}(\lambda)$ its image under the
+Joseph functor $H_{w}(?)$.
+
+\medskip
+\noindent
+{\bf Extra hypothesis 2.2.8.} For all the questions we are interested
+in, one may easily reduce to the case that the commutator subgroup of
+our connected reductive algebraic group $G$ is simply
+connected.\index{A}{simply connected [9]} This
+implies that for each simple root, the corresponding homomorphism from
+$SL_{2}$ into $G$ is a closed embedding. (Recall that the other
+possibility would be that the image of this homomorphism is isomorphic
+to $PSL_{2}$.) Let us assume simply connectedness from now on. Then
+any line bundle on $G/B$ is associated to a one-dimensional
+representation of $B$ (cf.\@ Corollary \ref{coro-A.4.3})  and if the associated
+character $\lambda$ is anti-dominant\index{B}{anti-dominant} 
+{\em i.e.} $\lambda\in X(T)^{-}$,
+then $\L(\lambda)$ is base point\index{B}{base point} 
+free, {\em i.e.} given any point
+$x\in G/B$ there exists a global section $s\in H^{0}(G/B,\L(\lambda))$
+with $s(x)\neq 0$. Conversely, if $H^{0}(G/B,\L(\lambda))\neq 0$ then
+$\L(\lambda)$ is base point free (because of equivariance) and
+$\lambda$ is anti-dominant. (See \cite[II 2.6]{key11}, keeping in mind
+that his dominant weights are our anti-dominant ones.)
+
+\setcounter{theorem}{8}
+\begin{lemma}\label{chap2-lem2.2.9}
+For any $\lambda\in X(T)^{-}$, the socle of $H_{w}(\lambda)$ is
+one-dimensio\-nal and its character is $w\lambda$.
+\end{lemma}
+
+\begin{proof}
+The Bruhat decomposition of $G/B$ says that the $B$-orbit of $w$ in
+$X_{w}$ is open (and thus dense) in $X_{w}$. Therefore for a
+$B$-module $M$ a section of $H_{w}(M)$ on which $B$ acts by a
+character is determined uniquely by its image under\pageoriginale the
+restriction map $H_{w}(M)\to \L(M)|_{w}$. Therefore, since the fibre
+of $\L(\lambda)$ is of dimension one, we can have only one
+$B$-invariant (up to scalar multiplication) section of\label{page16}
+$H_{w}(\lambda)$. Further, as the restriction is
+$T$-equivariant,\index{A}{equivariant [9]} $B$
+acts by the character $w\lambda$ on such a section. On the other hand
+$H_{w}(\lambda)\neq 0$ because the line bundle is base point free. By
+the Borel Fixed Point Theorem, (Theorem \ref{chap1-thm1.1.2}) there
+exists a fixed point for the $B$ action on the projective space
+$\mathbb{P}(H_{w}(\lambda))$. This proves the existence (cf.\@
+\cite[II 2.1]{key11}) of a $B$-invariant one-dimensional subspace of
+$H_{w}(\lambda)$. Thus the result.
+\end{proof}
+
+\begin{corollary}\label{chap2-coro2.2.10}
+Let $\lambda\in X(T)^{-}$. Then, $w'\lambda$ occurs as a weight in
+$H_{w}(\lambda)$ for every $w'\leq w$ in the Bruhat
+order.\index{A}{Bruhat order [34]}
+\end{corollary}
+
+\begin{proof}
+Since the line bundle $\L(\lambda)=\L(k_{\lambda})$ is base point
+free, the natural restriction map from $H_{w}(\lambda)$ to
+$H_{w'}(\lambda)$ is not the zero map. The socle of the image is thus
+a non-zero subspace of the socle of $H_{w'}(\lambda)$. The socle of
+$H_{w'}(\lambda)$ is of dimension one and has weight
+$w'\lambda$. Therefore as the restriction map is $B$-equivariant,
+$w'\lambda$ occurs as a weight in $H_{w}(\lambda)$.
+\end{proof}
+
+\begin{lemma}\label{chap2-lem2.2.11}
+For any two $B$-invariant closed subsets $S$, $S'$ of $G/B$ and any
+line bundle without base points $\L$ on $G/B$, we have an exact
+Mayer-Vietoris sequence
+$$
+0\to H^{0}(S\cup S',\L)\to H^{0}(S,\L)\oplus H^{0}(S',\L)\to
+H^{0}(S\cap S',\L)\to 0
+$$
+
+Moreover the map $H^{0}(G/B,\L)\to H^{0}(S,\L)$ is surjective.
+\end{lemma}
+
+\begin{proof}
+This Mayer-Vietoris Lemma\index{B}{Mayer-Vietoris Lemma} used Ramanathan
+\cite{key31} for the 
+surjectivity statements (cf.\@ Proposition \ref{prop-A.2.6}), and it used
+Ramanathan once more for knowing that $S\cap S'$ is also the scheme
+theoretic intersection, {\em i.e.} that its ideal 
+sheaf\index{A}{ideal sheaf [7]} in $G/B$ is
+the sum of the ideal sheafs of $S$ and $S'$. This then gives an exact
+sequence of sheaves
+$$
+0\to \I_{S\cup S'}\to \I_{S}\oplus \I_{S'}\to \I_{S\cap S'}\to 0
+$$
+from which the result follows easily. (The ``unattentive'' reader is
+alerted here that one should be worrying that the scheme theoretic
+intersection might not be reduced. See the exercise below.)
+\end{proof}
+
+\begin{remark}\label{chap2-rem2.2.12}
+The\pageoriginale similar\label{page17} Mayer-Vietoris exact sequence is valid on
+$G/P$ for any parabolic $P$, cf.\@ Exercise \ref{exer-A.2.9}. The passage from
+$G/B$ to $G/P$ is easy as the projection $G/B\to G/P$ is a $P/B$ fibration.
+\end{remark}
+
+\begin{exercise}\label{chap2-exer2.2.13}
+Find an example of an affine variety $X$ and two closed subvarieties
+$S$, $S'$ so that $H^{0}(S\cup S',\O_{X})$ is not the kernel of
+$H^{0}(S,\O_{X})\oplus H^{0}(S',\O_{X})\to H^{0}(S\cap
+S',\O_{X})$. Here unions and intersections are simply taken set
+theoretically. 
+\end{exercise}
+
+\begin{definition}\label{chap2-defi2.2.14}
+We say a weight occurring in an indecomposable $B$-module is {\em
+  extremal} if it has the largest length.
+\end{definition}
+
+The modules $H_{w}(\lambda)$ are indecomposable as they have
+one-dimensio\-nal socle. The following proposition gives a nice
+description of the extremal weights of $H_{w}(\lambda)$.
+
+\begin{proposition}\label{chap2-prop2.2.15}
+Let $\lambda\in X(T)^{-}$. The extremal weights of $H_{w}(\lambda)$
+are $w'\lambda$ for $w'\leq w$. Further, the weight spaces
+corresponding to the extremal weights are one-dimensional.
+\end{proposition}
+
+\begin{proof}
+The Corollary \ref{chap2-coro2.2.10} says that these $w'\lambda$ occur
+as a weight in $H_{w}(\lambda)$. 
+
+For $\lambda\in X(T)^{-}$ the global sections module
+$H^{0}(G/B,\L(\lambda))$ is $\neq 0$. We start with showing that the
+extremal weights of 
+$$
+H_{w_{0}}(\lambda):=H^{0}(G/B,\L(\lambda))
+$$ 
+are $w\lambda$ for $w\in W$.
+
+The module $H^{0}(G/B,\L(\lambda))$ is a $G$-module. Therefore for
+every $w\in W$ and every extremal weight\index{B}{extremal weight} 
+$\nu$, the character $w\nu$
+occurs as a weight of $H^{0}(G/B,\L(\lambda))$. Further $w\nu$ is also
+extremal as the inner product on the vector space $X(T)\otimes
+\mathbb{R}$ is $W$-invariant. Let $w_{\nu}\in W$ be such that the
+character $\nu_{0}=w_{\nu}\nu$ is a dominant\index{B}{dominant} 
+character, {\em i.e.}
+such that $\nu_{0}\in X(T)^{+}=\{\mu\in X(T)|(\mu,\alpha)\geq 0$ for
+all roots $\alpha$ of $B\}$. Now for any positive root $\alpha$
+occurring in the Lie algebra of $B$, we consider the corresponding
+copy of $SL_{2}$ in $G$ and its Borel subgroup $B_{1}$. The weight
+space of $w\nu$ is $B_{1}$-invariant for otherwise (\cite[31.1]{key9})
+there would be a weight space with weight $w\nu+i\alpha$, $i>0$, and
+such a translate of $w\nu$ will have larger length which will be a
+contradiction to the extremalness of $w\nu$. Thus the dominant
+extremal weight $\nu_{0}$ occurs in the $B$-socle of
+$H^{0}(G/B,\L(\lambda))$ which has weight $w_{0}\lambda$ by Lemma
+\ref{chap2-lem2.2.9}. Thus $\nu$ is a $W$-translate of this weight
+$w_{0}\lambda$. Also since the socle of $H^{0}(G/B,\L(\lambda))$
+is\pageoriginale one-dimensional\label{page18} we see that the weight space for any
+extremal weight of $H_{w_{0}}(\lambda)$ is one-dimensional.
+
+The line bundle $\L(\lambda)$ is base point free. Therefore the
+restriction map on to sections over a $T$-fixed point $w\cdot B/B$ is
+surjective for every $w\in W$. The torus $T$ acts by the character
+$w\lambda$ on the fibre of this fixed point. This gives a geometric
+description of the one-dimensional extremal 
+weight\index{B}{geometric description of extre\-mal weight} space
+$H^{0}(G/B,\L(\lambda))_{w\lambda}$, namely it is spanned by ``the''
+$T$-semi-invariant\index{A}{semi-invariant [9]} 
+section of $\L(\lambda)$ whose restriction to the
+fibre $\L(\lambda)|_{wB/B}$ is non-zero. This section vanishes at
+$zB/B$ for $z\in W$ with $z\lambda\neq w\lambda$. Note that in
+$H^{0}(X_{w},\Lambda(\lambda))$ the restricted section is even
+$B$-semi-invariant so that its zero set is a union of the Schubert
+varietires $X_{z}$ with $z\leq w$ and $z\lambda\neq w\lambda$.
+
+To see the general case we note that that natural restriction map from
+$H_{w_{0}}(\lambda)$ to $H_{w}(\lambda)$ for $w\in W$ preserves the
+length of a weight and is surjective  by Ramanathan (Proposition
+\ref{prop-A.2.6}). Therefore we see that the weight $w\lambda$ of
+$H_{w}(\lambda)$ 
+is extremal and any other extremal weight of $H_{w}(\lambda)$ is also
+an extremal weight of $H^{0}(G/B,\L(\lambda))$. Now let us be given an
+extremal weight $\mu$ of $H_{w}(\lambda)$ and a non-zero section $f$
+of weight $\mu$ over $G/B$. Choose $w'$ minimal in the Bruhat order so
+that $w'\lambda=\mu$. We claim $w'\leq w$. Otherwise the
+Mayer-Vietoris Lemma \ref{chap2-lem2.2.11} gives a $g\in
+H^{0}(X_{w'}\cup X_{w},\L(\lambda))_{\mu}$ with the same restriction
+to $w'\cdot B/B$ as $f$, but vanishing on $X_{w}$. By Ramanathan
+Proposition \ref{prop-A.2.6} this section $g$ lifts to
+$H^{0}(G/B,\L(\lambda))_{\mu}$ and thus agrees with $f$, which is
+absurd. Here we have been using several times that $T$ is semi-simple,
+so that if $M\to N$ is a surjective $T$-module map, $M_{\mu}\to
+N_{\mu}$ is surjective for every weight $\mu$ of $N$. 
+\end{proof}
+
+\begin{remark}\label{chap2-rem2.2.16}
+One can also prove the above proposition by induction on the length of
+$w$, using Corollary \ref{chap2-coro2.2.10} and Proposition
+\ref{chap2-prop2.2.5}. 
+\end{remark}
+
+\section{Dual Joseph Modules}\label{chap2-sec2.3}
+
+For any character $\mu\in X(T)$, there exists an element $w\in W$, the
+Weyl group of $G$, such that $\mu_{1}=w\mu\in X(T)^{-}$. We define
+$$
+P(\mu)=H^{0}(X_{w^{-1}},\L(w\mu)).
+$$ 
+Thus the socle of $P(\mu)$ is of
+dimension one and has weight $\mu$. 
+
+\begin{lemma}\label{chap2-lem2.3.1}
+$P(\mu)$\pageoriginale is\label{page19} independent of $w$, i.e.\@ for any $w_{1}$,
+  $w_{2}\in W$ with $w_{1}\mu=w_{2}\mu\in X(T)^{-}$, we have
+  $H^{0}(X_{w_{1}^{-1}},\L(w_{1}\mu))=H^{0}(X_{w_{2}^{-1}},\L(w_{2}\mu))$. 
+\end{lemma}
+
+\begin{proof}
+We denote by $\lambda$ the translate of $\mu$ under $W$ such that
+$\lambda\in X(T)^{-}$. Then recall (\cite[1.8, 1.10, 1.12]{key9}) that
+there exist elements $w_{\min}$ and $w_{\max}$ of the Weyl group $W$
+with the property that for any other $w$ with $w\mu=\lambda$, we have
+$w_{\min}\leq w\leq w_{\max}$. Now consider the natural restriction
+map
+$$
+H^{0}(X_{w^{-1}_{\max}},\L(\lambda))\to H^{0}(X_{w^{-1}},\L(\lambda)).
+$$
+
+Since this map restricts to identity on the socles of the two modules,
+socles of both modules are one-dimensional and have weight $\mu$, it
+is injective, and it is surjective according to Proposition
+\ref{prop-A.2.6}. Thus it is an isomorphism. This proves the proposition.
+\end{proof}
+
+\begin{definition}\label{chap2-defi2.3.2}
+A $B$-module $M$ is called 
+{\em dual Joseph module}\index{B}{dual Joseph module} if $M$ is 
+isomorphic with $P(\mu)$ for some character $\mu$.
+\end{definition}
+
+\begin{example}\label{chap2-exam2.3.3}
+\begin{enumerate}
+\item For $\mu\in X(T)^{-}$ we have $P(\mu)=k_{\mu}$, the
+  one-dimensional $B$-module with character $\mu$.
+
+\item For $\mu\in X(T)^{+}$ we have $P(\mu)=H^{0}(G/B,\L(w_{0}\mu))$.
+\end{enumerate}
+\end{example}
+
+\begin{definition}\label{chap2-defi2.3.4}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item If $S'\subset S$ are $B$-invariant closed subspaces of $G/B$ and
+  $\lambda\in X(T)^{-}$, we define a {\em relative Schubert
+  module}\index{B}{relative Schubert module}\break 
+  $Q(S,S',\lambda)$ by:
+  $$
+Q(S,S',\lambda)=\ker(\text{res~:}H^{0}(S,\L(\lambda))\to
+  H^{0}(S',\L(\lambda))). 
+$$
+
+\item If $X_{w}$ is a Schubert variety its 
+``boundary''\index{B}{boundary of Schubert veriety} $\p X_{w}$ is
+  defined as the union of all Schubert varieties that are strictly
+  contained in $X_{w}$. Thus the boundary is the complement in $X_{w}$
+  of the Bruhat cell $BwB/B$.
+
+\item For any $\mu\in X(T)$, we define a {\em minimal relative
+  Schubert module}, denoted by $Q(\mu)$ by:
+$$
+Q(\mu)=\ker(\res:H^{0}(X_{w^{-1}_{\min}},\L(\lambda))\to H^{0}(\p
+X_{w^{-1}_{\min}},\L(\lambda))) 
+$$
+where as before, $\lambda=w_{\min}\mu\in X(T)^{-}$ and $w_{\min}$ is a
+minimal such element in $W$. 
+\end{enumerate}
+\end{definition}
+
+\begin{remark}\label{chap2-rem2.3.5}
+Note\pageoriginale that\label{page20} $Q(\mu)\hookrightarrow P(\mu)$. Also, the
+geometric description of the extremal weights of $P(\mu)$ tells us
+that an extremal weight of $P(\mu)$ other than $\mu$ does not restrict
+to zero on the boundary. Therefore $\mu$ is the only extremal weight
+of $Q(\mu)$.
+\end{remark}
+
+\begin{definition}\label{chap2-defi2.3.6}
+A $B$-module $M$ is said to have an {\em excellent
+  filtration}\index{B}{excellent filtration} if and 
+only if there exists a filtration $0\subset F_{0}\subset
+F_{1}\subset\ldots$ by $B$-modules such that $\cup F_{i}=M$ and
+$F_{i}/F_{i-1}\approx \oplus P(\lambda_{i})$ for some $\lambda_{i}\in
+X(T)$. Here $\oplus$ stands for any number of copies, ranging from
+zero copies to infinitely many.
+\end{definition}
+
+\begin{remark}\label{chap2-rem2.3.7}
+The property of having excellent filtration is closed under extension
+for finite dimensional $B$-modules. Thus for any short exact sequence
+$0\to M_{1}\to M\to M_{2}\to 0$ of finite dimensional $B$-modules, $M$
+has excellent filtration whenever $M_{1}$ and $M_{2}$ both have
+excellent filtration.
+\end{remark}
+
+In the next chapter, using the cohomological criterion for excellent
+filtrations, we will remove the finite dimensionality condition (cf.\@
+Corollary \ref{chap3-coro3.2.10}). 
+
+\begin{definition}\label{chap2-defi2.3.8}
+A $B$-module $M$ is said to have a 
+{\em relative Schubert filtration}\index{B}{relative Schubert filtration}
+if and only if there exists a filtration $0\subset F_{0}\subset
+F_{1}\subset \ldots$ by $B$-modules such that $\cup F_{i}=M$ and
+$F_{i}/F_{i-1}\approx \oplus Q(\lambda_{i})$ for some $\lambda_{i}\in
+X(T)$. 
+\end{definition}
+
+\begin{remark}\label{chap2-rem2.3.9}
+The property of having relative Schubert filtration is also closed
+under extension for finite dimensional $B$-modules.
+\end{remark}
+
+In the next chapter we use Polo's theorem to give a criterion for
+$B$-modules to have an excellent filtration. Here we will now give
+examples of modules with relative Schubert filtration.
+
+\begin{lemma}\label{chap2-lem2.3.10}
+The relative Schubert module $Q(S,S',\lambda)$ has relative Schubert
+filtration for all $B$-invariant closed subsets $S'\subset S$ and any
+antidominant character $\lambda$.
+\end{lemma}
+
+\begin{proof}
+The proof is by induction on the number of Schubert varieties
+contained in $S$ but not in $S'$.
+
+First\pageoriginale assume\label{page21} there is just one such Schubert variety,
+say $X_{w}$. Then $X_{w}\cap S'=\p X_{w}$ and from the Mayer-Vietoris
+Lemma \ref{chap2-lem2.2.11} one gets $Q(S,S',\lambda)=Q(X_{w},\p
+X_{w},\lambda)$, which is either zero or $Q(w\lambda)$.
+
+If there are more, choose a $B$-invariant $S''$ strictly between $S$
+and $S'$ and consider the following exact sequence.
+$$
+0\to Q(S,S'')\to Q(S,S')\to Q(S'',S')\to 0.
+$$
+
+Note that the exactness of this sequence is due to the Mayer-Vietoris
+Lemma \ref{chap2-lem2.2.11}.
+
+By the induction hypothesis both the quotient and the submodule of
+$Q(S,S')$ have relative Schubert filtration. Now the Remark
+\ref{chap2-rem2.3.9} proves the result.
+\end{proof}
+
+Another set of examples of modules with relative Schubert filtration
+is given by the following proposition.
+
+\begin{proposition}\label{chap2-prop2.3.11}
+For any $B$-invariant closed subset $S$ of $G/B$ and $\lambda \in
+X(T)^{-}$, $H^{0}(S,\L(\lambda))$ has a relative Schubert filtration
+with layers $Q(w\lambda)$. Moreover $Q(w\lambda)$ occurs only when
+$w\lambda$ is an extremal weight of $H^{0}(S,\L(\lambda))$, and has
+multiplicity one.\index{B}{multiplicity of a weight}
+\end{proposition}
+
+\begin{proof}
+The previous proof applies also for empty $S'$ and the rest should be
+clear from the discussion.
+\end{proof}
+
+\begin{corollary}\label{chap2-coro2.3.12}
+The modules $H_{w}(\lambda)$ has relative Schubert filtration for all
+$w\in W$ and $\lambda\in X(T)$.
+\end{corollary}
+
+

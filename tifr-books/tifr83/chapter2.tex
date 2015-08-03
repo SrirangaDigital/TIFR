@@ -1,0 +1,707 @@
+\chapter{Abelianization and Hochschild Homology}\label{chap2}
+
+IN\pageoriginale THIS CHAPTER we first consider abelianization in the
+contexts of associative algebras and Lie algebras together with the
+adjunction properties of the related functors. In degree zero,
+Hochschild and cyclic homology of an algebra $A$ are isomorphic and
+equal to a certain abelianization of $A$ which involves the related
+Lie algebra structure on $A$. We will give the axiomatic definition of
+Hochschild homology $H_{\ast}(A,M)$ of $A$ with values in an
+$A$-bimodule $M$, discuss existence and uniqueness, and relate in
+degree zero $H_{0}(A,A)$, the Hochschild homology of $A$ with values
+in the $A$-bimodule $A$, to the abelianization of $A$. The $k$-modules
+$H_{\ast}(A,A)$ are the absolute Hochschild homology $k$-modules
+$HH_{\ast}(A)$ which were considered formally in the previous chapter
+in conjunction with cyclic homology.
+
+\section{Generalities on adjoint
+  functors}\label{chap2-sec1}\index{adjoint functors}
+
+Abelianization is defined by a universal property relative to the
+subcategory of abelian objects. The theory of adjoint functors, which
+we sketch now, is the formal development of this idea of a universal
+property, and this theory also gives a means for constructing
+equivalences between categories. We approach the subject by
+considering morphisms between the identity functor and a composite of
+two functors.
+
+For an object $X$ in a category, we frequently use the symbol $X$ also
+for the identity morphism $X\to X$ along with $1_{X}$, and similarly,
+for a category $\X$ the identity functor on $\X$ is frequently
+denoted $\X$. Let (sets) denote the category of sets.
+
+\begin{remark}\label{chap2-rem1.1}
+Let $\X$ and $\Y$ be two categories and $S:\X\to \Y$ and $T:\Y\to \X$
+be two functors. Morphisms of functors $\beta:\X\to TS$ are in
+bijective correspondence with morphisms
+$$
+b:\Hom_{\Y}(S(X),Y)\to \Hom_{\X}(X,T(Y))
+$$
+as\pageoriginale functors of $X$ in $\X$ and $Y$ in $\Y$ with values
+in (sets). A morphism $\beta$ defines $b$ by the relation
+$b(g)=T(g)\beta(X)$ and $b$ defines $\beta$ by the relation
+$b(1_{S(X)})=\beta(X):X\to TS(X)$. In the same way, morphisms of
+functors $\alpha:ST\to \Y$ are in bijective correspondence with
+morphisms
+$$
+a:\Hom_{\X}(X,T(Y))\to \Hom_{\Y}(S(X),Y)
+$$
+as functors of $X$ and $Y$ with values in (sets). A morphism $\alpha$
+defines $a$ by the relation $a(f)=\alpha(Y)S(f)$, and $a$ defines
+$\alpha$ by the relation
+$$
+a(1_{T(Y)})=\alpha(Y):ST(Y)\to Y.
+$$
+\end{remark}
+
+\begin{definition}\label{chap2-defi1.2}
+An adjoint pair of functors is a pair of functors $S:\X\to \Y$ and
+$T:\Y\to \X$ together with an isomorphism of functors of $X$ in $\X$
+and $Y$ in $\Y$
+$$
+b:\Hom(S(X),Y)\to \Hom(X,T(Y)),
+$$
+or equivalently, the inverse isomorphism
+$$
+a:\Hom(X,T(Y))\to \Hom(S(X),Y).
+$$
+
+The functor $S$ is called the left adjoint of $T$ and $T$ is the right
+adjoint of $S$.
+
+This situation is denoted $(a,b):S\dashv T(\X,\Y)$ or just $S\dashv
+T$.
+
+In terms of the morphisms $\beta(X)=b(1_{S(X)}):X\to TS(X)$ and
+$\alpha(Y)=a(1_{T(Y)}):ST(Y)\to Y$ we calculate, for $f:X\to T(Y)$
+$$
+b(s(f))=T(a(f))\beta(X)=T(\alpha(Y))TS(f)\beta(X)=T(\alpha(Y))\beta(T(Y))f 
+$$
+and for $g:S(X)\to Y$
+$$
+a(b(g))=\alpha(Y)S(b(g))=\alpha(Y)ST(g)S(\beta(X))=g\alpha(S(X))S(\beta(X))
+$$
+\end{definition}
+
+\begin{remark}\label{chap2-rem1.3}
+With\pageoriginale the above notations we have
+\begin{gather*}
+b(a(f))=f\q\text{if and only if}\q
+T(\alpha(Y))\beta(T(Y))=1_{T(Y)}\q\text{and}\\
+a(b(g))=g\q\text{if and only if}\q \alpha(S(X)S(\beta(X))=1_{S(X)}.
+\end{gather*}
+
+An adjoint pair of functors can be defined as a pair of functors
+$S:\X\to \Y$ and $T:\Y\to \X$ together with two morphisms of functors
+$$
+\beta:\X\to TS\q\text{and}\q \alpha:ST\to \Y
+$$
+satisfying $\alpha(S(Y))S(\beta(X))=1_{S(X)}$ and
+$T(\alpha(Y))\beta(T(Y))=1_{T(Y)}$. This situation is denoted
+$(\alpha,\beta):S\dashv T:(\X,\Y)$ or just $(\alpha,\beta):S\dashv T$.
+\end{remark}
+
+\begin{remark}\label{chap2-rem1.4}
+If $S:\X\to \Y$ is the left adjoint of $T:\Y\to \X$, then for the dual
+categories $S:\X^{op}\to \Y^{op}$ is the right adjoint of
+$T:\Y^{op}\to \X^{op}$. 
+\end{remark}
+
+The relation between adjoint functors and universal constructions is
+contained in the next proposition.
+
+\begin{proposition}\label{chap2-prop1.5}
+Let $S:\X\to \Y$ be a functor, and for each object $Y$ in $\Y$, assume
+that there exists an object $t(Y)$ in $\X$ and a morphism
+$\alpha(Y):S(t(Y))\to Y$ such that for all $g:S(X)\to Y$, there exists
+a unique morphism $f:X\to t(Y)$ such that $\alpha(Y)S(f)=g$. Then
+there exists a right adjoint functor $T:\Y\to \X$ of $S$ such that for
+each object $Y$ in $\Y$ the object $T(Y)$ is $t(Y)$ and
+$$
+a:\Hom(X,T(Y))\to \Hom(S(X),Y)
+$$
+is given by $a(f)=\alpha(Y)S(f)$.
+\end{proposition}
+
+\begin{proof}
+To define $T$ on moprhisms, we use the universal property. If $v:Y\to
+Y'$ is a morphism in $\Y$, then there exists a unique morphism
+$T(v):T(Y)\to T(Y')$ such that $\alpha F(Y')(S(T(v))=v\alpha(Y)$ as
+morphisms $ST(Y)\to Y'$. The reader can check that this defines a
+functor $T$, and the rest follows from the fact that the universal
+property asserts that $a$ is a bijection.\pageoriginale This proves
+the proposition.
+\end{proof}
+
+\setcounter{starprop}{4}
+\begin{starprop}\label{chap2-starprop1.5}
+Let $T:\Y\to \X$ be a functor, and for each object $X$ in $\X$ assume
+there exists an object $s(X)$ in $\Y$ and a morphism $\beta(X):X\to
+T(s(X))$ such that for all $f:X\to T(Y)$ there exists a unique
+$g:s(X)\to Y$ such that $T(g)\beta(X)=f$. Then there exists a left
+adjoint functor $S:\X\to \Y$ such that for each object $X$ in $\X$ the
+object $S(X)$ is $s(X)$ and 
+$$
+b:\Hom(S(X),Y)\to \Hom(X,T(Y))
+$$
+is given by $b(g)=T(g)\beta(X)$. 
+\end{starprop}
+
+\begin{proof}
+We deduce (\ref{chap2-starprop1.5})$^{*}$ immediately by applying
+(\ref{chap2-prop1.5}) to the dual category.
+\end{proof}
+
+\section{Graded commutativity of the tensor product and
+  algebras}\label{chap2-sec2}\index{commutative algebra} 
+
+Let $\Theta$ denote an abelian group with a morphism
+$\epsilon:\Theta\to \{\pm 1\}$, and define a corresponding
+bimultiplicative $\epsilon:\Theta\times\Theta\to \{\pm 1\}$, by the
+requirement that
+$$
+\epsilon(\theta,\theta')=
+\begin{cases}
++1 & \text{if~ } \epsilon(\theta)=1\text{~ or~ }\epsilon(\theta')=1\\
+-1 & \text{if~ } \epsilon(\theta)=-1\text{~ and~ } \epsilon(\theta')=-1.
+\end{cases}
+$$
+
+\begin{definition}\label{chap2-defi2.1}
+The commuting morphism\index{commutative morphism} $\sigma$ or $\sigma_{\epsilon}$ of the tensor
+product $\times:\Theta(k)\times \Theta(k)\to \Theta(k)$ relative to
+$\epsilon$ is the morphism
+$$
+\sigma(L,M)=\sigma:L\otimes M\to M\otimes L
+$$
+defined for $x\otimes y\in L_{\theta}\otimes M_{\theta'}$ by the
+relation
+$$
+\sigma_{\epsilon}(x\otimes y)=\epsilon(\theta,\theta')(y\otimes x).
+$$
+
+Observe that $\sigma(M,L)\sigma(L,M)=L\otimes M$, the identity on the
+object $L\otimes M$.
+\end{definition}
+
+\begin{definition}\label{chap2-defi2.2}
+A $\Theta$-graded $k$-algebra $A$ is commutative (relative to
+$\epsilon$) provided $\phi(A)\sigma_{\epsilon}(A,A)=\phi(A):A\otimes
+A\to A$. The full subcategory of $\Alg_{\Theta,k}$\pageoriginale
+determined by the commutative algebras is denoted by
+$C\Alg_{\Theta,k}$. 
+\end{definition}
+
+\begin{remark}\label{chap2-rem2.3}
+Let $A$ be a $\Theta$-graded $k$-algebra. For $a\in A_{\theta}$ and
+$b\in A_{\theta'}$ the Lie bracket of $a$ and $b$ is 
+$$
+[a,b]=ab-\epsilon(\theta,\theta')ba
+$$
+which is an element of $A_{\theta+\theta'}$. Let $[A,A]$ denote the
+$\Theta$-graded $k$ - submodule of $A$ generated by all Lie brackets
+$[a,b]$ for $a$, $b\in A$. Observe that $A$ is commutative if and only
+if $[A,A^{c}]=0$. Let $(A,A)$ denote the two-sided ideal generated by
+$[A,A]$. 
+\end{remark}
+
+\begin{definition}\label{chap2-defi2.4}
+A $\Theta$-graded Lie algebra over $k$ is a pair $\underline{g}$
+together with a graded $k$-linear map $[,]:\underline{g}\otimes
+\underline{g}\to \underline{g}$, called the Lie bracket, satisfying
+the following axioms:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item For $a\in\underline{g}_{\theta}$ and $b\in
+  \underline{g}_{\theta'}$ we have
+$$
+[a,b]=-\epsilon(\theta,\theta')[b,a].
+$$
+
+\item (Jacobi identity) for $a\in \underline{g}_{\theta'}$, $b\in
+  \underline{g}_{\theta'}$, and $c\in \underline{g}_{\theta''}$ we
+  have
+$$
+\epsilon(\theta,\theta'')[a,[b,c]]+\epsilon(\theta',\theta)[b,[c,a]]+\epsilon(\theta'',\theta')[c,[a,b]]=0. 
+$$
+
+A morphism $f:\underline{g}\to \underline{g}'$ of $\Theta$-graded Lie
+algebras over $k$ is a graded $k$-module morphism such that
+$f([a,b])=[f(a),f(b)]$ for all $a$, $b\in \underline{g}$. Since the
+composition of morphisms of Lie algebras is again a morphism of Lie
+algebras, we can speak of the category $\Lie_{\Theta,k}$ of
+$\Theta$-graded Lie algebras over $k$ and their morphisms. Following
+the lead from algebras, we define a Lie algebra $\underline{g}$ to be
+commutative if $[,]=0$ on $\underline{g}\otimes \underline{g}$, or
+equivalently, $[\underline{g},\underline{g}]$ is the zero
+$k$-submodule where $[\underline{g},\underline{g}]$ denotes the
+$k$-submodule generated by all Lie brackets $[a,b]$. The full
+subcategory of commutative Lie algebras is denoted $C\Lie_{\Theta,k'}$
+and it is essentially the category $\Theta(k)$ of $\Theta$-graded
+modules. 
+\end{enumerate}
+\end{definition}
+
+\begin{example}\label{chap2-exam2.5}
+If $A$ is a $\Theta$-graded $k$-algebra, then $A$ with the Lie bracket
+$[a,b]=ab-\epsilon(\theta,\theta')ba$\pageoriginale for $a\in
+\underline{g}_{\theta'}$, $b\in \underline{g}_{\theta'}$ is a
+$\Theta$-graded Lie algebra which we denote by Lie (A). This defines a
+functor
+$$
+\Lie:\Alg_{\Theta,k}\to \Lie_{\Theta,k}.
+$$
+\end{example}
+
+\section{Abelianization of algebras and Lie
+  algebras}\label{chap2-sec3}\index{abelianization}\index{Lie algebra}
+
+In this section we relate several categories by pairs of adjoint
+functors. For completeness, we include $(gr)$, the category of groups
+and group morphisms together with the full subcategory $(ab)$ of
+abelian groups. Also $(ab)$ and $(\bfZ)$ are the same categories. We
+continue to use the notation of the previous section for the group
+$\Theta$ which indexes the grading.
+
+\begin{definition}\label{chap2-defi3.1}
+Abelianization is the left adjoint functor to any of the following
+inclusion functors
+$$
+C\Alg_{\Theta,k}\to \Alg_{\Theta,k},\, C\Lie_{\Theta,k}\to
+\Lie_{\Theta,k},\q\text{and}\q (ab)\to (gr).
+$$
+\end{definition}
+
+\begin{proposition}\label{chap2-prop3.2} 
+Each of the inclusion functors
+$$
+C\Alg_{\Theta,k}\to \Alg_{\Theta,k},\, C\Lie_{\Theta,k}\to
+\Lie_{\Theta,k}\q \text{and}\q (ab)\to (gr)
+$$
+have left adjoint functors
+$$
+\Alg_{\Theta,k}\to C\Alg_{\Theta,k},\, \Lie_{\Theta,k}\to
+C\Lie_{\Theta,k'}\q\text{and}\q (gr)\to (ab).
+$$
+each of them denoted commonly by $(\;)^{ab}$.
+\end{proposition}
+
+\begin{proof}
+If the inclusion functor is denoted by $J$, then we will apply
+(\ref{chap2-starprop1.5})$^{*}$ to $T=J$ and form the commutative
+$s(A)=A/(A,A)$, $s(L)=L/[L,L]$ and $s(G)/(G,G)$ algebra, Lie algebra,
+and group respectively by dividing out by commutators. In the case of
+an algebra $A$, the commutator ideal $(A,A)$ is the bilateral ideal
+generated by $[A,A]$ and $\beta(A):A\to J(s(A))=A/(A,A)$
+is\pageoriginale the quotient morphism. For each morphism $f:A\to
+J(B)$ where $B$ is a commutative algebra $f((A,A))=0$ and hence it
+defines a unique $g:s(A)\to B$ in $C\Alg_{k}$ such that
+$J(g)\beta(A)=f$. Hence there exists a left adjoint functor $S$ of $J$
+which we denote by $S(A)=A^{ab}$. The same line of argument applies to
+Lie algebras where
+$\underline{g}^{ab}=\underline{g}/[\underline{g},\underline{g}]$ and
+$[\underline{g},\underline{g}]$ is the Lie ideal of all brackets
+$[a,b]$ and groups where $G^{ab}=G/(G,G)$ and $(G,G)$ is the normal
+subgroup of $G$ generated by all commutators $(s,t)=sts^{-1}t^{-1}$ of
+$s$, $t\in G$. This proves the proposition.  
+\end{proof}
+
+Now we consider functors from the category of algebras to the category
+of Lie algebras and the category of groups.
+
+\begin{notation}\label{chap2-not3.3}
+We denote the composite of the functor $\Lie:\Alg_{\Theta,k}\to
+\Lie_{\Theta,k}$, which assigns to an algebra $A$ the same underlying
+$k$-module together with the Lie bracket $[a,b]$, with the
+abelianization functor of this Lie algebra $\Lie(A)^{ab}$, and denote
+it by $A^{\alpha\beta}$. This is just the graded $k$-module $[A,A]$.
+\end{notation}
+
+We remark that there does not seem to be standard notation for $A$
+divided by the $k$-module generated by the commutators, and we have
+hence introduced the notation $A^{\alpha\beta}$. Note that the
+quotient $A^{\alpha\beta}$ is not an algebra but an abelian Lie
+algebra, that is, a graded $k$-module.
+
+\begin{remark}\label{chap2-rem3.4}
+The importance of $A^{\alpha\beta}$ lies in the fact that it is
+isomorphic to the zero dimensional Hochschild homology, as we shall
+see in (6.3)(2), and thus to the zero dimensional cyclic homology, see
+1(3.6). 
+\end{remark}
+
+\begin{remark}\label{chap2-rem3.5}
+The multiplicative group\index{multiplicative group} functor $(\;)^{*}:\Alg_{k}\to (gr)$ is
+defined as the subset consisting of $u\in A$ with an inverse
+$u^{-1}\in A$ and the group law being given by multiplication in
+$A$. It is the right adjoint of the group algebra functor
+$k[\;]:(gr)\to \Alg_{k}$ where $k[G]$ is the free module with the set
+$G$ as basis and multiplication given by the following formula
+on\pageoriginale linear combinations in $k[G]$,
+$$
+\left(\sum_{t\in G}a_{t}t\right) \left(\sum_{r\in
+  G}b_{r}r\right)=\sum_{s\in G} \left(\sum_{tr=s}a_{t}b_{r}\right)s.
+$$
+
+The adjunction condition is an isomorphism
+$$
+\Hom(k[G],A)\to \Hom(G,A^{*}).
+$$
+\end{remark}
+
+\section[Tensor algebras and universal enveloping
+  algebras]{Tensor algebras and universal enveloping\hfil\break
+  algebras}\label{chap2-sec4}\index{tensor algebra}\index{universal
+  enveloping algebra}
+
+Adjoint functors are also useful in describing free objects or
+universal objects with respect to a functor which reduces
+structure. These are called structure reduction functors, stripping
+functors, or forgetful functors.
+
+\begin{proposition}\label{chap2-prop4.1}
+The functor $J:\Alg_{\Theta,k}\to \Theta(k)$ which assigns to the
+graded algebra $(A,\phi,\eta)$ the graded $k$-module $A$ has a left
+adjoint $T:\Theta(k)\to \Alg_{\Theta,k}$ where $T(M)$ is the tensor
+algebra on the graded module $M$.
+\end{proposition}
+
+\begin{proof}
+From the $n^{th}$ tensor power $M^{n\otimes}$ of a graded module
+$M$. For each morphism $f:M\to J(A)$ of graded modules where $A$ is an
+algebra we have defined $f_{n}:M^{n\otimes}\to J(A)$ as
+$f_{n}=\phi_{n}(A)f^{n\otimes}$, where $\phi_{n}(A):A^{n\otimes}\to A$
+is the $n$-fold multiplication.
+
+We give $T(M)=\displaystyle{\coprod_{n}}M^{n\otimes}$ the structure of algebra
+$(T(M),\phi,\eta)$ where $\eta:k=M^{0\otimes}\to T(M)$ is the natural
+injection into the coproduct and $\phi|M^{p\otimes}\otimes
+M^{q\otimes}$ is the natural injection of $M^{(p+q)\otimes}$ into
+$T(M)$ defining $\phi:T(M)\otimes T(M)\to T(M)$. For a morphism
+$f:M\to J(A)$ the sum of the $f_{n}:M^{n\otimes}\to J(A)$ define a
+morphism $g:T(M)\to A$ of algebras. The adjunction morphism is
+$\beta(M):M\to J(T(M))$ the natural injection of $M^{1\otimes}=M$ into
+$J(T(M))$. Clearly $J(g)\beta(M)=f$ and this defines the bijection
+giving the adjunction from the universal property. This proves the
+proposition. 
+\end{proof}
+
+Now\pageoriginale we consider the question of abelianization of the
+tensor algebra. Everything begins with the commutativity symmetry
+$\sigma:L\otimes M\to M\otimes L$ of the tensor product.
+
+\medskip
+\noindent
+{\bf Algebra abelianization of {\boldmath$T(M)$} 4.2.}
+The abelianization $T(M)^{ab}$ of the algebra $T(M)$, like $T(M)$, is
+of the form $\prod\limits_{0\leq n}S_{n}(M)$ where
+$S_{n}(M)=(M^{n\otimes})_{\Sym_{n}}$ is the quotient of the $n^{th}$
+tensor power of $M$ by the action of the symmetric group $\Sym_{n}$
+permuting the factors with the sign $\epsilon(\theta,\theta')$ coming
+from the grading. This follows from the fact that the symmetric group
+$\Sym_{n}$ is generated by transpositions of adjacent indices, and
+thus $(T(M),T(M))$ is generated by
+$$
+x\otimes y-\epsilon(\theta,\theta')y\otimes x\q\text{for}\q x\in
+M_{\theta},\q y\in M_{\theta'}
+$$
+as a two sided ideal.
+
+\medskip
+\noindent
+{\bf Lie algebra abelianization {\boldmath$T(M)^{\alpha\beta}$} of
+  {\boldmath$T(M)$}. 4.3.}\index{Lie algebra abelianization} We form $\Lie(T(M))$ and divide by the
+$\Theta$-graded $k$-submodule $[T(M),T(M)]$ to obtain\break
+$T(M)^{\alpha\beta}$, which like $T(M)$ and $T(M)^{ab}=S(M)$, is of
+the form $\coprod\limits_{0\leq n}L_{n}(M)$ where
+$L_{n}(M)=(M^{n\otimes})_{\Cyl_{n}}$ is the quotient of the $n^{th}$
+tensor power of $M$ by the action of the cyclic group $\Cyl_{n}$
+permuting the factors cyclically with the sign
+$\epsilon(\theta,\theta')$ coming from the grading. In $M^{n\otimes}$,
+we must divide by elements of the form
+{\fontsize{10}{12}\selectfont
+$$
+[x_{1}\otimes\cdots\otimes x_{p},x_{p+1}\otimes\cdots\otimes
+  x_{n}]=x_{1}\otimes\cdots\otimes
+x_{n}-\epsilon(\theta,\theta')x_{p+1}\otimes\cdots\otimes x_{n}\otimes
+x_{1}\otimes\cdots\otimes x_{p}
+$$} 
+where $x_{1}\otimes\cdots\otimes x_{p}\in (M^{p\otimes})_{\theta}$ and
+$x_{p+1}\otimes\cdots\otimes x_{n}\in
+(M^{(n-p)\otimes})_{\theta'}$. These elements generate $[T(M),T(M)]$
+and they are exactly the elements mapping to zero in the quotient,
+under the action of the cyclic group $\Cyl_{n}$ on $M^{n\otimes}$. 
+
+\setcounter{theorem}{3}
+\begin{proposition}\label{chap2-prop4.4}
+The functor $\Lie:\Alg_{\Theta,k}\to \Lie_{\Theta,k}$ has a left
+adjoint functor $U:\Lie_{\Theta,k}\to \Alg_{\Theta,k}$.
+\end{proposition}
+
+\begin{proof}
+The functor Lie starts with the functor $J$ of (\ref{chap2-prop4.1})
+which has $T(\underline{g})$ as\pageoriginale its left adjoint
+functor. This is not enough because $\underline{g}\to
+T(\underline{g})$ is not a morphism of Lie algebras, so we form the
+quotient $u(\underline{g})$ of $T(\underline{g})$ by what is needed to
+make it a Lie algebra morphism, namely the two sided ideal generated
+by all
+$$
+x\otimes y-\epsilon(\theta,\theta')y\otimes x=[x,y]\q\text{for}\q x\in
+\underline{g}_{\theta}, y\in \underline{g}_{\theta'}. 
+$$
+
+The resulting algebra $U(\underline{g})$ has the universal property
+which follows from the universal property for $T(M)$ in
+(\ref{chap2-prop4.1}). This proves the proposition.
+\end{proof}
+
+\begin{definition}\label{chap2-defi4.5}
+The algebra $U(\underline{g})$ is called the universal enveloping
+algebra of the Lie algebra $\underline{g}$.
+\end{definition}
+
+\begin{example}\label{chap2-exam4.6}
+The abelianization $U(\underline{g})^{ab}=U(\underline{g}^{ab})$ while
+$U(\underline{g})^{\alpha\beta}$ is\break $U(\G)_{\}'}$ the universal
+quotient where the action of $\underline{g}$ on $U(\underline{g})$ is
+trivial. 
+\end{example}
+
+\begin{example}\label{chap2-examp4.7}
+The abelianization $k[G]^{ab}=k[G^{ab}]$ while $k[G]^{\alpha\beta}$ is\break
+$k[G]_{G}$, the universal quotient where the action of $G$ on $k[G]$
+is trivial. This is just a free module on the conjugacy classes of $G$.
+\end{example}
+
+\section{The category of $A$-bimodules}\label{chap2-sec5}
+
+Let $A$ be a $\Theta$-graded algebra over $k$ with multiplication
+$\phi(A):A\otimes A\to A$ and unit $\eta(A):k\to A$.
+
+\begin{definition}\label{chap2-defi5.1}
+A left $A$-module $M$ is a $\Theta$-graded $k$-module $M$, together
+with a morphism $\phi(M):A\otimes M\to M$ such that
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item (associativity) as morphisms $A\otimes A\otimes M\to M$ we have
+  $\phi(M)(A\otimes \phi(M))=\phi(M)(\phi(A)\otimes M)$, and
+
+\item (unit property) the composite $(\phi(M)(\eta(A)\otimes M)$ is
+  the natural morphism $k\otimes M\to M$.
+\end{enumerate}
+
+A morphism $f:M\to M'$ of left $A$-modules is a graded $k$-linear
+morphism satisfying $f\phi(M)=\phi(M')(A\otimes f)$. The composition
+of two morphisms of left $A$-modules as $k$-modules is a morphism of
+left $A$-modules. Thus we can speak of the category ${}_{A}\Mod$ of
+left $A$-modules and their morphisms. 
+\end{definition}
+
+\begin{definition}\label{chap2-defi5.2}
+A\pageoriginale right $A$-module $L$ is a $\Theta$-graded $k$-module
+$L$ together with a morphism $\phi(L):L\otimes A\to M$ satisfying an
+associativity and unit property which can be formulated to say that
+$L$ together with $\phi(L)\sigma(A,L)$ is a left $A^{op}$-module where
+$A^{op}=(A,\phi(A)\sigma(A,A),\eta(A))$. A morphism of right
+$A$-modules is just a morphism of the corresponding left
+$A^{op}$-modules, and composition of $k$-linear morphisms induces
+composition of right $A$-modules. Thus we can speak of the category
+$\Mod_{A}$ of right $A$-modules and their morphisms. 
+\end{definition}
+
+We have the natural identification of categories
+${}_{A}\Mod=\Mod_{(A^{op})}$ and ${}_{(A^{op})}\Mod=\Mod_{A}$. 
+
+\begin{definition}\label{chap2-defi5.3}
+An $A$-bimodule $M$ is a $\Theta$-graded $k$-module together with two
+morphisms $\phi(M):A\otimes M\to M$ making $M$ into a left $A$-module,
+and $\phi'(M):M\otimes A\to M$ making $M$ into a right $A$-module,
+such that, as morphisms $A\otimes M\otimes A\to M$ we have
+$$
+\phi(M)(A\otimes \phi'(M))=\phi'(M)(\phi(M)\otimes A).
+$$
+
+A morphism of $A$-bimodules $f:M\to M'$ is a $k$-linear morphism which
+is both a left $A$-module morphism and a right $A$-module
+morphism. The composition as $k$-linear morphisms is the composition
+of $A$-bimodules. Thus we can speak of the category ${}_{A}\Mod_{A}$
+of $A$-bimodules\index{bimodules}.
+\end{definition}
+
+We have the natural identification of categories
+${}_{A}\Mod_{A}={}_{A\otimes (A^{op})}\break\Mod=\Mod_{(A^{op})\otimes A}$
+in terms of left and right modules over $A$ tensored with its opposite
+algebra $A^{op}$.
+
+\begin{definition}\label{chap2-defi5.4}
+Let $M$ be an $A$-bimodule. Let $[A,M]$ denote the graded
+$k$-submodule generated by all elements of the form
+$$
+[a,x]=ax-\epsilon(\theta,\theta')xa
+$$
+where $a\in A_{\theta,x}\in M_{\theta'}$. As a graded $k$-module we
+denote by $M^{\alpha\beta}=M/[A,M]$. 
+\end{definition}
+
+If\pageoriginale $f:M\to M'$ is a morphism of $A$-bimodules, the
+$f([A,M])\subset [A,M']$ and $f$ induces on the quotient
+$f^{\alpha\beta}:M^{\alpha\beta}\to {M'}^{\alpha\beta}$, and this
+defines a functor ${}_{A}\Mod_{A}\to \Theta(k)$ which is the largest
+quotient of an $A$-bimodule $M$ such that the left and right actions
+are equal. It is a kind of abelianization\index{bimodules abelianization}, in the sense that for the
+$A$-bimodule $A$ the result $A/[A,A]$ is just the abelianization of
+the Lie algebra $\Lie(A)$.
+
+\begin{remark}\label{chap2-rem5.5}
+In fact the abelization functor is just a tensor product. Any
+$A$-bimodule is a left $A\otimes A^{op}$-module and $A^{op}$ is a
+right $A\otimes A^{op}$-module. Then $M^{\alpha\beta}$ is just
+$A^{op}\otimes_{(A\otimes A^{op})}M$, because the tensor product over
+$A\otimes A^{op}$ is the quotient of $A\otimes M$ divided by the
+submodule generated by $ab\otimes x-a\otimes bx$ for $a\in A^{op}$,
+$x\in M$, and $b\in A\otimes A^{op}$, that is, by relations of the
+form $a\otimes x-1\otimes ax$ and $a\otimes x-1\otimes xa$.
+\end{remark}
+
+In fact $M\to M^{\alpha\beta}$ is a functor $\Theta\Bimod\to
+\Theta(k)$. Here $\Theta\Bimod$ is the category of pairs $(A,M)$ where
+$A$ is $\Theta$-graded algebra over $k$ and $M$ is an $A$-bimodule,
+and the morphisms are $(u,f):(A,M)\to (A',M')$ where $u:A\to A'$ is a
+morphism of algebras and $f:M\to M'$ is $k$-linear such that
+$f\phi(M)=\phi(M')(A\otimes f)$ and $f\phi'(M)=\phi'(M')(f\otimes
+A)$. Observe that when $u$ is the identity on $A$, then $f:M\to M'$ is
+a morphism ${}_{A}\Mod_{A}$.
+
+\begin{remark}\label{chap2-rem5.6}
+The abelianization functor $M^{\alpha\beta}$, being a tensor product,
+has the following exactness property. If $L\to M\to N\to 0$ is an
+exact sequence in ${}_{A}\Mod_{A}$, then $L^{\alpha\beta}\to
+M^{\alpha\beta}\to N^{\alpha\beta}\to 0$ is exact in $\Theta(k)$. Even
+if $L\to M$ is a monomorphism, it is not necessarily the case that
+$L^{\alpha\beta}\to M^{\alpha\beta}$ is a monomorphism.
+\end{remark}
+
+Since $M^{\alpha\beta}$ is only right exact, the functor generates a
+sequence of functors of $(A,M)$ in $\Theta\Bimod$, denoted
+$H_{n}(A,M)$ and called Hochschild homology of $A$ with values in the
+module $M$, such that $H_{0}(A,M)$ is isomorphic to
+$M^{\alpha\beta}$. More precisely, in the following section we have a
+theorem which gives an axiomatic characterisation of Hochschild
+homology.
+
+\section{Hochschild homology}\label{chap2-sec6}
+
+\begin{definition}\label{chap2-defi6.1}
+An\pageoriginale $A$-bimodule $M$ is called extended provided it is of the form
+$A\otimes X\otimes A$ where $X$ is a graded $k$-module.
+\end{definition}
+
+\begin{remark}\label{chap2-rem6.2}
+There is a natural morphism to $A$-bimodule $k$-module\break 
+$\Hom_{(A)}(A\otimes X\otimes A,M')$, denoted
+$$
+a:\Hom_{\Theta(k)}(X,M')\to \Hom_{(A)}(A\otimes X\otimes A,M'),
+$$
+defined by the relation
+$$
+a(f)=\phi'(M')(\phi(M')\otimes A)(A\otimes f\otimes
+A)=\phi(M')(A\otimes \phi'(M')).
+$$
+
+Moreover, $a$ is an isomorphism defining $S(X)=A\otimes X\otimes A$ as
+a left adjoint functor to the stripping functor ${}_{A}\Mod_{A}\to
+\Theta(k)$ which deletes the $A$-bimodule structure leaving a $\Theta$
+graded $k$-module. The extended modules\index{extended bimodules} have an additional property,
+namely that for an exact sequence
+$$
+0\to M'\to M\to A\otimes X\otimes A\to 0
+$$
+which is $k$-split exact, we have the short exact sequence
+$$
+0\to {M'}^{\alpha\beta}\to M^{\alpha\beta}\to (A\otimes X\otimes
+A)^{\alpha\beta}\to 0.
+$$
+
+This follows from the fact that under the hypothesis, we have a
+splitting of the $A$-bimodule sequence given by a morphism $A\otimes
+X\otimes X\otimes A\to M$.
+\end{remark}
+
+The reader can easily check that the projectives in the category
+${}_{A}\break\Mod_{A}$ are direct summands of extended modules $A\otimes
+X\otimes A$ where $X$ is a free $\Theta$-graded $k$-module.
+
+\begin{theorem}\label{chap2-thm6.3}
+There exists a functor $H:\Theta\Bimod\to \bfZ(\Theta(k))$ together
+with a sequence of morphisms $\p:H_{q}(A,M'')\to H_{q-1}(A,M')$ in
+$\Theta(k)$ associated to each exact sequence split in $\Theta(k)$ of
+$A$-modules $0\to M'\to M\to M''\to 0$ such that 
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item the\pageoriginale following exact triangle is exact
+\[
+\xymatrix{
+H_{\ast}(A,M')\ar[rr] & & H_{\ast}(A,M)\ar[dl]\\
+ & H_{\ast}(A,M'')\ar[ul]^{\p} & 
+}
+\]
+and $\p$ is natural in $A$ and the exact sequence,
+
+\item in degree zero $H_{0}(A,M)$ is naturally isomorphic to
+  $M^{\alpha\beta}= M/[A,\break M]$ 
+
+\item if $M$ is an extended $A$-bimodule, then $H_{q}(A,M)=0$ for
+  $q>0$. 
+\end{enumerate}
+
+Finally two such functors are naturally isomorphic in a way that the
+morphisms $\p$ are preserved.
+\end{theorem}
+
+\begin{proof}
+Since $M^{\alpha\beta}$ is isomorphic to the tensor product
+$A^{op}\otimes_{(A\otimes A^{op})}M$, the functor $H_{\ast}(A,M)$ can
+be defined as $\Tor^{A\otimes A^{op}}_{\ast}(A^{op},M)$, not as the
+absolute $Tor$, but as a $k$-split relative $Tor$ functor. Since
+this concept is not so widely understood, we give an explicit version
+by starting with a functorial resolution of $M$ by extended
+$A$-bimodules. The first term is the resolution is $A\otimes M\otimes
+A\to M$ given by scalar multiplication and $M$ in $A\otimes M\otimes
+A$ viewed as a $\Theta$-graded $k$-module. The next term is $A\otimes
+W(M)\otimes A\to A\otimes M\otimes A$, where $W(M)=\{\ker(A\otimes
+M\otimes A\to M)\}$, and the process continues to yield a complex
+$Y_{\ast}(M)\to M$ depending functorially on $M$. We can define
+$H_{\ast}(A,M)=H_{\ast}(Y_{\ast}(M)^{\alpha\beta})$, and to check the
+properties, we observe that for an exact sequence of $A$-bimodules
+which is $k$-split
+$$
+0\to M'\to M\to M''\to 0
+$$
+the corresponding sequence of complexes
+$$
+0\to Y_{\ast}(M')^{\alpha\beta}\to Y_{\ast}(M)^{\alpha\beta}\to
+Y_{\ast}(M'')^{\alpha\beta}\to 0
+$$
+is exact, and the homology exact triangle results give property (1)
+for the homology $H_{\ast}(A,M)$. The relation (2) that
+$H_{0}(A,M)=M^{\alpha\beta}$ follows from the\pageoriginale 
+right exactness of the
+functor. Finally (3) results from the last statement in
+(\ref{chap2-rem6.2}). 
+\end{proof}
+
+The uniqueness of the functor $H_{q}$ is proved by induction on $q$
+using the technique call dimension shifting. We return to the
+canonical short exact sequence associated with any $A$-bimodule $M$
+$$
+0\to W(M)\to A\otimes M\otimes A\to M\to 0.
+$$
+
+This gives an isomorphism $H_{q}(A,M)\to H_{q-1}(A,W(M))$ for $q>1$,
+and an isomorphism $H_{1}(A,M)\to \ker(H_{0}(A,W(M))\to
+H_{0}(A,A\otimes M\otimes A))$. In this way the two theories are seen
+to be isomorphic by induction on the degree. This proves the theorem. 
+
+
+

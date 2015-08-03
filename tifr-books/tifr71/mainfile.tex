@@ -1,0 +1,59 @@
+\documentclass[a4paper,11pt]{book}
+\usepackage[leqno]{amsmath}
+\usepackage{amssymb,mathrsfs,amsthm}
+\usepackage{dsfont,enumerate,graphicx,pifont,mathrsfs}
+\usepackage{stmaryrd,textcomp,wasysym,makeidx,multicol}
+\usepackage[dvips,breaklinks]{hyperref}
+\usepackage{txfonts}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{multirow,longtable}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{caption}
+\floatstyle{plain}
+
+\makeatletter
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\renewcommand \thefigure
+     {\ifnum \c@section>\z@ \thesection.\fi \@arabic\c@figure}
+\makeatother
+\floatplacement{Figure}{H}
+
+\input macros
+
+\textwidth=11cm
+\textheight=17cm
+\makeatletter
+\c@tocdepth=1
+\makeatother
+\allowdisplaybreaks
+
+\hfuzz=1pt
+\makeindex
+\begin{document}
+
+\frontmatter
+\input preface
+
+\tableofcontents
+\mainmatter
+
+\input chapter1
+\input chapter2
+
+\clearpage
+\printindex
+
+
+\end{document}

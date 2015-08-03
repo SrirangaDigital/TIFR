@@ -1,0 +1,288 @@
+\chapter{Lecture}\label{part3:lec20} %% 20
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+We\pageoriginale found a closed expression for $p(n)$; we shall now
+look back at the generating function and get some interesting results.
+$$
+f(x) = \frac{1}{\prod\limits^\infty_{n=1} (1- x^n)} = \sum^\infty_{n=0}
+p(n) x^n,
+$$
+and we know $p(n)$. $p(n)$ in its simplest form before reduction to
+the traditional Bessel functions is given by
+$$
+\displaylines{\hfill p(n) = 2 \pi \left(\frac{\pi}{12} \right)^{3/2}
+  \sum^\infty_{k=1} A_k (n) k^{-5/2} L_{3/2} \left(\left(
+  \frac{\pi}{12k}\right)^2 (24n-1) \right), \hfill \cr
+  \text{where} \hfill L_{3/2} \left( \frac{\pi^2}{6k^2} \left(n-
+  \frac{1}{24}\right)\right) = \sum^\infty_{r=0} \frac{\frac{\pi}{6k^2} (n-
+    \frac{1}{24})^r}{r! \Gamma \left( \frac{5}{2} + r\right)}\hfill }
+$$
+
+We wish first to give an appraisal of $L$ and show that the series for
+$p(n)$ converges absolutely. The series is
+$$
+f(x) = 2 \pi \left( \frac{\pi}{12}\right)^{3/2} \sum^\infty_{n=0} x^n
+\sum^\infty_{k=1} A_k (n) k^{-5/2} L_{3/2} \left( \frac{\pi^2}{6k^2}
+(n- \alpha)\right),
+$$
+where we write $\frac{1}{24}= \alpha$ for abbreviation - it will be
+useful for some other purposes also to have a symbol there instead of
+a number. 
+
+We make only a crude estimate.
+\begin{align*}
+  \left|L_{3/2} \left( \frac{\pi^2}{6k^2} (n- \alpha)\right) \right|
+  & \leq \sum^\infty_{r=0} \frac{\left( \frac{\pi^2}{6}n\right)^r}{r!
+    \Gamma \left( \frac{5}{2}+r \right)}\\
+  & = \sum^\infty_{r=0}\frac{\left(\frac{\pi^2}{6} n \right)^r}{r!
+    \Gamma \left(\frac{1}{2} \right) \cdot \frac{1}{2} \cdot
+    \frac{3}{2} \cdots \left( \frac{3}{2} + r\right)}\\
+  & \frac{2^2}{\sqrt{\pi}} \sum^\infty_{r=0} \frac{\left( \frac{2
+      \pi}{3} \pi n\right)^r}{(2 r +1)! (3+2r)}\\
+  & \leq 4 \sum^{\infty}_{r=0} \frac{(C\sqrt{n})^{2r}}{(2r)!}, C = \pi
+  \sqrt{\frac{2}{3}},\\
+  & \leq 4 \sum^{\infty}_{\rho=0} \frac{(C\sqrt{n})^\rho}{\rho !}\\
+  & = 4 e^{C \sqrt{n}}
+\end{align*}
+
+So\pageoriginale $f(x)$ is majorised by
+$$
+\text{constant} ~x \sum^\infty_{n=1} |x|^n e^{C\sqrt{n}}
+\sum^\infty_{k=1} \frac{1}{k^{3/2}}
+$$
+and this is absolutely convergent for $|x|< 1$, indeed uniformly so
+for $|x|\leq 1- \delta$, $\delta > 0$, because $e^{C \sqrt{n}}=
+0(e^{\delta n})$, $\delta > 0$, so that we need take $|x e^\delta|
+<1$. We can therefore interchange the order of summation:
+\begin{align*}
+  f(x) & = 2\pi \left( \frac{\pi}{12} \right)^{3/2} \sum^\infty_{k=1}
+  k^{- 5/2} \sum^\infty_{n=0} A_k (n) x^n L_{3/2} \left(
+  \frac{\pi^2}{6k^2} (n- \alpha)\right)\\
+  & = 2 \pi \left(\frac{\pi}{12} \right)^{3/2} \sum^\infty_{k=1} k^{-
+    5/2} \sideset{}{'}\sum_{h \mod k} \omega_{hk} \sum^\infty_{n=0} \left(xe^{- 2
+    \pi i \frac{h}{k}} \right)^n L_{3/2} \left( \frac{\pi^2}{6k^2} (n-
+  \alpha)\right)
+\end{align*}
+where\pageoriginale the middle sum is a finite sum. This is all good
+for $|x|<1$. Now call
+$$
+\Phi_k (\mathfrak{z})= \sum^\infty_{n=0} L_{3/2} \left(
+\frac{\pi^2}{6k^2} (n- \alpha)\right) \mathfrak{z}^n
+$$
+
+So in a condensed form $f(x)$ appears as
+$$
+f(x) = 2 \pi \left( \frac{\pi}{12}\right)^{3/2} \sum^\infty_{k=1}
+k^{-5/2} \sideset{}{'}\sum_{h \mod k} \omega_{hk} \Phi_k \left(x e^{- 2\pi i
+    \frac{h}{k}}\right) 
+$$
+
+We have now a completely new form for our function. It is of great
+interest to consider $\Phi_k (\mathfrak{z})$ for its own sake; it is a
+power series $(|\mathfrak{z}|<1)$ and the coefficients of
+$\mathfrak{z}^n$ are functions of $n-\alpha$. 
+$$
+L_{3/2} (\nu) = \sum^\infty_{r=0} \frac{\nu^r}{r! \Gamma \left(
+  \frac{5}{2} +r\right)}
+$$
+
+This is an entire function of $\nu$, for the convergence is rapid
+enough in the whole plane. Looking into the Hadamard theory of entire
+functions, we could see that the order of this function is
+$\dfrac{1}{2}$. This is indeed plausible, for the denominator is
+roughly $(2r)!$ and $\sum \frac{\nu^r}{(2 r)!}= \sum
+\frac{(\sqrt{\nu})^{2r}}{(2r)!} \sim e^{\sqrt{\nu}}$; or the function
+grows like $e^{\sqrt{\nu}}$, and this is characteristic of the growth
+of an entire function or order $\frac{1}{2}$. The coefficients of
+$\mathfrak{z}^n$ are themselves entire functions in the subscript
+$n$. 
+
+We now quote a theorem of Wigert to the following effect. Suppose that
+we have a power series $\Phi (\mathfrak{z}) = \sum\limits^\infty_{n=0}
+g(n) \mathfrak{z}^n$ where $g(\nu)$\pageoriginale is in entire
+function of order less than 1; then we can say something about $\Phi
+(\mathfrak{z})$ which has been defined so far for $|\mathfrak{z}| <
+1$. This function can be continued analytically beyond the circle of
+convergence, and $\Phi (\mathfrak{z})$ has only $z=1$ as a
+singularity; it will be an essential singularity in general, but a
+pole if $g(\nu)$ is a rational function. We can extract the proof of
+Wigert's theorem from our subsequent arguments; so we do not give a
+separate proof here. 
+\begin{gather*}
+  \Phi_k (\mathfrak{z}) ~\text{is a double series}:\\
+  \Phi_k (\mathfrak{z}) = \sum^\infty_{n=0} \mathfrak{z}^n
+  \sum^\infty_{r=0} \frac{\left( \frac{\pi^2}{6k^2} (n-d)\right)^r}{r!
+    \Gamma \left( \frac{5}{4} + r\right)}, |\mathfrak{z}|<1
+\end{gather*}
+
+This is absolutely convergent; so we can interchange summations and
+write
+\begin{align*}
+  \Phi_k (\mathfrak{z}) & = \sum^\infty_{r=0} \frac{\left(
+    \frac{\pi}{k\sqrt{6}}\right)^{2r}}{r! \Gamma \left( \frac{5}{2}+
+    r\right)} \sum^\infty_{n=0} (n- \alpha)^r \mathfrak{z}^n\\
+  & = \sum^\infty_{r=0} \frac{\left(
+    \frac{\pi}{k\sqrt{6}}\right)^{2r}}{r! \Gamma \left(\frac{5}{2} + r
+    \right)} \varphi_r (\mathfrak{z})
+\end{align*}
+where $\varphi_r (\mathfrak{z})$ is the power series
+$\sum\limits^\infty_{n=0} (n- \alpha)^r \mathfrak{z}^n$. Actually it
+turns out to be a rational function. $\Phi_k (\mathfrak{z})$ can be
+extended over the whole plane.
+$$
+\varphi_r (\mathfrak{z}) = \sum^\infty_{n=0} \mathfrak{z}^n = 
+\frac{1}{1- \mathfrak{z}}. 
+$$
+
+Differentiating\pageoriginale $\varphi_r (\mathfrak{z})$,
+\begin{align*}
+  \varphi'_r (\mathfrak{z}) & = \sum^\infty_{n=0} n (n- \alpha)^r
+  \mathfrak{z}^{n-1},\\
+  \mathfrak{z} \varphi'_r (\mathfrak{z}) & = \sum^{\infty}_{n=0} n(n-
+  \alpha)^r \mathfrak{z}^n,\\
+  \alpha \varphi_r (\mathfrak{z}) & = \sum^\infty_{n=0} \alpha (n-
+  \alpha)^r \mathfrak{z}^n;
+\end{align*}
+so, 
+$$
+\mathfrak{z} \varphi'_r (\mathfrak{z}) - \alpha \varphi_r
+(\mathfrak{z}) = \sum^\infty_{n=0} (n- \alpha)^{r+1} \mathfrak{z}^n =
+\varphi_{r+1} (\mathfrak{z}) 
+$$
+
+This says that we con derive $\varphi_{r+1} (\mathfrak{z})$ from
+$\varphi_r (\mathfrak{z})$ by rational processes and
+differentiation. This will introduce no new pole; the old pole $z=1$
+(pole for $\varphi_\circ (\mathfrak{z})$) will be enhanced. So
+$\varphi_r (\mathfrak{z})$ is rational. Let us express the function a
+little more explicitly in terms of the new variable $u=
+\frac{1}{\mathfrak{z}-1}$ or $\frac{1}{u} +1=\mathfrak{z}$. Introduce
+$(-)^{r+1}\varphi_r (\mathfrak{z}) = (-)^{r+1} \varphi_r (1+u)= \psi_r
+(u)$, say he last equation which was a recursion formula now becomes
+$$
+\displaylines{\hfill
+(-)^{r+2} \psi_{r+1} (u) = \left(\frac{1}{u} +1 \right) (-)^r u^2
+\psi'_r (u) - \alpha (-)^{r+1} \psi_r (u) \hfill \cr
+\text{because } \hfill \psi'_r (u)= (-)^{r+1} \varphi'_r \left(1+
+\frac{1}{u} \right)\left( - \frac{1}{u^2}\right) = (-)^r \varphi'_r
+\left( 1+ \frac{1}{u}\right) \frac{1}{u^2} \hfill \cr
+\therefore \hfill \psi_{r+1} (u) = u(u+1) \psi'_r (u) + \alpha \psi_r
+(u) \hfill }
+$$
+
+This is a simplified version of our recursion formula. We have a mind
+to expand about the singularity $z=1$. Let us calculate the $\psi's$. 
+\begin{align*}
+  \psi_0 (u) & =u\\
+  \psi_1(u) & = u(u+1)+ \alpha u = (1+\alpha) u+u^2\\
+  \psi_2 (u) & = u(u+1)(2u+1+\alpha)+ \alpha(1+\alpha)u + \alpha u^2\\
+  & = (1+ \alpha)^2u + (2 \alpha+ 3)u^3 + 2 u^3
+\end{align*}
+$\psi_r (u)$\pageoriginale is a polynomial of degree $r+1$ without
+the constant term. The coefficients are a little complicated. If we
+make a few more trials we get by induction the following:
+
+\begin{theorem*}
+  $$
+  \psi_r (u) = \sum^r_{j=0} \Delta^j (\alpha + 1)^r u^{j+1},
+  $$
+  where $\Delta^j$ is the $j^{th}$ difference.
+\end{theorem*}
+
+By definition, 
+\begin{align*}
+  \Delta f(x) & = f(x+1) - f(x),\\
+  \Delta^2 f(x) & = \Delta \Delta f(x) = \Delta f(x+1) - \Delta f(x)\\
+  & = f(x+2) - 2f(x+1) + f(x)
+\end{align*}
+
+The binomial coefficients appear, and 
+$$
+\Delta^k f(x) = \sum^{k}_{\ell =0} (-)^{k-\ell} \binom{k}{\ell}
+f(x+\ell) 
+$$
+
+How\pageoriginale does the formula for $\psi_r$ fit? For induction one has to make
+sure that the start is good.
+\begin{align*}
+  \psi_0 (u) & = (\alpha + 1)^\circ u=u\\
+  \psi_1 (u) & = (\alpha +1)' u' + \Delta (\alpha+1)' u^2 =
+  (\alpha+1)u+u^2\\
+  \psi_2 (u) & = (\alpha +1)^2 u' + \Delta (\alpha+1)^2 u^2 + \Delta^2
+  (\alpha+1)^2 u^3\\
+  & = (\alpha+1)^2u + \left( (\alpha+2)^2- (\alpha+1)^2 \right)u^2 +
+  2u^3\\
+  & = (\alpha+1)^2u + (2 \alpha+3)u^2 + 2 u^3
+\end{align*}
+So the start is good. We assume the formula up to $r$.
+\begin{align*}
+  \psi_{r+1} (u) & = \sum^r_{j=0} \left\{ (u^2 +u) (j+1) \Delta^j
+  (\alpha+1)^r u^j+ \alpha \Delta^j (\alpha+1)^r u^{j+1}\right\}\\
+  & = \sum^{r+1}_{j=0} \left\{ j \Delta^{j-1} (\alpha+1)^r u^{j+1} +
+  (j+1+\alpha) \Delta^j (\alpha+1)^r u^{j+1}\right\}
+\end{align*}
+
+(A Seemingly negative difference need not bother us because it is
+accompanied by the term $j=0$).
+$$
+= \sum^{r+1}_{j=0} u^{j+1} \left( j \Delta^{j-1} (\alpha+1)^r + (j+ 1+
+\alpha) \Delta^j (\alpha+1)^r\right)
+$$
+
+To\pageoriginale show that the last factor is $\Delta^j (\alpha+1)^{r+1}$, we need a
+side remark. Introduce a theorem corresponding to Leibnitz's theorem
+on the differentiation of a product. We have
+\begin{align*}
+  \Delta f(x) g(x) & = f(x+1) g(x+1) - f(x) g(x)\\
+  & =f(x+1) \Delta g(x) + f(x+1) g(x) - f(x) g(x)\\
+  & = f(x+1) \Delta g(x) + \Delta f(x) \cdot g(x)
+\end{align*}
+
+The general rule is 
+$$
+\Delta^k f(x) g(x) = \sum^k_{\ell =0} \binom k \ell \Delta^{k-\ell}
+f(x+\ell) \Delta^\ell g(x)
+$$
+
+This is true for $k=1$. We prove it by induction,
+$$
+\Delta^{k+1} f(x) g(x) = \Delta (\Delta^k f(x) g(x),
+$$
+and since $\Delta$ is a linear process, this is equal to 
+$$
+\sum^k_{\ell =0} \binom k \ell \left\{ \Delta^{k- \ell} f(x+ \ell +1)
+\Delta ^{\ell +1} g(x) + \Delta ^{k+ 1- \ell} f(x+\ell) \Delta^\ell
+g(x) \right\},  
+$$
+which becomes, on rearranging summands,
+$$
+\sum^{k+1}_{\ell =0} \Delta^{k+1-\ell} f(x+\ell) \Delta^{\ell} g(x)
+  \left\{ \binom k \ell + \binom{k}{\ell -1}
+ \right\},
+$$
+and the last factor is $\binom{k+1}{\ell}, \left( \binom{k}{-1} =
+\binom{k}{k+1}=0 \right)$ This proves the rule.
+
+Applying\pageoriginale this to $(\alpha+1)^r$,
+$$
+(\alpha+1)^{r+1}= (\alpha+1)(\alpha+1)^r; ~\text{write}~ f= \alpha+1,
+g= (\alpha+1)^r,
+$$
+and observe that $f$ being linear permits only $0^{th}$ and $1^{st}$
+differences; 
+\begin{align*}
+  \Delta^k (\alpha+1)^r & = \binom{k}{k-1} \Delta^{k-1} (\alpha+1)^r+
+  \binom{k}{k} (\alpha+k+1) \Delta^k (\alpha+1)^r\\
+  & = k \Delta^{k-1} (\alpha+1)^r + (\alpha+k+1) \Delta^k (\alpha+1)^r
+  \\
+  \therefore \qquad \psi_r (u) & = \sum^r_{j=0} \Delta^j (\alpha+1)^r
+  u^{j+1} 
+\end{align*}
+
+We can now rewrite the $\varphi's$:
+\begin{align*}
+  \varphi_r (\mathfrak{z}) & = (-)^{r+1} \varphi_r (n)\\
+  & = (-)^{r+1} \sum^{r}_{j=0} \Delta^j (\alpha+1)^r
+  \frac{1}{(\mathfrak{z}-1)^{j+1}}
+\end{align*}
+$\varphi_r$ has now been defined in the whole plane.

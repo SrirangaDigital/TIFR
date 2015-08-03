@@ -1,0 +1,893 @@
+\chapter{Elements of the Combinatorial Sieve}\label{chap2}
+
+WE\pageoriginale NOW TURN  to another topic in sieve methods; in the
+present and the 
+next chapters, we shall develop a detailed study of some important
+aspects of the combinatotial sieve method, which is essentially a
+system of devices of introducing effective truncations into the exact
+-seive of Eratosthenes, and, as contrasted with the $\Lambda^2$-sieve,
+the most notable feature of which lies in that it leads simultaneously
+to upper and lower sieve bounds on some fairly general conditions. 
+
+Partly because of their independent interest, we shall discuss in the
+present chapter the basic combinatorial or logical identities, and
+then in the next chapter exhibit their power in the particular
+application to the linear sieve situation. We shall try to explain the
+motivation behind those combinatorial identities, for, it seems that
+the combinatorial sieve methods lacks the straight forwardness which
+characterises the $\Lambda^2$-sieve and makes easiers to understand it.
+
+\section{Rosser's Identity}\label{chap2-sec2.1} %sec 2.1
+
+To begin with, we repeat the conventions introduced in \S
+\ref{part1-chap1:sec1.1} in a 
+much simplified from 
+
+We suppose that to each prime $p$ is assigned a set $\Omega(p)$\pageoriginale of
+residue classes $\pmod{p}$. For a square-free $d$, we denote by
+$\Omega(d)$ the set of residue classes $\pmod{d}$ arising (in the way
+of Chinese Remainder Theorem) from those of $\Omega(p),p|d$. We shall
+write, in the sequel, $n \epsilon  \Omega(d)$ instead of $n \pmod{d}
+\epsilon  \Omega(d)$, and naturally, we have $n \epsilon  \Omega
+(1)$ for all integer $n$. 
+
+Next let $z \ge 2$ be a parameter, and put 
+$$
+\triangle (n,z) = \prod_{\substack{p < z\\ n \epsilon \Omega(p)}} P 
+$$
+and, as usual,
+$$
+p(z)= \prod_{p < z} p.
+$$
+
+Let $A$ be a finitie sequence of integers, and put, for a square-free $d$,
+$$
+A_d = \{ a \epsilon  A; a \epsilon  \Omega (d)\}.
+$$
+
+Further, let $\Theta$ be an arbitrary function defined on
+$\mathbb{N}$, and put 
+$$
+S (A,z;\Theta) = \sum_{a \epsilon  A} \Theta (\triangle (a,z)).
+$$
+
+Then the sieve problem on which we are going to discuss is to find a
+good(in one or another sense) estimate of $ S(A,z; \Theta)$ in
+terms of $|A_d|$ under suitable condition on the nature of $A,\Omega$,
+and $\Theta$. To solve this problem in a very special but highly
+important\pageoriginale case, i.e. the linear sieve situation which will be defined
+in the next chapter, we shall employ the combinatorial sieve method;
+the whole theory of it is built on the very simple    
+
+\begin{Lemma}[THE BUCHYSTAB IDENTITY]\label{chap2-lem7}%lem 7
+We have 
+  \begin{equation*}
+    S(A, z; \Theta) = \Theta (1)|A| \sum_{p < z} S(A_p,p;
+   \Theta_p), \tag{2.1.1} \label{eq2.1.1}
+  \end{equation*}
+  where $\Theta $ is defined by 
+  $$
+  \theta_p (n) = \Theta(n) - \Theta(pn). 
+  $$
+\end{Lemma} 
+
+To show this, let 
+$$
+\triangle(a,z) = p_1p_2 \dots p_r,p_1 <p_2 <\dots< p_r <z.
+$$
+
+Then we have
+\begin{align*}
+  \Theta (1) - \Theta  (p_1p_2 \cdots p_r) & = \sum_{j=0}^{r-1}
+  (\Theta (p_1p_2 \cdots p_j)) - (\Theta (p_1p_2 \cdots p_{j+1}))\\ 
+  &=\sum_{j=0}^{r-1}  \Theta{_p}_{_{j+1}} (p_1p_2 \cdots p_j)\\
+  &=\sum_{j=0}^{r-1}  \Theta{_p}_{_{j+1}} (\triangle(a,p_{j+1})),
+\end{align*}
+which amounts to 
+$$
+\Theta (\triangle(a,z)) = \Theta (1) - \sum_{\substack{p < z\\ a
+    \epsilon  \Omega(p)}} \Theta_p (\triangle(a,p)), 
+$$
+and this is apparently equivalent to the assertion of the lemma.
+
+The Buchstab identity obviously admits of iteration. And
+to\pageoriginale state the 
+result of the infinite iteration in a compact from we introduce the
+function $\Theta_d$ defined by 
+$$
+\Theta_d(n) = \sum_{r|d} \mu (r) \Theta  (r n).
+$$
+
+Then LEMMA \ref{chap2-lem7} yields readily
+\begin{equation*}
+  S(A,z;\Theta ) = \sum_{d|p (z)} \mu(d) \Theta_d(1) |A_d|
+  \tag{2.1.2}\label{eq2.1.2} 
+\end{equation*}
+which is a little generalized version of the exact-sieve of Eratosthenes.
+
+As is commonly remarked in sieve literature, \eqref{eq2.1.2} is a useless
+identity, for, it involves too many terms to be handled with. Thus, if
+we want to keep the number of terms within a manageable size, we have
+to discard certain summands on the right side; the cost of doing so is
+to give up the exact identity. Since the process of casting away some
+summands in \eqref{eq2.1.2} is equivalent to attaching the weight 1 to
+some specially chosen divisors of $P(z)$ and the weight 0 to all
+other, we are naturally led to the problem to find a weighted version
+of \eqref{eq2.1.2}.  
+
+To formulate the answer to this problem, we introduce an arbitrary
+function $\rho$ defined $\mathbb{N}$ and satisfying 
+ $$
+ \rho (1) = 1,
+ $$
+and put
+$$
+\sigma (d) = \rho (\frac{d} {p(d)}) - \rho (d), \sigma(1) = 0.
+$$
+
+Here\pageoriginale and throughout the sequel, the symbol
+$$
+p(d)
+$$
+stands for the least prime factor of $d > 1$.
+
+Then we have the fundamental
+
+\begin{theorem}\label{chap2-thm6}%the 6
+$$
+S (A, z; \Theta)= \sum_{d|p(z)} \mu (d) \rho(d) \Theta_d(1)|A_d| +
+\sum_{d|p(z)} \mu (d) \sigma(d)S(A_d,p(d);\Theta_d). 
+$$
+\end{theorem}
+
+\begin{proof}
+is quite simple. Inserting into the right side the expression 
+$$
+S(A_d,p(d); \Theta_d) = \sum_{\ell| P(p(d))} \mu (\ell) \Theta_{d
+  \ell}(1) |A_{d \ell}|, 
+$$ 
+which is a particular case of \eqref{eq2.1.2} we immediately recover
+the left side. 
+\end{proof}
+
+But the following alternative argument seems to be more instructive,
+if tedious. We introduce an arbitrary function $\lambda$ defined on
+$\mathbb{N}$ and satisfying $\lambda(1)=1$, and as a first step we
+modify \eqref{eq2.1.1} trivially as  
+\begin{multline*}
+  S(A,z;\Theta  )= \Theta(1) |A| - \sum_{p < z} \lambda(p)S(A_p,p;
+  \Theta_p)\\
+  - \sum_{p <z}(1- \lambda(p))S(A_p, p;
+  \Theta_p). \tag{2.1.3} \label{eq2.1.3}
+\end{multline*}
+
+Similarly, we have 
+\begin{multline*}
+  S(A_p, p; \Theta_p)= \Theta_p(1)|A_p|- \sum_{p' < p}
+  \lambda(pp')S(A_{pp'}, p';\Theta_{pp'})\\ 
+  - \sum_{p' <p}(1- \lambda(pp'))
+  S(A_{pp'}, p'; \Theta_{pp}). \tag{2.1.4} \label{eq2.1.4}
+\end{multline*}
+
+Inserting\pageoriginale this into the first sum over $p$ on the right side  of
+\eqref{eq2.1.3} we get 
+\begin{multline*}
+  S(A.z; \Theta)= \Theta(1)|A|- \sum_{p <z} \Theta_p(1)\lambda (p)|A_p|\\
+  + \sum_{p'< p<z} \lambda(p)\lambda(pp') S(A_{pp'}, p';
+  \Theta_{pp'})-  \sum_{p<z} (l- \lambda(p) ) S(A_p, p; \Theta_p)\\ 
+  + \sum_{p' < p<z} \lambda(p)(1 \lambda(pp'))S(A_{pp'},
+  p';\Theta_{pp'}). 
+\end{multline*}
+
+This is the case $k=2$ of the identity
+\begin{align*}
+  S(A,z;\Theta &= \sum_{\substack{d|p(z) \\ \omega(d) <k}} \mu (d)
+  \Theta_d (1) \tilde{\rho}(d) |A_d|\\ 
+  & + (-1)^k \sum_{\substack{d|p(z) \\ \omega(d) =k}}
+  \tilde{\rho}(d)S(A_d,p(d); \Theta_d) \tag {2.1.5}\label{eq2.1.5}\\ 
+  &+ \sum_{\substack{d|p(z)\\ \omega(d) \le k}} \mu (d)
+  \tilde{\sigma}(d) S(A_d,p(d); \Theta_d), 
+\end{align*}
+where $\tilde{\rho}$ and $\tilde{\sigma}$ are defined by 
+$$
+\tilde{\rho}(d)= \lambda(p_1) \lambda(p_1 p_2) \cdots\lambda(p_1 p_2
+\cdots p_r), \tilde{\rho}(1) =1  
+$$
+and 
+$$
+\tilde{\sigma}(d) = \tilde{\rho}\left( \frac{d}{p(d)}\right)-\tilde{\rho}(d),
+\tilde{\sigma}(1) = 0 
+$$
+if $d = p_1p_2 \cdots p_r, p_1 > p_2> \cdots > p_r$. We may establish
+\eqref{eq2.1.5} by the induction on $k$: we need only to replace
+$S(A_d,p(d); \Theta_d)$ of the second sum on the right of \eqref{eq2.1.5} by
+the expression  
+\begin{multline*}
+  S(A_d,p(d); \Theta_d)= \Theta_d(1) |A_d| - \sum_{p< p(d)} \lambda(dp)
+  S\left(A_{dp}, p; \Theta_{dp}\right)\\
+  - \sum_{p < p (d)} (1 -\lambda(dp)) S\left(A_{dp},
+  p; \Theta_{dp}\right), 
+\end{multline*}\pageoriginale
+which is a special case of \eqref{eq2.1.3}, getting the formula
+\eqref{eq2.1.5} 
+with $k+1$ in place of $k$. We then take $k$ in \eqref{eq2.1.5} sufficiently
+large ($ > \pi (z)$, say), and obtain  
+\begin{equation*}
+  S(A,z; \Theta)= \sum_{d|P(z)} \mu(d)\Theta_d(1) \tilde{\rho}(d)|A_d|+
+  \sum_{d|P(z)} \mu (d) \tilde{\sigma}(d)S(A_d,p(d);
+  \Theta_d). \tag{2.1.6} \label{eq2.1.6}
+\end{equation*}
+
+This is equivalent to the assertion of THEOREM \ref{chap2-thm6}, because, as is
+easily seen, we can always find a $\lambda$ such that $\tilde{\rho}=
+\rho$. 
+
+Compared with the first, the second proof has an advantage in that the
+procedure of truncation-iteration of the Buchstab identity is clearly
+exibited in it. Moreover, it will turn out that the formulation
+\eqref{eq2.1.6} of THEOREM \ref{chap2-thm6} is more convenient for our
+later purpose.  
+
+We now restict ourselves to the case where $\Theta$ is the unit
+measure placed at $1$ so that $S(A,z; \Theta)$ is equal to  
+$$
+S(A,z)= | \{ a \in A; a \notin \Omega(p) \text{ for all } p < z\}|
+$$
+and  
+$$
+\Theta_d(1)=1
+$$
+for all $d$. Then we have, by \eqref{eq2.1.6},
+\begin{equation*}
+  S(A,z)= \sum_{d|P(z)} \mu(d) \tilde{\rho}(d)|A_d| + \sum_{d|P(z)}
+  \mu(d) \tilde{\sigma}(d)S(A_d,p(d)). \tag{2.1.7} \label{eq2.1.7}
+\end{equation*} 
+ 
+Further,\pageoriginale let us set
+ \begin{equation*}
+   0 \le \lambda(d) \le 1 \tag{2.1.8}\label{eq2.1.8}
+ \end{equation*} 
+ so that
+ \begin{equation*}
+0 \le \tilde{\rho}(d) \le 1, 0 \le \tilde{\sigma}(d) \le
+1. \tag{2.1.9}\label{eq2.1.9} 
+ \end{equation*} 
+ 
+ And let us try to express `good' upper and lower bounds of $S(A,z)$
+ in terms of $|A_d|$ via the formula \eqref{eq2.1.7}. This means, in other
+ words, that we have to discard the terms $S(A_d, p(d))$ on the right
+ side of \eqref{eq2.1.7}; this should be done, of course, in the manner to
+ keep at a minimum the loss caused by doing so. In general, we can
+ assume, however, nothing more than the trivial information 
+ $$
+ S(A_d,p(d)) \ge 0.
+ $$ 
+ 
+ This implies, in particular, for $\nu =0$ and 1,
+ $$
+ (-1)^{\nu} \{S(A,z)- \sum_{d|P(z)} \mu (d) \tilde{\rho}(d) |A_d|\}
+ \le \sum_{\substack{d|P(z)\\ \omega(d) \equiv \nu \pmod{2}}}
+ \tilde{\sigma}(d)S(A_d,p(d)), 
+ $$
+ since we have \eqref{eq2.1.9}. Here the equality holds if we set
+ $\tilde{\sigma}(d) =0$ for all $d|P(z)$ such that $\omega(d) \equiv
+ \nu +1\pmod{2}$. The simplest way to attain this is to set  
+ \begin{equation*}
+   \lambda(d) =1 \text{ it } =1 \omega(d) \equiv +1 \pmod{2},
+   \tag{2.1.10}\label{eq2.1.10} 
+ \end{equation*}
+ which we shall impose on $\lambda$ henceforth; we write
+ $\tilde{\rho}_\nu, \tilde{\sigma_\nu}$ for $\tilde{\rho},
+ \tilde{\sigma}$ with $\lambda$ satisfying this condition. Then we
+ have  
+ \begin{equation*}
+   S(A,z)= \sum_{d|P(z)} \mu(d) \tilde{\rho}_\nu (d)|A_d| + (-1)^\nu
+   \sum_{d|P(z)} \tilde{\sigma}_\nu(d)
+   S(A_d,p(d)). \tag{2.1.11} \label{eq2.1.11} 
+  \end{equation*}  
+  
+  In\pageoriginale paticular, we have
+  $$
+  (-1)^\nu \{ S(A,z)- \sum_{d|P(z)} \mu (d) \tilde{\rho}_\nu (d) |A_d|\} \ge 0;
+  $$ 
+  this means that we have neglected all $S(A_d,p(d))$ on the right
+  side of \eqref{eq2.1.11}, and thus a certain inaccuray is brought in. 
+  
+  Now, we note trivial but crucial fact that $S(A,z)$ is a decreasing
+  function of the parameter $z$. Thus the negligence of $S(A_d,p(d))$
+  with $p(d)$ which is `small' for $A_d$ causes most likely a
+  relatively `large' loss, to avoid this we should better set
+  $\tilde{\sigma}_\nu=0$ for such $d$. One of the most fruitful
+  devices to make explicit the `smallness' of $p(d)$ for $A_d$ is to
+  introduce two parameters $y$ and $\beta >1$, and to define $p(d)$ to
+  be `small' for $A_d$ if $p(d) < (y/d)^{1/\beta}$. The simplest way
+  to realize this in terms of $\lambda$ is to set  
+  \begin{equation*}
+    \lambda(d)=  
+    \begin{cases}
+      1 &\text{ if } \omega(d)\equiv \nu \pmod{2}, p(d)^\beta d < y.\\
+      0 &\text{ if } \omega(d) \equiv \nu \pmod{2}, p(d)^{\beta}d \ge y.
+    \end{cases}
+  \end{equation*} 
+   besides \eqref{eq2.1.10}. Then $\tilde{\rho}_\nu$ and $\tilde{\sigma}_\nu$
+   are the characteristic functions $\rho_\nu (d) = \rho_\nu (d; y,
+   \beta)$ and $\sigma_\nu (d)= \sigma_\nu(d; y, \beta)$ of the sets  
+   \begin{equation*}
+     D^{\nu}_1 (y, \beta ) = 
+     \left\{ 
+     \begin{aligned}   
+       &d =p_1 p_2 \cdots p_r, p_1 > p_2 > \cdots > p_r ;\\
+       d;\\
+       &p^{\beta+1}_{2k+v} p_{2k+v-1}\ldots p_1 < y \text{ for } 1
+       \leq 2k + v \leq r  
+     \end{aligned}
+     \right\}\tag{2.1.12}\label{eq2.1.12}
+   \end{equation*}
+and
+\begin{equation*}
+  D^{\nu}_1 (y, \beta ) = 
+  \left\{ 
+  \begin{aligned}   
+    &d =p_1 p_2 \cdots p_r, p_1 > p_2 > \cdots > p_r, r \equiv \nu \pmod{2}\\
+    d;\\
+    &\rho_\nu(p_1p_2 \cdots p_{r-1} =1, p^{\beta+1}_r p_{r-1} \cdots p_1 \ge y 
+  \end{aligned}
+  \right\}, \tag{2.1.13}\label{eq2.1.13}
+\end{equation*}\pageoriginale
+respectively.
+
+In this way, we are led to 
+\begin{Lemma}[ROSSER'S IDENTITY]\label{chap2-lem8}
+Let $\rho_\nu$ and $\sigma_\nu$ be as above. Then
+we have  
+\begin{equation*}
+  S(A,z)=  \sum_{d|P(z)} \mu (d) \rho_\nu (d)|A_d| +(-1)^\nu
+  \sum_{d|P(z)} \sigma_\nu (d) S(A_d,p(d)). \tag{2.1.14} \label{eq2.1.14}
+\end{equation*}
+\end{Lemma}
+
+We should note here that this is a logical dentity, so the choice of the
+parmaeters $y$ and $\beta$ is at our disposal. Since the larger $y$
+and the smaller $\beta$ give the wider $D^{(\nu)}_1(y, \beta)$, the
+support of $\rho_\nu$, as can be seen from \eqref{eq2.1.12} if is desirable
+to take $y$ and $\beta$ as large and small as possible,
+respectively. Under a fairly general condition to be specified in the
+next chapter, we shall show how to determine the smallest, i.e. the
+optimal value of $\beta$, and also a very penetrating device which
+allows us take $y$ unexpectedly large in some practically important
+situations. 
+
+\section{The Fundamental Lemma}\label{chap2-sec2.2}%sec 2.2
+
+In this section, we shall first show an important application of
+Rosser's formula which is also a basis preparation for the next
+chapter. We shall then turn to a tentative explanation of\pageoriginale Rosser's
+motivation behind his formula which was introduction rather abruptly
+in the above. 
+
+First of all, we have to make precise the information on $|A_d|$. We
+assume that there exists a non-negative multiplication function
+$\delta$ and a parameter $X$ such that  
+\begin{equation*}
+\delta(p) < p ~\text{ for all }~ p,
+\end{equation*}
+and
+\begin{equation*}
+R_d= |A_d|- \frac{\delta(d)}{d} X \tag{2.2.1}\label{eq2.2.1}
+\end{equation*}
+is small, in one or another sense, for $d$, $d|P(z)$, lying in a certain
+range. Then we introduce the notation  
+$$
+V(z) = \prod_{p < z}\left(1- \frac{\delta(p)}{p}\right).
+$$ 
+
+We note that we have an analogue of \eqref{eq2.1.1} for $V(z)$:
+$$
+V(z)=1- \sum_{p < z} \frac{\delta(p)}{p} V(p).
+$$
+
+And this is utilization, in much the same way as in the same way as in
+the proof of \eqref{eq2.1.14}, to prove the identity 
+ \begin{equation*}
+   V(z)= \sum_{d|P(z)} \mu(d)\rho_\nu(d) \frac{\delta(d)}{d}+ (-1)^\nu
+   \sum_{d|P(z)} \sigma_\nu(d) \frac{\delta(d)}{d}
+   V(p(d)). \tag{2.2.2} \label{eq2.2.2} 
+ \end{equation*}  
+  
+ We shall need also an information on the size of the elements of
+ $D^{(\nu)}_1(y, \beta)$. 
+
+\begin{Lemma}\label{chap2-lem9}%lemma 9
+If $z \le y^{1/2}$ and $\rho_\nu(d) =1$, then we have 
+$$
+\log d< \left(1- \frac{1}{2}
+\left(\frac{\beta-1}{\beta+1}\right)^{\omega(d)/2}\right)  \log y.
+$$
+\end{Lemma}\pageoriginale
+
+To show this, we may restrict ourselves in the case $\nu=1$,
+ $\omega(d)=2r$, for others can be treated quite similarly. Thus let
+$\rho_1(d)=1$, $d= p_1p_2 \cdots p_{2r}$, $y^{1/2} \ge z > p_1 > \cdots >
+p_{2r-1} > p_{2r}$. By \eqref{eq2.1.12}, we have, for $0 \le j \le r-1$, 
+$$
+p_{2 j+2} < p_{2j+1} < \left(\frac{y}{p_1p_2 \cdots
+  p_{2j}}\right)^{\frac{1}{\beta+1}}. 
+$$
+
+This implies 
+$$
+\log \left( \frac{y}{p_1p_2 \ldots p_{2j+2}}\right) >
+\left(1-\frac{2}{\beta+1}\right) \log \left(
+\frac{y}{p_1p_2 \ldots p_{2j}}\right), 
+$$
+whence inductively we get
+$$
+\log \frac{y}{d} > \left(\frac{\beta-1}{\beta+1}\right)^r \log y
+$$
+which gives the assertion of the lemma for our present case. 
+
+We can now prove the very important
+
+\begin{theorem}[THE FUNDAMENTAL LEMMA]\label{chap2-thm7}
+ Let $\delta$ be such that, uniformly for
+  any $2 \le u \le v$, 
+  \begin{equation*}
+    \prod_{u \le p < v} \left(1- \frac{\delta(p)}{p}\right)^{-1} \le C
+    \left(\frac{\log v}{\log u}\right)^k \tag{2.2.3} \label{eq2.2.3}
+  \end{equation*}
+  with certain positive constants  $C$ and $k$. Also, let $z=
+  y^{1/s}$, $s \ge 2$. Then there are two sequences
+  $\left\{\xi^{(\nu)}_d\right\}(\nu  = 0,1)$ depending only on $y$ and $k$ such
+  that  
+  \begin{equation*}
+    \xi^{(\nu)}_1 =1;  |\xi^{(\nu)}_d| \le 1; \xi^{(\nu)}_d= 0 \text{ for
+    } d \ge y, \tag{i} 
+  \end{equation*}
+  and\pageoriginale uniformly for $q$,  $(q, P(z)) =1$, 
+  \begin{align*}
+    (-1)^\nu  &\left\{S(A_q,z) -XV(z) \frac{\delta(q)}{q} \left(1+ O
+    \left(\exp\left(-\frac{s}{2} \log s\right)\right)\right)\right\}\\
+    &\ge (-1)^\nu \sum_{\substack{d|P(z)\\d < y}} \xi^{(\nu)}_d R_{dq}, \tag{ii} 
+  \end{align*}
+  where the constant involved  in the $O$-symbol depends in $C$ and
+  $k$ of \eqref{eq2.2.3} at most. 
+\end{theorem}
+
+To prove this, we put 
+$$
+\xi^{(\nu)}_d = \mu(d)\rho_\nu (d; y, \beta)
+$$
+with a sufficiently large $\beta$. Then (i) is immediate. As for
+(ii) we apply LEMMA \ref{chap2-lem8} to $A_q$, and modify the dentity by
+\eqref{eq2.2.1}, getting 
+$$
+(-1)^\nu  \left\{S(A_q,z) -\frac{\delta(q)}{q} XU_\nu (y,z) \right\} \ge (-1)^\nu
+\sum_{\substack{d|P(z)\\d < y}} \xi^{(\nu)}_d R_{dq}, 
+$$
+where 
+$$
+U_\nu (y,z)= \sum_{d|P(z)}  \frac{\delta(d)}{d} \mu(d) \rho_\nu(d).
+$$
+
+Then \eqref{eq2.2.2} gives 
+\begin{align*}
+  U_\nu (y,z) & = V(z)+(-1)^{\nu-1} \sum_{r=1}^{\infty}
+  \sum_{\substack{d|P(z) \\ \omega(d)=2r+\nu}} \frac{\delta(d)}{d}
+  \sigma_\nu(d)V(p(d)) \\
+  & = V(z)+(-1)^{\nu-1}\tilde{U}_\nu(y,z), \tag{2.2.4} \label{eq2.2.4}
+\end{align*}
+say.
+
+We note that if $\sigma_\nu (d)=1$ then $\rho_\nu (d/p(d))= 1$, and
+thus by LEMMA \ref{chap2-lem9} for we have, $\omega(d)= 2r+\nu$, 
+$$
+\displaylines{\hfill 
+  \log \frac{d}{p(d)} < \left(1- c\left(
+  \frac{\beta-1}{\beta+1}\right)^r\right) \log y \hfill 
+  \cr 
+  \text{or}\hfill 
+  \log p(d) > \frac{c}{\beta} \left( \frac{\beta-1}{\beta+1}\right)^r
+  \log y, \hfill } 
+$$\pageoriginale
+since $\sigma_\nu (d) =1$  implies $p (d)^\beta d \ge y$. On the other
+hand, the last inequality implies also $z^{\omega(d)+\beta} \ge y$, so
+$\beta+ \omega(d) \ge s$, for, we have $z=y^{1/s}$. Thus, on the right
+side of \eqref{eq2.2.4}, we have $r> (s -\beta -1)/2$.  
+
+Collecting these observations, we have
+$$
+\widetilde{U}_\nu (y,z) \ll \sum_{r > 1/2(S- \beta-1)} \frac{1}{(2r+\nu)!}
+V \left(y^{\frac{c}{\beta} \left( \frac{\beta-1}{\beta+1}\right)^r}\right)
+\left\{\sum_{y^{\frac{c}{\beta} \left( \frac{\beta-1}{\beta+1}\right)^r} \le p < z}
+\frac{\delta(p)}{p}\right\}^{2r+\nu} 
+$$
+
+Then, noticing that \eqref{eq2.2.3} gives
+$$
+\sum_{y^{\frac{c}{\beta}( \frac{\beta-1}{\beta+1})^r} \le p < z}
+\frac{\delta(p)}{p} \le k r \log \left(\frac{\beta+1}{\beta-1}\right)  +k \log
+\left(\frac{\beta}{s}c\right), 
+$$
+we have 
+\begin{multline*}
+\tilde{U}_\nu(y,z)
+\ll V(z) \left(\frac{\beta}{s}\right)^k \sum_{r > 1/2 (s-\beta -1)}
+\frac{1}{(2r+\nu)!}\\ 
+\left\{k(\frac{\beta+1}{\beta-1})^{\frac{k}{2}} \left(r \log
+\left(\frac{\beta+1}{\beta-1}\right)+ \log
+\left(\frac{\beta}{s}c\right)\right) \right\}^{2r+\nu}
+\tag{2.2.5} \label{eq2.2.5}
+\end{multline*}
+
+We now suppose that $s$ is large, and we put $\beta=s/3$. Then we have 
+\begin{align*}
+  \tilde{U}_\nu(y,z) &\ll V(z) \sum_{r > s/3} \left(\frac{ck}{s}\right)^{2r}\\
+  &\ll V(z) \exp \left(- \frac{s}{2} \log s\right).
+\end{align*}
+
+If\pageoriginale $s$ is not large enough then we take $\beta$ so large that the
+right side of \eqref{eq2.2.5} converges. This ends the proof of the
+theorem. 
+
+Now, let us digress briefly from rigorous discussion and explain the
+motivation of Rosser's device introduced in the proceding section;
+this may help one to see that Rosser's seemingly complicated identity
+is a sort of logical conclusion when we try to seek for optimal sieve
+procedures. 
+
+One may have the impression that the introduction of the parameter $y$
+and $\beta$ is abrupt and arbitrary though the idea to eliminate
+$S(A_d.p(d))$ with $p(d)$ `small' for $A_d$ from the identity
+\eqref{eq2.1.11} is quite natural. But this is actually related closely to
+the concept of the sieving limit, which may be roughly formulated as
+follows. 
+
+In many practical problems, the information on the size of $|A_d|$ is
+given in the form  
+\begin{equation*}
+  \sum_{\substack{d < y \\ d|P(z)}} |R_d| = o (XV(z))
+  \tag{2.2.6}\label{eq2.2.6} 
+\end{equation*}    
+    uniformly for $z \le y$, and $\delta$ is almost constant at
+    primes, but, for the sake of simplicity, we assume here that  
+    \begin{equation*}
+      \prod_{u \le p < v} \left(1- \frac{\delta(p)}{p}\right)^{-1} \le \left(
+      \frac{\log v}{\log u}\right)^k (2 \le u < v)
+      \tag{2.2.7} \label{eq2.2.7} 
+    \end{equation*}    
+    where $k$ is a positive constant.
+    
+Returning\pageoriginale to the identity \eqref{eq2.1.11}, because of
+\eqref{eq2.2.6} we may
+restrict $\lambda$ by the condition  
+\begin{equation*}
+  \lambda(d)=0  \text{~ for~ } d \ge y, \tag{2.2.8}\label{eq2.2.8}
+\end{equation*}    
+in addition to \eqref{eq2.1.10}, without loss of much generality; then we
+have, by \eqref{eq2.2.1}, 
+$$
+S(A,z) \ge XV(z) \{U_\delta(y,z; \tilde{\rho}_0)- o (1)\}
+$$ 
+where 
+$$
+ V(z)U_\delta(y, z; \tilde{\rho}_0 )= \sum_{\substack{d|P(z) \\ d <
+ y}} \mu (d) \frac{\delta(d)}{d} \tilde{\rho}_0(d). 
+$$
+    
+But, since $S(A,z)$ is non-nagetive, we have more precisely
+$$
+ S(A,z) \ge XV(z) \{ T_\delta(y,z; \tilde{\rho}_0)- o (1)\},
+$$
+where
+$$
+T_\delta(y,z; \tilde{\rho}_0) =  \max (0, U_\delta(y,z; \tilde{\rho}_0));
+$$
+the identity 
+$$
+    V(z)= \sum_{d|P(z)} \mu(d) \tilde{\rho}_0(d) \frac{\delta(d)}{d} +
+    \sum_{d|P(z)} \tilde{\rho}_0(d) \frac{\delta(d)}{d} V(p(d)) 
+$$
+implies
+$$
+  1 \ge T_\delta(y,z; \tilde{\rho}_0) \ge 0.
+$$
+    
+Next we put
+$$
+ \varphi_k(y,z)= \inf_{\delta} \sup_{\lambda} T_\delta(y,z; \tilde{\rho}_0),
+$$
+where $\delta$ satisfies \eqref{eq2.2.7}, and $\lambda$
+\eqref{eq2.1.8}, \eqref{eq2.1.10} and \eqref{eq2.2.8}. 
+
+Obviously\pageoriginale we have
+$$
+S(A,z) \ge XV (z) \{ \varphi_K (y,z) - 0(1)\}.
+$$
+
+Our interest lies, naturally, in such a choice of $y$ and $z$ that
+$\varphi_K (y,z) > 0$; so we consider the quantity 
+$$
+\alpha_K (y) = \inf \{ s; \varphi_K (y,y^{1/s}) > 0\}.
+$$
+
+And we point out the important fact that $\alpha_K(y)$ remains bounded
+as $y$ tends to infinity. This can be seen easily from THEOREM
+\ref{chap2-thm7}\footnote[1]{One may say that this is a tautology, for
+  our proof of 
+   THOEOREM \ref{chap2-thm7} depends on Rosser's sieve idea. To avoid such a
+  confusion, we remark that we could have proved THEOREM 7 by Brun's
+  (cf. [21, Chap. 2])}. Thus we may consider, further, the quantity  
+$$
+\beta(k) = \limsup_{y \rightarrow \infty} \alpha_k(y).
+$$
+If $s > \beta (k)$, then we have the possibility of 
+$$
+S(A, y^{1/s}) > 0
+$$
+for a sufficiently large $y$, but, otherwise, we can say nothing
+definite about the lower bound for $S(A, y^{1/s}) $ than that it is
+non - negative. This is the reason that $\beta(k)$ is called the
+\textit{sieving limit.} 
+
+Now, if we want to keep at minimum the loss caused by discarding
+certain terms $S(A_d, p (d))$ on the right side of \eqref{eq2.1.11} we should,
+of course, put $\tilde{\sigma}_\nu (d) = 0$ for all d such that there
+is the possibility of the existence of atleast one $A$ with 
+
+$S(A_d, p(d)) > 0$.\pageoriginale But, if $A$ is such that all $A_d (d|p(z),d < y)$
+satisfy the analogue of \eqref{eq2.2.6}, i.e., 
+$$
+\sum_{\substack {\ell < y / d \\ \ell | p(p(d))}} |R_{d \ell}| =
+0 (\frac{\delta(d)}{d} XV(p(d))),  
+$$
+then we have the possiblity of $S(A_d, p(d)) > 0$ for $p(d) <
+(y/d)^{\frac{1}{\beta(k)}}$ provided $y/d$ is sufficiently large. And
+this observation leads us immediately to Rosser's device. 
+
+We should deep it in our mind, however, that although Rosser's weights
+$\rho_\nu$ may simulate well the extremal (or optimal) sieving
+procedure, there is no reason to believe that they give actually the
+optimal estimate of $S(A,z)$ generally. In fact, it is known that, for
+the sieve problem with $k >1$, the Rosser weights do not yield optimal
+results. But, very fortunately, for the linear sieve problems (i.e., $k
+=1$) which contain most of important classical problem Rosser's method
+can indeed produce optimal results as we shall show in detail in the
+next chapter. 
+
+\section{A Smoothed Version of Rosser's Identity}\label{chap2-sec2.3} %sec 2.3
+
+Returing to the main theme of this chapter, we shall give an important
+modification of the fundametal identity \eqref{eq2.1.7}: we shall inject a
+smoothing device into it. This will play a vital role in the
+investigation of the error term in the linear sieve which will be
+developed in \S \ref{chap3-sec3.4}. 
+
+To\pageoriginale this effect, we take up an interval $[z_1, z), 2 \le
+  z_1 < z$, and 
+  dissect it into smaller ones which we shall denote generally by $I$
+  with or without suffix; so, we have  
+$$
+[ z_1,  z ) = \bigcup I (\text { disjoint }). 
+$$
+Next, let $K$ with or without suffix stand for the set - theoretic
+direct product of a sequence of $I$s', and $\omega (K)$ for the number
+of constituent $I$'s. If $K = I_1 I_2 \cdots I_r$ then $I < K$ means
+that $(I) < \min (I_j)$ where $(I)$ is the right end point of $I$;
+also, $d \in K$ implies that $d = p_1 p_2 \cdots p_r$ with $P_j \in
+I_j$. Here we have to introduce the convention that $1 \in K$ for
+empty $K$. Note that we do not reject non- squarefree $d$; this
+convention will have effect in the formula of LEMMA \ref{chap2-lem10} below. 
+
+\begin{theorem}\label{chap2-thm8}%the 8
+  Let $\lambda$ be an arbitrary function defined on the set of all
+  $K$ and satisfying $\lambda(K) = 1$ for empty $K$. 
+  
+  Put  
+  $ \phi(K) = \lambda (I_1) \lambda (I_1 I_2) \cdots \lambda (I_1 I_2
+  \cdots I_r) ; \phi (K) = 1 $
+  if $K$ is empty,  and 
+ 
+  $\psi(K) = \phi (I_1 I_2 \cdots  I_{r-1} )- \phi (I_1 I_2 \cdots I_r)
+  ; \psi (K) = 0 $
+  if $K$ is empty, where 
+  $$
+  K = I_1 I_2 \cdots I_r,  I_1 > I_2 > \cdots > I_r. 
+  $$
+\end{theorem}
+
+Then\pageoriginale we have 
+\begin{align*}
+  S(A,z) & = \sum_K (-1)^{\omega(K)} \phi (K) \sum_{d \in K} S(A_d, z_1) \\
+  & + \sum_{I < K} (-1)^{\omega (K)} \phi (KI) \sum_{\substack{ p' <  p
+      \\ p', p \in I \\ d \in K}}  S(A_{dpp'}, p') \\  
+  & +  \sum_K (-1)^{\omega(K)} \psi (K) \sum_{d \in K} S(A_d, p(d)).
+\end{align*}
+
+To prove this, we first modify modify the Bushstab identity trivially as 
+\begin{align*}
+  S(A,z) = S(A,z_1) & - \sum_I \lambda (I) \sum_{p \in I} S(A_p,  p)
+  \\ \tag{2.3.1}
+  & - \sum_I (I - \lambda(I)) \sum_{p \in I} S(A_p,  p).  \label{eq2.3.1}
+\end{align*}
+
+Also, for each $ p \in I$, we have
+\begin{align*}
+  S(A_p,  p) & = S(A_p,  z_1)  - \sum_{\substack{ p' <  p \\ p'  \in I
+      }} S(A_{pp},p') - \sum_{I' < I} \sum_{p' \in I'}, S(A_{pp},p')\\ 
+  &  = S(A_p,  z_1)  - \sum_{\substack{ p' <  p \\ p'  \in I}}
+  S(A_{pp},p') - \sum_{I' < I} \lambda (II') \sum_{p' \in I'},
+  S(A_{pp},p') \\ 
+  & -\sum_{I' < I} (1 - \lambda (II')) \sum_{p' \in I'} S(A_{pp},p'). 
+\end{align*}
+
+Inserting this into the first double sum on the right side of
+\eqref{eq2.3.1}, we get 
+\begin{align*}
+  S(A,z) & = S(A, z_1) - \sum_I \lambda(I) \sum_{p \in I}  S(A, z_1) +
+  \sum_I \lambda(I) \sum_{\substack{ p' <  p \\ p', p  \in I  }}
+  S(A_{pp'}, p') \\ 
+  & - \sum_I (1 - \lambda (I)) \sum_{p \in I} S(A_p,  p) + \sum_{I_2 <
+    I_1} \lambda(I_1) (1 - \lambda (I_1 I_2)) \\
+  & \sum_{\substack{ p_1 \in I_1 \\ p_2 \in   I_2}} S(A_{P_1 p_2}, p_2) 
+  + \sum_{I_2 < I_1} \lambda(I_1) \lambda(I_1 I_2) \sum_{\substack{
+      p_1 \in   I_1 \\ p_2 \in   I_2}} S(A_{p_1 p_2},p_2). 
+\end{align*}\pageoriginale
+
+This is obviously the case $r = 2$ of the identity
+\begin{align*}
+S(A,z) & = \sum_{\omega (K) < r} (-1)^{\omega(K)} \phi(K) \sum_{d \in
+  K} S(A_d, z_1) \\  
+& + \sum_{\substack{ I < K  \\ \omega(K)< r-1}} (-1)^{\omega(K)}
+\phi(KI) \sum_{\substack{ p'< p  \\ p'p \in I \\ d \in K_2}}
+S(A_{dpp',}p') \tag{2.3.2}\label{eq2.3.2}\\ 
+& + \sum_{\omega (K) \le r} (-1)^{\omega(K)} \psi(K) \sum_{d \in K} S(A_d,p(d)) \\
+& + (-1)^r \sum_{\omega (K) = r} \phi (K) \sum_{d \in K}  S(A_d,p(d)).
+\end{align*}
+
+We may establish this by induction on $r$; we need only to insert in
+the last double sum the expression 
+\begin{align*}
+S(A_d,p(d)) & = S(A_d,  z_1) - \sum_{\substack{ p < p(d)  \\ pd \in
+    K}} S(A_{dp}, p) \\ 
+& - \sum_{I < K} \lambda(KI) \sum_{p \in I} S(A_{dp},p) - \sum_{I < K
+} (1 - \lambda (KI)) \sum_{p \in I} S(A_{dp},p). 
+\end{align*}
+
+Having obtained \eqref{eq2.3.2}, we take $r$ sufficiently large and conclude
+the\pageoriginale proof of the theorem. 
+
+Now, let us introduce two parameters $y$ and $\beta \ge 1$, and
+imitate Rosser's device. We set $\lambda = \lambda_\nu$ the
+characteristic function of the set  
+{\fontsize{9pt}{11pt}\selectfont
+\begin{equation*}
+  \left \{
+  K = I_1 I_2 \cdots I_r ; I_1 > I_2 > \cdots > I_r, 
+  \begin{aligned}
+    r \equiv \nu &+ 1 \pmod{2} \\ 
+    & \text{or} \\ 
+    r \equiv \nu \pmod{} 2 &~\text{and }~ (I_r)^{\beta + 1} (I_{r -1}) 
+    \cdots(I_1) < y  
+  \end{aligned}
+  \right \} \tag{2.3.3}\label{eq2.3.3}
+\end{equation*}}\relax
+
+And let $\Theta_\nu$ and $\Delta_\nu$ stand for $\phi$ and $\psi$ with
+this choice of $\lambda$, respectively. Then $\Theta_\nu$ and
+$\Delta_\nu$ are the characteristic functions of the sets 
+\begin{equation*}
+  \left \{
+  K = I_1 I_2 \cdots I_r ; I_1 > I_2 > \cdots > I_r, 
+  \begin{aligned}
+    (I_{2 k+\nu})^{\beta + 1} (I_{2 k+\nu - 1}) \cdots (I_1) < y
+    \\ \text { for all k with } \le 2 k + \nu \le r  
+  \end{aligned}
+  \right \} \tag{2.3.4}\label{eq2.3.4}
+\end{equation*}
+and 
+\begin{equation*}
+  \left \{
+  K = I_1 I_2 \cdots I_r ; 
+  \begin{aligned}
+    I_1 > I_2 > \cdots > I_r,  r \equiv \nu \pmod{2}\\ \Theta_\nu (I_1
+    I_2 \cdots I_{r - 1}) = 1 \\ (I_r)^{\beta + 1}(I_{r - 1} \cdots
+    (I_1) \ge y) 
+  \end{aligned}
+  \right \}, 
+\end{equation*}
+respectively. Then THEOREM \ref{chap2-thm8} gives the following
+smoothed version of LEMMA \ref{chap2-lem8}. 
+
+\setcounter{Lemma}{8}
+\begin{Lemma}\label{chap2-addlem9}%lemma 9
+\begin{align*}
+  S(A,z) & = \sum_{K} (-1)^{\omega(K)} \Theta_\nu(K) \sum_{d \in K} S(A_d,  z_1) \\
+  & + \sum_{I < K} (-1)^{\omega(K)} \Theta_\nu(KI)  \sum_{\substack{
+      p' < p \\ p',  p \in I \\ d \in K}} S(A_d,z_1) \\ 
+  & + (-1)^\nu \sum_{K} \Delta_\nu (K) \sum_{d \in K} S(A_{dpp'}, p').
+\end{align*}
+\end{Lemma}\pageoriginale
+
+Further, in this we replace $S(A_{dpp,}p'$) by larger
+$S(A_{dpp'},z_1)$ and discard the condition $p' < p$, getting 
+
+\begin{Lemma}\label{chap2-lem10}%lem 10
+  \begin{align*}
+    (-1)^\nu S(A,z) & \ge (-1)^\nu \sum_{K} (-1)^{\omega(K)}
+    \Theta_\nu(K) \sum_{d \in K} S(A_{d},z_1) \\ 
+    & - \sum_{\substack{ I < K \\ \omega(K) \equiv \nu + 1\pmod{2}}}
+    \Theta_\nu(KI) \sum_{\substack{ p,p' \in I  \\ d \in K}}
+    S(A_{dpp'},z_1). 
+  \end{align*}
+\end{Lemma}
+
+\begin{center}
+\textbf{NOTES (II)}
+\end{center}
+
+In our definition of a sieve problem, we have introduced the weight
+$\theta$, but this has nothing to do with later development of our
+discussion. However, THEOREM \ref{chap2-thm6} will probably serve for the future
+developments of the theory of 'weighted' combinatorial sieve methods
+which has been initiated by Greaves; in fact THEOREM \ref{chap2-thm6} is
+generalized version of his identity [\cite{key20}, (2.8)]. 
+
+THEOREM \ref{chap2-thm6}\pageoriginale in its conventional form can be
+found in Halberstam and 
+Richert [\cite{key21}, p. 39], which seems to originate in Levis's
+work \cite{key44} 
+on Brun's sieve. On the other hand, the identity \eqref{eq2.1.6} with the
+simplest choice of $\theta$ occors in Iwaniec \cite{key30}. 
+
+We may call THEOTEM \ref{chap2-thm6} \textit{the fundamental theorem in sieve
+  methods}, for various specializations of $\rho$ give all sieve
+method known at present, except for the local sieve of Selberg.
+Especially, with the aid of THEOREM \ref{chap2-thm6}, 
+we can reveal the mechanism
+lying behind the $\wedge^2$- sieve(\footnote[1]{By the courtesy of
+  Professor Halberstam}). 
+
+We set 
+$$
+\rho(d) = \mu(d) \sum_{[d_1,d_2]= d} \lambda_{d_1} \lambda_{d_2} (\lambda_1 = 1).
+$$
+
+Then, after some rearrangement, we get
+\begin{align*}
+  S(A,z) & = \sum_{a \in A} (\sum_{\substack{ d|P(z)\\ a \in \Omega(d)}}
+  \lambda_d)^2 \\ 
+  & - \sum_{p < z} \sum_{\substack{ a \in A_p \\ a \notin \cup \Omega
+      (q) \\ q < p.}} (\sum_{\substack{ a \in \Omega(h) \\ h|p(p^+, z
+      )}} (\lambda_h + \lambda_{hp}))^2  
+\end{align*}
+where $p,q$ are primes, $p^+$ is the prime which succeeds $p$, and
+$P(p^+,  z) = P(z) /P(p^+)$. This remarkable identity is due to
+Halberstam. \footnote{By the courtesy of Professor Halberstam} 
+
+We\pageoriginale should remark also that, via a special case of
+THEOREM \ref{chap2-thm6}, Fouvry 
+and Iwaniec \cite{key13} obtained a stricking result pertaining to
+Bombieri's mean prime number theorem.	 
+
+In the proof of THEOREM \ref{chap2-thm7}, we followed the argument of
+Friedlander 
+and Iwaniec \cite{key14} which is quick and elegant compared with the one
+via Brun's sieve; here, already we can have the glimpse of the power
+of Rosser's idea. 
+
+In explaining Rosser's idea, we had to appeal to a rough image of the
+concept of the sieving - limit. We stress that our definition of the
+seieving limit applies to some restricted class of sieve procedures
+only; for a more general treatment of the matter, see Selberg \cite{key75}. 
+
+The idea of introducing a smoothing device into Rosser's sieve\break method
+is an outstanding contribution of Iwaniec \cite{key31} to the theory of
+sieve methods. This will result in a highly flexible error - term in
+the linear sieve, as we shall see in the next chapter. 
+
+We are not in a position to speculate how Iwaniec was led to his novel
+idea; readers are referred to his own account \cite{key33}. 
+
+The argument developed in \S \ref{chap2-sec2.3} is due to Motoghashi
+[\cite{key60}, II],\break 
+which is a refinement of Iwaniec's 

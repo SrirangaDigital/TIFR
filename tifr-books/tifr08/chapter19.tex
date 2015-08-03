@@ -1,0 +1,334 @@
+\chapter{Lecture 19}\label{chap19} % lecture 19
+
+\section{The Cauchy problem for the wave equation}\label{chap19:sec1}
+
+We\pageoriginale consider the Cauchy problem for the `wave equation' in the
+$m$-dimensional Euclidean space $E^m$: 
+\begin{equation*}
+ \begin{cases}
+  \frac{\partial^2 u(t, x)}{\partial t^2}=A u (t,x), & x \in E^m \\
+  u(0, x)= f(x), & u_t (0, x) ~g(x),~f, g, \text{ given },
+ \end{cases}
+\end{equation*}
+$$
+\displaylines{\text{where}\hfill 
+A = a^{ij}(x) \frac{\partial^2}{\partial x_i ~ \partial x_j}+ b^i (x)
+\frac {\partial}{\partial x_i}+ c(x)\hfill } 
+$$
+is a second-order elliptic operator. This problem is equivalent to the
+matricial equation 
+\begin{equation*}
+ \begin{cases} 
+  \frac{\partial}{\partial t} \begin{pmatrix} u (t, x)\\ v (t,
+   x) \end{pmatrix}= \begin{pmatrix} 0 & I \\ A &
+   0 \end{pmatrix} \begin{pmatrix} u (t, x)\\ v (t,
+   x) \end{pmatrix} (I = \text { identity }).\\ 
+  \begin{pmatrix} u (o, x)\\ v (o, x) \end{pmatrix}
+  = \begin{pmatrix} f (x)\\ g (x) \end{pmatrix} \tag{1} 
+ \end{cases} 
+\end{equation*}
+
+We may apply the semi-group theory to integrate $(1)$, by considering,
+in a suitable Banach-space the ``resolvent equation" 
+$$
+\begin{bmatrix}
+ \begin{pmatrix}
+  I & o \\ o & I
+ \end{pmatrix}
+ -n^{-1}
+ \begin{pmatrix}
+  o & I \\ A & o
+ \end{pmatrix}
+\end{bmatrix}
+\begin{pmatrix}
+ u \\ v
+\end{pmatrix}
+=
+\begin{pmatrix}
+ f \\ g
+\end{pmatrix}
+$$
+ for large $|n|$ ($n$, integral) and obtaining the estimate
+ $$ 
+ || 
+ \begin{pmatrix} 
+  u \\ 
+  v 
+ \end{pmatrix}
+ || \leq (1+ |n^{-1}|
+ \beta) || 
+ \begin{pmatrix} 
+  f \\ 
+  g 
+ \end{pmatrix} || 
+ $$
+ with a positive $\beta$ independent of $u, f$ and $g$. As a matter
+ of fact, the estimate implies (see Lecture $9$) that
+ $\begin{pmatrix} 0 & I \\ A & 0 \end{pmatrix}$ is the infinitesimal
+ generator of a \textit {group} $\{T_t \}_{-\infty < t < \infty}$ and 
+ $$
+ T_t 
+ \begin{pmatrix} 
+  f (x) \\ 
+  g(x) 
+ \end{pmatrix} 
+ = 
+ \begin{pmatrix} 
+  u (t, x) \\ 
+  v (t, x)
+ \end{pmatrix} 
+ $$
+ will\pageoriginale give a solution of $(1)$ if the initial functions $f(x)$ and
+ $g(x)$ are prescribed properly. 
+ 
+ We have the
+\begin{theorem*}
+  Suppose that the coefficients $a^{ij}(x), b^i(x)$ and $c(x)$ are
+  $C^\infty$ and that there exists a positive constant $\lambda$
+  such that 
+  $$
+  a^{ij}(x) \xi_i \xi_j \geq \lambda \sum_i \xi^2_i
+  $$
+  $(x \in E^m, (\xi_1, \ldots, \xi_m) \in E^m)$. Assume further that
+  \begin{multline*}
+   \eta = \max \left\{\sup_{x,i,j}| a^{ij}(x)|, \sup_{x,i,j,k} \left
+   |\frac{\partial a^{ij}}{\partial x_k} \right|\right.\\
+   \left. \sup_{x;i,j,k,s} \left|\frac{\partial^2 a^{ij}}{\partial x_k ~
+    \partial x_s} \right|, \sup_{x;i} | b^i (x)|, \sup_{x;i,k}
+   \frac{\partial b^i}{\partial x_k}, \sup_x | c(x)| \right\} 
+  \end{multline*}
+  is finite. Then there exists a positive constant $\beta$ such that for
+  sufficiently small $\alpha_\circ$, the equation $(1)$ is solvable in
+  the following sense: for any pair of $C^\infty$ functions $\big\{f(x),
+  g(x)\big\}$ on $E^m$ for which $A^k f, A^k g$ and their partial
+  derivatives are square integrable (for each integer $k \geq 0$) over
+  $E^m$, the equation $(1)$ admits of a $C^\infty$ solution $u(t, x)$
+  satisfying the ``energy inequality" 
+  \begin{gather*}
+   ((u - \alpha_\circ A u, u)_\circ + \alpha_\circ (u_t, u_t)_\circ
+   )^{\frac{1}{2}}
+   \leq \exp ( \beta |t| ((f-\alpha_\circ A f, f)_\circ + \alpha_\circ
+   (g, g)_\circ )^{\frac{1}{2}} 
+  \end{gather*}
+\end{theorem*}
+ 
+\begin{proof}
+The proof will be carried out in several steps.
+
+ \noindent
+ {\bf First step:} Let $H$ be the space of real-valued $C^\infty$
+ functions in $E^m$ for which 
+ $$
+ || f ||_1 = \left\{\int \limits_{E^m} | f |^2 dx + \sum_i \int
+ \limits_{E^m} | f_{x_i}|^2 dx \right\}^{\frac{1}{2}} < \infty, 
+ $$
+ and\pageoriginale let $\tilde{H}_1 (E^m)$ be the completion of $H$ with respect to
+ the norm $|| ~||_1$. The completion of $H$ with respect to $|| f
+ ||_\circ = \left\{ \int \limits_{E^m} | f |^2 dx \right
+ \}^{\frac{1}{2}}$ will be denoted by $\tilde{H}_\circ
+ (E^m). \tilde{H}_\circ (E^m)$ and $\tilde{H}_1(E^m)$ are Hilbert
+ spaces; actually $\tilde{H}_\circ (E^m)= H_\circ (E^m) = L_2
+ (E^m)$. 
+ 
+ One can prove that there exists $\chi > 0$ and $\alpha_\circ > 0$
+ such that for $0 < \alpha < \alpha_\circ$ there correspond $\gamma >
+ 0$ and $\delta_\alpha > 0$ satisfying 
+\begin{align*}
+ \delta_\alpha || f ||^2_1 & \leq 
+ \begin{cases}
+  (f -\alpha Af, f)_\circ & \text{ for } f \in H, A f \in H_\circ\\
+  (f -\alpha A^*f, f)_\circ &\text{ for } f \in H \quad A^* f \in H_\circ.
+ \end{cases}\\ 
+  | (f -\alpha Af, g)_\circ | & \leq (1 + \alpha \gamma) || f ||_1 ||
+  | g ||_1 ~ \text{ for } f, g \in H, A f \in H_\circ.\\ 
+  | (f -\alpha A^*f, g)_\circ | & \leq (1 + \alpha \gamma ) || f ||_1
+  | || g ||_1 ~ \text{ for } f, g \in H; A^* f \in H_\circ.\\ 
+  | (af, g)_\circ - (f, Ag)_\circ | & \leq \chi || f ||_1 || g
+  | ||_\circ, \text{ for } f, g \in H; Af, Ag \in H_\circ. 
+\end{align*}
+ (The proofs of these inequalities will be given in the next lecture).
+\end{proof}
+ Thus the bilinear form
+ $$
+ B^\wedge_\alpha(u,v) = (u - \alpha A^* u, v)_\circ \text{ for } u, v
+ \in H, A^* u \in H_\circ 
+ $$
+ can be extended to a bilinear functional $B_\alpha (u, v)$ on $H_1$
+ satisfying 
+ \begin{equation*}
+  \begin{cases}
+   \delta_\alpha || u ||^2_1 \leq B_\alpha (u, u) \\
+   | B_\alpha (u, v) | \leq (1+ \alpha \gamma ) || u ||_1 || v ||_1.
+  \end{cases}
+ \end{equation*} 
+ 
+ \medskip
+ \noindent
+ {\bf Second step:} Let $0 < \alpha \leq \alpha_\circ$. For any $f
+ \in H$, the equation $u -\alpha A u =f$ admits of a uniquely
+ determined solution $u(x) =u_f (x) \in H$. 
+ 
+\begin{proof}
+ The additive functional $F(u) = (u, f)_\circ$ is bounded on $H_1$, because
+ $$
+ | F (u)| = |(u, f)_\circ | \leq || u ||_\circ || f ||_\circ \leq ||
+ u ||_1 || f ||_\circ. 
+ $$
+
+ So,\pageoriginale by Riesz's representation theorem, there exists a uniquely
+ determined $v (f) \in \tilde{H}_1$ such that 
+ $$
+ (u, f)_\circ =(u, v(f))_1.
+ $$
+ 
+ By the Lax-Milgram theorem (see lecture $4$) as applied to the
+ bilinear form $B_\alpha (u, v)$ in $\tilde{H}_1$, there corresponds a
+ uniquely determined element $Sv(f)$ in $\tilde{H}_1$ such that 
+ $$
+ (u, f)_\circ = (u, v(f))_1 = B_\alpha (u, Sv(f)), \text{ for } u \in H_1.
+ $$
+ $u_\circ =Sv(f)$ is a weak solution of the equation $u - \alpha A u = f,
+ i.e$., for each $u \in \mathscr{D}^\infty (R)$ we have $(u, f)_\circ =
+ (u -\alpha A^* u, Sv(f))_\circ$. In fact, let $\{v_k\} \subset H$ be a
+ sequence such that $v_k \to Sv(f)$ in $\tilde{H}_1$; then, for 
+ \begin{align*}
+  u \in \mathscr{D}^\infty (R), B_\alpha (u, S v(f)) & = \lim_{n \to
+   \infty} B_\alpha (u, v_n)\\ 
+  & = \lim_{n \to \infty} (u -\alpha A^* u, v_n)\\
+  & = (u- \alpha A^* u, S v (f)).
+ \end{align*}
+ Since $f$ is $C^\infty$ in $E^m$ and $A$ is elliptic, $u_\circ = S
+ v(f)$ is almost everywhere equal to a $C^\infty$ function 
+(Weyl-Schwartz theorem). We thus have a solution $u_\circ \in H$ of the
+ equation $u -\alpha A u=f$. The uniqueness of the solution follows
+ from the inequalities given in the first step. 
+\end{proof}
+
+ \medskip
+ \noindent
+{\bf Third step:} If the integer $n$ is such that $| n |^{-1}$ is
+sufficiently small, then for any pair of functions $\{f,g\}$ with $f,
+g \in H$ and $A f \in H_\circ$, the equation 
+ \begin{equation*}
+  \begin{bmatrix}
+   \begin{pmatrix}I & 0 \\ 0 & I\end{pmatrix}
+    -n^{-1}
+    \begin{pmatrix}0 & I \\ A & 0\end{pmatrix}
+  \end{bmatrix}
+  \begin{pmatrix}u \\ v\end{pmatrix}
+   =
+   \begin{pmatrix}f \\ g \end{pmatrix}
+   \tag {2}
+ \end{equation*} 
+ or
+ \begin{align*}
+  u  - n^{-1} v & = f \\
+  v  - n^{-1} A u & =g
+ \end{align*}
+ admits\pageoriginale of a uniquely determined solution $\{u,v\}~ u, v \in
+ H$. Moreover, we have 
+ $$
+ \left[ B_{\alpha_\circ}(u, u) + \alpha_\circ (v, v) \right
+ ]^{\frac{1}{2}} \leq (1+ | n|^{-1} \beta) (B_{\alpha_\circ}(f,f) +
+ \alpha_\circ (g,g)_\circ )^{\frac{1}{2}} 
+ $$
+ with a positive constant $\beta$.
+
+\begin{proof}
+ Let $u_1, v_1 \in H$ be such that
+ $$
+ u_1 - n^{-2} A u_1 = f \qquad v_2 - n^{-2} A v_2 = g.
+ $$
+ (See the second step). Then
+ $$
+ u = u_1 + n^{-1}v_2 \qquad v=n^{-1} A u_1 + v_2
+ $$
+ satisfies (2).
+ 
+ We have
+ $$
+ A u = n(v-g) \in H \subset H_\circ, \quad A v = n(Au - Af) \in H_\circ.
+ $$
+ 
+ We may therefore apply the inequalities of the first step.
+ 
+ Thus by (2),
+ \begin{align*}
+  (f -\alpha_\circ Af, f)_\circ & = (u - n^{-1} v - \alpha_\circ A(u -n^{-1}
+  v), u -n^{-1}v)_\circ \\ 
+  & = (u - \alpha_\circ Au, u)_\circ -2n^{-1} (u, v)_\circ +
+  \alpha_\circ n^{-1} (Au, v)_\circ \\ 
+  & \qquad + \alpha_\circ n^{-1} (Av, u)_\circ + n^{-2} (v - \alpha_\circ A
+  v, v)_\circ 
+ \end{align*}
+ and
+ \begin{align*}
+  \alpha_\circ (g, g)_\circ & = \alpha_\circ (v -n^{-1} A u, v -
+  n^{-1} A u)_\circ \\ 
+  & = \alpha_\circ (v,v)_\circ - \alpha_\circ n^{-1} (v, A u)_\circ -
+ \alpha_\circ n^{-1} (Au, v)_\circ + \alpha_\circ n^{-2}(A~A)_\circ 
+\end{align*}
+Hence\pageoriginale 
+ \begin{align*}
+  B \alpha_\circ & (f, f)_\circ + \alpha_\circ (g, g)\\
+  \geq & B \alpha_\circ (u,u)+ \alpha_\circ (v, v)_\circ -2|n|^{-1}
+  (u,v)_\circ - \alpha_\circ |n|^{-1} | (Av, u)_\circ - (Au, v)_\circ
+  |\\ 
+  \geq & B \alpha_\circ (u,u)+ \alpha_\circ (u, v)_\circ -2|n^{-1} |
+  ~|| u ||_1 || v ||_\circ - \alpha_\circ |n|^{-1} \chi || u ||_1 || v
+  ||_\circ \\ 
+  \geq & B \alpha_\circ (u,u)+ \alpha_\circ (v,v)_\circ\\ 
+  & \qquad -|n^{-1}|
+  \left\{ || u ||^2_1 \tau + \tau^{-1} || v ||^2_\circ 
+  + \frac{\alpha_\circ}{2} \chi ( || u ||^2_1 \tau + \tau^{-1} || v
+  ||^2_\circ )\right \} ( \tau > 0) 
+ \end{align*}
+ 
+ Thus, by taking $\tau > 0$ sufficiently large and then taking $| n |$
+ sufficiently large, we have the desired inequality. 
+\end{proof}
+
+\medskip
+ \noindent
+ {\bf Fourth step:} The product space $\tilde{H}_1 \times
+ \tilde{H}_\circ$ is a Banach space with the norm 
+ $$
+ || (^u_v) || = [B_{\alpha_\circ} (u, u) + \alpha_\circ (v, v)]^{\frac{1}{2}}
+ $$
+ We define now an operator $\mathscr{O}$ in $\tilde{H}_1 \times
+ H_\circ:$ the domain of $\mathscr{O}$ consists of the vectors
+ $(^u_v) \in H_1 \times H_\circ $ such that $u, v \in H$ and
+ $A(u-n^{-1}v) \in H_\circ$ and $v - n^{-1} A u \in H$ and on such
+ elements $\mathscr{O} (^u_v)$ is defined to be 
+ $$
+ \begin{pmatrix} 0 & I \\ A & 0 \end{pmatrix}\begin{pmatrix}
+   u\\  v \end{pmatrix}. 
+ $$
+ 
+
+The third step shows that for sufficiently large $|n|$, the range of
+the operator $\begin{pmatrix} I & 0 \\ 0 & I \end{pmatrix} - n^{-1}
+\mathscr{O}$ coincides with the set pairs $(^f_g)$ such that $f, g \in
+H, A f \in H_\circ$; such vectors $(^f_g)$ are dense in the Banach
+space $\tilde {H}_1 \times \tilde{H}_\circ$. It follows that the
+smallest closed extension $\bar{\mathscr{O}}$ of is such that 
+$$
+(\mathscr{I} - n^{-1}\bar{\mathscr{O}}), \qquad \mathscr{I}
+= \begin{pmatrix} I & 0 \\ 0 & I \end{pmatrix} 
+$$
+admits,\pageoriginale for sufficiently large $| n |$, of an inverse $\mathscr{I}_n =
+(\mathscr{I} -n^{-1} \bar{\mathscr{O}})^{-1}$ which is linear operator
+on $\tilde{H}_1 \times H_\circ$ satisfying 
+$$
+|| \mathscr{I}_n || \leq (1 + \beta | n^{-1}| ).
+$$
+
+So, there exists a uniquely determined \textit{group} $\{T_t\}_{-
+ \infty < t< \infty}$ with $\bar{\mathscr{O}}$ as the infinitesimal
+generator and such that 
+$$
+|| T_t || \leq \exp (\beta t),
+$$
+strong $\lim \limits_{h \to o} \dfrac{T_{t+h}-T_t}{h}(^f_g) =
+\bar{\mathscr{O}}T_t (^f_g) = T_t \bar{\mathscr{O}}(^f_g)$ if $(^f_g)
+\in $ domain of $\bar{\mathscr{O}}$ (See Lecture $9$). 

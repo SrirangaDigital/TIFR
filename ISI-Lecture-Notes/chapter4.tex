@@ -1,0 +1,349 @@
+\chapter{}\label{chap4}
+
+\section{Projective Modules}\label{c4:s1}
+
+In this section we recall some definitions and simple facts about
+projective modules and rephrase Theorem~\ref{c2:thm2.2} of
+Chapter~\ref{chap2} in term of projective modules.
+
+\begin{dfn}\label{c4:dfn1.1}
+An $A$-module $F$ is said to be \textit{free} if there exists a subset
+$S=\{x_{\alpha}\}_{\alpha\varepsilon I},x_{\alpha}\varepsilon F$ such
+that 
+\begin{enumerate}[(i)]
+\item the set $S$ generates $F$ as an $A$-module.
+\item the elements of $S$ are linearly independent over $A$.
+\end{enumerate}
+
+The set $S=\{x_{\alpha}\}_{\alpha \varepsilon I}$ is called a
+\textit{basis} for $F$.
+\end{dfn}
+
+\begin{Prop}\label{c4:Prop1.2}
+Let $F$ be a free $A$-module with basis $S=\{x_{\alpha}\}_{\alpha
+  \varepsilon I}$. Let $M$ be any $A$-module and $f:S\rightarrow M$ be
+a map given by $x_{\alpha}\mapsto m_{\alpha},m_{\alpha}\varepsilon
+M$. Then there exists a unique $A$-linear map $g:F\rightarrow M$ such
+that $goi=f$ where $i:S\hookrightarrow F$ is the canonical inclusion.
+\end{Prop}
+
+\begin{Proof}
+Define $g:F\rightarrow M$ as $\sum a_{\alpha}x_{\alpha}\mapsto \sum
+a_{\alpha}m_{\alpha}$. Then $g$ is an $A$-linear map and
+$g\circ i=f$. Further if there exists $g':F\rightarrow M$ such that
+$g'\circ i=f$ then $g\mid S = g'\mid S$. Hence $g'\left(\sum
+a_{\alpha}x_{\alpha}\right)=\sum a_{\alpha}g'(x_{\alpha})=\sum
+a_{\alpha}g(x_{\alpha})=g\left(\sum a_{\alpha}x_{\alpha}\right)$. Therefore
+$g=g'$. 
+
+We remark that if $F$ is a free module with basis consisting of $n$
+elements then $F\approx A^{n}$ and we say $F$ is free of \textit{rank} $n$. We
+note that rank is well defined because if $A^{n}\approx A^{m}$ then
+$n=m$ (go modulo a maximal ideal!)
+\enprf
+\end{Proof}
+
+\begin{dfn}\label{c4:dfn1.3}
+An $A$-module $P$ is said to be \textit{projective} if for any
+surjective $A$-linear map $f:M\rightarrow M'$ and an $A$-linear map
+$g:P\rightarrow M'$ there exists an $A$-linear map
+$\tilde{G}:P\rightarrow M$ such that $f\circ \tilde{g}=g$. 
+\end{dfn}
+
+\begin{lem}\label{c4:lem1.4}
+For an $A$-module $P$, the following are equivelent
+\begin{enumerate}[(i)]
+\item $P$ is projective $A$-module.
+\item Every exact sequence $0\rightarrow N\rightarrow
+  M\xrightarrow{f}p\rightarrow 0$ of $A$-modules splits (i.e. there
+  exists an $A$-linear map $g:P\rightarrow M$ such that $f\circ
+  g=1_p$).
+\item P is a direct summand of a free $A$-module.
+\end{enumerate}
+\end{lem}
+
+\begin{Proof}
+(i)$\Rightarrow$ (ii) Let $1_p:P\rightarrow P$ be the identity map. Then
+  by definition there exists an $A$-linear map $g:P\rightarrow M$ such
+  that $f\circ g=1_p$. 
+
+(ii)$\Rightarrow$ (iii) Let $F$ be a free module on a set of generators
+  of $p$. Then we have an exact sequence $F\xrightarrow{f}p\rightarrow
+  0$. Let $K=\ker f$. So the exact sequence
+$$
+0\rightarrow K\rightarrow F\xrightarrow{f} p\rightarrow 0
+$$
+splits i.e. there exists $g:P\rightarrow F$ such that $f\circ
+g=1_p$. Now we note that $g(P)\cap K=0$, for if $x \varepsilon
+g(P)\cap k$, then $x=g(p)=k,p\varepsilon P,k\varepsilon K$ so
+$f(x)=(fg)(p)=0\Rightarrow p=0$, so $x=0$. Also $F=g(P)+K$, because
+write $x=gf(x)+(x-gf(x))$ for $x\varepsilon F$. Therefore
+$F=g(P)\oplus K\approx P\oplus K$. 
+
+(ii)$\Rightarrow$ (i) Let $Q$ be an $A$-module such that $P\oplus Q=F$,
+where $F$ is a free $A$-module. Let $M\xrightarrow{f}M'\rightarrow 0$
+be exact and $g:P\rightarrow M'$ be an $A$-linear map. Let
+$\phi:F\rightarrow M'$ be an $A$-linear map given by $\phi\mid P=g$
+and $\phi\mid Q=0$. 
+
+Let $\{x_{\alpha}\}_{\alpha \epsilon I}$ be a basis of $F$ and
+$\psi:F\rightarrow M$ be a map given by $\psi(x_{\alpha})=m_{\alpha}$
+where $f(m_{\alpha})=\phi(x_{\alpha}),\alpha\varepsilon I$. Let
+$\tilde{g}=\psi \mid P$. Then clearly $f\circ \tilde{g}=g$. Hence $P$
+is projective.
+\enprf
+\end{Proof}
+
+\begin{rem}\label{c4:rem1.5}
+An $A$-module $P$ is finitely generated projective if and only if
+there exists a finitely generated $A$-module $Q$ such that $P\oplus
+Q\approx A^{n}$. 
+
+We recall that for any commutative ring
+$A,\underline{a}=(a_1,\ldots,a_r)\varepsilon A^{r}$ is said to be
+completable if $(a_1,\ldots,a_r)$ is the first column of an $r\times
+r$ invertible matrix with entries in $A$. 
+
+Let $U_r(A)$ denote the set of unimodular elements in $A^{r}$. We
+remark that 
+
+(1.6) Let $\underline{a}\varepsilon A^{r}$. Then
+$\underline{a}\varepsilon U_r(A)$ if and only if there exists an
+$A$-linear map $f:A^{r}\rightarrow A$ such that $f(\underline{a})=1$. 
+\end{rem}
+
+\begin{Proof}
+Let $\underline{a}=(a_1,\ldots,a_r)\varepsilon U_r(A)$. Therefore
+there exists $b_i\varepsilon A$, $1\leq i \leq r$ such that $\sum
+b_ia_i=1$. So define $f:A^{r}\rightarrow A$ as $e_i\mapsto b_i,1\leq
+i\leq r$ where $e_i$ are the canonical basis of $A^{r}$. Clearly
+$f(\underline{a})=1$. Conversely, let $f(e_i)=b_i$. Then
+$f(\underline{a})=\sum b_ia_i=1$, so $\underline{a}\varepsilon
+U_r(A)$. 
+
+(1.7) $\underline{a}\varepsilon U_r(A)$ is completable if and only if
+$\underline{a}$ can be completed to a base of $A^{r}$. 
+\enprf
+\end{Proof}
+
+\setcounter{dfn}{7}
+\begin{dfn}\label{c4:dfn1.8}
+An $A$-module $P$ is said to be \textit{stably free} if there exists
+integers $n,m\geq 0$ such that $P\oplus A^{n}\approx A^{m}$
+\end{dfn}
+
+\begin{Prop}\label{c4:Prop1.9}
+For any commutative ring $A$, the following are equivalent
+\begin{enumerate}[(i)]
+\item Every $\underline{a}\varepsilon U_r(A)$ is completable, $r\geq
+  1$
+\item Every stably free module over $A$ is free.
+\end{enumerate}
+\end{Prop}
+
+\begin{Proof}
+(i)$\Rightarrow$ (ii) By induction enough to show that $P\oplus
+  A\approx A^{n+1}$ implies $P$ is free. Let $\phi$:$P\oplus
+  A\xrightarrow{\sim} A^{n+1}$ and
+  $\phi(0,1)=\underline{a}\varepsilon A^{n+1}$. Identifying through
+  $\phi$, we can write $P \oplus A \underline{a}=A^{n+1}$. Let
+  $f:A^{n+1}\rightarrow A $ be an $A$-linear map given by $f\mid p=0$
+  and $f(\underline{a})=1$. Then by (1.6), $\underline{a}\varepsilon
+  U_{n+1}(A)$. By hypothesis there exists unimodular elements
+  $\underline{a}_2,\ldots,\underline{a}_{n+1} \varepsilon U_{n+1}(A)$
+  such that $\underline{a},\underline{a}_2,\ldots,\underline{a}_{n+1}$
+  form a basis for $A^{n+1}$. Hence $P\approx
+  \dfrac{A^{n+1}}{A\underline{a}\approx
+    \sum\limits_{i=2}^{n+1}A\underline{a}_i\approx A^{n}}$.
+
+(ii)$\Rightarrow$(i) Let $\underline{a}\varepsilon U_r(A)$. By(1.6),
+  there exists an $A$-linear map $f:A^{r}\rightarrow A'$ such that
+  $f(\underline{a})=1$. Let $P=\ker f$. Since the exact sequence
+$$
+0\rightarrow P\rightarrow A^{r}\xrightarrow{f} A\rightarrow 0
+$$
+splits, we have $P\oplus A\approx A^{r}$. By (ii), $P$ is free, and in
+fact $P\approx A^{r-1}$. Let
+$(\underline{a}_2,\ldots,\underline{a}_r)$ be a basis for $P$. Then
+$(\underline{a}, \underline{a}_2,\ldots,\underline{a}_r)$ is a basis
+for $A^{r}$. So $\underline{a}$ is completable.
+\enprf
+\end{Proof}
+
+\begin{thm}\label{c4:thm1.10}
+Let $k$ be any field and $A=k[X_1,\ldots,X_n]$. Then any stably free
+$A$-module is free.
+\end{thm}
+
+\begin{Proof}
+Follows from Proposition~\ref{c4:Prop1.9} and Theorem~\ref{c2:thm2.2}
+of Chapter~\ref{chap2}.
+
+We remark that a stably free module need not be free.
+\enprf
+\end{Proof}
+
+\begin{exple}\label{c4:exple1.11}
+Let $A$ be the co-ordinate ring of the real sphere $S^{2}$
+i.e. $A=\mathbb{R}[x,y,z]$ with relations $x^{2}+y^{2}+z^{2}=1$. Then
+$\underline{a}=(x,y,z)\varepsilon A^{3}$ is unimodular. But it is
+known that $\underline{a}$ is not completable.
+\end{exple}
+
+\section{Serre's Problem}\label{c4:s2}
+
+In this section we prove a theorem of Quillen and Suslin:
+
+Let $k$ be any field. Then any finitely generated projective module
+over $k[X_1,\ldots,X_n]$ is free.
+
+This we prove by using Towber presentation.
+
+
+\begin{lem}\label{c4:lem2.1}
+Let $A$ be an integral domain and $P$ a finitely generated projective
+$A$-module. Then there is a free $A$-module $F$ of finite rank such
+that $aF\subset P\subset F$, for some $0\neq a\varepsilon A$. 
+\end{lem}
+
+\begin{Proof}
+Let $x_1,\ldots,x_m\varepsilon P$ generate $P$. Without loss of
+generality we may assume that $x_1,\ldots, x_r$ is a maximal set of
+linearly independent elements among $x_1,\ldots,x_m$. Then
+$F=\sum\limits_{i=1}^{r} Ax_i$ is free. Clearly by maximality of
+$x_,\ldots,x_r$ there exists an $a\varepsilon A$, $a\neq 0$ such that
+$aP\subset F$. So $aF\subset aP\subset F$. But since $P\approx aP$,
+writing $P$ for $aP$, the lemma follows. 
+\enprf
+\end{Proof}
+
+\begin{Prop}\label{c4:Prop2.2}
+(Towber presentation). Let $A$ be a ring such that every finitely
+generated projective $A$-module is free. Let $B=A[X]$ and $P$ be a
+finitely generated projective $B$-module and let $F=B^{r}$,
+$h\varepsilon A[X]$ be a unitary polynomial such that 
+$$
+hF\subset P \subset F.
+$$
+
+Then there exists an exact sequence
+$$
+0\rightarrow B^{m}\rightarrow B^{m+r}\rightarrow P\rightarrow 0.
+$$
+
+In particular $P$ is stably free.
+\end{Prop}
+
+\begin{Proof}
+Let $f_1,\ldots,f_r$ be the standard basis for $B^{r}$ and let $F_k$
+denote the $A$-module
+$$
+\left\{\sum\limits_{i=1}^{r}h_if_i\mid h_i\varepsilon A[X],\deg
+h_i\leq k\right\}
+$$
+
+Let $\deg h=n$. Then since $h$ is unitary, we have 
+$$
+F=F_{n-1}+hF\quad \text{ (use division algorithm) }
+$$
+and
+$$
+P=P_1+hF, P_1=P\cap F_{n-1}.
+$$
+
+It is clear that the above is a direct sum decomposition as
+$A$-modules. Since $P$ is a projective $A$-module, it follows that
+$P_1$ is a projective $A$-module. Further since $P_1\approx
+\dfrac{P}{hF}$, $\dfrac{P}{hF}$ is a finitely generated
+$\dfrac{A[X]}{(h)}$-module and $\dfrac{A[X]}{(h)}$ is a finitely
+generated $A$-module, it follows that $P_1$ is a finitely generated
+$A$-module. Hence by hypothesis $P_1$ is a free $A$-module. Let
+$e_1,\ldots,e_m$ be a basis for $P_1$. Then $P$ as an $A$-module is
+generated by $e_1,\ldots,e_m$ and $hf_1,\ldots,hf_r$. In fact
+$$
+p=\sum\limits_{i=1}^{m}Ae_i+h\sum\limits_{i=1}^{r}Bf_i
+$$
+
+Further since $P_1\subset F_{n-1}$, we have
+$$
+XP_1\subset F_n=F_{n-1}+hF_o,\left(F_o=\sum\limits_{i=1}^{r}Af_i\right)
+$$
+and since $XP_1\subset P$ and $hF_o\subset P$, we have 
+$$
+XP_1\subset P_1+hF_o
+$$
+
+In particular, Let
+$$
+Xe_i=-\sum\limits_{j=1}^{m}a_{ji}e_j-h\sum\limits_{j=1}^{r}b_{ji}f_j\quad
+(1\leq i\leq m)
+$$
+where $a_{ji}$, $b_{ji}\varepsilon A$, and let $\phi :
+B^{m+r}\rightarrow p$ a map given by $\phi(u_i)=e_i$ and
+$\phi(v_j)=hf_j$, where $u_1,\ldots,u_m$, $v_1,\ldots, v_r$ is a base
+for $B^{m+r}$. Clearly
+$$
+\alpha_i=\sum\limits_{j=1}^{m}(a_{ji}+\delta_{ij}X)u_j+\sum\limits_{j=1}^{r}
+b_{ji}v_j\varepsilon \ker \phi
+$$
+for $1\leq i\leq m$. Since $\det(a_{ji}+\delta_{ij}X)$ is a monic
+polynomial, the elements $\alpha_1,\ldots,\alpha_m$ are linearly
+independent over $B$. Now we claim that $\ker \phi$ is generated by
+$\alpha_1,\ldots,\alpha_m$. Since 
+$$
+\begin{aligned}
+&Xu_i\varepsilon
+A\alpha_i+\sum\limits_{j=1}^{m}Au_j+\sum\limits_{k=1}^{r}Av_k,\\
+&{} m=\sum\limits_{i=1}^{m} B\alpha_i+\sum\limits_{j=1}^{m}Au_j+\sum\limits_{k=1}^{r}Bv_k
+\end{aligned}
+$$
+is a $B$-module, hence $M=B^{r+m}$. So 
+$$
+\ker \phi=\sum\limits_{i=1}^{m}B\alpha_i+(N\cap \ker \phi)
+$$
+where $N=\sum\limits_{j=1}^{m}Au_j+\sum\limits_{k=1}^{r}Bv_k$. Now
+suppose $\sum\limits_{j=1}^{m}a_je_j+\sum\limits_{k=1}^{r}h h_kf_k=0$
+with $a_j\varepsilon A$. Since $P_1\cap hF=0$, we have
+$\sum\limits_{j=1}^{m}a_je_{j}=\sum\limits_{k=1}^{r} h h_kf_k=0$. But
+$e_j's$ and $f_k's$ are bases for $p_1$ and $B^{r}$ respectively and
+$h$ is a unitary polynomial, so it follows that $a_j=0$ and $h_k=0$
+for $1\leq j\leq m$, $1\leq k\leq r$.This shows that $N\subset \ker
+\phi=0$. Hence we get an exact sequence
+$$
+0\rightarrow B^{m}\xrightarrow{\psi}B^{m+r}\xrightarrow{\phi}
+P\rightarrow 0
+$$
+where $\psi$ is given by the $(m+r)\times m$  matrix
+$$
+\begin{bmatrix}
+S & + & XI_m\\
+& T &
+\end{bmatrix}
+$$
+where $S=(a_{ij})$, $a_{ij}\varepsilon A, 1\leq i,j\leq m$ and
+$T=(b_{ij})$, $b_{ij}\varepsilon A$, $1\leq i\leq r, 1\leq j\leq m$.
+\enprf
+\end{Proof}
+
+
+\begin{thm}\label{c4:thm2.3}
+Every finitely generated projective module over\\ $k[X_1,\ldots,X_n]$ is
+free $k$ a field.
+\end{thm}
+
+\begin{Proof}
+We prove this by induction on $n$.
+
+Let $P$ be a finitely generated projective module over
+$B=\\k[X_1,\ldots,X_n]$. Now by Lemma~\ref{c4:lem2.1}, we may assume
+that there exists a free module $F$ of finite rank such that 
+$$
+hF\subset P\subset F
+$$
+for some $h\neq 0$, $h\varepsilon B$. By Lemma~\ref{c2:lem2.6} of
+Chapter~\ref{chap2}, we may assume that $h$ is a unitary polynomial in
+$X_n$ with coefficients in $A=k[X_1,\ldots,X_{n-1}]$. Now by the
+induction hypothesis and Lemma~\ref{c3:lem2.2} $P$ is stably
+free. Hence $P$ is free by Theorem~\ref{c4:thm1.10}.
+\enprf
+\end{Proof}

@@ -1,0 +1,207 @@
+\chapter{Lecture}\label{part3:lec25} %%% 25
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+We\pageoriginale wish to utilise the formula for $B_k (\nu)$ that we
+had: 
+$$
+A_k (n) = B_k (\nu) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{\ell^2
+  \equiv \nu \pmod{24k}} \left(\frac{\ell}{3} \right)
+  \left(\frac{-1}{\ell} \right) e^{\frac{\pi i \ell}{6k}}, 
+$$
+with $\nu=1-24n$ (and so $\equiv 1$ modulo 24). Some cases were
+considerably simpler. Writing $d= (24, k^3)$, $de =24$, we have four
+cases: $d=1, 3, 8, 24$.
+
+\medskip
+\noindent $d=1$
+$$
+B_k (\nu) = \left(\frac{3}{k} \right) \sqrt{k} \sum_{(24 r)^2\equiv
+  \nu \pmod{k}} e^{4 \pi i r/k}
+$$
+
+\noindent $d=3$
+$$
+B_k (\nu) = 2i \left(\frac{-1}{k} \right) \sqrt{\frac{k}{3}} \sum_{(8 r)^2\equiv
+  \nu \pmod{3k}} \left(\frac{r}{3} \right) e^{4 \pi i r/3k}
+$$
+
+\noindent $d=8$
+$$
+B_k (\nu) = \frac{1}{4i} \left(\frac{k}{3} \right) \sqrt{k} \sum_{(8 r)^2\equiv
+  \nu \pmod{8k}} \left(\frac{-1}{r} \right) e^{\pi i r/2k}
+$$
+
+\noindent $d=24$
+
+There is nothing new; we get the old formula back. 
+
+We wish first to anticipate what we shall use later and get $A_n(n)$
+for prime powers which will be the ultimate elements. Again we have to
+discuss several cases.
+
+First\pageoriginale take $k=p^\lambda$, $p$ a prime exceeding
+3. Then, by case \ref{part3:lec24:case1} above (since $(24, k^3)=1$),
+$$
+B_k (\nu) = \left(\frac{3}{p} \right)^\lambda p^{\lambda/2}
+\sum_{(24r)^2 \equiv \nu \pmod{p^\lambda}} e^{4 \pi i r/p^\lambda}
+$$
+
+Look into the condition of summation. It is quite clear that this
+implies $(24 r)^2 \equiv \nu \pmod{p}$ i.e., $\nu$ is a quadratic
+residue modulo $p$. Hence
+\begin{equation*}
+  B_p \lambda (\nu) =0 ~\text{if}~ \left(\frac{v}{p} \right)=-
+  1. \tag{1}\label{part3:lec25:eq1} 
+\end{equation*}
+
+On the other hand, if $x^2 \equiv \nu \pmod{p}$ is solvable, then $x^2
+\equiv \nu \pmod{p^\lambda}$ is also solvable (we take for granted the
+structure of the cyclic residue group). $x^2 \equiv \nu
+\pmod{p^\lambda}$ has two solutions, and now we want only $x= 24r
+\pmod{p^\lambda}$. Let $r$ be a solution, $-r$ is the other solution:
+$(24r)^2 \equiv  \pmod{p^\lambda}$. Then  
+\begin{align*}
+  B_k (\nu) & = \left(\frac{3}{p} \right)^\lambda p^{\lambda/2}
+  \left\{ e^{4 \pi i r/p^\lambda} + e^{-4 \pi i r/p^\lambda}\right\}\\
+  & = 2 \left(\frac{3}{p} \right)^\lambda p^{\lambda/2} \cos \frac{4
+    \pi r}{p^\lambda}\tag{2}\label{part3:lec25:eq2} 
+\end{align*}
+This is roughly of the order of $\sqrt{p^\lambda}$
+
+Next, suppose that $p/\nu$. This is a special case of
+$p^\lambda/\nu$. Then $(24r)^2 \equiv 0 \pmod{p^\lambda}$, and the
+solutions are 
+\begin{gather*}
+  r= p^{\left[\frac{\lambda+1}{2} \right]}\cdot j,\\
+  j=0, 1, 2, \ldots, p^{\lambda-\left[\frac{\lambda+1}{2} \right]}-1.
+\end{gather*}
+when\pageoriginale $\lambda=1$, $\left[\frac{\lambda+1}{2} \right]=
+\lambda$ and we have only one summand. Hence
+\begin{equation*}
+  B_k(\nu) = \left(\frac{3}{p} \right) p^{1/2} \tag{3}\label{part3:lec25:eq3}
+\end{equation*}
+
+Now let $\lambda>1$. Then
+$$
+B_k (\nu) = \left(\frac{3}{p} \right)^\lambda p^{\frac{\lambda}{2}}
+\sum^{p^{\lambda- \left[\frac{\lambda+1}{2} \right]}}_{j=1} e^{4 \pi i
+j /p \left[\frac{\lambda+1}{2} \right]}
+$$
+
+This again involves two cases, $\lambda$ even and $\lambda$ odd. If
+$\lambda$ is even, $\lambda= 2 \mu$ and the sum becomes
+$$
+\sum^{p^\mu}_{j=1} e^{4 \pi i j/p^\mu}
+$$
+and this is 0, being a full sum of roots of unity. Hence in this case
+\begin{equation*}
+  B_k (\nu) =0\tag{4}\label{part3:lec25:eq4}
+\end{equation*}
+
+Now let $\lambda$ be odd: $\lambda = 2 \mu +1$.
+$$
+r= p^{\mu+1}\cdot j, j=0,1,\ldots , p^\mu -1.
+$$
+
+Then the sum becomes
+$$
+\sum^{p^\mu}_{j=1} e^{4 \pi i j /p^\mu}
+$$
+which is again zero; hence
+\begin{equation*}
+  B_k (\nu) =0 \tag{5}\label{part3:lec25:eq5}
+\end{equation*}
+
+Now\pageoriginale suppose that $p^\mu\mid \nu$, $\mu < \lambda$ and
+$p^\lambda \nmid \nu$. $r^2 \equiv \nu \pmod{p^\lambda} \nu= p^\mu \nu$,
+$p+\nu$, or $\nu^1 \equiv p^\mu \nu \pmod{p^\lambda}$ $\nu = p^\mu
+\nu_1$, $p \nmid \nu_1$; or $\nu^2\equiv p^\mu \nu_1 \pmod{
+  p^\lambda}$. If is odd, $\mu< \lambda$, then $p^\mu \mid\nu$; and again
+\begin{equation*}
+  B_k (\nu) =0 \tag{6}\label{part3:lec25:eq6}
+\end{equation*}
+
+There remain the case in which $\mu$ is even, $\mu = 2 \rho$. Then
+$r^2 \equiv p^{2 \rho} \nu, \pmod{p^\lambda}$. Writing $r= p^{\rho}
+j$, $p^{2 \ell} j^2 \equiv p^{2 \rho} \nu_1 \pmod{p^\lambda}$, or
+$j^2 \equiv \nu_1 \pmod{p^{\lambda- 2 \rho}}$
+
+If $\left(\frac{\nu_1}{p} \right)=- 1$, then again 
+\begin{equation*}
+  B_k (\nu)=0 \tag{7}\label{part3:lec25:eq7}
+\end{equation*}
+
+However $\left(\frac{\nu_1}{p} \right)=1$ implies $j^2 \equiv \nu_1
+\pmod{p^{\lambda- 2\rho}}$ has two solutions, $j$ and $-j$. Then
+\begin{alignat*}{4}
+  &\hspace{2cm}& r & \equiv p^\rho \left(j + \ell p^{\lambda- 2 \rho}\right)
+  \pmod{p^\lambda}\hspace{2cm}\\
+  \text{or} \quad \tau && r & \equiv p^\rho j + \ell p ^{\lambda -
+    \rho} \pmod{p^\lambda}\\
+  \text{where} && \ell & = 0, 1, \ldots, p^\rho -1.
+\end{alignat*}
+
+Then the sum becomes
+\begin{align*}
+  \sum^{p^\rho -1}_{\ell =0} e^{\frac{4 \pi i}{p \lambda}} (\pm p^\rho
+  j + \ell p^{\lambda- \rho}) & = e^{\pm \frac{4 \pi i}{p^\lambda-
+      \rho}j} \sum^{p^\rho -1}_{\ell =0} e^{\frac{4 \pi i}{p^\rho}
+    \ell}\\
+    & = 0
+\end{align*}
+
+Again 
+\begin{equation*}
+  B_k (\nu) =0 \tag{8}\label{part3:lec25:eq8}
+\end{equation*}
+
+We\pageoriginale now take up the case $p=3$. This corresponds to
+$p=3$. If $k=p^\lambda=3^\lambda$,
+$$
+B_3 \lambda (\nu) = i (-)^\lambda 3^{\frac{\lambda-1}{2}}
+\sum_{(8 r)^2 \equiv \pmod{3^{\lambda+1}}} \left(
+\frac{r}{3}\right) e^{4 \pi i r/ 3^{\lambda+1}}
+$$
+$\nu\equiv 1 \pmod{24}$ or $\nu\equiv 1 \pmod{3}$. So
+$\left(\frac{\nu}{3} \right)=1$. There are two solutions, $r$ and $-r$
+for the congruence $(8r)^2 \equiv \nu \pmod{3^{\lambda+1}}$. Since
+$\left( \frac{-r}{3}\right)=- \left( \frac{r}{3}\right)$, 
+\begin{align*}
+  B_{3 \lambda} (\nu) & = i(-)^\lambda \left( \frac{r}{3}\right)
+  3^{\frac{\lambda-1}{2}} \left(e^{\frac{4\pi i r}{3^{\lambda+1}}}-e^{-
+      \frac{4 \pi i r}{3^{\lambda+1}}} \right) \\
+    & = 2(-)^{\lambda+1} \left( \frac{r}{3}\right)
+    3^{\frac{\lambda-1}{2}} \sin \frac{4 \pi
+      r}{3^{\lambda+1}}\tag{9}\label{part3:lec25:eq9}  
+\end{align*}
+
+Finally, we take $p=2$; then $d$ is 8. Let $k=2^\lambda$. Then
+$$
+B_2 \lambda (\nu) = \frac{1}{4i} (-)^\lambda 2^{\lambda/2}
+\sum_{(3r)^2 \equiv \nu \pmod{2^{\lambda+3}}} \left(
+\frac{-1}{r}\right) e^{4 \pi i r/ 2^{\lambda+1}}
+$$
+$\nu\equiv 1 \pmod{8}$ implies that $(3r^2) \equiv \nu \pmod{8}$ has
+four solutions, and these solutions are inherited by the higher powers
+of the modulus. The solutions are $r\equiv 1, 3, 5, 7 \pmod{8}$. In
+general the congruence $x^2 \equiv \nu \pmod{2^\mu}$, $\mu
+\geq 3$ has four solutions 
+$$
+\pm r + h 2^{\mu-1}, h=0, 1
+$$
+
+Then\pageoriginale
+$$
+B_{2^\lambda} (\nu) = \frac{1}{4i} (-)^\lambda 2^{\lambda/2} \left\{
+e^{4 \pi i r/2^{\lambda+1}}- e^{-4 \pi ir/2^{\lambda+1}}+ e^{4 \pi i
+  r/2^{\lambda+1}} - e^{- 4 \pi i r/2^{\lambda+1}}\right\} \left(
+\frac{-1}{r}\right)  
+$$
+and since $\left( \frac{-1}{r}\right)= (-)^{\frac{r-1}{2}}$,
+\begin{equation*}
+  B_{2^\lambda} (\nu) = (-)^\lambda e^{\lambda/2} \left(
+  \frac{-1}{r}\right) \sin \frac{4 \pi r}{2^{\lambda+!}}
+  \tag{10}\label{part3:lec25:eq10}   
+\end{equation*}
+
+We have thus computed the fundamental cases explicitly.

@@ -1,0 +1,395 @@
+\chapter{Construction of a Diffusion Process}\label{chap25}
+
+\begin{problem*}
+Given\pageoriginale $a:[0,\infty)\times \mathbb{R}^{d}\to S^{+}_{d}$,
+  bounded measurable and $b:[0,\infty)\times \mathbb{R}^{d}\to
+    \mathbb{R}^{d}$ bounded measurable, to find
+    $(\Omega,\mathscr{F}_{t},P,X)$ where $\Omega$ is a space,
+    $\{\mathscr{F}_{t}\}_{t\geq 0}$ an increasing family of
+    $\sigma$-algebras on $\Omega$, $P$ a probability measure on the
+    smallest $\sigma$-algebra containing all the
+    $\mathscr{F}_{t}$'s. and $X:[0,t)\times \Omega\to \mathbb{R}^{d}$,
+      a progressively measurable function such that $X(t,w)\in
+      I[b(t,X_{t}),a(t,X_{t})]$. 
+\end{problem*}
+
+Let $\Omega=C[0,\infty);\mathbb{R}^{n})$,
+  $\beta(t,\cdot)=n$-dimensional Brownian motion,
+  $\mathscr{F}_{t}=\sigma\{\beta(s):0\leq s\leq t\}$, $P$ the Brownian
+  measure on $\Omega$ and $a$ and $b$ as given in the problem. We
+  shall show that thee problem has a solution, under some special
+  conditions on $a$ and $b$.
+
+\begin{theorem*}
+Assume that there exists $\sigma:[0,\infty)\times \mathbb{R}^{d}\to
+  M_{d\times n}$ ($M_{d\times n}$= set of all $d\times n$ matrices
+  over the reals) such that $\sigma\sigma^{*}=a$. Further let
+\begin{align*}
+& \sum_{i,j}|\sigma_{ij}(t,x)|\leq C,\q \sum_{j}|b_{j}(t,x)|\leq C,\\
+& \sum_{i,j}|\sigma_{ij}(t,x_{1})-\sigma_{ij}(t,x_{2})|\leq
+  A|x_{1}-x_{2}|,\\
+& \sum_{j}|b_{j}(t,x_{1})-b_{j}(t,x_{2})|\leq A|x_{1}-x_{2}|.
+\end{align*}
+Then the equation
+\begin{equation*}
+\xi(t,\cdot)=x+\int\limits^{t}_{0}\langle
+  \sigma(s,\xi(s,\cdot)), d\beta(s,\cdot)\rangle
+  +\int\limits^{t}_{0}b(s,\xi(s,\cdot))ds\tag{1}
+\end{equation*}
+has\pageoriginale a solution. The solution $\xi(t,w):[0,\infty)\times
+  \Omega\to \mathbb{R}^{d}$ can be taken to be such that
+  $\xi(t,\cdot)$ is progressively measurable and such that
+  $\xi(t,\cdot)$ is continuous for $a$, a.e.\@ If $\xi$, $\eta$ are
+  progressively measurable, continuous (for a.a.e) solutions of
+  equation (l), then $\xi=n$ for a.a.w.
+\end{theorem*}
+
+\begin{proof}
+The proof proceeds in several steps.
+\end{proof}
+
+\setcounter{lemma}{0}
+\begin{lemma}
+Let $\Omega$ be any space with $(\mathscr{F}_{t})_{t\geq 0}$ an
+increasing family of $\sigma$-algebras. If $0\leq T\leq \infty$ then
+there exists a $\sigma$-algebra $\mathscr{A}_{0}\subset
+\mathscr{A}=\mathscr{B}[0,T)\times \mathscr{F}_{T}$ such that a
+  function $f:[0,T]\times \Omega\to \mathbb{R}$ is progressively
+  measurable if and only if $f$ is measurable with respect to
+  $\mathscr{A}_{0}$. 
+\end{lemma}
+
+\begin{proof}
+Let $\mathscr{A}_{0}=\{A\in \mathscr{A}:\chi_{A}$ is progressively
+measurable$\}$. Clearly $[0,T]\times \Omega\in \mathscr{A}_{0}$, and
+if $A\in \mathscr{A}_{0}$, $A^{c}\in \mathscr{A}_{c}$. Thus
+$\mathscr{A}_{0}$ is an algebra. As increasing limits (decreasing
+limits) of progressively measurable functions are progressively
+measurable, $\mathscr{A}_{0}$ is a monotone class and hence a
+$\sigma$-algebra.
+\end{proof}
+
+Let $f:[0,T]\times \Omega\to \mathbb{R}$ be progressively measurable;
+in fact, $f^{+}=\dfrac{f+1=f|}{2}$, $f^{-}=\dfrac{f-|f|}{2}$. Let
+$g=f^{+}$. Then
+$$
+g_{n}=\sum\limits^{n2^{n}}_{i=1}\frac{i-1}{2^{n}}\chi_{g^{-1}[\frac{i-1}{2^{n}},\frac{i}{2^{n}})}+n\chi_{g^{-1}[n,)}
+$$
+is progressively measurable. Hence $nVg_{n}$ is progressively
+measurable, i.e.\@ $n\chi_{g^{-1}[n,\infty)}$ is progressively
+  measurable. Similarly
+  $\phi_{g^{-1}[\frac{i-1}{2^{n}},\frac{i}{2^{n}})}$\pageoriginale is
+    progressively measurable, etc. Therefore, by definition, $g_{n}$
+    is measurable with respect to $\mathscr{A}_{0}$. As $g=f^{+}$ is
+    the pointwise limit of $g_{n}$, $f^{+}$ is measurable with respect
+    to $\mathscr{A}_{0}$. Similarly $f^{-}$ is
+    $\mathscr{A}_{0}$-measurable. Thus $f$ is
+    $\mathscr{A}_{0}$-measurable. 
+
+Let $f:[0,T]\times \Omega\to \mathbb{R}$ be measurable with respect to
+$\mathscr{A}_{0}$. Again, if $g=f^{+}$
+$$
+g_{n}=\sum\limits^{n2^{n}}_{i=1}\frac{i-1}{2^{n}}\chi_{g^{-1}[\frac{i-1}{2^{n}},\frac{i}{2^{n}})}+n\chi_{g^{-1}[n,\infty)} 
+$$
+is $\mathscr{A}_{0}$-measurable. Since $g^{-1}[n,\infty),\ldots
+  g^{-1}[\dfrac{i-1}{2^{n}},\dfrac{i}{2^{n}})\in \mathscr{A}_{0}$. So
+    $g_{n}$ is progressively measurable. Therefore $g$ is
+    progressively measurable. Hence $f$ is progressively
+    measurable. This completes the proof of the Lemma.
+
+To solve (1) we use the standard iteration technique.
+
+\setcounter{step}{0}
+\begin{step}%1
+Let $\xi_{0}(t,w)=x$,
+$$
+\xi_{n}(t,w)=x+\int\limits^{t}_{0}\langle
+\sigma(s,\xi_{n-1}(s,w)),d\beta(s,w)\rangle
++\int\limits^{t}_{0}b(s,\xi_{n-1}(s,w))ds. 
+$$
+
+By induction, it follows that $\xi_{n}(t,w)$ is progressively measurable.
+\end{step}
+
+\begin{step}%2
+Let $\Delta_{n}(t)=E(|\xi_{n+1}(t)-\xi_{n}(t)|^{2})$. If $0\leq t\leq
+T$, $\Delta_{n}(t)\leq C^{*}\int\limits^{t}_{0}\Delta_{n-1}\break (s)ds$ and
+$\Delta_{0}(t)\leq C^{*}t$, where $C^{*}$ is a constant depending only
+on $T$.
+\end{step}
+
+\begin{proof}
+\begin{align*}
+\Delta_{0}(t) &= E(|\xi(t)-x|^{2})\\
+&= E\left(|\int\limits^{t}_{0}\langle (s,x),d\beta(s,x)\rangle
++\int\limits^{t}_{0}b(s,x)ds|^{2}\right)\\
+&\leq 2E\left(|\int\limits^{t}_{0}\langle
+\sigma(s,x),d\beta(s,x)\rangle |^{2}\right)+\\
+&+2E\left(|\int\limits^{t}_{0}b(s,x)ds|^{2}\right)\q (\text{use the fact
+  that~ } |x+y|^{2}\\
+&\leq 2(|x|^{2}+|y|^{2})\;\forall x,y\in \mathbb{R}^{d})\\
+&=
+2E\left(\int\limits^{t}_{0}Tr\ \sigma\sigma^{*}ds\right)=2E\left(|\int\limits^{t}_{0}b(s,x)ds|^{2}\right). 
+\end{align*}
+or\pageoriginale
+\begin{align*}
+\Delta_{0}(t) &\leq
+2E\left(\int\limits^{t}_{0}\tr\sigma\sigma^{*}ds\right)+2E\left(t\int\limits^{t}_{0}|b(s,x)|^{2}ds\right)\\
+&\hspace{4cm} \text{(Cauchy-Schwarz inequality)}\\
+&\leq 2nd\ C^{2}(1+T)t.\\
+&\Delta_{n}(t)=E(|\xi_{n+1}(t)-\xi_{n}(t)|^{2})\\
+&= E\left(|\int\limits^{t}_{0}\langle
+\sigma(s,\xi_{n}(s,w))-\sigma(s,\xi_{n-1}(s,w))d\beta\rangle +\right.\\
+&\left.+
+\int\limits^{t}_{0}b(s,\xi_{n}(s,w))-b(s,\xi_{n-1}(s,w))ds|^{2}\right)\\
+&\leq 2E\left(|\int\limits^{t}_{0}\langle
+\sigma(s,\xi_{n}(s,w))-(s,\xi_{n-1}(s,w)),d\beta(s,w)\rangle
+|^{2}\right)+\\
+&+2E(|\int\limits^{t}_{0}(b(s,\xi_{n}(s,w))-b(s,\xi_{n-1}(s,w))ds|^{2})\\
+&\leq
+2E(\int\limits^{t}_{0}\tr[(\sigma(s,\xi_{n}(s,w))-\sigma(s,\xi_{n-1}(s,w))]\times\\
+&\q \times
+[\sigma^{*}(s,\xi_{n}(s,w))-\sigma^{*}(s,\xi_{n-1}(s,w))]ds]+\\
+&+
+  2E\left(t\int\limits^{t}_{0}|b(s,\xi_{n}(s,w))-b(s,\xi_{n-1}(s,w))|^{2}ds\right)\\ 
+&\leq
+  2dn\ A^{2}\int\limits^{t}_{0}\Delta_{n-1}(s)ds+2tA^{2}n\int\limits^{t}_{0}\Delta_{n-1}(s)ds\\
+&\leq 2dn\ A^{2}(1+T)\int\limits^{T}_{0}\Delta_{n-1}(s)ds. 
+\end{align*}\pageoriginale
+
+This proves the result.
+\end{proof}
+
+\begin{step}%3
+$\Delta_{n}(t)\leq \dfrac{(C^{*}t)^{n+1}}{(n+1)!}\;\forall n$ in $0\leq
+  t\leq T$, where
+$$
+C^{*}=\max\{2nd\ C^{2}(1+T),\q\text{and}\q A^{2}(1+T)\}.
+$$
+Proof follows by induction on $n$.
+\end{step}
+
+\begin{step}%4
+$\xi_{n}|_{[0,T]\times \Omega}$ is Cauchy in $L^{2}([0,T]\times\Omega,
+  B([0,T]\times\Omega),\mu\times P)$, where $\mu$ is the Lebesgue
+  measure on $[0,T]$. 
+\end{step}
+
+\begin{proof}
+$\Delta_{n}(t)\leq \dfrac{(C^{*}t)^{n+1}}{(n+1)!}$ implies that
+$$
+||\xi_{n+1}-\xi_{n}||^{2}_{2}\leq \dfrac{(C^{*}T)^{n+2}}{(n+2)!}.
+$$
+
+Here $||\cdot||_{2}$ is the norm in $L^{2}([0,T]\times \Omega)$. Thus
+$$
+\sum\limits^{\infty}_{n=1}||\xi_{n+1}-\xi_{n}||_{2}<\infty,\q\text{proving
+  Step (4).}
+$$
+\end{proof}
+
+\begin{step}%5
+(4) implies that $\xi_{n}|_{[0,T]\times\Omega}$ is Cauchy in
+  $L^{2}([0,T]\times\Omega,\mathscr{A}_{0},\mu\times P)$ where
+  $\mathscr{A}_{0}$ is as in Lemma 1. Thus
+  $\xi_{n}|_{[0,T]\times\Omega}$ converges to $\overline{\xi}_{T}$ in
+  $L^{2}([0,T]\times\Omega)$ where $\overline{\xi}_{T}$ is
+  progressively measurable.
+\end{step}
+
+\begin{step}%6
+If\pageoriginale $\xi_{n}|_{[0,T_{2}]\times\Omega}\overline{\xi}_{T_{2}}$ in
+$L^{2}([0,T_{2}]\times \Omega)$ and
+$$
+\xi_{n}|_{[0,T_{1}]\times\Omega}\overline{\xi}_{T_{1}}\q\text{in}\q
+L^{2}([0,T_{1}]\times\Omega),\\ 
+$$
+then
+$\overline{\xi}_{T_{2}|_{[0,T_{1}]\times\Omega}}=\overline{\xi}_{T_{1}}$
+a.e. on $[0,T_{1}]\times\Omega$, $T_{1}<T_{2}$.
+
+This follows from the fact that if $\xi_{n}\to \xi$ in $L^{2}$, a
+subsequence of $(\xi_{n})$ converges pointwise a.e.\@ to $\xi$.
+\end{step}
+
+\begin{step}%7
+Let $\overline{\xi}$ be defined on $[0,\infty)\times \Omega$ by
+  $\overline{\xi}|_{[0,T]\times\Omega}=\overline{\xi}_{T}$. We now
+  show that
+$$
+\overline{\xi}(t,w)=x+\int\limits^{t}_{0}\langle
+\sigma(s,\overline{\xi}(s,\cdot)),d\beta(s,\cdot)\rangle
++\int\limits^{t}_{0}b(s,\overline{\xi}(s,\cdot))ds. 
+$$
+\end{step}
+
+\begin{proof}
+Let $0\leq t\leq T$. By definition,
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& \xi_{n}(t,w)=x+\int\limits^{t}_{0}\langle \sigma
+(s,\xi_{n-1}(s,\cdot)),d\beta(s,\cdot)\rangle
++\int\limits^{t}_{0}b(s,\xi_{n-1}(s,\cdot))ds.\\ 
+& E\left[\left(\int\limits^{t}_{0}\langle
+  (\sigma(s,\xi_{n}(s,\cdot))-\sigma(s,\overline{\xi}(s,w))), d\beta
+  (s,w)\rangle \right)^{2}\right]\\
+&=E(\int\limits^{T}_{0}\tr[(\sigma(s,\xi_{n}(s,w))-\sigma(s,\overline{\xi}(s,w)))(\sigma(s,\xi_{n}(s,w))-\sigma(s,\overline{\xi}(s,w)))^{*}ds\\
+&\leq
+  dn\ A\int\limits^{T}_{0}\int\limits_{\Omega}|\xi_{n}(s,w)-\overline{\xi}(s,w)|^{2}ds\to
+  0 \q\text{as}\q n\to \infty
+\end{align*}}\relax
+(by Lipschitz condition on $\sigma$).
+
+Therefore
+$$
+\int\limits^{t}_{0}\langle \sigma(s,\xi_{n-1}(s,w),d\beta(s,w)\rangle
+\to \int\limits^{t}_{0}\langle
+\sigma(s,\overline{\xi}(s,w)),d\beta(s,w)\rangle 
+$$
+in\pageoriginale $L^{2}(\Omega,P)$. Similarly,
+$$
+\int\limits^{t}_{0}b(s,\xi_{n}(s,w))ds\to
+\int\limits^{t}_{0}b(s,\overline{\xi}(s,w))ds,\q\text{in}\q L^{2}.
+$$
+
+Thus we get
+\begin{align*}
+& \overline{\xi}(t,w)=x+\int\limits^{t}_{0}\langle
+\sigma(s,\overline{\xi}(s,w)),d\beta(s,w)\rangle +\tag{*}\\
+&\qq +\int\limits^{t}_{0}b(s,\overline{\xi}(s,w))ds\q\text{a.e.\ in}\q t,w.
+\end{align*}
+\end{proof}
+
+\begin{step}%8
+Let $\xi(t,w)\equiv$ the right hand side of $(*)$ above. Then
+$\xi(t,w)$ is almost surely continuous because the stochastic integral
+of a bounded progressively measurable function is almost surely
+continuous. The result follows by noting that
+$[0,\infty)=\bigcup\limits^{\infty}_{n=1}[0,n]$ and a function on
+  $[0,\infty)$ is continuous iff it is continuous on $[0,n]$, $\forall n$.
+\end{step}
+
+\begin{step}%9
+Replacing $\overline{\xi}$ by $\xi$ in the right side of $(*)$ we get
+a solution
+$$
+\xi(t,w)=x+\int\limits^{t}_{0}\langle \sigma(s,\xi),d\beta\rangle
++\int\limits^{t}_{0}b(s,\xi(s,w))ds 
+$$
+that is a.s.\@ continuous $\forall t$ and a.e.
+\end{step}
+
+\noindent
+{\bf Uniqueness.}~ Let $\xi$ and $\eta$ be two progressively
+measurable a.s.\@ continuous functions satisfying (1). As in Step 3,
+\begin{align*}
+E(|\xi(t,w)-x|^{2}) &\leq 2(E(\int\limits^{t}_{0}\tr
+\sigma\sigma^{*}ds)+2E(t\int\limits^{t}_{0}b|^{2}ds)\\
+&\leq 2E(\int\limits^{T}_{0}\tr
+\sigma\sigma^{*}ds+2E(T\int\limits^{T}_{0}|b|^{2}ds),\q\text{if}\q
+0\leq t\leq T\\
+&< \infty.
+\end{align*}\pageoriginale
+
+Thus $E(|\xi(t,w)|^{2})$ is bounded in $0\leq t\leq T$. Therefore
+\begin{align*}
+\phi(t) &= E(|\xi(t,w)-\eta(t,w)|^{2})\\
+&\leq 2E(|\xi(t,w)|^{2})+2E(|\eta(t,w)|^{2})
+\end{align*}
+and so $\phi(t)$ is bounded in $0\leq t\leq T$. But
+$$
+\phi(t)\leq 2dn\ A^{2}(1+T)\int\limits^{t}_{0}\phi(s)ds
+$$
+as in Step 2; using boundedness of $\phi(t)$ in $0\leq t\leq T$ we can
+find a constant $C$ such that
+$$
+\phi(t)\leq Ct\q\text{and}\q \phi(t)\leq
+C\int\limits^{t}_{0}\phi(s)ds,\q 0\leq t\leq T.
+$$
+
+By iteration $\phi(t)\leq \dfrac{(Ct)^{n}}{n!}\leq
+\dfrac{(CT)^{n}}{n!}$. Therefore
+$$
+\phi=0\q \text{on}\q [0,T],
+$$
+i.e.\@ $\xi(t,w)=\eta(t,w)$ a.e.\@ in $[0,T]$. But rationals being
+dense in $\mathbb{R}$ we have
+$$
+\xi=\eta\q\text{a.e.\ and}\q \forall t.
+$$
+
+It is now clear that $\xi \in I[b,a]$.
+
+\begin{remark*}
+The above theorem is valid for the equation
+$$
+\xi(t,w)=x_{0}+\int\limits^{t}_{t_{0}}\langle \sigma(s,),d\beta\rangle
++\int\limits^{t}_{t_{0}}b(s,\xi)ds,\q \forall t\geq t_{0}.
+$$
+
+This solution will be denoted by $\xi_{t_{0},x_{0}}$.
+\end{remark*}
+
+\begin{prop*}
+Let\pageoriginale $\phi:C[(0,\infty);\mathbb{R}^{n})\to
+  C([t_{0},\infty);\mathbb{R}^{d})$ be the map sending $w$ to
+    $\xi_{t_{0},x_{0}},P$ the Brownian measure on
+    $C([0,\infty);\mathbb{R}^{n})$. Let $P_{t_{0},x_{0}}=P\phi^{-1}$
+      be the measure induced on
+      $C([t_{0},\infty);\mathbb{R}^{d})$. Define
+        $X:[t_{0},\infty)\times C)[t_{0},\infty);\mathbb{R}^{d})$ by
+            $X(t,w)=w(t)$. Then $X$ is an It\"o process relative to
+            $(C([t_{0},\infty);\mathbb{R}^{d}), {}_{t_{0}},
+              P_{t_{0},x_{0}})$ with parameters
+$$
+[b(t,X_{t}),a(t,X_{t})].
+$$
+
+The proof of the proposition follows from 
+\end{prop*}
+
+\begin{exer*}
+Let $(\overline{\Omega},\overline{\mathscr{F}}_{t},\overline{P})$,
+$(\Omega,\mathscr{F}_{t},P)$ be any two measure spaces with $X$, $Y$
+progressively measurable on $\Omega$, $\overline{\Omega}$
+respectively. Suppose $\lambda:\overline{\Omega}\to \Omega$ is such
+that $\lambda$ is
+$(\overline{\mathscr{F}}_{t},\mathscr{F}_{t})$-measurable for all $t$,
+and $\overline{P}\lambda^{-1}=P$. Let $X(t,\overline{w})=Y(t,\lambda
+w)$, $\forall \overline{w}\in \overline{\Omega}$. Show that
+\begin{itemize}
+\item[(a)] If $X$ is a martingale, so is $Y$.
+
+\item[(b)] If $X\in I[b(t,X_{t}),a(t,X_{t})]$ then
+
+$Y\in I[b(t,Y_{t}),a(t,Y_{t})]$.
+\end{itemize}
+\end{exer*}
+
+\begin{lemma*}
+Let $f:\mathbb{R}^{2}\to \mathbb{R}$ be $(\Omega,P)$-measurable, $\sum
+a$ sub - $\sigma$ - algebra of $\mathscr{F}$. Let $X:\Omega\to
+\mathbb{R}$ and $Y:\Omega\to \mathbb{R}$ be such that $X$ is
+$\sum$-measurable and $Y$ is $\sum$-independent. If
+$g(w)=f(X(w),Y(w))$ with $E(g(w))<\infty$, then
+$$
+E(g|\sum)(w)=E(f(x,Y)|_{x=X(w)},
+$$
+i.e.
+$$
+E(f(X,Y)|_{\sum})(w)=\int\limits_{\Omega}f(X(w),Y(w'))dP(w').
+$$
+\end{lemma*}
+
+\begin{proof}
+Let\pageoriginale $A$ and $B$ be measurable subsets in
+$\mathbb{R}$. The result is trivially verified if $f=X_{A\times
+  B}$. The set
+$$
+\mathscr{A}=\{F\in \mathbb{R}~:\text{~ the result is true for~ }
+X_{F}\}
+$$
+is a monotone class containing all measurable rectangles. Thus the
+Lemma is true for all characteristic functions. The general result
+follows by limiting procedures.
+\end{proof}

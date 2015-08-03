@@ -1,0 +1,273 @@
+\chapter{Lecture}\label{part4:lec45} %% 45
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+We\pageoriginale have to get a clear picture of that we are aiming
+at. We are discussing the function under the integral sign. We get it as
+\begin{multline*}
+  F_r \left(e^{2 \pi i \frac{h}{k} - 2 \pi \mathfrak{z}} \right) =
+  \frac{1}{k^r (2\mathfrak{z})^{r/2} D^{1/2}} \sum_{\underline{s} \mod
+  2D} \mathscr{U}_k (h, \underline{s})\\
+  \sum_{\underline{m}\equiv \underline{s} \pmod{2D}} e^{-
+    \left(\frac{\pi}{2k^2 \mathfrak{z}} + 2 \pi i \frac{D_k
+      \sigma}{4k} \right)}  {m}' S^{-1} {m}
+\end{multline*}
+where $k \cdot D = k^* D_k, (k, D_k) =1$. $k$ is even; if $k$ is odd
+the formula looks finitely many different values. This most important
+fact we formulate as a lemma.
+
+\begin{lem}\label{part4:lec45:lem1}
+  For $k$ even, $\mathscr{U}_k (h, \underline{s})$ depends only on $h$
+  modulo 2D.
+\end{lem}
+
+This depends on a theorem on the behaviour of quadratic forms the
+equivalence of quadratic forms modulo a given number. This is a lemma
+of Siegel's (Annals of Mathematics, 1935, 527-606).
+
+Let us recall that for $k$ even
+\begin{align*}
+  T_k(h, m)& = \sum_{\underline{\ell} \mod k} e^{2 \pi \frac{i}{k} (h
+    \el' S\el +
+    \underline{m}'\el)}\\
+  & = e^{- 2 \pi i\frac{h}{4k}  D_k \sigma \underline{m}' S^{-1}
+    \underline{m}} \mathscr{U}_k (h, \underline{m})
+\end{align*}
+
+\begin{lem}\label{part4:lec45:lem2}
+  $$
+  |T_k (h, \underline{m})| \leq C k^{r/2}
+  $$
+  We have 
+  \begin{align*}
+    |T_k (h, \underline{m})|^2 & = \sum_{\ell \mod k} e^{2 \pi i
+      \frac{h}{k} (\ell S \ell + \sigma
+      \underline{m}' \underline{\ell})} \sum_{\lambda \mod k} e^{- 2
+      \pi i \frac{h}{k} (\lm ' S\lm +
+      \sigma \underline{m}' \el)}\\
+    & = \sum_{\el, \lm } e^{2 \pi i
+      \frac{h}{k} (\el' S \el-
+      \lm ' S \lm  + \sigma
+      \underline{m}' (\el- \lm ))},
+  \end{align*}
+  and\pageoriginale since
+  \begin{align*}
+    \el' S \el - \lm' S \lm & = (\el' - \lm') S (\el + \lm) + \lm' S
+    \el - \el' S \lm\\
+    & = (\el' - \lm') S (\el + \lm) + \el' S \el - \el' S \lm\\
+    & = (\el' - \lm') S (\el + \lm),
+  \end{align*}
+  this is equal to 
+  \begin{align*}
+    \sum_{\el, \lm} & e^{2 \pi i\frac{h}{k} (\el' - \lm') (S(\el + \lm)+
+      \sigma \underline{m})}\\
+    & = \sum_{\underline{\alpha} \mod k} ~\sum_{\el - \lm \equiv
+      \underline{\alpha} \mod k} e^{2 \pi i \frac{h}{k}
+      \underline{\alpha}' (S (\el + \lm) + \sigma \underline{m})}\\
+    & = \sum_{\underline{\alpha} \mod k} \sum_{\el
+      -\underline{\lambda} \equiv  \mod k} e^{2 \pi i \frac{h}{k}
+      \underline{\alpha}' (S (2\lm + \underline{\alpha}) + \sigma
+      \underline{m})}\\ 
+    & = \sum_{\underline{\alpha} \mod k} e^{2 \pi i \frac{h}{k}
+      \underline{\alpha}' (S \underline{\alpha}+ \sigma
+      \underline{m})} \sum_{\lm \mod k} e^{2 \pi \frac{h}{k} 2
+      \underline{\alpha}' S \lm}
+  \end{align*}
+\end{lem}
+
+If\pageoriginale we write $2 \underline{\alpha}' S =
+\underline{\beta}'$, the inner sum is 
+\begin{align*}
+\sum_{\lambda_1, \ldots \lambda_r \mod k} e^{2 \pi i \frac{h}{k}
+  (\beta_1 \lambda_1 + \cdots + \beta_r \lambda_r)} & = k^2, ~\text{if}~
+k\mid \beta_1, \ldots , k\mid\beta_r;\\ 
+&\quad  0 ~\text{otherwise}
+\end{align*}
+
+So $|T_k (h, \underline{m})|^2=0$ if at least one $\beta$ is not
+divisible by $k$; otherwise it is equal to 
+$$
+k^r \sum_{\underline{\alpha} \mod k} e^{2 \pi i \frac{h}{k}
+  \underline{\alpha}' (S \underline{\alpha}+ \sigma \underline{m})}
+$$
+
+Writing $S= (s_{j k})$, the system of congruences
+\begin{align*}
+  2 \alpha_1 s_{11} + 2 \alpha_2 s_{21} + \cdots + 2 \alpha_r s_{r1} &
+  \equiv 0 \pmod{k}\\
+  \cdot\quad \cdot \quad \cdot \quad \cdot \quad \cdot &\\
+  \cdot\quad \cdot \quad \cdot \quad \cdot \quad \cdot &\\
+  2 \alpha_1 s_{1r} + 2 \alpha_2 s_{2 r} + \cdots + 2 \alpha_r s_{rr} &
+  \equiv 0 \pmod{k} 
+\end{align*}
+has at most $2^r |S|^r$ solutions, and thus
+$$
+\displaylines{|T_k (h, \underline{m})|^2 \leq 2^r |S|^r k^r,\cr
+  \text{i.e.,} \hfill |T_k (h, \underline{m})| \leq 2^{r/2} |S|^{r/2}
+  k^{r/2}.\hfill} 
+$$
+
+We\pageoriginale shall now outline the main argument a little more
+skillfully, putting the thing back on its track. $A_r (n)$ is the sum
+of integrals over the finer-prepared Farey arcs of Kloosterman:
+\begin{multline*}
+  A_r (n) = \frac{1}{2^{r/2} D^{1/2}} \mathop{\textstyle{\sum'}}_{0
+    \leq h < k \leq N} e^{- 2 \pi i \frac{h}{k} n}
+  \int\limits^{\frac{1}{k(k+N)}}_{- \frac{1}{k(k+N)}} \frac{e^{2 \pi n
+    \mathfrak{z}}}{\mathfrak{z}^{r/2}} \\
+  \sum_{\underline{s} \mod 2D} \mathscr{U}_k (h, \underline{s})
+  \Theta_s \left(e^{- \frac{\pi}{2k^2 \mathfrak{z}}+ \frac{2 \pi i}{4k} D_k
+    \sigma}\right) d \varphi  + \frac{1}{2^{r/2} D^{1/2}}\\ 
+  \sum_{h, k} e^{- 2 \pi i \frac{h}{k} n } \sum^{N-1}_{\ell =k_2}
+  \int\limits^{\frac{1}{k(k+\ell)}}_{\frac{1}{k(k+ \ell+ 1)}} +
+  \frac{1}{2^{r/2} D^{1/2}} \sum_{h, k} e^{- 2 \pi i \frac{h}{k} n}
+    \sum^{N-1}_{\ell= k_1} \int\limits^{- \frac{1}{k(k+\ell+1)}}_{-
+      \frac{1}{k(k+\ell)}}\cdots, 
+\end{multline*}
+where 
+\begin{align*}
+  \Theta_s (x) & = \sum_{\underline{m} \equiv \underline{s} \pmod{2D}}
+  x^{\underline{m}' S^{-1} \underline{m}};\\
+  & = S_0+ S_2 + S_1, ~\text{say},\\
+  & = \left(S_{00} + \sum_{\underline{m}\neq 0} S_{0m}\right) +
+  \left(S_{20} + \sum_{\underline{m}\neq 0} S_{2\underline{m}} \right)
+  + \left(S_{10} + \sum_{\underline{m} \neq 0} S_{1\underline{m}} \right)
+\end{align*}
+in an obvious notation. Now treat the things separately. By inspection
+of $\mathscr{U}_k (h, \underline{m})$ we find how it depends on $h$, it
+is only modulo 4 $k^*$. We have to reconcile Lemma \ref{part4:lec45:lem1} with this. This
+actual period therefore is neither $2D$ nor $4 k^*$ but the greatest
+common divisor
+\begin{align*}
+  (2D, 4 k^*) & = 2(D, 2k^*) = 2 \left(d, \frac{kD}{D_k}\right)\\
+  & = \frac{2}{D_k} (DD_k, 2 kD) = \frac{2D}{D_k} (D_k, 2k)\\
+  & = \frac{2D}{D_k} ~\text{or}~ \frac{4D}{D_k}
+\end{align*}
+
+So\pageoriginale we have
+
+\noindent \textbf{Corollary of Lemma 1.} $\mathscr{U}_k (h, m)$ for
+$k$ even depends on $h$ only modulo $\frac{2D}{D_k}= \wedge$, say.
+$$
+S_{00} = \frac{1}{2^{r/2} D^{1/2}} \sum_{0 \leq h < k \leq N} e^{-2
+  \pi i \frac{h}{k} n} T_k (h, \underline{o})
+\int\limits^{\frac{1}{l(k+N)}}_{- \frac{1}{k(k+N)}} \frac{e^{2 \pi n
+    \mathfrak{z}}}{\mathfrak{z}^{r/2}} d \varphi 
+$$
+
+This goes into the principal term. We shall make it a little more
+explicit later. 
+\begin{align*}
+S_{o \underline{m}} & = \frac{1}{2^{r/2} D^{1/2}}
+  \mathop{\textstyle{\sum'}}_{0 \leq h < k\leq N} e^{- 2 \pi i
+    \frac{h}{k} n} \mathscr{U}_k (h, \underline{m}) e^{2 \pi i
+    \frac{D_k}{4k} \sigma \underline{m}' S^{-1} \underline{m}}
+  \int\limits^{\frac{1}{k(k+N)}}_{- \frac{1}{k(k+N)}}
+  \frac{e^{-\frac{\pi}{2k^2 \mathfrak{z}}} \underline{m}' S^{-1}
+    \underline{m}}{\mathfrak{z}^{r/2}} d \varphi\\
+  & = \frac{1}{2^{r/2} D^{1/2}} \sum^N_{k=1} K_k (n, \underline{m})
+  \int\limits^{\frac{1}{k(k+N)}}_{- \frac{1}{k(k+N)}} \cdots, 
+\end{align*}
+where\pageoriginale
+\begin{align*}
+  K_k (n, \underline{m}) & = \mathop{\textstyle{\sum'}}_{h \mod k} e^{- 2
+  \pi i \frac{h}{k}} \mathscr{U}_k (h, \underline{m}) e^{2 \pi
+    \frac{i}{4k}D_k \sigma \underline{m}' S^{-1} \underline{m}}\\
+  & = \frac{1}{a} \sum_{\lambda \mod \wedge} \mathscr{U}_k (\lambda,
+  \underline{m}) \sum_{\substack{h \equiv \lambda \pmod{\wedge}\\ h
+      \mod 4k^*}} e^{-\frac{2 \pi i a h n .4 + 2 \pi i \mathscr{V} \sigma}{4k^*}},
+\end{align*}
+where $4k^*=ak$, $a \leq 4D$, and $\mathscr{V}= \frac{k^*}{k} D_k
+\underline{m}^{-1} S^{-1} \underline{m}$
+
+We defined $\sigma$ by
+$$
+h D_k \sigma \equiv 1 \pmod{4k^*}
+$$ 
+
+Let 
+$$
+D \bar{D}_k \equiv 1 \pmod{4k^*}, h \bar{H} \equiv 1 \pmod{4k^*}
+$$
+
+Then 
+\begin{align*}
+  K_k (n, \underline{m}) & = \frac{1}{a} \sum_{\lambda \mod \wedge}
+  \mathscr{U}_k (\lambda, \underline{m}) \sum_{\substack{h \equiv
+      \lambda \pmod{\wedge}\\h \mod k^*, (h, k^*) =1}} e^{\frac{- 2
+      \pi i a hn + 2 \pi i \mathscr{V} \sigma}{4k^*}} D_k \bar{D}k\\
+  & = \frac{1}{a} \sum_{\lambda \mod \wedge} \mathscr{U}_k (\lambda,
+  \underline{m}) \mathop{\textstyle{\sum'}}_{\substack{h \equiv
+      \lambda \pmod{\wedge}\\h \mod k^*}} e^{\frac{2 \pi
+      i}{4k}\left(-4a nh + \mathscr{V} \bar{D}_k \bar{h} \right)}
+\end{align*}
+
+The\pageoriginale inner sum here is a Kloosterman sum. It has
+essentially $4k^*$ terms. A trivial estimate of this would be
+$O(k)$, and this is what we had tacitly assumed in the older
+method. The advantage here is, however, that they can be appraised
+letter. We shall not estimate them here but only quote the result as
+
+\begin{lem}\label{part4:lec45:lem3}
+  \begin{align*}
+    K_k (u, \nu) & = \sum_{\substack{h \equiv \lambda \pmod{\wedge}\\h
+    \mod k}} e^{2 \pi \frac{i}{k} (u h+ \nu \bar{h})}, \wedge\mid k, h
+    \bar{h} \equiv 1 \pmod{k}\\
+    & = O \left(k^{1- \alpha + \epsilon}(u, k)^\alpha \right)
+  \end{align*}
+\end{lem}
+
+There has been a lot of discussion about the size of the $\alpha$ in
+this formula. Kloosterman and Esternann proved that $\alpha =
+\frac{1}{4}$ (Hamb, Ab. 1930), Salie' that $\alpha=1/3$ and A.Weil
+that $\alpha = \frac{1}{2}$ (P.N.A.S', 48) Weil's was a very
+complicated and deep method going into the zeta-functions of Artin
+type and the Riemann hypothesis for these functions.
+
+We thus save a good deal in the order of magnitude. The further S's
+will be nearly similar; the complete Kloosterman sums will be replaced
+by sums with certain conditions.
+$$
+|S_{o \underline{m}}| \leq C \sum^N_{k=1} k^{1- \alpha +
+\epsilon}  \frac{(n, k)^\alpha}{k^{r/2}} e^{- \frac{\pi}{4}
+  \left(\underline{m}'S^{-1} \underline{m}- \frac{1}{D}\right)}
+\int\limits^{\frac{1}{k(k+N)}}_{-\frac{1}{k(k+N)}}
+\frac{e^{-\mathscr{R} \left(\frac{\pi}{2k^2 \mathfrak{z}}\cdot
+    \frac{1}{D} \right)}}{|\mathfrak{z}|^{r/2}} d \varphi 
+$$
+
+Since $\mathscr{R} \frac{1}{k^2} \mathfrak{z} \geq \frac{1}{k}$ on the
+  Farey arc, the integrand is majorised by
+\begin{align*}
+  e^{- \frac{\pi}{2D} \frac{\delta_N}{k^2 | \delta_N^2+ \varphi^2}1}
+  |k^2 (\delta_N^2 + \varphi^2)|^{-r/4} & = \delta_N^{- r/4} \left(
+  \frac{\delta_N}{k^2 (\delta_N^2 + \varphi^2)}\right)^{r/4} 
+  e^{-\frac{\pi}{2D} \frac{\delta_N}{k^2 \left(\delta_N^2+ \varphi^2\right)}}\\
+  & = O (n^{r/4})\\
+  |S_{o\underline{m}}| & \leq C n^{r/4} \sum^{\sqrt{n}}_{k=1} k^{1-
+    \alpha + \epsilon} (n, k)^{\alpha} e^{-\frac{\pi}{4} \underline{m}'
+    S^{-1} \underline{m}} \frac{1}{k\sqrt{n}} ,
+\end{align*}
+since\pageoriginale the path of integration has a length of the order
+$1/k\sqrt{n}$. Now summing over all $\underline{m}\neq 0$,
+\begin{align*}
+  \left|\sum_{\underline{m} \neq 0} S_{o \underline{m}}\right| & \leq
+  C n^{\frac{r}{4}- \frac{1}{2}} \sum^{\sqrt{n}}_{k=1} k^{- \alpha +
+    \epsilon} (n, k)^\alpha\\
+  & < Cn^{\frac{r}{4} - \frac{1}{2}} \sum_{d\mid n} d^\alpha \sum_{dt \leq
+  \sqrt{n}} (dt)^{- \alpha + \epsilon}\\
+  & = C n^{\frac{r}{4}- \frac{1}{2}} \sum_{d\mid n} d^\epsilon \sum_{t \leq
+    \frac{\sqrt{n}}{d}} t^{- \alpha + \epsilon}\\
+  & < C n^{\frac{r}{4} - \frac{1}{2}} \sum_{d\mid n} d^\epsilon
+  \left(\frac{\sqrt{n}}{d}\right)^{1- \alpha + \epsilon}\\
+  & = C n^{\frac{r}{4} - \frac{\alpha}{2} + \frac{\epsilon}{2}}
+  \sum_{d\mid n}  d^{\alpha -1},
+\end{align*}
+and\pageoriginale since the number of divisors of $n$ is $O
+(n^{\epsilon/2})$. This is 
+\begin{align*}
+  & = C n^{\frac{r}{4} - \frac{\alpha}{2} + \frac{\epsilon}{2} +
+    \frac{\epsilon}{2}}\\
+  & = C n^{\frac{r}{4} - \frac{\alpha}{2}+ \epsilon}
+\end{align*}
+
+Improving $\alpha$ has been the feature of many investigations.

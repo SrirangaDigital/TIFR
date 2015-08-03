@@ -1,0 +1,668 @@
+\chapter{Cyclic Homology and Lie Algebra Homology}\label{chap4}
+
+CYCLIC\pageoriginale HOMOLOGY WAS introduced in the previous chapter
+using a double complex $C_{\ast,\ast}(A)$ with columns made up of
+standard Hochschild complexes $(C_{\ast}(A),b)$ and
+$(C_{\ast}(A),b')$. The cyclic structure gave a morphism of complexes
+$1-T:(C_{\ast}(A),b)\to (C_{\ast}(A),b')$ which was also used to
+define the double complex $C_{\ast,\ast}(A)$. In the case of
+characteristic zero we will show that cyclic homology $HC_{\ast}(A)$
+can be calculated in terms of the homology of $\coker(1-T)$ and the
+homology of $\ker(1-T)$. In this way we recover the original
+definition of Connes for cyclic cohomology as the cohomology of the
+dual of one of these complexes.
+
+Then we sketch the Loday-Quillen and Tsygan theorem which says that
+the primitive elements in the homology of the Lie algebra
+$H_{\ast}(\underline{g}l(A))$ is isomorphic to the cyclic homology of
+$A$ shifted down one degree. This is one of the main theorems in the
+subject of cyclic homology.
+
+\section[Covariants of the standard Hochschild complex...]{Covariants
+  of the standard Hochschild complex under cyclic 
+  action}\label{chap4-sec1}\index{covariants of the standard
+  Hoch\-schild complex} 
+
+We start with a remark about endomorphisms of finite order.
+
+\begin{proposition}\label{chap4-prop1.1}
+Let $T:L\to L$ be an endomorphism of an object in an additive category
+such that $T^{n}=1$, the identity on $L$. For
+$N=1+T+T^{2}+\cdots+T^{n-1}$ we have the following representation of
+$n$ times the identity on $L$
+$$
+n=N+(-(T+2T^{2}+\cdots+T^{n-1}))(1-T).
+$$
+\end{proposition}
+
+\begin{proof}
+We apply the differential operator $t\frac{d}{dt}$ to the relation
+$$
+(1-t^{n})=(1-t)(1+t+\cdots+t^{n-1})
+$$
+to obtain the relation
+$$
+-nt^{n}=-t(1+t+\cdots+t^{n-1})+(1-t)(t+2t^{2}+\cdots+(n-1)t^{n-1}).
+$$
+
+Substituting\pageoriginale $T$ for $t$ and using $T^{n}=1$ and
+$TN=N=NT$ we obtain the stated result. This proves the proposition.
+\end{proof}
+
+Recall that in the cyclic homology double complex for an algebra $A$
+the horizontal rows going in the negative direction in degree $q=n-1$
+are of the form
+$$
+\ldots\xrightarrow{N}A^{n\otimes}\xrightarrow{1-T}A^{n\otimes}\xrightarrow{N}A^{n\otimes}\xrightarrow{1-T}A^{n\otimes}\to
+0
+$$
+where $T(a_{1}\otimes\cdots\otimes a_{n})=(-1)^{n-1}a_{n}\otimes
+a_{1}\otimes\cdots a_{n-1}$. Now when the ground ring $k$ is a
+$\bfQ$-algebra, so that the $n$ in the previous proposition can be
+inverted, we have the identity
+$$
+1=\frac{1}{n}N+\theta(1-T)\q\text{where}\q
+\theta=-\frac{1}{n}(T+2T^{2}+\cdots+(n-1)T^{n-1}). 
+$$
+
+This leads to the following proposition.
+
+\begin{proposition}\label{chap4-prop1.2}
+Let $A$ be an algebra over a ring $k$ which is a $\bfQ$-algebra. Let
+$(A^{n\otimes})_{1-T}=\coker(1-T)$, in other words, the coinvariants
+of the action of the cyclic group $\bfZ/n\bfZ$ acting through $T$ on
+$A^{n\otimes}$. Then the following sequence of $k$-modules is exact
+$$
+\ldots\xrightarrow{N}A^{n\otimes}\xrightarrow{1-T}A^{n\otimes}\xrightarrow{N}A^{n\otimes}\xrightarrow{1-T}A\to
+(A^{n\otimes})_{1-T}\to 0,
+$$
+and the following sequence of complexes over $k$ is exact
+$$
+\ldots\xrightarrow{1-T}C_{\ast}(A),b\xrightarrow{N}C_{\ast}(A),b'\xrightarrow{1-T}C_{\ast}(A),b\to
+C_{\ast}(A)_{1-T'}b\to 0.
+$$
+\end{proposition}
+
+\begin{proof}
+Every thing follows from the homotopy formula for $N$ and $1-T$,
+$1=\frac{1}{n}N+\theta(1-T)$, except for the observation that $1-T$
+and $N$ are morphisms of complexes and this is contained in
+3(3.4). This proves the proposition.
+\end{proof}
+
+\begin{remark}\label{chap4-rem1.3}
+The sequence of complexes in (\ref{chap4-prop1.2}) being exact leads
+to the following isomorphism involving $(C_{\ast}(A)_{1-T},b)$ namely
+$$
+(C_{\ast}(A)_{1-T},b)\to \Iim (N)\subset (C_{\ast}(A),b').
+$$
+
+Further,\pageoriginale we have a morphism of the assembled double
+complex into the complex of covariants
+$$
+CC_{\ast}(A)\to C_{\ast}(A)_{1-T},b
+$$
+which also maps the double complex filtration arising from the
+vertical grading into the degree filtration. In other words for
+$$
+F_{p}CC_{n}(A)=\coprod\limits_{i\leq p,i+j=n}C_{i}(A)\to
+F_{p}C_{n}(A)_{1-T}
+$$
+where
+$$
+F_{p}C_{n}(A)_{1-T}=
+\begin{cases}
+C_{n}(A)_{1-T} & \text{for~ } p\leq n\\
+0 & \text{for~ }p>n.
+\end{cases}
+$$
+
+For these filtrations, looking at the associated graded $E^{0}$, we
+arrive at the quotient morphism $E^{0}_{p,0}CC_{p}(A)\to
+E^{0}_{p,0}C_{p}(A)_{1-T}$. The differential $d^{0}$ is zero in both
+complexes while $E^{1}$ of the mapping of the complexes is just the
+horizontal exact sequence in $CC_{\ast\ast}(A)$. Thus by
+(\ref{chap4-prop1.2}) we have an isomophism of the $E^{2}$-terms which
+is the homology of the $E^{1}$-terms. By the basic mapping theorem on
+spectal sequences, see 1(5.7), we have te following theorem.
+\end{remark}
+
+\begin{theorem}\label{chap4-thm1.4}
+Let $A$ be an algebra over a ring $k$ which is a $\bfQ$-algebra. The
+quotient morphism of complexes
+$$
+CC_{\ast}(A)\to C_{\ast}(A)_{1-T},b
+$$
+induces an isomorphism
+$$
+HC_{\ast}(A)=H_{\ast}(CC_{\ast}(A))\to H_{\ast}(C_{\ast}(A)_{1-T},b)
+$$
+of cyclic homology onto the homology of the standard complex with the
+cyclic action divided out.
+\end{theorem}
+
+\section{Generalities on Lie algebra
+  homology}\label{chap4-sec2}\index{Lie algebra homology}
+
+From\pageoriginale an algebraic point of view, cyclic homology is
+important for its relation to Hochschild homology and also Lie algebra
+homology. Indeed in Chapter \ref{chap2}, \S\ \ref{chap2-sec3} we
+showed how both concepts were related to abelianization.
+
+\begin{definition}\label{chap4-defi2.1}
+Let $\underline{g}$ be a Lie algebra over $k$ with universal
+enveloping algebra $U(\underline{g})$. The homology
+$H_{\ast}(\underline{g},M)$ of $\underline{g}$ with values in the
+$\underline{g}$-module $M$ is the Tor functor
+$$
+H_{\ast}(\underline{g},M)=\Tor^{U(\underline{g})}_{\ast}(k,M).
+$$
+
+The absolute Lie algebra homology is
+$H_{\ast}(\underline{g})=H_{\ast}(\underline{g},M)$. 
+
+Recall that a $\underline{g}$-module or representation of
+$\underline{g}$ is just a $U(\underline{g})$-module by the universal
+property of the universal enveloping algebra $U(\underline{g})$. 
+\end{definition}
+
+\begin{remark}\label{chap4-rem2.2}
+In degree zero, Lie algebra homology is just
+$$
+H_{0}(\underline{g},M)=k\otimes_{U(\underline{g})}M=M/[\underline{g},M]
+$$
+where $[\underline{g},M]$ is the $k$-submodule of $M$ generated by all
+$[u,x]$ where $u\in \underline{g},x\in M$. In particular
+$H_{0}(\underline{g})=k$. Moreover it is the case that
+$H_{1}(\G)=\underline{g}^{ab}=\underline{g}/[\underline{g},\underline{g}]$
+which is easily seen from the following resolution which can be used
+to calculate Lie algebra homology.
+\end{remark}
+
+\noindent
+{\bf Standard complex 2.3.} Let $\underline{g}$ be a Lie
+algebra\index{standard complex for a Lie algebra} and
+$M$ a $\underline{g}$-module. The standard complex
+$C_{\ast}(\underline{g},M)$ for $\underline{g}$ with values in $M$ as
+a graded $k$-module is $\Lambda^{\ast}(\underline{g})\otimes M$ where
+$\Lambda^{\ast}(\underline{g})$ is the graded exterior algebra on the
+$k$-module $\underline{g}$ together with the differential given by the
+formula 
+\begin{gather*}
+d((u_{1}\wedge\ldots\wedge u_{n})\otimes x)=\sum_{1\leq i\leq
+  n}(-1)^{i}(u_{1}\wedge\ldots\wedge \hat{u}_{i}\wedge\ldots\wedge
+u_{n})\otimes u_{i}x+\\
++\sum_{1\leq i<j\leq n}(-1)^{i+j+1}([u_{i},u_{j}]\wedge
+u_{1}\wedge\ldots \hat{u}_{i}\wedge\ldots\wedge
+\hat{u}_{j}\wedge\ldots\wedge u_{n})\otimes x. 
+\end{gather*}
+
+We leave it to the reader to check that $d^{2}=0$ by direct
+computation using the Jacobi law and $[u,v]x=u(vx)-v(ux)$. In Cartan
+and Eilenberg, Chapter\pageoriginale XIII, (7.1) it is proved that
+$H_{\ast}(C_{\ast}(\underline{g},M))=H_{\ast}(\underline{g},M)$ which
+is defined by the Tor functor.
+
+We will be primarily interested in the case where $M=k$. Then the
+standard complex is denoted by just $C_{\ast}(\underline{g})$, and as
+a graded $k$-module it is the exterior module
+$\Lambda^{*}(\underline{g})$ with differential given by
+$$
+d(u_{1}\wedge\ldots\wedge u_{n})=\sum_{1\leq i<j\leq
+  n}(-1)^{i+j+1}[u_{i},u_{j}]\wedge u_{1}\wedge\ldots
+u_{i}\wedge\ldots\wedge u_{j}\wedge\ldots\wedge u_{n}
+$$
+since $u1=0$ in the $\underline{g}$-module $k$.
+
+\begin{remark}\label{chap4-rem2.4}
+The exterior $k$-module $\Lambda^{*}(V)$ has both an algebra structure
+given by exterior multiplication and a coalgebra structure given by
+\begin{align*}
+\Delta (u_{1}\wedge\ldots\wedge u_{n}) &= (u_{1}\wedge\ldots\wedge
+u_{n})\otimes 1\\
+& {}+\sum\limits_{1\leq i\leq n-1}(u_{1}\wedge\ldots\wedge
+u_{i})\otimes (u_{i+1}\wedge\ldots\wedge u_{n})\\
+&{} + 1\otimes (u_{1}\wedge\ldots\wedge u_{n}).
+\end{align*}
+
+The algebra structure is not compatible with the differential on
+$\Lambda^{*}(\underline{g})$ since, for example, $[u,v]=d(u\wedge v)$,
+and it would have to equal
+$$
+d(u\wedge v)=du\wedge v-u\wedge dv=0
+$$
+in order to have a differential algebra structure. On the other hand
+$C_{\ast}(\underline{g})$ with the exterior coalgebra structure is
+compatible with $d$ making $C_{\ast}(\underline{g})$ into a
+differential coalgebra. In the case where $k$ is a field or more
+generally $H_{\ast}(\underline{g})$ is $k$-flat so that the K\"unneth
+morphism is an isomorphism, the Lie algebra homology
+$H_{\ast}(\underline{g})$ is a commutative coalgebra over $k$.
+
+Concerining the calculations given in (\ref{chap4-rem2.2}), we observe
+that $d=0$ on $C_{0}(\underline{g})$ and $C_{1}(\underline{g})$ while
+$d(u\wedge v)=[u,v]$. Thus $H_{0}(\underline{g})=0$ and
+$$
+H_{1}(\underline{g})=\coker(d:C_{2}(\underline{g})\to
+C_{1}(\underline{g}))=\G/[\underline{g},\underline{g}]=\underline{g}^{ab}.
+$$
+\end{remark}
+
+\section{The adjoint action on homology and reductive
+  algebras}\label{chap4-sec3}\pageoriginale\index{adjoint action}
+
+\begin{notation}\label{chap4-not3.1}
+Let $\Rep(\underline{g})$ denote the category of
+$\underline{g}$-modules. On the tensor product $L\otimes M$ over $k$
+of two $\underline{g}$-modules $L$ and $M$ we have a natural
+$\underline{g}$-module structure given by the relation
+$$
+u(x\otimes y)=(ux)\otimes y+x\otimes(uy)\q\text{for}\q u\in
+\underline{g}, x\in L,\q\text{and}\q y\in M.
+$$
+
+Hence tensor powers, symmetric powers, and exterior powers of
+$\underline{g}$-modules have natural $\underline{g}$-module
+structures. For example on $\Lambda^{q}M$ the $\underline{g}$-module
+structure is given by the relation
+$$
+u(x_{1}\wedge\ldots\wedge x_{q})=\sum_{1\leq i\leq
+  q}x_{1}\wedge\ldots\wedge (ux_{j})\wedge\ldots\wedge x_{q}.
+$$
+\end{notation}
+
+\begin{example}\label{chap4-exam3.2}
+The $k$-module $\underline{g}$ is a $\underline{g}$-module with the
+action called the adjoint action, denoted $ad(u):\underline{g}\to
+\underline{g}$ for $u\in \underline{g}$, where
+$$
+ad(u)(x)=[u,x]\q\text{for}\q u,x\in \underline{g}.
+$$
+
+Observe that the Jacobi identity gives the $\underline{g}$-module
+condition 
+$$
+ad([u,v])(x)=ad(u)(ad(v)(x))-ad(v)(ad(u)(x))
+$$
+or $[[u,v],x]=[u,[v,x]]-[v,[u,x]]$ for $u$, $v$, $x\in \underline{g}$.
+\end{example}
+
+Combining the previous two considerations, we see that $\underline{g}$
+acts on the graded module
+$C_{\ast}(\underline{g})=\Lambda^{*}(\underline{g})$ of the standard
+Lie algebra complex. Each element $u\in\underline{g}$ defines a
+grading preserving map 
+$$
+ad(u):C_{\ast}(\underline{g})\to C_{\ast}(\underline{g}),
+$$
+and by exterior multiplication, a morphism of degree $+1$ denoted
+$e(u):C_{\ast}(\underline{g})\to C_{\ast}(\underline{g})$ defined by
+$$
+e(u)(x_{1}\wedge\ldots\wedge x_{q})=u\wedge x_{1}\wedge\ldots\wedge
+x_{1}.
+$$
+
+The\pageoriginale relation of the differential $d$ on
+$C_{\ast}(\underline{g})$ to the adjoint action $ad(u)$ and the
+exterior multiplication $e(u)$ are contained in the next
+proposition. The details of this proposition are left to the reader.
+
+\begin{proposition}\label{chap4-prop3.3}
+For $u\in \underline{g}$ the adjoint action $ad(u)$ commutes with $d$,
+that is, $(ad(u))d=d(ad(u))$ so that $C_{\ast}(\underline{g})$ is a
+complex of $\underline{g}$-modules and for exterior product $e(u)$ we
+have
+\begin{equation*}
+ad(u)=de(u)+e(u)d.\tag{*}
+\end{equation*}
+\end{proposition}
+
+In low degrees $d:C_{2}(\underline{g})\to C_{1}(\underline{g})$
+commutes with $ad(u)$ by the Jacobi identity, and the homotopy formula
+(*) holds on $C_{1}(\underline{g})$ by the relation
+$ad(u)(x)=[u,x]=de(u)(x)$ and on $C_{2}(\underline{g})$ by the Jacobi
+formula. 
+
+The action of $\ul{g}$ on the standard complex $C_{\ast}(\ul{g})$
+induces an action on $H_{\ast}(\ul{g})$. In view of the homotopy
+formula (*) this action $ad(u)$ is homotopic to zero, and this gives
+the following corollary. 
+
+\begin{corollary}\label{chap4-coro3.4}
+The action of $\ul{g}$ on $H_{\ast}(\ul{g})$ is zero, that is, the
+homology $\ul{g}$-module is the trivial module.
+\end{corollary}
+
+\begin{definition}\label{chap4-defi3.5}
+A $\ul{g}$-module $M$ is simple or irreducible provided the only
+submodules are the trivial ones $0$ and $M$. A $\ul{g}$-module $M$ is
+semisimple\index{semisimple module} or completely reducible if it
+satisfies the following equivalent conditions: 
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $M$ is a direct sum of simple modules,
+
+\item $M$ is a sum of simple submodules, and
+
+\item every submodule $L$ of $M$ has a direct summand, i.e.\@ there is
+  another submodule $L$, with $L\oplus L'$ isomorphic to $M$.
+\end{enumerate}
+\end{definition}
+
+The above definition applies to any abelian category, for example, all
+representations of a group. For a proof of the equivalence of (a),
+(b), and (c) see Cartan and Eilenberg. 
+
+We\pageoriginale will not make a definition in a nonstandard form, but
+it is exactly what is needed for applications.
+
+\begin{definition}\label{chap4-defi3.6}
+A Lie subalgebra\index{reductive subalgebra} $\ul{g}$ of a Lie algebra $\ul{s}$ is reductive in
+$\ul{s}$ provided all exterior powers $\Lambda^{q}\ul{s}$ are
+semisimple as $\ul{g}$-modules with the exterior power of the adjoint
+action of $\ul{g}$ on $\ul{s}$. A Lie algebra $\ul{g}$ is reductive
+provided $\ul{g}$ is reductive in itself.
+\end{definition}
+
+\begin{proposition}\label{chap4-prop3.7}
+Let $\ul{g}$ be a reductive Lie subalgebra of a Lie algebra
+$\ul{s}$. Then the quotient morphism
+$$
+C_{\ast}(\ul{s})\to
+C_{\ast}(\ul{s})\otimes_{U(\ul{g})}k=C_{\ast}(\ul{s})_{\ul{g}}
+$$
+is a homology isomorphism.
+\end{proposition}
+
+\begin{proof}
+The kernel of the quotient $C_{\ast}(\ul{s})\to
+C_{\ast}(\ul{s})_{\ul{g}}$ onto the $\ul{g}$ - coinvariants is the
+direct sum of an acyclic complex and one with zero differential. The
+factor with the zero differential must be zero by
+(\ref{chap4-coro3.4}). Hence the kernel is acyclic, and the morphism
+is a homology isomorphism. This proves the proposition.
+\end{proof}
+
+\begin{example}\label{chap4-exam3.8}
+Let $A$ be a $k$-module, and let $\ul{g\ell_{n}}(A)$ denote the Lie
+algebra over $k$ of $n$ matrices with entries in $A$ with the usual
+Lie bracket $[u,v]=uv-vu$ for $u$, $v\in \ul{g\ell_{n}}(A)$. Then the
+Lie subalgebra $\ul{g\ell_{n}}(k)$ is reductive in
+$\ul{g\ell_{n}}(A)$, and in particular, $\ul{g\ell_{n}}(k)$ is a
+reductive Lie algebra. This is the basic example for the relation
+between the cyclic homology of $A$ and the Lie algebra homology of
+$\ul{g\ell}(A)=\varinjlim\ul{g\ell_{n}}(A)$.  We have to be a little
+careful with the limits because $\ul{g\ell}(k)$ is not reductive in
+$\ul{g\ell}(A)$. On the other hand we have the following result by
+passing to limits.
+\end{example}
+
+\begin{proposition}\label{chap4-prop3.9}
+Let $A$ be an algebra over $k$, a field of characteristic zero. Then
+the quotient morphism of complexes
+$$
+\theta_{A}:C_{\ast}(\ul{g\ell}(A))\to
+C_{\ast}\ul{g\ell}(A))_{\ul{g\ell}(k)}
+$$
+induces an isomorphism in homology.
+\end{proposition}
+
+\section[The Hopf algebra $H_{\ast}(\protect\underline{g\ell}(A),k)$
+  and...]{The Hopf algebra $H_{\ast}(\protect\underline{g\ell}(A),k)$
+  and additive 
+  algebraic $K$-theory}\label{chap4-sec4}\index{additive
+  $K$-theory}\index{algeraic $K$-theory}
+
+The\pageoriginale algebra structure on $H_{\ast}(\ul{g\ell}(A))$ comes from the
+direct sum of matrices namely the morphisms of Lie algebras
+$$
+\ul{g\ell}_{n}(A)\oplus \ul{g\ell}_{n}(A)\to \ul{g\ell}_{2n}(A)\to
+\ul{g\ell}(A). 
+$$
+
+The natural isomorphism $C_{\ast}(\ul{g}_{1})\otimes
+C_{\ast}(\ul{g}_{2})\to C_{\ast}(\ul{g}_{1}\otimes \ul{g}_{2})$
+composes with the induced morphism of the inclusion to give a morphism
+of differential coalgebras
+$$
+C_{\ast}(\ul{g\ell}_{n}(A))\otimes C_{\ast}(\ul{g\ell}_{n}(A))\to
+C_{\ast}(\ul{g\ell}_{2n}(A)) 
+$$
+which in the limit over $n$ gives a multiplication
+$$
+C_{\ast}(\ul{g\ell}(A))\otimes C_{\ast}(\ul{g\ell}(A))\to
+C_{\ast}(\ul{g\ell}(A)). 
+$$
+
+\begin{remark}\label{chap4-rem4.1}
+This multiplication induces a morphism of homology\break which when composed
+with the K\"unneth morphism yields a multiplication
+$H_{\ast}(\ul{g\ell}(A))$ namely
+$$
+H_{\ast}(\ul{g\ell}(A))\otimes H_{\ast}(\ul{g\ell}(A))\to
+H_{\ast}(\ul{g\ell}(A)). 
+$$
+\end{remark}
+
+Now we put together this multiplication and the isomorphism of 
+(\ref{chap4-prop3.9}) to obtain the following theorem.
+
+\begin{theorem}\label{chap4-thm4.2}
+With the coalgebra structure and multiplication on
+$C_{\ast}\break(\ul{g\ell}(A))$, the quotient morphism induces on
+$C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell}(k)}$ a differential Hop algebra
+structure and the isomorphism $H_{\ast}(\ul{g\ell}(A))\to
+H_{\ast}(C_{\ast}\break(A)_{\ul{g\ell}(k)})$ shows that the multiplication
+on $C_{\ast}(\ul{g\ell}(A))$ induces a Hopf algebra structure on
+$H_{\ast}(\ul{g\ell}(A))$. 
+\end{theorem}
+
+
+\begin{proof}
+The differential coalgebra structure and the multiplication given by
+direct sum of matrices is defined on the quotient by $\theta_{A}$ and
+can be seen directly from the definition. The multiplication defined
+by special choices of direct sum on $C_{\ast}(\ul{g\ell}(A))$ is not
+associative, but in the quotient these choices all reduce to the same
+morphism which gives associativity. This proves the theorem. 
+\end{proof}
+
+Before\pageoriginale going on to the calculation of
+$H_{\ast}(\ul{g\ell}(A))$ using cyclic homology, we indicate how this
+is an additive $K$-theory by analogy with algebraic $K$-theory as
+defined by Quillen. The $K$-groups $K_{\ast}(A)$ of a ring $A$ are the
+homotopy groups of a certain space
+$$
+K_{\ast}(A)=\pi_{\ast}(BGL(A)^{+})
+$$
+where the space $BGL(A)^{+}$ comes from $A$ a series of three steps
+$$
+A\mapsto GL(A)\mapsto BGL(A)\mapsto BGL(A)^{+}
+$$
+where $GL(A)=\varinjlim GL_{n}(A)$ is the infinite linear group, $B$
+is the classifying space of the group $GL(A)$, and $BGL(A)^{+}$ is the
+result of applying the Quillen plus construction. The map $BGL(A)\to
+BGL(A)^{+}$ is a homology isomorphism and $\pi_{1}(BGL(A)^{+})$ is the
+abelianization of $\pi_{1}(BGL(A))=GL(A)$. From the relations of
+algebraic $K$-theory with extensions of groups, the work of
+Kassel and Loday 1982 suggested that there should be an additive
+analogue of 
+$K$-theory using the homology of Lie algebras.
+
+The analogue for Lie algebras of the three steps in algebraic
+$K$-theory over $k$ is to begin with an algebra $A$ over $k$ and
+perform the following three steps
+$$
+A\mapsto \ul{g\ell}(A)\mapsto C_{\ast}(\ul{g\ell}(A))\mapsto
+C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell}(k)}.
+$$
+
+The quotient coalgebra construction $C_{\ast}(\ul{g\ell}(A))\to
+C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell}(k)}$ is like the plus construction
+$BGL(A)\to BGL(A)^{+}$ in the sense that the map is an isomorphism of
+the homology coalgebras and $C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell}(k)}$
+has a Hopf algebra structure where by analogy the plus construction
+$BGL(A)^{+}$ is an $H$-space.
+
+There is no Lie algebra homotopy groups, but the rational homotopy can
+be calculated from the homology in the case of an $H$-space. This is
+the basic theorem of Milnor-Moore\index{Milnor-Moore theorem} in
+rational homotopy. 
+
+\begin{theorem}\label{chap4-thm4.3}
+Let $X$ be a path connected $H$-space. The rational
+Hure\-wicz\pageoriginale morphisms $\phi:\pi_{\ast}(X)\otimes \bfQ\to
+PH_{\ast}(X,\bfQ)$ is an isomorphism of graded Lie algebras onto the
+primitive elements $PH_{\ast}$ in homology.
+\end{theorem}
+
+\begin{remark}\label{chap4-rem4.4}
+The above considerations together with the Milnor-Moore theorem led
+\cite{Feigin1985} to introduce the following definition of the
+additive $K$-groups of algebras $A$ over a filed $k$ of characteristic
+zero 
+$$
+K^{\add}_{\ast}(A)=PH_{\ast}(C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell(k)}}).
+$$
+\end{remark}
+
+
+\section{Primitive elements $PH_{\ast}(\protect\ul{g\ell}(A))$ and cyclic
+  homology of $A$}\label{chap4-sec5}\index{primitive elements}
+
+In this section $k$ will always denote a field of characteristic
+zero. We begin with two preliminaries. The first is based on Appendix
+2 of the rational homotopy theory paper of \cite{Quillen1969}.
+
+\begin{proposition}\label{chap4-prop5.1}
+On the category of cocommutative differential Hopf algebras $A$ over
+$k$, the natural morphism $H(P(A))\to P(H(A))$ is an isomorphism where
+$x\in P(A)$ means $\Delta(x)=x\otimes 1+1\otimes x$.
+\end{proposition}
+
+\begin{proof}
+Quillen proves rather directly that for a differential Lie algebra
+$\ul{L}$ with universal enveloping $U(\ul{L})$ differential Hopf
+algebra that $U(H(\ul{L}))\break\to H(U(\ul{L}))$ is an isomorphism. Now $U$
+and $P$ are inverse functors between differential Lie algebras and
+cocommutative differential Hopf algebras by a basic structure theorem
+of Milnor and moore 1965. This proves the proposition.
+\end{proof}
+
+The second preliminary is basic invariant theory over a field of
+characteristic zero.
+
+\medskip
+\noindent
+{\bf Basic invariant theory 5.2.}\index{invariant theory} Let $V$ be an $n$-dimensional vector
+space over $k$, denote $\ul{g\ell}(V)=\End(V)$ as a Lie algebra over
+$k$, and denote the symmetric group on $q$ letters by
+$\Sym_{q}$. There is a map
+$\phi:k[\Sym_{q}]\to \End(V^{q\otimes})=\ul{g\ell}(V)^{q\otimes}$
+where
+$$
+\phi(\sigma)(x_{1}\otimes\cdots\otimes
+x_{q})=x_{\sigma(1)}\otimes\cdots\otimes x_{\sigma(q)}\q\text{for}\q
+\sigma\in \Sym_{q}. 
+$$
+
+The\pageoriginale basic assertion of invariant theory is the following
+morphisms are isomorphisms for $n=\dim(V)\geq q$ 
+$$
+k[\Sym_{q}]\to (\ul{g\ell}(V)^{q\otimes})^{\ul{g\ell}(V)}\to
+(\ul{g\ell}(V)^{q\otimes})_{\ul{g\ell}(V)}. 
+$$
+
+The symmetric group $\Sym_{q}$ acts on $\ul{g\ell}(V)^{q\otimes}$ by
+conjugation through $\phi$ and this $\phi$ is $\Sym_{q}$ equivariant
+as is seen from a direct calculation.
+
+A basis of $V$ is equivalent to an isomorphism $\ul{g\ell}(V)\to
+\ul{g\ell}_{n}(k)$ and $\ul{g\ell}(V\otimes A)\to \ul{g\ell}(V)\otimes
+A\to \ul{g\ell}_{n}(A)$ for any $k$-algebra. The next proposition is
+the first link between Lie algebra chains and certain tensor powers of
+$A$.
+
+\begin{proposition}\label{chap4-prop5.3}
+If $n=\dim(V)\geq q$, then we have an isomorphism of $k$-modules,
+$$
+\Lambda^{q}(\ul{g\ell}(V)\otimes A)_{\ul{g\ell}(V)}\simeq
+(k[\Sym_{q}]\otimes A^{q\otimes})\otimes_{\Sym_{q}}(sgn)
+$$
+where $\Sym_{q}$ acts by conjugation on $k[\Sym_{q}]$ and $(sgn)$ is
+the one dimensional sign representation.
+\end{proposition}
+
+\begin{proof}
+We can write the exterior power
+\begin{align*}
+\Lambda^{q}(\ul{g\ell}(V)\otimes A)_{\ul{g\ell}(V)} &=
+       [(\ul{g\ell}(V)\otimes
+         A)^{q\otimes}\otimes_{\Sym_{q}}(sgn)]_{\ul{g\ell(V)}}\\ 
+&= [(\ul{g\ell}(V)^{q\otimes})_{g\ell}(V)\otimes
+         A^{q\otimes}]\otimes_{\Sym_{q}}(sgn). 
+\end{align*}
+
+Using (5.2), we tensor $\phi$ with $A^{q\otimes}$ and $(sgn)$ to
+obtain an isomorphism
+$$
+\{k[\Sym_{q}]\otimes A^{q\otimes}\}\otimes_{\Sym_{q}}(sgn)\to
+\{(\ul{g\ell}(V)^{q\otimes}\}\otimes_{\Sym_{q}}(sgn). 
+$$
+
+This proves the proposition.
+\end{proof}
+
+
+In terms of this isomorphism we decompose
+$\Lambda^{q}(\ul{g\ell}(V)\otimes A)_{\ul{g\ell}(V)}$ using the
+decomposition of $k[\Sym_{q}]$ under conjugation. There will be one
+factor for each conjugacy class of $\Sym_{q}$. The elements of the
+form $x=[\sigma]\otimes a$ where $[\sigma]$ is the conjugacy class of
+the element $\sigma$ and $a=a_{1}\otimes \cdots\otimes a_{q}$ with
+$a_{i}\in A$\pageoriginale generate $(k[\Sym_{q}]\otimes
+A^{q\otimes})\otimes_{\Sym_{q}}(sgn)$, and the diagonal morphism on
+this element is given by shuffles as
+$$
+\Delta(x)=\sum\limits_{\{1,\ldots,n\}=I\coprod
+  J,\sigma(I)=I,\sigma(J)=J}([\sigma|_{I}]\otimes
+a_{I})\otimes([\sigma|_{J}]\otimes a_{J})
+$$
+where $x=[\sigma]\otimes a$, $a_{I}=\otimes_{i\in I}a_{i}$, and
+$a_{J}=\otimes_{j\in Ja_{j}}$. 
+
+\begin{remark}\label{chap4-rem5.4}
+An element $x=[\sigma]\otimes a$ is primitive, i.e.\@
+$\Delta(x)=x\otimes 1+1\otimes x$ if and only if $\sigma\in U_{q}$,
+the conjugacy class of the cyclic permutation $(1,\ldots,q)$. As a
+$\Sym_{q}$-set, the conjugacy class $U_{q}$ is isomorphic to
+$\Sym_{q}/\Cyl_{q}$ where $\Cyl_{q}$ is the cyclic subgroup generated
+by $(1,\ldots,q)$. Thus we have an isomorphism between the following
+$k$-modules $(k[U_{q}]\otimes A^{q\otimes}\otimes_{\Sym_{q}}(sgn)$ and
+$(k[\Sym_{q}/\cyl_{q}]\otimes
+A^{q\otimes})\otimes_{\Sym_{q}}(sgn)$. We can summarize the above
+discussion with the following calculation of the primitive elements of
+$\Lambda^{*}(\ul{g\ell}(V)\otimes A)_{\ul{g\ell}(V)}$ in a given degree.
+\end{remark}
+
+\begin{proposition}\label{chap4-prop5.5}
+The submodule $P\Lambda^{q}(\ul{g\ell}(V)\otimes A)_{\ul{g\ell}(V)}$
+of primitive elements for $q\leq n=\dim(V)$ is isomorphic to 
+$$
+A^{q\otimes}\otimes_{\Cyl_{q}}(sgn)=C_{q-1}(A)_{1-T},\text{~ the
+  cyclic homology chains.}
+$$
+\end{proposition}
+
+A further analysis of the isomorphisms involved shows that the
+differential in the Lie algebra homology induces the quotient of the
+Hochs\-child differential, or the cyclic homology differential. Thus we
+are led to the basic result of \cite{Tsygan1983} and \cite{Loday1984}
+in characteristic zero.
+
+\begin{theorem}\label{chap4-thm5.6}
+The vector space of primitive elements in Lie algebra homology
+$PH_{q}(C_{\ast}(\ul{g\ell}(A))_{\ul{g\ell}(k)})=PH_{q}(\ul{g\ell}(A))$
+is isomorphic to the cyclic homology vector space $HC_{q-1}(A)$. 
+\end{theorem}

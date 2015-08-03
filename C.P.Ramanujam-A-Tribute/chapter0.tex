@@ -1,0 +1,770 @@
+\chapter*{Valuated Fields}\label{chap0}
+
+\setcounter{section}{0}
+\section{Valuations}\pageoriginale\label{sec0.1}
+
+\begin{defi*}
+A \underline{valuation} of a field $K$ is a function 
+$|\;|:K\rightarrow\mathbb{R}_+$ (non-negative real number) such that 
+for all $x,y\in K$
+\begin{itemize}
+\item[i)] $|x|=0\Leftrightarrow x=0$
+\item[ii)] $|xy|=|x|.|y|$
+\item[iii)]$|x+y|\leq |x|+|y|$ (triangle inequality).
+\end{itemize}
+\end{defi*}
+
+\begin{remark*}
+Since by ii), $|\;|$ is a homomorphism of $K^*$ into the 
+multiplicative group of positive real numbers, it follows that for any 
+$\rho$ in $K$ with $\rho^n=1$ for some $n>0$
+$$
+|\rho|=1
+$$
+In particular, $|-1|=|1|=1$.
+\end{remark*}
+
+We say that a valuation $|\;|$ is \underline{trivial} if for all 
+$x\in K^*, |x|=1$.
+
+\begin{examples*}
+\begin{itemize}
+\item[i)] Take $K=\mathbb{Q}$. Define for every $a\in\mathbb{Q}, |a|$ 
+to be the ordinary absolute value $|a|$.
+\item[ii)]\label{ex:ii} Take $p$ any prime number. If 
+$r=\frac{a}{b}\neq 0$ in 
+$\mathbb{Q}$ with $a,b\in\mathbb{Z}$, define $|r|_p=p^{v-u}$ where 
+$p^u$ and $p^v$ are the exact powers of $p$ dividing $a$ and $b$ 
+respectively. If $r=0$, put $|0|_p=0$. It is easy to verify that 
+$|\;|_p$ satisfies i), ii), iii).
+\end{itemize}
+\end{examples*}
+
+We say that two non trivial valuations $|\;|_1|\;|_2$ are 
+\underline{equivalent} in symbols $|\;|_1\sim |\;|_2$ if for every 
+$a\in K$
+$$
+|a|_1<1\Leftrightarrow |a|_2<1.
+$$
+It\pageoriginale is easy to see that this is an equivalence relation.
+\begin{prop}\label{prop:0.1}
+Let $|\;|_1$ be a non-trivial valuation of $K$ and $|\;|_2$ equivalent 
+to $|\;|_1$. There exists then an $\alpha >0$ such that 
+$$
+|a|_2=|a|_1^\alpha, \forall a\in K
+$$
+\end{prop}
+\begin{proof}
+Since $|\;|_1$ is non-trivial there exists $b\in K$, with $|b|_1>1$. 
+then $|b|_2>1$. For $a\in K^*$, there exists a real number $\gamma$ 
+such that $|a|_1=|b|_1^\gamma$. Let $\frac{m}{n}$ be any rational 
+number $>\gamma$. Then $|a|_1<|b|_1^{m/n}$, which implies that 
+$|a^n/B^m|_1<1$. Hence $|a^n/b^m|_2<1$. This means 
+$|a|_2<|b|_2^{m/n}$. Consequently $|a|_2\leq |b|_2^\gamma$. Similarly 
+taking rational numbers $\frac{p}{q}<\gamma$ we have $|a|_2\geq 
+|b|_2^\gamma$. Therefore
+$$
+|a|_2=|b|_2^\gamma.
+$$
+This gives
+$$
+\gamma=\frac{\log |a|_2}{\log |b|_2}=\frac{\log |a|_1}{\log |b|_1}
+$$
+Since $b$ is fixed and $a$ is arbitrary, it follows that
+$$
+|a|_2=|a|_1^\alpha
+$$
+where $\alpha =(\log |b|_2)/\log |b|_1$. This relation holds trivially 
+for $a=0$.
+\end{proof}
+
+By a valuation, we shall mean hereafter only a non-trivial valuation.
+
+\begin{defi*}
+A\pageoriginale valuation $|\;|$ of $K$ is \underline{archimedean} if 
+there exists 
+$n\in\mathbb{Z}$ such that $|n.1|>1$. A valuation which is not 
+archimedean is called \underline{non-archimedean}.
+\end{defi*}
+
+\begin{remarks*}
+\begin{enumerate}[1)]
+\item If $|\;|$ is non-archimedean, $|n.1|\leq 1$ for every $n\in 
+\mathbb{Z}$.
+\item Clearly any valuation of a field of characteristic $p>0$ is 
+non-archimedean.
+\end{enumerate}
+\end{remarks*}
+
+\begin{prop}\label{prop:0.2}
+For a non-archimedean valuation $|\;|$ of a field $K$, we have 
+$$
+|a+b|\leq\Max (|a|,|b|),\forall a, b \in K.
+$$
+\end{prop}
+
+\begin{proof}
+Let $n$ be any positive integer. By the binomial theorem, we have
+\begin{align*}
+(a+b)^n & = a^n+\binom{n}{1}a^{n-1}b+\cdots +b^n\\
+\intertext{and hence}
+|a+b|^n & \leq |a|^n+|\binom{n}{1}||a|^{n-1} |b|+\cdots +|b|^n\\
+& \leq |a|^n+|a|^{n-1}|b|+\cdots +|b|^n\\
+& \leq (n+1)\Max \left(|a|^n, |b|^n\right)
+\end{align*}
+Taking $n^{\rm{th}}$ roots on both sides, we have
+$$
+|a+b|\leq \sqrt[n]{n+1} \Max (|a|, |b|)
+$$
+
+Letting $n$ tend to infinity, we get the result.
+\end{proof}
+\begin{coro*}
+If $|\;|$ is non-archimedean, then $|a+b|=\Max (|a|, |b|)$ for 
+$|a|\neq |b|$.
+\end{coro*}
+\begin{proof}
+Let\pageoriginale $|b|>|a|$ without loss of generality. Then 
+$|b|=|a+b-a| \leq\Max 
+(|a+b|, |a|)\leq\Max (|a|,|b|)=|b|$ so that $\Max (|a+b|,|a|)=|b|$ \ie 
+$|a+b|=|b|$.
+$|a+b|=|b|$.
+\end{proof}
+\begin{defi*}
+A commutative integral domain $R$ properly contained in its quotient 
+field $K$ with identity is called a \underline{valuation ring} if for 
+any $x\in K$, either $x\in R$ or $x^{-1}\in R$.
+\end{defi*}
+
+It may be seen that the non-units in a valuation ring $R$ form an 
+ideal $M$ which is clearly maximal. If $|\;|$ is a non-archimedean 
+valuation of a field $K$, then $\{ x\in K\mid |x|\leq 1\}$ forms a 
+valuation ring $R$ with $M=\{x\in\mid |x|<1\}$. If, in addition, $M$ 
+is a principal ideal of $R$, then any generator of $M$ is called a 
+\underline{uniformizing parameter}.
+
+\begin{example*}
+$K=\mathbb{Q}, |\;|=|\;|_p$ as in Example (ii) (page \pageref{ex:ii}) 
+$R=\left\{p^r\frac{a}{b}\mid a,b\in\mathbb{Z}, (a,p)=1=(b,p)\right\}, 
+M=p\, R$.
+\end{example*}
+
+
+\section{Approximation Theorem}.\label{sec0.2}
+
+\begin{prop}\label{prop:0.3}
+For mutually inequivalent non-trivial valuations 
+$|\;|_1,\ldots,|\;|_n$ of $K$, there exists $a\in K$ such that
+$$
+|a|_1<1, |a|_i>1 \; \text{for}\; i=2,\ldots,n.
+$$
+\end{prop}
+
+\begin{proof}
+For $n=2$, there exist $b, c\in K$ such that 
+$$
+|b|_1<1, |b|_2\geq 1\;\text{and}\; |c|_1\geq 1, |c|_2<1.
+$$
+Then $a=b c^{-1}$ is the required element.
+
+Assume that $n\geq 3$ and the proposition proved for any $m\leq n-1$ 
+inequivalent valuations. Then there exists $b\in K$ with $|b|_1<1$ and 
+$|b|_i>1$ for $i=2,\ldots, n-1$. If $|b|_n>1$, then choosing $a=b$, we 
+are through. Let then $|b|_n\leq 1$. Choose $c\in K$ such that 
+$|c|_1\leq 1$ and $|c|_n>1$.\pageoriginale Defining $a=b^r c$ or 
+$a=(b^r+1)c$ according as $|b|_n=1$ or $|b|_n<1$, we see that, for 
+large enough $r$, $a$ is the required element. (We use the inequality 
+$||x-y||\geq |x|-|y|$).
+\end{proof}
+
+\setcounter{theorem}{3}
+\begin{theorem}\label{thm:0.4}
+(Approximation Theorem). Given $\varepsilon >0$, $n$ elements 
+$a_1,\ldots,a_n$ of $K$ and inequivalent valuations 
+$|\;|_1,\ldots,|\,|_n$ of $K$, there exists $a\in K$ such that 
+$|a-a_i|_i<\varepsilon$ for $i=1, 2,\ldots,n$.
+\end{theorem}
+
+\begin{proof}
+We first prove the theorem when one of the $a_i$ is $1$ and the rest 
+are $0$. By Proposition \ref{prop:0.3}, there exists $b\in K$ with 
+$|b|_1<1$ and $|b|_i>1$ for $i>1$. Then for $c_1=\frac{1}{1+ 
+b^r}$, it is easy to check that for any $\varepsilon_1>0$, we have 
+$|c_1-1|_1<\varepsilon_1$ and $|c_1|_i<\varepsilon_1$ for $i>1$, 
+provided that $r$ is large enough. Similarly there exist for $i>1$, 
+an element $c_i$ in $K$ such that $|c_i-1|_i<\varepsilon_1, 
+|c_i|_j<\varepsilon_1$ for $j\neq i$. The element 
+$a=\sum\limits_{i=1}^{n} 
+a_i c_i$ may be seen to have the required properties (if we choose 
+$\varepsilon_1$ to satisfy $n\varepsilon_1 
+\max\limits_{i,j}|a_i|_j\leq\varepsilon$).
+\end{proof}
+
+\section{Valuations of $\mathbb{Q}$ and $K(x)$.}\label{sec0.3}
+
+We first determine all the valuations of $\mathbb{Q}$ upto 
+equivalence. Observe that a valuation $|\;|$ of $\mathbb{Q}$ is 
+determined by its effect on $\mathbb{N}$, since $|xy|=|x||y|$ and 
+since $|-1|=1$. Given an integer $n>1$, any integer $m>0$ has a unique 
+`n-adic expansion', namely $m=a_0+a_1 n+\cdots + a_rn^r$ where 
+$0<a_i<n$ and $r\leq\log m/\log n$. Assuming that the triangle 
+inequality holds for $|\;|$, we have $|a_i|<n$ and hence 
+\begin{align*}
+|m| & \leq (r+1)\cdot n\cdot\Max(1, |n|^n)\\
+& \leq\left(\frac{\log m}{\log 
+n}+1\right)n\left\{\Max(1,|n|)\right\}^{\log m / \log n}
+\end{align*}
+Thus\pageoriginale for any integer $s\geq 1$, we have
+$$
+|m|^s=|m^s|\leq\left(s\frac{\log m}{\log 
+n}n+n\right)\left\{\Max(1,|n|)\right\}^{s\log m/\log n}
+$$
+Extracting the $s^{th}$ root on both sides, we have
+$$
+|m|\leq\sqrt[s]{s\frac{n\log m}{\log n}+n}\left\{\Max 
+(1,n)\right\}^{\log m/\log n}
+$$
+Letting $s$ tend to infinity, we obtain for $n>1,m\geq 1$ that
+$$
+|m|\leq\left\{\Max(1,|n|)\right\}^{\log m/\log n}
+$$
+Assume first that $|\;|$ is archimedean. Then there exists an integer 
+$m>1$ such that $|m|>1$. By the inequality above, we have for all 
+integers $n>1$,
+$$
+1<|m|\leq(\Max(1,|n|))^{\log m/\log n}
+$$
+Which implies that $|n|>1$. Hence
+$$
+|m|\leq|n|^{\log m/\log n}
+$$
+Reversing the roles of $m$ and $n$, we have $|n|\leq|m|^{\log n/\log 
+m}$ and hence $\log n/\log |n|$ is independent of $n$, for $n>1$. Therefore 
+for all $n>1$ we have $|n|=n^\alpha$ for some $\alpha>0$. We see thus 
+for any $n\in\mathbb{N},|n|=(\abs n)^\alpha$ where $\abs n$ is the 
+ordinary absolute value of $n$. Consequently any archimedean valuation 
+of $\mathbb{Q}$ is equivalent to the one given by the ordinary 
+absolute value.
+
+Let $|\;|$ be a non-archimedean valuation of $\mathbb{Q}$. Then 
+$|m|\leq 1$ for all $m\in\mathbb{N}$ and further there exists a 
+smallest positive integer, say\pageoriginale $p$, for which $|p|<1$. 
+We maintain that $p$ is a prime. If not, $p=a\, b$ for $a,b>1$ in 
+$\mathbb{N}$ and since $|a||b|=|p||<1$, at least one of $|a|,|b|$, say 
+$|a|$, is $<1$. However, since $a<p$, this contradicts the minimality 
+of $p$. If $q$ is an integer prime to $P$, there exist 
+$c,d\in\mathbb{Z}$ such that $cp+dq=1$. Hence 
+$|dq|=|1-cp|=\Max(1,cp)=1$ since $|cp|<1$. It is clear now that 
+$|q|=1$. For any integer $a\neq 0, |a|=|p|^r$ where $p^r$ is the 
+highest power of $p$ dividing $a$. For any rational number 
+$r=\frac{a}{b}\neq 0$ in $\mathbb{Q}, |r|=|P|^{u-v}$ where $p^u, 
+(\resp P^v)$ is the highest power of $p$ dividing a $(\resp 
+b)\in\mathbb{Z}$. Choosing $|p|=\frac{1}{p}$, this is the same as the 
+valuation given in Example (ii) on page \pageref{ex:ii}. This valuation 
+is called the \underline{p-adic valuation} of $\mathbb{Q}$ 
+corresponding to the prime $p$. As mentioned in Example (ii) (page 
+\pageref{ex:ii}), there exists for each prime $p$, a (p-adic) valuation 
+of $\mathbb{Q}$ which may be seen to be non-archimedean. For primes 
+$p$, the corresponding valuations are clearly inequivalent.
+
+We have thus proved
+\begin{theorem}\label{thm:0.5}
+Any valuation of $\mathbb{Q}$ is equivalent either to the one given by 
+the ordinary absolute value or a p-adic valuation for a prime $p$.
+\end{theorem}
+
+We denote by $|\;|_\infty$ the valuation given by the ordinary absolute 
+value and by $|\;|_p$ the p-adic valuation of $\mathbb{Q}$ with 
+$|p|_p=1/p$.
+
+Next we determine all the valuations of the field $F$ of rational 
+functions in one variable $x$ over a field $K$, which are 
+\underline{trivial} on $K$ (and consequently non-archimedean).
+
+Let\pageoriginale $|x|\leq 1$. Then $|\;|$ being non-archimedean, we 
+have $|f|\leq 1$ for any $f\in K[x]$. The set of $g\in K[x]$ for which 
+$|g|< 1$, is a prime ideal $\neq 0$ in $K[x]$ and is generated by an 
+irreducible polynomial $p(x)$. For any $f\in K[x]$ divisible exactly 
+by $p(x)^\nu$, we see that $|f|=|p(x)|^\nu$; for $f=g/h\in K(x)$ with 
+$g, h\in K[K]$, we have again $|f|=|g|/|h|$. Thus if $|x|\leq 1$, then 
+$|\;|$ is a ``$p(x)$-adic valuation" of $K(x)$. Conversely, any 
+irreducible polynomial $p(x)$ defines a valuation $|\;|_{p(x)}$ of 
+$K(x)$ by setting $|f|_{p(x)}=c^\nu$ where $0<c<1$ and $p(x)^\nu$ is 
+the exact power of $p(x)$ dividing $f\in K[x]$. The valuations of 
+$K(x)$ induced by coprime irreducible polynomials as above are 
+inequivalent. 
+
+Consider now a valuation $|\;|$ of $K(x)$ with $|x|>1$. Since 
+$K(x)=K(y)$ for $y=\frac{1}{x}$ and $|y|<1$, we see by the same 
+arguments as above, that $|\;|$ is a $p(y)$-adic valuation for an 
+irreducible polynomial $p(y)$ which is (upto a factor from $K^*$) 
+necessarily $y$ (since $|y|<1$). Hence for $f, g\in K[x]$ with $g\neq 
+0, |f/g|=|y|^{(\deg g-\deg f)}$ which is usually denoted $|\;|_{1/x}$ 
+(or $|\;|_\infty$). We have hence proved 
+
+\begin{theorem}\label{thm:0.6}
+Any valuation of $K(x)$ trivial on $K$ is equivalent to $|\;|_{p(x)}$ 
+for some $p(x)$ or to $|\;|_\infty$.
+\end{theorem}
+
+\section{Completion of a valuated field.}\label{sec0.4}
+Starting from a field $K$ with a given valuation $|\;|$, we shall 
+obtain the ``completion" of $K$ with respect to $|\;|$, in the same 
+way as the field of real numbers is obtained from the field of 
+rational numbers by Cantor's method of Cauchy sequences.
+\begin{defi*}
+A sequence $\{a_i\}_{i\in\mathbb{N}}$ of elements $a_i$ in a field $K$ 
+with\pageoriginale a valuation $|\;|$, is called a \underline{Cauchy 
+sequence} (over $K$) if, for any $\varepsilon >0$, there exists a 
+natural number $n_0=n_0(\varepsilon)$ such that 
+$|a_m-a_n|<\varepsilon$ for $m,n\geq n_0$. 
+\end{defi*}
+
+In the set $\mathscr{O}$ of Cauchy sequences we can introduce 
+addition and multiplication as follows:
+\begin{align*}
+\{a_i\}+\{b_i\} & = \{a_i+b_i\}\\
+\{a_i\}\cdot\{b_i\} & = \{a_i b_i\}
+\end{align*}
+This makes $\mathscr{O}$ a ring.
+\begin{defi*}
+A sequence $\{a_i\}_{i\in\mathbb{N}}$ of elements $a_i\in K$ with 
+valuation $|\;|$ is called a \underline{null sequence} (over $K$) if, 
+for any $\varepsilon >0$, there exists $n_0 =n_0 
+(\varepsilon)$ such that for $n\geq n_0$, we have 
+$|a_n|<\varepsilon$.
+\end{defi*}
+
+Clearly every null sequence is a Cauchy sequence and it is not hard to 
+show that the null sequences form an ideal $\mathscr{G}$ of 
+$\mathscr{O}$. We now claim that $\mathscr{O}/\mathscr{G}$ is a field. 
+Let $\{a_n\}_{n\in\mathbb{N}}\in\mathscr{O}-\mathscr{G}$. Modifying 
+$\{a_n\}_{n\in\mathbb{N}}$ by a null-sequence, if necessary, we may 
+assume that $a_n\neq 0$ for every $n\in\mathbb{N}$. Since 
+$\{a_n\}_{n\in\mathbb{N}}$ is not a null-sequence, it is easy to check 
+that $\{1/a_n\}_{n\in\mathbb{N}}\in\mathscr{O}$. The field 
+$\mathscr{O}/\mathscr{G}$ denoted by $\tilde{K}$ is called the 
+\underline{completion} of $K$. Identifying an element $a$ of $K$ with 
+the ``principal" Cauchy sequence $\{a_i\}_{i\in\mathbb{N}}$ where each 
+$a_i=a$, we see that $\tilde{K}$ contains an isomorphic image of $K$ 
+which we may identify with $K$ itself. The valuation $|\;|$ of $K$ may 
+be extended to $R$ by first defining 
+$|\alpha|=\lim\limits_{n\to\infty}|a_n|$ for $\alpha 
+=\{a_n\}_{n\in\mathbb{N}}$; notice that this makes sense since 
+$\{|a_n|\}_{n\in\mathbb{N}}$ is a Cauchy sequence in $\mathbb{R}$ as a 
+consequence of\pageoriginale the triangle inequality. For a Cauchy 
+sequence $\beta$, it is clear that $|\beta|=0$ if and only if 
+$\beta\in\mathscr{G}$. Thus with the given definition of $|\alpha|$ 
+for $\alpha\in\mathscr{O}$, we have a valuation of $K$ which we again 
+denote by $|\;|$.
+
+If $F$ is any field with valuation $|\;|$, we can define for any 
+$a,b\in F$, the distrance between $a$ and $b$ to be $|a-b|$ and with 
+this $F$ may be checked to be a metric space (note that two equivalent 
+valuations define equivalent topologies).
+
+Thus any valuated field $F$ (with triangle inequality valid for 
+$|\;|$) is a topological subspace of its completion $\tilde{F}$. 
+Further, for any Cauchy sequence $\alpha=\{a_n\}_{n\in\mathbb{N}}$, 
+the ``principal" Cauchy sequences $\alpha_m=\{b_n\}_{n\in\mathbb{N}}$ 
+where $b_n=a_m$ for all $n\in\mathbb{N}$ satisfy the condition that 
+$|\alpha-\alpha_m|<\varepsilon$ for $m\geq m_0(\varepsilon)$. 
+Hence $F$ is \underline{dense} in its completion $\tilde{F}$ with 
+respect to $|\;|$.
+
+\begin{defi*}
+A field $K$ with valuation $|\;|$ is \underline{complete} (with 
+respect to $|\;|$) if every Cauchy sequence over $K$ converges in $K$. 
+\end{defi*}
+
+We now assert that the completion $\tilde{K}$ of a valuated field $K$ 
+is complete. Let $\{\alpha_i\}_{i\in\mathbb{N}}$ be a Cauchy sequence 
+over $\tilde{K}$. Now since $K$ is dense in $\tilde{K}$, there exists 
+for every $i\in\mathbb{N}$, an element $a_i\in K$ such that 
+$|\alpha_i-\beta_i|<\frac{1}{i}$ where $\beta_i$ denotes the Cauchy 
+sequence with all its elements equal to $a_i$. Now 
+$\{\alpha_i-\beta_i\}_{i\in\mathbb{N}}$ Cauchy sequence over 
+$\tilde{K}\Rightarrow\{\beta_i\}_{i\in\mathbb{N}}$ is a Cauchy 
+sequence over $\tilde{K}\Rightarrow\gamma=\{a_i\}_{i\in\mathbb{N}}$ is 
+a Cauchy sequence over $K$. Hence $\{\alpha_i\}_{i\in\mathbb{N}}$ 
+converges to $\gamma\in\tilde{K}$.
+
+\begin{remark}\label{rem:1}
+For\pageoriginale $K=\mathbb{Q}$, the completion under $|\;|_\infty$ 
+is $\mathbb{R}$.
+\end{remark}
+
+\begin{remark}\label{rem:2}
+If $K$ is complete under a \ub{non-archimedean} valuation, then 
+a series $\sum\limits_{n=0}^\infty a_n$ with $a_n\in K$ converges if 
+and only if $\{a_n\}$ is a null-sequence.
+\end{remark}
+
+\section{Fields with a discrete valuation}\label{sec0.5}
+Let $K$ be a field with a non-archimedean valuation $|\;|$ and let 
+$\mathscr{O}=\set{x\in K\mid \mset{x}\leq 1}$ and 
+$\mathscr{G}=\set{x\in K\mid\mset{x}<1}$. Then $\mathscr{O}$ is a 
+valuation ring with $K$ as its quotient field and $\mathscr{G}$ as its 
+maximal ideal.
+
+Denote by $\bar{K}$ the field of residue classes 
+$\mathscr{O}/\mathscr{G}$. Then $K$ is called the \ub{residue class 
+field} of $K$.
+
+We denote by $S$ a complete set of representatives in $\mathscr{O}$ of 
+the residue classes modulo $\mathscr{G}$, which contains $0$. Then for 
+any $\alpha\in\mathscr{O}$, there exists a unique $s\in S$ such that 
+$\alpha\equiv s\oset{\mod\mathscr{G}}$. 
+
+Let $\tilde{K}$ be the completion of $K$ with respect to $\mset{\;}$ 
+and let $\tilde{\mathscr{O}},\tilde{\mathscr{G}}$ be the corresponding 
+valuation ring and maximal ideal respectively. Since $K$ is dense in 
+$\tilde{K},\mathscr{O}$ is dense in $\tilde{\mathscr{O}}$ \ie elements
+of $\tilde{\mathscr{O}}$ are limits of sequences of elements in 
+$\mathscr{O}$. We see easily that the elements of $S$ also serve as a 
+complete set of representatives of $\mathscr{O}$ modulo $\mathscr{G}$. 
+The map $\alpha\mapsto\alpha +\tilde{\mathscr{G}}$ from $\mathscr{O}$ 
+to $\sO/\sG$ is a homomorphism of rings with kernel equal to 
+$\sG=\tilde{\sG}\cap\sO$ and is onto, since $\sO$ is dense in 
+$\tilde{\sO}$. Hence the residue field of $\tilde{K}$ is isomorphic to 
+that of $K$. 
+
+\begin{defi*}
+By the \ub{value group} of a field $K$ with a valuation $\mset{\;}$, 
+we mean the image of $K^*$ in $\bR_+^*$ under $\mset{\;}$.
+\end{defi*}
+
+The\pageoriginale value group is a subgroup of $\bR_+^*$ and is hence 
+either discrete or dense in $\bR_+^*$.
+
+\begin{defi*}
+A valuation $\mset{\;}$ of $K$ is called \ub{discrete} or \ub{dense} 
+according as the value group is discrete or dense in $\bR_+^*$.
+\end{defi*}
+
+\begin{example*}
+For $\bQ$, the valuation $\mset{\;}_\infty$ given by the ordinary 
+absolute value is dense and a p-adic valuation $\mset{\;}_p$ is 
+discrete.
+\end{example*}
+
+\begin{defi*}
+By a \ub{local field}, we mean a complete non-archimedean discretely 
+valuated field with finite residue field.
+\end{defi*}
+
+Let $K$ be a field complete under a discrete non-archimedean valuation 
+$\mset{\;}$. Let $\sO$ be the valuation ring with maximal ideal $\sG$ 
+and let $\bar{K}=\sO/\sG$, the residue field. Since $\mset{\;}$ is 
+discrete, there exists $\pi\in K$ such that $\mset{\pi}<1$ and there 
+exists no $a\in K$ with $\mset{\pi}<\mset{a}<1$. It is immediate that 
+$\sG$ is a principal ideal generated by $\pi$. Any other generator of 
+$\sG$ is of the form $u\pi$ where $\mset{u}=1$ and hence $u$ is a unit 
+in $\sO$. For any $b\in K^*$: there exists $n\in\bZ$ such that 
+$\mset{b}=\mset{\pi}^n$; in other words $b=v\cdot\pi^n$ with a unit 
+$v\in\sO$. The element $\pi$ is called a \ub{uniformising parameter} 
+for $K$ and is unique upto multiplication by a unit in $\sO$.
+
+\setcounter{prop}{6}
+\begin{prop}\label{prop:0.7}
+With $\sO,\sG,\pi$ and $S$ as defined above and given any 
+$\alpha\in\sO$ and a positive integer $n$, there exist in $S$ elements 
+$a_0,a_1,\ldots,a_{n-1}$ uniquely determined by $\alpha$ such that
+$$
+\alpha\equiv a_0+a_1\pi +\cdots +a_{n-1}\pi^{n-1}\oset{\mod\sG^n}.
+$$
+\end{prop}
+
+\begin{proof}
+For $n=1$, the proposition is trivial by the definition of $S$. Assume 
+$a_0,\ldots,a_{n-2}$ to have been determined such that $\alpha\equiv 
+a_0+a_1\pi +\cdots 
++a_{n-2}\pi^{n-2}\oset{\mod\sG^{n-1}}$.\pageoriginale Put $\beta 
+=a_0+a_1\pi +\cdots +a_{n-2}\pi^{n-2}$. Then $\alpha 
+-\beta\in\sG^{n-1}$ and hence $\gamma =\oset{\alpha 
+-\beta}\pi^{-\oset{n-1}}\in\sO$. Therefore there exists a unique 
+$a_{n-1}\in S$ such that $\gamma\equiv a_{n-1}\oset{\mod\sG}$ which 
+implies $\alpha -\beta\equiv a_{n-1}\pi^{n-1}\oset{\mod\sG^n}$
+
+For each $n>0$ and given $\alpha\in\sO$, denote the element 
+$a_0+a_1\pi +\cdots +a_{a-1}\pi^{n-1}$ as constructed in Proposition 
+\ref{prop:0.7} by $\alpha_n$. Then the sequences $\set{\alpha_n}$ is a 
+Cauchy sequence over $\sO$. Since 
+$\alpha\equiv\alpha_n\oset{\mod\sG^n}$, it follows that the limit of 
+the sequence $\set{\alpha_n}$ is precisely $\alpha$. We write
+$$
+\alpha =\lim\limits_{n\to\infty}\oset{a_0+a_1\pi +\cdots 
++a_{n-1}\pi^{n-1}}=\sum\limits_{n=0}^{\infty}a_i\pi^i.
+$$
+
+Since any $\beta\in K^*$ may be written as $\pi^{-\nu}\alpha$ with a 
+unit $\alpha$ in $\sO$ and a unique $\nu\in\bZ$, we have for $\beta$ 
+the ``Laurent expansion"
+$$
+\beta = \sum\limits_{n= -\nu}^{\infty}a_n\pi^n, \,a_n\in S.
+$$
+
+Note that the expansion above is unique so long as $S$ and $\pi$ are 
+fixed in advance. Also for $\alpha =0$, we have the expansion 
+$\sum\limits_{i=0}^{\infty} a_i\pi^i$ with $a_i=0$ for all $i$.
+
+We denote by $\bQ_p$ the completion of $\bQ$ under the p-adic 
+valuation $\mset{\;}_p$ determined by a prime $p$. For the set $S$, we 
+can take $0,1,2,\ldots,p_-1$ and for $\pi$, the prime number $p$. By 
+the remarks above, any element $\alpha$ of $\bQ_p$ has a unique 
+expansion of the form 
+$$
+\alpha =\sum\limits_{n= -\nu}^{\infty}a_np^n \qquad \oset{0\leq 
+a_n\leq p-1}
+$$
+The\pageoriginale elements of $\bQ_p$ are called \ub{p-adic numbers} 
+and the elements of the valuation ring which is denoted by $\bZ_p$ are 
+called \ub{p-adic integers}. Note that the characteristic of $\bQ_p$ 
+is $0$.
+
+Let $K\oset{x}$ be the field of rational functions in one variable $x$ 
+over a field $K$. Denote by $K_x$ the completion of $K\oset{x}$ with 
+respect to the valuation $\mset{\;}_x$ (trivial on $K$ and induced by 
+the irreducible polynomial $p(x)=x$). It is easy to see that for the 
+set $S$, we may choose $K$ which is isomorphic to the residue field 
+and further we may take $x$ as a uniformising parameter. Then any 
+element $\alpha$ of $K_x$ has the expansion
+$$
+\alpha=\sum\limits_{n= -\nu}^{\infty}a_nx^n
+$$ 
+with $a_n$ uniquely determined in $K$. Thus $K_x$ is isomorphic to the 
+field of formal power-series in $x$ over $K$. Conversely one can see 
+that the field of formal power-series in one variable over a given 
+field is a complete discretely valuated field.
+
+It is known that a local field is a finite extension of a p-adic field 
+$\bQ_p$ or a field of formal power-series with finite constant field.
+\end{proof}
+
+\section{Hensel's lemma}\label{sec0.6}
+Let $K$ be a field complete under a non-archimedean discrete valuation 
+with valuation ring $\sO$, uniformising parameter $\pi$ and residue 
+field $\bar{K}$. 
+
+We\pageoriginale shall now prove a proposition which is due 
+essentially to Hensel and which enables us to refine congruences in 
+$\sO$ to equations. We use the notation 
+$\alpha\equiv\beta\oset{\mod\rho}$ to denote `$\alpha 
+-\beta\in\rho\sO$' for $\rho, \alpha,\beta\in K$.
+
+\begin{prop}\label{prop:0.8}
+Let $F=F\oset{x_1,\ldots,x_n}$ be a homogeneous polynomial of degree 
+$d$ in $n$ variables $x_1,\ldots,x_n$ and with coefficients in $\sO$. 
+Let $\delta\geq 0$ in $\bZ$ and $\alpha_1,\ldots,\alpha_n\in\sO$ be 
+such that $\frac{\partial F}{\partial 
+x_i}\oset{\alpha_1,\ldots,\alpha_n}\equiv 0\oset{\mod\pi^\delta}$ for 
+$1\leq i\leq n$ and for at least one of the partial derivatives say 
+$\frac{\partial F}{\partial x_i}\oset{\alpha_1,\ldots,\alpha_n}$ we 
+have $\pi^{-\delta}\frac{\partial F}{\partial 
+x_1}\oset{\alpha_1,\ldots,\alpha_n}$ is a unit in $\sO$ and further, 
+let, for an integer $m\geq 2\delta 
++1,F\oset{\alpha_1,\ldots,\alpha_n}\equiv 0\oset{\mod\pi^m}$. Then 
+there exist $\beta_1,\ldots,\beta_n$ in $\sO$ such that 
+$\beta_i\equiv\alpha_i\oset{\mod\pi^{m-\delta}}$ for $1\leq i\leq n$ 
+and 
+$$
+F\oset{\beta_1,\ldots,\beta_n}\equiv 0\oset{\mod\pi^{m+1}}.
+$$
+\end{prop}
+
+\begin{proof}
+The polynomial $F$ has a Taylor expansion 
+$F\oset{x_1,\ldots,x_n}=F\oset{\alpha_1,\ldots,\alpha_n}+\sum\limits_{i=1}^{n}
+\oset{x_i-\alpha_i}\frac{\partial F}{\partial 
+x_i}\oset{\alpha_1,\ldots,\alpha_n}+$ terms involving higher powers of 
+$x_1-\alpha_1,\ldots,x_n-\alpha_n$. The problem then reduces to 
+finding $y_1,\ldots,y_n\in\sO$ such that for 
+$\beta_i=\alpha_i+\pi^{m-\delta}y_i, 1\leq i\leq n$, we have 
+$F\oset{\beta_1,\ldots,\beta_n}\equiv 0\oset{\mod\pi^{m+1}}$ \ie such 
+that $\pi^{m-\delta}\sum\limits_{i=1}^{n}y_i\frac{\partial F}{\partial 
+x_i}\oset{\alpha_1,\ldots,\alpha_n}\equiv 
+-F\oset{\alpha_1,\ldots,\alpha_n} \oset{\mod\pi^{m+1}}$ since 
+$2\oset{m-\delta}\geq m+1$. Since $\pi^{-\delta}\frac{\partial 
+F}{\partial x_1}\oset{\alpha_1,\ldots,\alpha_n}$ is\pageoriginale a 
+unit in $\sO$, we can certainly find $y_1,\ldots,y_n\in\sO$ such that 
+the equivalent congruence 
+$$
+\pi^{-\delta}\sum\limits_i y_i\frac{\partial F}{\partial 
+x_i}\oset{\alpha_1,\ldots,\alpha_n}\equiv -\pi^{-m} 
+F\oset{\alpha_1,\ldots,\alpha_n}\oset{\mod\pi}
+$$
+holds and the proposition is proved.
+\end{proof}
+
+\begin{coro*}
+Under the same hypotheses as in Proposition \ref{thm:0.5}, there 
+exist $\gamma_1,\ldots,\gamma_n\in\sO$ such that 
+$F\oset{\gamma_1,\gamma_2,\ldots,\gamma_n}=0$ and 
+$\gamma_i\equiv\alpha_i\oset{\mod\pi^{m-\delta}}$.
+\end{coro*}
+
+\begin{proof}
+Applying the proposition successively to congruences modulo 
+$\pi^m,\pi^{m+1}$, etc., there exist for every integer $l\geq m$, 
+elements $\beta_1^{(l)},\ldots,\beta_n^{(l)}$ of $\sO$ such that 
+$F\oset{\beta_1^{\oset{l}}},\ldots,\beta_n^{l}\equiv 
+0\oset{\mod\pi^l}$ and $\beta_i^(l)\equiv\beta_i^{\oset{l-1}} 
+\oset{\mod\pi^{l-\delta-1}}$ for $1\leq i\leq n$. Taking 
+$\gamma_i=\beta_i^{\oset{m+1}}+\sum\limits_{l=m+2}^{\infty} 
+\oset{\beta_i^{(l)}-\beta_i^{\oset{l-1}}}$ we see that 
+$\gamma,\ldots\gamma_n$ are well defined elements of $\sO$ and 
+further, for a suitable integer $t$ depending only on $F$, we have 
+$F\oset{\gamma_1,\ldots,\gamma_n}\equiv 
+F\oset{\beta_1^{(l)},\ldots,\beta_n^{(l)}} 
+\oset{\mod\beta^{l-t}},\forall l\geq t$. The corollary is now 
+immediate. 
+\end{proof}
+
+\section{Structure of squares in complete fields.}\label{sec0.7}
+With a view to study later quadratic forms over complete fields, we 
+determine the structure of squares in complete non-archimedean 
+discretely valuated fields $K$ of characteristic $\neq 2$. We follow 
+the same notation as in the previous section. Let $\pi^\delta$ be the 
+exact power of\pageoriginale $\pi$ dividing $2\oset{=2.1}$ in $\sO$. Since $K$ has 
+characteristic $\neq 2$, such a $\delta$ exists.
+
+\begin{prop}\label{prop:0.9}
+A unit $\alpha$ in $\sO$ is a square in $K$ if and only if there 
+exists $\beta\in\sO$ such that $\alpha\equiv\beta^2 \oset{\mod 
+\pi^{2\delta +1}}$. 
+\end{prop}
+\begin{proof}
+If $\alpha$ is a square in $K$, then $\alpha$ is clearly a square in 
+$\sO$ and such a $\beta$ exists.
+
+Conversely, let $\alpha\equiv\beta^2 \oset{\mod\pi^{2\delta+1}}$ for 
+some $\beta\in\sO$. Then for $F\oset{x_1,x_2}=\alpha x_1^2-x_2^2$ the 
+conditions of Proposition \ref{thm:0.5} are satisfied for 
+$m=2\delta+1,x_1=1, x_2=\beta$. Corollary to Proposition 
+\ref{prop:0.8} implies that $\alpha$ is a square in $K$. 
+\end{proof}
+
+For any field $L$, let $c(L)$ denote the index of the group 
+$L^{*^2}=\set{l^2\mid l\in L ^*}$ in $L^*$, if the index is finite and 
+let $c(L)=\infty$, otherwise. It is clear that for a finite field 
+$L',c(L)=2$ or $1$ according as the characteristic of $L$ is different 
+from or equal to $2$. 
+
+\begin{prop}\label{prop:0.10}
+For a complete non-archimedean discretely valuated field $K$ with 
+residue field $\bar{K}$ of characteristic $\neq 2$, we have, 
+$c(K)=2c\bar{K}$.
+\end{prop} 
+
+\begin{proof}
+Since $\bar{K}$ has characteristic $\neq 2$, we see that $\delta =0$, 
+with the same notation as above. Thus by Proposition \ref{thm:0.6}, 
+any unit $\alpha =a_0+a_1\pi +\cdots$ in $\sO$ is a square in $\sO$ if 
+and only if $a_0$ is a square modulo $\pi$. In other words, $\alpha$ 
+is a square in $\sO$ if and only if $\varphi(a_0)$ is a square in 
+$\bar{K}^*$ where $\varphi$ is the canonical homomorphism 
+$\sO\to\bar{K}$. Thus, any $\beta =\pi^r\alpha$ with $\alpha$ a unit 
+in $\sO$ is a square in $k^*$ if and only if $r$ is even and $\alpha 
+=a_0+a_1\pi +\cdots$ with $\varphi\oset{a_0}\in 
+\oset{\bar{K}^*}^2$. It is now immediate that $c(K)=2c(\bar{K})$.  
+\end{proof}
+
+\begin{remarks*}
+\begin{enumerate}[(1).]
+\item For\pageoriginale any local field $K$ with characteristic of residue field 
+different from $2$ and in particular for a p-adic field $\bQ_p$ with 
+$p$ odd, it is immediate that $c(K)=2c(\bar{K})=4$. Let now $K=\bQ_2$. 
+From Proposition \ref{prop:0.9}, we know that a unit $\alpha$ in $\sO$ 
+is a square if and only if $\alpha\equiv 1\oset{\mod 8}$. If $\sO^*$ 
+is the group of units of $\sO$, then $\oset{\sO^*}^2=\set{\alpha^2\mid 
+\alpha\in\sO^*}$ has index $4$ in $\sO^*$. This implies, by the same 
+arguments as for $\sO_p$ with $p$ odd, that $c\oset{\bQ_2}=8$.
+\item If $K$ is a field of characteristic $\neq 2$ with $c(K)<\infty$, 
+then, for the field $K_x$ of formal power-series in one variable $x$ 
+over $K$, we have $c\oset{K_x}=2c(K)$ by Proposition \ref{prop:0.7}. 
+Thus we can show by induction on $n$, that for the field 
+$L=F\aset{x_1,\ldots,x_n}$ of formal power-series in $n$ variables 
+$x_1,\ldots,x_n$ over a finite field $F$ of add characteristic, we 
+have $c(L)=2^nc(F)=2^{n+1}$. We can thus construct a field $M$ with 
+$c(M)$ prescribed in advance.   
+\end{enumerate}
+\end{remarks*}
+
+\section{Ordered fields}\label{sec0.8}
+\begin{defi*}
+A field $K$ is said to be \ub{ordered} if there exists a relation $>$ 
+(called an ordering) between elements of $K$ such that 
+\begin{enumerate}[(i)]
+\item for any $a\in K$ one and only one of the three conditions holds, 
+namely $a=0,a>0, -a>0$;
+\item $a>0, b>0\Rightarrow a+b>0, ab>0$ for $a,b\in K$.
+\end{enumerate}
+
+We define $a>b \oset{\resp a<b}$ if $a-b>0 \oset{\resp b-a>0}$. 
+\end{defi*}
+
+The\pageoriginale following facts are easily verified:
+\begin{enumerate}[1)]
+\item $a\in K^*\Rightarrow a^2>0$ in every ordering of $K$.
+\item If $K$ is an ordered field and if $a_1,\ldots,a_n$ are in $K^*$, 
+then $\sum\limits_{i=1}^{n} a_i^2>0$. Hence $K$ has characteristic $0$.
+\end{enumerate}
+
+$\bQ$ and $\bR$ are ordered fields, with a unique ordering which is 
+just the usual ordering of real numbers.  
+
+\begin{defi*}
+A field $K$ is said to be \ub{formally real} if $-1$ is not a sum of 
+squares in $K$.
+\end{defi*}
+
+It is clear from 2) above that every ordered field is formally real. 
+In fact, we have 
+
+\setcounter{theorem}{10}
+\begin{theorem}\label{thm:0.11}
+A field $K$ is ordered if and only if it is formally real.
+\end{theorem}
+
+\begin{proof}
+In view of the remark above, it is enough to show that a formally real 
+field $K$ is ordered. We will show that $K$ has an ordering. Consider 
+the family $\sF$ of subsets $F_\alpha$ of $K$ with the 
+following properties:
+\begin{enumerate}[1)]
+\item $a\in K, a=\sum\limits_{i=1}^{r} a_i^2$ with $a_i\in 
+K\Rightarrow a\in p$
+\item $a,b\in p_\alpha\Rightarrow a+b, ab\in p_\alpha$
+\item $a,-a\in p_\alpha\Rightarrow a=0$
+\end{enumerate}
+Clearly $\sF\neq\emptyset$ since $p_0=\set{\sum\limits_{j=1}^{s} 
+a_j^2\mid a_j\in K}$ satisfies conditions 1) and 2) and further 
+condition 3) follows from $K$ being formally real. Applying Zorn's 
+lemma, $\sF$ contains a maximal element, say $p$. We assert that $P$ 
+gives rise to an ordering of $K$. For $a\in K^*$ define 
+
+Conversely\pageoriginale let $\alpha >0$ in every ordering of $K$ and 
+let, if possible, $\alpha$ be not a sum of squares in $K$. We first 
+note that the field $L=K\oset{\sqrt{-\alpha}}$ obtained by adjoining 
+$\sqrt{-\alpha}$ to $K$ is formally real. If not, 
+$-1=\sum\limits_{j=1}^{r}a_j^2$ for $a_j=b_j+\sqrt{-\alpha}c_j$ not 
+all $0$ and with $b_j,c_j\in K$. If $\sqrt{-\alpha}\in K$, then 
+$-1=\sum\limits_{j=1}^{r}a_j^2$ with $a_j\in K$ and $\alpha 
+=\oset{\alpha +1}^2 /4-\oset{\alpha-1}^2 /4=\oset{\oset{\alpha 
++1}/2}^2+\sum\limits_{j=1}^{r}\oset{a_j\oset{\alpha -1}/2}^2$ which 
+gives a contradiction. Hence $\sqrt{-\alpha}\notin K$ and hence 
+$-1=\sum\limits_{j=1}^{r}b_j^2-\alpha\sum\limits_{j=1}^{r} c_j^2$. If 
+$\beta=\sum\limits_{j=1}^{r}c_j^2=0$, then again $-1$ is a sum of 
+squares in $K$ implying as above that $\alpha$ is a sum of squares in 
+$K$, a contradiction. Thus $\beta\neq 0$ and 
+$\alpha=\sum\limits_{j=1}^{r}\oset{b_j/\beta}^2\sum\limits_{j=1}^{r} 
+c_j^2+\sum\limits_{j=1}^{r}\oset{c_j/\beta}^2$, is again a sum of 
+squares, giving a contradiction. Therefore $L$ is formally real and 
+has then an ardering $\succ$, by Theorem \ref{thm:0.11}. By Remark 
+\ref{rem:1}, after Theorem \ref{thm:0.11}, this ordering induces an 
+ordering in $K$. But then by hypothesis $\alpha >0$ and this implies 
+$\alpha\succ 0$. On the other hand, $-\alpha 
+=\oset{\sqrt{-\alpha}}^2\succ 0$ which gives a contradiction. Hence 
+$\alpha$ is a sum of squares in $K$.
+\end{proof}
+

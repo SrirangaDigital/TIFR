@@ -1,0 +1,1850 @@
+
+\chapter{Duality and Its Applications}\label{chap5}
+
+We\pageoriginale shall introduce in this chapter another method to
+solve the problem of minimization with constraints of functionals
+$J_{\circ}$ on a Hilbert space $V$. This method in turn permits us to
+construct new algorithm for finding minimizing sequences to the
+solution of our problem. In this chapter we shall refer to the
+minimization problem: 
+$$
+(P) \qquad\qquad \text{To find } u \epsilon U, J_{\circ}(u) = \inf_{v \epsilon U} J_{\circ}(v)
+$$
+where the constraints are imposed by the set $U$ as the ``Primal
+problem''. In the previous chapter $U$ was defined by means of a
+finite number of functionals $J_{1}, \cdots, J_{k}$ on $V$ : 
+$$
+U = \{v | v \epsilon V; J_{i}(v) \leq 0, i = 1, \cdots, k\}.
+$$
+
+The main idea of the method used in this chapter can be described as
+follows: We shall describe the condition that an element $v$ belongs
+to the constraint set $U$ by means of an inequality condition for a
+suitable functional of two arguments. For this purpose, we introduce a
+cone $A$ in a suitable topological vector space and a functional
+$\varphi$ on $V \times \Lambda$ in such a way that $\varphi(v, \mu)
+\leq 0$ is equivalent to the fact that $v$ belongs to $U$. Of course,
+the choices of $\Lambda$ and $\varphi$ are not unique. Then the primal
+problem $(P)$ will be transformed to a mini-max problem for the
+functional $\mathscr{L}(v, \mu) = J(v) + \varphi (v, \mu)$ on $V
+\times \Lambda$. The new functional $\mathscr{L}$ is called a
+Lagrangain associated to the problem $(P)$. 
+
+We shall show that the primal problem is equivalent the minimax
+problem for the Lagrangain (which is a functional in two arguments
+$\epsilon V \times \Lambda$). The interest of this method is that
+under suitable hypothesis, if $(u, \lambda)$ is a minimax point for
+the Lagrangian then $u$ will be a solution of the primal problem while
+$\lambda$ will be a solution of\pageoriginale the so called ``dual
+max-mini problem'' which is defined in a natural way by the Lagrangian
+in this method. Thus under certain hypothesis a minimax point
+characterizes a solution of the primal problem. 
+
+Results on the existence of minimax points are known in the
+literature. We shall show that when $V$ is of finite dimension, under
+certain assumptions, the existence of a minimax point follows from the
+classical Hahn-Banach theorem. In the infinite dimensional case we
+shall illustrate our method which makes use of aresult of $Ky$ Fan
+\cite{key29} and Sion \cite{key41}, \cite{key42}. However our
+arguments are very general and extend easily to the general problem. 
+
+
+\section{Preliminaries}\label{chap5-sec1}
+We shall begin by recalling the above mentioned two results in the
+form we shall use in this chapter. 
+
+\begin{theorem}\label{chap5-thm1.1}
+(Hahn-Banach). Let $V$ be a topological vector space. Suppose $M$ and
+  $N$ are two convex sets in $V$ such that $M$ has atleast one
+  interior point and $N$ does not have any interior point of $M$
+  (i.e. $Int M \neq \phi, N \cap Int M = \phi$). Then there exist an
+  $F \epsilon V', F \neq 0$ and an $\alpha \epsilon \mathbb{R}$ such
+  that 
+\begin{equation*}
+<F, m >_{V' \times V} = F(m) \leq \alpha \leq F(n), \forall m \epsilon
+M, \forall n \epsilon  N.\tag{1.1}\label{chap5-eq1.1} 
+\end{equation*}
+\end{theorem}
+
+In order to state the next result it is necessary to introduce the
+notion of minimax point or sometimes also called saddle point. 
+
+Let $V$ and $E$ be two sets and
+$$
+\mathscr{L} : V \times E \to \mathbb{R}
+$$
+be a functional on $V \times E$.
+
+\begin{defi*}
+A point $(u, \lambda) \epsilon V \times E$ is said to be a minimax point or saddle point of $\mathscr{L}$ if
+\begin{equation*}
+\mathscr{L} (u, \mu) \leq \mathscr{L} (u, \lambda) \leq \mathscr{L} (v, \lambda), \qquad\forall(v, \mu) \epsilon V \times E.\tag{1.2}\label{chap5-eq1.2}
+\end{equation*}
+\end{defi*}
+
+In\pageoriginale other words, $(u, \lambda) \epsilon V \times E$ is a saddle point of $\mathscr{L}$ if the point $u$ is a minimum for the functional $\mathscr{L} (\cdot , \lambda) : V \ni v \mapsto \mathscr{L} (v, \lambda) \epsilon \mathbb{R}$, and if the point $\lambda$ is a maximum for the functional
+\begin{align*}
+& \mathscr{L} (u, \cdot) : E \ni \mu \mapsto \mathscr{L} (u, \mu) \epsilon \mathbb{R}.\\
+& \text{i.e. } \sup_{\mu \epsilon E} \mathscr{L} (u, \mu) = \mathscr{L}(u, \lambda) = \inf_{v \epsilon V} \mathscr{L} (v, \lambda).
+\end{align*}
+
+\begin{theorem}\label{chap5-thm1.2}
+($Ky$ Fan and Sion). Let $V$ and $E$ be two Hausdorff topological vector spaces, $U$ be a convex compact subset of $V$ and $\Lambda$ be a convex compact subset of $E$. Suppose
+$$
+\mathscr{L} : U \times \Lambda \to \mathbb{R}.
+$$
+be a functional such that
+\begin{enumerate}
+\item[(i)] For every $v \epsilon U$ the functional $\mathscr{L} (v, \cdot) : \Lambda \ni \mu \mapsto \mathscr{L} (v, \mu) \epsilon \mathbb{R}$ is upper-semi continuous and concave,
+
+\item[(ii)] for every $\mu \epsilon \Lambda$ the functional $\mathscr{L} (\cdot , \mu) : U \ni v \mapsto \mathscr{L} (v, \mu) \epsilon \mathbb{R}$ is lower-semi continuous and convex. Then there exists a saddle point $(u, \lambda) \epsilon U \times \Lambda$ for $\mathscr{L}$.
+\end{enumerate}
+\end{theorem}
+
+\medskip
+\noindent{\textit{Lagrangian and Lagrange Multipliers}}
+
+First of all we need a method of describing a set of constraints by means of a functional.
+
+Suppose $V$ is a Hilbert space and $U$ be a given subset of $V$. In all our applications $U$ will be the set of constraints.
+
+Let $E$ be a vector space. We recall that a cone with vertex at 0 in $E$ is a subset $\Lambda$ of $E$ which is left invariant by the action of $\mathbb{R}_{+}$, the set of non-negative real numbers: i.e. If $\lambda \epsilon \Lambda$ and if $\alpha \epsilon \mathbb{R}$ with $\alpha \geq 0$ then $\alpha \lambda$ also belogs to $\Lambda$.
+
+We assume that there exists a vector space $E$, a cone $\Lambda$ with vertex at\pageoriginale 0 in $E$ and a mapping
+$$
+\Phi : V \times \Lambda \to \mathbb{R}
+$$
+such that
+\begin{enumerate}
+\item[(i)] the mapping $\Lambda \ni \mu \mapsto \Phi (v, \mu) \epsilon \mathbb{R}$ is homogeneous of degree one 
+$$
+\text{i.e. }\qquad\qquad \Phi(v, \rho \mu) = \rho \Phi (v, \mu), \forall \rho \geq 0,
+$$
+\item[(ii)] a point $v \epsilon V$ belongs to $U$ if and only if
+$$
+\Phi (v, \mu) \leq 0, \; \forall \mu \epsilon \Lambda.
+$$
+\end{enumerate}
+
+The choice of the cone $\Lambda$ and the mapping $\Phi$ with the two properties above is not unique in general.
+
+The vector space $E$ often is a topological vector space.
+
+We illustrate the choice of $\Lambda$ and $\Phi$ with the following example.
+
+\begin{example}\label{chap5-exam1.1}
+Suppose $U$ is a subset of $\mathbb{R}^{n}$ defined by
+\begin{align*}
+U &= \{v | v \epsilon \mathbb{R}^{n},\\ 
+g(v) &= (g_{1}(v), \cdots, g_{m}(v)) \epsilon \mathbb{R}^{m} \text{ such that } g_{i}(v) \leq 0 \; \forall i = 1, \cdots, m\},
+\end{align*}
+i.e. $g$ is a mapping of $\mathbb{R}^{n} \to \mathbb{R}^{m}$ and $g_{i}(v) \leq 0 \; \forall i$. We take
+$$
+\lambda = \{\mu \epsilon \mathbb{R}^{m} |\mu = (\mu_{1}, \cdots, \mu_{m}) \text{ with } \mu_{i} \geq 0\}
+$$
+
+Clearly $\Lambda$ is a (convex) cone with vertex at $0 \epsilon \mathbb{R}^{m}$. Then we define
+$$
+\Phi :\mathbb{R}^{n} \times \Lambda \to \mathbb{R}
+$$
+$$
+\text{ by } \qquad \Phi(v, \mu) = (\mu, g(v))_{\mathbb{R}^{m}} = \sum_{i=1}^{m} \mu_{i} g_{i} (v).
+$$
+\end{example}
+
+One can immediatly check that $\Phi$ has the properties (i) and (ii) and $U = \{v \epsilon \mathbb{R}^{n} ; \Phi (v, \mu) = (\mu, g(v))_{\mathbb{R}^{m}} \leq 0\}$.
+
+More generally if $U$ is defined by a mapping $g : \mathbb{R}^{n} \to H$ where $H$ is any vector space in which we have a notion of positivity then we can take
+$$
+\Lambda = \{\mu | \mu \epsilon H, \mu \geq 0\}
+$$
+and\pageoriginale
+$$
+\Phi (v, \mu) = <\mu, g(v)>_{H' \times H}.
+$$
+
+\begin{example}\label{chap5-exam1.2}
+Let $U$ be a convex closed subset of a Banach space $V$. We define a function $h : V' \to \mathbb{R}$ by
+$$
+h(\mu) = \sup_{v \epsilon U} <\mu, v>_{V' \times V}'
+$$
+Then clearly $h \geq 0$.
+
+We take for the cone $\Lambda$:
+$$
+\Lambda = \{\mu | \mu \epsilon V', h(\mu) < + \infty \}
+$$
+and define $\Phi : V \times \Lambda \to \mathbb{R}$ by
+$$
+\Phi(v, \mu) = <\mu, v> -h(\mu).
+$$
+\end{example}
+
+It is clear from the very definition that if $v \epsilon V$ and $\Phi (v, \mu) \leq 0$ then $v \epsilon U$. In fact,if $v \notin U$ then, since $U$ is a closed convex set in $V$, by Hahn-Banach theorem there exists an element $\mu \epsilon V'$ such that $\mu(u) = 0 \;\; \forall u \epsilon U$ and $\mu(v) = 1$. Then for this $\mu, h(\mu) = 0$ so that $\mu\in \Lambda$ and $\Phi (v, \mu) = <\mu, v> = 1$ which contradicts the fact that $\Phi(v, \mu) \leq 0$. Hence $v \epsilon U$.
+
+The arguments of Exercise 1.1 can be used to formulate the general problem of non-linear programming considered in Chapter \ref{chap4}: Given $(k+1)$ functionals $J_{\circ}, J_{1}, \cdots, J_{k}$ on a Hilbert space $V$ to find
+\begin{align*}
+& u \epsilon U = \{v | v \epsilon V ; J_{i} (v) \leq 0 \text{ for } i = 1, \cdots, K \},\\
+& J_{\circ}(u) = \inf_{v \epsilon U} J_{\circ}(v).
+\end{align*}
+
+We note that $v \mapsto (J_{1}(v), \cdots, J_{k}(v))$ defines a mapping of $V$ into $\mathbb{R}^{k}$. We take as $E$ the space $(\mathbb{R}^{k})' = \mathbb{R}^{k}$ and
+\begin{align*}
+& \lambda = \{\mu | \mu \epsilon \mathbb{R}^{k}, \mu_{i} \geq 0, i = 1, \cdots, k\}\\
+& \Phi (v, \mu) = \sum_{i=1}^{k} \mu_{i} J_{i} (v).
+\end{align*}
+
+It\pageoriginale is immediately seen that $\Phi$ satisfies (i) and (ii), and that an element $v \epsilon V$ belongs to $U$ if and onlu if $\Phi (v, \mu) \leq 0, \forall \mu \epsilon \Lambda$. So our problem can be reformulated equivalenty as follows:
+
+To find $u \epsilon V$ such that $\sup_{\mu \epsilon \Lambda} \Phi (u, \mu) \leq 0$ and
+$$
+J_{\circ}(u) = \inf\limits_{\{\Phi (v, \mu) \leq 0, \; \forall \mu \epsilon \Lambda\}} J_{\circ}(v).
+$$
+
+These considerations are very general and we have the following simple proposition.
+
+\begin{proposition}\label{chap5-prop1.1}
+Let $V$ be a normed space and $U$ be a subset of $V$ such that we can find a cone $\Lambda$ with vertex at 0 (in a suitable vector space) and a function $\Phi : V \times \Lambda \to \mathbb{R}$ satisfying (i) and (ii). Then the following two problems are equivalent: Let $J : V \to \mathbb{R}$ be a given functional
+
+{\em Primal problem:} To find $u \epsilon U$ such that $J(u) = \inf_{v \epsilon U} J(v)$.
+
+{\em Minimax problem:} To find a point $(u, \lambda) \epsilon V \times \Lambda$ such that
+\begin{equation*}
+J(u) + \Phi (u, \mu) = \inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} (J(v) + \Phi (v, \mu)).\tag{1.3}\label{chap5-eq1.3}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+First of all we show that
+\begin{equation*}
+\sup_{\mu \epsilon \Lambda} \phi (v, \mu) = 
+\begin{cases}
+& 0 \text{ if } v \epsilon U\\
+& +\infty \text{ if } v \notin U.
+\end{cases}
+\end{equation*}
+\end{proof}
+
+In fact, if $u \epsilon U$ then by (ii) $\Phi (v, \mu) \leq 0 \quad \forall \mu \epsilon \Lambda$. Since $0 \epsilon \Lambda$ we get by homogeneity 
+$(i) ; \Phi (v, 0) = 0$ and hence
+$$
+\sup_{\mu \epsilon \Lambda} \Phi (v, \mu) = 0.
+$$
+
+Suppose now $v \notin U$. Then there exists an element $\mu \epsilon \Lambda$ such that $\Phi (v, \mu) > 0$. But for any $\rho > 0$, $\rho \mu \epsilon \Lambda$ and by homogeneity
+$$
+\Phi (v, \rho \mu) = \rho \Phi (v, \mu) > 0
+$$
+so\pageoriginale that $\Phi (v, \rho \mu) \to + \infty$ as $\rho \to + \infty$. This means that
+$$
+\sup_{\mu \epsilon \Lambda} \Phi (v, \mu) = + \infty \text{ if } v \notin U.
+$$
+
+Next we can write
+\begin{align*}
+\sup_{\mu \epsilon \Lambda} (J(v) + \Phi(v, \mu)) & = J(v) + \sup_{\mu \epsilon \Lambda} \Phi (v, \mu)\\
+& = \begin{cases}
+     & J(v) \text{ if } v \epsilon U\\
+     & + \infty \text{ if } v \notin U
+    \end{cases}
+\end{align*}
+and we therefore find
+$$
+\inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} (J(v) + \Phi (v, \mu)) = \inf_{v \epsilon U} J(v).
+$$
+
+This proves the equivalence of the two problems.
+
+Suppose given a functional $J : V \to \mathbb{R}$ on a Hilbert space $V$ and $U$ a subset $V$ for which there exists a cone $\Lambda$ and a function $\Phi : V \times \Lambda \to \mathbb{R}$ satisfying the conditons (i) and (ii).
+
+\begin{definition}\label{chap5-defi1.1}
+The Lagrangain associated to the primal problem for $J$ (with constraints defined by the set $U$) is the functional $\mathscr{L} : V \times \Lambda \to \mathbb{R}$ defined by
+\begin{equation*}
+\mathscr{L} (v, \mu) = J(v) + \Phi(v, \mu).\tag{1.4}\label{chap5-eq1.4}
+\end{equation*}
+$\mu \epsilon \Lambda$ is called a Lagrange multiplier.
+\end{definition}
+
+The relation between the minimax problem and the saddle point for the Lagrangian is expressed by the following proposition. This proposition is true for any functional $\mathscr{L}$ on $V \times \Lambda$.
+
+\begin{proposition}\label{chap5-prop1.2}
+If $(u, \lambda)$ is a saddle point for $\mathscr{L}$ then we have
+\begin{equation*}
+\sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu) = \mathscr{L} (u, \lambda) = \inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} \mathscr{L} (v,\mu).\tag{1.5}\label{chap5-eq1.5}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+First of all for any functional $\mathscr{L}$ on $V \times \Lambda$ we have the inequality
+$$
+\sup_{\mu \epsilon \Lambda} \inf\limits_{v \epsilon V} \mathscr{L} (v, \mu) \leq \inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu).
+$$
+\end{proof}
+
+In\pageoriginale fact, for any point $(v, \mu) \epsilon V \times \Lambda$, we have
+$$
+\inf_{v \epsilon V} \mathscr{L} (v, \mu) \leq \mathscr{L} (v, \mu) \leq \sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu).
+$$
+
+But, there the first term $\inf\limits_{v \epsilon V} \mathscr{L} (v, \mu)$ is only a function of $\mu$ while $\sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu)$ is a function only of $v$. Hence we get the required inequality.
+
+Next, if $(u, \lambda)$ is a saddle point for $\mathscr{L}$ then by definition
+\begin{align*}
+\inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu)
+\leq \sup_{\mu \epsilon \Lambda} \mathscr{L} (u, \mu) &= \mathscr{L}
+(u, \lambda)\\
+& = \inf_{v \epsilon V} \mathscr{L} (v, \mu) \leq \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu).
+\end{align*}
+
+The two inequalities together given the equalities in the assertion of the proposition.
+
+\begin{defi*}
+The problem of finding $(w, \lambda) \epsilon V \times \Lambda$ such that
+\begin{equation*}
+\mathscr{L} (w, \lambda) = \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu)\tag{1.6}\label{chap5-eq1.6}
+\end{equation*}
+is called the ``dual problem'' associated to the primal problem.
+
+i.e. 
+\begin{equation*}
+\begin{cases}
+& (w, \lambda) \epsilon V \times \Lambda \text{ such that }\\
+& J(w) + \Phi (w, \lambda) = \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} (J(v) + \Phi (v, \mu)).\tag*{$(1.6)'$}\label{chap5-eq1.6'}
+\end{cases}
+\end{equation*}
+\end{defi*}
+
+\begin{remark*}
+Since the choice of the cone $\lambda$ and the function $\Phi : V \times \Lambda \to \mathbb{R}$ are not unique there are may ways of defining the dual problem for a given minimization problem.
+\end{remark*}
+
+In the following example we shall determine the dual problem of a linear programming problem.
+
+Suppose given a linear functional $J : \mathbb{R}^{n} \to \mathbb{R}$ of the form $J(v) = (c, v)_{\mathbb{R}^{n}}$ where $c \epsilon \mathbb{R}^{n}$ is a fixed vector, a linear mapping $A : \mathbb{R}^{n} \to \mathbb{R}^{m}$ and a vector $b \epsilon \mathbb{R}^{m}$. Let $U$ be the set in $\mathbb{R}^{n}$.
+\begin{align*}
+U &= \{v \epsilon \mathbb{R}^{n} ; Av - b = ((Av - b)_{j}, \cdots ,
+(Av-b)_{m}) \epsilon \mathbb{R}^{m} \\
+&\qquad\qquad \text{ such that } (Av - b)_{i}
+\leq 0 \text{ for all } i = 1, \cdots , m\}.\tag{1.7}\label{chap5-eq1.7}
+\end{align*}
+
+Consider\pageoriginale the linear programming problem:
+\begin{equation*}
+\text{ To find } u \epsilon U \text{ such that } J(u) = \inf_{v \epsilon U} J(v).\tag{1.8}\label{chap5-eq1.8}
+\end{equation*}
+i.e.\qquad To find  $u \epsilon \mathbb{R}^{n}$  such that
+
+\begin{equation*}
+Au - b \leq 0 \text{ and } (c, u)_{\mathbb{R}^{n}} \leq (c, v)_{\mathbb{R}^{n}} \text{ for all } v \epsilon \mathbb{R}^{n} \text{ satisfying } Av-b \leq 0.\tag*{$(1.8)$}\label{chap5-eq1.8'}
+\end{equation*}
+
+We consider another linear programming problem defined as follows.
+
+Let $J^{*} : \mathbb{R}^{m} \to \mathbb{R}$ be the functional $J^{*} (\mu) = (b, \mu)_{\mathbb{R}^{m}}$ and $U^{*}$ be the subset of $\mathbb{R}^{m}$ given by
+{\fontsize{10}{12}\selectfont
+\begin{equation*}
+U^{*} = \{w | w \epsilon \mathbb{R}^{m}, A^{*} w+c \epsilon \mathbb{R}^{n} \text{ such that } (A^{*} w+c)_{j} \geq 0 \text{ for all } j = 1, \cdots, n\}.\tag{1.9}\label{chap5-eq1.9}
+\end{equation*}}
+where $A^{*} : \mathbb{R}^{m} \to \mathbb{R}^{n}$ is the adjoint of A.
+\begin{equation*}
+\text{ To find } \mu \epsilon u^{*} \text{ such that} J^{*} (\mu) = \inf_{w \epsilon U^{*}} J^{*} (w)\tag{1.10}\label{chap5-eq1.10}
+\end{equation*}
+i.e.\qquad To find $\mu \epsilon \mathbb{R}^{m}$ such that
+\begin{equation*}
+A^{*} \mu + c \geq 0 \text{ and } (b, \mu)_{\mathbb{R}^{m}} \leq (b,w)_{\mathbb{R}^{m}} \text{ for all } w \epsilon \mathbb{R}^{m} \text{ such that } A^{*} w+c \geq 0.\tag*{$(1.10)'$}\label{chap5-eq1.10'}
+\end{equation*}
+
+\begin{proposition}\label{chap5-prop1.3}
+The linear programming problem (\ref{chap5-eq1.10'}) is the dual of
+the linear programming problem (\ref{chap5-eq1.8'}). 
+\end{proposition}
+
+\begin{proof}
+We have $V = \mathbb{R}^{n}, E = R^{m}$. Take the cone in $\mathbb{R}^{m}$ defined by
+$$
+\Lambda = \{\mu | \mu \epsilon (\mathbb{R}^{m})' = \mathbb{R}^{m}, \mu = (\mu_{1}, \cdots, \mu_{m}) \text{ with } \mu_{i} \geq 0 \text{ for all } i=1, \cdots, m \} 
+$$
+and the function
+$$
+\Phi (v, \mu) = (Av-b, \mu)_{\mathbb{R}^{m}}.
+$$
+\end{proof}
+
+By the very definitions we have $U = \{v \epsilon \mathbb{R}^{n} | \Phi(v, \mu) \leq 0\}$. The Lagrangian $\mathscr{L} (v, \mu)$ is given by
+$$
+\mathscr{L} (v, \mu) = (c, v)_{\mathbb{R^{n}}} + (Av - b, \mu)_{\mathbb{R}^{m}}.
+$$\pageoriginale
+
+Hence by Definition (\ref{chap5-eq1.6'}) the dual problem is the following: To find $(w, \lambda) \epsilon \mathbb{R}^{n} \times \Lambda$ such that
+\begin{align*}
+\mathscr{L} (w, \lambda) & = \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V = \mathbb{R}^{n}} \mathscr{L}(v, \mu)\\
+& = \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon \mathbb{R}^{n}} ((c, v)_{\mathbb{R}^{n}} + (Av-b, \mu)_{\mathbb{R}^{m}}).
+\end{align*}
+
+We can write
+$$
+\mathscr{L}(v, \mu) = ((A^{*} \mu + c), v)_{\mathbb{R}^{n}} - (b, \mu)_{\mathbb{R}^{m}}
+$$
+and hence
+$$
+\inf_{v \epsilon \mathbb{R}^{n}} \mathscr{L} (v, \mu) = \inf_{v \epsilon \mathbb{R}^{n}} ((A^{*} \mu + c), v)_{\mathbb{R}^{n}} - (b, \mu)_{\mathbb{R}^{m}}.
+$$
+
+If $A^{*} + \mu + c \neq 0$ then by Cauchy-Schwarz inequality we have
+$$
+-||v||_{\mathbb{R}^{n}} ||A^{*} \mu + c ||_{\mathbb{R}^{n}} \leq (A^{*} \mu + c, v)_{\mathbb{R}^{n}} 
+$$
+and so
+$$
+((A^{*} \mu + c), v)_{\mathbb{R}^{n}} \to - \infty \text{ as } ||v|| \to + \infty 
+$$
+i.e.
+$$
+\inf_{v \epsilon \mathbb{R}^{n}} (A^{*} \mu + c, v)_{\mathbb{R}^{n}} = -\infty \text{ if } A^{*} \mu + c \neq 0.
+$$
+
+But if $A^{*} \mu + c = 0$ then $\inf_{v \epsilon \mathbb{R}^{n}} (A^{*} \mu + c, v)_{\mathbb{R}^{n}} = 0$. Thus our dual problem becomes
+$$
+\sup_{\mu \epsilon \Lambda} \inf_{v \epsilon \mathbb{R}^{n}} \mathscr{L}(v, \mu) = \sup_{\mu \epsilon \Lambda} - (b, \mu)_{\mathbb{R}^{m}} = -\inf_{\mu \epsilon \Lambda} (b, \mu)_{\mathbb{R}^{m}}.
+$$
+
+In other words the dual problem is nothing but (\ref{chap5-eq1.10'})
+
+We conclude this section with the following
+
+\begin{proposition}\label{chap5-prop1.4}
+If $(u, \lambda) \epsilon V \times \Lambda$ is a saddle point for the Lagrangian associated to the primal problem then $u$ is a solution of the primal problem and $\lambda$ is a solution of the dual problem.
+\end{proposition}
+
+\begin{proof}
+$(u, \lambda)$ is a saddle point for the Lagrangian $\mathscr{L}$ is equivalent to saying that 
+\begin{equation*}
+J(u) + \Phi(u, \mu) \leq J(u) + \Phi (u, \lambda) \leq J(v) +\Phi(v, \lambda), \forall (v, \mu) \epsilon V \times \Lambda.\tag{1.11}\label{chap5-eq1.11}
+\end{equation*}
+\end{proof}\pageoriginale
+
+Form the first inequality we have
+\begin{equation*}
+\Phi (u, \mu) \leq \Phi (u, \lambda), \forall \mu \epsilon \Lambda.\tag{1.12}\label{chap5-eq1.12}
+\end{equation*}
+
+Taking $\mu = 0$ in this inequality we get $\Phi (u, 0) \leq \Phi (u, \lambda)$ which means by homogeneity $\Phi (u, \lambda) \geq 0$. Similarly taking $u = 2\lambda$ and using homogeneity we get
+\begin{align*}
+2 \Phi (u, \lambda) & = \Phi(u, 2\lambda) \leq \Phi(u, \lambda)\\
+\text{i.e. }\qquad \Phi(u, \lambda) & \leq 0.
+\end{align*}
+
+Hence we find that $\Phi(u, \lambda) = 0$. Then it follows from (\ref{chap5-eq1.12}) that
+$$
+\Phi (u, \mu) \leq 0, \forall \mu \epsilon \Lambda
+$$
+and therefore $u \epsilon U$ by definition of $\Lambda$ and $\Phi$. Thus we have
+\begin{equation*}
+\begin{cases}
+& u \epsilon U, \lambda \epsilon \Lambda, \Phi(u, \lambda) = 0 \text{ and }\\
+& J(u) + \Phi (u, \lambda) \leq J(v) + \Phi(v, \lambda) \; \forall v \epsilon V\tag{1.13}\label{chap5-eq1.13}
+\end{cases}
+\end{equation*}
+
+Conversely, it is immediate to see that (\ref{chap5-eq1.13}) implies
+(\ref{chap5-eq1.11}). It is enough to observe that $\Phi (u, \mu) \leq
+0 = \Phi(u, \lambda) \; \forall \mu \epsilon \Lambda$ since $u
+\epsilon U$ so that we have the inequality  
+$$
+J(u) + \Phi (u, \mu) \leq J(u) + \Phi (u, \lambda).
+$$
+
+Now in (\ref{chap5-eq1.13}) we take $v \epsilon U$ so that $\Phi(v, \mu) \leq 0, \forall \mu \epsilon \Lambda$ and (\ref{chap5-eq1.13}) will imply
+\begin{equation*}
+\begin{cases}
+& u \epsilon U, \lambda \epsilon \Lambda, \Phi (u, \lambda) = 0\text{ and }\\
+& J(u) \leq J(v) \; \forall v \epsilon U.
+\end{cases} \tag{1.14}\label{chap5-eq1.14}
+\end{equation*}
+which proves that $u$ is a solution of the primal problem. We have already seen in Proposition \ref{chap5-prop1.1} the implication that if $u$ is a solution of the problem then
+$$
+\mathscr{L} (u, \lambda) = \inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu).
+$$\pageoriginale
+
+On the other hand, if we use proposition \ref{chap5-eq1.2} it follows that $\Lambda$ is a solution of the dual problem.
+
+\section[Duality in Finite Dimensional Spaces Via]{Duality in Finite
+  Dimensional Spaces Via\hfil\break Hahn - Banach
+  Theorem}\label{chap5-sec2} 
+
+In this section we describe a duality method based on the classical Hahn-Banach theorem for convex programming problem in finite dimensional spaces i.e. our primal problem is that of minimizing a convex functional on a finite dimensional vector space subject to constraints defined by convex functionals.
+
+We introduce a condition on the constraints which is of fundamental importance called the Qualifying hypothesis. Under this hypothesis we prove that if the primal problem has a solution then there exists a saddle point for the Lagrangian associated to it. We shall also give sufficient conditions in order that the Qualifying hypothesis on the constraints are satisfied.
+
+Let $J_{i} : \mathbb{R}^{n} \to \mathbb{R} (i = 0, 1, \cdots, k)$ be $(k+1)$ convex functionals on $\mathbb{R}^{n}$ and $K$ be the set defined by
+$$
+K = \{v | v \epsilon \mathbb{R}^{n} ; J_{i}(v) \leq 0 \text{ for } i = 1, \cdots, k \}.
+$$
+
+Our primal problem then is
+\begin{problem}\label{chap5-prob2.1}
+To find $u \epsilon K$ such that $J_{\circ} (u) = \inf_{v \epsilon K} J_{\circ} (v)$.
+
+It is clear that $K$ is a convex set.
+
+Let
+\begin{equation*}
+j = \inf_{v \epsilon K} J_{\circ}(v)\tag{2.1}\label{chap5-eq2.1}
+\end{equation*}
+\end{problem}
+
+We introduce the Lagrangian associated to the problem (\ref{chap5-eq2.1}) as described in the previous section. More precisely, let
+$$
+\Lambda = \{\mu | \mu = (\mu_{1}, \cdots , \mu_{k}) \epsilon \mathbb{R}^{k} \text{ such that } \mu_{i} \geq 0 \}
+$$\pageoriginale
+which is clearly a cone with vertex as 0 in $\mathbb{R}^{k}$ and let
+$$
+\Phi : \mathbb{R}^{n} \times \Lambda \to \mathbb{R} 
+$$
+be defined by
+$$
+\Phi (v, \mu) = \sum_{i=1}^{k} \mu_{i} J_{i}(v).
+$$
+
+Then the Lagrangian associated to the problem (\ref{chap5-eq2.1}) is
+$$
+\mathscr{L} (v, \mu) = J_{\circ}(v) + \sum_{i=1}^{k} \mu_{i} J_{i} (v).
+$$
+
+Suppose that the problem (\ref{chap5-eq2.1}) has a solution. Then we wish to find conditions on the constraints $J_{i}$ in order that there exists a saddle point for $\mathscr{L}$. For this purpose we proceed as follows:
+
+Suppose $S$ and $T$ are two subsets of $\mathbb{R}^{k+1}$ defines in the following way:
+
+$S$ is the set of all points
+\begin{equation*}
+\begin{cases}
+& (J_{\circ}(v) - j + s_{\circ}, J_{1}(v) + s_{1}, \cdots, J_{k}(v) + s_{k}) \epsilon \mathbb{R}^{k+1},\\
+& \text{ where } v \epsilon \mathbb{R}^{n} \text{ and }\\
+& s = (s_{\circ}, s_{1}, \cdots, s_{k}) \epsilon \mathbb{R}^{k+1} \text{ such that } s_{i} \geq 0 \; \forall i.
+\end{cases}
+\end{equation*}
+
+$T$ is the set of all points
+$$
+(-t_{\circ}, -t_{i}, \cdots, -t_{k}) \epsilon \mathbb{R}^{k+1} \text{ where } t_{i} \geq 0 \; \forall i.
+$$
+
+It is obvious that $T$ is convex. In fact $T$ is nothing but the negative cone in $\mathbb{R}^{k+1}$. On the other hand, since $J_{\circ}, J_{1}, \cdots, J_{k}$ are convex and $s_{i} \geq 0 \; \forall i$ it follows that $S$ is also convex. It is also clear that $\Int T \neq \phi$. In fact any point $(-t_{\circ}, -t_{1}, \cdots, -t_{k}) \epsilon \mathbb{R}^{k+1}$ with $t_{i} > 0 \; \forall i$ is an interior point.
+
+Next we claim that $S \cap (\Int T) = \phi$. In fact, if $S \cap (\Int T) \neq \phi$ then there exist
+$$
+\text{ some } t \epsilon \mathbb{R}^{k+1} \text{ with } t = (t_{\circ}, t_{1}, \cdots, t_{k}), t_{i} > 0 \; \forall i,
+$$\pageoriginale
+
+$$
+\text{ some } v \epsilon \mathbb{R}^{n}, \text{ and an } s \epsilon \mathbb{R}^{k+1} \text{ with } s = (s_{\circ}, s_{1}, \cdots, s_{k}), s_{i} > 0 \;  \forall i
+$$ 
+such that
+$$
+J_{\circ}(v) - j+s_{\circ} = -t_{\circ}, J_{1}(v) + s_{1} = -t_{1}, \cdots, J_{k}(v) + s_{k} = -t_{k}
+$$
+
+Now we have form this
+$$
+J_{i}(v) = -t_{i} - s_{i} < 0 \text{ since } s_{i} \geq 0 \text{ for any} i = 1, \cdots, k
+$$
+
+This means that $v \epsilon K$. On the other hand,
+$$
+J_{\circ}(v) = -t_{\circ} -s_{\circ} + j < j = \inf_{w \epsilon K} J_{\circ}(w)
+$$
+which is impossible since $v \epsilon K$.
+
+We can now apply Hahn-Banach theorem to the sets $S$ and $T$ in the form we have recalled in Section \ref{chap5-sec1}. There exist an $F \epsilon (\mathbb{R}^{k+1})' = (\mathbb{R}^{k+1})$ and an $\alpha \epsilon \mathbb{R}$ such that $F \neq 0, F(x) \geq \alpha \geq F(y)$ where $x \epsilon S$ and $y \epsilon T$. More precisely we can write this as follows:
+$$
+\exists F = (\alpha_{\circ}, \alpha_{1}, \cdots, \alpha_{k}) \epsilon \mathbb{R}^{k+1} \text{ such that } \sum_{i=0}^{k} |\alpha_{i}| > 0 \text{ and } \exists \alpha \epsilon \mathbb{R}
+$$
+such that
+\begin{equation*}
+\begin{cases}
+& \alpha_{\circ} (J_{\circ}(v) - j+s_{\circ}) +\sum_{i=1}^{k} \alpha_{i} (J_{i}(v) + s_{i}) \geq \alpha \geq - \sum_{i=0}^{k} \alpha_{i} t_{i},\\
+& \forall v \epsilon V, s = (s_{\circ}, s_{1}, \cdots, s_{k}) \text{
+    with } s_{i} \geq 0 \; \forall i\\ 
+&\qquad\qquad\text{ and } t = (t_{\circ}, t_{1}, \cdots, t_{k}) \text{ with } t_{i} \geq 0 \; \forall i\tag{2.2}\label{chap5-eq2.2}
+\end{cases}
+\end{equation*}
+
+We next show from (\ref{chap5-eq2.2}) that we have
+\begin{equation*}
+\alpha = 0, \alpha_{i} \geq 0 \; \forall i \text{ and } \sum_{i=0}^{k} \alpha_{i} > 0.\tag{2.3}\label{chap5-eq2.3}
+\end{equation*}
+
+In fact, if we take $t_{1} = \cdots = t_{k} = 0$ then we get, from the second inequality in (\ref{chap5-eq2.2}).
+$$
+\alpha \geq - \alpha_{\circ} t_{\circ} = (-\alpha_{\circ}) t_{\circ} \; \forall t_{\circ} \geq 0.
+$$\pageoriginale
+
+If $\alpha_{\circ} < 0$ then $(-\alpha_{\circ}) t_{\circ} \to + \infty$ as $t_{\circ} \to + \infty$ and therefore we necessarily have $\alpha_{\circ} \geq 0$. Similarly we can show that $\alpha_{i} \geq 0 \; \forall i = 0, 1, \cdots, k$. Then
+$$
+\sum_{i=0}^{k} |\alpha_{i}| = \sum_{i=0}^{k} \alpha_{i} > 0 \text{ since } F \neq 0.
+$$
+
+If we take $t_{\circ} = t_{1} = \cdots = t_{k} = 0$ we also find, from the second inequalities in (\ref{chap5-eq2.2}) that $\alpha \geq 0$.
+
+We have therefore only to show that $\alpha \leq 0$. For this, taking $s_{\circ} = \cdots = s_{k} = 0$ in the first inequality of (\ref{chap5-eq2.2}) we get
+\begin{equation*}
+\alpha_{\circ} (J_{\circ}(v) - j) + \sum_{i=1}^{k} \alpha_{i} J_{i} (v) \geq \alpha.\tag{2.4}\label{chap5-eq2.4}
+\end{equation*}
+
+Suppose $v^{m}$ is a minimizing sequence for the problem (\ref{chap5-eq2.1})
+$$
+\text{ i.e}  \qquad v^{m} \epsilon K \text{ and } J_{\circ}(v^{m}) \to j = \inf_{v \epsilon K} J_{\circ} (v).
+$$
+
+This means that $J_{i} (v^{m}) \leq 0$ for $i = 1, \cdots, k$ and $J_{\circ}(v^{m}) \to j$. Hence (\ref{chap5-eq2.4}) will imply, since $\alpha_{i} \geq 0$
+$$
+\alpha_{\circ} (J_{\circ} (v^{m}) - j) \geq \alpha_{\circ} (J_{\circ}(v^{m})-j) + \sum_{i=1}^{k} \alpha_{i} J_{i} (v) \geq \alpha.
+$$
+
+Now taking limits as $m \to + \infty$ it follows that $\alpha \leq 0$. Thus we have
+\begin{equation*}
+\begin{cases}
+& \alpha_{i} \geq 0, \text{ for } i = 0, 1, \cdots, k \text{ and } \sum_{i=0}^{k} \alpha_{i} > 0,\\
+& \alpha_{\circ} (J_{\circ} (v) - j) + \sum_{i=1}^{k} \alpha_{i} J_{i}(v) \geq 0, \forall v \epsilon \mathbb{R}^{n}\tag{2.5}\label{chap5-eq2.5}
+\end{cases}
+\end{equation*}
+
+We now make the fundamental hypothesis that
+\begin{equation*}
+\alpha_{\circ} > 0.\tag{2.6}\label{chap5-eq2.6}
+\end{equation*}
+
+Under the hypothesis (\ref{chap5-eq2.6}) if we write $\lambda_{i} = \alpha_{i} / \alpha_{\circ}$ then (\ref{chap5-eq2.5}) can be written in the form
+\begin{equation*}
+\begin{cases}
+& \lambda_{i} \geq 0 \text{ for } i = 1, \cdots, k \text{ and }\\
+& j \leq j_{\circ}(v) + \sum_{i=1}^{k} \lambda_{i} J_{i}(v). \forall v \epsilon \mathbb{R}^{n}\tag{2.7}\label{chap5-eq2.7}
+\end{cases}
+\end{equation*}\pageoriginale
+i.e. $\lambda \epsilon \Lambda$ and $\mathscr{L} (v, \lambda) \geq j \; \forall v \epsilon \mathbb{R}^{n}$.
+
+The condition (\ref{chap5-eq2.6}) is well known in the literature on optimization. We introduce the following definition.
+
+\begin{definition}\label{chap5-defi2.1}
+Any hypothesis on the constraints $J_{i}$ which implies (\ref{chap5-eq2.6}) is called a Qualifying hypothesis.
+\end{definition}
+
+We shall see a little later some examples of Qualifying hypothesis. (See \cite{key26}, \cite{key27}, \cite{key28}).
+
+We have thus proved the
+
+\begin{theorem}\label{chap5-thm2.1}
+If all the functionals $J_{i} (i = 0, 1, \cdots, k)$ are convex and if the Qualifying hypothesis is satisfied then there exists a $\lambda \epsilon \Lambda$ such that $\mathscr{L} (v, \lambda) \geq j \; \forall v \epsilon \mathbb{R}^{n}$.
+
+i.e. there exists $a \lambda = (\lambda_{1}, \cdots, \lambda_{k}) \epsilon \mathbb{R}^{k}$ with $\lambda_{i} \geq 0 \; \forall i$ such that
+$$
+J_{\circ} (v) + \sum_{i=1}^{k} \lambda_{i} J_{i} (v) \geq j, \forall v \epsilon \mathbb{R}^{n}.
+$$
+
+We can also deduce from (\ref{chap5-eq2.7}) the following result.
+\end{theorem}
+
+\begin{theorem}\label{chap5-thm2.2}
+Suppose all the functionals $J_{\circ}, J_{1}, \cdots, J_{k}$ are convex and the Qualifying hypothesis holds. If the problem (\ref{chap5-eq2.1}) has a solution, i.e. 
+\begin{equation*}
+\text{ there exists a } u \epsilon K \text{ such that } J_{\circ} (u) = j = \inf_{v \epsilon K} J_{\circ}(v) \tag{2.8}\label{chap5-eq2.8}
+\end{equation*}
+then the lagrangian $\mathscr{L}$ has a saddle point.
+\end{theorem}
+
+\begin{proof}
+We can write (\ref{chap5-eq2.7}) as
+\begin{align*}
+& \lambda_{i} \geq 0 \text{ for } i = 1, \cdots, k \text{ and }\\
+& J_{\circ}(u) \leq J_{\circ}(v) + \sum_{i=1}^{k} \lambda_{i} J_{i} (v) = \mathscr{L}(v, \lambda), \forall v \epsilon \mathbb{R}^{n}.\tag{2.9}\label{chap5-eq2.9}
+\end{align*}
+Choosing $v = u$ in (\ref{chap5-eq2.9}) we find that
+$$
+\sum_{i=1}^{k} \lambda_{i} J_{i}(u) \geq 0.
+$$
+
+But\pageoriginale here $\lambda_{i} \geq 0$ and $J_{i} (u) \leq 0$ since $u \epsilon K$ so that $\lambda_{i} J_{i}(u) \leq 0$ for all $i = 1, \cdots, k$ and hence $\sum_{i=1}^{k} \lambda_{i} J_{i} (u) \leq 0$. Thus we necessarily have
+$$
+\sum_{i=1}^{k} \lambda_{i} J_{i}(u) = 0
+$$
+and, further more, it follows immediately from this that
+$$
+\lambda_{i} J_{i}(u) = 0 \text{ for } i = 1, \cdots, k.
+$$
+
+Thus we can rewrite (\ref{chap5-eq2.9}) once again as :
+\begin{equation*}
+\begin{cases}
+& \lambda_{i} \geq 0, i = 1, \cdots, k.\\
+& u \epsilon K, \sum_{i=1}^{k} \lambda_{i} J_{i} (u) = 0 \text{ and }\\
+& \mathscr{L}(u, \lambda) = J_{\circ}(u) + \sum_{i=1}^{k} \lambda_{i}
+  J_{i}(u) \leq J_{\circ}(v) + \sum_{i=1}^{k} \lambda_{i} J_{i} (v)\\
+&\qquad\qquad = \mathscr{L} (v, \lambda) \; \forall v \epsilon \mathbb{R}^{n}.\tag{2.10}\label{chap5-eq2.10}
+\end{cases}
+\end{equation*}
+
+But, since $u \epsilon K$, $J_{i}(u) \leq 0$ and we also have
+\begin{equation*}
+\begin{cases}
+& \mathscr{L}(u, \mu) = J_{\circ}(u) + \sum_{i=1}^{k} \mu_{i} J_{i}
+  (u0 \leq J_{\circ}(u) = J_{\circ}(u) + \sum_{i=1}^{k} \lambda_{i}
+  J_{i} (u)\\
+&\qquad\quad = \mathscr{L}(u, \lambda)\\
+& \forall \mu \epsilon \mathbb{R}^{k} \text{ with } \mu
+= (\mu_{1}, \cdots, \mu_{k}), \mu_{i} \geq 0.\tag{2.11}\label{chap5-eq2.11}
+\end{cases}
+\end{equation*}
+
+(\ref{chap5-eq2.10}) asnd (\ref{chap5-eq2.11}) together means that
+$$
+\mathscr{L} (u, \mu) \leq \mathscr{L} (u, \lambda) \leq \mathscr{L}(v, \lambda), \forall v \epsilon \mathbb{R}^{n} \text{ and } \forall \mu \epsilon \Lambda.
+$$
+
+This proves the theorem.
+\end{proof}
+
+\medskip
+\noindent{\textbf{Some examples of Qualifying hypothesis.}} We recall that if all the functionals $J_{\circ}, J_{1}, \cdots , J_{k}$ are convex then we always have (\ref{chap5-eq2.5}) $\forall v \epsilon \mathbb{R}^{n}$. If suppose $\alpha_{\circ} = 0$ in (\ref{chap5-eq2.5}) then we get
+\begin{equation*}
+\begin{cases}
+& \alpha_{i} \geq 0 \text{ for } i = 1, \cdots, k, \sum\limits_{i=1}^{k} \alpha_{i} > 0 \text{ and }\\
+& \sum\limits_{i=1}^{k} \alpha_{i} J_{i} (v) \geq 0, \forall v \epsilon \mathbb{R}^{n}
+\end{cases} \tag{2.12}\label{chap5-eq2.12}
+\end{equation*}
+
+In all the examples we give below we state the Qualifying hypothesis
+in the following\pageoriginale form. The given hypothesis together
+with the fact that $\alpha_{\circ} = 0$ will imply that it is
+impossible that (\ref{chap5-eq2.5}) holds. i.e. The hypothesis will
+imply that (\ref{chap5-eq2.12}) cannot hold. Hence if
+(\ref{chap5-eq2.5}) should hold we necessarily have $\alpha_{\circ} >
+0$, i.e. (\ref{chap5-eq2.6}) holds. 
+
+\medskip
+\noindent{\textit{Qualifying hypothesis (1).}} There exists a vector $Z \epsilon \mathbb{R}^{n}$ such that $J_{i}(Z) < 0$ for $i = 1, \cdots, k$.
+
+This condition is due to Slater (See for instance \cite{key6}).
+
+Suppose the Qualifying hypothesis (1) is satisfied. Let $c \epsilon \mathbb{R}$ be such that $J_{i}(Z) \leq c < 0$ for all $i = 1, \cdots , k$. Obviously such a constant c exists since we can take $c = \max\limits_{1 \leq i \leq k} \quad J_{i} (Z)$. Now if $\alpha_{i} \geq 0 (i = 1, \cdots , k)$ are such that $\sum\limits_{i=1}^{k} \alpha_{i} > 0$ then 
+$$
+\sum\limits_{i=1}^{k} \alpha_{i} J_{i} (Z) \leq c \sum\limits_{i=1}^{k} \alpha_{i} < 0.
+$$
+
+This means that (\ref{chap5-eq2.12}) does not hold for the vector $Z
+\epsilon \mathbb{R}^{n}$. Hence $\alpha_{\circ} > 0$ necessarily so
+that (\ref{chap5-eq2.5}) holds $\forall v \epsilon \mathbb{R}^{n}$ and
+in particular for Z. 
+
+\medskip
+\noindent{\textit{Qualifying hypothesis (2).}} There do not exist real numbers
+\begin{equation*}
+\begin{cases}
+& \alpha_{i} (i = 1, \cdots, k) \text{ with } \alpha_{i} \geq 0 \text{ and } \sum\limits_{i=1}^{k} \alpha_{i} > 0 \text{ such that}\\
+& \sum\limits_{i=1}^{k} \alpha_{i} J_{i} (v) = 0, \forall v \epsilon K.\tag{2.13}\label{chap5-eq2.13}
+\end{cases}
+\end{equation*}
+
+Suppose this hypothesis holds and $\alpha_{\circ} = 0$. Then we have (\ref{chap5-eq2.12}) for all $v \epsilon \mathbb{R}^{n}$.
+
+In particulas, we have
+$$
+\sum\limits_{i=1}^{k} \alpha_{i} J_{i} (v) \geq 0, \forall v \epsilon K.
+$$
+
+But $v \epsilon K$ and $\alpha_{i} \geq 0$ imply that $\alpha_{i} J_{i} (v) \leq 0$ for $i = 1, \cdots , k$ and so $\sum\limits_{i=1}^{k} \alpha_{i} J_{i}(v) \leq 0$. The two inequalities together imply that $\exists \alpha_{i} \geq 0$ with $\sum\limits_{i=1}^{k} \alpha_{i} > 0$ such that $\sum\limits_{i=1}^{k} \alpha_{i} J_{i} (v) = 0$, contrary to the hypothesis. Hence $\alpha_{\circ} > 0$.
+
+\medskip
+\noindent{\textbf{Qualifying hypothesis (3).}}\pageoriginale Suppose $J_{i} (i = 1, \cdots, k)$ further have gradients $G_{i} (i = 1, \cdots, k)$.
+\begin{equation*}
+\begin{cases}
+& \text{ There do not exist real numbers } \alpha_{i} \text{ with }\\
+& \alpha_{i} \geq 0, i = 1, \cdots, k, \sum\limits_{i=1}^{k} \alpha_{i} > 0 \text{ such that }\\
+& \sum\limits_{i=1}^{k} \alpha_{i} G_{i}(v) = 0, \forall v \epsilon K.\tag{2.14}\label{chap5-eq2.14}
+\end{cases}
+\end{equation*}
+
+The condition (\ref{chap5-eq2.14}) seems to be due to to Kuhn and Tucker \cite{key28}
+
+It is enough to show that Qualifying hypothesis (3) implies Qualifying hypothesis (2). Suppose there exist $\alpha_{i} \geq 0, i = 1, \cdots, k$, with $\sum\limits_{i=1}^{k} \alpha_{i} J_{i}(v) = 0 \; \forall v \epsilon K$. Then taking derivatives it will imply the existence of $\alpha_{i} \geq 0 (i = 1, \cdots , k)$ with $\sum\limits_{i=1}^{k} \alpha_{i} > 0$ such that $\sum\limits_{i=1}^{k} \alpha_{i} G_{i}(v) = 0 \; \forall v \epsilon K$. This contradicts the given hypothesis. Hence $\alpha_{\circ} > 0$.
+
+Finally we remark that the existence of a saddle point can also be proved using the minimax theorem of Ky Fan and Sion. We refer for this to the book of Cea \cite{key6}.
+
+\section[Duality in Infinite Dimensional Spaces Via...]{Duality in
+  Infinite Dimensional Spaces Via\hfil\break Ky Fan - Sion
+  Theorem}\label{chap5-sec3} 
+
+This section will be concerned with the duality theory for the minimisation problem with constraints for functionals on infinite dimensional Hilbert spaces. We confine ourselves to illustrate the method in the special example of a quadratic form (see the model problem considered in Chapter \ref{chap1}, Section \ref{chap1-sec7}) in which case we have proved the existence of a unique solution for our probelm (see Section \ref{chap2-sec2} of Chapter \ref{chap2}). As we have already mentioned this example includes a large class of variational inequalities associated to second order elliptic differential operators and conversely. Our main tool in this will be the theorem of $Ky$ Fan and Sion. However we remark that our method is very general and is applicable but for some minor details to the case of general convex programming problems in infinite dimesional spaces.
+
+\subsection{Duality in the Case of a Quadratic Form}\label{chap5-subsec3.1}\pageoriginale
+
+We take for the Hilbert space $V$ the Sobolev space $H^{1} (\Omega)$ where $\Omega$ is a bounded open set with smooth boundary $\Gamma$ in $\mathbb{R}^{n}$. Let $a(\cdot ,  \cdot)$ be a continuous quadratic form on $V$ (i.e. it is a symmetric bilinear bicontinuous mapping: $V \times V \to \mathbb{R}$) and $L(\cdot)$ be a continuous linear functional on $V$ (i.e. $L \epsilon V'$). We assume that $a(\cdot , \cdot)$ is $H^{1} (\Omega)$ - coercive. Let $J : H^{1} (\Omega) \to \mathbb{R}$ be the (strictly) convex continuous functional on $H^{1} (\Omega)$ defined by
+\begin{equation*}
+J(v) = \frac{1}{2} a(v, v) -L(v).\tag{3.1}\label{chap5-eq3.1}
+\end{equation*}
+
+We denote by $||| \cdot |||$ the norm $|| \cdot ||_{H^{1} (\Omega)}$ and by $|| \cdot ||$ the norm $|| \cdot ||_{L^{2} (\Omega)}$.
+
+Let us consider the set
+\begin{equation*}
+K \{v | v \epsilon H^{1} (\Omega), || v|| \leq 1 \}.\tag{3.2}\label{chap5-eq3.2}
+\end{equation*}
+
+We check immediately that $K$ is a closed convex set in $H^{1} (\Omega)$. We are interested in the following minimisation problem :
+
+\begin{problem}\label{chap5-prob3.1}
+To find $u \epsilon K$ such that $J(u) \leq J(v), \forall v \epsilon K$.
+
+Since $J$ is $H^{1} (\Omega)$ -coercive (hence strictly convex) and since $J$ has a gradient and a hessian everywhere in $V$ we know from Theorem \ref{chap2}. \ref{chap2-thm2.1} that the problem \ref{chap5-prob3.1} has unique solution.
+\end{problem}
+
+In order to illustrate our method we shall consider a simple case and take
+\begin{equation*}
+\Lambda = \{\mu | \mu \epsilon \mathbb{R}, \mu \geq 0 \}\tag{3.3}\label{chap5-eq3.3}
+\end{equation*}
+and
+\begin{equation*}
+\Phi(v, \mu) = \frac{1}{2} \mu (||v||^{2} - 1) \; \forall v \epsilon V = H^{1} (\Omega) \text{ and } \mu \epsilon \Lambda.\tag{3.4}\label{chap5-eq3.4}
+\end{equation*}
+
+Thus $K$ is nothing but the set $\{v | v \epsilon V, \Phi(v, \mu) \leq 0 \}$. We define the associated Lagrangian by
+$$
+\mathscr{L} (v, \mu) = J(v) + \Phi(v, \mu)
+$$
+i.e.\pageoriginale
+\begin{equation*}
+\mathscr{L} (v, \mu) = \frac{1}{2} a(v, v) - L(v) + \frac{1}{2} \mu (||v|| - 1).\tag{3.5}\label{chap5-eq3.5}
+\end{equation*}
+
+ We observe that
+\begin{enumerate}
+\item[(i)] the mapping $\mu \mapsto \mathscr{L}(v, \mu)$ is continuous linear and hence, in particular, it is concave and upper-semi-continuous and
+
+\item[(ii)] the mapping $v \mapsto \mathscr{L}(v, \mu)$ is continuous and convex and hence in particualr, it is convex and lower semi-continuous.
+\end{enumerate}
+
+We are now in a position to prove the first result of this section using the theorem of Ky Fan and Sion. This can be stated as follows:
+
+\begin{theorem}\label{chap5-thm3.1}
+Suppose the functional $J$ on $V = H^{1} (\Omega)$ is given by (\ref{chap5-eq3.1}) and the closed convex set $K$ of $V$ is given by (\ref{chap5-eq3.2}). Then the Lagrangian (\ref{chap5-eq3.5}) associated to the primal problem \ref{chap5-eq3.1} has a saddle point. Moreover, if $(u, \lambda)$ is a saddle point of $\mathscr{L}$ then $u$ is a solution of the generalized Neumann problem
+\begin{align*}
++ Au + u \lambda u = f \text{ in } \Omega\\
+\partial / \partial n_{A} u = 0 \text{ on } \Gamma\tag{3.6}\label{chap5-eq3.6}
+\end{align*}
+
+We note that here $u$ and $\lambda$ are subjected to the constraints
+\begin{equation*}
+\lambda \geq 0, ||u|| \leq 1 \text{ but } \lambda (||u||^{2} - 1) = 0.\tag{3.7}\label{chap5-eq3.7}
+\end{equation*}
+\end{theorem}
+
+Here the formal (differential) operator $A$ is defined in the following manner. For any fixed $v \epsilon V = H^{1} (\Omega)$ the linear mapping $\varphi \mapsto a(v, \varphi)$ is a continuous linear functional $Av$ i.e. $Av \epsilon V'$. Moreover $v \mapsto Av$ belongs to $\mathscr{L} (V, V')$ and we have
+$$
+(Av, \varphi)_{V} = a(v, \varphi), \forall \varphi \epsilon H^{1} (\Omega) = V.
+$$
+
+Similarly $f \epsilon L^{2} (\Omega)$ is defined by $L(\varphi) = (f, \varphi)_{L^{2} (\Omega)}, \forall \varphi \epsilon V$. Further $\partial u / \partial n_{A}$ is the co-normal derivative of $u$ associated to $A$ and is defined by the Green's formula:
+$$
+a(u, \varphi) = (Au, \varphi)_{V} + \int_{\Gamma} \partial u \partial n_{A} \varphi d \sigma, \forall \varphi \epsilon V,
+$$
+as in Section \ref{chap2-sec4} of Chapter \ref{chap2}.
+
+In\pageoriginale particular, if we take $a(v, v) = |||v|||^{2}$, then $A = - \triangle$ and the problem is nothing but the classical Neumann problem
+\begin{equation*}
+\begin{cases}
+& -\triangle u + u + \lambda u = f \text{ in } \Omega,\\
+& \partial u / \partial \underline{n} = 0 \text{ on } \Gamma\tag*{$(3.6)'$}\label{chap5-eq3.6'}
+\end{cases}
+\end{equation*}
+
+Of course, we again have (\ref{chap5-eq3.7}).
+
+\medskip
+\noindent{\textbf{Proof of Theorem 3.1.}} Let $\ell > 0$ be any real number. We consider the subsets $K_{\ell}$ and $\Lambda_{\ell}$ of $H(\Omega)$ and $\Lambda$ respectively defined by
+\begin{align*}
+K_{\ell} & = \{v | v \epsilon H^{1} (\Omega), |||v||| \leq \ell \}\\
+\Lambda_{\ell} & = \{\mu | \mu \epsilon \mathbb{R}, 0 \leq \mu \leq \ell \}
+\end{align*}
+
+It is immediately verified that $K_{\ell}$ and $\Lambda_{\ell}$ are convex sets, and that $\Lambda_{\ell}$ is a compact set in $\mathbb{R}$. Since $K_{\ell}$ is a closed bounded set in the Hilbert space $H^{1} (\Omega)$, $K_{\ell}$ is weakly compact. We consider $H^{1} (\Omega)$ with its weak topoligy.
+
+Now $H^{1} (\Omega) = V$ with the weak topology is a Hausdorff topological vector space. All the hypothesis of the theorem of Ky Fan and Sion are satisfied by $K_{\ell}, \Lambda_{\ell}$ and $\mathscr{L}$ in view of (i) and (ii). Hence $\mathscr{L} : K_{\ell} \times \Lambda_\ell \to \mathbb{R}$ has a saddle point $(u_{\ell}, \lambda_{\ell})$. i.e. 
+\begin{equation*}
+\begin{cases}
+& \text{ There exist } (u_{\ell}, \lambda_{\ell}) \epsilon K_{\ell} \times \Lambda_{\ell} \text{ such that }\\
+& J(u_{\ell}) + \frac{1}{2} \mu (|||u_{\ell}|||^{2} - 1) \leq
+  J(u_{\ell}) + \frac{1}{2} \lambda_{\ell} (|||u_{\ell}|||^{2}  - 1)\\
+&\qquad\leq J(v) + \frac{1}{2} \lambda_{\ell} (|||v|||^{2} - 1).\\
+& \forall (v, \mu) \epsilon K_{\ell} \times \Lambda_{\ell}.\tag{3.8}\label{chap5-eq3.8}
+\end{cases}
+\end{equation*}
+
+We shall show that if we choose $\ell > 0$ sufficiently large then such a saddle point can be obtained independent of $\ell$ and this would prove the first part of the assertion. For this we shall first prove that $||u_{\ell}||$ and $\lambda_{\ell}$ are bounded by constants independent of $\ell$.
+
+If we take $\mu = 0 \epsilon \Lambda_{\ell}$ in (\ref{chap5-eq3.8}) we get
+\begin{equation*}
+J(u_{\ell}) \leq J(v) + \frac{1}{2} \lambda_{\ell} (||v||^{2} - 1), \forall v \in K_{\ell}\tag{3.9}\label{chap5-eq3.9}
+\end{equation*}\pageoriginale
+and, in particular, we also get
+\begin{equation*}
+J(u_{\ell}) \leq J(v), \forall v \in K \cap K_{\ell}.\tag{3.10}\label{chap5-eq3.10}
+\end{equation*}
+
+Taking $v = 0 \in K \cap K_{\ell}$ in (\ref{chap5-eq3.10}) we see that $J(u_{\ell}) \leq J(0)  (=0)$. On the other hand, since $a(u_{\ell}, u_{\ell}) \geq 0$ and since $u_{\ell} \in K_{\ell}$
+$$
+L(u_{\ell}) \leq ||L||_{V'} |||u_{\ell}||| \leq \ell ||L||_{V'}
+$$
+we see that
+$$
+J(u_{\ell}) = \frac{1}{2} a(u_{\ell}, u_{\ell}) - L(u_{\ell}) \geq -\ell ||L||_{V'}
+$$
+which proves that $J(u_{\ell})$ is also bounded below. Thus we have
+\begin{equation*}
+\ell ||L||_{V'} \leq J(u_{\ell}) \leq J(0).\tag{3.11}\label{chap5-eq3.11}
+\end{equation*}
+
+Now by coercivity of $a(\cdot , \cdot)$ and (\ref{chap5-eq3.11}) we find
+$$
+\alpha |||u_{\ell}|||^{2} \leq a(u_{\ell}, u_{\ell}) = 2(J(u_{\ell}) + L(u_{\ell})) \leq 2 (J(0) + ||L||_{V'} |||u_{\ell}|||).
+$$
+with a constant $\alpha > 0$ (independent of $\ell$). Here we use the trivial inequality
+$$
+||L||_{V'} |||u_{\ell}||| \leq \epsilon |||u_{\ell}|||^{2} + 1 / \epsilon ||L||_{V'}^{2}. \text{ for any } \epsilon > 0.
+$$
+with $\epsilon = \alpha / 4 > 0$ and we obtain
+$$
+|||u_{\ell}|||^{2} \leq 4/\alpha (J(0) + 4/\alpha ||L||_{V'}^{2})
+$$
+
+This proves that there exists a constant $c_{1} > 0$ such that
+\begin{equation*}
+||| u_{\ell} ||| \leq c_{1} , \forall \ell.\tag{3.12}\label{chap5-eq3.12}
+\end{equation*}
+
+To prove that $\lambda_{\ell}$ is also bounded by a constant $c_{2} > 0$ independent of $\ell$, we observe that since $J$ satisfies all the assumptions of Theorem \ref{chap2}.\ref{chap2-thm3.1} of Chapter \ref{chap2}, (Section \ref{chap2-sec3})\pageoriginale there exists a unique global minimum in $V = H^{1} (\Omega)$ i.e. 
+
+\medskip
+\noindent
+(3.13) There exists unique a $\widetilde{u} \epsilon H^{1} (\Omega)$ such that $J(\widetilde{u}) \leq J(v), \forall v \epsilon V$.
+
+Hence we have
+$$
+J(\widetilde{u}) + \lambda_{\ell} / 2 \leq J(u_{\ell}) + \lambda_{\ell} / 2.
+$$ 
+
+But, if we take $v = 0 \epsilon K_{\ell}$ in the second inequality in (\ref{chap5-eq3.9}) we get
+$$
+J(u_{\ell}) + \lambda_{\ell} / 2 \leq J(0).
+$$
+
+These two inequalities together imply that
+$$
+\lambda_{\ell} / 2 \leq J(0) - J(\widetilde{u}).
+$$
+i.e. 
+\begin{equation*}
+0 \leq \lambda_{\ell} \leq 2(J(0) - J(\widetilde{u})) = c_{2}\tag{3.14}\label{chap5-eq3.14}
+\end{equation*}
+which proves that $\lambda_{\ell}$ is also bounded.
+\begin{equation*}
+\text{ We choose } \ell > \max (c_{1}, 2c_{2}) > 0.\tag{3.15}\label{chgap5-eq3.15}
+\end{equation*}
+
+Next we show that (\ref{chap5-eq3.8}) holds for any $\mu \epsilon \Lambda$. For this, we use the first inequality in (\ref{chap5-eq3.8}) in the form
+$$
+\mu (|| u_{\ell}||^{2} - 1) \leq \lambda_{\ell} (|| u_{\ell}||^{2}|| - 1).
+$$
+
+This implies (i) taking $\mu = 0$, $\lambda_{\ell} (||u_{\ell}||^{2} - 1) \geq 0$ and
+
+(ii) taking $\mu = 2\lambda_{\ell} \leq 2c_{2} < \ell, \lambda_{\ell}, \lambda_{\ell} (||u_{\ell}||^{2} - 1) \leq 0$. Thus we have
+$$
+\lambda_{\ell} (||u_{\ell}||^{2} - 1) = 0 \text{ and } \mu (||u_{\ell}||^{2} - 1) \leq 0, \forall \mu \epsilon \Lambda_{\ell}.
+$$
+
+In particular, $\mu = \ell \epsilon \Lambda_{\ell}$ and so $\ell (||u_{\ell}||^{2} - 1) \leq 0$. Thus we have
+$$
+\lambda_{\ell} (||u_{\ell}||^{2} - 1) = 0 \text{ and } \mu(||u_{\ell}||^{2} - 1) \leq 0, \forall \mu \epsilon \Lambda_{\ell}
+$$
+
+In particular, $\mu = \ell \epsilon \Lambda_{\ell}$ and so $\ell (||u_{\ell}||^{2} - 1) \leq 0$ which means that $||u_{\ell}||^{2} - 1 \leq 0$.
+
+Hence we also have
+$$
+\mu (||u_{\ell}||^{2} - 1) \leq 0 \text{ for any } \mu \geq 0.
+$$
+and\pageoriginale therefore
+\begin{equation*}
+\mathscr{L} (u_{\ell}, \mu) \leq \mathscr{L} (u_{\ell}, \lambda_{\ell}) \leq \mathscr{L} (v, \lambda_{\ell}), \forall \mu \geq 0 \text{ and } v \epsilon K_{\ell}\tag{3.16}\label{chap5-eq3.16}
+\end{equation*}
+where $\ell \geq \max (c_{1}, 2c_{2})$.
+
+We have now only to show that we have (\ref{chap5-eq3.16}) for any $v \epsilon H^{1} (\Omega) = V$. For this we note that $|||u_{\ell}||| \leq c_{1} < \ell$ and hence we can find an $r > 0$ such that the ball
+$$
+B(u_{\ell}, r) = \{v | v \epsilon H^{1}(\Omega) ; |||v-u_{\ell}||| < r \}
+$$
+is contained in the ball $B(0, \ell) = \{v | v \epsilon H^{1} (\Omega), |||v||| < \ell \}$. In fact, it is enough to take $0 < r < (\ell - c_{1}) / 2$. Now the functional $\mathscr{L} (\cdot , \lambda_{\ell}) : v \mapsto \mathscr{L} (v, \lambda_{\ell}) = J(v)  + \lambda_{\ell} / 2 (||v||^{2} - 1)$ has a local minimum in $B(u_{\ell}, r)$. But since this functional is convex such a minimum is also a global minimum. This means that
+$$
+\inf_{v \epsilon R(u_{\ell} r)} \mathscr{L} (v, \lambda_{\ell}) = \inf_{v \epsilon V} \mathscr{L} (v, \lambda_{\ell}).
+$$
+
+On the other hand, since $B(u_{\ell}, r) \subset K_{\ell}$ we see from (\ref{chap5-eq3.16}) that
+{\fontsize{10}{12}\selectfont
+$$
+\mathscr{L} (u_{\ell}, \mu) \leq \mathscr{L} (u_{\ell}, \lambda_{\ell}) \leq \inf_{v \epsilon K_{\ell}} \mathscr{L} (v, \lambda_{\ell}) \leq \inf_{v \epsilon B(u_{\ell}, r)} \mathscr{L} (v, \lambda_{\ell}) = \inf_{v \epsilon V} \mathscr{L} (v, \lambda_{\ell}).
+$$}\relax
+
+In other words, we have
+$$
+\mathscr{L} (u_{\ell}, \mu) \leq \mathscr{L} (u_{\ell}, \lambda_{\ell}) \leq \mathscr{L} (v, \lambda_{\ell}), \forall v \epsilon V \text{ and } \forall \mu \geq 0
+$$
+which means that $\mathscr{L}$ has a saddle point.
+
+Finally we prove that $(u, \lambda) = (u_{\ell}, \lambda_{\ell}) (\ell > \max (c_{1}, 2c_{2}))$ satisfies (\ref{chap5-eq3.6}). First of all the functional $v \mapsto \mathscr{L} (v, \lambda)$ is $G$-differentiable and has a gradient everywhere in $V$. In fact, we have
+\begin{equation*}
+((grad \mathscr{L}) (v), \varphi)_{V} = a(v, \varphi) - L(\varphi) + \lambda(v, \varphi)_{V}.\tag{3.17}\label{chap5-eq3.17}
+\end{equation*}
+
+We\pageoriginale know by Theorem \ref{chap2}.\ref{chap2-thm1.3} (Chapter \ref{chap2}, Section \ref{chap2-sec1}) that at the point $u$ where $v \mapsto \mathscr{L} (v, \lambda)$ has a minimum we should have
+\begin{equation*}
+((grad \mathscr{L} (\cdot ,  \lambda))u, \varphi)_{V} = 0.\tag{3.18}\label{chap5-eq3.18}
+\end{equation*}
+
+Now, if we use (\ref{chap5-eq3.17}), (\ref{chap5-eq3.18}) and the definition of $Au$, $f$ and $\partial u / \partial n_{A}$ we obtain (\ref{chap5-eq3.6}).
+
+This proves the theorem completely.
+
+\begin{remark}\label{chap5-rem3.1}
+  The above argument using the theorem of Ky Fan and Sion can be carried out for the functional $J$ given again by (\ref{chap5-eq3.1}) but the convex set $K$ of (\ref{chap5-eq3.2}) replaced by any one of the following sets
+\end{remark}
+\begin{align*}
+& K_{1} = \{ v | v \epsilon H_{\circ}^{1} (\Omega), v \geq 0 \text{ a. e. in } \Omega \},\\
+& K_{2} = \{ v | v \epsilon H^{1} (\Omega), \gamma_{\circ} v \geq 0 \text{ a. e. on } \Gamma \} \text{ and }\\
+& K_{3} = \{ v | v \epsilon H^{1} (\Omega), 1-grad^{2} u(x) \geq 0 \text{ a. e. in } \Omega \}.
+\end{align*}
+
+Since $v \epsilon H^{1}(\Omega), \gamma_{\circ} v \epsilon H^{\frac{1}{2}} (\Gamma), 1-grad^{2} u(x) \epsilon L^{1} (\Omega)$ and since
+$$
+(H_{\circ}^{1} (\Omega))' = H^{-1} (\Omega), (H^{\frac{1}{2}} (\Gamma))' = H^{-\frac{1}{2}}(\Gamma), (L^{-1} (\Omega))' = L^{\infty} (\Omega)
+$$
+we will have to choose the cone $\Lambda$ respectively in these spaces.
+
+We recall that if $E$ is a vector space in which we have a notion of positivity then we can define in a natural way a notion of positivity in its dual space $E'$ by requiring an element $\mu \epsilon E'$ is positive (i.e. $\mu \geq 0$ in $E'$) if and only if $<\mu, \varphi>_{E' \times E} \geq 0$, $\forall \varphi \epsilon E$ with $\varphi \geq 0$. For the above examples we can take for $E$ the spaces $H_{\circ}^{1} (\Omega), H^{\frac{1}{2}} (\Gamma)$ and $L^{1} (\Omega)$ respectively and we have notions of positivity for their dual spaces.
+
+We can now take
+\begin{align*}
+\Lambda_{1} & = \{\mu \epsilon H^{-1} (\Omega) | \mu \geq 0 \text{ in } \Omega \},\\
+\Lambda_{2} & = \{\mu | \mu \epsilon H^{-\frac{1}{2}} (\Gamma), \mu \geq 0 \text{ on } \Gamma \} \text{ and }\\
+\Lambda_{3} & = \{\mu | \mu \epsilon L^{\infty} (\Omega), \mu \geq 0 \text{ in } \Omega \}.
+\end{align*}\pageoriginale
+and correspondingly the Lagrangians
+\begin{align*}
+& \mathscr{L}_{1} (v, \mu) = J(v) + <\mu, v>_{H^{1} (\Omega) \times H_{\circ}^{1} (\Omega)},\\
+& \mathscr{L}_{2} (v, \mu) = J(v) + <\mu, \gamma_{\circ} v>_{H^{-\frac{1}{2}}(\Gamma) \times H^{\frac{1}{2}}(\Gamma)} \text{ and }\\
+& \mathscr{L}_{3} (v, \mu) = J(v) + <\mu, v>_{L^{\infty} (\Omega) \times L^{1} (\Omega)}.
+\end{align*}
+
+We leave other details of the proof to the reader except to remark that $\Lambda_{i}$ being cones in infinite dimensional Banach spaces the sets $\Lambda_{i, \ell} (i = 1, 2, 3)$ for any $\ell > 0$ will only be convex sets which are compact in the weak topologies of $H^{-1} (\Omega)$ and $H^{-\frac{1}{2}}(\Gamma)$ for $i = 1, 2$ and in the weak $*$ topology of $L^{\infty} (\Omega)$ for $i = 3$.
+
+
+\subsection{Dual Problem}\label{chap5-subsec3.2}
+
+We once again restrict ourselves to the problem considerer in \ref{chap5-eq3.1} i.e. $J$ is a quadratic form on $V = H^{-1} (\Omega)$ given by (\ref{chap5-eq3.1}) and the closed convex set $K$ is given by (\ref{chap5-eq3.2}). We shall study the dual problem in this case. We take $\Lambda$ and $\Phi$ as before.
+
+We recall that the dual problem is the following:
+
+To find $(u, \lambda) \epsilon V \times \Lambda$ such that
+\begin{align*}
+\mathscr{L} (u, \lambda) & = \sup_{\mu \geq 0} \inf_{v \epsilon V} \mathscr{L} (v, \mu)\\
+& = \sup_{\mu \geq 0} \inf_{v \epsilon V} \{\frac{1}{2} a(v, v) - L(v) + \frac{1}{2} \mu (||v||^{2} - 1) \}.
+\end{align*}
+
+We fix a $\mu \geq 0$.
+
+First of all we consider the minimization problem without constrains for the functional
+$$
+\mathscr{L} (\cdot ,  \mu) : v \mapsto \frac{1}{2} a(v, v) - L(v) + \frac{1}{2} \mu (||v||^{2} - 1) 
+$$
+on\pageoriginale the space $V = H^{1}(\Omega)$. We know from Chapter \ref{chap2} (Theorem \ref{chap2}. \ref{chap2-thm2.1}) that it has a unique minimum $u_{\mu} \epsilon V$ since $\mathscr{L} (\cdot , \mu)$ has a gradient and a hessian (which is coercive) everywhere. Moreover, $(grad \mathscr{L} (\cdot , \mu)) (u_{\mu}) = 0$ i.e. we have
+\begin{equation*}
+a(u_{\mu}, \varphi) - L(\varphi) + \mu(u_{\mu}, \varphi) = 0, \quad \forall \varphi \epsilon V. \tag{3.19}\label{chap5-eq3.19}
+\end{equation*}
+
+We can write using Fr\'{e}chet-Riesz theorem
+$$
+a(u, \varphi) = ((Au, \varphi)), L(\varphi) = ((F, \varphi)), (u, \varphi) = ((Bu, \varphi))
+$$
+where $((\cdot , \cdot))$ denotes the inner product in $H^{1} (\Omega)$ and $Au, F, Bu \epsilon H^{1} (\Omega)$. Then (\ref{chap5-eq3.19}) can be rewritten as
+\begin{equation*}
+Au_{\mu} - F + \mu B u_{\mu} = 0.\tag{3.20}\label{chap5-eq3.20}
+\end{equation*}
+
+Hence the unique solution $u_{\mu} \epsilon V$ of the minimizing problem without constrainer for $\mathscr{L} (\cdot , \mu)$ is given by
+\begin{equation*}
+u_{\mu} = (A + \mu B)^{-1} F.\tag{3.21}\label{chap5-eq3.21}
+\end{equation*}
+
+We can now formulate our next result as follows.
+
+\begin{theorem}\label{chap5-thm3.2}
+Under the assumptions of Theorem \ref{chap5-thm3.1} the dual of the primal Problem \ref{chap5-prob3.1} is the following:
+
+To find $\lambda \epsilon \Lambda$ such that $J^{*} (\Lambda) = \inf_{\mu \epsilon \lambda} J^{*} (\mu)$, where
+\begin{equation*}
+J^{*} (\mu) = ((F, u_{\mu})) + \mu. \text{ i.e. }\tag{3.22}\label{chap5-eq3.22}
+\end{equation*}
+\end{theorem}
+
+\medskip
+\noindent{\textbf{Dual Problem (3.2).}} To find $\lambda \geq 0$ such that $J^{*} (\lambda) = \inf_{\mu \geq 0} J^{*} (\mu)$.
+
+\begin{proof}
+Consider
+\begin{align*}
+\mathscr{L} (u_{\mu}, \mu) & = \frac{1}{2} ((A u_{\mu}, u_{\mu})) - ((F, u_{\mu})) + \frac{1}{2} \mu (||u_{\mu}||^{2} - 1)\\
+& = \frac{1}{2} ((A u_{\mu}, u_{\mu})) - ((F, u_{\mu})) + \frac{1}{2} \mu (((B u_{\mu}, u_{\mu})) - 1)\\
+& \frac{1}{2} (((A + \mu B) u_{\mu}, u_{\mu}) - (F, u_{\mu})) - \mu/2.
+\end{align*}\pageoriginale
+\end{proof}
+
+Now using (\ref{chap5-eq3.20}) we can write
+$$
+\mathscr{L} (u_{\mu}, \mu) = - \frac{1}{2} ((F, u_{\mu})) - \mu/2 = -\frac{1}{2} \{ ((F, u_{\mu})) + \mu \}
+$$
+
+Thus we see that
+\begin{align*}
+\sup_{\mu \geq 0} \inf_{v \epsilon V} \mathscr{L} (v, \mu) & = \sup_{\mu \geq 0} (-\frac{1}{2}) \{((F, u_{\mu})) + \mu \}\\
+& = -\frac{1}{2} \inf_{\mu \geq 0} J^{*} (\mu)
+\end{align*}
+which proves the assertion.
+
+We wish to construct an algorithm for the solution of the dual problem (\ref{chap5-subsec3.2}). We observe that in this case the constraint set $\Lambda = \{\mu | \mu \epsilon \mathbb{R}, \mu \geq 0 \}$ is a cone with vertex at $0 \epsilon \mathbb{R}$ and that numerically it is easy to compute the projection on a cone. In face, in our special case we have
+\begin{equation*}
+P_{\Lambda} (\mu) = 
+\begin{cases}
+\mu & \text{ if } \mu \geq 0\\
+0 & \text{otherwise }.
+\end{cases}
+\end{equation*}
+
+Hence we can use the algorithm given by the method of gradient with projection. This we shall discuss a little later. We shall need, for this method, to calculate the gradient of the cost function $J^{*}$ for the dual problem.
+
+Form (\ref{chap5-eq3.22}) we have
+$$
+J^{*} (\mu) = ((F, u_{\mu})) + \mu.
+$$
+
+Taking $G$-derivatives on both sides we get
+\begin{equation*}
+(\text{grad } J^{*}) (\mu) = J^{*}(\mu) = ((F, u'_{\mu})) + 1\tag{3.23}\label{chap5-eq3.23}
+\end{equation*}
+where $u'_{\mu}$ is the derivative of $u_{\mu}$ with respect to $\mu$. In order to compute $u'_{\mu}$ we differentiate with equation (\ref{chap5-eq3.20}) with respect to $\mu$ to get.
+$$
+A u'_{\mu} + \mu B u'_{\mu} + B u_{\mu} = 0
+$$\pageoriginale
+and so
+\begin{equation*}
+u'_{\mu} = -(A + \mu B)^{-1} B u_{\mu}.\tag{3.24}\label{chap5-eq3.24}
+\end{equation*}
+
+Substituting (\ref{chap5-eq3.24}) in (\ref{chap5-eq3.23}) we see that
+$$
+J^{*} (\mu) = - ((F, (A + \mu B)^{-1} B u_{\mu})) + 1.
+$$
+
+Since $a(\cdot , \cdot)$ is symmetric A is self adjoint and since $(\cdot , \cdot)$ is symmetric B is also self adjoint. Then $(A + \mu B)^{-1}$ is also self adjoint. This fact together with (\ref{chap5-eq3.21}) will imply
+$$
+J^{*} (\mu) = - ((A+\mu B)^{-1} F, Bu_{\mu}) + 1 = -(u_{\mu}, Bu_{\mu}) + 1
+$$
+
+This nothing but saying
+\begin{equation*}
+J^{*} (\mu)= 1 - ||u_{\mu}||^{2}\tag{3.25}\label{chap5-eq3.25}
+\end{equation*}
+
+\begin{remark}\label{chap5-rem3.2}
+In our discussion above the functional $\Phi$ is defined by (\ref{chap5-eq3.4}) and we found the gradient of the dual cost function is given by \ref{chap5-eq3.25}. More generally, if $\Phi(v, \mu) = (g(v), \mu)$ then the gradient of the dual cost function can be shown to be $J^{*} (\mu) = -g(u_{\mu})$. We leave the straight forward verification of this fact to the reader.
+\end{remark}
+
+\subsection{Method of Uzawa}\label{chap5-subsec3.3}
+
+The method of Uzawa that we shall study in this section gives an algorithm to construct a minimizing sequence for the dual problem and also an algorithm for the primal problem itself (see \cite{key6}, \cite{key49}). The important idea used is that since the dual problem is one of minimization over a cone in a suitable space it is easy to compute the projection numerically onto such a cone. The algorithm we give is nothing but the method\pageoriginale of gradient with projection for the dual problem (see Section \ref{chap2-sec3} of Chapter \ref{chap2}). We shall show that this method provides a strong convergence of the minimizing sequence obtained for the primal problem while we have only a very weak result on the convergence of the algorithm for the dual problem.
+
+In general the algorithm for the dual problem may not converge. The interest of the method is mainly the convergence of the minimizing sequence for the primal problem.
+
+We shall once again restrict ourselves only to the situation considered earlier i.e. $J, K, \Lambda, \Phi$ and $\mathscr{L}$ are defined by (\ref{chap5-eq3.1}) - (\ref{chap5-eq3.5}) respectively.
+
+\medskip
+\noindent{\textbf{Algorithm.}} Let $\lambda_{\circ}$ be an arbitrarily fixed point and suppose $\lambda_{m}$ is determined.
+
+We define $\lambda_{m+1}$ by
+\begin{equation*}
+\lambda_{m+1} = P_{\Lambda} (\lambda_{m} - \rho J^{*}(\lambda_{m})).\tag{3.26}\label{chap5-eq3.26}
+\end{equation*}
+where $P_{\Lambda}$ denotes the projection on to the cone $\Lambda$ and $\rho > 0$.
+
+In our special case we get, using (\ref{chap5-eq3.25}).
+\begin{equation*}
+\lambda_{m+1} = P_{\Lambda}(\lambda_{m} - \rho(1 - ||u_{m}||^{2}))\tag*{$(3.26)'$}\label{chap5-eq3.26'}
+\end{equation*}
+where $u_{m} = u_{\lambda_{m}}$ is the unique solution of the problem
+\begin{equation*}
+Au_{m} + \lambda_{m} Bu_{m} = F.\tag*{$(3.20)'$}\label{chap5-eq3.20'}
+\end{equation*}
+i.e. 
+\begin{equation*}
+u_{m} = (A + \lambda_{m} B)^{-1} F.\tag*{$(3.21)'$}\label{chap5-eq3.21'}
+\end{equation*}
+
+We remark that (\ref{chap5-eq3.21}) is equivalent to solving a Neumann problem. In the special case where $a(v, v) = |||v|||^{2}$ we have to solve the Neumann problem
+\begin{equation*}
+\begin{cases}
+\triangle u_{m} + (1 + \lambda_{m}) u_{m} & = F \text{ in } \Omega,\\
+\partial u_{m} / \partial \underline{n} & = 0 \text{ on } \Gamma\tag*{$(3.20)''$}\label{chap5-eq3.20''}
+\end{cases}
+\end{equation*}
+i.e. At each stage of the iteration we need to solve a Neumann problem in order to determine\pageoriginale the next iterate $\lambda_{m+1}$.
+
+We shall prove the following main result of this section.
+
+\begin{theorem}\label{chap5-thm3.3}
+Suppose the hypothesis of Theorem \ref{chap5-thm3.1} are satisfied. Then we have the following assertions.
+\begin{enumerate}
+\item[(a)] The sequence $u_{m} = u_{\lambda_{m}}$ determined by \ref{chap5-eq3.20'} converges strongly to the (unique) solution of the primal Problem \ref{chap5-prob3.1}.
+
+\item[(b)] Any cluster point of the sequence $\lambda_{m}$ determined by \ref{chap5-eq3.26'} is a solution of the dual Problem 3.2.
+\end{enumerate}
+\end{theorem}
+
+The proof of the theorem is in several steps. For this we shall need a Taylor's formula for the dual cost function $J^{*}$ (i.e. the functional (\ref{chap5-eq3.22})) and an inequality which is a consequence of Taylor's formula.
+
+{\em Taylor's formula for $J^{*}$}. Let $\lambda, \mu \epsilon \Lambda$ and we consider the problem 
+\begin{equation*}
+(A + \lambda B)u = F \text{ and } (A + \mu B)v = F\tag{3.27}\label{chap5-eq3.27}
+\end{equation*}
+where we have written $u_{\mu} = v$ and $u_{\lambda} = u$. We can also write the first equation as 
+$$
+(A + \lambda B)v = F - (\mu - \lambda) Bv = (A + \lambda B)u - (\mu - \lambda) Bv
+$$
+i.e. 
+$$
+(A + \lambda B)(v-u) = -(\mu - \lambda)Bv.
+$$
+
+Similarly we have
+$$
+(A + \mu B) (v-u) = -(\mu - \lambda)Bu.
+$$
+which implies that
+\begin{equation*}
+u_{\mu} - u_{\lambda} = v-u = -(\mu - \lambda)(A + \mu B)^{-1} Bu_{\lambda}\tag{3.28}\label{chap5-eq3.28}
+\end{equation*}
+
+Then (\ref{chap5-eq3.22}) together with (\ref{chap5-eq3.28}) gives
+\begin{align*}
+J^{*} (\mu) & = J^{*} (\lambda) + ((F, u_{\mu} - u_{\lambda}) + (\mu - \lambda))\\
+& = J^{*} (\lambda) - (\mu - \lambda) ((F, (A + \mu B)^{-1} b u_{\lambda})) + \mu - \lambda\\
+& = J^{*} (\lambda) - (\mu - \lambda)(((A + \mu B)^{-1} F, B u_{\lambda})) + \mu - \lambda
+\end{align*}\pageoriginale
+since $(A + \mu B)^{-1}$ is self adjoint because $a(\cdot ,  \cdot)$ is symmetric and $(\cdot , \cdot)$ is symmetric. Once again using the second equation in (\ref{chap5-eq3.27}) we get
+\begin{align*}
+J^{*}(\mu) & = J^{*} (\lambda)- (\mu - \lambda)((u_{\mu}, B u_{\lambda})) + (\mu - \lambda)\\
+& = J^{*}(\lambda) - (\mu - \lambda) (u_{\lambda}, u_{\lambda}) + (\mu - \lambda) - (\mu- \lambda)(u_{\lambda}-u_{\mu}, u_{\lambda})
+\end{align*}
+where we have used $((\cdot , B \cdot)) = (\cdot , \cdot)$. i.e. We have
+\begin{equation*}
+J^{*}(\mu) = J^{*}(\lambda) + (\mu - \lambda) [1 - ||u_{\lambda}||^{2}] - (\mu - \lambda)(u_{\lambda}-u_{\mu}, u_{\lambda}).\tag{3.29}\label{chap5-eq3.29}
+\end{equation*}
+
+We shall now get an estimate for the last term of (\ref{chap5-eq3.29}). From (\ref{chap5-eq3.28}) we can write
+$$
+(((A + \mu V)(v - u), v - u)) = -(\mu - \lambda)((Bu, v - u))
+$$
+which is nothing but
+$$
+a(v-u, v-u) + \mu(v-u, v-u) = -(\mu - \lambda)(u, v-u).
+$$
+
+Using coercivity of $a(\cdot , \cdot), \mu(v-u, v-u) \geq 0$ on the left side and Cauchy-Schwarz inequality on the side we get
+$$
+\alpha |||v-u|||^{2} \leq |\mu - \lambda| |||u||| |||v-u|||
+$$
+i.e. 
+\begin{equation*}
+||| v-u ||| \leq |\mu - \lambda| / \alpha |||u|||\tag{3.30}\label{chap5-eq3.30}
+\end{equation*}
+
+On the other hand, since $u$ is a solution of (\ref{chap5-eq3.20}), we also have
+$$
+a(u, u) + \lambda (u, u) = L(u)
+$$
+from which we get again using coercivity on the left
+$$
+\alpha |||u|||^{2} \leq ||L||_{V'} |||u||| \leq N |||u|||, \text{ for some constant } N > 0.
+$$\pageoriginale
+i.e. 
+$$
+|||u||| \leq N/ \alpha.
+$$
+
+On substituting this in (\ref{chap5-eq3.30}) we get the estimate
+$$
+|||v-u||| \leq N |\mu - \lambda| / \alpha^{2}
+$$
+which is the same thing as
+\begin{equation*}
+|||u_{\mu} - u_{\lambda}||| \leq N|\mu - \lambda| / \alpha^{2}.\tag{3.31}\label{chap5-eq3.31}
+\end{equation*}
+
+Finally (\ref{chap5-eq3.29}) together with this estimate (\ref{chap5-eq3.31}) implies 
+\begin{equation*}
+J^{*}(\mu) \leq J^{*}(\lambda) + (\mu - \lambda) (1 - ||u_{\lambda}||^{2}) + N^{2} |\mu - \lambda|^{2} / \alpha^{3}.\tag{3.32}\label{chap5-eq3.32}
+\end{equation*}
+
+\medskip
+\noindent{\textit{Proof of Theorem 3.3.}}
+
+\begin{step}\label{chap5-step1}
+ $J^{*} (\lambda_{m})$ is a decreasing sequence and is bounded below if the parameter $\rho > 0$ is sufficiently small. We recall that $\lambda_{m+1}$ is bounded as
+$$
+\lambda_{m+1} = P_{\Lambda}(\lambda_{m} - \rho(1 - ||u_{m}||^{2})).
+$$
+
+We know that in the Hilbert space $\mathbb{R}$ the projection P onto the closed convex set $\Lambda$ is characterized by the variational inequality
+$$
+(\lambda_{m} - \rho(1 - ||u_{m}||^{2}) -\lambda_{m+1}, \mu - \lambda_{m+1})_{\mathbb{R}} \leq 0, \forall \mu  \epsilon \Lambda.
+$$
+i.e. we have
+\begin{equation*}
+(\lambda_{m} - \rho(1 - ||u_{m}||^{2})-\lambda_{m+1}) (\mu - \lambda_{m+1}) \leq 0, \forall \mu \epsilon \Lambda.\tag{3.33}\label{chap5-eq3.33}
+\end{equation*}
+
+Putting $\mu = \lambda_{m}$ in this variational inequality we find
+\begin{equation*}
+|\lambda_{m} - \lambda_{m+1}|^{2} \leq \rho(1 - ||u_{m}||^{2}) (\lambda_{m} - \lambda_{m+1})\tag{3.34}\label{chap5-eq3.34}
+\end{equation*}
+
+On\pageoriginale the other hand (\ref{chap5-eq3.32}) with $\mu = \lambda_{m+1}, \lambda = \lambda_{m}, u_{\lambda} = u_{m}( = u_{\lambda_{m}})$, becomes
+$$
+J^{*} (\lambda_{m+1}) \leq J^{*} (\lambda_{m}) + (\lambda_{m+1} - \lambda_{m})(1 - ||u_{m}||^{2}) + M |\lambda_{m+1} - \lambda_{m}|^{2}
+$$
+where $M$ is the constant $N^{2} / \alpha^{3} > 0$. If we use (\ref{chap5-eq3.34}) on the right side of this inequality we get
+$$
+J^{*} (\lambda_{m+1}) \leq J^{*} (\lambda_{m}) - 1/\rho |\lambda_{m+1} - \lambda_{m}|^{2} + M|\lambda_{m+1} - \lambda_{m}|^{2}
+$$
+i.e.
+\begin{equation*}
+J^{*} (\lambda_{m+1}) + (1/\rho - M) |\lambda_{m+1} - \lambda_{m}|^{2} \leq J^{*}(\lambda_{m}).\tag{3.35}\label{chap5-eq3.35}
+\end{equation*}
+
+Here, $1/\rho - M$ would be $> 0$ if we take $0 < \rho < 1/M = \alpha^{3} / N^{2}$, a fixed constant independent of $\lambda$. We therefore take $\rho \epsilon ]0, 1/M[$ in the definition of $\lambda_{m+1}$ so that we have
+$$
+J^{*} (\lambda_{m+1}) \leq J^{*} (\lambda_{m}),
+$$
+which proves that the sequence $J^{*}(\lambda_{m})$ is decreasing for $0 < \rho < 1/M$. To prove that it is bounded below we use the definition of $J^{*}(\lambda)$ and Cauchy-Schwarz inequality: From (\ref{chap5-eq3.22})
+$$
+J^{*} (\lambda) = ((F, u_{\lambda})) + \lambda \geq - |||F||| |||u_{\lambda}||| \geq - N/ \alpha |||F|||
+$$
+since $|||u_{\lambda}||| \leq N / \alpha$. This proves that $J^{*}(\lambda_{m})$ is bounded below by $-N/\alpha |||F|||$, a known constant.
+\end{step}
+
+\begin{step}\label{chap5-step2}
+By step 1 it follows that $J^{*} (\lambda_{m})$ converges to a limit as $m \to + \infty$. Moreover, (\ref{chap5-eq3.35}) will then imply that
+\begin{equation*}
+|\lambda_{m+1} - \lambda_{m}|^{2} \to 0 \text{ as } m \to + \infty.\tag{3.36}\label{chap5-eq3.36}
+\end{equation*}
+\end{step}
+
+\begin{step}\label{chap5-step3}
+The sequence $\lambda_{m}$ has a cluster point in $\mathbb{R}$. For this, since $J^{*} (\lambda_{m})$ is decreasing we have
+$J^{*} (\lambda_{m+1}) \leq J^{*}(\lambda_{\circ})$ i.e. we have
+$$
+((F, u_{m+1})) + \lambda_{m+1} \leq ((F, u_{\circ})) + \lambda_{\circ}
+$$\pageoriginale
+and the right hand side is a constant independent of $m$. So, by Cauchy-Schwarz inequality,
+$$
+\lambda_{m+1} \leq ((F, u_{\circ} - u_{m+1})) + \lambda_{\circ} \leq ((F, u_{\circ})) + \lambda_{\circ} + |||u_{m+1}||| |||F|||.
+$$
+
+But $|||u_{m+1}|||$ is bounded by a constant $(= N/\alpha)$ and hence
+$$
+0 \leq \lambda_{m+1} \leq ((F, u_{\circ})) + \lambda_{\circ} + N|||F||| / \alpha.
+$$
+i.e. The sequence $\lambda_{m}$ is bounded. We can then extract a subsequence which converges.
+
+Similarly, since $u_{m}$ is a bounded sequence in $H^{1}(\Omega)$ there exists a sub-sequence which converges weakly in $H^{1}(\Omega)$. Let $\{ m' \}$ be a subsequence of the positive integers such that
+$$
+\lambda'_{m} \to \lambda^{*} \text{ in } \mathbb{R} \text{ and } u_{m'} = u_{\lambda_{m'}} \rightharpoonup u^{*} \text{ in } H^{1}(\Omega).
+$$
+\end{step}
+
+\begin{step}\label{chap5-step4}
+Any cluster point $\lambda^{*}$ of the sequence $\lambda_{m}$ is a solution of the dual problem \ref{chap5-eq3.2}.
+
+Let $\lambda_{m'}$ be a subsequence which converges to $\lambda^{*}$. We may assume, if necessary by extracting a subsequence that $u_{m'} \rightharpoonup u^{*}$ in $H^{1} (\Omega)$. By Rellich's lemma the inclusion of $H^{1}(\Omega)$ in $L^{2}(\Omega)$ is compact (since $\Omega$ is bounded) and hence $u_{m'} \to u^{*}$ in $L^{2} (\Omega)$. Then $u^{*}$ satisfies the equation
+\begin{equation*}
+u^{*} \epsilon H^{1}(\Omega), Au^{*} + \lambda^{*} Bu^{*} = F.\tag{3.37}\label{chap5-eq3.37}
+\end{equation*}
+
+To see this, since $u_{m'}$ is a solution of (\ref{chap5-eq3.20'}) we have
+\begin{align*}
+& ((A u_{m'}, \varphi)) + \lambda_{m'} ((B u_{m'}, \varphi)) = ((F, \varphi)), \forall \varphi \epsilon H^{1}(\Omega).\\
+\text{i.e. }\quad & ((A u_{m'}, \varphi)) + \lambda_{m'} (u_{m'}, \varphi) = ((F, \varphi)), \forall \varphi \epsilon H^{1}(\Omega).
+\end{align*}
+
+Taking limits as $m' \to + \infty$ we have
+$$
+((Au^{*}, \varphi)) + \lambda^{*} (u^{*}, \varphi) = ((F, \varphi)), \forall \varphi \epsilon H^{1}(\Omega)
+$$\pageoriginale
+which is the same thing as (\ref{chap5-eq3.37}).
+
+On the other hand, (\ref{chap5-eq3.33}) for the subsequence becomes 
+$$
+1/ \rho (\lambda_{m'} -\lambda_{m'+1}) (\mu - \lambda_{m'+1}) \leq (1 - ||u_{m'}||^{2}) (\mu - \lambda_{m'+1}), \forall \mu \epsilon \Lambda.
+$$
+
+Here on the left side $\mu -\lambda_{m'+1}$ is bounded indepedent of $m'$ and $\lambda_{m'} - \lambda_{m'+1} \to 0$ as $m' \to + \infty$ by (\ref{chap5-eq3.36}). On the right side again by (\ref{chap5-eq3.36}), $\mu - \lambda_{m'+1} \to \mu - \lambda^{*}$ and $(1 - ||u_{m'}||^{2}) \to (1 - ||u^{*}||^{2})$ as $m' \to + \infty$. Thus we get on passing to the limits
+\begin{equation*}
+\lambda^{*} \epsilon \Lambda, (1 - ||u^{*}||^{2}) (\mu - \lambda^{*}) \geq 0, \forall \mu \epsilon \Lambda.\tag{3.38}\label{chap5-eq3.38}
+\end{equation*}
+
+Since $u^{*}$ is a solution of (\ref{chap5-eq3.37}), we know on using (\ref{chap5-eq3.25}), that
+$$
+(grad J^{*}) (\lambda^{*}) = J^{*} (\lambda^{*}) = (1 - ||u^{*}||^{2}).
+$$
+
+Then (\ref{chap5-eq3.38}) is the same thing as
+$$
+\lambda^{*} \epsilon \Lambda, J^{*}(\lambda^{*}). (\mu - \lambda^{*}) \geq 0, \forall \mu \epsilon \Lambda.
+$$
+
+By the results of Chapter \ref{chap2} (Theorem \ref{chap2}. \ref{chap2-thm2.2}) this last variational inequality characterizes a solution of the dual Problem (\ref{chap5-subsec3.2}). Thus $\lambda^{*}$ is a solution of the dual problem.
+\end{step}
+
+\begin{step}\label{chap5-step5}
+The sequence $u_{m}$ converges weakly in $H^{1}(\Omega)$ to the unique solution $u$ of the primal problem.
+
+As in the earlier steps since the sequence $u_{m}$ is bounded in $H^{1}(\Omega)$ and $\lambda_{m}$ is bounded in $\mathbb{R}$ we can find a subsequence $m'$ of integers such that
+$$
+u_{m'} \rightharpoonup u^{*} \text{ in } H^{1}(\Omega) \text{ and } \lambda_{m'} \to \lambda^{*} \text{ in } \mathbb{R}.
+$$
+
+We shall prove that $(u^{*}, \lambda^{*})$ is a saddle point for the Lagrangian. It is easily verified\pageoriginale that
+$$
+(grad_{v} \mathscr{L} (\cdot , \lambda^{*})) (u^{*}) = a(u^{*}, u^{*}) + \lambda^{*} (u^{*}, u^{*}) - L(u^{*}).
+$$
+
+But the right hand side vanishes because $u^{*}$ is the solution of the equation 
+$$
+Au^{*} + \lambda^{*} Bu^{*} = F
+$$
+as can be proved exactly as in Step 4. Moreover $\mathscr{L}(\cdot, \lambda^{*})$ is convex (strongly convex). Hence by Theorem \ref{chap2}.\ref{chap2-thm2.2}.
+\begin{equation*}
+\mathscr{L} (u^{*}, \lambda^{*}) \leq \mathscr{L} (v, \lambda^{*}), \forall v \epsilon H^{1}(\Omega).\tag{3.39}\label{chap5-eq3.39}
+\end{equation*}
+
+Next we see similarly that
+$$
+(grad_{\mu} \mathscr{L}(u^{*}, \cdot))(\lambda^{*}) = \frac{1}{2} (||u||^{2} - 1)
+$$
+and $\mathscr{L}(u^{*}, \cdot)$ is concave. One again using (\ref{chap5-eq3.38}) and the Theorem \ref{chap2}.\ref{chap2-thm2.2} we conclude that
+\begin{equation*}
+\mathscr{L} (u^{*} , \mu) \leq \mathscr{L} (u^{*}, \lambda^{*}), \forall \mu \epsilon \Lambda.\tag{3.40}\label{chap5-eq3.40}
+\end{equation*}
+
+The two inequalities (\ref{chap5-eq3.39}) and (\ref{chap5-eq3.40}) together mean that $(u^{*}, \lambda^{*})$ is a saddle point for $\mathscr{L}$. Hence $u^{*}$ is a solution of the Primal problem and $\lambda^{*}$ is a solution of the dual problem. But since $J$ is strictly convex it has unique minimum in $H^{1}(\Omega)$. Hence $u = u^{*}$ and $u$ is the unique weak-cluster point of the sequence $u_{m}$ in $H^{1}(\Omega)$. This implies that the entire sequence $u_{m}$ converges weakly to $u$ in $H^{1}(\Omega)$.
+\end{step}
+
+\begin{step}\label{chap5-step6}
+ The sequence $u_{m}$ converges strongly in $H^{1}(\Omega)$ to the unique solution of the primal problem.
+
+We can write using the definition of the functional $J$:
+$$
+J(u) = J(u_{m}) + a(u_{m}, u-u_{m}) - L(u-u_{m}) + \frac{1}{2} a(u-u_{m}, u-u_{m}).
+$$
+
+By the coercivity of $a(\cdot , \cdot)$ applied to the last terms on the right side 
+\begin{align*}
+J(u_{m}) + \alpha / 2 |||u-u_{m}|||^{2} & \leq J(u) - \{a(u_{m}, u-u_{m}) - L(u-u_{m}) \}\\
+& = J(u) + ((Au_{m} - F, u-u_{m}))\\
+& = J(u) + \lambda_{m} ((B u_{m}, u-u_{m}))
+\end{align*}\pageoriginale
+since $u_{m}$ satisfies the equation (\ref{chap5-eq3.20'}). i.e. we have
+$$
+J(u_{m}) + \alpha / 2 |||u-u_{m}|||^{2} \leq J(u) + \lambda_{m} (u_{m}, u-u_{m}).
+$$
+
+On the left hand side we know that $J(u_{m}) \to J(u)$ and on the right hand side we know that $|\lambda_{m}|$ and $u_{m}$ are bounded while by Step 5, $u - u_{m} \rightharpoonup 0$ (weakly)in $H^{1}(\Omega)$.
+
+Hence taking limits as $m \to + \infty$ we see that
+$$
+||| u-u_{m} ||| \to 0 \text{ as } m \to + \infty.
+$$
+\end{step}
+
+This completely proves the theorem.
+
+In conclusion we make some remarks on the method of Uzawa.
+
+\begin{remark}\label{chap5-rem3.3}
+In the example we have considered to describe the method of Uzawa $\Lambda$ is a cone in $\mathbb{R}$. But, in general, the cone $\Lambda$ will be a subset of an infinite dimensional (Banach) space. We can still use our argument of Step 3 of the proof to show that $\lambda_{m}$ has a weak cluster point and that of Step 4 to show that a weak cluster point gives a solution of the dual problem.
+\end{remark}
+
+\begin{remark}\label{chap5-rem3.4}
+We can also use the method of Frank and Wolfe since also in this case the dual problem is one of minimization on a cone on which it is easy to compute projections numerically.
+\end{remark}
+
+\begin{remark}\label{chap5-rem3.5}
+While the method of Uzawa gives strong convergence results for the algorithm to the primal the result the dual problem is very weak.
+\end{remark}
+
+\setcounter{remark}{6}
+\begin{remark}\label{chap5-rem3.7}
+Suppose we consider a more general type of the primal problem for the same functional $J$ defined by (\ref{chap5-eq3.1}) of the form:
+$$
+\text{ to find } u \epsilon K, J(u) = \inf_{v \epsilon K} J(v)
+$$\pageoriginale
+where $K$ is a closed convex by set in $V = H^{1} (\Omega)$ is defined by
+$$
+K = \{v | v \epsilon H^{1}(\Omega), g(v) \leq 0 \}.
+$$
+with $g$ a mapping of $H^{1} (\Omega)$ into a suitable topological vector space $E$ (in fact a Banach space) in which we have a notion of positivity. Then we take a cone $\Lambda$ in $E$ as in Remark \ref{chap5-rem3.2} and $\Phi(v, \mu) = <\mu, g(v)>_{E' \times E}$. In order to carry over the same kind of algorithm as we have given above in the special case we proceed as follows: Suppose $\Lambda_{m}$ is determined starting from a $\lambda_{\circ} \epsilon \Lambda$. We firstsolve the minimization problem
+\begin{align*}
+\text{ to find } u_{m} \text{ such that } \mathscr{L} (u_{m}, \lambda_{m}) = \inf_{v} \mathscr{L} (v, \lambda_{m})\\
+grad J^{*} (\lambda_{m}) = -g(u_{m})
+\end{align*}
+
+Then we can use Remark \ref{chap5-rem3.2} to determine $\lambda_{m+1}$ :
+$$
+\lambda_{m+1} = P_{\Lambda}  (\lambda_{m} - \rho J^{*} (\lambda_{m})) = P_{\Lambda}(\lambda_{m} + \rho g(u_{\lambda})).
+$$
+\end{remark}
+
+We can now check that the rest of our argument goes through easily in this case also except that we keep in view our earlier remarks about taking weak topologies in $E'$. For instance, we can use this procedure in the cases of convex sets $K_{1}, K_{2}, K_{3}$ of Remark \ref{chap5-rem3.1}. We leave the details of these to the reader.
+
+\section[Minimization of Non-Differentiable
+  Functionals...]{Minimization of Non-Differentiable
+  Functionals\hfil\break Using Duality}\label{chap5-sec4} 
+
+In this section we apply the duality method using Ky Fan and Sion Theorem to the case of a minimization problem for a functional which is not $G$-differentiable. The main idea is to transform the minimization problem into one of determining a saddle point for a suitable functional on the product of the given space with a suitable\pageoriginale cone. This functional of two variables behaves very much like the Lagrangian (considered in Section \ref{chap5-sec3}) for the regular part of the given functional. In fact we choose the cone $\Lambda$ and the function $\Phi$ in such a way that the non-differentiable part of the given functional can be written as $-\sup_{\mu \epsilon \Lambda} \Phi (v, \mu)$. It turns out that in this case the dual cost function will be $G$-regular and hence we can apply, for instance, the method of gradient with projection. This in its turn enables us to give an algorithm to determine a minimizing sequence for the original minimization problem. The proof of convergence is on lines similar to the one we have given for  the convergence of the algorithm in the method of Uzawa.
+
+We shall however begin our discussion assuming that we are given the cone $\Lambda$ and the function $\Phi$ in a special form and thus we start in fact with a saddle point problem.
+
+Let $V$ and $E$ be two Hilbert spaces and let $J_{\circ} : V \to \mathbb{R}$ be a functional on $V$ of the form
+\begin{equation*}
+V \ni v \mapsto J(v) = \frac{1}{2} a(v, v) - L(v) \epsilon \mathbb{R}\tag{4.1}\label{chap5-eq4.1}
+\end{equation*}
+where as usual we assume:
+\begin{align*}
+(i) & a(\cdot , \cdot) \text{ is a bilinear bicontinuous coercive form on $V$ and } \\
+ii) & L \epsilon V'\tag{4.2}\label{chap5-eq4.2}
+\end{align*}
+
+Suppose we also have
+\begin{align*}
+(iii) & \text{ a closed convex bounded set } \Lambda \text{ in } E \text{ with } 0 \epsilon \Lambda, \text{ and }\\
+(iv) & \text{ and operator } B \epsilon \mathscr{L} (V, E).\tag{4.3}\label{chap5-eq4.3}
+\end{align*}
+
+We set
+\begin{equation*}
+J_{1} (v) = \sup_{\mu \epsilon \Lambda} (-(Bv, \mu)_{E})\tag{4.4}\label{chap5-eq4.4}
+\end{equation*}
+and\pageoriginale
+\begin{equation*}
+J(v) = J_{\circ}(v) + J_{1}(v).\tag{4.5}\label{chap5-eq4.5}
+\end{equation*}
+
+Consider now the minimization problem:
+
+\medskip
+\noindent{\textbf{Primal Problem (4.6).}} To find $u \epsilon V$ such that $J(u) = \inf_{v \epsilon V} J(v)$. We introduce the functional $\mathscr{L}$ on $V \times \Lambda$ by
+\begin{equation*}
+\mathscr{L} (v, \mu) = J_{\circ} (v) - (Bv, \mu)_{E}.\tag{4.7}\label{chap5-eq4.7}
+\end{equation*}
+
+It is clear that if we define $\Phi (v, \mu) = -(Bv, \mu)_{E}$ then $\mathscr{L}$ can be considered a Lagrangian associated to the functional $J_{\circ}$ and the cone generated by $\Lambda$. Since $v \epsilon V$ the condition that $\Phi (v, \mu) \leq 0$ implies $v \epsilon V$ is automatically satisfied and more over, we also have
+$$
+\Phi (v, \rho \mu) = -(Bv, \rho \mu)_{E} = -\rho(Bv, \mu)_{E} = \rho \Phi (v, \mu), \forall \rho > 0.
+$$
+
+On the other hand we see that the minimax problem for the functional $\mathscr{L}$ is nothing but our primal problem. In fact, we have
+\begin{align*}
+\inf_{v \epsilon V} \sup_{\mu \epsilon \Lambda} \mathscr{L} (v, \mu) & = \inf_{v \epsilon V} (J_{\circ}(v) + \sup_{\mu \epsilon \lambda} (-(Bv, \mu)_{E}))\tag{4.8}\label{chap5-eq4.8}\\
+& = \inf_{v \epsilon V} J(v).
+\end{align*}
+
+We are thus led to the problem of finding a saddle point for $\mathscr{L}$.
+
+\begin{remark}%%% 4.1
+In practice, we are given $J_{1}$, the non- $G$-differentiable part of the functional $J$ to be minimized and hence it will be necessary to choose the hilbert space $E$, a closed convex bounded set $\lambda$ in $F$ (with $0 \epsilon \Lambda$) and an operator $B \epsilon \mathscr{L} (V, E)$ suitably so that $J_{1}(v) = \sup_{\mu \epsilon \Lambda} -\break (Bv, \mu)_{E} = -\inf_{\mu \epsilon \Lambda} (Bv, \mu)_{E}$.
+\end{remark}
+
+We shall now examine a few examples of the functionals $J_{1}$ and the correspond $E, \Lambda$, and the operator B. In all the following examples we take
+$$
+V = \mathbb{R}^{n}, E = \mathbb{R}^{m} \text{ and } B \epsilon \mathscr{L}(V, E) \text{ an } (m \times n) - \text{ matrix }.
+$$\pageoriginale
+
+We also use the following satandard norms in the Euclidean space $\mathbb{R}^{m}$. If $1 \leq p < + \infty$ then we define the norms:
+$$
+|\mu|_{p} = (\sum_{i=1}^{m} |\mu_{i}|^{p})^{1/p}
+$$
+and
+$$
+|\mu|_{\infty} = \sup_{1 \leq i \leq m} |\mu_{i}|.
+$$
+
+\begin{example}\label{chap5-exam4.1}
+Let $\Lambda_{1} = \{\mu \epsilon \mathbb{R}^{m}: |\mu|_{2} \leq 1 \}$. Then 
+$$
+J_{1} (v) = \sup_{\mu \epsilon \Lambda} (-(Bv, \mu)_{E}) = |Bv|_{2}.
+$$
+\end{example}
+
+\begin{example}\label{chap5-exam4.2}
+Let $\Lambda_{2} = \{\mu \epsilon \mathbb{R}^{m} : |\mu|_{1} \leq 1 \}$. Then $J_{1} (v) = |Bv|_{\infty}$. If we denote the elements of the matrix B by $b_{ij}$ then $b_{i} = (b_{i1}, \cdots , b_{in})$ is a vector in $\mathbb{R}^{n}$ and $Bv = ((Bv)_{1}, \cdots , (Bv)_{m})$:
+$$
+(Bv)_{i} = (b_{i}, v)_{\mathbb{R}^{n}} = \sum\limits_{j=1}^{n} b_{ij} v_{j}.
+$$
+
+Hence
+$$
+J_{1}(v) = \max_{1 \leq i \leq m} |(Bv)_{i}| = \max_{1 \leq i \leq m} |\sum\limits_{j=1}^{n} b_{ij} v_{j}|.
+$$
+\end{example}
+
+\begin{example}\label{chap5-exam4.3}
+If we take $\Lambda_{3} = \{\mu \epsilon \mathbb{R}^{m} ; |\mu|_{\infty} \leq 1 \}$ then we will find $J_{1}(v) = |Bv|_{1}$ and hence
+$$
+J_{1}(v) = \sum\limits_{i=1}^{m} |\sum\limits_{j=1}^{n} b_{ij} v_{j}|
+$$
+\end{example}
+
+\begin{example}\label{chap5-exam4.4}
+If we take $\Lambda_{4} = \{\mu \epsilon \mathbb{R}^{m} ; |\mu|_{\infty} \leq 1, \mu \geq 0 \}$ then we find
+\begin{equation*}
+J_{1} (v) = |(Bv)^{+}|_{1} \text{ where } ((Bv)^{+})_i =
+\begin{cases}
+& (Bv)_{i} \text{ when } (Bv)_{i} \geq 0\\
+& 0 \text{ when } (Bv)_{i} < 0.
+\end{cases}
+\end{equation*}
+Hence
+$$
+J_{1} (v) = \sum\limits_{i=1}^{m} |\sum\limits_{j=1}^{n} (b_{ij} v_{j})^{+}| = \sum_{i=1}^{m} \sum_{j=1}^{n} (b_{ij} v_{j})^{+}.
+$$\pageoriginale
+\end{example}
+
+\begin{proposition}\label{chap5-prop4.1}
+Under the assumptions made on $J_{\circ}, \Lambda$ and B there exists a saddle point for $\mathscr{L}$ in $V \times \Lambda$.
+\end{proposition}
+
+\begin{proof}
+The mapping $v \mapsto \mathscr{L} (v, \mu)$ of $V \to \mathbb{R}$ is convex (in fact strictly convex since $a(\cdot , \cdot)$ is coercive) and continuous and in particular lower semi-continuous. The mapping $\Lambda \ni \mu \mapsto (v, \mu)$ is concave and continuous and hence is upper semi-continuous. Let $\ell > 0$ be a constant which we shall choose suitably later on and let us consider the set
+$$
+U_{\ell} = \{v | v \epsilon V, ||v||_{V} \leq \ell \}.
+$$
+\end{proof}
+
+The set $U_{\ell}$ is a closed convex bounded set in $V$ and hence is weakly compact. Similarly $\Lambda$ is also weakly in $E$. Thus taking weak topologies on $V$ and $E$ we have two Hausdorff topological vector spaces. We can now apply the theorem of $Ky$ Fan and Sion to sets $U_{\ell}$ and $\Lambda$. We see that there exists a saddle point $(u_{\ell}, \lambda_{\ell}) \epsilon U_{\ell} \times \Lambda$ for $\mathscr{L}$. i.e. We have
+\begin{equation*}
+(u_{\ell}, \lambda_{\ell}) \epsilon U_{\ell} \times \lambda, \mathscr{L} (u_{\ell}, \mu) \leq \mathscr{L} (u_{\ell}, \lambda_{\ell}) \leq \mathscr{L}(v, \lambda_{\ell}), \; \forall (v, \mu) \epsilon U_{\ell} \times \Lambda.\tag{4.9}\label{chap5-eq4.9}
+\end{equation*}
+
+Choosing $\mu = 0$ in the first inequality of (\ref{chap5-eq4.9}) we get $0 \leq -(Bu_{\ell}, \lambda_{\ell})_{E}$ i.e. $(Bu_{\ell}, \lambda_{\ell})_{E} \leq 0$ and
+$$
+J_{\circ}(u_{\ell}) \leq J_{\circ}(u_{\ell}) - (Bu_{\ell}, \lambda_{\ell})_{E} \leq J_{\circ}(v) - (Bv, \lambda_{\ell})_{E}.
+$$
+
+Next, if we take $v = 0 \epsilon U_{\ell}$ we get
+\begin{equation*}
+J_{\circ}(u_{\ell}) \leq J_{\circ}(v) (= 0).\tag{4.10}\label{chap5-eq4.10}
+\end{equation*}
+
+From this we can show that $||u_{\ell}||_{V}$ is bounded. In fact, the inequality (\ref{chap5-eq4.10}) is nothing but
+$$
+\frac{1}{2} a(u_{\ell}, u_{\ell}) - L(u_{\ell}) \leq 0.
+$$\pageoriginale
+
+Using the coercivity of $a(\cdot , \cdot)$ (with the constant of coercivity $\alpha > 0$)
+$$
+\alpha||u_{\ell}||_{V}^{2} \leq a(u_{\ell}, u_{\ell}) \leq 2L (u_{\ell}) \leq 2||L||_{V'} ||u_{\ell}||_{V}
+$$
+
+\begin{equation*}
+\text{ i.e. } ||u_{\ell}||_{V} \leq 2||L||_{V'}/ \alpha.\tag{4.11}\label{chap5-eq4.11}
+\end{equation*}
+
+In other words, $||u_{\ell}||_{V}$ is bounded by a constant $c = 2||L||_{V'}/\alpha$ independent of $\ell$.
+
+Now we take $\ell > c$. Then we can find a ball $B(u_{\ell}, r) = \{v \epsilon V | ||v-u_{\ell}||_{V} < r \}$ contained in the ball $B(0, \ell)$. It is enough to take $r \epsilon ]0, \frac{\ell - c}{2}[$. The functional $J_{\circ}$ attains a local minimum in such a ball. Now $J_{\circ}$ being (strictly) convex it is the unique global minimum. Thus we have proved that if we choose $\ell > c > 0$ where $c = 2||L||_{V'}/\alpha$ there exists
+\begin{equation*}
+(u, \lambda) \epsilon V \times \Lambda \text{ such that } \mathscr{L} (u, \mu) \leq \mathscr{L} (u, \lambda) \leq \mathscr{L}(v, \lambda) \forall (v, \mu) \epsilon V \times \Lambda\tag{4.12}\label{chap5-eq4.12}
+\end{equation*} 
+which means that $(u, \lambda)$ is a saddle point for $\mathscr{L}$ in $V \times \Lambda$.
+
+\medskip
+\noindent{\textbf{Dual problem.}} By definition the dual problem is characterized by considering the problem:
+\begin{equation*}
+\begin{cases}
+& \text{ to find } (u, \lambda) \epsilon U \times \Lambda \text{ such that }\\
+& \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu) = \mathscr{L}(u, \lambda).\tag{4.13}\label{chap5-eq4.13}
+\end{cases}
+\end{equation*}
+
+We write $\mathscr{L}(v, \mu)$ in the following form: Since the mapping $v \mapsto a(u, v)$ is continuous linear there exists an element $Au \epsilon V$ such that
+$$
+a(u, v) = (Au, v)_{V}, \forall v \epsilon V.
+$$
+
+Moreover, $A \epsilon \mathscr{L} (V, V)$. Also by Frechet-Riesz theorem there exists an $F \epsilon V$ such that
+$$
+L(v) = (F, v)_{V}, \quad \forall \epsilon V.
+$$
+
+Thus\pageoriginale we have
+\begin{align*}
+\mathscr{L} (v, \mu) & = \frac{1}{2} (Av, v)_{V} - (F, v)_{V} - (Bv, \mu)_{E}\\
+& = \frac{1}{2} (Av, v)_{V} - (v, F + B^{*} \mu)_{V}.
+\end{align*}
+
+For any $\mu \epsilon \Lambda$ fixed we consider the minimization problem
+\begin{equation*}
+\text{ to find } u_{\mu} \epsilon \lambda \text{ such that } \mathscr{L} (u_{\mu}, \mu) = \inf_{v \epsilon V} \mathscr{L} (v, \mu).\tag{4.14}\label{chap5-eq4.14}
+\end{equation*}
+
+Once again $v \mapsto \mathscr{L} (v, \mu)$ is twice $G$-differentiable and has a gradient and a hessian everywhere in $V$. In fact,
+\begin{equation*}
+(grad_{v} \mathscr{L} (\cdot , \mu)) (\varphi) = (Av,\varphi)_{V} - (F, \varphi)_{V} - (B^{*} \mu, \varphi)\tag{4.15}\label{chap5-eq4.15}
+\end{equation*}
+and
+$$
+(Hess_{v} \mathscr{L} (\cdot , \mu))(\varphi, \psi) = (A \psi, \varphi)_{V}.
+$$
+
+Hence, the coercivity of $a(\cdot , \cdot)$ implies that
+$$
+(Av, v)_{V} = a(v, v) \geq \alpha ||v||_{V}^{2}, \forall v \epsilon V
+$$
+which then implies that $v \mapsto \mathscr{L} (v, \mu)$ is strictly convex. Then by Theorem \ref{chap2}.\ref{chap2-thm2.2} there exists a unique solution $u_{\mu}$ of the problem (\ref{chap5-eq4.14}) and $u_{\mu}$ satisfies the equation
+$$
+[grad_{v} \mathscr{L} (\cdot , \mu)]_{v=u_{\mu}} = 0.
+$$
+i.e. There exists a unique $u_{\mu} \epsilon V$ such that
+$$
+\mathscr{L} (u_{\mu}, \mu) = \inf_{v \epsilon V} \mathscr{L} (v, \mu)
+$$
+and moreover $u_{\mu}$ satisfies the equation
+\begin{equation*}
+(Au_{\mu}, \varphi)_{V} - (B^{*} \mu, \varphi)_{V} - (F, \varphi)_{V} = 0, \forall \varphi \epsilon V.\tag{4.16}\label{chap5-eq4.16}
+\end{equation*}
+i.e. 
+\begin{equation*}
+Au_{\mu} = F + B^{*} \mu.\tag*{$(4.16)$}\label{chap5-eq4.16'}
+\end{equation*}
+
+Thus\pageoriginale we have
+\begin{equation*}
+u_{\mu} = A^{-1} (F + B^{*} \mu)\tag{4.17}\label{chap5-eq4.17}
+\end{equation*}
+and taking $\varphi = u_{\mu}$ in (\ref{chap5-eq4.16}) we also find that
+\begin{equation*}
+(Au_{\mu} , u_{\mu})_{V} = (F + B^{*} \mu, u_{\mu})_{V}.\tag{4.18}\label{chap5-eq4.18}
+\end{equation*}
+
+using (\ref{chap5-eq4.17}) and (\ref{chap5-eq4.18}) we can write
+\begin{align*}
+\mathscr{L} (u_{\mu}, \mu) & = \frac{1}{2} \{(Au_{\mu}, u_{\mu})_{V} - 2(F, u_{\mu})_{V} - 2(B^{*} \mu, u_{\mu})_{V} \}\\
+& = -\frac{1}{2} \{(F, u_{\mu})_{V} + (B^{*} \mu, u_{\mu})_{V} \}\\
+& = -\frac{1}{2} \{(F, A^{-1} (F + B^{*} \mu))_{V} + (B^{*} \mu, A^{-1} (F + B^{*} \mu))_{V} \}\\
+& = -\frac{1}{2} \{(BA^{-1} B^{*} \mu, \mu)_{E} + 2(BA^{-1} F, \mu)_{E} + (F, A^{-1} F)_{E} \}
+\end{align*}
+since A is symmetric implies $A^{-1}$ is also self adjoint. Thus we see that
+\begin{align*}
+& \sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu) = \sup_{\mu \epsilon \Lambda} \mathscr{L} (u_{\mu}, \mu)\\
+& = \sup_{\mu \epsilon \Lambda} - \frac{1}{2} \{(BA^{-1} B^{*} \mu, \mu)_{E} + 2(BA^{-1} F, \mu)_{E} + (F, A^{-1} F)_{E} \}.
+\end{align*}
+
+If we set
+\begin{equation*}
+\mathscr{A} = BA^{-1} B^{*} \text{ and } \mathscr{F} = -BA^{-1} F\tag{4.19}\label{chap5-eq4.19} 
+\end{equation*}
+then $\mathscr{A} \epsilon \mathscr{L} (E . E)$ and $\mathscr{F} \epsilon E$ and moreover
+\begin{equation*}
+\sup_{\mu \epsilon \Lambda} \inf_{v \epsilon V} \mathscr{L} (v, \mu) = -\frac{1}{2} \inf_{\mu \epsilon \Lambda} \{(\mathscr{A} \mu, \mu)_{E} - 2(\mathscr{F}, \mu)_{E} + (F, A^{-1} F)_{E} \}.\tag{4.20}\label{chap5-eq4.20}
+\end{equation*}
+
+Here the functional
+\begin{equation*}
+\mu \mapsto \frac{1}{2} (\mathscr{A} \mu, \mu)_{E} - (\mathscr{F}, \mu)_{E}\tag{4.21}\label{chap5-eq4.21}
+\end{equation*}
+is\pageoriginale quadratic on the convex set $\lambda$. It is twice $G$-differentiale with respect to $\mu$ in all directions in L and has a gradient $G^{*}(\mu)$ and a Hessian $H^{*}(\mu)$ every where in $\Lambda$. In fact, we can easily see that
+\begin{equation*}
+G^{*} (\mu) = \mathscr{A} \mu - \mathscr{F}.\tag{4.22}\label{chap5-eq4.22}
+\end{equation*}
+
+Thus we have provd the following
+
+\begin{proposition}\label{chap5-prop4.2}
+Under the assumptions made on $J_{\circ}, \Lambda$ and B the dual of the primal problem (4.6) is the following problem:
+
+{\em Dual Problem.}
+\begin{equation*}
+\text{ To find } \lambda \epsilon \Lambda \text{ such that } J^{*} (\Lambda) = \inf_{\mu \epsilon \Lambda} J^{*}(\mu),\tag{4.23}\label{chap5-eq4.23}
+\end{equation*}
+where
+\begin{equation*}
+\begin{cases}
+ J^{*} (\mu) & = \frac{1}{2} (\mathscr{A} \mu, \mu)_{E} - (\mathscr{F}, \mu)_{E},\\
+ \mathscr{A} & = BA^{-1} B^{*}, \mathscr{F} = -BA^{-1} F.\tag{4.24}\label{chap5-eq4.24}
+\end{cases}
+\end{equation*}
+\end{proposition}
+
+\begin{remark}\label{chap5-rem4.1}
+In view of the Remark (\ref{chap5-eq3.2}) and the fact that $g(v) = -Bv$ in our case we know that the gradient of $J^{*}$ is given by $G^{*} (\mu) = + Bu_{\mu}$. We see easily that this is also the case in pur present problem. In fact, by (\ref{chap5-eq4.24})
+$$
+G^{*} \mu = \mathscr{A}\mu -\mathscr{F} = BA^{-1} B^{*} \mu + BA^{-1} F = BA^{-1} (B^{*} \mu + F).
+$$ 
+
+On the other hand, by (\ref{chap5-eq4.17}) $u_{\mu} = A^{-1} (B^{*} \mu + F)$ so that
+$$
+Bu_{\mu} = BA^{-1} (B^{*} \mu + F) = G^{*} (\mu).
+$$
+\end{remark}
+
+{\em Algorithm.} To determine a minimizing sequence for our primal proble we can use the same algorithm as in the method of Uzawa.
+
+Suppose $\lambda_{\circ}$ is an arbitrarily fixed point in $\Lambda$. We determine $u_{\circ}$ by solving the equation
+\begin{equation*}
+u_{\circ} \epsilon V, Au_{\circ} = F + B^{*} \lambda_{\circ}.\tag{4.25}\label{chap5-eq4.25}
+\end{equation*}\pageoriginale
+
+If we have determined $\lambda_{m}$ (and $u_{m-1}$) iteratively we determine $u_{m}$ as the unique solution of the functional (differential in most of the applications) equation
+\begin{equation*}
+u_{m} \epsilon V, Au_{m} = F + B^{*} \lambda_{m}\tag{4.26}\label{chap5-eq4.26}
+\end{equation*}
+i.e. $u_{m}$ is the solution of the equation
+\begin{equation*}
+a(u_{m}, \varphi) = (F + B^{*} \lambda_{m}, \varphi)_{V} = (F, \varphi)_{V} + (\lambda_{m}, B \varphi)_{E}, \forall \varphi \epsilon V.\tag*{$(4.26)'$}\label{chap5-eq4.26'}
+\end{equation*}
+
+Then we define
+\begin{equation*}
+\lambda_{m+1} = P_{\Lambda} (\lambda_{m} - \rho Bu_{m})\tag{4.27}\label{chap5-eq4.27}
+\end{equation*}
+where $P_{\Lambda}$ is the projection of $E$ onto the closed convex set $\Lambda$ and $\rho > 0$ is a sufficiently small parameter.
+
+The convergence of the algorithm to a solution of the minimizing problem for the (non-differentiable) functional $J, J = J_{\circ} + J_{1}$, can be proved exactly as in the proof of convergence in the method of Uzawa. However, we shall omit the details of this proof.
+
+\begin{remark}\label{chap5-rem4.2}
+If we choose the Hilbert space $E$, the convex set $\Lambda$ in $E$ and the operator $B \epsilon \mathscr{L} (V, E)$ properly this method provides a good algorithm to solve the minimization problem for many of the known non-differentiable functionals.
+\end{remark}
+
+\begin{remark}\label{chap5-rem4.3}
+In the above algorithm (\ref{chap5-eq4.26}) is a linear system if $V$ is finite dimensional, and if $V$ is an infinite dimensional (Hilbert) space then (\ref{chap5-eq4.26}) can be interpreted as a Neumann type problem.
+\end{remark}
+
+\begin{remark}\label{chap5-rem4.4}
+We can also give an algorithm using the method of Franck and Wolfe to solve the dual problem instead of the method of gradient with projection. Here we can take $\rho > 0$ to be a fixed constant which is sufficiently small.
+\end{remark}

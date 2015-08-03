@@ -1,0 +1,879 @@
+\chapter{Exact Couples and the Connes Exact Couple}\label{chap1}
+
+In\pageoriginale this chapter we review background material on graded
+objects, differential objects or complexes, spectral sequences, and on
+exact couples. Since the Connes' exact couple relating Hochschild and
+cyclic homology plays a basic role in the theory of cyclic homology,
+this material will serve as background material and as a means of
+introducing other technical topics needed in the subsequent
+chapters. We discuss the basic structure of the Connes' exact couple
+and the elementary conclusions that can be drawn from this kind of
+exact couple.
+
+\section{Graded objects over a
+  category}\label{chap1-sec1}\index{graded objects}
+
+Given a category we formulate the notion of graded objects over the
+category and define the category of graded objects. There are many
+examples of gradings indexed by groups $\bfZ$, $\bfZ/2\bfZ$,
+$\bfZ/8\bfZ$, or $\bfZ^{r}$ which arise naturally. Then, a bigraded
+object is a $\bfZ^{2}$-graded object, that is, an object graded by the
+group $\bfZ^{2}$. 
+
+\begin{definition}\label{chap1-defi1.1}
+Let $\mathcal{C}$ be a category and $\Theta$ an abelian group. The
+category $G\tau_{\Theta}(\mathcal{C})$, also denoted $\Theta\mathcal{C}$,
+of $\Theta$-graded objects over $\mathcal{C}$ has for objects
+$X=(X_{\theta})_{\theta\in \Theta}$ where $X$ is a family of objects
+$X_{\theta}$ in $\mathcal{C}$ indexed by $\Theta$, for morphisms
+$f:X\to Y$ families $f=(f_{\theta})_{\theta\in \Theta}$ of morphisms
+$f_{\theta}:X_{\theta}\to Y_{\theta}$ in $\mathcal{C}$, and
+composition $gf$ of $f:X\to Y$ and $g:Y\to Z$ given by
+$(gf)_{\theta}=g_{\theta}f_{\theta}$ in $\mathcal{C}$. 
+\end{definition}
+
+The identity on $X$ is the family $(1_{\theta})_{\theta\in \Theta}$ of
+identities $1_{\theta}$ on $X_{\theta}$. Thus it is easily checked
+that we have a category, and the morphism sets define a functor of two
+variables 
+$$
+\Hom_{\Theta\mathcal{C}}=\Hom:(\Theta\mathcal{C})^{op}\times
+\Theta\mathcal{C}\to \text{(sets)}
+$$
+extending $\Hom:\mathcal{C}^{op}\times \mathcal{C}\to$ (sets) in the
+sense that for two $\Theta$-graded objects $X$ and $Y$ we have
+$\Hom_{\Theta\mathcal{C}}(X,Y)=\displaystyle{\prod_{\theta'\in\Theta}}\Hom_{\mathcal{C}}(X_{\theta'},Y_{\theta'})$. Note 
+that\pageoriginale we do not define graded objects as either products
+or coproducts, but the morphism set is naturally a product. This
+product description leads directly to the notion of a morphism of
+degree\index{morphism of given degree} $\alpha\in \Theta$ such that a morphism in the category is of
+degree $0\in\Theta$.
+
+\begin{definition}\label{chap1-defi1.2}
+With the previous notations for two objects $X$ and $Y$ in $\Theta\C$,
+the set of morphisms of degree $\alpha\in\Theta$ from $X$ to $Y$ is
+$\Hom_{\alpha}(X,Y)=\displaystyle{\prod_{\theta'\in\Theta}}\Hom(X_{\theta},Y_{\theta+\alpha})$. If
+$f:X\to Y$ has degree $\alpha$ and $g:Y\to Z$ has degree $\beta$, then
+$(gf)_{\theta}=g_{\theta+\alpha}f_{\theta}$ is defined $gf:X\to Z$ of
+degree $\alpha+\beta$, i.e.\@ it is a function $(f,g)\mapsto gf$
+defined
+$$
+\Hom_{\alpha}(X,Y)\times \Hom_{\beta}(Y,Z)\to
+\Hom_{\alpha+\beta}(X,Z).
+$$
+\end{definition}
+
+Thus this $\Theta$-graded $\Hom$, denoted $\Hom_{*}$, is defined
+$$
+\Hom_{*}:(\Theta\C)^{op}\times \Theta\C\to \Theta~\text{(Sets)}
+$$
+as a functor of two variables with values in the category of
+$\Theta$-graded sets.
+
+\begin{remark}\label{chap1-rem1.3}
+Recall that a zero object\index{zero object} in a category $\C$ is an object denoted $0$
+or $*$, such that $\Hom(X,0)$ and $\Hom(0,X)$ are sets with one
+element. A category with a zero object is called a pointed
+category. The zero morphism $0:X\to Y$ is the composite $X\to 0\to Y$.
+\end{remark}
+
+\begin{remark}\label{chap1-rem1.4}
+If $\A$ is an additive (resp.\@ abelian) category\index{abelian category}, then $\Theta\A$ is
+an additive (resp.\@ abelian) category\index{additive category} where the graded homomorphism
+functor is defined
+$$
+\Hom_{*}:(\Theta\A)^{op}\times \Theta\A\to \Theta(ab)
+$$
+with values in the category of $\Theta$-graded abelian
+groups. A
+sequence $X'\to X\to X''$ is exact in $\Theta\A$ if and only if
+$X'_{\theta}\to X_{\theta}\to X''_{\theta}$ is exact in $\A$ for each
+$\theta\in\Theta$. 
+\end{remark}
+
+\begin{remark}\label{chap1-rem1.5}
+Of special interest is the category $(k)$ of $k$-modules over a
+commutative\pageoriginale ring $k$ with unit. This category has an
+internal $\Hom$ functor and tensor functor defined
+$$
+\otimes :(k)\times (k)\to (k)\q\text{and}\q \Hom:(k)^{op}\times (k)\to (k)
+$$
+satisfying the adjunction formula with an isomorphism
+$$
+\Hom(L\otimes M, N)\simeq \Hom(L,\Hom(M,N))
+$$
+as functors of $L$, $M$, and $N$. These functors extend to
+$$
+\otimes :\Theta(k)\times \Theta(k)\to \Theta(k)\q\text{and}\q
+\Hom:\Theta(k)^{op}\times\Theta(k)\to \Theta(k)
+$$
+satisfying the same adjunction formula by the definitions
+$$
+(L\otimes
+M)_{\theta}=\coprod\limits_{\alpha+\beta=\theta}L_{\alpha}\otimes
+M_{\beta}\q\text{and}\q
+\Hom(M,N)_{\theta}=\prod\limits_{\alpha\in\Theta}\Hom(M_{\alpha},N_{\alpha+\theta}). 
+$$
+
+We leave it to the reader to check the adjunction formula, and we come
+back to the question of the tensor product of two morphisms of
+arbitrary degrees in the next section, for it uses an additional
+structure on the group $\Theta$.
+\end{remark}
+
+\begin{notation}\label{chap1-not1.6}
+For certain questions, for example those related to duality, it can be
+useful to have the upper index convention for an element $X$ of
+$\Theta\C$. This is $X^{\theta}=X_{-\theta}$ and
+$\Hom(X,Y)^{\theta}=\Hom(X,Y)_{-\theta}$. In the classical case of
+$\Theta=\bfZ$ the effect is to turn negative degrees into positive
+degrees. For example in the category $(k)$ the graded dual in degree
+$n$ is $\Hom(M,k)^{n}=\Hom(M_{n},k)$. The most clear use of this
+convention is with cohomology which is defined in terms of the dual of
+the homology chain complex for spaces.
+\end{notation}
+
+\section{Complexes}\label{chap1-sec2}
+
+To define complexes, we need additional structure on the grading
+abelian group $\Theta$, and this leads us to the next definition.
+
+\begin{definition}\label{chap1-defi2.1}
+An\pageoriginale oriented abelian group $\Theta$ is an abelian group $\Theta$
+together with a homomorphism $e:\Theta\to \{\pm 1\}$ and an element
+$\iota\in\Theta$ such that $e(\iota)=-1$.
+\end{definition}
+
+\begin{definition}\label{chap1-defi2.2}
+A complex\index{complex} $X$ in a pointed category $\chi$ graded by an oriented
+abelian group $\Theta$ is a pair $(X,d(X))$ where $X$ is in
+$\Theta\chi$ and $d(X)=d:X\to X$ is a morphism of degree $-\iota$ such
+that $d(X)d(X)=0$. A morphism $f:X\to Y$ of complexes is a morphism in
+$\Theta \chi$ such that $fd(X)=d(Y)f$.
+\end{definition}
+
+The composition of morphisms of complexes is the composition of the
+corresponding graded objects. We denote the category of complexes in
+$\chi$ graded by the oriented abelian group by $C_{\Theta}(\chi)$ or
+simply $C(\chi)$.
+
+In order to deal with complexes, we first need some additive structure
+on $\Hom(X,Y)$ for two $\Theta$-graded objects $X$ and $Y$, which are
+the underlying graded objects of complexes and second, kernels and
+cokernels, which are used to define the homology functor. To define
+the homology, the base category must be an abelian category $\A$, for
+example, the category $(k)$ of $k$-modules. Then $\Theta\A$ and
+$C_{\Theta}(\A)$ are abelian categories, and homology will be defined
+as a functor $H:C_{\Theta}(\A)\to \Theta\A$. Tha basic tool is the
+snake lemma which we state now.
+
+\begin{snakelemma}\label{chap1-snakelem2.3}\index{snake lemma}
+Let $\A$ be an abelian category, and consider a morphism of exact
+sequences $(u',u,u'')$ all of degree $\nu\in \Theta$
+\[
+\xymatrix{
+ & L'\ar[d]_{u'}\ar[r]^{f} & L\ar[d]_{u}\ar[r]^{f'} &
+  L''\ar[d]_{u''}\ar[r] & 0\\
+0\ar[r] & M'\ar[r]^{g} & M\ar[r]^{g'} & M'' &
+}
+\]
+
+Then $f$ and $g$ induce morphisms $k(f):\ker (u')\to \ker(u)$ and
+$c(g):\coker (u')\to \coker (u)$ and the commutative diagram induces a
+morphism $\delta:\ker(u'')\to \coker (u')$ of degree $\nu$ such that
+the following sequence, called the sequence of the snake, is exact
+$$
+\ker(u')\to \ker(u)\to \ker(u'')\xrightarrow{\delta}\coker (u')\to
+\coker (u)\to \coker (u'').
+$$
+
+Further,\pageoriginale if $f$ is a monomorphism, then $\ker(u')\to
+\ker(u)$ is a mono\-mor\-phism, and $g'$ is an epimorphism, then $\coker
+(u)\to \coker (u'')$ is an epimorphism. Finally the snake sequence is
+natural with respect to morphisms of the above diagrams which give
+arise to the snake sequence. Here a morphism of the diagram is a
+family of morphisms of each respective object yielding a commutative
+three dimensional diagram.
+\end{snakelemma}
+
+For a proof, see Bourbaki, {\em Alg\'ebre homologique.}
+
+\begin{notation}\label{chap1-not2.4}
+Let $X$ be a complex in $C_{\Theta}(\A)$, and consider the
+kernel-cokernel sequence in $\Theta\A$ of $d(x)=d$, which has degree
+$-\iota$,
+$$
+0\to Z(X)\to X\xrightarrow{d}X\to Z'(X)\to 0.
+$$
+
+This defines two functors $Z$, $Z':C_{\Theta}(\A)\to \Theta\A$, and
+this sequence is a sequence of functors $C_{\Theta}(A)\to \Theta
+A$. Since $d(X)d(X)=0$, we derive three factorizations of $d(X)$
+namely
+\begin{gather*}
+d'=d'(X):Z'(X)\to X, d''=d''(X):X\to Z(X),\q\text{and}\\
+\hat{d}=\hat{d}(X):Z'(X)\to Z(X)
+\end{gather*}
+from which we have the following diagram, to which the snake sequence
+applies, 
+\[
+\xymatrix{
+ & X\ar[d]_{d''}\ar[r]^{d} & X\ar[d]_{1}\ar[r] &
+  Z'(X)\ar[d]_{d'}\ar[r] & 0\\
+0\ar[r] & Z(X)\ar[r] & X\ar[r] & X &
+}
+\]
+and the boundary morphism $\delta:\ker(\delta')=H'(X)\to H(X)=\coker
+(\delta'')$ has zero kernel and cokernel. Thus it is invertible of
+degree $-\iota$, and it can be viewed as an isomorphism of the functor
+$H'$ with $H$ up to the question of degree.
+\end{notation}
+
+The next application of the snake lemma \ref{chap1-snakelem2.3} is to
+a short exact sequence $0\to X'\to X\to X''\to 0$ of complexes in
+$C_{\Theta}(\A)$ and this is possible because\pageoriginale the
+following diagram is commutative with exact rows arising from the
+snake lemma applied to the morphism $(d(X'),d(X)$, $d(X''))$
+\[
+\xymatrix{
+ & Z'(X')\ar[d]^{\hat{d}(X')}\ar[r] & Z'(X)\ar[d]^{\hat{d}(X)}\ar[r] &
+  Z'(X'')\ar[d]^{\hat{d}(X'')}\ar[r] & 0\\
+0\ar[r] & Z(X')\ar[r] & Z(X)\ar[r] & Z(X'') &
+}
+\]
+
+Since $H'$ is the kernel of $\hat{d}$ and $H$ is the cokernel of
+$\hat{d}$, we obtain the exact sequence
+$$
+H'(X'')\to H'(X)\to H'(X'')\xrightarrow{\delta}H(X')\to H(X)\to
+H(X''), 
+$$
+and using the isomorphism $H'\to H$, we obtain an exact triangle which
+we formulate in the next basic theorem about homology.
+
+\begin{theorem}\label{chap1-thm2.5}
+Let $0\to X'\to X\to X''\to 0$ be a short exact sequence of complexes
+in $C_{\Theta}(\A)$. Then there is a natural morphism
+$\delta:H(X'')\to H(X')$ such that the following triangle is exact
+\[
+\xymatrix{
+H(X')\ar[rr] & & H(X)\ar[dl]\\
+ & H(X'')\ar[ul] & 
+}
+\]
+
+Here the degree of $\delta$ is $-\iota$, the degree of $d$.
+\end{theorem}
+
+\section{Formal structure of cyclic and Hochschild
+  homology}\label{chap1-sec3}\index{homology}
+
+\begin{definition}\label{chap1-defi3.1}
+An algebra\index{algebra} $A$ over $k$ is a triple $(A,\phi(A),\eta(A))$ where $A$ is
+a $k$-module, $\phi(A):A\otimes A\to A$ is a morphism called
+multiplication, and $\eta(A):k\to A$ is a morphism called the unit
+which satisfies the following axioms:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item (associativity) As morphisms $A\otimes A\otimes A\to A$ we have
+$$
+\phi(A)(\phi(A)\otimes A)=\phi(A)(A\otimes \phi(A))
+$$
+where\pageoriginale as usual $A$ denotes both the object and the
+identity morphism on $A$.
+
+\item (unit) As morphisms $A\otimes k\to A$ and $k\otimes A\to A$, the
+  morphisms
+$$
+\phi(A)(A\otimes \eta(A))\q\text{and}\q \phi(A)(\eta(A)\otimes A)
+$$
+are the natural isomorphisms for the unit $k$ of the tensor
+product. Let $\Theta$ be an abelian group. A $\Theta$-graded algebra
+$A$ over $k$ is a triple $(A,\phi(A),\eta(A))$ where $A$ is a
+$\Theta$-graded $k$-module, $\phi(A):A\otimes A\to A$ is a morphism of
+$\Theta$-graded $k$-modules, and $\eta(A):k\to A$ is a morphism of
+$\Theta$-graded $k$-modules satisfying the above axioms (1) and (2).
+\end{enumerate}
+
+A morphism $f:A\to A'$ of $\Theta$-graded algebras is a
+morphism\index{algebra morphism} of
+$\Theta$-graded modules such that $\phi(A')(f\otimes f)=f\phi(A)$ as
+morphisms $A\otimes A\to A'$ and $f\eta(A)=\eta(A')$ as morphisms
+$k\to A'$. If $f:A\to A'$ and $f':A'\to A''$ are two morphisms of
+$\Theta$-graded algebras\index{algebra, graded}, then $f'f:A\to A''$ is a morphism of
+$\Theta$-graded algebras. Let $\Alg_{\Theta,k}$ denote the category of
+$\Theta$-graded algebras over $k$, and when $\Theta=0$, the zero
+grading, then we denote $\Alg_{0,k}$ by simply $\Alg_{k}$. 
+\end{definition}
+
+\begin{notation}\label{chap1-not3.2}
+For an abelian group $\Theta$ and a pointed category $\C$ we denote by
+$(Z\times \Theta)^{+}(\C)$ the full subcategory of $(\bfZ\times
+\Theta)(\C)$ determined by all $X_{\bigdot}=(X_{n,\theta})$ with
+$X_{n,\theta}=\ast$ for $n<0$ and $(\bfZ\times \Theta)^{-}(\C)$ the
+full subcategory determined by all $X_{\bigdot}=(X_{n,\theta})$ with
+$X_{n,\theta}=\ast$ for $n>0$. The intersection $(\bfZ\times
+\Theta)^{+}(\C)\cap (\bfZ\times \Theta)^{-}(\C)$ can be identified
+with $\Theta(\C)$.
+\end{notation}
+
+\begin{remark}\label{chap1-rem3.3}
+As functors, cyclic homology and Hochschild homology, denoted by
+$HC_{\ast}$ and $HH_{\ast}$ respectively, are defined
+$$
+HC_{\ast}:\Alg_{\Theta,k}\to (\bfZ\times\Theta)^{+}(k)\q\text{and}\q
+HH_{\ast}:\Alg_{\Theta,k}\to (\bfZ\times\Theta)^{+}(k). 
+$$
+
+This is the first indication of what kinds of functors these are.
+\end{remark}
+
+When he first introduced cyclic homology $HC_{\ast}$, Connes'
+emphasised that cyclic homology and Hochschild homology were linked
+with exact sequences which can be assembled into what is called an
+exact couple. We introduce\pageoriginale exact couples with very
+general gradings to describe this linkage.
+
+\begin{definition}\label{chap1-defi3.4}
+Let $\Theta$ be an abelian group with $\theta$, $\theta'$,
+$\theta''\in\Theta$ and let $\A$ be a abelian category. An exact
+couple over $\A$ with degrees $\theta$, $\theta'$, $\theta''$ is a
+pair of objects $A$ and $E$ and three morphisms $\alpha:A\to A$ of
+degree $\theta$, $\beta:A\to E$ of degree $\theta'$, and $\gamma:E\to
+A$ of degree $\theta''$ such that the following triangle is
+exact\index{homology exact triangle}.
+\[
+\xymatrix{
+A\ar[rr]^-{\alpha} & & A\ar[dl]^-{\beta}\\
+ & E\ar[ul]^-{\gamma} & 
+}
+\]
+
+In particular, we have $\Iim(\alpha)=\ker(\beta)$,
+$\Iim(\beta)=\ker(\gamma)$, and $\Iim(\gamma)=\ker(\alpha)$. 
+\end{definition}
+
+Let $(A,E,\alpha,\beta,\gamma)$ and $(A',E',\alpha',\beta',\gamma')$
+be two exact couples of degree $\theta$, $\theta'$, $\theta''$. A
+morphism from the first to the second is pair of morphisms $(h,f)$,
+where $h:A\to A'$ and $f:E\to E'$ are morphisms of degree $0$ in
+$\Theta(\A)$ such that $h\alpha=\alpha'h$, $f\beta=\beta'h$,
+$h\gamma=\gamma'f$. The composition of two morphisms $(h,f)$ and
+$(h',f')$ is $(h',f')(h,f)=(h'h,f'f)$ when defined. Thus we can speak
+of the category $ExC(\A;\Theta;\theta,\theta',\theta'')$ of exact
+couples $(A,E,\alpha,\beta,\gamma)$ in $\Theta(\A)$ of degrees
+$\theta$, $\theta'$, $\theta''$. 
+
+We can now describe the Cyclic-Hochschild homology\index{cyclic
+  homology}\index{Hochschild homology} linkage in terms of a single functor.
+
+\begin{remark}\label{chap1-rem3.5}
+The Connes' exact sequence (or exact couple)\index{Connes' exact
+  couple} is a functor 
+$$
+(HC_{\ast},HH_{\ast},S,B,I):\Alg_{\Theta,k}\to
+ExC((k),\bfZ\times\Theta,(-2,0),(1,0),(0,0)) 
+$$
+which, incorporating the remark \eqref{chap1-rem3.3} satisfies
+$HC_{n}(A)=0=HH_{n}(A)$ for $n<0$. The special feature of the degrees
+formally gives two elementary results.
+\end{remark}
+
+\begin{proposition}\label{chap1-prop3.6}
+The natural morphism $I:HH_{0}(A)\to HC_{0}(A)$ is an\pageoriginale
+isomorphism of functors $\Alg_{\Theta,k}\to \Theta(k)$. 
+\end{proposition}
+
+\begin{proof}
+We have an isomorphism since $\ker(I)$ is zero for reasons of degree
+and
+$$
+\Iim(I)=\ker(S:HC_{0}(A)\to HC_{-2}(A))=HC_{0}(A)
+$$
+again, due to degree considerations. This proves the proposition.
+\end{proof}
+
+\begin{proposition}\label{chap1-prop3.7}
+Let $f:A\to A'$ be a morphism in $\Alg_{\Theta,k}$. Then
+$HC_{\ast}(f)$ is an isomorphism if and only if $HH_{\ast}(f)$ is an
+isomorphism. 
+\end{proposition}
+
+\begin{proof}
+The direct implication is a generality about morphisms $(h,f)$ of
+exact couples in any abelian category, namely, if $h$ is an
+isomorphism, then by the five-lemma $f$ is an isomorphism. Conversely,
+if we assume that $HC_{i}(f)$ is an isomorphism for $i<n$ and
+$HH_{\ast}(f)$ is an isomorphism, then $HC_{n}(f)$ is an isomorphism
+by the five-lemma applied to the exact sequence
+$$
+HC_{n-1}\xrightarrow{B}HH_{n}\xrightarrow{I}HC_{n}\xrightarrow{s}HC_{n-2}\xrightarrow{B}HH_{n-1}. 
+$$
+
+The induction begins with the result in the previous proposition. This
+proves the proposition.
+In the next section we study the category of exact couples as a
+preparation for defining Hochschild and cyclic homology and
+investigating its properties. We also survey some of the classical
+examples of exact couples. 
+\end{proof}
+
+\section{Derivation of exact couples and their spectral
+  sequence}\label{chap1-sec4}\index{exact couple} 
+
+The snake lemma (\ref{chap1-snakelem2.3}) is a kernel-cokernel exact
+sequence coming from a morphism of exact sequences. There is another
+basic kernel-cokernel exact sequence coming from a composition of two
+morphisms. We announce the result and refer to Bourbaki, {\em
+  Alg\'ebre homologique} for the proof.
+
+\begin{lemma}\label{chap1-lem4.1}
+Let $f:X\to Z$ and $g:Z\to Y$ be two morphisms in an abelian category
+$\A$. Then there is an exact sequence-
+{\selectfont{\fontsize{10}{8}{
+$$
+0\to \ker (f)\to \ker(gf)\xrightarrow{f'}\ker (g)\to \coker
+(f)\xrightarrow{g'}\coker (gf)\to \coker (g)\to 0
+$$}}}
+where\pageoriginale $f':\ker(gf)\to \ker(g)$ is induced by $f$,
+$g':\coker(f)\to \coker (gf)$ is induced by $g$, and the other three
+arrows are induced respectively by the identities on $X$, $Z$, and
+$Y$.
+\end{lemma}
+
+We wish to apply this to an exact couple $(A,E,\alpha,\beta,\gamma)$ in
+the category $ExC(\A,\Theta;\theta,\theta',\theta'')$ to obtain a new
+exact couple, called the derived couple. In fact there will be two
+derived couples one called the left and the other the right derived
+couple differing by an isomorphism of nonzero degree.
+
+First, observe that $\alpha:A\to A$ factorizes naturally as the
+composite of the natural epimorphism $A\to \coker(\gamma)$, an
+invertible morphism $\alpha^{\#}:\coker (\gamma)\to \ker(\beta)$, and
+the natural monomorphism $\ker(\beta)\to A$. Secondly, since
+$(\beta\gamma)(\beta\gamma)=0$, we have an induced morphism
+$\beta\gamma:\coker (\beta\gamma)\to \ker(\beta\gamma)$ whose kernel
+and cokernel are naturally isomorphic to $H(E,\beta\gamma)$ by the
+snake exact sequence as is used in \ref{chap1-not2.4}. Finally, there
+is a natural factorization of $\beta\gamma:\coker(\beta\gamma)\to
+\ker(\beta\gamma)$ as a quotient $\gamma^{\#}:\coker (\beta\gamma)\to
+A$ of $\gamma$ composed with a restriction $\beta^{\#}:A\to
+\ker(\beta\gamma)$ of $\beta$. Then we have
+$\ker(\beta)=\ker(\beta^{\#})$ and
+$\coker(\gamma)=\coker(\gamma^{\#})$. Now we apply
+(\ref{chap1-lem4.1}) to the factorization of
+$\beta\gamma=\beta^{\#}\gamma^{\#}$ and consider the middle four terms
+of the exact sequence
+$$
+H(E,\beta\gamma)\xrightarrow{\gamma^{0}}\ker(\beta)\xrightarrow{\delta}\coker(\gamma)\xrightarrow{\beta^{0}}H(E,\beta\gamma).
+$$
+
+\begin{definition}\label{chap1-defi4.2}
+We denote $ExC(\A,\Theta;\theta,\theta',\theta'')$ by simply
+$ExC(\theta,\theta',\theta'')$. The left derived couple functor
+defined\index{derived exact couple}
+$$
+ExC(\theta,\theta',\theta'')\to ExC(\theta,\theta',\theta''-\theta)
+$$
+assigns to an exact couple $(A,E,\alpha,\beta,\gamma)$, the exact
+couple
+$$
+(\coker(\gamma),H(E,\beta\gamma),\alpha_{\lambda},\beta_{\lambda},\gamma_{\lambda})
+$$
+where $\alpha_{\lambda}=\delta\alpha^{\#}$,
+$\beta_{\lambda}=\beta^{0}$, and
+$\gamma_{\lambda}=(\alpha^{\#})^{-1}\gamma^{0}$, using the above
+notations. The right derived couple functor defined
+$$
+ExC(\theta,\theta',\theta'')\to ExC(\theta,\theta'-\theta,\theta'')
+$$
+assigns\pageoriginale to an exact couple $(A,E,\alpha,\beta,\gamma)$,
+the exact couple
+$$
+(\ker(\beta),H(E,\beta\gamma),\alpha_{\rho},\beta_{\rho},\gamma_{\rho})
+$$
+where $\alpha_{\rho}=\alpha^{\#}\delta$,
+$\beta_{\rho}(\alpha^{\#})^{-1}$, and $\gamma_{\rho}=\gamma^{0}$ using
+the above notations.
+
+Observe that $(\alpha^{\#},H(E,\beta\gamma))$ is an invertible
+morphism
+$$
+(\coker(\gamma),H(E,\beta\gamma),\alpha_{\lambda},\beta_{\lambda},\gamma_{\lambda})\to (\ker(\beta),H(E,\beta\gamma),\alpha_{\rho},\beta_{\rho},\gamma_{\rho})
+$$
+which shows that the two derived couple functors differ only by the
+degree of the morphism. The only point that remains, is to check
+exactness of the derived couple at $H(E,\beta\gamma)$, and for this we
+use  (\ref{chap1-lem4.1}) as follows. The composite of
+$$
+\gamma^{\#}:\coker(\beta\gamma)\to A\q\text{and}\q \beta^{\#}:A\to
+\ker(\beta\gamma) 
+$$
+is $\beta\gamma:\coker(\beta\gamma)\to \ker(\beta\gamma)$, and by
+(\ref{chap1-lem4.1}) we have a six term exact sequence
+{\fontsize{10}{12}\selectfont
+$$
+0\to\ker(\gamma^{\#})\to
+H(E)\xrightarrow{\gamma^{0}}\ker(\beta)\xrightarrow{\delta}\coker(\gamma)\xrightarrow{\beta^{0}}H(E)\to
+\coker(\beta^{\#})\to 0.
+$$}
+\end{definition}
+
+Hence the following two sequences
+$$
+H(E)\xrightarrow{\gamma_{\lambda}}\coker(\gamma)\xrightarrow{\alpha_{\lambda}}\coker(\gamma)\xrightarrow{\beta_{\lambda}}H(E)
+$$
+and
+$$
+H(E)\xrightarrow{\gamma_{\rho}}\ker(\beta)\xrightarrow{\alpha_{\rho}}\ker(\beta)\xrightarrow{\beta_{\rho}}H(E).
+$$
+are exact. It remains to show that the derived couple is exact at
+$H(E)$. For this, we start with the exact sequence
+$A\xrightarrow{\beta}E\xrightarrow{\gamma}A$ of the given exact couple
+and observe that $\Iim(\beta\gamma)\subset
+\Iim(\beta)=\ker(\gamma)\subset \ker(\beta\gamma)$. Hence the sequence
+$\coker(\gamma)\to \ker(\beta\gamma)/\Iim(\beta\gamma)=H(E)\to
+\ker(\beta)$ is exact where the first arrow is $\beta^{0}$ and the
+second is $\gamma^{0}$. Using the invertible morphism $\alpha^{\#}$,
+we deduce that the left and right derived couples are exact
+couples. This\pageoriginale completes the discussion of definition
+(\ref{chap1-defi4.2}). 
+
+\begin{remark}\label{chap1-rem4.3}
+Let $C_{\Theta,-\iota}(\A)$ denote the category of complexes over
+$\A$, graded by $\Theta$, and with differential of degree $-\iota$. We
+have used the functor $ExC(\A,\Theta:\theta,\theta',\theta'')\to
+C_{\Theta,\theta'+\theta''}(\A)$ which assigns to an exact couple
+$(A,E,\alpha,\beta,\gamma)$ the complex $(E,\beta\gamma)$. Further,
+composing with the homology functor, we obtain $H(E)$ which is the
+second term in the derived couple of $(A,E,\alpha,\beta,\gamma)$. 
+\end{remark}
+
+\begin{remark}\label{chap1-rem4.4}
+Now we iterate the process of obtaining the derived couple. For an
+exact couple $(A,E)=(A,E,\alpha,\beta,\gamma)$ in
+$ExC(\theta,\theta',\theta'')$, we have a sequence of exact couples
+$(A^{r},E^{r})$ where $(A,E)=(A^{1},E^{1})$, $(A^{r},E^{r})$ is the
+derived couple of $(A^{r-1},E^{r-1})$, and $E^{r+1}=H(E^{r},d^{r})$
+with $d^{r}=\beta\gamma^{r}$. As for degrees $(A^{r},E^{r})$ is in
+$ExC(\theta,\theta',\theta''-(r-1)\theta)$ for a sequence of left
+derived couples and in $ExC(\theta,\theta'-(r-1)\theta,\theta'')$ for
+a sequence of right derived couples. In either case the complex
+$(E^{r},d^{r})$ is in $C_{\Theta,\theta'+\theta''-(r-1)\theta}(\A)$,
+and the sequence of complexes $(E^{r},d^{r})$ is an example of a
+spectral sequence because of the property that
+$E^{r+1}=H(E^{r},d^{r})$. We can give a direct formula for the terms
+$E^{r}$ as subquotients of $E=E^{1}$. Firstly, we know that
+\begin{align*}
+E^{2} &=
+H(E^{1},\beta\gamma)=\ker(\beta\gamma)/\Iim(\beta\gamma)=\gamma^{-1}(\ker(\beta)/\beta(\Iim(\gamma))\\ 
+&= \gamma^{-1}(\Iim(\alpha))/\beta(\ker(\alpha)), 
+\end{align*}
+and by analogy, the general formula is the following:
+$$
+E^{r}=\gamma^{-1}(\Iim(\alpha^{r-1}))/\beta(\ker(\alpha^{r-1})).
+$$
+
+We leave the proof of this assertion to the reader.
+\end{remark}
+
+\section[The spectral sequence and exact couple of...]{The spectral
+  sequence and exact couple of a filtered 
+  complex}\label{chap1-sec5} 
+
+The most important example of an exact couple and its associated
+spectral sequence is the one coming from a filtered complex.
+
+\begin{definition}\label{chap1-defi5.1}
+A filtered object $X$ in a category $\C$ is an object $X$
+together\pageoriginale with a sequence of subobjects, $F_{p}X$ or
+$F_{p}(X)$, indexed by the integers $\cdots\to F_{p-1}X\to F_{p}X\to
+\cdots\to X$. A morphism $f:X\to Y$ of filtered objects in $\C$ is a
+morphism $f:X\to Y$ in $\C$ which factors for each $p$ by
+$F_{p}(f):F_{p}X\to F_{p}Y$.
+\end{definition}
+
+The factorization $F_{p}(f)$ is unique since $F_{p}Y\to Y$ is a
+monomorphism. The composition $gf$ in $\C$ of two morphisms $f:X\to Y$
+and $g:Y\to Z$ of filtered objects\index{filtered object} is again a morphism of filtered
+objects. Thus we can speak of the category $F\cdot\C$ of filtered
+objects over $\C$. 
+
+\begin{remark}\label{chap1-rem5.2}
+We are interested in the category $\mathcal{F}\cdot C_{\Theta}(A)$ of filtered
+complexes. In particular we construct a functor
+$$
+E^{0}:\F\cdot C_{\Theta,-\iota}(\A)\to C_{\bfZ\times
+  \Theta,(0,-\iota)}(\A) 
+$$
+by assigning to the filtered complex $X$ the complex $E^{0}(X)$,
+called the associated graded complex, with graded term
+$$
+E^{0}_{p,\theta}=F_{p}X_{\theta}/F_{p-1}X_{\theta}
+$$
+and quotient differential in the following short exact sequence
+$$
+0\to F_{p-1}X\to F_{p}X\to E^{0}_{p}\to 0
+$$
+in the category $C_{\Theta}(\A)$. The homology exact triangle is a
+sequence of $\Theta$-graded exact triangles which can be viewed as a
+single $(\bfZ\times\Theta)$-graded exact triangle and this exact
+triangle is an exact couple 
+\[
+\xymatrix{
+H_{\ast}(F_{\ast}X)\ar[rr]^-{\alpha} & &
+H_{\ast}(F_{\ast}X)=A^{1}_{\ast,\ast}\ar[dl]^{\beta}\\
+ & H_{\ast}(E^{0}_{\ast})=E^{1}_{\ast,\ast}\ar[ul]^{\gamma}
+}
+\]
+where the $\bfZ\times \Theta$-degree of $\alpha$ is $(1,0)$, of
+$\beta$ is $(0,0)$, and of $\gamma$ is $(-1,-\iota)$. The theory of
+the previous section says that we have a spectral sequence
+$(E^{r},d^{r})$ and the degree of $d^{r}$ is $(-r,-\iota)$. Moreover,
+we have defined a functor $(A^{r},E^{r})$\pageoriginale on the
+category $\mathcal{F} \cdot  
+C_{\Theta,-\iota}(\A)\to ExC(\A,\Theta;(1,0),0,\break (-r,-\iota))$ such that
+$(A^{r+1},E^{r+1})$ is the left derived couple of $(A^{r},E^{r})$.
+\end{remark}
+
+
+In the case where $\Theta=\bfZ$, the group of integers, and
+$\iota=+1$, there is a strong motivation to index the spectral
+sequence with the filtration index $p$, as above, and the
+complementary index $q=\theta-p$ where $\theta$ denotes the total
+degree of the object. In particular, we have
+$H_{p+q}(E^{0}_{p,\ast})=E^{1}_{p,q}$ in terms of the complementary
+index. The complementary index notation is motivated by the
+Leray-Serre spectral sequence of a map $p:E\to B$ where the main
+theorem asserts that there is a spectral sequence with
+$E^{2}{p,q}=H_{p}(B,H_{q}(F))$ coming from a filtration on the chains
+of the total space $E_{\bigdot}$, $F$ being the fibre of the morphism
+$p$.
+
+\begin{remark}\label{chap1-rem5.3}
+The filtration on a filtered complex $X$ defines a filtration on the
+homology $H(X)$ of $X$ by the relation that
+$$
+F_{p}H_{\ast}(X)=\Iim(H_{\ast}(F_{p}X)\to H_{\ast}(X)).
+$$
+
+Now this filtration has something to do with the terms
+$E^{r}_{p,\ast}$ of the spectral sequence. We carry this out for the
+following special case which is described by the following
+definition. 
+\end{remark}
+
+\begin{definition}\label{chap1-defi5.4} 
+A filtered object\index{filtered object} $X$ in a pointed category is
+positive provided 
+$F_{p}X=0$ (cf. (\ref{chap1-rem1.3})) for $p<0$. A filtered
+$\Theta$-graded object $X$ has a locally finite
+filtration\index{filtered objects with locally finite filtration} provided
+for each $\theta\in\Theta$ there exists integers $m(\theta)$ and
+$n(\theta)$ such that
+$$
+F_{p}X_{\theta}=0\q\text{for}\q p<m(\theta)\q\text{and}\q
+  F_{p}X_{\theta}=X_{\theta}\q\text{for}\q n(\theta)<p.
+$$
+\end{definition}
+
+\begin{proposition}\label{chap1-prop5.5}
+Let $X$ be a locally finite filtered $\Theta$-graded complex $X$ over
+an abelian category $\A$. Then for a given $\theta\in\Theta$ and
+filtration index $p$, if $r>\max(n(\theta)+1-p$, $p-m(\theta-\iota))$,
+then we have
+$E^{r}_{p,\theta}=E^{r+1}_{p,\theta}=\ldots=F_{p}H_{\theta}(X)/F_{p-1}H_{\theta}(X)=E^{0}H_{\theta}(X)$. 
+\end{proposition}
+
+\begin{proof}
+We\pageoriginale use the characterization of the terms $E^{r}$ given at the end of
+(\ref{chap1-rem4.4}). For
+$A^{1}_{p,\theta}\xrightarrow{\beta}E^{1}_{p,\theta}\xrightarrow{\gamma}A^{1}_{p-1,\theta-\iota}$
+we form a subquotient using $\alpha^{r-1}:A^{1}_{p,\theta}\to
+A^{1}_{p+r-1,\theta}$ and $\alpha^{r-1}:A^{1}_{p-r,\theta-\iota}\to
+A^{1}_{p-1,\theta-\iota}$ where $A^{1}_{p+r-1,\theta}=H_{\theta}(X)$
+and $A^{1}_{p-r,\theta-\iota}=0$ under the above conditions on
+$r$. Thus the term
+$E^{r}=\gamma^{-1}(\Iim(\alpha^{r-1}))/\beta(\ker(\alpha^{r-1}))$ has
+the form
+$$
+E^{r}_{p,\theta}=\gamma^{-1}(\Iim(0))/\beta(\ker(\alpha^{r-1}))=\Iim(\beta)/\beta(\ker(H_{\theta}(F_{p}X)\to
+H_{\theta}(X)), 
+$$
+and this is isomorphic under $\beta$ to the quotient 
+$$
+A^{1}_{p,\theta}/((\ker(H_{\theta}(F_{p}X)\to
+H_{\theta}(X))+\Iim(H_{\theta}(F_{p-1}X)\to H_{\theta}(F_{p}X))). 
+$$
+
+This quotient is mapped isomorphically by $\alpha^{r-1}$ to the
+following subquotient of $H_{\theta}(X)$, which is just the associated
+graded object\index{associated graded object} for the filtration on $H(X)$ defined in
+(\ref{chap1-rem5.3}), 
+$$
+\Iim(H_{\theta}(F_{p}X)\to H_{\theta}(X))/\Iim(H_{\theta}(F_{p-1}X)\to
+H_{\theta}(X))=E^{0}H_{\theta}(X). 
+$$
+
+This proves the proposition.
+\end{proof}
+
+This proposition and the next are preliminaries to the spectral
+mapping theorem.
+
+\begin{proposition}\label{chap1-prop5.6}
+Let $f:L\to M$ be a morphism of locally finite filtered
+$\Theta$-graded objects over an abelian category $\A$. If the morphism
+of associated $\bfZ\times \Theta$-graded objects $E^{0}(f):E^{0}(L)\to
+E^{0}(M)$ is an isomorphism, then $f:L\to M$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+For $F_{p}L_{\theta}=0$, $F_{p}M_{\theta}=0$ if $p<m(\theta)$ and
+$F_{p}L_{\theta}=L_{\theta}$, $F_{p}M_{\theta}=M_{\theta}$ if
+$p>n(\theta)$ we show inductively on $p$ from $m(\theta)$ to
+$n(\theta)$ that $F_{p}f:F_{p}L_{\theta}\to F_{p}M_{\theta}$ is an
+isomorphism. To begin with, we note that by hypothesis
+$F_{m(\theta)}=E^{0}_{m(\theta),\theta}$ is an isomorphism. If the
+inductive statement is true for $p-1$, then it is true for $p$ by
+applying the ``5-lemma'' to the short exact sequence
+$$
+0\to F_{p-1,\theta}\rightharpoondown F_{p,\theta}\to
+E^{0}_{p,\theta}\to 0.
+$$
+
+Since\pageoriginale the induction is finished at $n(\theta)$, this
+proves the proposition.
+\end{proof}
+
+This proposition is true under more general circumstances which we
+come back to after the next theorem.
+
+\begin{theorem}\label{chap1-thm5.7}
+Let $f:X\to Y$ be a morphism of locally finite filtered
+$\Theta$-graded complexes over an abelian category $\A$. If for some
+$r\geq 0$ the term $E^{r}(f):E^{r}(X)\to E^{r}(Y)$ is an isomorphism,
+then $H(f):H(X)\to H(Y)$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+Since $E^{r+1}=H(E^{r})$ as functors, we see that all $E^{r'}(f)$ are
+isomorphisms for $r'\geq r$. For given $\theta\in \Theta$ and
+filtration index $p$ we know by (\ref{chap1-prop5.5}) that
+$E^{r}_{p,\theta}=E^{0}_{p}H_{\theta}$ for $r$ large enough. Hence
+$E^{0}H(f)$ is an isomorphism, and by (\ref{chap1-prop5.6}) we deduce
+that $H(f)$ is an isomorphism. This proves the theorem.
+\end{proof}
+
+This theorem illustrates the use of spectral sequences to prove that a
+morphism of complexes $f:X\to Y$ induces an isomoprhism $H(f):H(X)\to
+H(Y)$. The hypothesis of locally finite filtration is somewhat
+restrictive for general cyclic homology, but the general theorem,
+which is contained in \cite{Eilenberg1962}, is clearly given in
+their article. The modifications involve limits, injective limits as
+$p$ goes to plus infinity and projective limits as $p$ goes to minus
+infinity. We explain these things in the next section on the filtered
+complex related to a double complex. 
+
+\section{The filtered complex associated to a double
+  complex}\label{chap1-sec6}
+
+For the theory of double complexes we use the simple $\bfZ\times \bfZ$
+grading which is all we need in cyclic homology. Firstly, we consider
+an extension of (\ref{chap1-prop5.6}) for filtered objects which are
+constructed from a graded object.
+
+\begin{remark}\label{chap1-rem6.1}
+Let $\A$ denote an abelian category with countable products and
+countable coproducts. For a $\bfZ$-graded object $SX_{p}$ we form the
+object $X_{\bigdot}=\prod\limits_{i\leq a}X_{i}\times
+\coprod\limits_{a<i}X_{i}$ with filtration
+$F_{p}X_{\bigdot}=\prod\limits_{i\leq p}X_{i}$. The definition of
+$X_{\bigdot}$ is independent\pageoriginale of $a$. With these
+definitions the natural morphisms
+$$
+X_{\bigdot}\to \lim\limits_{\leftarrow
+  p}X_{\bigdot}/F_{p}X_{\bigdot}\q\text{and}\q \lim\limits_{\to
+  p}F_{p}X_{\bigdot}\to X.
+$$
+are isomorphisms. In general for any filtered object $X$ these natural
+morphisms are defined. If the first morphism is an isomorphism, then
+$X$ is called complete, if the second morphism is an isomorphism, then
+$X$ is called cocomplete, and if the two morphisms are isomorphisms,
+then $X$ is called bicomplete. With these definitions we have the
+following extension of (\ref{chap1-prop5.6}) not proved here.
+\end{remark}
+
+\begin{remark}\label{chap1-rem6.2}
+Let $f:L\to M$ be a morphism of bicomplete filtered objects over an
+abelian category with countable products and coproducts. If
+$E^{0}(f):E^{0}(L)\to E^{0}(M)$ is an isomorphism, then $f:L\to M$ is
+an isomorphism of filtered objects.
+\end{remark}
+
+Now we consider double complexes and their associated filtered
+complexes which will always be constructed so as to be bicomplete.
+
+\begin{definition}\label{chap1-defi6.3}
+Let $\A$ be an abelian category. A double complex\index{double complex} $X_{\bigdot\bigdot}$
+over $\A$ is a $\bfZ\times \bfZ$-graded object with two morphisms
+$d'=d'(X)$, $d''=d''(X):X_{\bigdot\bigdot}\to X_{\bigdot\bigdot}$ of
+degree $(-1,0)$ and $(0,-1)$ respectively satisfying $d'd'=0$,
+$d''d''=0$, and $d'd''+d''d'=0$. A morphism of double complexes
+$f:X_{\bigdot\bigdot}\to Y_{\bigdot\bigdot}$ is a morphism of graded
+objects such that $d'(Y)f=fd'(X)$ and $d''(Y)f=fd''(X)$. With the
+composition of graded morphisms we define the composition of morphisms
+of double complexes. We denote the category of double complexes over
+$\A$ by $DC(\A)$. 
+\end{definition}
+
+There are two functors $DC(\A)\to \F\cdot C(\A)$ from double complexes
+to bicomplete filtered complexes corresponding to a filtration on the
+first variable or on the second variable.
+
+\begin{definition}\label{chap1-defi6.4}
+Let $X_{\bigdot\bigdot}$ be a double complex over the abelian category
+$\A$. We form:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item the\pageoriginale filtered graded object ${}^{I}X_{\bigdot}$
+  with
+$$
+{}^{I}X_{n}=\prod\limits_{i+j=n,i\leq
+  a}X_{i,j}\times\coprod\limits_{i+j=n,i>a}X_{i,j}\q\text{and}\q
+{}^{I}F_{p}X_{n}=\prod\limits_{i+j=n,i\leq p}X_{i,j},
+$$
+
+\item the filtered graded object ${}^{II}X_{\bigdot}$ with
+$$
+{}^{II}X_{n}=\prod\limits_{i+j=n,j\leq
+  a}\times\coprod\limits_{i+j=n,j>a}X_{i,j}\q\text{and}\q
+{}^{II}F_{p}X_{n}=\coprod\limits_{i+j=n,j\leq p}X_{i,j}
+$$
+and in both cases the differential is $d=d'+d''$, making the filtered
+graded objects into bicomplete filtered complexes.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}\label{chap1-rem6.5}
+Using the complementary degree indexing notation considered in
+(\ref{chap1-rem5.2}), we see that
+$$
+E^{0}_{p,q}({}^{I}X)=X_{p,q}\text{~ with~ } d^{0}=d''\text{~ and~ }
+E^{0}_{p,q}({}^{II}X)=X_{q,p}\text{~ with~ } d^{0}=d',
+$$
+and the $E^{1}$ terms are the partial homology modules of the double
+complex with respect to $d''$ and $d$ respectively. The $d^{1}$
+differentials are induced by $d'$ and $d''$ respectively, and the
+$E^{2}$ term is the homology of $(E^{1},d^{1})$, and 
+$$
+{}^{I}E^{2}_{p,q}=H_{p}(H_{q}(X,d''),d')\q\text{and}\q
+{}^{II}E^{2}_{p,q}=H_{q}(H_{p}(X,d'),d''). 
+$$
+
+These considerations in this section are used in the full development
+of cyclic homology, and they are included here for the sake of
+completeness. 
+\end{remark}
+
+

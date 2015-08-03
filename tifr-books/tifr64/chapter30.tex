@@ -1,0 +1,304 @@
+\chapter{Behaviour of Diffusions for Large Times}\label{chap30}
+
+LET\pageoriginale $L_{2}=\Delta/2+b\cdot\nabla$ WITH
+$b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ measurable and bounded on each
+compact set. We assume that there is no explosion. If $P_{x}$ is the
+$d$-dimensional Brownian measure on
+$\Omega=C([0,\infty);\mathbb{R}^{d})$ we know that there exists a
+  probability measure $Q_{x}$ on $\Omega$ such that 
+$$
+\dfrac{dQ_{x}}{dP_{x}}\Big|_{t}=\exp \left[\int\limits^{t}_{0}\langle
+  b,dX\rangle -\frac{1}{2}\int\limits^{t}_{0}|b|^{2}ds\right]
+$$
+
+Let $K$ be any compact set in $\mathbb{R}^{d}$ with non-empty
+interior. We are interested in finding out how often the trajectories
+visit $K$ and whether this `frequency' depends on the starting point
+of the trajectory and the compact set $K$.
+
+\begin{theorem*}
+Let $K$ be any compact set in $\mathbb{R}^{d}$ having a non-empty
+interior. Let
+\begin{align*}
+E^{K}_{\infty} &= \{w:w\text{~ revisits $K$ for arbitrarily large
+  times}\}\\
+&= \{w:\text{~ there exists a sequence~ } t_{1}<t_{2}<\cdot <\infty\\
+&\qq \text{with~ } t_{n}\to \infty\text{~ such that~ } w(t_{n})\in K\} 
+\end{align*}
+
+Then,
+\begin{align*}
+& \text{either~ }Q_{x}(E^{K}_{\infty})=0,\ \forall x,\text{~ and~ }
+  \forall K,\\
+&\text{or}\q Q_{x}(E^{K}_{\infty})=1,\ \forall x,\text{~ and~ }
+  \forall K.
+\end{align*}
+\end{theorem*}
+
+\begin{remark*}
+\begin{enumerate}
+\item In the first case $\lim\limits_{t\to +\infty}|X(t)|=+\infty$
+  a.e.\@ $Q_{x}$, $\forall x$, i.e.\@ almost all trajectories stay
+  within $K$ only for a short period.
+
+These\pageoriginale trajectories are called {\em transient}. In the
+second case almost all trajectories visit $K$ for arbitrary large
+times. Such trajectories are called {\em recurrent}.
+
+\item  If $b=0$ then $Q_{x}=P_{x}$. For the case $d=1$ or $d=2$ we
+  know that the trajectories are recurrent. If $d\geq 3$ the
+  trajectories are transient.
+\end{enumerate}
+\end{remark*}
+
+
+\begin{proof}
+\setcounter{step}{0}
+\begin{step}%1
+We introduce the following sets.
+\begin{align*}
+& E^{K}_{0} =\{w:X(t,w)\in K\text{~ for some~ } t\geq 0\},\\
+& E^{K}_{t_{0}}=\{w:X(t,w)\in K\text{~ for some~ }t\geq
+  t_{0}\},\ 0\leq t_{0}<\infty.
+\end{align*}
+
+Then clearly
+$$
+E^{K}_{\infty}=\bigcap\limits^{\infty}_{n=1}E^{K}_{n}=\bigcap\limits_{t_{0}\geq 0}E^{K}_{t_{0}}.
+$$
+
+Let
+\begin{align*}
+\psi(x) &= Q_{x}(E^{K}_{\infty}),\ F=\chi_{E^{K}_{\infty}}.\\
+E^{Q_{x}}(F|\mathscr{F}_{t}) &=
+E^{Q_{x}}(\chi_{E^{K}_{\infty}}|\mathscr{F}_{t}) =Q_{X(t)}(E^{K}_{\infty})\\
+&\qq\q \text{by the Markov property,}\\
+&=\psi(X(t))\text{~ a.e.~ } Q_{x}.
+\end{align*}
+\end{step}
+
+Next we show that $\psi(X(t))$ is a martingale relative to
+$Q_{x}$. For, if $s<t$,
+\begin{align*}
+& E^{Q_{x}}(\psi(X(t))|\mathscr{F}_{s})\\
+& =E^{Q_{x}}(E^{Q_{x}}(F|\mathscr{F}_{t})|\mathscr{F}_{s})\\
+& =E^{Q_{x}}(F|\mathscr{F}_{s})\\
+& =\psi(X(s)).
+\end{align*}
+
+Equating\pageoriginale the expectations at time $t=0$ and time $t$ one
+gets 
+\begin{align*}
+\psi(x) &= \int\limits_{\Omega}\psi(X(t))dQ_{x}\\
+&= \int \psi(y)q(t,x,y)dy,
+\end{align*}
+where $q(t,x,A)=Q_{x}(X_{t}\in A)$, $\forall A$ Borel in
+$\mathbb{R}^{d}$. 
+
+We assume for the present that $\psi(x)$ is continuous (This will be
+shown in Lemma \ref{chap31-lem4} in the next section). By definition
+$0\leq \psi\leq 1$.
+
+\begin{step}%2
+$\psi(x)=1$, $\forall x$ or $\psi(x)=0$, $\forall x$.
+
+Suppose that $\psi(x_{0})=0$ for some $x_{0}$. Then
+$$
+0=\psi(x_{0})=\int \psi(y)q(t,x_{0},y)dy.
+$$ 
+As $q>0$ a.e.\@ and
+$\psi\geq 0$ we conclude that $\psi(y)=0$ a.e.\@ (with respect to
+Lebesgue measure). Since $\psi$ is continuous $\psi$ must vanish
+identically.
+\end{step}
+
+If $\psi(x_{0})=1$ for some $x_{0}$, we apply the above argument to
+$1-\psi$ to conclude that $\psi=1$, $\forall x$. We now show that the
+third possibility $0<\psi(x)<1$ can never occur.
+
+Since $K$ is compact and $\psi$ is continuous,
+$$
+0<a=\inf\limits_{y\in K}\psi(y)\leq \sup\limits_{y\in K}\psi(y)=b<1.
+$$
+
+From an Exercise in the section on martingales it follows that
+$$
+\psi(X(t))\to \chi_{E^{K}_{\infty}}\q\text{a.e.}\q Q_{x}\q\text{as}\q
+t\to +\infty.
+$$
+
+Therefore $\lim\limits_{t\to \infty}\psi(X(t))(1-\psi(X(t)))=0$ a.e.\@
+$Q_{x}$. Now
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+\psi(x_{0})=Q_{x_{0}}(E^{K}_{\infty}) &= Q_{x_{0}}\{w:w(t)\in K\text{~
+  for arbitrary large time}\}\\
+&\leq Q_{x_{0}}\{w:a\leq \psi(X(t,w))\leq b\text{~ for arbitrarily
+  large times}\}\\
+&\leq Q_{x_{0}}\{w:(1-b)a\leq \psi(X(t))[1-\psi(X(t)]\leq b(1-a)\\
+&\qq \text{for arbitrarily large times}\}\\
+&= 0.
+\end{align*}}\relax\pageoriginale
+
+Thus $\psi(x)=0$ identically, which is a contradiction. Thus for the
+given compact set $K$,
+\begin{align*}
+&\text{either}\q Q_{x}(E^{K}_{\infty}) =0,\ \forall x,\\
+&\text{or}\qq\;\, Q_{x}(E^{K}_{\infty})=1,\ \forall x.
+\end{align*}
+
+\begin{step}%3
+If $Q_{x}(E^{K_{0}}_{\infty})=1$ for some compact set
+$K_{0}(\overset{\circ}{K}_{0}\neq \emptyset)$ and $\forall x$, then
+$Q_{x}(E^{K}_{\infty})=1$, $\forall$ compact set $K$ with non-empty
+interior.
+\end{step}
+
+We first given an intuitive argument. Suppose
+$Q_{x}(E^{K_{0}}_{\infty})=1$, i.e.\@ almost all trajectories visit
+$K_{0}$ for arbitrarily large times. Each time a trajectory hits
+$K_{0}$, it has some chance of hitting $K$. Since the trajectory
+visits $K_{0}$ for arbitrarily large times it will visit $K$ for
+arbitrarily large times. We now give a precise arguent. Let
+\begin{align*}
+& \tau_{0}=\inf \{t:X(t)\in K_{0}\}\\
+& \tau_{1}=\inf \{t\geq t_{0}+1\q X(t)\in K_{0}\}\\
+& \ldots\q \ldots\q \ldots\q \ldots\\
+& \tau_{n}=\inf\{t\geq t_{n-1}+1:X(t)\in K_{0}\}\\
+& \ldots\q \ldots\q \ldots\q \ldots\\
+\end{align*}
+
+Clearly $\tau_{0}<\tau_{1}<\ldots<$ and $\tau_{n}\geq n$.
+\begin{align*}
+Q_{x}(E^{K}_{n}) &\geq Q_{x}\{X(t)\in K\text{~ for~ } t\geq
+\tau_{n}\}\\
+&\geq Q_{x}\{X(t)\in K\text{~ for~ } t\in
+\bigcup\limits^{\infty}_{j=n}[\tau_{j},\tau_{j}+1]\}\\ 
+&= 1-Q_{x}\left\{\bigcap\limits_{j\geq n}X(t)\not\in K\text{~ for~ } t\in
+              [\tau_{j},\tau_{j}+1]\right\}\\
+&\geq 1-Q_{x}\left\{\bigcap\limits_{j\geq n}X(\tau_{j}+1)\in K\right\}
+\end{align*}\pageoriginale
+
+We claim that
+$$
+Q_{x}(\bigcap\limits_{j\geq n}X(\tau_{j}+1)\not\in K)=0,
+$$
+so that $Q_{x}(E^{K}_{n})=1$ for every $n$ and hence
+$Q_{x}(E^{K}_{\infty})=1$, completing the proof of the theorem.
+
+Now 
+$$
+q(1,x,K)\geq q(1,x,\overset{\circ}{K})>0,\q \forall
+x,\ \overset{\circ}{K}\q\text{interior of}\q K.
+$$
+
+It is clear that if $x_{n}\to x$, then
+$$
+\varliminf q(1,x_{n},\overset{\circ}{K})\geq
+q(1,x,\overset{\circ}{K}).
+$$
+
+Let $d=\inf\limits_{x\in K_{0}}q(1,x,\overset{\circ}{K})$. Then there
+exists a sequence $x_{n}$ in $K_{0}$ such that $d=\Lt\limits_{n\to
+  \infty}q(1,x_{n},\overset{\circ}{K})$. $K_{0}$ being compact, there
+exists a subsequence $y_{n}$ of $x_{n}$ with $y_{n}\to x$ in $K_{0}$,
+so that
+$$
+d=\lim\limits_{n\to \infty}q(1,x,\overset{\circ}{K})=\varliminf
+q(1,y_{n},\overset{\circ}{K})\geq q(1,x,\overset{\circ}{K})>0.
+$$
+
+Thus
+$$
+\inf\limits_{x\in K_{0}}q(1,x,K)\geq d>0.
+$$
+
+Now 
+\begin{align*}
+& Q_{x}\left(\prod^{N}_{j=n}X(\tau_{j}+1)\not\in
+K|\mathscr{F}_{\tau_{N}}\right)\\
+&= \prod^{N-1}_{j=n}\chi(X(\tau_{j}+1)\not\in K)Q_{x}(X(\tau_{N}+1)\in
+K|\mathscr{F}_{\tau_{N}})\q\text{because}\\
+&\qq \tau_{j}+1\leq \tau_{N}\q\text{for}\q j<N,\\
+&= \prod^{N-1}_{j=n}(\chi_{X(\tau_{j}+1)}\not\in
+K)Q_{X(\tau_{N})}(X(1)\not\in K)\q\text{by the strong}\\
+&\qq\qq\text{Markov property,}\\
+&= \prod^{N-1}_{j=1}q(1,X(\tau_{N}),K^{c})\,\chi_{(X(\tau_{j}+1)\not\in
+  K)}.  
+\end{align*}\pageoriginale
+
+Therefore
+\begin{align*}
+& Q_{x}\left(\bigcap^{N}_{j=n}X(\tau_{j}+1)\not\in K\right)\\
+&= E^{Q_{x}}(Q_{x}(\bigcap^{N}_{j=n}X(\tau_{j}+1)\not\in
+  K|_{\tau_{N}})))\\
+&= E^{Q_{x}}\left(\prod^{N-1}_{j=n}(\chi_{[X(\tau_{j}+1)\not\in
+      K]})q(1,X(\tau_{N}), K^{c})\right)
+\end{align*}
+
+Since $K_{0}$ is compact and $X(\tau_{N})\in K_{0}$,
+$$
+q(1,X(\tau_{N}),K^{c})=1-q(1,X(\tau_{N}),K)\leq 1-d
+$$
+
+Hence
+$$
+Q_{x}\left(\bigcap\limits^{N}_{j=n}X(\tau_{j}+1)\not\in K\right)\leq
+(1-d)Q_{x}\left(\bigcap\limits^{N-1}_{j=n}X(\tau_{j}+1)\not\in
+K\right).
+$$
+
+Iterating, we get
+$$
+Q_{x}\left(\bigcap\limits^{N}_{j=n}X(\tau_{j}+1)\not\in K\right)\leq
+(1-d)^{N-n+1},\ \forall N.
+$$
+
+Let\pageoriginale $N\to \infty$ to get
+$$
+Q_{x}\left(\bigcap_{j=n}X(\tau_{j}+1)\not\in K\right)=0,
+$$
+since $0\leq 1-d<1$. Thus the claim is proved and so is the theorem.
+\end{proof}
+
+\begin{coro*}
+Let $K$ be compact, $\overset{\circ}{K}\neq \emptyset$. Then
+$Q_{x}(E^{K}_{\infty})=1$ if and only if $Q_{x}(E^{K}_{0})=1$,
+$\forall x$.
+\end{coro*}
+
+\begin{proof}
+Suppose $Q_{x}(E^{K}_{\infty})=1$; then $Q_{x}(E^{K}_{0})=1$ because
+$E^{K}_{\infty}E^{K}_{0}$. Suppose $Q_{x}(E^{K}_{0})=1$, then
+\begin{align*}
+Q_{x}(E^{K}_{n}) &=
+E^{Q_{x}}(E^{Q_{x}}(\chi_{E^{K}_{n}}|\mathscr{F}_{n}))\\
+&= E^{Q_{x}}(Q_{X(n)}(E^{K}_{0}))\\
+&= E^{Q_{x}}(1)\\
+&= 1,\ \forall n.
+\end{align*}
+
+Therefore $Q_{x}(E^{K}_{\infty})=1$.
+\end{proof}
+
+\begin{remark*}
+If $Q_{x}(E^{K}_{\infty})=0$ then it need not imply that
+$$
+Q_{x}(E^{K}_{0})=0.
+$$
+\end{remark*}
+
+\begin{example*}
+Take $b=0$ and $d=3$. LEt $K=S_{1}=\{x\in \mathbb{R}^{3}$ such that
+$|x|\leq 1\}$. Define
+$$
+\psi(n)=
+\begin{cases}
+1, & \text{for}\q |x|\leq 1,\\
+\frac{1}{|x|}, & \text{for}\q |x|\geq 1.
+\end{cases}
+$$
+$P_{x}(E^{K}_{0})\neq$ constant but $P_{x}(E^{K}_{\infty})=0$. In
+fact, $P_{x}(E^{K}_{0})=\psi(x)$ (Refer Dirichlet Problem).
+\end{example*}
+

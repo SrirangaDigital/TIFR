@@ -1,0 +1,300 @@
+\chapter{Cohomology with coefficients in a sheaf}\label{chap13}
+
+\section{Cohomology of a covering}\label{chap13:sec1}
+
+Let\pageoriginale $X$ be a topological space, $\u{\mathscr{F}}$ a
+sheaf of abelian groups on $X$. Let $\mathscr{O} =
+\{\mathscr{O}_i\}_{i\in I}$ be an open covering of $X$. We shall
+denote by $\mathscr{O}_{i_\circ, \ldots, i_p}$ the set
+$\mathscr{O}_{i_\circ} \cap \ldots \cap \mathscr{O}_{i_p}$ and, $U$
+being an open set in $X$, by $\Gamma(U, \u{\mathscr{F}}) =
+\u{\mathscr{F}}_U$ the sections of $\u{\mathscr{F}}$ over $U$. (If $U$
+is empty, we set $\Gamma (U, \u{\mathscr{F}}) = 0$).
+
+\begin{defi*}
+A $p$-\textit{cochain} of $\mathscr{O}$ is a mapping $c$ of $I^{p+1}$
+such that $c_{j_\circ \ldots j_p} \in \Gamma (\mathscr{O}_{i_\circ
+  \cdot i_p}, \u{\mathscr{F}})$ and which is, moreover,
+\textit{alternate}, (i.e., $c_{j_\circ \ldots j_p} = \varepsilon
+c_{i_\circ \ldots i_p}$ if $(j_\circ, \ldots, j_p)$ is a permutation
+of $(i_\circ, \ldots, i_p)$ and $\varepsilon = \pm 1$ according as
+this permutation is even or odd). 
+\end{defi*}
+
+$\mathscr{C}^p (\mathscr{O}, \u{\mathscr{F}})$ will denote the abelian
+group of the $p$-cochains of $\mathscr{O}$, $\mathscr{C} (\mathscr{O},
+\u{\mathscr{F}}) = \sum\limits_{ p \geq 0} \mathscr{C}^p(\mathscr{O},
+\u{\mathscr{F}})$ the direct sum of the $\mathscr{C}^p (\mathscr{O},
+\u{\mathscr{F}})$ for $p \geq 0$. 
+
+The \textit{coboundary operator} $\delta^p: \mathscr{C}^p
+(\mathscr{O}, \u{\mathscr{F}}) \to \mathscr{C}^{p+1} (\mathscr{O},
+\u{\mathscr{F}})$  is defined as follows: if $c \in \mathscr{C}^p$,
+$$
+(\delta^p c)_{i_\circ \ldots i_{p+1}} = \sum\limits^{p+1}_{j=0} (-1)^j
+c_{i_\circ \ldots \hat{i}_j \ldots i_{p+1}}
+$$ 
+where $i_\circ, \ldots \hat{i}_j \ldots i_{p+1}$ signifies that the
+$j$-th index $i_j$ is to be omitted. The $\delta^p$ give rise to a
+coboundary operator $\delta: \mathscr{C} (\mathscr{O},
+\u{\mathscr{F}}) \to (\mathscr{O}, \u{\mathscr{F}})$. It can be
+verified that 
+$$
+\delta^p \circ \delta^{p-1} = 0 \text{ i.e., } \delta \circ \delta = 0.
+$$
+Now, the elements $c$ of $\mathscr{C}^\circ (\mathscr{O},
+\u{\mathscr{F}})$ such that $\delta c = 0$ are precisely those
+elements with $c_{i_1} - c_{i_\circ} = 0$ in $\mathscr{O}_{i_\circ
+  i_1}$ (by the definition of $\delta$) and so,\pageoriginale since
+$c_{i_\circ} = c_{i_1}$ in $\mathscr{O}_{i_\circ} \cap
+\mathscr{O}_{i_1}$ they correspond to sections over the whole of $X$,
+i.e., to elements of $\Gamma(X, \u{\mathscr{F}})$. Hence we have the
+following compelx:
+$$
+0 \to \Gamma (X, \u{\mathscr{F}}) \xrightarrow{i} \mathscr{C}^\circ
+(\mathscr{O}, \u{\mathscr{F}})  \xrightarrow{\delta^\circ}
+\mathscr{C}^1 (\mathscr{O}, \u{\mathscr{F}}) \xrightarrow{\delta^1} \ldots
+$$
+and $\delta^p \circ \delta^{p-1} = 0$. Setting $z^p (\mathscr{O},
+\u{\mathscr{F}}) = $ kernel of $\delta^p$, $B^p (\mathscr{O},
+\u{\mathscr{F}}) = $ image of $\delta^{p-1}$, we define the $p$-th
+\textit{cohomology group $H^p (\mathscr{O}, \u{\mathscr{F}})$ of the
+  covering $\mathscr{O}$ with coefficient sheaf $\u{\mathscr{F}}$ by}
+\begin{align*}
+ H^p (\mathscr{O}, \u{\mathscr{F}}) & = Z^p (\mathscr{O},
+ \u{\mathscr{F}})/ B^p (\mathscr{O}, \u{\mathscr{F}}), p >0\\
+ H^\circ  (\mathscr{O}, \u{\mathscr{F}}) & = \Gamma (X,
+ \u{\mathscr{F}}).  
+\end{align*}
+
+\section{Cohomology of the space \texorpdfstring{$X$}{X}}\label{chap13:sec2}
+
+Let $\mathscr{O} = \{\mathscr{O}_i\}_{i\in I}$, $\Omega =
+\{\Omega_\alpha\}_{\alpha \in A}$ be two (indexed) coverings of $X$
+and suppose that $\Omega$ is a refinement of $\mathscr{O}$, i.e.,
+there is a mapping $\phi: A \to I$ such that $\Omega_\alpha \subset
+\mathscr{O}_{\phi(\alpha)}$. (We do not consider $\phi$ as given once
+for all, but merely require its existence). The mapping $\rho$ of
+$\mathscr{C}^p (\mathscr{O}, \u{\mathscr{F}})$ in $\mathscr{C}^p
+(\Omega,\u{\mathscr{F}})$ defined by  
+$$
+(\rho_c)_{\alpha_\circ \ldots \alpha_p} = \text{ restriction  of }
+c_{\phi(\alpha_\circ) \ldots \phi (\alpha_p)}  \text{ to }
+\Omega_{\alpha_\circ, \ldots, \alpha_p} 
+$$
+induces a mapping $\rho^\ast$ of $H^p(\mathscr{O}, \u{\mathscr{F}})
+\to H^p (\Omega, \u{\mathscr{F}})$ (this is easy to verify). 
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{chap13:prop1}
+$\rho^\ast$ does not depend on $\phi$.
+\end{proposition}
+
+\begin{proof}
+Let $\phi$, $\psi$ be two mappings $A \to I$ such that $\Omega_\alpha
+\subset \mathscr{O}_{\phi (\alpha)} \cap
+\mathscr{O}_{\psi(\alpha)}$. Suppose that $A$ is totally ordered. For
+$p=0$, the result is obvious since $H^\circ (\mathscr{O},
+\u{\mathscr{F}}) = \Gamma (X, \u{\mathscr{F}})$ for every
+$\mathscr{O}$. If $p \geq 1$, we define a mapping $k$ (``homotopy
+operator''): $\mathscr{C}^{p+1} (\mathscr{O}, \u{\mathscr{F}}) \to
+\mathscr{C}^p (\Omega, \mathscr{F})$ by 
+$$
+(kc)_{\alpha_\circ \ldots \alpha_p} = \sum\limits^p_{j=0 } (-1)^j
+c_{\phi(\alpha_\circ) \ldots \phi(\alpha_j) \psi (\alpha_j) \ldots
+  \psi (\alpha_p)}, 
+$$
+if\pageoriginale $\alpha_\circ < \alpha_1 < \ldots < \alpha_p$ in the
+total order of $A$ and then define $kc$ uniquely to be an (alternate)
+cochain. If the cochains corresponding to the maps $\phi$, $\psi$ are
+$c'$, $c''$ in $\mathscr{C}^p (\Omega, \mathscr{F})$ respectively, it
+can be verified that 
+$$
+(k \delta + \delta k) c = c' - c''.
+$$
+Consequently, if $c$ is a cocycle (i.e., $\delta c = 0$), then $c' -
+c''$ is a coboundary, $c' - c'' = \delta (kc)$ and the mappings $\phi$
+and $\psi$ induce the same homomorphism of $H^p (\mathscr{O},
+\u{\mathscr{F}}) \to H^p (\Omega, \u{\mathscr{F}})$ . This proves
+Proposition \ref{chap13:prop1}. 
+
+This homomorphism is denoted by $\sigma (\mathscr{O}, \Omega)$. It
+satisfies certain obvious transitivity properties (as a functions of
+$\mathscr{O}$, $\Omega$).
+
+If $p=0$, $\sigma$ is always an isomorphism as observed above.
+\end{proof}
+
+\begin{proposition}\label{chap13:prop2}
+If $p =1$, $\sigma$ is a monomorphism.
+
+We have to show that if $\phi: A \to I$ is such that $\Omega_\alpha
+\subset \mathscr{O}_{\phi (\alpha)}$ and $c=0$ in $H^1 (\Omega,
+  \u{\mathscr{F}})$, then $c =0$ in $H^1 (\mathscr{O},
+  \mathscr{F})$. Let $c$ be a cochain with $c_{\phi(\alpha)\varphi(\beta)}
+  = \gamma_\beta - \gamma_\alpha$ in $\Omega_{\alpha \beta}$. For
+  every $i$ and $x \in \mathscr{O}_i$ if $x \in\Omega_\alpha$, set
+  $c_i(x) = \gamma_\alpha(x) + c_{\phi(\alpha)i} (x)$. If $x$ is also
+  in $\Omega_\beta$, then $\gamma_\beta(x) + c_{\phi(\beta)i} (x) =
+  \gamma_\alpha (x) + c_{\phi(\alpha)i}(x)$ since $\gamma_\beta -
+  \gamma_a = c_{\phi(\alpha) \phi (\beta)} = c_{\phi(\alpha) i} -
+  c_{\phi(\beta)i}$. Hence this defines a section $c_i$ on
+  $\mathscr{O}_i$ and clearly $c_{ij} = c_i - c_j$ in
+  $\mathscr{O}_{ij}$, which proves the proposition.
+
+The homomorphism $\sigma (\mathscr{O}, \Omega)$ defined above depends
+only on the coverings $\mathscr{O}, \Omega$. If $\dot{\mathscr{O}}, \Omega$
+are refinements of one another, $\sigma (\mathscr{O}, \Omega)$ is an
+isomorphism. Hence we identify all coverings which are two by two
+refinements of one another, and consider the class of all indexed
+coverings modulo this identification. It is clear that this quotient
+can be put in one-one correspondence with a subclass of the power set
+of $X$ and so is a set. It is clearly a directed set and we have a
+directed system 
+$$
+\{H^p (\mathscr{O}, \u{\mathscr{F}}), \sigma (\mathscr{O},
+\Omega)\}_{\mathscr{O}} 
+$$\pageoriginale
+for every $p$. The direct limit of this system is called the
+\textit{$p$-th cohomology group of $X$ with coefficient sheaf
+  $\u{\mathscr{F}}$} and is denoted $H^p (X, \u{\mathscr{F}})$. It is
+obvious that $H^\circ (X, \u{\mathscr{F}}) = \Gamma(X,
+\u{\mathscr{F}})$. 
+\end{proposition}
+
+
+\section{The exact cohomology sequence}\label{chap13:sec3}
+Let 
+$$
+0 \to \u{\mathscr{F}} \xrightarrow{i} \u{\mathscr{G}}
+\xrightarrow{\eta} \u{\mathscr{H}} \to 0
+$$
+be an exact sequence of sheaves. This evidently gives rise to an exact
+sequence
+$$
+0 \to \mathscr{C} (\mathscr{O}, \u{\mathscr{F}}) \to \mathscr{C}
+(\mathscr{O}, \u{\mathscr{G}}) \to \mathscr{C} (\mathscr{O},
+\u{\mathscr{H}}) 
+$$
+but the last mapping is not in general onto. If we denote by
+$\mathscr{C}_a (\mathscr{O}, \u{\mathscr{H}})$ the image $\mathscr{C}
+(\mathscr{O}, \u{\mathscr{G}})$ (group of ``cocha\^ines
+ascensionelles'') then we obtain the exact sequence
+$$
+0 \to \mathscr{C} (\mathscr{O}, \u{\mathscr{F}}) \to \mathscr{C}
+(\mathscr{O}, \u{\mathscr{G}}) \to \mathscr{C}_a (\mathscr{O},
+\u{\mathscr{H}}) \to 0.
+$$
+It $Z^p_a$ is the group of cochains $c$ in $\mathscr{C}^p_a
+(\mathscr{O}, \u{\mathscr{H}})$ with $\delta c = 0$ and $B^p_a$ is the
+group of cochains $\delta c$, $c \in \mathscr{C}^{p-1}_a
+(\mathscr{O}, \bar{\mathscr{H}})$, we define the group $H^p_a
+(\mathscr{O}, \u{\mathscr{H}})$ by
+$$
+H^p_a (\mathscr{O}, \u{\mathscr{H}}) = Z^p_a / B^p_a. 
+$$
+We now define a mapping $d^\ast : H^p_a (\mathscr{O}, \u{\mathscr{H}})
+\to H^{p+1} (\mathscr{O}, \u{\mathscr{F}})$ in the following way. Let
+$h \in Z^p_a$ and let $h_{i_\circ \ldots i_p} =\eta (g_{i_\circ \ldots
+i_p})$ where $g \in \mathscr{C}^p (\mathscr{C}, \u{\mathscr{G}})$;
+also, since clearly $\eta$ and $\delta$ commute,
+$\eta\{(\delta_g)_{i_\circ \ldots i_{p+1}} \} = (\delta h)_{i_\circ
+  \ldots i_{p+1}} = 0$ since $h \in Z^p_a \cdot (\delta_g)_{i_\circ,
+  \ldots i_{p+1}}$ being a section over $\mathscr{O}_{i_\circ \ldots
+  i_{p+1}}$ which goes to 0 under $\eta$, $\delta g \in
+\mathscr{C}^{p+1} (\mathscr{O}, \u{\mathscr{F}})$ (since
+$\u{\mathscr{F}}$ is the kernel of $\eta$). It is easy to see that the
+class of $\delta g $ in $H^{p+1} (\mathscr{O}, \u{\mathscr{F}})$
+remains unchanged if $g$\pageoriginale is replaced by another cochain
+$g'$ with $\eta g' =h$ and if $h$ is replaced bya cohomologous
+cocycle. This defines $d^\ast$.
+
+It is clear that $i$, $\eta$ induce homomorphisms
+$$
+i^\ast , \eta^\ast : H^p (\mathscr{O}, \u{\mathscr{F}})
+\xrightarrow{i^\ast} H^p (\mathscr{O}, \u{\mathscr{G}})
+\xrightarrow{\eta^\ast} H^p (\mathscr{O}, \u{\mathscr{H}})
+$$
+and it can be verified that the following sequence is exact:
+\begin{align*}
+& 0 \to H^\circ (\mathscr{O}, \u{\mathscr{F}}) \xrightarrow{i^\ast}
+  H^\circ (\mathscr{O}, \u{\mathscr{G}}) \xrightarrow{\eta^\ast}
+  H^\circ_a(\mathscr{O}, \u{\mathscr{H}}) \xrightarrow{d^\ast} H^1
+  (\mathscr{O}, \u{\mathscr{F}}) \xrightarrow{i^\ast} \ldots \\
+\ldots & \xrightarrow{d^\ast} H^p(\mathscr{O}, \u{\mathscr{F}})
+\xrightarrow{i^\ast} H^p(\mathscr{O}, \u{\mathscr{G}})
+\xrightarrow{\eta^\ast} H^p_a (\mathscr{O}, \u{\mathscr{H}})
+\xrightarrow{d^\ast}  H^{p+1} (\mathscr{O}, \u{\mathscr{F}})
+\xrightarrow{i^\ast}  \ldots 
+\end{align*}
+We can now define the groups $H^p_a (X, \u{\mathscr{H}})$ by taking
+direct limits as the covering becomes finer, as for the groups $H^p(X,
+\u{\mathscr{H}})$. Also there is a canonical mapping $H^p_a
+(\mathscr{O} \u{\mathscr{H}}) \to H^p (\mathscr{O}, \u{\mathscr{H}})$
+and so a canonical homomorphism $H^p_a (X, \u{\mathscr{H}}) \to H^p
+(X, \u{\mathscr{H}})$. Since the operation of taking direct limits
+commutes with exact sequences we obtain the exact sequence
+$$
+\ldots \xrightarrow{d^\ast} H^p (X, \u{\mathscr{F}})
+\xrightarrow{i^\ast} H^p(X,\u{\mathscr{G}}) \xrightarrow{\eta^\ast}
+H^p_a (X, \u{\mathscr{H}}) \xrightarrow{d^\ast} H^{p+1} (X,
+\u{\mathscr{F}}) \xrightarrow{i^\ast} \ldots 
+$$
+It is of interest to decide when $H^p_a (X, \u{\mathscr{H}}) = H^p
+(X,\u{\mathscr{H}})$. This is so in the case when $X$ is paracompact
+(i.e., a Hausdorff space in which every covering admits a locally
+finite refinement).
+
+\begin{theorem*}
+If $X$ is paracompact and 
+$$
+0 \to \u{\mathscr{F}} \xrightarrow{i} \u{\mathscr{G}}
+\xrightarrow{\eta} \u{\mathscr{H}} \to 0
+$$
+an exact sequence of sheaves on $X$, then the canonical homomorphism
+$$
+H^p_a(X, \u{\mathscr{H}}) \to H^p (X, \mathscr{H})
+$$
+is an isomorphism.
+\end{theorem*}
+
+The theorem follows at once from the following
+
+\begin{lemma*}
+If $\mathscr{O} = \{\mathscr{O}_i\}_{i\in I}$ is a covering of $X$ and
+$c \in \mathscr{C}^p (\mathscr{O}, \u{\mathscr{H}})$, there exists a
+covering $\Omega = \{\Omega_\alpha\}_{\alpha \in A}$ and a mapping
+$\phi: A \to I$ with $\Omega_\alpha \subset
+\mathscr{O}_{\phi(\alpha)}$\pageoriginale such that the induced
+homomorphism $\phi^\ast: \mathscr{C}^p (\mathscr{O}, \u{\mathscr{H}})
+\to \mathscr{C}^p (\Omega, \u{\mathscr{H}})$ take $c$ to a cochain
+$\phi^\ast (c) \in \mathscr{C}^p_a (\Omega, \u{\mathscr{H}})$. 
+\end{lemma*}
+
+\medskip
+\noindent{\textbf{Proof of the lemma:}}
+Since $X$ is paracompact, we may suppose $\mathscr{O}$ locally
+finite. Since $X$ is \textit{normal}, (see Dieudonn\'e \cite{p3:key5})
+there is an open covering $\{\mathscr{O}'_i\}_{i \in I}$ such that
+$\bar{\mathscr{O}}'_i \subset \mathscr{O}_i$. For every $x \in X$, we
+choose an open neighbourhood $\Omega_x$ of $x$ such that
+\begin{itemize}
+\item[(i)] $x \in \mathscr{O}_i$ (respectively $\mathscr{O}'_i$)
+  implies $\Omega_x \subset \mathscr{O}_i$ (respectively
+  $\mathscr{O}'_i$). 
+
+\item[(ii)] $\Omega_x \cap \mathscr{O}'_i \neq 0$ implies $\Omega_x
+  \subset \mathscr{O}_i$. 
+
+\item[(iii)] If $x \in \mathscr{O}_{i_\circ \ldots i_p}$, there is a
+  section $S$ of $\u{\mathscr{G}}$ over $\Omega_x$ such that $\eta(s)
+  = c_{i_\circ \ldots i_p}$ on $\Omega_x$. 
+\end{itemize}
+
+Since $\mathscr{O}$ is locally finite, it follows from the definition
+of quotient sheaf that (iii) can be fulfilled; and (i) and (ii) are
+then ensured if we choose the $\Omega_x$ small enough. This gives us a
+covering $\{\Omega_x\}_{x \in X} = \Omega$ of $X$; we choose a mapping
+$\phi: X \to I$ such that $\Omega_x \subset
+\mathscr{O}'_{\phi(x)}$. It is then easy to verify that $\Omega$ and
+$\phi$ have the property stated in the lemma.

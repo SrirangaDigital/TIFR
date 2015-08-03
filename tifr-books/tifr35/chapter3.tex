@@ -1,0 +1,4541 @@
+ \chapter{}\label{chap3}
+ 
+ There\pageoriginale are obvious analogues of the function spaces
+ introduced at the 
+ begining of Chapter \ref{chap1} for vector and  matrix valued functions. We
+ shall use the same notations for these spaces and norms and scalar
+ products on them. For example,  for two vectors $u=(u_j)$ and $v=
+ (v_j)$ in $\mathscr{E}^s_{L^2} [0,  h]$,  we define 
+ $$
+ (u(t), ~ v(t)) = \sum\limits_j (u_j(x, t), ~ v_j(x, t))_s.
+ $$
+ 
+
+ \section{Energy inequalities for symmetric hyperbolic systems}\label{chap3-sec1}%%% 1
+  
+  Let $A_k(x, t)$ and $B(x, t)$ be matrices (of order $N$) of
+  functions. Consider the following system of first order equations. 
+\begin{equation}
+\frac{\partial}{\partial t} u - \sum A_k (x, t) \frac{\partial}{\partial
+  x_k} u -B (x, t) u = f \tag{1.1} \label{chap3-eq1.1}
+ \end{equation} 
+ where $A_k (x,  t)$ are Hermitian matrices. Suppose that 
+$$
+A_k (x,  t)
+ \in \mathscr{B}^1 [0, h], B (x,t) \in \mathscr{B}^0
+             [0,h]\text{~ and~ } f \in  \mathscr{D}^0_{L^2} [0,
+               h]. 
+$$  
+
+\setcounter{proposition}{0}
+\begin{proposition}[Friedrichs]\label{chap3-sec1-prop1} % proposition 1
+ Let $u$ be a solution of \eqref{chap3-eq1.1} belonging to
+  $\mathscr{D}^1_{L^2} [0,  h]$. Then we have 
+\begin{equation}
+||u(t)|| \leq \exp (\gamma t)\cdot ||u(0)|| + \int\limits^t_0 \exp
+(\gamma (t-s))|| f(s)|| ds \tag{1.2}\label{chap3-eq1.2} 
+\end{equation}
+where $\gamma$ is a constant depending only on the bounds of $A_k$,
+$B$.  
+\end{proposition} 
+
+\begin{proof}
+Differentiating $|| u(t) ||^2 = u(t)$,  $u(t))$ with respect to $t$ we
+have the identity 
+$$
+\frac{d}{dt}||u (t)||^2 = \left(\frac{du}{dt}(t),  u(t)\right) + \left(u(t),
+\frac{du}{dt}(t)\right). 
+$$
+
+Since\pageoriginale $A_k$ are Hermitian matrices and since $u
+\in \mathscr{D}^1_{L^2} [0, h]$ we obtain from \eqref{chap3-eq1.1} the
+relation   
+ \begin{align*}
+\left(u,  \frac{du}{dt}\right) & =\sum_k \left(u,  A_k \frac{\partial
+  u}{\partial x_k}\right) + (u,  Bu + f)\\ 
+& = - \sum_k \left(\frac{\partial}{\partial x_k} (A_k u), u\right) + (u,  Bu +
+   f)\\ 
+& = - \left\{\sum_k \left(A_k \frac{\partial u}{\partial x_k},
+   u\right) + \sum_k \left(\frac{\partial A_k}{\partial x_k} u,
+   u\right)\right\} +(u,  Bu+ f).   
+ \end{align*} 
+
+ Hence $\dfrac{d}{dt}|| u(t) ||^2 = - \sum\limits_k \left(\dfrac{\partial
+   A_k} {\partial x_k}\cdot u,  u\right)+ 2 \re (u,  Bu + f)$ 
+ $$
+ \leq 2 \gamma ||u||^2 + 2 || u || || f ||
+ $$
+where $\gamma$ is a constant depending only on the bounds of
+$\dfrac{\partial A_k}{\partial x_k}$ and $B$.  Hence  
+ $$
+ \frac{d}{dt} || u(t) || \leq \gamma || u(t) || + ||f||
+ $$
+which on integration with respect to $t$ yields the required inequality
+$$
+||u(t)|| \leq \exp (\gamma t) \cdot || u(0)|| + \int\limits^t_0 \exp
+(\gamma (t-s)) || f(s) || ds. 
+$$
+
+The energy inequality involves the $L^2$-norm of the solution $u$ of
+the system in the $x$-space. It is possible to derive the energy
+inequality under the weaker assumption that $u \in L^2 (0,
+h]$. For this we use the method of regularization in the $x$-space
+  of the function $u$ by mollifiers introduced by Friedrichs. We
+  recall the notion of mollifiers and a few of their properties which
+  we need. 
+\end{proof}
+
+\begin{defi*}
+{\em Mollifiers of Friedrichs}. Let $\varphi \in \mathscr{D}$
+with its support contained in the unit ball $\left \{ |x| < 1 
+\right\}$ such that $\varphi (x) \geq 0$ and $ \int \varphi (x) \, dx
+=1$.\pageoriginale Then for a $ \delta > 0$ define  
+$$
+\varphi_\delta (x)= \frac{1}{\delta^n} \varphi
+\left(\frac{x}{\delta}\right).   
+$$\pageoriginale
+are called mollifiers.
+\end{defi*}
+
+\begin{proposition}[Friedrichs]\label{chap3-sec1-prop2} % \proposition 2 
+ Let $a \in \mathscr{B}^1$ and $u \in L^2$. Denote by
+ $C_\delta $ the commutator defined by  
+\begin{align}
+C_\delta u & = \varphi_\delta  *  \left(a(x)\frac{\partial u}{\partial
+  x_j}\right)- a(x) \left(\varphi_\delta  *  \frac{\partial
+  u}{\partial x_j}\right)\\  
+& = \left[\varphi_\delta *,  a \frac{\partial}{\partial x_j}\right]
+u. \tag{1.3} \label{chap3-eq1.3}
+\end{align}
+\end{proposition}
+
+Than we have 
+\begin{enumerate}[(i)]
+\item $||C_\delta u || \leq c|| u || $ where $c$ is a constant
+  depending only on $\varphi $ and a  
+
+\item $C_\delta u \to 0$ in $L^2$ as $\delta \to 0$. 
+\end{enumerate}
+
+Before proving this proposition it will be useful to prove the
+following 
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap3-sec1-lem1}% \lemma 1
+If $u \in L^p$ then $\varphi_\delta * u \to u$ in $L^p $ as
+$\delta \to 0$. More generally,  if $u \in \mathscr{D}^m_{L^p}
+(m=0, 1, \ldots )$ then $\varphi_\delta * u \to u$ in
+$\mathscr{D}^m_{L^p}$.  
+\end{lemma}
+
+\begin{proof}
+Let $\psi_\delta = \varphi_\delta * u-u$. Since $\int \varphi_\delta
+(x) dx =1$ we have 
+$$
+\psi_{\delta}(x)= \int \varphi_\delta (x-y) u (y) dy- u(x)= \int
+\varphi_\delta (x-y)(u(y)- u(x))dy.
+$$  
+\end{proof}
+
+If $p'$ is such that $\dfrac{1}{p}+ \dfrac{1}{p'} = 1$ by H\"older's
+inequality we have 
+$$
+| \psi_\delta (x) | \leq \left(\int \varphi_\delta
+(x-y)dy\right)^{1/p'} \left(\int \varphi_\delta (x-y) \big| u(y)-u(x)
+\big|^p dy\right)^{1/p}.  
+$$
+
+Here we use $\varphi_\delta
+=\varphi^{\frac{1}{p'}}_\delta \cdot \varphi^{\frac{1}{p}}_\delta$. Now
+since $\int \varphi_\delta (x-y)dy =1$ we have $\int \big|\psi_\delta
+(x) \big|^p dx \leq \iint \varphi_\delta (x-y)| u(y)-u(x)|^p dx \, dy=
+\iint\limits_{|x-v| \leq \delta} \varphi_\delta (x-y)| u(y)-u(x)|^p dx
+\, dy$. 
+By a change of variables $x'= x-y$ we obtain 
+$$
+\int |\psi_\delta (x)|^p
+dx \leq \int_{|x'| < \delta} \varphi_\delta (x') dx' \int
+|u(y)-u(x'-v)|^p dy.
+$$\pageoriginale 
+
+If $\varepsilon (\delta)$ denotes $\sup \int\limits_{|h| \leq
+  \delta}|u (y)-u(y + h)|^p dy$ then $\int |\psi_\delta (x)|^p
+dx \leq \varepsilon (\delta)$ which tends to 0 as $\delta \to 0$. The second
+part is an immediate consequence of this result since
+$\left(\dfrac{\partial}{\partial x}\right)^\nu (\varphi_\delta \star u)=
+\varphi_\delta \star \left(\dfrac{\partial}{\partial x}\right)^\nu u $
+for $\nu |
+\leq m$ if $u \in \mathscr{D}^m_{L^p}$. 
+
+\medskip
+\noindent
+{\bf Proof of Proposition \ref{chap3-sec1-prop2}:}
+\begin{equation}
+C_\delta u(x)=- \int \varphi_\delta (x-y)(a(x)- a(y)) \frac{\partial
+  u}{\partial y_j} (y)dy \tag{1.4}\label{chap3-eq1.4} 
+\end{equation}
+where the integral on the right is taken in the sense of
+distributions. Now we have 
+\begin{equation}
+C_\delta u= \int \frac{\partial}{\partial y_j} \left\{ \varphi_\delta
+(x-y) (a(x)- a(y))\right\} u(y) dy \tag{1.5}\label{chap3-eq1.5} 
+\end{equation}
+where the integral is taken in the usual sense. In fact the integral
+in \eqref{chap3-eq1.5} is equal to  
+$$
+- \int \frac{\partial a}{\partial y_j}(y) \varphi_\delta (x-y) u(y)dy 
++ \int (a(x)- a(y) \frac{\partial \varphi_\delta}{\partial y_j}(x-y) u
+(y) dy; 
+$$
+we now note that  
+$$
+|a(x)-a(y)| \leq |a|_\mathscr{B} \delta_1 |x-y|,  \int |x-y||
+\frac{\partial \varphi_\delta}{\partial y_j}(x-y)| dx \leq c, 
+$$ 
+with $c$ independent of $\delta$. Thus it follows from the
+Hausdorff-Young theorem that the function represented by the above
+integral is majorized in the $L^2$-norm by $c_1 |a|_{\mathscr{B}^1}
+||u||$. Now we see that the integration by parts is  justified. In
+fact,  the 
+two integrals are equal for $u \in \mathscr{D}$. Then for any
+$u \in L^2$ the equality is proved by taking a sequence $u_j
+\varepsilon \mathscr{D}$ having\pageoriginale for its limit $u$ in
+$L^2$. Then 
+$C_\delta u_j$ tends to the second integral in the sense of $L^2$. On
+the other hand $C_\delta u_j \to C_\delta u$ in the sense of
+distributions. This proves (i). 
+
+Since $(a(x)-a(y)) \varphi_\delta (x-y)$ considered, for fixed $x$,
+as a function of $y$ has compact support we see that  
+$$
+\int \frac{\partial}{\partial y_j} \left\{ (a(x)- a (y)) 
+\varphi_\delta (x-y) \right\} dy=0. 
+$$
+
+Hence 
+\begin{align*}
+C_\delta u(x) & = \int \frac{\partial}{\partial y_j}\left\{ (a(x)- a
+(y)) \varphi_\delta (x-y) \right\} (u(y)- u(x)) dy\\ 
+& = - \int \frac{\partial a}{\partial y_j}(y) \varphi_\delta (x-y)
+(u(y)-u(x))dy\\
+&\quad - \int (a(x)-a(y))\frac{\partial \varphi_j}{\partial x_j}
+(x-y)
+ (u(y)- u(x)) dy\\ 
+& = \phi_1 (x) + \phi_2 (x),  \text{ say}. 
+\end{align*}
+
+Now as in the proof of lemma \ref{chap3-sec1-lem1},  we see that
+$$
+|| \phi_i (x)|| \to 0 \text{ as } \delta \to 0 (i=1,  2). 
+$$
+
+In fact, for instance, 
+$$
+|\phi_2 (x)| \leq | a |_{\mathscr{B}^1} \int |x-y|| \frac{\partial
+  \varphi_\delta (x-y)}{\partial x_j}||u(y)- u(x)|dv.  
+$$
+
+Since $\int |x| |\dfrac{\partial \varphi_\delta}{\partial x_j}| dx
+\leq c$ (independent of $\delta $) we obtain the desired property by
+the same reasioning as earlier. As an immediate consequence,  we have 
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap3-sec1-coro1}% corollary 1
+If we assume $a \in \mathscr{B}^m$ and $u \in
+\mathscr{D}^m_{L^2}$ in proposition \ref{chap3-sec1-prop2} then 
+\begin{enumerate}[\rm(1)]
+\item $|| C_\delta u ||_{\mathscr{D}^m_{L^2}}  \leq c ||u
+  ||_{\mathscr{D}^m_{L^2}}$,\pageoriginale 
+
+\item $ C_\delta u \to 0$ in $\mathscr{D}^m_{L^2} $ as $\delta \to
+  0$, $m = 1, 2,\ldots $ 
+\end{enumerate}
+\end{corollary}
+
+\begin{proposition}[Friedrichs]\label{chap3-sec1-prop3}%prop 3
+ Let $u$ be a solution of \eqref{chap3-eq1.1} belonging\break $L^2 [0,
+   h]$ then the 
+ inequality \eqref{chap3-eq1.2} 
+$$
+|| u (t) || \leq \exp (\gamma t)|| u (0) || + \int\limits^{t}_{0}
+\exp (\gamma (t-s))|| f (s)|| ds, 
+$$
+holds, where $\gamma$ is the same constant as in prop. \ref{chap3-sec1-prop1}. 
+\end{proposition}
+
+\begin{proof}%proo 0
+By regularizing $u$ in the $x$-space by mollifiers $\varphi_\delta$ we
+obtain a function belonging to $\mathscr{D}^1_{L^2} [0, h]$ to which
+we can apply the Prop. \ref{chap3-sec1-prop1}. Let $u_\delta =
+\varphi_\delta *_{(x)} u$. Then  
+$$
+\frac{\partial u_\delta}{\partial t} = \frac{\partial}{\partial t} 
+(\varphi _\delta *_{(x)} u) = \varphi_\delta *_{(x)} \frac{\partial
+  u}{\partial t}. 
+$$
+
+Form the equation \eqref{chap3-eq1.1} we obtain the following equation
+for $u_\delta$ 
+$$
+\frac{\partial u_\delta}{\partial t} = \sum\limits_{k} \varphi_\delta
+*_{(x)} \left(A_k \frac{\partial u}{\partial x_k}\right) 
++ \varphi_\delta *_{(x)} Bu +
+\varphi_\delta * f,  
+$$
+that is 
+\begin{align*}
+\frac{\partial u_\delta}{\partial t} & = \sum\limits_{k} A_k
+\frac{\partial u_\delta}{\partial x_k} + Bu_\delta + f_\delta +
+C_\delta u\\ 
+\text{where } C_\delta u & = \sum \bigg\{ \varphi_\delta *_{(x)}
+(A_k \frac{\partial u}{\partial x_k}) - A_k (\varphi _\delta *_{(x)}
+\frac{\partial u}{\partial x_k}) \bigg\}\\
+&\quad + \bigg\{  \varphi_\delta
+*_{(x)} Bu-R (\varphi_\delta * u)\bigg\}\\ 
+& = \sum  \left[ \varphi_\delta *_{(x)}, A_k \frac{\partial}{\partial
+    x_k}\right] u + \left[\varphi_\delta *_{(x)}, B\right] u. 
+\end{align*}
+
+Applying prop. \ref{chap3-sec1-prop1} to the equation in $u_\delta$ we
+obtain since $u_\delta \subset \mathscr{D}'_{L^2} [0,h] $
+$$
+|| u_\delta (t) || \leq
+\exp (\gamma t ) || u_\delta (0) || + \int \exp (\gamma (t-s)) \int ||
+f_\delta (s) || + || C_\delta (u) (s)|| ds. 
+$$\pageoriginale
+
+Now it follows from the Friedrichs lemma (Prop. \ref{chap3-sec1-prop2}) that
+$$
+|| (C_\delta u) (s) || \leq c || u (s) || 
+$$ 
+where $c$ is a constant independent of $\delta$ and $C_\delta u(s) \to
+0$ as $\delta\to 0$. By Lebesgue's bounded convergence theorem it
+follows that   
+$$
+\int\limits^{t}_{0} \exp (\gamma (t-s))\cdot (|| f_\delta (s)|| + ||
+(C_\delta u) (s) ||) \, ds  
+$$
+tends to $\int\limits^{t}_{0} \exp (\gamma (t-s)) || f(s) ||ds$. Thus
+passing to the limits as $\delta \to 0$ we obtain 
+$$
+||(u (t) || \leq \exp (\gamma t ) || u(0) || + \int\limits^{t}_{0}
+\exp (\gamma (t-s) || f (s) || ds. 
+$$
+\end{proof}
+
+\section{Some remarks on the energy inequalities}\label{chap3-sec2}%sec 2
+
+In the previous section we obtained estimates for the solutions of
+symmetric hyperbolic systems in $L^2$-norm in terms of the $L^2$-norms
+of the initial values and of the second member. One can ask whether
+such estimates can be proved in the maximum norm and $L^p$-norm for $p
+\neq 2$. Littman \cite{key1} has proved that such an energy inequality cannot
+hold in the $L^p$-norm for $p\neq 2$. The existence of such an
+inequality with the maximum norms of functions and of their
+derivatives is related to the propagation of regularity, a form of
+Huygens principle for differentiablity. For instance, if $u(0)$ is
+$m$ times continuously differentiable is $u(t)$ also $m$ times
+continuously differentiable? In general an energy inequality in the
+maximum norm does not hold as we shall show by a counter example due
+to Sobolev. However, when the dimension of the\pageoriginale $x$-space
+is one an 
+inequality for solutions of strongly hyperbolic systems is valid in
+the maximum norm. This result is due to $T$. Haar. We indicate his
+result briefly. 
+
+\smallskip
+\noindent
+\textbf{\textit{Haar's inequality}}. Consider the system of equations
+of the first order  
+\begin{equation}
+\frac{\partial u}{\partial t} - A (x,t) \frac{\partial u}{\partial x}
+- B (x, t) u = f \tag{2.1}\label{chap3-eq2.1}  
+\end{equation}
+where the matrix $A(x, t)$ is such that det $(\lambda I-A)$ has real
+and distinct roots. Then we have the inequality 
+\begin{equation}
+| u (t) |_0 \leq c (T) \bigg\{ | u (0) |_0 + \sup\limits_{0 \leq t
+  \leq T}| f (t) |_0 \bigg\} \tag{2.2}\label{chap3-eq2.2} 
+\end{equation}
+where $| u (t)|_0 = \sup\limits_{x \in D_0} | u (x, t) |$, $D$  being a
+neighbourhood of the origin and $D_0 = D \cap \{t = 0\}$. 
+
+In fact, let $\lambda _1 (x, t), \ldots, \lambda_N (x, t)$ be the
+roots of det $(\lambda I-A) = 0$. $A(x, t)$ being diagonalizable there
+exists a non-singular matrix $N(x, t)$ such that  
+$$
+N(x, t) A (x, t) = D (x, t) N (x, t) 
+$$ 
+where $D(x, t)$ is the diagonal matrix
+$$
+\begin{pmatrix} 
+\lambda_1 (x, t)  & & 0\\
+&\ddots&\\ 
+0 & & \lambda_{N} (x, t)\\
+\end{pmatrix}
+$$
+and such that $|\det N (x, t)| > \delta > 0$. We have the identity 
+$$
+\frac{\partial}{\partial t} (N u) = \frac{\partial N}{\partial t} u +
+N \frac{\partial  u}{\partial t}. 
+$$
+
+Substituting for $\dfrac{\partial u}{\partial t}$ from the given
+system the right hand side becomes 
+\begin{align*}
+\frac{\partial N}{\partial t} u + N.A \frac{\partial u}{\partial x} +
+N.B u + Nf & = \frac{\partial N}{\partial t} u + DN
+\frac{\partial}{\partial x} u + N.B u + N.f\\ 
+& = D \frac{\partial }{\partial x}. (Nu) + B_1 u + N.f,
+ \end{align*}\pageoriginale  
+where $B_1 = - D \dfrac{\partial N}{\partial x} + NB +
+ \dfrac{\partial N}{\partial t}$. If $B_2$ denotes $B_1 N^{-1}$ then $v
+ = Nu$ satisfies the system. 
+ $$
+ \frac{\partial v}{\partial t} = D \frac{\partial v}{\partial x} + B_2
+ v + Nf 
+ $$
+ which can be reduced to an integral equation of the Volterra type and
+ then can be solved by successive approximation. Let $(x_0, t_0)$ by
+ any point in the $(x, t)$-plane. Let $D$ be the domain enclosed by
+ $(t = 0)$, the characteristic curves passing through $(x_0, t_0)$ and
+ having the maximum and minimum slopes. Let $D_0 = D \cap (t =
+ 0)$. One can then show from the integral equation that 
+ $$
+ | u (x_0, t_0) |\leq c \left\{ \sup\limits_{x \in D_0} | u (x, 0) |+
+ \sup\limits_{(x, t) \in D}| f (x, t) |\right\} 
+ $$ 
+ with a constant $c$ independent of $u$.
+ 
+ That the energy inequality with the supremum norms does not hold in
+ general in shown by the following counter example due to
+ Sobolev.
+
+\medskip
+\noindent
+ \textit{Counter example (Sobolev)}. We consider the wave
+ operator  
+ \begin{equation}
+\square \equiv \frac{\partial^2}{\partial t^2} - \sum\limits^{3}_{j=1}
+\frac{\partial^2}{\partial x^2_j} \tag{2.3}\label{chap3-eq2.3}
+ \end{equation} 
+ in $\underbar{R}^3$. We set 
+ $$
+ E_1 (t,u) = \sup\limits_{x} \left\{\left| \frac{\partial u}{\partial
+   t}\right| + \sum_{j} \left|\frac{\partial u}{\partial x_j}\right| \right\}. 
+ $$
+
+ We shall show that if $t_0 > 0$ then an inequality
+ $$
+ E_1 (t_0, u) \leq c E_1 (0, u) 
+ $$\pageoriginale
+does not hold, which proves that the differentiability of the solution
+is not propagated in the $t$-direction. For this purpose, let $\Gamma
+(x, t)$ be a fundamental solution of $\square$ such that  
+ $$
+ \Gamma (x, 0) = 0, \; \frac{\partial \Gamma}{\partial t} (x, 0) =
+ \delta   
+ $$
+ $\delta$ being the Dirac distribution. Let $\varphi \in
+ \mathscr{D}$. For an $\in > 0$ define  
+ $$
+ \varphi^{(\in)} (x) = \varphi \left(\frac{x}{\in}\right). 
+ $$
+
+ Extending $\Gamma (x, t)$ to the whole space by setting 
+ \begin{align*}
+\tilde{\Gamma} (x, t) & = \Gamma (x, t) \text{ for } ~ t \geq 0\\ 
+&= - \Gamma (x,-t) ~\text{ for } ~ t \leq 0.
+ \end{align*} 
+
+ We obtain a distribution solution of $\dfrac{\partial^2}{\partial
+   t^2} - \sum\limits_{j} \dfrac{\partial^2}{\partial x^2_j}$ in the
+ whole space $(-\infty < t < \infty)\times \underbar{R}^3$. Setting 
+ $$
+ u_\in (x, t) = \tilde{\Gamma} (x, t-to) *_{(x)} \varphi^{(\in)} (x) 
+ $$
+ we obtain a solution of the homogeneous equation which satisfies 
+ $$
+ \frac{\partial}{\partial t} u_\in (x, to) = \frac{\partial
+   \tilde{\Gamma}}{\partial t} (x, t_0 -to) *_{(x)} \varphi^{(\in)} (x)=
+ \delta * \varphi^{(\in)} (x) = \varphi^{(\in)} (x) 
+ $$
+ and $\dfrac{\partial}{\partial x_j} u_\in (x,t_0) = \tilde{\Gamma}
+ (x, 0) *_{(x)} \dfrac{\partial}{\partial x_j} \varphi^{(\in)} (x) =
+ 0$. 
+ 
+Hence $E_1 (t_0, u_\in) = \sup\limits_{x} |\varphi^{(\in)} (x)|$.
+
+On the other hand we first observe that $\Gamma (x, t)$ can be taken
+to be $\dfrac{1}{4 \pi t} \delta_{|x|-t}$. Let us choose $a \varphi
+\in \mathscr{D}$ with its support contained in the unit ball in
+$\underbar{R}^3$ such that $\varphi (0) = 1$ and $|\varphi (x)| \leq
+1$. Then $|\dfrac{\partial}{\partial x_j} \varphi^{(\in)} (x) | \leq
+\dfrac{\gamma}{\in}$.\pageoriginale Thus for $t = 0$ we see that  
+$$
+\frac{\partial}{\partial t} u_\in (x, 0) = + \frac{\partial
+  \Gamma}{\partial t} (x, t_0) *_{(x)} \varphi^{(\in)} (x) = \left[
+  \frac{\partial}{\partial t} (\frac{t}{4 \pi}) \int\limits_{|\xi|=1}
+  \varphi^{(\in)} (x-t) ds_\xi ) \right]_{t=t_0} 
+$$
+
+Now since $\int\limits_{B_\in (x_0) \cap \{| \xi | =1 \}} ds_\xi =
+O(\epsilon^2)$ it follows that $\dfrac{\partial}{\partial t} u_\epsilon (x, 0) =
+O(\epsilon)$. We also have $\dfrac{\partial u_\epsilon}{\partial x_j} (x, 0) = O
+(\epsilon)$ and so $E_1 (0, u_\epsilon) = O(\epsilon)$ which together
+with $E_1 (t_0, u_{\epsilon}) = \sup | \varphi^{(\epsilon)}(x)| =1$ shows
+that an energy inequality 
+of the type $E_1 (t_0, u_{\epsilon}) \leq cE_1(0, u_{\epsilon})$ does not hold. 
+
+
+\section{Singular integral operators}\label{chap3-sec3}%sec 3
+
+In this section we introduce the notion of singular integral operators
+and recall some of their properties which will be useful in the study
+of the existence and uniqueness of solutions of the Cauchy
+problem. The following considerations lead us to the notion of
+singular integral operators. 
+
+Consider the system of equations 
+\begin{equation}
+\frac{\partial u}{\partial t} - \sum A_k \frac{\partial u}{\partial
+  x_k}- Bu = f \tag{3.1} \label{chap3-eq3.1}
+ \end{equation} 
+ where $A_k$ and $B$ are matrices whose entires are constants and\,$f
+ \in L^2 [0. h]$. We assume \eqref{chap3-eq3.1} to be strongly hyperbolic in the
+ sense that the roots of the equation. det $(\lambda I-A.\xi)  = 0$
+ are real and distinct. Let the roots be $\lambda_1 (\xi), \ldots,
+ \lambda_N (\xi)$ for $\xi \neq 0$. We have the following. 
+
+\setcounter{lemma}{0} 
+\begin{lemma}\label{chap3-sec3-lem1}%lemm 1
+There exists a non-singular matrix $N(\xi)$ which is homogeneous of
+degree zero and bounded such that  
+  \begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item $| \det N(\xi) | \leq \delta> 0 $ for all $\xi$.
+
+\item $N (\xi) (A.\xi) = D (\xi) N (\xi)$ where $D(\xi)$ is the
+  diagonal matrix  
+ $$
+ D(\xi)=
+ \begin{pmatrix}
+\lambda_1 (\xi) &  & 0 \\
+ &\ddots\\
+ 0 & &\lambda_{N}(\xi) 
+ \end{pmatrix} 
+ $$\pageoriginale
+  \end{enumerate}
+\end{lemma}
+
+ Assume that there exists a solution $u \in L^2 [0, h]$. Then,
+ denoting for every fixed $t$, the Fourier transform of $u$ in the
+ $x$-space $\hat{u}(\xi, t)$, we obtain the following system of
+ ordinary diffenential equations: 
+ \begin{equation}
+\frac{d}{dt} \hat{u} (\xi, t) = (2 \pi i A.\xi + B) \hat{u} (\xi, t) +
+\hat{f} (\xi, t)\tag{3.2} \label{chap3-eq3.2}
+ \end{equation} 
+
+ Multiplying both sides of this system by $N(\xi)$ and using
+ lemma \ref{chap3-sec3-lem1} we have  
+ $$
+ \frac{d}{dt} (N\hat{u}) (\xi,t) = (2 \pi i D (\xi) \cdot N (\xi) + N (\xi) 
+ B) \hat{u} (\xi,t) + N (\xi) \hat{f} (\xi, t). 
+ $$
+ $v (\xi, t) = N (\xi) \hat{u} (\xi, t)$ satisfies the system of
+ equations 
+ \begin{equation}
+\frac{dv}{dt} (\xi, t) = (2 \pi i D (\xi) + B' (\xi)) v (\xi,t) + N
+(\xi) \hat{f} (\xi, t ), \text{~ where~ } \tag{3.3} \label{chap3-eq3.3}
+ \end{equation}
+ $$
+ B' (\xi) = N (\xi) BN (\xi)^{-1}.\quad \text{Now}  
+ $$
+ \begin{align*}
+\frac{d}{dt} || v (\xi, t)||^2 & = \int \left( \frac{dv}{dt} \cdot  \bar{v}
++ v \cdot \frac{\overline{dv}}{dt} \right) d\xi\\ 
+& = \int \bigg\{ 2 \pi ( i D (\xi ) v \cdot  \bar{v}+ v \cdot
+\overline{iD (\xi ) v)} + 2 \re (B' v,\bar{v}) \\
+& \qquad \qquad + 2 \re N(\xi )
+\bar{f} \cdot \bar{v}\bigg\}d \xi \\ 
+& = 2 \int \re (B' (\xi ) v \cdot \bar{v} + N (\xi ) \hat{f}
+\cdot\bar{v}) (\xi,t) d \xi.  
+ \end{align*} 
+
+ Because $N(\xi)$ is bounded and condition (1) of lemma
+ \ref{chap3-sec3-lem1} holds. The operators $B'$ is bounded and 
+ hence  
+ \begin{align*}
+\frac{d}{dt} || v (\xi, t)||^2  & \leq 2 \gamma || v || ^2 + 2 \re
+(N(\xi ) \hat{f}, v)\\ 
+& \leq 2 \gamma || v ||^2 + 2 || N(\xi ) \hat{f} || || v || 
+ \end{align*}
+
+ Thus\pageoriginale we obtain
+ $$
+ || v || \leq \exp (\gamma t) \cdot  || v (\xi, 0)|| + \int\limits^{t}_{0}
+ \exp (\gamma (t-s)) || N (\xi) \hat{f} (\xi, s)|| ds. 
+ $$ 
+
+ By Plancheral's formula's formula we have    
+ $$
+ || v (\xi, t) || = || N (\xi) \hat{u} (\xi, t) || \leq c ||u  (t)
+ ||. 
+ $$
+ and again since $N(\xi)$ has a bounded inverse by condition (1) we
+ see that  
+ \begin{equation}
+ || u(t)|| \leq c(h) \bigg\{ || u (0) || + \int\limits^{t}_{0} || f
+ (s) || ds \bigg\} \tag{3.4} \label{chap3-eq3.4}
+ \end{equation}
+ where $c$ is a constant depending only on $h$. 
+ 
+ Now we look at this reasoning without explicitly using the notion of
+ Fourier transforms. 
+ 
+ $N(\xi)$ is homogeneous of degree 0 in $\xi$ and so the convolution
+ operators $\mathscr{N} (x) *$ defines a bounded operator in the space
+ $L^2$ since  
+ $$
+ || \mathscr{N} (x) * u || = || N (\xi) \hat{u} || \leq c || u ||  
+ $$
+ by Plancherel's formula. Here $\mathscr{N}(x)$ is the inverse Fourier 
+ image of $N(\xi)$. Let $\mathscr{D}(x)$ be the distribution whose
+ Fourier image is $D \left(\dfrac{\xi}{|\xi|}\right)$.   
+Define the operators $\wedge$ by 
+$$
+(\widehat{\wedge u})  = |\xi| \hat{u}. 
+$$
+
+Then we obtain 
+\begin{align*}
+\frac{d}{dt} (\mathscr{N} (x) *_{(x)}u) &= 2\pi i \mathscr{D} (x)
+*_{(x)} \wedge (\mathscr{N} (x) *_{(x)} u)\\
+&\quad + \mathscr{N} (x) *_{(x)}
+(Bu) + \mathscr{N} (x) *_{(x)} f. 
+\end{align*}
+
+In other words $v = \mathscr{N} *_{(x)} u$ satisfies the system 
+$$
+\frac{dv}{dt} = 2 \pi i \mathscr{D} *_{(x)} \wedge v + B_1 v +
+\mathscr{N} *_{(x)}f, 
+$$\pageoriginale
+where $B_1 \in \mathscr{L} (L^2, L^2)$ because of condition
+(1). Integrating with respect to $t$ in the interval $[0, t]$ we have
+the inequality 
+$$
+|| \mathscr{N} *_{(x)} u || \leq \exp (\gamma t) || \mathscr{N}*_{(x)} u (x,
+0) || + \int\limits^{t}_{0} \exp (\gamma (t-s)) || \mathscr{N} *_{(x)}
+f (x,s) || ds  
+$$
+where $\gamma$ is a constant depending only on $A$ and $B$. But there
+exists a constant $k$ (depending on $A$) such that  
+$$
+\frac{1}{k} || u(x, t) || \leq ||\mathscr{N} *_{(x)} u (x, t) || \leq k
+||u(x, t) || 
+$$
+which gives an energy inequality for $u$.
+
+Now in the case of systems with variable coefficients even though we
+cannot apply Fourier transforms we may, however, write the system in a
+form similar to \eqref{chap3-eq3.2} to which we can apply the above
+method to get an energy inequality. For this purpose we introduce the
+singular integral operators. 
+
+
+\section{}\label{chap3-sec4}%sec 4
+
+For a function $f \in L^2 (\underbar{R}^1)$ consider the integral
+transform defined by  
+\begin{equation}
+g (x) = v. p. \int\limits^{\infty}_{-\infty} \frac{f(t)}{x-t}
+\, dt. \tag{4.1}\label{chap4-eq4.1} 
+ \end{equation} 
+ M. Riesz \cite{key1} has proved that the Cauchy principal value defining $g$
+ exists and $g \in L^2 (\underbar{R}^1)$. $f \to g$ is a continuous
+ linear mapping of $L^2 (\underline{R}^1)$ into itself. In the
+ language of the theory of distributions we can write $g =
+ v.p. \left(\dfrac{1}{x}\right) * f.\; v.p. \left(\dfrac{1}{x}
+ \right)$ is a tempered distribution whose\pageoriginale
+ Fourier image is $\chi (\xi) = - \pi i $ for $\xi > 0$ and $\pi i$
+ for $\xi < 0$. We observe that $\dfrac{1}{x}$ is homogeneous of
+ degree $-1$ and has mean value 0. If $\hat{g}$ and $\hat{f}$ are the
+ Fourier images of $g$ and $f$ respectively then $\hat{g} = \partial
+ \chi \hat{f}$ and $|| g = \pi || f ||$ by Plancheral's formula. 
+ 
+ Calderon and Zygmund \cite{key1} generalized this theory to functions on
+ $\underbar{R}^n$. Let $N(x)$ be a homogeneous function of degree -n
+ on $\underbar{R}^n (N (\lambda x) = \lambda^{-n} N(x))$ which is
+ smooth in the complement of the origin and has mean value
+ $\int\limits_{|x| =1} N(x) d \sigma _x = 0$. Then they proved that $g
+ = v.p. N(x) * f \in L^p $ if $f \in L^p$. In particular $f \to g$ is
+ a continuous linear map of $L^2$ into itself. This latter fact can be
+ seen observing that $v.p. N(x)$ is a tempered distribution, its
+ Fourier transform $h (\xi)$ is a homogeneous function of degree 0
+ and has mean value $\int\limits_{|\xi| =1} h(\xi) d \sigma_\xi =
+ 0$. In this paragraph $d\sigma_{x}$ and $d\sigma_{\xi}$ stand for
+ normalized volume element of the unit sphere; viz. $d\sigma_{x}=dS_{x}/\text{vol~}S$. 
+ 
+ Conversely, given any homogeneous function $h(\xi)$ of degree $0$
+ with mean value 0, if $\gamma (x)$ is its inverse Fourier image we
+ can define an integral operators $\gamma *$ by 
+ $$
+ (\gamma * f) (x) = \int \exp (2 \pi ix \cdot \xi) h (\xi) \hat{f} (\xi)
+ d\xi.  
+ $$
+ 
+ Now consider the differential operators  
+ $$
+ L \left(x, \frac{\partial}{\partial x} \right) = \sum a_j (x)
+ \frac{\partial}{\partial x_j}. 
+ $$
+
+ For a function $u \in \mathscr{S}$ we can write  
+ $$
+ (Lu)(x) = \int \exp (2 \pi ix \xi) (\sum_j a_j (x) \xi_j) (2\pi i)
+ \hat{u} (\xi) d \xi. 
+ $$
+
+Denote\pageoriginale $ h(x, \xi ) = 2 \pi i \sum\limits_{j} a_j (x) \xi_j /
+|\xi|$. If we define  
+$$
+(Hf) (x) = \int \exp (2 \pi ix. \xi ) h(x, \xi ) \hat{f} (\xi ) d \xi 
+$$
+$H$ will be a bounded operator in $ L^2$. In fact, $H$ can be written 
+\begin{equation*}
+H f = 2 \pi i \sum a_j (x) (R_j *f) \tag{4.2}\label{chap4-eq4.2}
+\end{equation*}
+where $R_j$ is the inverse Fourier image of $^\xi j / |\xi|$. It
+follows that  
+$$
+ \parallel Hf \parallel \leq 2 \pi \sum | a_j (x)|_0 \parallel R_j * f
+ \parallel \leq (2 \pi \sum | a_j| _0 ) \| f \|. 
+$$
+
+Now $L$ can be written in the form 
+$$
+L u = H \wedge u.
+$$
+
+We introduce the notation used by Calderon-Zygmund \cite{key1}, \cite{key2}. 
+
+Let $U$ be an open set in $\underbar{R}^n$. A function $u$ defined on
+$U$ is said to satisfy a uniform Holder condition of order $ \beta (0
+\leq \beta \leq 1)$ if for any $x$, $x' \in U$ we have  
+\begin{equation*}
+| u(x) - u (x') | \leq c |x-x' |^\beta. \tag{4.3}\label{chap4-eq4.3}
+\end{equation*}
+$c$ is called the H\"older constant for $u$. We shall denote by
+$C_\beta (U)$, $\beta \geq 0$, the class of complex valued continuous   
+bounded functions on $U$ with bounded continuous derivatives upto
+order $[\beta]$ (the integral part of $\beta$) and with the
+derivatives of order $[\beta]$ satisfying a H\"older condition of
+order $\beta - [\beta]$. $\mathscr{E}_\xi (\underline{R}^n -\{0\})$
+will denote the 
+space consisting of complex valued functions $h(\xi)$, $\xi
+\in \underbar{R}^n$, homogeneous of degree 0 and infinitely
+differentiable in $\underbar{R}^n - \{ 0 \}$ with respect to $
+\xi$. This space $ \mathscr{E}_\xi (\underbar{R}^n - \{ 0 \}
+)$\pageoriginale is topologized by the family of seminorms defined by   
+$$
+p_s (h) = \sum\limits_{| \nu | \leq s} \sup_{| \xi | \geq 1} |
+(\frac{\partial}{\partial \xi})^\nu h (\xi ) |. 
+$$
+
+We say that $h(x, \xi ) \in C_\beta ^\infty$, $\beta \geq 0$, if  
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item for $\beta = 0$ the function $x \to h(x, \xi ) \in
+  \mathscr{E}_\xi (\underbar{R}^n - \{ 0 \})$ is continuous and
+  bounded;  
+
+\item for $0 < \beta < 1$, $h (x, \xi ) \in C^\infty _0$ and the
+  function $ x \to h(x, \xi ) \in \mathscr{E}_\xi (\underbar{R}^n - \{
+  0 \} )$ is uniformly H\"older continuous of order $ \beta$ in the
+  sense that for any $\nu$ 
+\begin{equation*}
+\sup_{| \xi | \geq 1} \left|\left(\frac{\partial}{\partial
+  \xi}\right)^\nu h(x, \xi ) - \left(\frac{\partial}{\partial
+  \xi}\right)^\nu h(x', \xi ) \right| \leq c_\nu 
+|x-x'|^\beta ; \tag{4.4} \label{chap4-eq4.4}
+\end{equation*}
+
+\item if $ \beta \geq 1$, $\left(\dfrac{\partial}{\partial
+  x}\right)^\nu h(x, \xi ) \in C^\infty _0$ for $ | \nu| \leq \beta $ and
+  $\left(\dfrac{\partial}{\partial x}\right)^\nu h(x, \xi ) \in C^\infty _{\beta
+  - [\beta]}$ for $ |\nu | = [\beta]$.  
+\end{enumerate}
+$h (x, \xi )$ being a homogeneous function of $\xi$ can be expanded 
+as a series in spherical harmonics. Let $Y_l(\xi)$ be a normalized
+real spherical harmonic of degree $l$, that is such that  
+\begin{equation*}
+\int\limits_{| \xi | = 1} Y_l (\xi )^2 d \sigma_\xi = 1
+\tag{4.5}\label{chap4-eq4.5} 
+\end{equation*}
+and $ Y_{lm}(\xi )$ be a complete orthogonal system of normalized
+spherical harmonics of degree $l$. Then we can write  
+\begin{equation*}
+h(x, \xi ) = a_0 (x) + \sum _{ l \geq 1, m} a_{lm} (x) Y_{lm} ( \xi )
+\tag{4.6} \label{chap3-eq4.6}
+\end{equation*}
+in terms of the spherical harmonics. Then 
+\begin{equation*}
+a_{lm}(x) = \int\limits_{|\xi | =1} h (x, \xi ) Y_{lm}(\xi )d
+\sigma_\xi. \tag{4.7} \label{chap4-eq4.7}
+\end{equation*}
+
+Let\pageoriginale $ \widetilde{Y}_{lm}$ denote the inverse Fourier
+image of $ Y_{lm}(\xi)$  
+$$
+\widetilde{Y}_{lm}(x) = \int e^{2 \pi ix. \xi} {Y}_{lm} (\xi ) d \xi.
+$$
+
+We define 
+\begin{equation*}
+(Hf) (x) = a_0 (x) f(x) + \sum_{l,m} a_{l,m}(x) (\widetilde{Y}_{lm}
+  *f) (x). \tag{4.8} \label{chap3-eq4.8}
+\end{equation*}
+
+Now we have the following estimates due to Calderon and Zygmund: 
+\begin{enumerate}[(a)]
+\item $| Y_{lm}( \xi ) | \leq c l^{\frac{1}{2}(n-2)}$, $c$ being a
+  positive constant; 
+
+\item the number of distinct spherical harmonics $Y_{lm} (\xi)$ of
+  degree $l$ is of the order $ l^{n-2}$;  
+
+\item $| a_{lm} (x)| \leq c M l^{- \dfrac{3}{2} n}$ where $ M = \sup
+  \limits_{\substack{x \in \underbar{R}^n, | \xi | \geq 1 \\ | \nu | 
+      \leq 2n}} | (\dfrac{\partial}{\partial \xi})^\nu h (x, \xi ) | $. 
+
+More generally we have the following sharper estimates. Let $ L$ be
+the operator defined by  
+$$ 
+L(F) = |\xi|^2 (\triangle_\xi F) \text{ where } \triangle _\xi  =
+\sum^n_{j =1} \left(\frac{\partial}{\partial \xi_j} \right)^2. 
+$$
+Then 
+\begin{equation*}
+a_{lm} (x) = (-1) ^r l^{-r}(l+n-2)^{-r} \int \limits_{|\xi | = 1}
+L^r_\xi (h(x, \xi ) Y_{lm} (\xi ) d \sigma_\xi. \tag*{$(4.7)'$} 
+\end{equation*}
+
+From this it follows that 
+\item $ | a_{lm}(x) | \leq c(n, r) M_{2r} l^{-2r + \dfrac{n}{2}}$ 
+
+\noindent
+where $M_{2r} = \sup\limits_{\substack {x \in \underbar{R}^n, | \xi|
+    \geq 1 \\ | \nu | \leq 2r}} | (\dfrac{\partial}{\partial \xi})^\nu
+h (x, \xi ) |$ 
+
+\item $\sup \limits_{|  \xi |  \geq 1} | (\dfrac{\partial}{\partial
+  \xi})^\nu  Y_{lm} ( \xi ) | \leq c (\nu, n) l^{\dfrac{1}{2}(n-2)+ |
+  \nu |}$.\pageoriginale 
+\end{enumerate}
+
+These estimate show that the series defining $Hf$ is convergent in the
+$ L^2$-sense.  
+
+In fact, 
+\begin{equation*}
+\parallel Hf \parallel \leq (| a_0 (x) | + \sum | a_{lm}(x) |_o |y_{lm}
+( \xi ) |_o ) \parallel f \parallel. \tag{4.9} \label{chap3-eq4.9}
+\end{equation*}
+
+From (a), (b) and (c) it follows that 
+$$
+\sum | a_{lm}|_o |Y_{lm}|_o \leq c M \sum_{l} l^{-\frac{3}{2}n+
+  \frac{1}{2}(n-2) +n -2} = c M \sum_l l^{-3} < \infty. 
+$$ 
+
+Hence 
+$$
+\parallel H \parallel \leq c M, M \; \text{~ being defined in (c)}. 
+$$ 
+
+A singular integral operator was defined by Calderon and Sygmund by
+the following equation 
+\begin{equation*}
+(Hu) (x) = a(x) u(x) + \int k(x, x-y) u (y) dy,
+  \tag{4.10}\label{chap3-eq4.10} 
+\end{equation*}
+where $k(x, z)$ is a complex valued homogeneous function of degree
+$-n$ in $z$, of class $\mathscr{E}$ in $ \underbar{R}^n -\{ 0 \}$ in
+the $z$-variable for every fixed $x$ and the function $k(x, z)$ has
+mean value zero in the $z$-space for every fixed $x$. Let us expand $ k
+(x, z)$ in terms of spherical harmonics:  
+$$
+k(x, z) = \sum a_{lm}(x) Y_{lm} (z') |z|^{-n}, \quad z' = \frac{z}{| z |}\;, 
+$$
+where $a_{lm} (x) = \int \limits_{| z' | = 1} k (x, z' ) d \sigma _{z'}$. 
+
+Then, taking into account the fact that 
+$ \mathscr{F} [Y_{lm}(z' )|z|^{-n} ] = \gamma_1 Y_{lm} (\xi )$,\pageoriginale
+$\gamma_1$ being a constant, we define the symbol $\sigma (H)$ as  
+\begin{equation*}
+\sigma (H) = a_0 (x) + \sum a_{lm} (x) \gamma_1 Y_{lm} (\xi
+). \tag{4.11}\label{chap3-eq4.11} 
+\end{equation*}
+
+We start from this $\sigma(H)$ in our definition. However the two
+definitions are identical since there exists a one to one linear
+mapping $\sigma$ of the class of singular integral operators of the
+class $C^\infty _\beta$ into the class of functions $ h(x, \xi)$,
+$x$, $\xi \in \underbar{R}^n$ homogeneous of degree zero with respect
+to $\xi$ and in $ C^\infty_\beta$. $\sigma (H)$ is called the symbol
+of the singular integral operator $H$. Thus the series $
+\sum\limits_{l, m} a_{lm}(x) Y_{lm} (\xi)$ represents in a sense the 
+Fourier transform of $k(x, z)$ with respect to $z$. We recall without
+proof the following important theorems on these operators, which we
+shall require for later use. For proofs see Calderon-Zygmund $[1,2]$.  
+
+\setcounter{theorem}{0}
+\begin{theorem}[Calderon-Zygmund \cite{key1}]\label{chap3-sec4-thm1}%theo 1
+ If $H$ is a singular integral operator of
+  type $C^\infty_\beta$ then its symbol is a homogeneous function of
+  degree zero and of class $C^\infty_\beta$ with respect to $\xi$ in
+  $| \xi | \geq 1$. Conversely every function of $x$ and $ \xi$ which
+  is homogeneous of degree zero and belongs to the class $
+  C^\infty_\beta$ in $| \xi| \geq 1$  is the symbol of a unique singular 
+  integral operator of type $ C^\infty_\beta$. If  
+$$
+M = \sup_{\substack{x \in \underbar{R}^{n}, | \xi | \geq 1 \\ | \nu |
+    \leq 2n}}  \big|(\frac{\partial}{\partial \xi})^\nu \sigma (H) (x,
+\xi) \big| 
+$$
+then 
+\begin{equation*}
+\parallel H f \parallel_p \leq M A_p \parallel f \parallel_p
+\tag{4.12}\label{chap4-eq4.12} 
+\end{equation*}
+where\pageoriginale $A_p$ depends only on $p$ and $n$. 
+\end{theorem}
+
+If $h_1 (x, \xi ), h_2 (x, \xi )$ are of class $ C^\infty _\beta in |
+\xi| \geq 1$ then it is easy to see that $  h_1 (x, \xi ) +  h_2 (x,
+\xi )$ and $  h_1 (x, \xi ) h_2 (x, \xi )$ are also of class $
+C^\infty _\beta$ and further if $ | h_2 (x, \xi ) | \geq \delta > 0$
+then  $ \dfrac{h_1 (x, \xi)}{h_2 (x, \xi)}$ is also of class $
+C^\infty _\beta$.  
+
+\begin{theorem}[Calderon-Zygmund \cite{key2}]\label{chap3-sec4-thm2}%theo 2
+ Let $ h(x, \xi) = \sigma (H)$ be of type $ C^\infty_\beta$,
+ homogeneous of degree zero in $\mathscr{E}$ then  
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item for $r \leq \beta$, $Hf \in \mathscr{D}^r_{L^p}$ for $f \in
+  \mathscr{D}^r_{L^p} (1< p< \infty)$, and  
+
+\item if $f \in L^p$ and H\"older continuous of order $\alpha
+  (\alpha < \beta $ then $ Hf \in L^p $ and H\"older continuous of
+  order $ \alpha (1 < p < \infty)$. 
+\end{enumerate} 
+\end{theorem}
+
+Let $ H^\#$ and $H_1 0 H_2 $ be singular integral operators whose
+symbols are respectively $\overline{\sigma (H)}$ and $ \sigma
+(H_1)$. $\sigma (H_2)$.  
+
+\begin{theorem}[Calderon-Zygmund]\label{chap3-sec4-thm3}%the 3
+If $ \sigma (H_1)$, $\sigma (H_2)$ are independent of $x$ then 
+$$
+H_1 \circ H_2 = H_1 H_2 = H_2 \circ  H_1 = H_2 H_1
+$$
+and if $ \sigma (H)$ is independent of $x$ and $| \sigma (H) (\xi) |
+\geq \delta > 0$ then $H$ is invertible and its inverse $ H^{-1}$ is
+also a singular integral operator. We illustrate by a simple example
+the motivation for the definition of the singular integral operators $
+H_1 \circ H_2$ and  $ H^{\#}$. Consider the differential operators  
+$$
+L = \sum_j a_j (x) \frac{\partial}{\partial x_j}, M = \sum_j b_j (x)
+\frac{\partial}{\partial x_j}, a_j, b_j \in \mathscr{B}^1. 
+$$
+\end{theorem}
+
+Then 
+$$
+LM = \sum_{j, k} a_j(x) b_k (x) \frac{\partial^2}{\partial x_j
+  \partial x_k} + \sum_{j, k} a_j (x) \frac{\partial b_k}{\partial
+  x_j} \frac{\partial}{\partial x_k}. 
+$$
+
+Therefore,\pageoriginale if we define 
+$$
+L \circ M= \sum_{j, k} a_j (x) b_k (x) \frac{\partial^2}{\partial x_j
+  \partial x_k} 
+$$
+then $LM = L \circ M$ modulo first order operators. Next if we define 
+$$
+L^{\#} = - \sum \overline{a_j (x)} \frac{\partial}{\partial x_j} 
+$$
+then $L^* \equiv L^{\#}$ modulo bounded operators.  
+
+These considerations suggest that the product of two singular integral
+operators and the conjugate operator $H^*$ will be approximated, in
+some sense, by the singular integral operators $H_1 \circ H_2$ and $H^{\#}$
+respectively. More precisely we have the following:  
+
+\begin{theorem}[Calderon-Zygmund]\label{chap3-sec4-thm4}%theo 4
+ Let $H$ be a singular integral operator of
+  type $C^\infty_\beta (\beta >1)$ and $M$ be a bound for $ \sigma
+  (H) (x, \xi)$ and its derivatives with respect to the coordinates of
+  $\xi$ of order $2n$, the first derivatives of these with respect to
+  the coordinates of $x$ and H\"older constants of the latter. Then
+  for every $f \in \mathscr{D}^1_{L^p} (1 < p < \infty)$ we have  
+{\fontsize{9pt}{11pt}\selectfont
+\begin{equation*}
+\begin{split}
+& \parallel (H \wedge - \wedge H) f \parallel _{L^p} \leq A_p M
+ \parallel f \parallel _{L^p}, \; \parallel (H^* \wedge - \wedge H^*) f
+\parallel_{L^p} \leq A_p M \parallel f \parallel _{L^p} \\ 
+& \parallel (H^* - H^{\#} ) f \parallel_{L^p} \leq A_p M \parallel f
+\parallel_{L^p}, \parallel \wedge (H^* H^{\#}) \parallel_{L^p} \leq
+A_p M \parallel f \parallel_{L^p}  
+\end{split}\tag{4.13}\label{chap3-eq4.13}
+\end{equation*}}\relax
+where $A_p$ depends only on $p, n, \beta$. Further if $H_1$ and
+$H_2$ are two singular integral operators of type $C^\infty_\beta$ and
+$f \in \mathscr{E}^1_{L^p} (1 < p< \infty)$ then $ H_1 \circ H_2$ is an
+operator of type  $C^\infty_\beta $ and  
+\begin{equation*}
+\begin{split}
+& \parallel (H_1 \circ H_2 - H_1 H_2) \wedge f \parallel_{L^p} \leq A_p M_1
+M_2 \parallel f \parallel_{L^p}, \\ 
+& \parallel \wedge (H_1 \circ H_2 - H_1 H_2) f \parallel_{L^p} \leq A_p M_1
+M_2 \parallel f \parallel_{L^p} 
+\end{split}
+\tag{4.14} \label{chap4-eq4.14}
+\end{equation*}
+where\pageoriginale again $ A_p$ depends only on $p, n, \beta$
+and $ M_1, M_2$ being defined in the same way as $M$.   
+\end{theorem}
+
+We can write differential operators in the form of singular integral
+operators as follows: Let $A = \sum\limits_{| \alpha | = m} a_\alpha
+(x) \left(\dfrac{\partial}{\partial x}\right)^\alpha$ be a homogeneous
+differential operator of order $m$ with coefficients $ a_\alpha (x) $
+in $C_\beta$, $\beta \geq 0$. If $ u \in \mathscr{D}^m_{L^2}$ then $
+\wedge^m u $ is well defined,  
+$$
+(\widehat{ \wedge^m u} ) (\xi) = | \xi |^m \hat{u} (\xi)
+$$
+and $Au = H \wedge^m u$ where $H$ is a singular integral operator
+of type $C^\infty_\beta$ and  
+\begin{equation*}
+\sigma (H) = i^m \sum\limits_{| \propto | = m }a_\propto (x)
+\xi^\propto | \xi |^{-m}. \tag{4.15} \label{chap3-eq4.15} 
+\end{equation*}
+
+Similarly any general linear differential operator of order $m$
+$$
+A = \sum\limits_{k \leq m} A_k, A_k = \sum \limits_{| \nu | =k}
+a_{k, \nu} (x) \left(\dfrac{\partial}{\partial x}\right) ^\nu
+$$ 
+with $a_{k, \nu}(x) $ of class $ C_\beta$ can be written as  
+\begin{equation*}
+Au = \sum H_k \wedge^k u \tag{4.16}\label{chap3-eq4.16}
+\end{equation*}
+where $H_k$ is a singular integral operator of class $C^\infty_\beta$
+and  
+\begin{equation*}
+\sigma (H_k) = i^k \sum\limits_{| \nu | = k} a_{k, \nu} (x) \xi^\nu |
+\xi |^{-k} \tag{4.17} \label{chap3-eq4.17}
+\end{equation*}
+for every $ u \in \mathscr{D}^m_{L^2}$.
+
+A matrix of operators is called a singular integral matrix if its
+elements are singular integral operators and its symbol is the matrix
+whose elements are the symbols of the corresponding elements of
+the\pageoriginale singular integral matrix. A system of differential
+operators can be written as a singular integral matrix.   
+
+\section[Extension of G$\ring{\text{a}}$rding's...]{Extension of G$\ring{\text{a}}$rding's inequality to singular
+  integral operators}\label{chap3-sec5} %sec 5  
+
+In this section we prove an inequality for the singular integral
+operators whose symbol satisfies a condition of positivity. This is an
+analogue of the well know inequality of Garding for elliptic
+differential operators. Before stating the inequality we prove some
+preliminary results needed in the proof of this inequality. These
+results are also of independent interest.  
+
+The following lemma corresponds to the local property of differential
+operators, namely, that differential operators decrease supports.  
+
+\setcounter{lemma}{0}
+\begin{lemma}[Quasi localisation lemma]\label{chap3-sec5-lem1}%lemm 1
+ Let $ \Omega$ be the ball of radius
+$2 \eta$ and of centre a point $x_0$ in $ \underbar{R}^n$. Let $H$ be
+a singular integral operator whose symbol $\sigma (H) (x, \xi) \in
+C^\infty_\beta$, with $\beta > 0$. If $ u \in \mathscr{D}^1_{L^2}$
+has its support in the ball of radius $\eta$ and of centre $x_0$ then   
+\begin{equation}
+\parallel H \wedge u \parallel_{L^2 (C \Omega)} \leq c(n, \eta) M'
+\parallel u \parallel \tag{5.1}\label{chap3-eq5.1} 
+\end{equation}
+where $M' = \sum\limits_{| \nu | \leq 3n +3} \sup\limits_{ x \in
+  \underbar{R}^n, | \xi | \geq 1} \big| (\dfrac{\partial}{\partial
+  \xi})^\nu \sigma (H) (x, \xi ) \big|$ and $ c (n, \eta)$ is a constant
+depending only on $n$ and $\eta$. 
+\end{lemma}
+
+\begin{proof}%proo 0
+We decompose the operator $\wedge$ as $\wedge = \wedge_1 + \wedge_2$
+with $\widehat{\wedge}_1 (\xi ) = \alpha (\xi ) | \xi |$ and $
+\widehat{\wedge}_2 (\xi ) =(1- \alpha ( \xi )) | \xi | $ where $
+\alpha ( \xi ) \in \mathscr{D}$ such that $\alpha ( \xi ) \equiv 1 $ on
+$ | \xi | \leq 1, 0 \leq \alpha (\xi) \leq 1$ and vanishes outside $|\xi|
+\leq 2$. $\widehat{\wedge}_2 (\xi)$\pageoriginale is an infinitely
+differentiable function, $\widehat{\wedge}_1 (\xi)$ has compact
+support and hence $\wedge_1$ is a bounded operator in $ L^2$. So it is
+enough to prove that   
+$$
+\parallel H \wedge_2 u \parallel_{L^2 (C \Omega)} \leq C (n, \eta) M'
+\parallel u \parallel. 
+$$ 
+
+Let 
+\begin{equation}
+\sigma (H) (x, \xi ) = a_0 (x) + \sum \limits _{l, m} a_{lm} (x)
+Y_{lm} (\xi ) \tag{5.2} \label{chap3-eq5.2}
+\end{equation}
+be the expansion of $\sigma (H)$ in terms of a complete system of
+spherical harmonics $Y_{lm} (\xi)$. Let $Y'_{lm}(x)$ be the
+singular integral operator such that  
+$$
+Y'_{lm}(x) \to Y_{lm} (\xi) \widehat{\wedge}_2 (\xi) 
+$$
+by Fourier transforms. Then we can write 
+\begin{equation}
+(H \wedge_2 u) (x) = a_0(x) \wedge_2 u(x) + \sum\limits_{l, m}
+  a_{lm}(x) (Y'_{lm}(x) * u). \tag{5.3} \label{chap4-eq5.3}
+\end{equation}
+
+First we show that 
+\begin{equation}
+|Y'_{lm}(x) \leq |x|^{-2p} c (p,n) | Y_{lm} (\xi ) |_{2p} \text{ for }
+x \in ^c\{ 0 \} \text{ for } 2p \geq n+2 \tag{5.4}\label{chap3-eq5.4} 
+\end{equation}
+where $| Y_{lm} (\xi ) |_{2p} = \sum\limits_{| \nu | \leq 2p}
+\sup\limits_{| \xi | \geq 1} | (\dfrac{\partial}{\partial \xi})^\nu
+Y_{lm}( \xi ) |$.  
+
+In fact, 
+$$
+Y'_{lm}(x) =  | x |^{-2p} \bigg\{ |x |^{2p} Y'_{lm} (x)\bigg\}
+$$
+and $| x|^{2p} Y'_{lm} (x)$ is the inverse Fourier image of const 
+$$
+\triangle^p_\xi (Y_{lm}(\xi) (1- \alpha (\xi)) | \xi |.
+$$
+
+ Hence we
+have the estimate   
+\begin{gather*}
+|Y'_{lm}(x) | \leq | x|^{-2p} \left(\frac{1}{2\pi}\right)^p \int |
+\triangle^p_\xi 
+((1- \alpha (\xi )) Y_{lm} (\xi ) | \xi| ) | d \xi \\ 
+\leq | \xi |^{-2p} c (n, p) | Y_{lm}(\xi ) |_{2p} for 2p \geq n + 2. 
+\end{gather*}\pageoriginale 
+
+This establishes the assertion \eqref{chap3-eq5.4}.
+
+Now we show that for any $u \epsilon \mathscr{D}$ with support
+contained in $\omega = B_\eta (x_0) $ 
+\begin{equation}
+||~ |x|^{-2p}* u ||_{L^2(C \Omega)} \leq c (n, p, \eta)|| u ||
+\tag{5.5}  \label{chap3-eq5.5}
+\end{equation}
+holds for $p$ satisfying $4 p > n$. 
+
+In fact, 
+for $x \epsilon \complement \Omega$, $|| ~|x|^{-2p} * u || = \big|\int
+\dfrac{{u(y)}}{|x-y|^{2p}}dy\big|$ 
+by Schwarz inequality, 
+$$
+\leq || u || (\text{ vol } \omega)^{1/2}(\text{ dist. }
+(x,\omega))^{-2p}   
+$$
+
+Hence 
+$ ||~|x|^{-2p} * u ||_{L^2({}^C\Omega)} \leq (\text{ vol}
+\omega)^{\frac{1}{2}}||u|| ( \int\limits_{|x| \ge 2 \eta}
+\dfrac{dx}{(|x| - \eta )^{4p}})^{\frac{1}{2}}$.  
+The integral in the right hand side converges for $4p >n$ which 
+proves the assertion \eqref{chap3-eq5.5}. Now \eqref{chap3-eq5.4} and
+\eqref{chap3-eq5.5} together assert that  
+\begin{align*}
+||H \wedge_2 u || _{L^2(C_\Omega)} & \leq (\text{ vol } 
+\omega)^\frac{1}{2} c (p,n,\eta) \left(\sum\limits_{l,m}| a_{lm}(x)|_\circ |
+Y_{lm} (\xi) |_{2p} \right)|| u ||\\
+&  \leq C' (p,n,\eta) M' || u ||.    
+\end{align*}
+
+This completes the proof of lemma \ref{chap3-sec5-lem1}. In the proofs
+of the following 
+results we use a $C^\infty$ partition of unity in $ \underbar{R}^n$. 
+$$
+\alpha_j \xi \mathscr{D},\;\;  \alpha_j \geq 0, \;\;
+\sum\limits_{j}\alpha^2_j = 1. 
+$$\pageoriginale
+
+To simplify the arguments we take a partition of unity satisfying the
+following conditions: Let $\alpha_0 \varepsilon \mathscr{D}$ whose
+support is contained in the ball of redius $\varepsilon$,
+$\varepsilon$ being a small number to be determined by the singular
+integral operator $H$. Let $\{x^{(j)}\}$ be a sequence of points of
+$\underbar{R}^n $ whose coordinates are multiples of $\varepsilon'(=
+\varepsilon n^{- \dfrac{1}{2}})$, $\alpha_j(x) = \alpha_0 (x-x^{(j)}
+)$, $j = 0, 1,\ldots, x^{(0)} =  (0)$. The support of $\alpha_0$
+will be denoted by $\omega_0$ and the ball of centre $x^{(j)} $ and of
+radius $2 \varepsilon$ will be denoted by $\Omega_j$. Let  
+$$
+\alpha(p) = \sum \limits_{|\nu|\leq p } \sup\limits_{x}
+\big|\left(\frac{\partial}{\partial x}\right)^\nu \alpha_0 (x) \big|.  
+$$
+\end{proof}
+
+\begin{lemma}\label{chap3-sec5-lem2}% 2
+Let $H$ be a singular integral operator with its symbol $ \sigma (H)\break
+(x, \xi) \varepsilon c^\infty_\beta$, with $\beta > 0 $ and
+$(\alpha_j) $ be a $C^\infty$ partition of unity as constructed
+above. Then for any $u \varepsilon \mathscr{D}_L^1 2$ 
+\begin{equation}
+\sum_j ||((H \wedge) \alpha_j - \alpha_j (H \wedge )) u ||^2 \leq
+\gamma ||u||^2 \tag{5.6} \label{chap3-eq5.6}
+\end{equation}
+
+In particular, taking $\sigma (H) = 1$ this wouls imply 
+\begin{equation}
+\sum_j || [ \wedge , \alpha_j ] u || ^2 \le \gamma || u||^2.
+\tag{5.7}\label{chap3-eq5.7} 
+\end{equation}
+\end{lemma}
+
+Let $\beta \varepsilon \mathscr{D}_\xi$, \; $0 \leq \beta (\xi) \leq 1$
+with support contained in $|\xi| < 1 $ which takes the value 1 in a
+neighbourhood of the origin. Decompose $\wedge$ into $\wedge =
+\wedge_1 + \wedge_2$ where $\hat\wedge_1 (\xi) = \beta (\xi) | \xi |$
+and $\hat{\wedge}_2 (\xi) = (1-\beta (\xi) )|\xi|$.
+Clearly $|| \wedge_1 u || \leq || u ||$ and hence  
+$$
+||H \wedge_1 \alpha_j u || \leq || H || \; || \alpha_j u ||_{L^2
+  (\Omega_j)} \leq \sup\limits_{x} \big|\alpha_j (x) \big| || H ||\;\;
+ || u||_{L^2(\Omega_j)}  
+$$\pageoriginale
+
+Hence 
+$$
+\sum\limits_j || H \wedge_1 \alpha_j u ||^2 \leq \alpha (0)^2 || H
+||^2  k || u ||^2  
+$$
+where $k$ is the maximum number of sets $\{\omega_h\}$
+ intersecting at any point and 
+ $$
+ \sum_j || \alpha_j H \wedge_1 u ||^2 = || H \wedge_1 u ||^2 \leq || H
+ ||^2 || u ||^2.  
+ $$
+
+ So we have only to consider $\sum\limits_{j}|| [H \wedge_2, \; 
+   \alpha_j ]u ||$. Consider the term  
+ \begin{gather*}
+\varphi_j (x) = [ H\wedge_2, \alpha_j ] u
+(x). \tag{5.8}\label{chap3-eq5.8} \\ 
+ \varphi_j (x) = \sum\limits_{l, m} a_{lm }(x) \int \tilde{Y}_{lm}
+ (x-y) \wedge_2 (x-y) (\alpha_j(y) - \alpha_j (x)) u (y) dy.  
+ \end{gather*}
+
+ Let us denote the operator $\tilde{Y}_{lm}* \wedge_2$ by
+ $Y'_{lm}$. First of all we consider $||\varphi_j||_{L^2
+   (\Omega_j)}$. Expanding $\alpha_j (y) - \alpha_j (x) $ in a Taylor
+ series, we obtain  
+\begin{equation}
+\alpha_j (y) - \alpha_j (x) = \sum\limits_{1\leq | \nu | \leq q-1}\frac{1}{\nu!}
+\left(\frac{\partial}{\partial x} \right)^\nu \alpha_j (x) (y-x)^\nu +
+\sum\limits_{|\nu | = q } \alpha_{j,\nu} (x, y) (x-y)^\nu
+\tag{5.9}\label{chap3-eq5.9}   
+\end{equation} 
+ where $q$ will be determined later. It follows that 
+ $$
+ \varphi_j (x) = \sum\limits_{|\nu| \leq q-1} \frac{1}{\nu !}
+ (-1)^{|\nu|} (\frac{\partial}{\partial x})^\nu \alpha_j (x) \sum
+ \limits_{l,m } a_{lm}(x) (x^\nu Y'_{lm} ) u + \varphi^{(2)}_j (x)  
+ $$
+where 
+ \begin{equation}
+\varphi _j^{(2)} (x) = \Sigma a_{lm}(x) \int \alpha_{j ,\nu}
+(x,y)(x-y)^\nu Y'_{lm} (x-y) u (y) dy. \tag{5.10} \label{chap3-eq5.10}
+ \end{equation} 
+
+Now\pageoriginale the operators $H_\nu = \sum a_{lm} (x) (x^\nu
+ Y'_{lm}) $ are 
+ singular integral operators which operate on $L^2$  as continuous
+ linear operators since $ \sup\limits_{x}| a_{lm }(x) | $ is a rapidly
+ decreasing sequence (more precisely, for any positive integer
+ $\sigma$ we have  
+ $$
+ \sum\limits_{1 \geq 0 } l^\sigma \sup\limits_{x} \big|a_{lm}(x) \big| <
+ \infty) \text{ (see Calderon-Zygmund  \cite{key1}.}  
+ $$
+
+Hence for the first sum, 
+ \begin{equation}
+\varphi^{(1)}_j (x) = \sum\limits_{|\nu | \leq q-1}
+\frac{(-1)^{|\nu|}}{\nu !} (\frac{\partial }{\partial x})^\nu \alpha_j
+(x) \cdot H_\nu u \tag{5.11} \label{chap3-eq5.11} 
+ \end{equation} 
+ and we have 
+ \begin{equation}
+\big\| \varphi^{(1)}_j \big\|^2_{L^2 (\Omega_j )} \leq c (q) \alpha
+(q-1) \sum\limits_{1 \leq | \nu | q-1} \big\| H_\nu u
+\big\|^2_{L^2(\Omega_j )}. \tag {5.12}  \label{chap3-eq5.12}
+ \end{equation} 
+
+ To majorize the second sum $\varphi^{(2)}_j (x)$  we begin by
+ considering a typical term $(x^\nu \cdot Y')* u$. We have 
+ \begin{align*}
+ |(x^\nu Y') * u | &  = \big| \int (x-y)^\nu Y' (x-y) \cdot u (y) \,
+ | dy \big|\\
+&\quad \leq \int |(x-y)^\nu Y' (x-y) || u(y) | dy \\ 
+ & = \left(\int_{\Omega'_j }+ \int_{C\Omega'_j}\right) | (x-y)^\nu Y' (x-y) || u
+ || (y) | dy 
+ \end{align*} 
+ where $\Omega'_j$ is a sphere of radius $6 \varepsilon$ about
+ $x^{(j)}$. The first integral is majorized by  
+$$
+ \sup\limits_{x} |x^\nu Y' (x) |\;\; || u||_{\Omega'_j}(\text{vol
+ }\Omega'_0)^{\frac{1}{2}}  
+$$
+and the second integral is majorized by 
+ $$
+ \sup\limits_{x}\big| |x|^{2p} x^\nu Y' (x) \big| \int_{C\Omega'_j}
+ \frac{|u(y)|}{|x-y|^{2p}} dy .  
+ $$
+
+ Now\pageoriginale $I \equiv \int\limits_{C \Omega'_j}
+ \dfrac{|u(y)|}{|x-y|^{2p}} dy \leq \sum\limits_{k} \int\limits_{\omega_k}
+ \dfrac{|u(y)|}{|x-y|^{2p}} dy$ where the sum is taken is taken over
+ all the $\omega_k$ such that $d(\Omega_j, \omega_k ) \geq 3
+ \varepsilon, \Omega_j$ being the support of $\alpha_j$. Hence   
+ $$
+ I \leq \sum\limits_{k} 2^{2p}d (\omega_k, \Omega_j)^{-2p} \||
+ u||_{\omega_k} (\text{vol } \omega_0)^{\frac{1}{2}}. 
+ $$
+
+ Hence the second integral is majorized by 
+ $$
+  \sup\limits_{x}(|x|^{2p}|x^\nu Y' (x)|) (\text{vol
+  }\omega_0)^{\frac{1}{2}}2^{2p} \left(\sum_k d (\omega_k,
+  \Omega_j)^{-2p}||u||_{\omega_k}\right)  
+  $$
+ where the $\omega_k$ occuring in the summation are such that
+ $d(\omega_k, \Omega_j) \geq 3 \varepsilon $. 
+ For $|\nu| = q$ sufficiently large it can be shown that 
+ $$ 
+ K(\nu ) = \sum\limits_{1 \geq 0}
+ \sup\limits_{x}|a_{lm}(x)| \cdot \sup\limits_{x}|x^\nu
+ Y'_{lm}(x)  | < \infty  
+ $$
+and
+$$
+K (\nu,p) = \sum\limits_{1\geq 0} \sup\limits_x | a_{lm} (x) \big| \cdot
+\sup\limits_x \big| \, |x|^{2p} x^\nu Y'_{lm} (x) \big| < \infty
+$$
+for $p$ sufficiently large. So we have 
+{\fontsize{10pt}{12pt}\selectfont
+ \begin{align*}
+\big|\big|\varphi^{(2)}_j \big|\big|^2_{\Omega_j} & \leq
+\int_{\Omega_j} \left(\sum\limits_{|\nu | =q}\sum\limits_{l,m}| a_{lm}(x) | 
+\int \alpha_{j,\nu}(x,y)  (x-y)^\nu Y'_{lm}(x-y) \big|\big|u (y) \big|
+dy\right) dx\\
+&  \leq c \Big( \sum\limits_{|\nu | =q} K (\nu ) ||u||^2_{\Omega'_j}+
+K (\nu, p) \left(\sum_k d (\omega_k, \Omega_j
+)^{-2p}||u||_{\Omega_j}\right)^2. 
+\tag{5.13} \label{chap3-eq5.13}
+ \end{align*}}\relax
+
+But by Schwarz inequality we have 
+$$
+\sum_k d(\omega_k, \Omega_j)^{-2p} || u ||_{\omega_k} \leq \left(\sum_k d
+(\omega_k, \Omega_j)^{-2p}\right)^{\frac{1}{2}}\left(\sum\limits_{k}d
+(\omega_k,\Omega_j)^{-2p}||u||^2_{\omega_k}\right)^{\frac{1}{2}} 
+$$
+and\pageoriginale since $(\sum_k d(\omega_k, \Omega_j)^{2p}) < K$, a
+constant we obtain after summing over $j$   
+\begin{align*}
+ \sum\limits_{k,j} ||u||^2_{\omega_k} d (\omega_k,  \Omega_j)^{-2p}
+& = \sum\limits_{k}||u||^2_{\omega_k} \sum\limits_{j} d (\omega_k,
+ \Omega_j)^{-2p}\\
+&  \leq K_p \sum\limits_{k}||u||^2_{\omega_k}\leq K_p
+ r ||u||^2 
+\end{align*}
+where $K_p$ is a constant depending on $p$ and $r$ is the maximum
+number of balls $\omega_k$ containing a point of
+$\underbar{R}^n$. Substituting in \eqref{chap3-eq5.13} 
+$$
+\sum\limits_{k}||\varphi^{(2)}_k||^2_{\Omega_k} \leq c ||u||^2
+$$
+which together with \eqref{chap3-eq5.12} gives the estimate 
+ \begin{equation}
+ \sum\limits_{k}||\varphi_k ||^2_{\Omega_k}\leq c'
+ ||u||^2. \tag{5.14}\label{chap3-eq5.14} 
+ \end{equation} 
+
+ It remains to estimate $ ||\varphi_k||_{{}^C\Omega_k} $
+ in order to complete the proof of the lemma. For $x \in {}^C
+ \Omega_k $ a typical term in the expression for $\varphi_k(x) $ is of
+ the form  
+ $$
+ \psi (x) = \int_{\omega_k}Y'_{lm} (x-y) \alpha_{j} (y) u (y) dy 
+ $$
+ from which we obtain as before the estimate 
+ \begin{align*}
+ |\psi (x)| &  \leq \sup\limits_{x}\big|
+ |x|^{2p}Y'_{lm}(x)\big| \cdot \int_{\Omega_j} \frac{|u(y) |}{|x-y|^{2p}}dy\\  
+  & \leq \sup\limits_{x}\big| |x|^{2p}Y'_{lm}(x)
+ \big| \cdot ||u||_{\Omega_j} d (x,\Omega_j )^{-2p}
+ |(\text{vol}\,\omega_0)^{\frac{1}{2}}.   
+ \end{align*}
+
+Hence 
+$$
+||\psi||_{{}^C\Omega_k}\leq
+\sup\limits_{x}\big| |x|^{2p}Y'_{lm}(x)\big| \cdot ||u||_{\Omega_j}
+(\text{vol }\omega_0)^{\frac{1}{2}}(\int\limits_{|x|\leq 
+  2_\varepsilon}\frac{1}{d(x,\omega_1)^{4p}} dx)^{\frac{1}{2}}. 
+$$\pageoriginale
+
+Taking $4p > n$ and observing that $K(\nu, p) < \infty$ we see that  
+ $$
+ ||\varphi_k||^2_{{}^C\Omega_k}\leq c''||u||^2 \Omega_j, 
+ $$
+and again, summing over $k$, 
+ \begin{equation}
+\sum_k || \varphi_k ||^2_{{}^C\Omega_k} \leq c'' \cdot  r||
+u||^2. \tag{5.15}  \label{chap3-eq5.15}
+ \end{equation} 
+
+ This completes the proof of the lemma.
+ 
+ The following is an extension to singular integral operators of
+ G$\ring{\text{a}}$r\-ding's inequality for elliptic differential operators.  
+
+\setcounter{proposition}{0} 
+\begin{proposition}\label{chap3-sec5-prop1}%prop 1
+Let $H$ be a singular integral operator such that its symbol
+$\sigma(H) = h(x, \xi) \in C^\infty_\beta$ with $\beta > 0 $ 
+satisfies  
+ \begin{equation}
+|h(x,\xi) |\geq \tau > 0 \tag{5.16}\label{chap3-eq5.16}
+ \end{equation} 
+ for every $x \in \underbar{R}^n $ and every vector $\xi$,
+ $\delta$ being a positive constant. Then there exists $a \delta' >0$
+ such that  
+ \begin{equation}
+||H \wedge u ||^2 \geq \delta' || \wedge u ||^2 - \gamma || u||^2
+\tag{5.17} \label{chap3-eq5.17}
+ \end{equation} 
+ for every $u \in \mathscr{D}^1_{L^2} $ where $\gamma$ is a
+ positive constant.  
+ \end{proposition}
+
+\begin{proof}%proo 0
+$H$ being a singular integral operator we know that $||Hu ||\leq\break AM
+   ||u|| $ where $A$ is a constant depending only on $n$ and  
+$$
+M = \sum\limits_{|\nu| \leq 2n} \sup\limits_{x \varepsilon
+  \underbar{R}^n, \; |\xi| \ge 1} \big|
+(\frac{\partial}{\partial\xi})^\nu \gamma (H) (x, \xi)\big|.  
+$$\pageoriginale
+
+Given a $\delta > 0 $ there exists a number $\epsilon  > 0 $ such
+that for every $x_0 \in \underbar{R}^n$ and for every $u
+\in L^2$  
+\begin{equation}
+||(H-H(x_0)) u ||^2_{\omega_0}\leq \frac{\delta^2}{4}||u||^2
+\tag{5.18} \label{chap3-eq5.18}
+ \end{equation} 
+ where $H(x_0)$ is the singular integral operator with constant
+ coefficients such that $\sigma(H(x_0))(\xi) = \sigma(H) (x_0,
+ \xi)$. ($H(x_0)$ is the tangential operator at $x_0$). $\varepsilon$ 
+ can be chosen independent of the position of $x_0$. Consider the
+ $C^\infty$ partition of unity introduced earlier,  
+ $$
+ \alpha_j(x) \geq 0, \quad \alpha_j \in \mathscr{D}, \quad \sum
+ \alpha^2_j   (x) \equiv 1. 
+ $$
+
+ As we have 
+ $$
+ || H \wedge u||^2 = \sum ||\alpha_j H \wedge  u ||^2  
+ $$
+ it is sufficient to prove the inequality for $\alpha_j H \wedge u$. 
+ \begin{align*}
+ ||\alpha_j H \wedge u ||^2 & \geq \frac{1}{2} || H \alpha_j \wedge u
+ ||^2 - ||(H \alpha_j - \alpha_j H ) \wedge u ||^2 \\ 
+ & \geq \frac{1}{2}|| H \alpha_j \wedge u ||^2 - 2 ||H(\wedge
+ \alpha_j - \alpha_j \wedge ) u ||^2\\
+&\quad - 2 || ((H \wedge ) \alpha_j -
+ \alpha_j (H \wedge )) u ||^2.  
+ \end{align*}
+
+ Now  we have 
+ \begin{align*}
+ \sum\limits_{j} H ( \wedge \alpha_j - \alpha_j \wedge ) u ||^2 &
+ \leq \sum_j ||H ||^2 \; || (\wedge \alpha_j -\alpha_j \wedge ) u ||^2 \leq
+ c'_1 || H ||^2  || u ||^2 \\ 
+&  \leq c_1 ||u||^2
+ \end{align*} 
+and by lemma \ref{chap3-sec5-lem2}
+$$
+\sum\limits_{j} || (H  \wedge) \alpha_j - \alpha_j (H \wedge)) u ||^2
+\leq c_2 ||u||^2  
+$$ 
+where\pageoriginale $c_1$ and $c_2$ are constants depending only on
+the norm of $H$ and $n$.   
+
+Hence 
+\begin{equation}
+||H \wedge u||^2 \geq \frac{1}{2} \sum\limits_{j}||H \alpha_j \wedge
+u ||^2 - c_3 ||u||^2 \tag{5.21} \label{chap3-eq5.21}
+\end{equation} 
+and we have only to consider $||H \alpha_j \wedge u ||^2$. 
+  
+For this purpose let $H(x^{(j)})$ be the singular integral operator
+whose symbol is $h(x^{(j)}, \xi)$, so that  
+$$
+\sigma (H-H(x^{(j)})) = h (x, \xi ) - h(x^{(j)}, \xi). 
+$$
+
+So we have  
+$$
+||H \alpha_j \wedge u ||^2 \geq \frac{1}{2} || H (x^{(j) }) \alpha_j
+\wedge u ||^2 - ||(H - H(x^{(j)})) \alpha_j \wedge u ||^2. 
+$$ 
+
+From the condition that $|h(x, \xi) | > \delta $ we have 
+$$
+\frac{1}{2} || H(x^{(j)}) \alpha_j \wedge u ||^2 \geq
+\frac{\delta^2}{2}|| \alpha_j \wedge u ||^2.  
+$$
+
+As in lemma \ref{chap3-sec5-lem2}, let $\Omega_j$ denote the ball of radius $2
+\varepsilon$ and centre $x^{(j)}$.  
+We decompose the second term into a sum 
+\begin{align*}
+||(H-H(x^{(j)})) \alpha_j \wedge u ||^2 & = || (H-H(x^{(j)})) \alpha_j
+\wedge u||^2_{\Omega_{j}} \\
+& \qquad + || (H-H(x^{(j)})) \alpha_j \wedge u||^2_{{}^C\Omega_j} 
+\end{align*}
+
+As mentioned at the begining of the proof, the first term is majorized
+by $\dfrac{\delta^2}{4}||\alpha_j \wedge u ||^2$. For the second term
+we have  
+\begin{align*}
+||(H-H(x^{(j)})) \alpha_j \wedge u ||^2_{{}^C\Omega_j} & \leq 2 ||
+(H-H(x^{(j)})) (\alpha_j \wedge - \wedge \alpha_j ) u
+||^2_{{}^C\Omega_j}\\
+& \qquad  + 2 ||(H-H(x^{(j)})) \wedge \alpha_j u ||^2_{{}^C \Omega_j}. 
+\end{align*}
+
+By lemma \ref{chap3-sec5-lem1}1,\pageoriginale $||(H-H(x^{(j)} ))
+\wedge \alpha_j u 
+||^2_{{}^C\Omega_j} \leq c (n, \eta ) M' ||\alpha_j u ||^2 $ and since
+$(H-H(x^{(j)}))$ is a singular integral operator we obtain from lemma
+\ref{chap3-sec5-lem2} the inequality   
+$$
+ \sum\limits_{j} (H-H(x^{(j)})) (\alpha_j \wedge - \wedge \alpha_j )
+ u ||^2 _{{}^C\Omega_j} \leq c ||u||^2. 
+$$
+
+Hence 
+\begin{align*}
+|| H \wedge u||^2 & \geq \frac{\delta^2}{4}\sum_j ||\alpha_\delta
+\wedge u ||^2 - c(n,\eta) M'' \sum_j ||\alpha_j u ||^2 - c ||u||^2 \\ 
+& \geq \frac{\delta^2}{4}||\wedge u ||^2 - \gamma || u ||^ 2  
+\end{align*} 
+which completes the proof of the inequality. 
+\end{proof}
+
+\begin{proposition}\label{chap3-sec5-prop-2}% prop 2
+Let $H$ be a singular integral operator whose symbol $\sigma (H) =
+h(x, \xi) \in C^\infty_\beta$ with $\beta > 0$. Let $h
+(x,\xi) $ satisfy the condition  
+\begin{equation}
+\re h (x, \xi ) \leq - \delta, \; \delta > 0 \text{~ for every~ } x
+\in \underbar{R}^n \text{~ and every vector~ }
+\xi. \tag{5.19}\label{chap3-eq5.19}  
+\end{equation}
+
+Then there exists a $\delta' > 0 $ such that 
+\begin{equation}
+((H + H^* ) \wedge u, \wedge u) \leq - \delta' || \wedge u ||^2 +
+  \gamma || u||^2 \text{~ for~ } u \in \mathscr{D}^1_{L^2}
+  \tag{5.20} \label{chap3-eq5.20}
+\end{equation}
+where $\gamma $ is a constant depending only on $M$, $\delta$ and $n$,
+$\delta'(\delta' < \delta)$ can be chosen as near $\delta$ as one
+wishes.  
+\end{proposition}
+
+\begin{proof}%proo 0
+One can write $ H^* \wedge = H^{\#} \wedge + (H^* - H^{\#}) \wedge $. By
+Th. \ref{chap3-sec4-thm4} of \S\ \ref{chap3-sec4}, $(H^*-H^{\#})$
+is a bounded operator in $L^2$ and hence 
+it is enough to prove that for $P = H + H^{\#}$, $(P \wedge u, \wedge
+u)$ satisfies an inequality of the required kind. The symbol
+$\sigma(P) = h(x,\xi) + \overline{h(x,\xi)}$ is real and $\leq - 2
+\delta$. Let $\alpha_j \in \mathscr{D}$, $\alpha_{j}(x) \geq 0$,
+$\sum \alpha^2_j (x) \equiv 1$ be a $C^\infty$ partition of  
+unity\pageoriginale as in lemma \ref{chap3-sec5-lem1}. Then 
+\begin{align*}
+(P \wedge u, \wedge u) = \sum\limits_j (\alpha_j P \wedge u, \alpha_j
+\wedge u) & = \sum\limits_j (P \alpha_j \wedge u, \alpha_j \wedge u)\\
+&\quad - \sum\limits_j ((P \alpha_j - \alpha_j P) \wedge u, \alpha_j \wedge  
+u). 
+\end{align*}
+
+For any $\epsilon' > 0 $ we have, by Schwarz's inequality
+\begin{align*}
+(P \alpha_j - \alpha_j P) \wedge u, \alpha_j \wedge u) & \leq || (P
+  \alpha_j - \alpha_j P) \wedge u|| \cdot || \alpha_j \wedge u || \\
+& \leq \epsilon' || \alpha_j \wedge u ||^2 + \frac{1}{\epsilon'}|| (P 
+  \alpha_j-\alpha_j P) \wedge u||^2. 
+\end{align*}
+
+From lemma \ref{chap3-sec5-lem2} we have 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+\sum\limits_j || (P \alpha_j - \alpha_j P) \wedge u||^2 & \leq 2
+\sum\limits_j P(\alpha_j \wedge - \wedge \alpha_j ) u||^2 + 2
+\sum\limits_j (P \wedge ) \alpha_j - \alpha_j (P \wedge ) u ||^2 \\ 
+&  \leq c' ||u||^2
+\end{align*}}\relax
+and we have only to estimate $(P \alpha_j \wedge u, \alpha_j \wedge
+u)$. Write $P=P(x^{(j)}) + (P-P(x^{j}))$ where, as before,
+$P(x^{(j)})$ is the singular integral operator whose symbol is $\sigma
+(P) (x^{(j)}, \xi)$. Since $\sigma (P(x, \xi )) \leq - 2 \delta $ we
+have  
+$$
+(P(x^{j})) \alpha_j \wedge u, \alpha_j \wedge u) \leq -2 \delta ||
+\alpha_j\wedge u ||^2. 
+$$
+
+Again by Schwarz's inequality
+\begin{gather*}
+\big|(P- P(x^{(j)})) \alpha_j \wedge u, \alpha_j \wedge u )\big| \leq
+|| \left\{ P-P(x^{(j)})\right\} \alpha_j \wedge u || \cdot || \alpha_j
+\wedge u ||\\  
+ \leq \frac{\varepsilon''}{4}|| \alpha_j \wedge u ||^2 +
+ \frac{4}{\varepsilon''}|| (P- P(x^{(j)})) \alpha_j \wedge u ||^2. 
+\end{gather*}
+
+Now, as in Prop. \ref{chap3-sec5-prop1},
+$$
+|(P- P(x^{(J)})) \alpha_j \wedge u||^2 \leq \eta (\varepsilon)||
+\alpha_j \wedge u||^2 + \mu || (\alpha_j \wedge - \wedge \alpha_j )
+u||^2 + \mu ||\alpha_j u||^2. 
+$$\pageoriginale
+
+Putting all these inequalities together one sees that 
+\begin{gather*}
+(P \wedge u, \wedge u) \leq \left(-2 \delta + \varepsilon' +
+\frac{\varepsilon''}{4} + \frac{4}{\varepsilon''} \eta (\varepsilon)\right)
+\sum\limits_j || \alpha_j \wedge u ||^2 |\\
+ + \mu \sum\limits_j ||
+(\alpha_j \wedge - \wedge \alpha_j) u||^2 + || u ||^2. 
+\end{gather*}
+
+Choosing $\varepsilon' \dfrac{\varepsilon''}{4}$, near $\delta$ and
+fixing $\varepsilon$ to have $\dfrac{4 \eta (\varepsilon)}{\varepsilon
+  ''}$ small enough to make $-2 \delta + 
+\varepsilon' + \dfrac{\varepsilon''}{4}+ \dfrac{4}{\varepsilon''} \eta
+(\varepsilon)$ as near $\delta$ as required and using lemma
+\ref{chap3-sec5-lem2} the desired inequality follows. 
+
+We shall now prove a lemma which we require later. It is analogous to
+lemma \ref{chap3-sec5-lem2}. We define, for any real $s, \wedge^s $ by
+$(\widehat{\wedge^s u}) = |\xi |^s \hat{u}$. 
+\end{proof}
+
+\begin{lemma}\label{chap3-sec5-lem3}%lemm 3
+Let $H$ be a singular integral operator whose symbol  
+$\sigma (H)= h (x, \xi ) \varepsilon C^\infty_\beta$, with $\beta =
+\infty$. Then for any $u \in L^2$ 
+\begin{equation}
+||(H \wedge^s - \wedge^s H) \wedge^\sigma u|| \leq c || u || \text{  for }
+s, \sigma \geq 0 \text{ with } s + \sigma \leq
+1. \tag{5.21} \label{chap3-eq5.21} 
+\end{equation}
+\end{lemma}
+
+\begin{proof}%proof 0
+Let $\alpha \in \mathscr{D}_\xi $ be such that $0 \leq \alpha
+(\xi) \leq 1$, $\alpha (\xi )  \equiv 1$ on $|\xi | \leq 1$ and
+vanish outside $|\xi| \geq 2$. Writing $|\xi|^s = |\xi|^s \alpha
+(\xi)+ |\xi|^s (1- \alpha (\xi ))$  we decompose the operator into a
+sum $\wedge^s = \wedge^s_0 + \wedge^s_ 1$ with $\sigma(\wedge^s_0)=
+|\xi|^s \alpha (\xi)$ and $\sigma (\wedge^s_1) = |\xi|^s (1- \alpha
+(\xi))$. As $|\xi|^s \alpha (\xi)$ has compact support $\wedge^s_0$
+defines a continuous linear operator in $L^2$ and hence it is enough
+to prove that  
+$$
+||(H \wedge^s_1- \wedge^s_1 H) \wedge^\sigma u|| \leq c || u ||. 
+$$
+
+Expanding $\sigma (H)$ in terms of spherical harmonics $Y_{lm}$ as in
+lemma \ref{chap3-sec5-lem2} and taking the inverse Fourier image we have 
+$$
+H = a_0 (x) + \Sigma a_{lm}(x) \tilde{Y}_{lm} \ast. 
+$$\pageoriginale
+
+Let $ P = a(x) \cdot\tilde{Y} \ast $ be a term in the sum. We consider 
+$$
+(P \wedge^s_1 - \wedge^s_1 P) \wedge^\sigma u = \int (a(x) - a(y))
+\wedge^s_1 (x-y) \wedge^\sigma \varphi (y) dy 
+$$
+where $\varphi (y) = (\tilde{Y} * u)(y)$. Expand $a(x)-a(y)$ in Taylor
+series upto order $q, q$ to be determined later: 
+$$
+a(x)- a(y)=- \sum\limits_{|\leq | \nu | \leq q-1} \frac{1}{\nu !}
+\left(\frac{\partial }{\partial x}\right)^\nu a(x) \cdot (y-x)^\nu -
+\sum\limits_{|\nu|=q} \frac{a_\nu (x,y)}{\nu !}(y-x)^\nu. 
+$$
+
+This gives 
+\begin{align*}
+(P \wedge^s_1 - \wedge^s_1 P) \wedge^\sigma u =  \sum\limits_{1\leq |
+    \nu | \leq q-1 } (-1)^{|\nu| +1} \left(\frac{\partial}{\partial x}\right)^\nu
+  a (x) \cdot (x^\nu \wedge^s_1 ) * (\wedge^\sigma \varphi )\\
+ + \sum\limits_{|\nu |=q}(-1)^{|\nu|+1} \int \frac{a_\nu (x, y)}{\nu
+    !}(x-y)^\nu \wedge^s_1 (x-y )(\wedge^\sigma \varphi ) (y)
+  dy. \tag{5.22} \label{chap3-eq5.22}
+\end{align*}
+
+We estimate the first sum in \eqref{chap3-eq5.22}. We have 
+$$
+|\ (\widehat{x^\nu \wedge^s_1})|= \left| \left(\frac{\partial}{\partial
+  \xi}\right)^\nu (1 - \alpha (\xi )) |\xi|^s \right|\leq c_\nu (1 +
+|\xi |)^{s- |\nu|}.  
+$$
+
+Hence
+$$
+|| (x^\nu \wedge^s_1) * (\wedge^\sigma \varphi)|| \leq C_\gamma || (1 +
+|\xi|)^{s- |\nu|} |\xi|^\sigma \hat{\varphi}|| \leq c_\nu || \varphi
+|| 
+$$
+since $s + \sigma \leq 1 $ and $|\nu | \geq 1$. Summing over $\nu$
+with $|\nu| \leq q-1$, we obtain  
+\begin{equation}
+\sum\limits_{|\nu | \leq q-1} || \frac{(-1)^{|\nu | +1}}{\nu !}
+\left[\left(\frac{\partial}{\partial x}\right)^\nu a\right] \left[(x^\nu \wedge^s_1 ) *
+(\wedge^\sigma \varphi )\right]|| \leq c (q) || \varphi ||  \; |a|_{q-1}
+\tag{5.23} \label{chap3-eq5.23}
+\end{equation}
+where 
+$$
+|a|_p = \sup_{x, | \nu | \leq p} \left| \left(\frac{\partial}{\partial
+  x}\right)^\nu a(x) \right|. 
+$$
+
+Since\pageoriginale $|| \varphi || = || \hat{\varphi}|| = || Y(\xi)
+\hat{u}|| \leq |Y|_0$. $||u||$ the right hand side of the inequality
+\eqref{chap3-eq5.23} is less than or equal to  
+$$
+c(q) |a|_{q-1} | Y|_0 \cdot||u||. 
+$$
+
+Now we estimate the second sum. Write $|\xi|^\sigma$ as 
+$$
+|\xi|^\sigma = \alpha (\xi) |\xi|^\sigma + (1- \alpha (\xi))
+|\xi|^\sigma = \alpha (\xi) |\xi|^\sigma + |\xi| \left\{ (1- \alpha
+(\xi)) |\xi|^{\sigma-1} \right\} 
+$$
+where $\alpha (\xi) \in \mathscr{D}$, $\alpha (\xi) \equiv 1$
+in a neighbourhood of the origin. Thus $\wedge^\sigma = B_0 + \wedge
+B_1$ where $B_0$ and $B_1$ are bounded operators in $L^2$. Hence we
+have only to consider the part containing $\wedge B_1$. Denote by
+$\psi_\nu$ the integral 
+$$
+\psi_\nu (x)= \int a_\nu (x, y) (x-y)^\nu \wedge^s_1 (x-y) \wedge B_1
+\varphi (y)dy.  
+$$
+
+Now we can write $|\xi|= \Sigma \xi_j \dfrac{\xi_j}{|\xi|}$ and if
+$R_j$ denote the Riesz operators defined by $(\widehat{R_j f}) =
+\dfrac{\xi_j}{|\xi|} \hat{f}$ we can write $\wedge= \Sigma
+\dfrac{\partial}{\partial x_j} R_j$. Substituting for $\wedge $ in
+$\psi_\nu (x)$ 
+$$
+\psi_\nu (x)= - \Sigma_j \int \frac{\partial}{\partial x_j} \left\{
+a_\nu (x, y) (x-y)^\nu \wedge^s_1 (x-y ) \right\} \cdot (R_j  B_1 \varphi)
+(y)dv. 
+$$
+
+
+We observe that $(x^\nu \wedge^s_1)$ is a bounded function together with
+its deri\-vatives of the first order for $|\nu| \geq n+2$. In fact its
+Fourier image is $\left(\dfrac{\partial}{\partial \xi}\right)^\nu
+\left\{ (1- \alpha (\xi)) |\xi|^s \right\}$ and  
+$$
+|x^\nu \wedge^s_1 | \leq \int |(\widehat{x^\nu \wedge^s_1})| d \xi 
+\leq c_\gamma \int (1 + |\xi|)^{s-|\nu|} d \xi < \infty. 
+$$
+
+We can write 
+\begin{align*}
+\psi_\nu (x) & = \int a_\nu (x,y ) (x-y )^\nu  \wedge^s_1 (x-y)
+(\wedge B_1 \varphi ) (y) dy\\ 
+& = -\Sigma \Big\{ \int \left[\frac{\partial a_\nu}{\partial y_j} (x,
+  y) \right]
+(x-y)^\nu \wedge^s_1 (x-y) (R_j B_1 \varphi ) (y) dy\\
+& \qquad  + \int a_\nu (x,y) \left[\frac{\partial }{ \partial y_j
+  }((x-y)^\nu \wedge_1^s (x-y)) \right] (R_j B_1 \varphi ) (y ) dy.  
+\end{align*}\pageoriginale
+
+Set 
+\begin{equation}
+\psi_\nu (x)= I_1 + I_2. \tag{5.24}\label{chap3-eq5.24}
+\end{equation}
+
+We estimate $I_1$ and  $I_2$ separately.
+\begin{gather*}
+|I_1| \leq \sum\limits_j \big| \int \left[\frac{\partial a_\nu}{ \partial y_j}
+  (x, y) \right] (x - y)^\nu \wedge^s_1 (x-y ) (R_j B_1 \varphi )
+(y)dy \big|\\  
+ \leq |a|_{q+1} \sum\limits_j \int |(x-y)^\nu \wedge^s_1 (x-y)|~| (R_j
+ B_1 \varphi ) (y)dy. 
+\end{gather*}
+
+The Fourier image of $(1 +|x|^{2 P}) x^\nu \wedge^s_1 (x)$ is 
+$$
+\left(\frac{1}{2 \pi i}\right)^{|\nu |} \left(\frac{\partial}{\partial
+  \xi}\right) \left[ (1- 
+  \alpha (\xi ))| \xi|^s \right] + \left(\frac{1}{2 \pi i}\right)^{2p + |\nu|}
+\triangle^p_\xi \left(\frac{\partial}{\partial \xi}\right)^\nu \left[(1- \alpha
+  (\xi))|\xi|^s \right] 
+$$
+and hence 
+\begin{align*}
+|x^\nu \wedge^s_1 (x) | & \leq \frac{1}{1 + |x|^{2p}} \left\{
+\left(\frac{1}{2 \pi}\right)^{|\nu|} \int |\left(\frac{\partial}
+     {\partial \xi}\right)^\nu 
+\left[(1-\alpha (xi )) |\xi^s| \right]| d \xi \right. \\
+& \qquad \qquad \left. + \left(\frac{1}{2 \pi}\right)^{2p+|\nu|} \int  
+| \triangle^p_\xi \left(\frac{\partial}{\partial \xi}\right)^\nu 
+\left[(1- \alpha (\xi))| \xi|^s \right] | d \xi \right\} \\ 
+ & \leq \frac{1}{1+|x|^{2p}} (C_1 (\nu ) + C_2 (p, \nu ))
+\end{align*}
+and similarly we have
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+\left|\left(\frac{\partial}{\partial x_j}\right) 
+(x^\nu \wedge^s_1 (x)) \right| & =
+\frac{1}{1+|x|^{2p}} \left|(1 + |x|^{2p} ) \frac{\partial }{\partial x_j}
+(x^\nu \wedge^s_1 (x)) \right|\\ 
+& \leq  \frac{1}{1+|x|^{2p}} \left\{ \left| \frac{\partial }{\partial x_j}
+(x^\nu \wedge^s_1 (x)) \right|+ \left| |x|^{2p}
+\left(\frac{\partial}{\partial x_j}\right) 
+(x^\nu \wedge^s_1 (x))\right| \right\}\\ 
+&\leq \frac{1}{1+|x|^{2p}} (C_2 ( \nu ) + C^2_1 (p, \nu )).
+\end{align*}}\relax\pageoriginale
+
+For sufficiently large $p$ the quantities $C_2 (p, \nu )$, $C'_2 (p,
+\nu)$ are finite. Thus we have  
+\begin{gather*}
+|I_1| < |a|_{q+1} \sum\limits_j \int \frac{| (R_j B_1 \varphi )(y)|}{
+  1+ |x-y|^{2p}} dy  \tag{5.25}\label{chap3-eq5.25}\\
+|I_2| \leq \sum_j \left| \int a_\nu (x, y) \frac{\partial}{\partial y_j} \left[
+  (x-y)^\nu \wedge^s_1 (x-y) \right] \cdot (R_j B_1 \varphi
+)(y)\right| dy \\  
+\leq |a|_q \Sigma \int \left| \frac{\partial }{\partial y_j} \left[(x-y)^\nu
+  \wedge^s_1 (x-y) \right]\right| (R_j B_1 \varphi )(y)  dy  \\
+|I_2|  \leq M (p)|a|_q \Sigma \int \frac{(R_j B_1 \varphi )(y)}{1+
+  |x-y|^{2p}} dy . \tag{5.26}\label{chap3-eq5.26}
+\end{gather*}
+
+This leads to the inequality 
+$$
+||I_1 (x)||_{L^2} \leq |a|_{q+1} \sum^n_{j=1} ||R_j B_1 \varphi
+||_{L^2} \left(\int \frac{1}{(1+ |x|^{2p})}dx\right) 
+$$
+because of the Hausdorff-Young theorem. We have the same kind
+estimate for $|| I_2 (x) ||_{L^2}$. 
+
+Hence
+\begin{align*}
+||\psi_\nu || & \leq C_3 (n)|| (R_j B_1 \varphi)|| \cdot |a|_{q+1} \leq C_4
+(n) |a|_{q+1} ||\varphi ||\\ 
+& \leq C_4 (n) |a|_{q+1} |Y (\xi)|_0 \cdot  || u||. 
+\end{align*}
+
+Now\pageoriginale summing up for all $l, m$ we have for any 
+$u \in L^2$ 
+\begin{align*}
+|| (H \wedge^s_1 - \wedge^s_1 H) \wedge^\sigma u|| & \leq \sum_{l,m}
+|| (a_{lm} \wedge^s_1- \wedge^s_1 a_{lm}) \wedge^\sigma (\tilde{Y}_{lm} *
+u)||\\ 
+& \leq C_5 (n) \left(\sum_{l,m} |a_{lm}|_{n+3}| Y_{lm} (\xi )
+|| |_0\right) ||u||\\  
+& \leq C_5 (n, s, \sigma ) M ||u ||_{L^2}
+\end{align*}
+and this completes the proof of the lemma.
+\end{proof}
+
+The following is a generalization of Friedrichs' lemma to singular
+integral operators (see Mizohota \cite{key1}). 
+
+\begin{proposition}\label{chap3-sec5-prop3}%3
+Let $H$ be a singular integral operator such that its symbol $\sigma
+(H) = h(x, \xi) \in C^\infty_{1+ \sigma}$, $ \sigma > 0$. Let
+$C_\delta u$ denote, for $u \in L^2$, the commutator $[H
+  \wedge, \varphi_\delta * ]u $ where $\varphi_\delta$ is the
+mollifier of Friedrichs. 
+
+Then
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item  $|| C_\delta u|| \leq c M' ||u||$
+
+\noindent
+where $M'= |a_0 |_{\beta^{1+ \sigma}} + \sum\limits_{l,m}
+|a_{lm}|_{\beta^{1+ \sigma}} | Y_{lm}|_{\beta^0}$ and $c$ depends only
+on $\varphi$ and $n$ 
+
+\item\quad $C_\delta u \rightarrow 0$ weakly in $L^2$ as $\delta
+  \rightarrow 0$. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}%proof
+We expand $h(x, \xi)$ in spherical harmonics $Y'_{lm}(\xi)$
+$$
+h(x, \xi ) = a_0 (x) + \sum_{l,m} a_{lm}(x) Y'_{lm} (\xi) 
+$$
+and hence we can write, denoting the inverse Fourier image of
+$Y'_{lm}$ by $\tilde{Y}_{lm}$  
+$$
+Hu (x) = a_0 (x) u(x) + \sum_{l,m} a_{lm} (x) (\tilde{Y}_{lm} * u) (x).
+$$
+
+To prove (1) it is sufficient to prove it for $u \in
+\mathscr{D}$. Now  
+\begin{align*}
+C_\delta u & = [H \wedge, \varphi_\delta *] u = H \wedge (u *
+\varphi_\delta)- (H \wedge u) * \varphi_\delta \\ 
+& =  \sum_{l,m } \left\{ a_{lm}(x) (\tilde{Y}_{lm} * \wedge (u *
+\varphi_\delta ))- a_{lm}(x) (\tilde{Y}_{lm} * \wedge u)* \varphi_\delta
+\right\}.\tag{5.27}\label{chap3-eq5.27} 
+\end{align*}\pageoriginale
+
+Consider a typical term of this sum:
+$$
+a_{lm} (x) (\tilde{Y}_{lm} * \wedge (u * \varphi_\delta )) - (a_{lm}(x) 
+(\tilde{Y}_{lm} * \wedge u)) * \varphi_\delta 
+$$
+and substitute $\Sigma \dfrac{\partial}{\partial x_j} R_j $ for
+$\wedge $ where $R_j$ are the Riesz operators. Put $\psi_{lm}(x)=
+\tilde{Y}_{lm} * R_j * u$. We have 
+\begin{align*}
+& a_{lm} (x) (\tilde{Y}_{lm} * \frac{\partial}{\partial x_j} R_j * (u
+  * \varphi_\delta )- (a_{lm}(x) (\tilde{Y}_{lm} *
+  \frac{\partial}{\partial x_j} R_j * u )) * \varphi_\delta \\ 
+&= a_{lm}(x) \left[\frac{\partial}{\partial x_j}(\tilde{Y}_{lm} * R_j * u)
+    * \varphi_\delta \right] - (a_{lm} \frac{\partial}{\partial x_j}
+  (\tilde{Y}_{lm} * R_j *  u)) * \varphi_\delta \\ 
+&= a_{lm}(x) \left[\frac{\partial}{\partial x_j} \psi_{lm}(x) *
+    \varphi_\delta \right] - \left[a_{lm} \frac{\partial}{\partial x_j}
+    \psi_{lm} \right]* \varphi_\delta\\ 
+& = \int \left[a_{lm} (x)- a_{lm} (y) \right] \;
+  \left[\frac{\partial}{\partial y_j} 
+    \psi_{lm}(y) \right] \varphi_\delta (x-y) dy  
+\end{align*}
+where the integral is taken in the sense of distributions. By
+definition this is  
+$$
+- \int \frac{\partial}{\partial y_j} \left\{[a_{lm} (x)- a_{lm} (y) ]
+\varphi_\delta (x-y) \right\} \psi_{lm} (y)  dy  
+$$
+where the integral is taken in the usual sense.
+
+Now,
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& \int \left|\frac{\partial}{\partial y_j}\left\{ \left[a_{lm}(x)-a_{lm}
+    (y) \right] \varphi_\delta (x-y) \right\} \psi_{lm} (y) dy \right|\\  
+& \leq \left| \int \psi_{lm} (y)(a_{lm} (x)- a_{lm}(y) )\frac{\partial
+    \varphi_\delta}{\partial y_j} (x-y ) dy \right| + \left| \int
+  \psi_{lm} (y) \varphi_\delta (x-y) \frac{\partial_{lm}(y)}{\partial
+    y_j} dy) \right|\\ 
+& \leq || \psi||_{lm} \left\{ 2|a_{lm}|_0 \left|\left| \frac{\partial
+    \varphi_\delta}{\partial x_j}\right|\right|_{L^1} +|a_{lm}|_1 \cdot ||
+  \varphi_\delta ||_{L^1}\right\}\\ 
+& \leq || \psi_{lm}|| \left\{2 |a_{lm}|_0 c_1 (\delta, n) + |a_{lm}|_1
+  c_2 (\delta, n)\right\}\\ 
+& \leq c(\delta, n)|a_{lm}|_1 \cdot |Y' (\xi ) |_0 \cdot || u || 
+\end{align*}}\relax\pageoriginale
+which proves (1).
+
+To prove (2) let $v \in L^2$ and consider
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& \int v(x) \int \psi_{lm}(y) \frac{\partial}{\partial y_j}\left\{
+  (a_{lm}(x)-a_{lm}(y)) \varphi_\delta (x-y) \right\}  dy \; dx\\ 
+& = \int v(x) \int \psi_{lm} (y) \left\{ \frac{\partial
+    \varphi_\delta}{\partial y_j} (x-y) \cdot (a_{lm} (x)-a_{lm}(y))-
+  \varphi_\delta (x-y) \frac{\partial a_{lm}}{\partial y_j}(y) \right\}
+   dy \; dx\\ 
+& = \int v(x) \int \psi_{lm} (y) \left\{ \sum_k (x_{k}-y_k) \frac{\partial
+    a_{lm}}{\partial y_k} (y) \cdot  \frac{\partial \varphi_\delta}{\partial
+    y_j}(x-y)+ \sigma (x, y) \frac{\partial \varphi_\delta}{\partial
+    y_j} (x-y) \right. \\
+& \hspace{1cm}  \left. - \varphi_\delta (x-y) \frac{\partial a_{lm}}{\partial
+    y_j}(y) \right\} dy \; dx
+\end{align*}}\relax
+where $\sigma (x, y) = a_{lm}(x) - a_{lm}(y) - \sum\limits_k (x_k-y_k)
+\dfrac{\partial a_{lm}}{\partial y_k}(y)$. Let  
+\begin{align*}
+k_1 (y, x-y) & =  \sum_{k} (x_k-y_k) \frac{\partial a_{lm}}{\partial
+  y_k}(y) \cdot \frac{\partial \varphi_\delta}{\partial y_j}(x-y)-
+\varphi_\delta (x-y) \frac{\partial a_{lm}}{\partial y_j}(y)\\ 
+& = - \frac{\partial}{\partial x_j} \left\{ \sum (x_k- y_k )
+\frac{\partial a_{lm}}{\partial y_k}(y) \cdot \varphi_\delta
+(x-y)\right\} \tag{5.28}\label{chap3-eq5.28}  
+\end{align*}
+and $(5.28)'$ \qquad $k_2 (y, x-y) \geq \sigma (x, v) \dfrac{\partial
+  \varphi_\delta}{\partial y_j}(x-v)$ 
+
+Then $|k_2 (y, x-y)| \leq c| a_{lm}(x)|_{1 + \sigma} |x-y|^{1+ \sigma}
+\left|\dfrac{\partial \varphi_\delta}{\partial x_j}(x-y)\right|$. 
+
+Applying the Hausdorff-Young inequality we have
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+||\int v (x) k_2 (y,x-y) dx || & \leq c | a_{lm} |_{1+\sigma} \left(\sum \int
+|x-y|^{1+\sigma}\left| \frac{\partial \varphi_\delta}{\partial x_j} (x-y)
+\right| dx\right) \cdot ||v|| \\
+& = c|a_{lm} |_{1+\sigma}||v|| \varepsilon (\delta )
+\tag {5.29} \label{chap3-eq5.29}
+\end{align*}}\pageoriginale
+where $\varepsilon (\delta) = \sum \int |x|^{1+\sigma}\left|
+\dfrac{\partial \varphi_\delta}{\partial x_j} \right| dx \rightarrow 0$ as
+$\delta \rightarrow 0$.  
+On the other hand we observe that 
+$$
+\int k_1 (y,z) dz = \int \frac{\partial}{\partial z_j} \left\{ \sum
+\limits_{r} z_r \frac{\partial a_{lm}}{\partial
+    y_r}(y) \cdot  \varphi_\delta z \right\}dz = 0, 
+$$
+since $\varphi_\delta$ has compact support. Now consider 
+$$
+\int \int k_1 (y, x-y) v (x) \psi_{lm} (y) dy \; dx  = \int
+\psi_{lm} (y) dy \int k_1 (y, x-y) v (x) dx. 
+$$ 
+
+The right hand side can be written after a change of variables $z=
+x-y$ in the form  
+$$
+\int \psi_{lm} (y) dy \int v (y+z) k_1 (y, z) dz.
+$$
+
+Schwarz inequality gives 
+$$
+\big| \int \psi_{lm}(y) dy \int v (y+z) k_1 (y,z) dz \big| \leq ||
+\psi_{lm} || ~\left|\left| \int k_1 (y,z) v (y+z) dz \right|\right|. 
+$$ 
+
+Since $\int k_1 (y, z) dz = 0$ we can write
+$$
+\left|\left|\int k_1 (y, z) v (y+z) dz \right|\right| = \left|\left|
+\int k_1 (y,z) \big\{ v (y+z) - v (v)\big\} dz \right|\right|.  
+$$
+
+We shall now evaluate the right hand side. Let us set  
+$$
+\varepsilon' (\delta) = \sup\limits_{|h|\leq \delta} \left(\int |v(y  + h)
+- v(y) |^2 dx\right)^{\frac{1}{2}}. 
+$$
+
+Schwarz inequality shows that 
+\begin{align*}
+&\left| \int k_1 (y, x-y) (v(x) - v(y)) dx \right|^2\\
+&\qquad \leq \left(\int |
+k_1 (y, x-y) dx \right) \left(\int | k_1 (y, x-y) || v (x)-v(y)|^2
+dx\right). 
+\end{align*}\pageoriginale
+
+Clearly $\int |k_1 (y, x- y) | dx \leq c| a_{lm}|_{\beta^1}$ where
+$c$ is a constant depending only on $\varphi$ and $\delta$. Hence
+integrating both sides of this inequality with respect to $y$ we have  
+$$
+|| \int k_1 (y, x-y) (v(x) - v(y)) dx ||^2
+$$
+\begin{align*}
+& \leq c|a_{lm}|_{\beta^1} \iint |k_1 (y, x-y) || v(x) - v(y)|^2 dx \;dy\\ 
+& =  c|a_{lm}|_{\beta^1} \int\limits_{|z| \leq \delta} dz \int
+  |k_1 (x-z,z) || v(x) - v (x-z)|^2  dx\; dz. 
+\end{align*}
+
+Since $k_1(y, x-y)$ is a bounded function the right side is less than 
+\begin{equation*}
+c'|a_{lm}|_{\beta^1} \varepsilon' (\delta )^2 (\text{vol }
+\omega_{\delta}). \tag{5.30} \label{chap3-eq5.30}
+\end{equation*}
+where $\varepsilon' (\delta) \to 0$ as $\delta \to 0$ and
+$\omega_{\delta}$ is the ball $|z| \leq \delta$. Combining the
+inequalities \eqref{chap3-eq5.29} and \eqref{chap3-eq5.30} we obtain 
+\begin{gather*}
+ \big| \iint v(x) \psi_{lm} (y) \{ k_1 (y, x -y) + k_2 (y, x-y) \} dy
+\; dx \big| \\ 
+ \leq || \psi_{lm} || (c|a_{lm}|_{\beta^{1+\sigma}} || v || \varepsilon
+(\delta ) + c'' |a_{lm}|_1 \varepsilon' (\delta ))\\ 
+ \leq c'' || u ||(|a_{lm}|_{1+\sigma}| Y_{lm}|_o ||v|| \varepsilon
+(\delta ) + |a_{lm}|_1 |Y_{lm}|_0 \varepsilon' (\delta )), 
+\end{gather*}
+which tends to 0 as $\delta \to 0$. This completes the proof of the
+proposition. 
+\end{proof}
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap3-sec5-coro1}%coro 1
+If we assume $u \in \mathscr{D}^1_{L^2}$ in proposition
+\ref{chap3-sec5-prop3} then  
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item $|| C_{\delta} u ||_{\mathscr{D}^1_{L^2}} \leq c|| u
+  ||_{\mathscr{D}^1_{L^2}}$ 
+
+\item $C_{\delta} u \to 0$ weakly in $\mathscr{D}^1_{L^2}$ as $\delta
+  \to 0$. 
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}%proof 0
+We\pageoriginale remark that
+\begin{equation*}
+\frac{\partial}{\partial x_j}(C_\delta u) = C_{\delta}\left(\frac{\partial}
+     {\partial x_j}\right) + \left[H^{(j)}_{\wedge},\varphi_{\delta}*
+       \right]u  \tag{$\ast$} 
+\end{equation*}
+where $H^{(j)}$ denotes the singular integral operator defined by 
+$$
+H^{(j)}_{u} = a_0^{(j)}u + \sum a^{(j)}_{1m}(\tilde{Y}_{1m}*u),
+a^{(j)}_{1m} = \frac{\partial}{\partial x_j}a_{lm}, 
+$$
+or equivalently 
+$$
+\sigma(H^{(j)}) = a_0^{(j)}(x)+ \sum a^{(j)}_{1m}(x)
+Y_{lm} (\xi) \in C^{\infty}_{\sigma} \text{~ with~ } \sigma > 0. 
+$$
+
+Now, the latter term of the right hand side in $(*)$ tends to 0 in 
+$L^{2}$ as $\delta \to 0$. In fact, 
+ \begin{align*}
+\left[H^{(j)} \wedge, \varphi_\delta * \right] u  & =
+H^{(j)}(\varphi_{\delta^*} 
+\wedge u) - H^{(j)}_{\wedge^u}\\
+& \quad  + H^{(j)} \wedge u-\varphi_\delta
+*(H^{(j)}_{\wedge^u})\text{ and } \wedge u \in L^2. 
+\end{align*}
+
+Now applying Proposition (\ref{chap3-sec5-prop3}) to $(*)$ we have the
+corollary.  
+
+From Prop. \ref{chap3-sec5-prop1} it can be easily seen that the
+following proposition 
+holds. This plays the same role as G$\ring{\text{a}}$rding's inequalitv for
+differential operators. 
+
+\begin{proposition}%prop 4
+Let $\mathscr{H}$  be a square matrix whose elements $H_{jk}$ are
+singular integral operators (belonging to $C_\beta^{\infty}$) with
+their symbols $\sigma(H_{jk}) = h_{jk}(x, \xi)\in
+C_{\beta}^{\infty}$ with $\beta > 0\,(j, k=1,\ldots,N)$. Suppose
+$\sigma \mathscr{(H)}$ is the matrix whose element are
+$\sigma{(H_{jk})(x, \xi)}$ and satisfies the hypothesis  
+\begin{equation*}
+|\sigma (\mathscr{H})\alpha | \geq \delta | \alpha | \text{~ for every~ }
+x, \xi \in \underbar{R}^n, \delta > 0 \tag{5.31} \label{chap3-eq5.31}
+\end{equation*}
+where $\alpha = (\alpha_1,\ldots, \alpha_N)$ is a complex vector in
+$\underbar{C}^{N}$. Then for every $u = (u_1, \ldots , u_N)
+\in \pi \mathscr{D}'_{L^2}$\pageoriginale
+\begin{equation*}
+||\mathscr{H}\wedge u ||^2 \geq \frac{\delta^2}{8}|| \wedge u||^2
+-\gamma_{1} || u||^2,\tag{5.32} \label{chap3-eq5.32}
+\end{equation*}
+where $\gamma_1$ is a positive constant.
+\end{proposition}
+
+\begin{remark*}%rem 0
+$|| u ||^2$, for $u=(u_1,\ldots, u_N)\in \pi
+  \mathscr{D}^1_{L^{2}}$, denotes $|| u_1||^2+ \cdots || u_N||^2$. 
+The proof runs on the same lines as in the proof of the
+Prop. \ref{chap3-sec5-prop1}. 
+\end{remark*}
+
+\section{Energy inequalities for regularly hyperbolic
+  systems}\label{chap3-sec6}%sec 6  
+
+Let $\Omega$ denote the subset $\underbar{R}^n \times [0, h]$ of
+$\underbar{R}^{n+1}$. 
+
+\begin{defi*}%defi 0
+A first order system of differential operators
+\begin{equation*}
+M = \frac{\partial}{\partial t} - \sum A_k(x,
+t)\frac{\partial}{\partial x_k} \tag{6.1} \label{chap3-eq6.1}
+\end{equation*}
+is said to be regularly hyperbolic in $\Omega$ if 
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item $A_k(x, t)$ are bounded,
+
+\item for every $(x, t)\in \Omega$ and $\xi \in
+  \underbar{R}^n$ the roots of the systems  
+\begin{equation*}
+\det  \left(\lambda I - \sum A_k(x,t) \cdot \xi_k\right) = 0
+\tag{6.2}\label{chap3-eq6.2} 
+\end{equation*}
+are real and distinct; further if $\lambda_1(x, t, \xi )\cdots
+\lambda_N (x, t, \xi)$ are these roots then  
+\begin{equation*}
+\inf_{\substack{(x, t)\in \Omega \\ j \neq k }}, | \xi |
+=1^{| \lambda_j(x, t, \xi ) -\lambda_k(x, t, \xi ) |>0}
+\tag{6.3}\label{chap3-eq6.3} 
+\end{equation*}
+\end{enumerate}
+
+We write the system \eqref{chap3-eq6.1} in terms of singular integral
+operators, by 
+putting $\sum A_k (x,t) \dfrac{\partial}{\partial x_k} = i
+\mathscr{H}(t)\wedge$ where $\mathscr{H}(t)$ is a matrix of order $N$
+of singular integral operators whose symbol is the matrix 
+$$
+\sigma (\mathscr{H}(t)) = 2 \pi \sum A_k(x,t)\frac{\xi_k}{|\xi|}. 
+$$\pageoriginale
+\end{defi*}
+
+Thus \eqref{chap3-eq6.1} is written in the form 
+\begin{equation*}
+M = \frac{\partial}{\partial t}-i \mathscr{H}(t) \wedge \tag*{$6.1)'$} 
+\end{equation*}
+
+If the coefficients are such that $A_k = A_k(x, t) \in
+\beta^{1+\sigma}[0, h]$ with $\sigma >0$ then for each fixed
+$t,\sigma(H)(x, t, \xi)\in C^{\infty}_{1+\sigma},  \sigma >0$. 
+\end{proof}
+
+\setcounter{proposition}{0}
+\begin{proposition}[Petrowsky]\label{chap3-sec6-prop1} %1
+Let $M$ be a regularly hyperbolic system with $A_k
+\in \beta^{1+\sigma}[0, h]$. Suppose $A_k(x, t)$ are real. Then there
+exists a matrix $\sigma(\mathfrak{N}(t)) =
+\sigma(\mathfrak{N})(x, t, \xi)$ except possibly when $n
+= 2$ such that 
+\begin{enumerate}[\rm(i)]
+\item $\sigma(\mathfrak{N}(t))\sigma(\mathscr{H}(t)) =
+  \sigma(\mathscr{D}(t)) \sigma(\mathfrak{N}(t))$ where 
+$$
+\sigma (\mathscr{D}(t)) = 
+\begin{pmatrix}
+\lambda_1(x,t, \xi) & & 0 \\
+ & \ddots & &\\
+0  & & \lambda_N(x, t,\xi)
+\end{pmatrix}
+$$
+
+\item $\sigma(\mathfrak{N}(t)) = \sigma (\mathfrak{N})(x, t, \xi )$ is
+  of class $C_{1 + \sigma}$ for every fixed $t$, has real elements
+  and further 
+\begin{equation*}
+ | \det \sigma (\mathfrak{N}(t))| \geq \delta' > 0 \text{~ for every~ }
+ (x, t) \varepsilon \Omega , \xi \varepsilon
+ \underbar{R}^n.\tag{6.4}\label{chap3-eq6.4}  
+\end{equation*}
+
+\item the mapping $t \to \sigma (\mathfrak{N}(t)) \in
+  C_{1+\sigma}^{\infty}$ is once continuously differentiable 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}%proof 0
+Since the roots of \eqref{chap3-eq6.2} det $(\lambda I-\sum A_k \cdot
+\xi_k) = 0$ are 
+real and distinct it follows that $\lambda_j(x, t, \xi)$ are single
+valued functions on $|\xi| = 1$ for every fixed $(x, t)\in
+\Omega$. This follows by the principle\pageoriginale of monodromy in
+the case $n > 2$ and in the case $n=2$ by virtue of hyperbolicity.  
+
+To see that $\lambda_j(x, t, \xi ) \in C^{\infty}_{1+\sigma}$,
+$\sigma > 0$ for fixed $t$ denoting by $$
+P (\lambda, x, t, \xi) = 0
+$$ 
+the characteristic equation 
+$$
+\det \left(\lambda I-\sum A_k \cdot \xi_k\right) = 0 
+$$
+we have from the implicit function theorem
+$$
+\frac{\partial \lambda_j}{\partial x_k} = - \bigg(\frac{\partial P}{\partial
+  x_k} \bigg| \frac{\partial P}{\partial \lambda}\bigg)_{\lambda =
+  \lambda_j} 
+$$
+and further $\big|\left(\dfrac{\partial P}{\partial
+  \lambda}\right)_{{\lambda} = {\lambda_j}} \big| \geq d^{N-1}$ where
+$d=\inf\limits_{\substack{(x, t) 
+  \in \Omega, |\xi|=1\\ j\neq k}} |\lambda_j - \lambda_k|$. 
+\end{proof}
+
+\smallskip
+\noindent
+\textbf{Construction of $\sigma(\mathfrak{N}(t))$}. Suppose $n \geq
+3$. To find $\sigma (\mathfrak{N}(t))$ such that $\sigma 
+(\mathfrak{N}(t)) \sigma (\mathscr{H}(t)) =
+\sigma(\mathscr{D}(t))\sigma (\mathfrak{N}(t))$ is the same, if we
+write $\sigma (\mathfrak{N} = (n_{jk})$, $\sigma
+(\mathfrak{N})=(a_{jk})$, as finding a matrix solution of 
+$$
+\lambda_j n_{jl} = \sum_k n_{jk}  a_{kl}.
+$$
+
+For a fixed $j$ the vector $(n_{j1},\ldots, n_{jN})$ is an eigenvector
+of the matrix $A =(a_{jk})$ corresponding to the eigenvalue
+$\lambda_j$. Consider the case $\lambda_j = \lambda_1$. We assert that
+the space of eigenvectors at the point $(x, t, \xi)$ can be given by
+explicit expressions (the space of eigenvectors is one dimensional) in
+such a way that this vector is continuous in $(x, t, \xi)$ is class
+$C^{\infty}_{1+\sigma}$ and continuously differentiable in $t$. In
+fact, if $M_{jk}(t)$ is the $(j, k)$-cofactor of $(\lambda_1 I -A)$ then
+$(M_{1j}, M_{2j},\ldots, M_{Nj})$ $(j = 1,\ldots, N)$\pageoriginale
+span the space of eigenvectors. As the rank of $(\lambda_1I-A)$ is
+$(N-1)$ everywhere one of these is not trival.  
+
+\begin{remark*}%rema 0
+In the case where the coefficients $A_k(x, t)$ are not real there will
+be topological difficulties in the above reasoning which proves the
+existence of smooth $\sigma \mathfrak{N}(x, t, \xi)$. It should however
+be observed that the theorem of local existence of smooth $\sigma
+\mathfrak{N} (x, t, \xi)$ remains valid. Therefore it would be better
+to use a partition of unity to derive energy inequalities for such
+systems. Moreover this argument can be applied for more general
+hyperbolic systems. (See: Le probl\`eme de Cauchy pour les syst\`emes
+hyperboliques et paraboliques, Mem. Coll. Sc., Kyoto
+Univ,. Ser. A. Math., 1959). 
+\end{remark*}
+
+\begin{proposition}[Energy inequality]\label{chap3-sec6-prop2}%2
+Let 
+$$
+M = \frac{\partial}{\partial t} -  \sum A_k (x, t)
+\frac{\partial}{\partial x_k} 
+$$
+be a regularly hyperbolic system in $\Omega$ with the coefficients
+$A_k (x, t)$ satisfying  
+$$
+A_k \in \mathbb{B}^{1+ \sigma} [0, h],
+\; \frac{\partial}{\partial t} A_k \in B^0 [0, h]. 
+$$
+
+Suppose $B \in \mathbb{B}^0 [0, h]$, $f \in L^2 [0, h]$
+given. Then, if $u \in L^2 [0, h]$ is a solution of  
+\begin{equation*}
+\frac{\partial u}{\partial t} - \sum A_k (x, t) \frac{\partial
+  u}{\partial x_k} - B(x, t) u = f \tag{6.5} \label{chap3-eq6.5}
+\end{equation*}
+we have the inequality 
+\begin{equation*}
+|| u (t) || \leq c(h) \left\{ || u (0) || + \int\limits^t_0 || f(s) || ds
+\right\}. \tag{6.6} \label{chap3-eq6.6}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+First\pageoriginale we assume this $u \in
+\mathscr{D}^1_{L^2}[0, h]$. The given system is written in
+singular-integral-operator form as   
+\begin{equation*}
+\frac{\partial u}{\partial t} - i \mathscr{H} (t) \wedge u - B(t) u =  
+f. \tag{6.7} \label{chap3-eq6.7}
+\end{equation*}
+
+Multiplying this system by the matrix $\mathfrak{N}$ obtained in
+Prop. \ref{chap3-sec6-prop1} we obtain  
+$$
+\frac{\partial}{\partial t} (\mathfrak{N} u) - i \mathfrak{N} (t) 
+\mathscr{H}(t)) \wedge u - (\mathfrak{N} B + \frac{\partial
+  \mathfrak{N}}{\partial t}) u = \mathfrak{N} f.  
+$$
+
+By Prop. \ref{chap3-sec6-prop1} $\mathfrak{N} \circ \mathfrak{N} = D
+\circ \mathfrak{N}$ which  implies that   
+$$
+\mathfrak{N} \mathscr{H} \wedge \equiv \mathscr{D} \mathfrak{N}
+\wedge (\text{mod. bounded operators}) 
+$$
+because $(\mathfrak{N} \mathscr{H}) \wedge \equiv (\mathfrak{N}) \circ
+\mathscr{H} \wedge$  (mod bounded operators)  
+$$
+(\mathscr{D} \mathfrak{N}) \wedge \equiv (\mathscr{D} \circ \mathfrak{N})
+\wedge (\text{mod. bounded operators}) 
+$$
+
+Also $(\mathscr{D} \mathfrak{N}) \wedge = \mathscr{D} \wedge
+\mathfrak{N} +  $ a bounded operator, and hence the new system becomes   
+$$
+\frac{\partial}{\partial t} (\mathfrak{N} u)= i \mathscr{D} \wedge
+(\mathfrak{N} u) + (\mathfrak{N} B + \frac{\partial
+  \mathfrak{N}}{\partial t} u + \mathfrak{N} f.  
+$$
+
+In otherwords $v = \mathfrak{N} u $ satisfies 
+$$
+\frac{\partial v}{\partial t} = i \mathscr{D} \wedge v + B_1 u +
+\mathfrak{M} f 
+$$
+where $B_1 = \left(\mathfrak{N} B + \dfrac{\partial \mathfrak{N}}{\partial
+  t}\right)$ is a bounded operator in view of
+Prop. \ref{chap3-sec6-prop1}. Now   
+\begin{align*}
+\frac{\partial}{\partial t}(v, v) & = (i \mathscr{D} \wedge v, v) +
+(v, i \mathscr{D} \wedge v) + 2 \re (B_1 u + \mathfrak{N} f, v)\\ 
+& = i ( \mathscr{D} \wedge  - \wedge\mathscr{D}^\ast) v,v) + 2 \re (B_1
+u + \mathfrak{N} f, v).  
+\end{align*}
+ 
+But $\wedge \mathscr{D}^* =  \wedge \mathscr{D}^{\#} + $ a bounded
+operator, and since $\mathscr{D}$ is real $\mathscr{D}^{\#} =
+\mathscr{D}$ and\pageoriginale $\wedge \mathscr{D} = \mathscr{D}\wedge
++$ a bounded operator. Hence $\mathscr{D}\wedge - \wedge
+\mathscr{D}$ is a bounded operator and   
+$$
+\frac{\partial}{\partial t}||v||^2 \leq 2 \gamma_1  ||v||^2 + 2c
+||u|| ~||v||+2 ||\mathfrak{N} f||~ ||v||, 
+$$
+that is 
+$$
+\frac{\partial}{\partial t}||v|| \leq \gamma ||v|| +c ||u||+||
+\mathfrak{N} f||.  
+$$
+
+By the regular hyperbolicity we have in view of Prop. \ref{chap3-sec6-prop1}
+\begin{equation*}
+|det \sigma (\mathfrak{N}(t))|\geq \delta' >
+0. \tag{6.4}\label{addchap3-eq6.4}  
+\end{equation*}
+
+Hence by the generalized Garding inequality applied to $\mathfrak{N}$
+there exist $\delta''> 0$ and $ \beta > 0$ such that 
+\begin{equation}
+|| \mathfrak{N}\wedge u|| \geq \delta'' || \wedge u||- \beta ||
+u||. \tag{6.8}\label{chap3-eq6.8} 
+\end{equation}
+
+Define
+\begin{equation*}
+||| u ||| = || \mathfrak{M} u || + \beta || (\wedge + 1)^{-1} u ||
+\tag{6.9} \label{chap3-eq6.9}
+\end{equation*}
+where $(\wedge+1)^{-1} u \xrightarrow{\mathscr{F}} \dfrac{1}{(1+|\xi|)}
+\hat{u}$. It is clear that $||| u||| \leq c_{1}|| u||$ since
+$\mathfrak{N}$ and $(\wedge + 1)^{-1}$  are bounded. On the other hand 
+$$
+\mathfrak{N} u = \mathfrak{N} \wedge (\wedge + 1)^{-1} u + \mathfrak{N}
+(\wedge+1)^{-1}u 
+$$
+implies 
+\begin{align*}
+|| \mathfrak{N} u || &\geq || \mathfrak{N}\wedge (\wedge  + 1)^{-1} u||-||
+\mathfrak{N}(\wedge + 1)^{-1} u||\\
+&\quad \geq \delta'' || \wedge(\wedge + 1)^{-1} u|| -\beta ||(\wedge +
+  1)^{-1}u|| -|| \mathfrak{N}(\wedge + 1)^{-1}u||\\ 
+&\quad \geq \delta'' || \wedge(\wedge + 1)^{-1} u|| -\beta' ||(\wedge +
+  1)^{-1}u|| \\ 
+&\quad \geq \delta'' ||u|| -(\beta'+ 1)|| (\wedge + 1)^{-1}u|| 
+\end{align*}
+which\pageoriginale proves that $||| u ||| \geq c_2 || u|| $
+consequently the norms $||| u||| $ and $|| u||$ are equivalent. It is
+therefore sufficient to prove the energy inequality for the norm $|||
+u |||$.  
+\begin{align*}
+\frac{\partial}{\partial t} ||| u(t)||| & = \frac{\partial}{\partial
+  t}(|| \mathfrak{N} u || + \beta || (\wedge + 1)^{-1}u ||) \\
+& \leq \gamma || \mathfrak{N} (u) ||+ c || u|| +|| \mathfrak{N} f|| +\beta
+\frac{\partial}{\partial t}|| (\wedge+1)^{-1}u
+||. \tag{6.10}\label{chap3-eq6.10}  
+\end{align*}
+
+Considering $\dfrac{\partial u}{\partial t} = i \mathscr{H}\wedge u +
+Bu + f$ 
+$$
+(\wedge + 1)^{-1} \frac{\partial u}{\partial t} = i(\wedge +
+1)^{-1}\mathscr{H} \wedge u + (\wedge + 1)^{-1}(Bu + f) 
+$$
+but $(\wedge + 1)^{-1}\mathscr{H} \wedge = (\wedge+1)^{-1} \wedge
+\mathscr{H}  + (\wedge+1)^{-1}B_{2}$  
+where $B_{2}$ is a bounded operator in $L^{2}$ and hence
+$$
+\frac{\partial}{\partial t}||(\wedge + 1)^{-1}u|| \leq \delta_{o} ||u
+|| +|| (\wedge + 1)^{-1}f ||. 
+$$
+
+Substituting in the inequality \eqref{chap3-eq6.10} we obtain 
+$$
+\frac{\partial}{\partial t}||| u (t)||| \leq \gamma' ||| u (t)||| +
+||| f |||, 
+$$
+which, on integration with respect to $t$, gives
+$$
+||| u (t) ||| \leq ||| u (0) ||| \exp (\gamma' t) + \int^{t}_{0} ||| f
+(S) ||| \exp (\gamma'(t-s)) ds. 
+$$ 
+
+Since $||| u (t) ||| \sim || u(t)|| $ we obtain the required
+inequality 
+ $$
+|| u (t)|| \leq c(h) \{|| u(0)|| + \int\limits^{t}_{0}|| f (s) || ds.
+$$
+
+In the general case in which $u \in L^{2}[0, h]$ we
+regularize it by the the mollifiers $\varphi_\delta$ of Friendriche
+and apply the above argument to the function\pageoriginale $u_\delta =
+\varphi_\delta * {}_{(x)}u$ and pass to the limits as $\delta \to 0$ in
+the inequality for $u_\delta$ to obtain the energy inquality for $u$. 
+\end{proof}
+
+\begin{remark*}%rem 0
+In the above proof the norm $||| u |||$ depends a priori on the
+parameter $t$ since it involves the operator $\mathfrak{N}(t)$. When
+$t$ runs through a bounded set the constant $\beta$ in the
+definition of $||| u |||$ can be chosen to be independent of
+$\mathfrak{N}$.  
+\end{remark*}
+
+In the following proposition we prove that, if $A_k$ and $B$ are
+differentiable of sufficiently high order, then there exists an energy
+inequality for higher order derivatives. 
+
+\begin{proposition}\label{chap3-sec6-prop3}%prop 3
+Let $M$ be a regularly hyperbolic system with  
+$A _k (x, t)\in \mathscr{B}^{\max (1 + \sigma, m)}[0, h]$, $0 <
+\sigma < 1$, $\dfrac{\partial}{\partial t} A_k(x, t) \in
+\mathscr{B}^{0}[0, h]$. 
+Suppose $B(x, t)\in \mathscr{B}^{m}[0, h]$, and $f(x, t)\in
+\mathscr{D}^{m}_{L^{2}}[0, h]$ are given. If $u \in
+\mathscr{D}^{m}_{L^{2}}[0, h]$ is a solution of 
+$$
+(M-B) u = f
+$$
+then 
+\begin{equation*}
+|| u (t) ||_m \leq c_{m}(h) \left\{ || u(0)||_m  + \int^{t}_{0} ||
+f(s)||_m ds\right\}.  \tag{6.11}\label{chap3-eq6.11}
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+It is sufficient to prove the proposition for the case $m=1$ and the
+general case will follow by repeated application of the argument. Let
+$\dfrac{\partial u}{\partial x_j} = u^{(j)}$. Then 
+$$
+M[u^{(j)}] = \sum_k \frac{\partial A_{k}}{\partial x_{j}}(x,t)
+\frac{\partial u}{\partial x_{k}} + \frac{\partial B}{\partial x_{j}}
+(x,t) u + \frac{\partial f}{\partial x_{j}}, j = 1,2, \ldots,n 
+$$
+that is $u^{(j)}$ satisfy a regularly hyperbolic system with new $B$ and $f$.
+Denoting\pageoriginale $\sum\limits^n_{j=1} ||| u^{(j)} |||$ by
+$\varphi_1(t)$ we obtain  
+$$
+\frac{d \varphi_1}{dt}(t)\leq \gamma_1 \varphi_1 (t) + \sum\limits_j |||
+\frac{\partial f}{ \partial x_j} ||| +\sum\limits_j  ||| \frac{\partial
+  B}{\partial x_j}u||| 
+$$
+which on integration yields the required inequality 
+$$
+|| u (t) ||_1 \leq c_1 (h) \left\{ || u(0)||_1 + \int\limits^t_0 ||
+f(s)||_1 ds\right\}. 
+$$
+
+In the following we duduce on energy inequality for solutions of a
+single regularly hyperbolic differential equation of order $m$.  
+
+Consider the evolution equation
+\begin{equation}
+\left(\frac{\partial}{\partial t}\right)^m u + \sum_{\substack{j+| \nu| \leq
+      m\\j\leq m-1}} a_{j,\nu}(x,t)\left(\frac{\partial}{ \partial
+  x}\right)^\nu   \left(\frac{\partial}{\partial t}\right)^j
+u=g. \tag{6.12} \label{chap3-eq6.12} 
+\end{equation}
+
+The principal part of this is by definition the homogeneous
+differential operator of order $m$ 
+\begin{equation}
+\left(\frac{\partial}{\partial t}\right)^m + \sum_{\substack{|\nu | +j= m\\ j\leq
+      m-1}} a_{j,\nu}(x,t)\left(\frac{\partial}{ \partial x}\right)^\nu
+  \left(\frac{\partial}{ \partial t}\right)^j  \equiv L
+  \tag{6.13} \label{chap3-eq6.13} 
+\end{equation}
+which we write in the form
+$$
+L \equiv \left(\frac{\partial}{\partial t}\right)^m + \sum \limits^m_{j=1} h_j
+\left(x, t,  \frac{\partial}{\partial x}\right)\left(\frac{\partial}{\partial
+  t}\right)^{m-j} 
+$$
+where $h_j \left(x, t, \dfrac{\partial}{\partial x}\right) = \sum\limits_{| \nu
+  | = j} a_{m-j, \nu} (x, t) \left(\dfrac{\partial}{\partial x}\right)^\nu$. The
+given operator is said to be regularly hyperbolic if the polynomial
+equation 
+\begin{equation}
+\lambda^m + \sum_{j} h_j (x, t,\xi) \lambda^{m-j} = 0
+\tag{6.14}\label{chap3-eq6.14} 
+\end{equation}
+has real and distinct roots for every $(x, t) \epsilon \Omega$; $| \xi
+| =1$. $h_j \left(x, t, \dfrac{ \xi}{| \xi |}\right)$  can be\pageoriginale
+considered as the symbol of a singular integral operator $H_j$ and
+hence we can represent  
+$$
+h_j \left(x, t, \frac{ \partial}{ \partial x}\right) = H_j (i \wedge)^j 
+$$
+and
+\begin{equation}
+L \equiv \left(\frac{\partial}{\partial t}\right)^m + \sum\limits^m_{j=1} H_j (i
+\wedge )^j \left(\frac{\partial}{\partial
+  t}\right)^{m-j}. \tag{6.15} \label{chap3-eq6.15} 
+\end{equation}
+
+Setting
+\begin{align*}
+v_1 & = \left(\frac{\partial}{ \partial t}\right)^{m-1} u\\
+v_2 & = i(\wedge + 1)\left(\frac{\partial}{\partial t}\right)^{m-2} u\\
+v_j & = \{ i (\wedge + 1 ) \}^{j-1}\left(\frac{\partial}{\partial t}\right)^{m-j}
+u\\ 
+v_m & = \{ i (\wedge + 1) \}^{m-1} u
+\end{align*}
+
+We see that  \; $(i \wedge)^{j-1} = (i \wedge )^{j-1}\{ i 
+(\wedge + 1) \}^{-(j-1)} \{ i (\wedge + 1) \}^{j-1}$
+
+\hspace{2.6cm} $ = (1 + S_{j-1})\{ i(\wedge + 1) \}^{j-1}$
+
+\smallskip
+\noindent
+where $\sigma(S_{j-1}) = \left(\dfrac{| \xi|}{1+ | \xi
+  |}\right)^{j-1}-1$. $S_{j-1} \wedge$ is a bounded operator in $L^2$. Then  
+the principal part is rewritten as 
+\begin{align*}
+L[u] & =  \left(\frac{\partial}{\partial t}\right)^m u + i \sum H_j \wedge (1 +
+S_{j-1}) \{ i(\wedge + 1)\}^{j-1} \left(\frac{\partial}{\partial t }\right)^{m-j}
+u\\ 
+& = \frac{\partial}{ \partial t} v_1 + i \sum H_j \wedge v_j + i \sum
+H_j \wedge S_{j-1} v_j. 
+\end{align*}
+
+Then $ v = \begin{pmatrix} v_1 \\  \vdots \\ v_n \end{pmatrix}$
+satisfies the system of first order equations 
+\begin{equation}
+\frac{\partial}{\partial t}  v = i \mathscr{H} \wedge v + B v + f
+\tag{6.16} \label{chap3-eq6.16}
+\end{equation}
+where\pageoriginale
+\begin{equation}
+\sigma (\mathscr{H}) = 
+\begin{pmatrix} 
+1 & & \\
+&  1_{\ddots} &  \\
+-h_1 &  -h_2\cdots -h_{m-1} & -h_m   
+\end{pmatrix},\tag{6.17} \label{chap3-eq6.17}
+\end{equation}
+$B$ a bounded operator and $f = \begin{pmatrix}
+ 0 \\
+ \vdots \\
+0\\
+ g \end{pmatrix}$. 
+
+Let $P(\lambda) = \det (\lambda I-\sigma (\mathscr{H})) =
+\lambda^m+\sum_{j} h_j \left(x, t, \dfrac{\xi}{|\xi|}\right)^{m-j}$. Thus the given
+equation is regularly hyperbolic if and only if the associated first
+order system is. 
+
+\begin{proposition}\label{chap3-sec6-prop4}%prop 4
+Suppose $P(\lambda) = 0$ has real and distinct roots $\lambda_1(x, t,
+\xi) < \cdots < \lambda_N (x, t, \xi)$ such that 
+\begin{equation}
+\inf_{\substack{(x, t) \epsilon  \Omega , |\xi |=1  \\  j \neq k}} \big|
+\lambda_j (x, t, \xi ) - \lambda_k (x, t, \xi ) \big| = d > 0
+\tag{6.18}\label{chap3-eq6.18}  
+\end{equation}
+and further the coefficients are such that
+\begin{align*}
+& a_{j,\nu }\epsilon \mathscr{B}^{1+\sigma}[0, h],
+\frac{\partial}{\partial t}a_{j,\nu} \epsilon \mathscr{B}^0 [0,h]
+\text{ for } j+|\nu | = m \\ 
+& a_{j, \nu} \epsilon \mathscr{B}^0 [0, h] \text{ for } j+| \nu | \leq
+m-1. 
+\end{align*}
+\end{proposition}
+
+Let $g \epsilon L^2 [0, h]$ be given. If $u \epsilon
+\mathscr{D}^m_{L^2}[0, h]$ is a solution of \eqref{chap3-eq6.12} then 
+\begin{equation}
+|| v(t)||' \leq C_0 (h) \left\{ || v(0)||'+ \int^t_0 || f(s)||'
+ ds\right\} \tag{6.19} \label{chap3-eq6.19}
+\end{equation}
+where $|| v(t)||^{12} = \sum\limits^m_{j=1}||(\dfrac{\partial}{\partial 
+  t})^{m-j} u ||^2_{j-1}$. 
+
+This proposition is proved easily using the energy inequality for the
+associated first order system. 
+\end{proof}
+
+\section{Uniqueness theorems}\pageoriginale\label{chap3-sec7}%sec 7
+
+From the energy inequalities obtained in the previous section some
+results on the local uniqueness follow immediately. We shall show that
+a solution of a homogeneous regularly hyperbolic system of equations
+vanishes identically in a cone if the cauchy data is zero. This was
+first proved by Holmgren and later made precise by F. John \cite{key1}. 
+
+Consider the first order system of equations 
+\begin{equation}
+M[u] \equiv \frac{\partial u}{ \partial t}- \sum A_k (x, t)\frac{
+  \partial u}{\partial x_k} - B(x, t) u = 0 \tag{7.1}\label{chap3-eq7.1} 
+\end{equation}
+where $M$ is regularly hyperbolic in $\Omega = \underline{R}^n
+\times[0, h]$. 
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{chap3-sec7-prop1}%prop 1
+Let $M$ be regularly hyperbolic in $\Omega$ with $A_k \epsilon
+\mathscr{B}^{1 + \sigma}_{x, t}$,\break $B \epsilon \mathscr{B}^0_{x,
+  t}$. If $u \epsilon \mathscr{E}^1_{x, t}$ satisfies $M[u] = 0$ and
+$u(x, 0) \equiv 0$ in a neighbourhood $U$ of the origin in
+$\underline{R}^n_x$ then $u \equiv 0$ in a neighbourhood of the origin
+in $\Omega$. 
+\end{proposition}
+
+\begin{proof}
+Let $D_\epsilon\subset \Omega$ be the set $\left\{(x, t) \epsilon \Omega: | x|^2
++ t < \epsilon, t \geq 0 \right\}$. We first make a change of variables 
+\begin{equation}
+t'=t + \sum x^2_j, x'_j=x_j (j=1, \ldots, n). \tag{7.2} \label{chap3-eq7.2}
+\end{equation}
+
+Under this transformation let $\tilde{u}(x'_{k}, t') = u(x, t)$ then the
+system of equations is transformed into the system 
+\begin{equation}
+\left(I-2 \sum x'_k \cdot A_k\right)\frac{\partial \tilde{u}}{\partial
+  t'} =\sum A_k 
+  \frac{ \partial \tilde{u}}{\partial x'_k} + B
+  \tilde{u}. \tag{7.3} \label{chap3-eq7.3} 
+\end{equation}
+$D_\epsilon$ is transformed into a strictly convex domain
+$\tilde{D}_\epsilon$ bounded by $t'= \sum x'^2_j$,
+$t'=\epsilon$.\pageoriginale $\tilde{u}$ is defined in the domain
+$\tilde{D}_\epsilon$ and we extend $\tilde{u}$ outside
+$\tilde{u}_\epsilon$ by 0 and we denote this again by
+$\tilde{u}$. Clearly $\tilde{u}\epsilon \mathscr{E}^1$ since it
+vanishes identically in a neighbourhood of $t'= \sum x'^2_j$. Thus
+$\tilde{u}$ has its support in $\tilde{D}_\epsilon$. It follows from
+lemma \ref{chap3-sec7-lem1} that if $x'$ is in a small neighbourhood
+of the origin (it 
+is sufficient to take $2|x'|A$), $(I-2 \in x'_k A_k)$ is
+invertible and the eigenvalues of $(I-2 \sum x'_k A_k)^{-1} \sum
+A_k \cdot \xi_k$ are real and distinct since those of $\sum A_k \cdot \xi_k$
+are. Thus the transformed system remains regularly hyperbolic in
+$\tilde{D}_\epsilon$. Extending $A_k(x, t)$, $B(x, t)$ to the whole of
+$\underline{R}^n_x[0, h]$ in such a way that the system remains
+regularly hyperbolic we obtain $\tilde{M}[u] = 0$ in $\underline{R}^n
+\times [0, h]$ (this can be achieved by taking the inverse image by a
+suitable differentiable \textit{retraction} of $\underline{R}^n \times
+[0, h]$ to $\tilde{D}_\epsilon$. 
+\begin{equation}
+\frac{\partial \tilde{u}}{\partial t'}= \sum \left(I-2 \sum x'_k \cdot
+A_k\right)^{-1} 
+\left(A_k \frac{\partial \tilde{u}}{\partial x'_k}\right)+ \left(I-2 \sum x'_k
+A_k\right)^{-1}  B\tilde{u}. \tag{7.4} \label{chap3-eq7.4}
+\end{equation}
+$\tilde{u}$ has Cauchy data zero and hence the energy inequality shows
+that $\tilde{u}(x', t')\equiv 0$ and hence $u$ vanishes on
+$D_\epsilon$. 
+\end{proof}
+
+Similarly it can be proved that $u$ vanishes in $D^{-1}_\epsilon=\{(x,
+t): t\leq 0$, $\sum x_j^2 + t < \epsilon$ and this completes the
+proof. We now prove the following lemma due to H.F. Weinberger
+(Weinberger \cite{key1}). 
+
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap3-sec7-lem1}%lemm 1
+Suppose $A$ is a constant matrix such that for all real $\xi \neq 0$,
+$\det (\lambda I-\sum A_k \cdot  \xi_k) = 0$ has real and distinct roots
+$\lambda_1 (\xi) <\ldots< \lambda_N(\xi)$. If $\lambda_{\max}$ denotes
+$\sup\limits_{|\xi | = 1}( \lambda_N (\xi))$ and $\alpha =
+\left(\begin{smallmatrix}\alpha_1\\ \vdots\\ \alpha_N \end{smallmatrix}\right)$
+is a real vector $\neq 0$ with $| \alpha | \leq \dfrac{
+  1}{\lambda_{\max}}$ then $\det (\mu B-\sum A_k \cdot  \xi _k) = 0$,
+$B=I-A \cdot \alpha$, has real and\pageoriginale distinct roots for
+any real $\xi \neq 0$. 
+\end{lemma}
+
+\begin{remark*}%rema 0
+From the choice of $\alpha$ it follows that $B$ is invertible. 
+\end{remark*}
+
+\begin{proof}%proo 0
+First we assert that all the eigen values $\nu_k$ of $B$ are
+positive. For, they are the roots of  
+\begin{align*}
+\det (\nu I - B) & = \det (\nu I-(I-A \cdot \alpha ))\\
+& = (-1)^N \det ((1- \nu ) I-A \cdot  \alpha ) = 0.
+\end{align*}
+and hence
+$$
+1-\nu_k = \lambda_k (\alpha) = |\alpha| \lambda_k
+(\frac{\alpha}{|\alpha|}) 
+$$
+which implies that
+\begin{equation}
+\nu_k = 1- |\alpha | \lambda_k (\frac{\alpha}{|\alpha|}) > 0
+\tag{7.5}\label{chap3-eq7.5}   
+\end{equation}
+since $\lambda_k (\xi) < \dfrac{1}{|\alpha|}$ on $|\xi| = 1$. Consider  
+$$
+\det (\mu B-\lambda I- A \cdot \xi) = (-1)^N \det 
+((\lambda- \mu) I + A(\xi + \mu \alpha)) = 0  
+$$
+and let $\varphi_1 (\mu), \ldots, \varphi_N (\mu)$ be the roots of
+the equation (with respect to $\lambda$) 
+$$
+\det ((\lambda -\mu)I + A(\xi+ \mu\cdot \alpha)) = 0 
+$$
+for a fixed $\xi$. We can write
+$$
+\det ((\lambda- \mu) I + A(\xi+ \mu \cdot \alpha)) = (\lambda-
+\varphi_1 (\mu))\cdots(\lambda-\varphi_N(\mu)). 
+$$
+
+Now we assert that
+\begin{enumerate}[(i)]
+\item  $\varphi_j (\mu)\rightarrow I \infty$ as $\mu \rightarrow \pm
+  \infty$
+
+\item $\varphi_j (\mu)$ are strictly increasing functions of $\mu$. Since
+  we have
+\begin{align*}
+\varphi_k (\mu)& -\mu= \lambda_k (-\xi-\mu- \alpha) \text{ or }\\
+\varphi_k (\mu ) & = \mu - \lambda_k (\xi + \mu \cdot \alpha )
+\tag{7.6}\label{chap3-eq7.6} 
+\end{align*}\pageoriginale
+it follows that for each fixed $\mu, \varphi_k(\mu)$ are real and
+distinct. To show (i) consider det $(\mu B-\lambda I-A \cdot \xi ) = 0$
+which implies that det $(B- \dfrac{\lambda}{\mu}I - \dfrac{ A \cdot \xi}{
+  \mu})=0$. For a fixed $\xi, \dfrac{\varphi_k (\mu)}{\mu}$ tends
+to the eigen values of $B$ as $\mu \rightarrow \infty$ and hence for
+large $\mu \varphi_k (\mu)\sim \mu \cdot \nu_k$. Since $\nu_k$ are
+positive, $\varphi_k(\mu)$ behaves like $\mu$ for large $\mu$. 
+\end{enumerate}
+
+As for (ii), suppose on the contrary there exists a $j_0$ and
+$\mu_1, \mu_2$ with $\mu_1 < \mu_2$ such that
+$\varphi_{j_{0}}(\mu_1) > \varphi_{j_{0}}(\mu_2)$. Then there exists
+$a \lambda_{0}$ such that for three distinct $\mu_1'$, $\mu'_2$,
+$\mu'_3$ we have 
+$$
+\varphi_{j_{0}}(\mu_1') = \varphi_{j_{0}}(\mu'_2)= 
+\varphi_{j_{0}}(\mu'_3)=\lambda_0. 
+$$
+
+Since each $\varphi_j (\mu)(j \neq j_0)$ contributes at least one root
+of det $(\mu B -\lambda_0 I-A \cdot \xi) = 0$ it will have at least $N + 2$
+roots. This being an equation of degree $N$ we are lead to a
+contradiction. Now putting   
+$$
+\lambda=0, \det (\mu B-A. \xi)= (-1)^N \varphi_1 (\mu) \varphi_2 
+(\mu) \cdots \varphi_N (\mu). 
+$$
+
+Since every $\varphi_j (\mu)$ has only one zero and the zeros are
+distinct, we have the lemma. 
+\end{proof}
+
+\begin{remark*}%rema 0
+Since $\lambda_j (-\xi ) = - \lambda_j (\xi )$ for every $j,
+\lambda_{\max}$ is positive and equal to  $\sup\limits_{\substack {|
+    \xi |=1\\ 1 \leq j \leq N}} | \lambda_j (\xi)|$. 
+\end{remark*}
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap3-sec7-coro1}%coro 1
+Let\pageoriginale $M$ be a regularly hyperbolic system in $\Omega =
+\underline{R}^n  
+\times [0, h]$, $\lambda_j (x, t, \xi)$ be the roots of det $(\lambda
+I - A \cdot \xi) = 0$ and let 
+\begin{equation}
+\lambda_{\max} =\sup_{\substack{| \xi | =1, (x, t) \epsilon \Omega
+    \\ 1\leq j \leq N}} | \lambda_j (x, t, \xi
+)|. \tag{7.7}\label{chap3-eq7.7}  
+\end{equation}
+
+Suppose $S$ is a hypersurface in $\Omega$ passing through a point
+$(x_0, t_0)$ and defined by an equation $\varphi (x, t) = 0$, $\varphi
+\epsilon \mathscr{E}^2$ with 
+\begin{equation}
+\left(\frac{\partial \varphi}{ \partial t}\right)^2 \geq  \lambda^2_{\max}\sum
+  \left(\frac{\partial \varphi}{\partial
+    x_j}\right)^2. \tag{7.8} \label{chap3-eq7.8} 
+ \end{equation} 
+
+If $u$ is a $C^1$ solution of $M [u] = 0$ with $u(x, t) = 0$ for $(x, 
+ t) \epsilon S$ then $u (x, t)\equiv 0$ in a neighbourhood of $(x_0,
+ t_0)$. 
+\end{corollary}
+
+\begin{proof}
+By a change of coordinates  $x'_j = x_j (1 \leq j \leq n)t' = \varphi
+(x, t)$ the system $M$ is transformed into the system 
+\begin{equation}
+\left(\frac{\partial \varphi}{\partial t}I - \sum A_k \frac{\partial
+    \varphi}{ \partial x_k}\right) \frac{\partial \tilde{u}}{\partial t'}=
+  \sum A_k (x,t) \frac{\partial \tilde{u}}{\partial x'_k}+ \cdots
+  \tag{7.9} \label{chap3-eq7.9}
+\end{equation}
+where $\tilde{u}$ is, as before, the image of $u$ by this mapping. $S$
+is mapped into $t' = 0$. Taking 
+$$
+\alpha =\left(\frac{\partial \varphi}{\partial x_1}\Bigg| \frac{
+  \partial \varphi}{\partial t}, \ldots , \frac{\partial
+  \varphi}{\partial x_n} \Bigg| \frac{ \partial \varphi}{\partial
+  t}\right) 
+$$
+the conditions of the lamma \ref{chap3-sec7-lem1} are satisfied
+because of the assumptions 
+on $\alpha$ and hence $\left(\dfrac{\partial \varphi}{ \partial t} I-  \sum
+A_k \dfrac{\partial \varphi} {\partial x_k}\right)$ is invertible. Thus
+$\tilde{u}$ satisfies  
+\begin{equation}
+\frac{\partial \tilde{u}}{\partial t'}= \left(\frac{\partial \varphi}{
+  \partial t} I - \sum A_k \cdot \frac{\partial \varphi}{\partial
+  x_k}\right)^{-1} \sum A_k \frac{\partial \tilde{u}}{\partial x_k'} +
+\ldots \tag{7.10} \label{chap3-eq7.10}
+\end{equation}
+
+ This\pageoriginale is again a regularly hyperbolic system since
+ \begin{gather*}
+ \det \left(\lambda I - \left(\frac{ \partial \varphi}{\partial t} I - \sum A_k
+ (\frac{ \partial \varphi}{ \partial x_k})\right)^{-1} \sum A_k \cdot
+ \xi_k \right) \\  
+ = \det \left(\frac{\partial \varphi}{\partial t}I- \sum A_k \frac{
+   \partial \varphi }{\partial x_k}\right)^{-1} \cdot \det
+ \left(\lambda\left(\frac{\partial \varphi}{\partial t} I- \sum A_k
+ \frac{\partial\varphi}{\partial x_k}\right)-A \cdot \xi \right)  
+ \end{gather*} 
+ and by the lemma its roots are real and distinct for
+  $$
+\alpha = (\dfrac{ \partial \varphi}{\partial x_1}\Bigg| \dfrac{
+   \partial \varphi}{\partial t}, \ldots, \dfrac{ \partial
+   \varphi}{\partial x_n} \Bigg| \dfrac{ \partial \varphi}{ \partial
+   t}). 
+$$
+
+Thus by the local uniqueness (Prop. \ref{chap3-sec7-prop1})
+$\tilde{u}$ vanishes in 
+ a neighbourhood of the origin and hence $u$ vanishes identically in a
+ neighbourhood of $(x_0, t_0)$. 
+\end{proof}
+
+\begin{proposition}\label{chap3-sec7-prop2}%prop 2
+Let $M$ be a regularly hyperbolic system in $\Omega = \underline{R}^n
+\times[0, h]$, $(x_0, t_0) \epsilon \Omega$ and $C$ be the backward
+cone defined by $\Big\{t - t_0 = \alpha_0 | x - x_0|$, $t < t_0 $ where
+$\alpha_0 = \dfrac{1}{\lambda_{\max}}\Big\}$. Let $D$ be the interior of
+this backward cone belonging to $\Omega$. If $u$ is a $\mathscr{C}^1$
+solution of $M[ u ] = 0$ in $D$, continuous upto the cone, and
+vanishing on $D_0 = D \cap (t = 0)$, then $u$ vanishes identically in
+$D + C$  in particular $u(x_0, t_0) = 0$. 
+\end{proposition} 
+
+\noindent
+{\it Proof:}~(F. John \cite{key1})%proo 0
+ we first remark that $u(x, t)$ vanishes identically in a
+ neighbourhood of the hyperplane $t = 0$. Let $S_{\theta}(0 <  \theta
+ \leq t^2_0)$ be a one parameter family of hyper-surfaces $\varphi (x,
+ t, \theta) = 0$ where 
+\begin{equation}
+\varphi (x, t, \theta ) = (t - t_0)^2- \alpha ^2_0 | x-x_0|^2- \theta
+\tag{7.11} \label{chap3-eq7.11}
+\end{equation}
+
+Then $\cup S_\theta \supset D$ and
+ \begin{equation}
+\left(\frac{\partial \varphi}{ \partial t}\right)^2 \Bigg| \sum
+\left(\frac{\partial \varphi}{\partial x_k}^2\right) = 
+  \frac{(t-t_0)^2}{\alpha^4_0 |
+     x-x_0|^2}= \frac{ \alpha^2_0 | x-x_0 |^2 + \theta}{ \alpha^4_0 |
+     x-x_0 |^2}> \frac{1}{ \alpha^2_0}= \lambda^2_{\max}
+  \tag{7.12}\label{chap3-eq7.12}  
+ \end{equation} 
+
+ Hence,\pageoriginale it follows from the lemma that if $u$ vanishes on
+ $S_{\theta_{0}}$ for some $\theta_0$ then it vanishes on $S_\theta$ for
+ $\theta$ in a neighbourhood of $\theta_0$. The set of $\theta$ for which
+ $u$ vanishes on $S_\theta$ is therefore open. It is also closed and
+ non-empty. Hence it is the whole set. Thus $u$ vanishes in the whole
+ cone $D + C$. \hfill $\Box$
+
+\setcounter{remark}{0} 
+\begin{remark}\label{chap3-sec7-rem1}%rema 1
+This result holds also for a single equation of order $m$ and can be
+proved by writing it as a system by means of singular integral
+operators and applying the above arguments. 
+\end{remark} 
+
+\begin{remark}\label{chap3-sec7-rem2}%rema 2
+Form Prop. \ref{chap3-sec7-prop2} above it follows that if the
+Cauchy data has for support a 
+small set containing the origin then the support of the solution lies
+in some cone limited by lines whose slope $\dfrac{1}{\alpha}\geq
+\lambda_{\max}$. This is interpreted as follows: the maximum speed of
+propagation of the disturbance is less than $\lambda_{\max}$. 
+\end{remark} 
+
+\begin{remark}%rema 3
+The above proposition gives a unique continuation theorem for
+solutions of systems of some semi linear equations: 
+\begin{equation}
+M[u] \equiv \frac{\partial u}{\partial t} - \Sigma A_k (x, t) \frac{
+  \partial u}{ \partial x_k}-f (x, t, u)
+\tag{7.13} \label{chap3-eq7.13} 
+\end{equation}
+where $A_k (x, t)$ satisfy the same conditions as in Prop.1 and $f
+\epsilon \mathscr{E}^1_{x, t}$. More precisely if $u_1$ and  $u_2$ are
+two solutions of $M[u]=0$ such that $u_1(x, 0) = u_2 (x, 0)$ for $x
+\epsilon D_0$ then $u_1 \equiv u_2$ in the whole of the cone $D$ with
+$D_0$ as base. For, $v = u_1-u_2$ satisfies 
+\begin{align*}
+& \frac{\partial v}{\partial t}- \sum A_k \frac{\partial v}{\partial x_k}- \{f
+(x, t, u_1)-f (x, t, u_2) \} = 0. \tag{7.14} \label{chap3-eq7.14}\\
+&  v(x, 0) = 0 \text{~ for~ } x \epsilon D_0
+\end{align*}
+\end{remark}
+
+By\pageoriginale the mean value theorem $f(x, t, u_1) - f(x, t, u_2) =
+B(x, t) (u_1,- u_2)\break = B(x, t) v$, $B(x, t)= \dfrac{\partial f}{\partial
+  u} (x, t, u_2 +\theta (u_1 - u_2)$. By
+Prop. \ref{chap3-sec7-prop2} we have $v \equiv 0$ 
+in $C$ and hence $u_1 \equiv u_2 $ in $D$. 
+
+Finally we apply the method of sweeping a cone by a one parameter
+family of surfaces to show that the solutions of second order parabolic
+equations have no lacuna. 
+
+Consider a parabolic equation of the second order 
+\begin{equation*}
+\left(\frac{\partial}{\partial t} -L\right) [ u ] = 0
+\tag{7.15}\label{chap3-eq7.15} 
+\end{equation*}
+where $L = \sum\limits_{j, k = 1}^{n} a_{jk} (x, t)
+\dfrac{\partial^2}{\partial x_j \partial x_k} + \sum\limits_j b_j (x,
+t) \dfrac{\partial}{\partial x_j} + c(x, t)$ with infinitely
+differentiable real coefficients and $a_{jk}$ satisfy further the
+condition  
+\begin{equation*}
+\sum\limits^n_{j, k = 1} a_{jk}(x, t) \xi_j \xi_k \geq \delta (x, t) |
+\xi|^2, \tag{7.16}\label{chap3-eq7.16}
+\end{equation*}
+$\delta (x, t) > 0$, for real $\xi \neq 0$. It is known that the unique
+continuation across time like hyperplanes holds in the sense that if
+$u$ is a $C^2$ solution of the above parabolic equation with  
+$$
+u(x, t) \big|_{x_1 = 0} = 0, \;\; \frac{\partial u}{\partial x_1} (x, t)
+\big|_{x_1 = 0} = 0. 
+$$
+in some neighbourhood of the origin in $X_1 = 0$ then $u (x, t) \equiv
+0$ in a neighbourhood of the origin in the $(x, t)-$ space (see
+Mizohatai \cite{key4}, Memoines of the college of Science, Kyoto University,
+1958) 
+
+\begin{proposition}\label{chap3-sec7-prop3}% 3
+Suppose\pageoriginale $M$ is a parabolic operator of the second order
+defined in 
+$\Omega = \underline{R}^n \times [0, h]$ and suppose a $C^1$ solution $u$ of
+$M[ u ] = 0$ vanishes on a non-empty open set $\theta$ of $\Omega$
+then $u \equiv 0$ in a horizontal component $T$ of $\Omega$ containing
+$\theta$. 
+ 
+By horizontal component $T$ of $\theta$ in $\Omega$ we mean the set
+$\{ (x, t) \in \Omega \}$ such that there exists an $x'$ with $(x',
+t) \in \theta$. 
+\end{proposition}
+
+\begin{proof}
+Suppose $S$ is a hypersurface defined by an equation
+$$
+\varphi(x,t) = 0, \varphi \varepsilon \mathscr{E}^2_{x, t} 
+$$
+such that the tangent space of $S$ at the origin is not paralled to $t
+= 0$. Then $\sum |\dfrac{\partial \varphi} {\partial x_j} \big| \neq
+0$. Suppose $\dfrac{\partial \varphi}{\partial x_j} \neq 0$; then one
+can solve for $x_1$ in a neighbourhood of the origin as $x_1 = \psi
+(x_2, \ldots, x_n, t)$. By a change of variables  
+$$
+t' = t, x'_1 = x_1 - \psi (x_2, \ldots, x_n, t),\ x'_j = x_j( j = 2, 
+\ldots, n) 
+$$
+$S$ will be transformed into $(x'_1 = 0)$ and the form of the equation
+remains unaltered. Hence by the remark above the transformed function
+$\tilde{u}$ vanishes in a neighbourhood of the origin and hence $u$
+vanishes in a neighbourhood of the origin on $S$. We may assume
+$\mathscr{O}$ to be a neighbourhood of the origin and consider a
+one-parameter family of ellipsoods $S_{\theta}$ defined by  
+$$
+\varphi (x, t, \theta) = \frac{t^2}{a^2} + \frac{|x|^2}{\theta^2} -1 =
+0 (0 < \theta < \infty) 
+$$
+with the condition that the tangent space to this is not parallet to
+$(t = 0)$. Again by the argument of connectedness, as before, we
+obtain the proposition. 
+\end{proof}
+
+\section{Existence theorems}\pageoriginale\label{chap3-sec8}% sec 8
+
+In this section we prove some theorems on the existence
+of solutions of the Cauchy problem for hyperbolic equation. To begin
+with we recall the Hille-Yosida theorem on the infinitesimal generator
+of a semi group of operators on a Banach space. This is used to assert
+the existence of solutions.  
+
+\setcounter{theorem}{0}
+\begin{theorem}[Hille-Yosida]\label{chap3-sec8-thm1}%theo 1
+ Let $X$ be a Banach space and $A$ be a linear
+operator on $X$ with domain of definition $\mathscr{D}_A$ dense in
+$X$. Assume that $A$ has the following property: 
+
+{\rm(P)}~ there exists a real number $\varepsilon_0 > 0$ such that
+for every real number $\lambda$ with $|\lambda| < \varepsilon_0$ we
+have  
+\begin{enumerate}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item $(I - \lambda A)$ is a one to one surjective mapping of
+  $\mathscr{D}_A$ onto $X$,  
+
+\item there exists a constant $\gamma > 0$ such that  
+$$
+|| (I - \lambda A) u|| \geq (1 - \gamma | \lambda |) || u || 
+$$
+for every $u \in \mathscr{D}_A$. Then for any given $u_0 \in
+\mathscr{D}_A$ there exists in $-\infty< t< \infty$ a once
+continuously differentiable solution  
+\begin{equation*}
+\frac{du}{dt} (t) = Au(t) \text{~ with~ } u(0) = u_0
+\tag{8.1}\label{chap3-eq8.1} 
+\end{equation*}
+with values in $\mathscr{D}_A$.
+\end{enumerate}
+\end{theorem}
+
+\begin{coro*}%coro 0
+Let $A$ be a linear operator with domain of definition $\mathscr{D}_A$
+dense in $X$ and possessing the property (P) of
+Th. \ref{chap3-sec8-thm1}. If $t \to f(t) 
+\in \mathscr{D}_A$ is a continuous function of $t$ such that $t\to Af(t)\in X$
+is a continuous function of $t$ and a $u_0\in\mathscr{D}_A$ is given
+there exists a 
+once continuously differentiable solution $u(t)$ (with values in
+$\mathscr{D}_A$) of  
+\begin{equation*}
+\frac{du}{dt} (t) = Au (t) + f(t) \text{ with } u(0) = u_0
+\tag{8.2}\label{chap3-eq8.2} 
+\end{equation*}\pageoriginale
+\end{coro*}
+
+We first consider the case of systems whose coefficients do not depend
+on $t$. 
+
+We remark that for a differential operator it is not in general
+possible to secure the condition $P(2)$ when we take $L^2$ for the
+Banach space $X$ even when \eqref{chap3-eq8.1} is well posed in the space
+$L^2$. For, suppose the condition $P(2)$ is satisfied. 
+\begin{gather*}
+|| (I - \lambda A) u ||^2  = || u ||^2 + \lambda^2 || Au ||^2 -
+\lambda (( A + A^*) u, u)\\ 
+ \geq (1- \gamma| \lambda|)  || u ||^2.
+\end{gather*}
+
+As $|\lambda|$ can be taken arbitrarily small this would imply if $|
+\lambda |$ is small that  
+\begin{align*}
+(( A + A^*) u, u)  & \leq \gamma || u ||^2 \text{ for } \lambda > 0
+  \text{ and }\\ 
+(( A + A^*) u, u) & \geq - \gamma || u ||^2 \text{ for } \lambda < 0 
+\end{align*}
+which togeter imply 
+$$
+|(( A + A^*) u, u)| \leq \gamma || u ||^2 
+$$
+
+This would mean, when we take $A = \sum A_k (x)
+\dfrac{\partial}{\partial x_k}$, $A_k \in \mathbb{B}'$, that $A_k =
+A^*_k$. In fact, $A + A^* = \sum (A_k - A^*_k)
+\dfrac{\partial}{\partial x_k}- \dfrac{\partial A^*_k}{\partial x_k}$,
+and it is easy to see that the above inequality holds if and only if
+$A_k \equiv A^*_k (k = 1, 2, \ldots, n)$. We then proceed to study the
+system  
+\begin{equation*}
+\frac{\partial u}{\partial t}(t) = \sum A_k (x) \frac{\partial u
+}{\partial x_k} + B(x) u + f \tag{8.3} \label{chap3-eq8.3}
+\end{equation*}
+
+We take for the operator $A$ the differential operator 
+\begin{equation*}
+A = \sum A_k (x) \frac{\partial}{\partial x} + B(x)
+\tag{8.4}\label{chap3-eq8.4} 
+\end{equation*}\pageoriginale
+in $\mathscr{D}^1_{L^2}$. We take for the domain of definition of $A$
+the set  
+\begin{equation*}
+\mathscr{D}_A = \left\{ u \in \mathscr{D}^1_{L^2} : A u \in
+\mathscr{D}^1_{L^2} \right\}. \tag{8.5} \label{chap3-eq8.5}
+\end{equation*}
+
+We remark that $\mathscr{D}^2_{L^2} \subset \mathscr{D}_A$ and
+consequently $\mathscr{D}_A$ is dense in $\mathscr{D}^1_{L^2}$. A is a
+closed operator in the sense that its graph is closed. In fact, let
+$u_p \in \mathscr{D}_A$ be a sequence such that $u_p \to u_0$, $Au_p
+\to v_0$ in $\mathscr{D}^1_{L^2}$. Since $A$ is a continuous operator
+from $\mathscr{D}^1_{L^2}$ into $L^2$ we have $Au_0 = v_0$ in $L^2$
+and since the injection of $\mathscr{D}^1_{L^2}$ into $L^2$ is
+bi-unique $Au_0 = v_0$ in $\mathscr{D}^1_{L^2}$, that is $u_0 \in
+\mathscr{D}_A$. 
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{chap3-sec8-prop1}%1
+Let
+\begin{equation*}
+\frac{\partial u}{\partial t} = \sum A_k (x) \frac{\partial
+  u}{\partial x_k} + B(x) u + f \tag{8.3}\label{chap3-eq8.3} 
+\end{equation*}
+be a regularly hyperbolic system in $\Omega = \underbar{R}^n \times [
+  0, h]$ with $A_k \in \mathbb{B}^{i + \sigma}$, $B \in
+\mathbb{B}^1$ and $f \in \mathscr{D}_A [ 0, h ]$. Then, given $u_0 \in
+\mathscr{D}_A$ there exists a unique solution $u \in \mathscr{D}_A [0,
+  h]$, which is a differentiable function of $t$ in the sense of $L^2$
+with values in $\mathscr{D}_A$  of \eqref{chap3-eq8.3} for which $u (0) = u_0$. 
+\end{proposition}
+
+\begin{proof}
+We write the system in the singular integral operator form 
+\begin{equation*}
+\frac{d}{dt} u = ( i \mathscr{H} \wedge + B) u + f
+\tag{8.6}\label{chap3-eq8.6} 
+\end{equation*}
+and $A = i \mathscr{H} \cap + B$. By the condition of regular
+hyperbolicity of \eqref{chap3-eq8.3} there exists a bounded singular integral
+operator $\mathfrak{N}$ such that  
+$$
+\mathfrak{N} 0  \mathscr{H} =  \mathscr{D} 0  \mathscr{H}
+$$\pageoriginale
+where $\mathscr{D}$ is a singular integral matrix whose symbol is  
+$$
+\sigma (\mathscr{D}) = 
+\begin{pmatrix}
+\lambda_1 (x, \xi) & & 0\\
+&  \ddots & \\
+0 & & \lambda_N (x, \xi)
+\end{pmatrix}
+$$
+and $|\det \sigma |(\mathfrak{N}) | > \delta > 0$.
+
+Define a bilinear form by 
+\begin{equation*}
+(Lu, v) = (\mathfrak{N} \wedge u, \mathfrak{N} \wedge v) + \beta (u,
+  v) = (( \lambda \mathfrak{N}* \mathfrak{N}\Lambda + \beta I)u,
+  v). \tag{8.7} \label{chap3-eq8.7}
+\end{equation*}
+for $u, v \varepsilon \mathscr{D}^1_{L^2}$ with a $\beta$ to be
+chosen later. $(Lu, u)$ defines a norm equivalent to that of
+$\mathscr{D}^1_{L^2}$ for sufficiently large $\beta$. In fact, since
+$\mathfrak{N}$ is a bounded operator in $L^2$ we have  
+$$
+(Lu, u) \leq ||\mathfrak{N}||^2_{\mathscr{L}(L^2, L^2)} || \wedge u 
+||^2 + \beta || u ||^2 \leq M || u ||^2_{\mathscr{D}^1_{L^2}}. 
+$$
+
+On the other hand by G$\ring{\text{a}}$rding's inequality there exists
+$a\ \gamma > 0$ such that  
+$$
+(Lu, u) \geq \delta' || \wedge u ||^2 - \gamma || u ||^2 + \beta || u
+||^2, 
+$$
+then for sufficiently large $\beta( > \gamma)$ this would imply that  
+$$
+(Lu, u)\geq c ||u||^2_{\mathscr{D}^1_{L^2}} 
+$$
+which proves the assertion. We provide $\mathscr{D}^1_{L^2}$ with the
+norm $(Lu, u)$. We proceed to verify conditions 1, 2, of the
+Hille-Yosida Theorem. 
+To\pageoriginale prove condition $P(2)$ we must prove that for real
+$\lambda$ near the origin  
+\begin{equation*}
+(L(I- \lambda A) u, (I- \lambda A)u) \geq (1 - \gamma| \lambda|) (Lu,
+  u) \text{~ for every~ } u \in
+  \mathscr{D}_A. \tag{8.8} \label{chap3-eq8.8} 
+\end{equation*}
+
+To do this we assume at first that $u \in \mathscr{D}^2_{L^2}$
+we have then, 
+\begin{align*}
+(L(I - \lambda A)u, (I - \lambda A)u) & = (Lu, u) + \lambda^2 (LAu,
+  Au) - \lambda((LA + A^* L) u, u)\\ 
+& \geq (Lu, u) - \lambda ((LA + A^* L) u, u).
+\end{align*}
+
+Since $A = i \mathscr{H} \Lambda + B$ we have  
+$$
+(LA + A^*L) = (\Lambda \mathfrak{N}^* \mathfrak{N} \Lambda + \beta
+I)(i\mathfrak{N}\wedge +B)+ (-i
+\cap  \mathscr{H}^* + B^*) (\wedge \mathfrak{N}^* \mathfrak{N} \wedge
++ \beta I) 
+$$
+
+But $\mathfrak{N} \wedge \mathscr{H} \equiv D \wedge \mathfrak{N} \mod
+(\wedge^0)$ where $P_1 \equiv P_2 \mod (\wedge^0)$ means that $P_1 -
+P_2$ is a bounded operator in $\mathscr{D}^1_{L^2}$. 
+
+In fact,
+\begin{align*}
+\mathfrak{N} \wedge \mathscr{H} &\equiv \mathfrak{N} \mathscr{H}
+\wedge \equiv (\mathfrak{N} \circ \mathscr{H}) \wedge - (\mathfrak{N} \circ
+\mathscr{H} - \mathfrak{N} \mathscr{H}) \wedge\\ 
+& \equiv (\mathfrak{N} \circ \mathscr{H}) \wedge \mod (\Lambda^), \;  (\text
+  {since } \mathfrak{N} \circ \mathscr{H} = \mathscr{D} \circ \mathfrak{N})
+  \\ 
+& \equiv (\mathscr{D} \circ \mathfrak{N}) \wedge \equiv \mathscr{D}
+  \mathfrak{N} \wedge \equiv \mathscr{D} \wedge \mathfrak{N} \text{mod}
+  (\wedge^0). 
+\end{align*}
+
+Hence 
+\begin{align*}
+((LA+A^* L) u, u) & = i \{ (D \wedge \mathfrak{N} \wedge u,
+\mathfrak{N} \wedge u) - (\mathfrak{N} \wedge u, \mathscr{D} \wedge
+\mathfrak{N} \wedge u)\\
+&\quad + 2 \re (\mathbb{B}_1 \wedge u, \mathfrak{N} \wedge u),
+\end{align*}
+where $\mathbb{B}_1$ is a bounded operator in $L^2$. Now 
+$$ 
+\mathscr{D} \wedge - \wedge \mathscr{D}*\equiv \mathscr{D} \wedge -
+\wedge \mathscr{D}^{\#} \equiv (\mathscr{D} \wedge -
+\mathscr{D}^{\#}\wedge)\equiv (\mathscr{D}-\mathscr{D}^{\#}) \wedge. 
+$$ 
+
+Since $\mathscr{D}$ is a diagonal matrix and $\sigma (\mathscr{D})$ is
+real, we see that $\mathscr{D} = \mathscr{D}^{\#}$. Hence $\mathscr{D}
+\wedge - \wedge \mathscr{D}^* \equiv \text{mod}
+(\wedge^0)$. Hence\pageoriginale there exists a constant $\gamma_1$
+such that   
+$$
+-\gamma_1 || u ||^2_{\mathscr{D}^1_{L^{2}}} \leq ((L A + A^* L ) u, u)
+\leq \gamma_1 || u ||^2_{\mathscr{D}^1_{L^{2}}} 
+$$
+or equivalently we write following Leray \cite{key1}
+$$
+-\gamma_1(\wedge + 1)^2 \leq LA + A^* L \leq \gamma_1 (\wedge + 1)^2 
+$$
+and thus, as $||u ||^2_{\mathscr{D}^1_{L^{2}}}$ and $(Lu, u)$ are
+equivalent we obtain 
+$$
+(L (I - \lambda A) u, \; (I - \lambda A) u) \geq (1- \gamma_1 | \lambda
+|) (Lu, u) 
+$$
+for $|\lambda | < \dfrac{1}{\gamma_1}$.
+
+Next the inequality \eqref{chap3-eq8.8} holds for all $u \in \mathscr{D}_A$
+also. Suppose $u \in \mathscr{D}_A$. If $\varphi_{\delta}$ are
+mollifiers of Friedrichs then the function $u_{\delta} = u *
+\varphi_{\delta}$ belongs to $\mathscr{D}^2_{L^{2}}$ and it follows
+from \eqref{chap3-eq8.8} that there exists a constant $\gamma_1$ such
+that for some real near the origin  
+$$
+(L(I - \lambda A) u_{\delta}, \; (I - \lambda A)u_{\delta}) \geq (1 -
+\gamma_1 | \lambda |) ( L u_{\delta}, u_{\delta}). 
+$$
+
+But
+$$
+Au_{\delta} \to Au \text{ in } \mathscr{D}^2_{L^{2}} \text{ as }
+\delta \to 0. 
+$$
+
+In fact, $Au_{\delta} - Au = (Au_{\delta} - \varphi_{\delta} * (A u))
++ (\varphi_{\delta}* (Au) - Au)$ in which the first term tends to 0 in
+$\mathscr{D}^1_{L^{2}}$ by Friderich's lemma and the latter term tends
+to 0 in $\mathscr{D}^1_{L^{2}}$ since $A u \in
+\mathscr{D}^1_{L^{2}}$. Thus condition $P(2)$ of Hille-yosida Theorem is
+verified. To prove condition $P(1)$ we must prove that $(I - \lambda A)$
+is a one-to-one surjective mapping of $\mathscr{D}_A$ onto
+$\mathscr{D}^1_{L^{2}}$ for\pageoriginale sufficiently small
+$\lambda$. From \eqref{chap3-eq8.8} it follows that $(I - \lambda A)$
+is one-to-one
+for $| \lambda | < \dfrac{1}{\gamma_1}$.  
+
+Next $(I - \lambda A) \mathscr{D}_A$ is closed in
+$\mathscr{D}^1_{L^{2}}$. For, $(I - \lambda A) u_n \to v_0$ in
+$\mathscr{D}^1_{L^{2}}$ for $u_n \in \mathscr{D}_A$ means by
+\eqref{chap3-eq8.8} that $u_n$ is a Cauchy sequence for the new norm
+hence has a unique limit $u_0$ in $\mathscr{D}^1_{L^{2}}$. Hence $-
+\lambda Au_{n} \to v_0 - u_0$ in $\mathscr{D}^1_{L^{2}}$. As $A$ is a
+closed mapping $u_0 \in \mathscr{D}_A$ and $(I - \lambda A) u_0 = v_0$. 
+
+Finally we prove that $(I - \lambda A) \mathscr{D}_A$ is dense in
+$\mathscr{D}^1_{L^{2}}$. The proof is by contradiction. Suppose $(I -
+\lambda A) \mathscr{D}_A$ is not dense in
+$\mathscr{D}^1_{L^{2}}$. Then there exists $a \psi \in
+\mathscr{D}^1_{L^{2}}$, $\psi \neq 0$ such that $(( I - \lambda A)u,
+\psi)_1 = 0$ i.e. $(( \wedge + 1) (I - \lambda A)u$, $(\Lambda + 1)
+\psi) = 0$ for all $u \in \mathscr{D}_A$, that is, $(I - \lambda A^*)
+(\wedge + 1) \psi_1 =0$ 
+where $A^* = - i \wedge \mathscr{H}^* + B^* $ and $\psi_1 = (\wedge +
+1) \psi \varepsilon L^2$. 
+
+Now $A^* (\wedge + 1) \psi_1 = (-i \wedge \mathscr{H}^* + B^*)(\wedge
++ 1) \psi_{1} = (\wedge + 1) (-i \wedge \mathscr{H}^* + B^*) \psi_1 + B_0
+\psi_1$. 
+where $B_0 = -i \wedge (\mathscr{H}^* \wedge - \wedge \mathscr{H}^*) +
+(B^* \wedge - \wedge B^*)$. 
+
+Further $A^* (\wedge +1) \psi_1 = (\wedge + 1) (-i \mathscr{H}^{\#}
+\wedge + B^* + B_1) \psi_1 + B_0 \psi_1$ 
+where $B_1 = (-i \mathscr{H}^{\#} \wedge + i \mathscr{H}^{\#} \wedge)
+\varepsilon \mathscr{L} (L^2, L^2)$. 
+
+But $B = B_1 + (\wedge + 1)^{-1} B_0 + B^*$ is a bounded operator in
+$L^2$ and hence $(I - \lambda A^*) (\wedge + 1) \psi_1 = 0$ is
+equivalent to saying that $[I - \lambda (-i \mathscr{H}^{\#} \wedge +
+  \tilde{B}] \psi_1 = 0$, which in turn is equivalent to saying that
+$[I - \lambda (-i \mathscr{H}^{\#} \wedge + \tilde{B}] \psi =
+0$. Starting from the equation 
+\begin{equation*}
+\frac{\partial}{\partial t} u = - \sum {}^{t}\overline{A}_k (x)
+\frac{\partial}{\partial x_k} u - \tilde{B} u \tag{8.9} \label{chap3-eq8.9}
+\end{equation*}
+and using \eqref{chap3-eq8.8} after observing that $\psi \in \mathscr{D}_A$
+we\pageoriginale obtain an inequality 
+\begin{gather*}
+(L_1 (I - \lambda  (- i\mathscr{H}^{\#} \wedge + \tilde{B})) \psi,
+  (I - \lambda (-i(\mathscr{H}^{\#} \wedge + \tilde{B})) \psi )
+  \tag{8.10}\label{chap3-eq8.10}\\ 
+\geq (1 - \gamma | \lambda | ) \; (L_1 \psi, \psi )
+\end{gather*}
+which implies that $||\psi ||=0$ and hence $\psi = 0$ which is a
+contradiction to the assumption. 
+
+Now all the conditions of Hille-Yosida theorem for $A=i\mathscr{H}
+\wedge + B$ are verified and hence there exists a solution of the
+equation 
+$$
+\frac{d}{dt} u = (i\mathscr{H} \wedge + B) u + f \text{ with } u(0) =
+u_0 
+$$
+with the required properties. 
+\end{proof}
+
+In the above proposition we proved the existence of solutions of
+regularly hyperbolic systems when $u_0 \in \mathscr{D}_A$ in
+particular when $u_0 \in \mathscr{D}^2_{L^{2}}$ and $f
+\in \mathscr{D}_A [0, h]$ and so in particular when $f
+\in \mathscr{D}^2_{L^{2}}$. This result can be improved as
+follows. 
+
+\begin{proposition}\label{chap3-sec8-prop2}%2
+Suppose \eqref{chap3-eq8.3} is a regularly hyperbolic system in $\Omega =
+\underbar{R}^n \times [0, h]$ with $A_k \in \mathbb{B}^{1 +
+  \sigma}$, $B \in \mathbb{B}^1$, $u_0 \in
+\mathscr{D}^1_{L^{2}}$ and $f \in \mathscr{D}^1_{L^{2}} [0,
+  h]$. Then there exists $u \in \mathscr{D}^1_{L^{2}} [0, h]$
+(once differentiable in $t$ in the sense of $L^2$) satisfying the
+system in the $L^2$-sense and $u(0) = u_0$.  
+Also the following energy inequality holds:
+\begin{align*}
+(Lu(t), u(t)) \leq \exp (\gamma t) & \cdot  (Lu(0), u(0))\\
+&  + \int \limits^t_0
+  (L(f(s)), f(s)) \exp (\gamma (t-s))ds \tag{8.12} \label{chap3-eq8.12}
+\end{align*}
+where $(Lu, u)$ is defined in Prop. \ref{chap3-sec8-prop1}.
+\end{proposition}
+
+\begin{proof}
+We\pageoriginale regularize $u_0$ and $f$ by mollifiers of Friedrichs
+$\varphi_{\delta}$ to obtain $u_0 * \varphi_{\delta} = u^{\delta}_0
+\in \mathscr{D}^2_{L^{2}}$, $f * \varphi_\delta = f_\delta \in
+\mathscr{D}^2_{L^2} [0, h]$. By prop. \ref{chap3-sec8-prop1} 
+applied to $u^{\delta}_0$, $f_{\delta}$ there exists a $u_{\delta}$
+continuous and with values in $\mathscr{D}_A$ satisfying  
+\begin{equation*}
+\frac{\partial}{\partial t} u_{\delta} = \sum A_k (x)
+\frac{\partial}{\partial x_k} u_{\delta} + Bu_{\delta} + f_{\delta}
+\tag{8.12} \label{chap3-eq8.12}
+\end{equation*}
+and $u_{\delta} (0) = u^{\delta}_0$. Further $u_{\delta} (t) -
+u_{\delta'} (t)$ satisfies the equation 
+{\fontsize{10pt}{12pt}\selectfont
+$$
+\frac{\partial}{\partial t} \left[u_{\delta} (t)-u_{\delta'} (t)
+  \right] = \sum A_k (x) \frac{\partial}{\partial x_k} \left[u_{\delta} (t)
+  - u_{\delta'} (t) \right] + B[u_{\delta} (t) - u_{\delta'} (t)] +
+(f_{\delta} - f_{\delta'})  
+$$}\relax
+and hence by the energy inequality
+\begin{equation*}
+|| u_{\delta} (t) - u_{\delta'} (t) ||_1 \leq c(h) \left\{ || u_{\delta}
+(0) - u_{\delta'} (0) ||_1 + \int\limits^h_0 ||f_{\delta} (s) -
+f_{\delta'} (s) ||_1 ds\right\}, \tag{8.13} \label{chap3-eq8.13}
+\end{equation*}
+which shows that $\{u_{\delta} (t) \} $ is a Cauchy sequence in the
+space of continues functions with values in
+$\mathscr{D}^1_{L^2}$. Hence $u_{\delta} (t) \to u(t)$ in the space of
+continuous functions with values in $\mathscr{D}^1_{L^2}$. On the
+other hand the equation 
+$$
+u_{\delta} (t) - u^{\delta}_0 = \int\limits^t_0 \{ A u_{\delta} (s) +
+f_{\delta} (s) \} ds, \;\; A = \sum A_k \frac{\partial}{\partial x_k} + B 
+$$
+holds in $L^2$. Passing to the limits in $L^2$ we obtain  
+$$
+u(t) - u_0 = \int\limits^t_0 \{ Au(s) + f(s) \} ds. 
+$$
+
+Differentiating this, we see that the relation  
+$$
+\frac{d}{dt} u (t) = Au(t) + f(t) 
+$$
+holds in the sense of $L^2$ where $u \in \mathscr{D}^1_{L^2}
+[0, h]$, $\dfrac{\partial u}{\partial t} \in L^2 [0, h]$
+respectively.\pageoriginale Consider now 
+\begin{align*}
+\frac{d}{dt} (Lu_{\delta}, u_{\delta}) & = \left(L \frac{d}{dt} u_{\delta},
+u_{\delta}\right) + \left( L u_{\delta},\frac{d}{dt}  u_{\delta}\right) + (L_t'
+u_{\delta}, u_{\delta})\\ 
+& \leq ((LA+ A^*L) u_{\delta}, u_{\delta}) + 2 \re (Lf_{\delta},
+f_{\delta}) + \gamma' (L u_{\delta}, u_{\delta})\\ 
+& \leq \gamma (L u_{\delta}, u_{\delta}) + (L f_{\delta}, f_{\delta}).
+\end{align*}
+
+Since $u_{\delta} (t)$ and $f_{\delta} (t)$ converge, uniformly in
+$t$, to $u(t)$, $f(t)$ respectively in $\mathscr{D}^1_{L^2}$ as $\delta
+\to 0$ we have \eqref{chap3-eq8.12}. This completes the proof of the
+proposition.  
+\end{proof}
+
+\begin{remark*}%rema 0
+The above equation is a particular case of one involving singular
+integral operators. If in fact we consider an equation  
+\begin{align*}
+\frac{d}{dt} u(t) & = i \mathscr{H} \wedge u(t) + Bu(t) + f(t)\\
+& \equiv A u(t) + f(t), \tag{8.14}\label{chap3-eq8.14}
+\end{align*}
+with $\sigma (\mathscr{H}) \in C^{\infty}_{1 + \sigma}$, $B
+\in \mathscr{L} (L^2, L^2) \cap \mathscr{L}(\mathscr{D}^1_{L^2},
+\mathscr{D}^1_{L^2})$, which is regularly hyperbolic, we could prove
+an analogous proposition in the same way. We would have to use the
+Fridrichs' lemma for singular integral operators, namely, 
+\begin{equation*}
+[\mathscr{H} \wedge, \varphi_{\delta} *] \to 0 \text{ weakly in }
+\mathscr{D}^1_{L^2}. \tag{8.15}\label{chap3-eq8.15} 
+\end{equation*}
+\end{remark*}
+
+Now we consider the general case of regularly hyperbolic systems when
+the coefficients are functions of the variable $t$ also. We use a
+method similar to the one of Cauchy-Peano for ordinary differential
+equations. 
+
+\begin{theorem}\label{chap3-sec8-thm2}%the 2
+Let\pageoriginale $\Omega = \underbar{R}^n \times [0, h]$ and  
+\begin{equation*}
+\frac{\partial}{\partial t} u = \sum A_k (x, t)
+\frac{\partial}{\partial x_k} u + B(x ,t) u + f
+\tag{8.16} \label{chap3-eq8.16}
+\end{equation*}
+be a regularly hyperbolic system in $\Omega$ with $A_k \in
+\mathbb{B}^{1+ \sigma} [0, h]$, $B \in \mathbb{B}^1 [0, h]$,
+$f \in \mathscr{D}^1_{L^2} [0, h]$. Given a $u_0 \in
+\mathscr{D}^1_{L^2}$ there exists a unique solution $u$ of
+\eqref{chap3-eq8.16}, in 
+the sense of $L^2$, which belongs to $\mathscr{D}^1_{L^2} [0, h]$ and
+is differentiable in the sense of $L^2$ for which $u(0) = u_0$. 
+\end{theorem}
+
+\begin{proof}
+Consider a subdivision
+$$
+\Delta : 0 = t_0 < t_1 \ldots < t_s = h. 
+$$
+
+We define a function $u$ inductively as follows: For $t_{j-1} \leq t
+\leq t_j$, $u_{\Delta}(t) = u_j (t)$ where $u_j$ satisfies the system  
+\begin{equation*} 
+\frac{\partial}{\partial t} u_j = \sum A_k (x, t_{j-1})
+\frac{\partial}{\partial x_k} u_j + B(x, t_{j-1}) u_j + f,
+u_j(t_{j-1}) = u_{j-1} (t_{j-1}) \tag{8.18} \label{chap3-eq8.18}
+\end{equation*}
+for $j = 1, \ldots, s$. By Prop. \ref{chap3-sec8-prop3} there exists a
+unique solution $u_j 
+\in \mathscr{D}^1_{L^2}$ for this system for $j = 1, \ldots,
+s$. Thus $u_{\Delta}(t)$ is uniquely determined. We shall show that
+$u_{\Delta}$ is uniformly bounded for small subdivisions (subdivisions
+of small norms), that is, 
+$$
+\sup\limits_{t \in [0, h]}|| u_{\Delta} (t) ||_1 \leq M <
+\infty. 
+$$
+
+It follows from \eqref{chap3-eq8.18} using the given conditions on the
+coeficients that  
+$$
+\sup\limits_{t \in [0, h]}|| \frac{d}{dt} u_{\Delta} (t)
+||_{L^2} \leq M' < \infty. 
+$$
+
+Hence\pageoriginale $\{ u_{\Delta} (t) \}$ is a bounded set in
+$\mathscr{E}^{1}_{L^2} (\Omega)$ as $\Delta$ runs through subdivisions
+of small norm. Thus by choosing a suitable subsequence of $\Delta$,
+$u_{\Delta} \to u$ weakly in $\mathscr{E}^{1}_{L^2} (\Omega)$ and $u$
+satisfies  
+\begin{gather*}
+\frac{\partial u}{\partial t} = \sum A_k (x, t) \frac{\partial
+  u}{\partial x_t} + B(x, t) u+f \tag{8.18}\label{chap3-eq8.18}\\ 
+u_{\Delta} \to u, \; \frac{\partial u_{\Delta}}{\partial x_k} \to
+\frac{\partial u}{\partial x_k}, \; \frac{\partial u_{\Delta}}{\partial
+  t} \to \frac{\partial u}{\partial t} \text{ weakly in } L^2(\Omega ) 
+\end{gather*}
+and these derivatives are taken in the sense of distribution in
+$\Omega$. 
+
+Next we shall show that $u \in \mathscr{D}^1_{L^2} [0, h]$ and
+$u(0) = u_0$. For almost all $t$, $u(x,t)$, as a function of $t$ for
+each fixed $x$, is absolutely continuous (see Sehwartz
+\cite{key1}). Hence we can write   
+$$
+u(x, t') - u(x, t'') = \int\limits^{t''}_{t'} \frac{\partial
+  u}{\partial t} (x, t) \; dt 
+$$
+the derivative in the right hand side is taken in the distribution
+sense. 
+By the Schwarz inequality
+$$
+|u(x, t') - u(x, t'')|^2 \leq | t' - t''| \int\limits^{t''}_{t'}
+|\frac{\partial u}{\partial t} (x, t)|^2 \; dt 
+$$ 
+which on integration with respect to $x$ gives 
+$$
+|| u(x, t') - u(x, t'')||_{L^2 (\underbar{R}^n)} \leq | t' - 
+t''|^{\frac{1}{2}} || \frac{\partial u}{\partial t} (x, t) ||_{L^2
+  (\Omega)} 
+$$
+proving that $u \in L^2 [0, h]$. If $\varphi_{\delta}$ denote
+mollifiers of Friedrichs, the function $u = u * \varphi_{\delta}$
+satisfies $u_{\delta} \in \mathscr{D}^1_{L^2} [0, h]$ and  
+\begin{equation*}
+\frac{\partial}{\partial t} u_{\delta}(t) = \sum A_k (x, t)
+\frac{\partial u}{\partial x_k} u_{\delta} + B(x, t) u + f +
+C_{\delta} u \tag{8.19} \label{chap3-eq8.19} 
+\end{equation*}
+where\pageoriginale
+\begin{equation*}
+C_{\delta} = \sum \left[A_k \frac{\partial}{\partial x_k},
+  \varphi_{\delta} * \right] + [ B, \varphi_{\delta} *
+]. \tag{8.20}\label{chap3-eq8.20}  
+\end{equation*}
+
+By Friedrichs' lemma $|| C_{\delta} u ||_1 \leq c || u ||_{1}$ and $||
+C_{\delta} u ||_1 \to 0$ as $\delta \to 0$ for fixed $t$. Since
+$\int\limits^h_0 || u(x, t) ||_1 dt < \infty$, it follows that
+$|C_{\delta} u ||_1$ is integrable, and from Lebesgue's bounded
+convergence theorem, we deduce that   
+$$ 
+\int\limits^h_0 || C_\delta u(x, t) ||_1 \; dt \to 0 \text{ as }
+\delta \to 0. 
+$$
+
+Now from the energy inequality for the system \eqref{chap3-eq8.19}  
+$$
+|| u_{\delta} (t) ||_1 \leq c(h) \left\{ || u_{\delta} (0) ||_1 + 
+\int\limits^h_0 (||f_{\delta} (s) ||_1 + ||C_\delta u(s)||_1 ) ds \right\} 
+$$
+it follows that $\sup\limits_{t \in [0, h]}|| u_{\delta} (t)
+||_1 \leq M < \infty$. Again $u_{\delta} (t) - u_{\delta'}(t)$
+satisfies an equation 
+\begin{align*}
+\frac{\partial}{\partial t} (u_{\delta} (t) - u_{\delta'} (t)) & = \sum
+A_k (x, t) \frac{\partial}{\partial x_k} (u_{\delta} (t) - u_{\delta'}
+(t)\\ 
+& + B(x, t) (u_{\delta}(t) -u_{\delta'} (t)) + C_{\delta} u(t) -
+C_{\delta'} u(t) 
+\end{align*}
+and we have the energy inequality 
+$$
+|| u_{\delta} (t) - u_{\delta'}(t) ||_1 \leq c'(h) \left\{ || u_{\delta}(0)
+- u_{\delta'} (0) ||_1 + \int\limits^h_0 ||(C_{\delta} - C_{\delta'}) u
+(s)||_1 ds \right\} 
+$$
+which shows that $|| u_{\delta} (t) - u_{\delta'} (t) ||_1 \to 0$ as
+${\delta}$, $\delta' \to 0$. So $\{ u_{\delta} (t) \}$ is a Cauchy
+sequence in $\mathscr{D}^1_{L^2} [0, h]$ and hence its limit is in
+$\mathscr{D}^1_{L^2} [0, h]$. 
+By\pageoriginale the uniqueness of limits in $L^2 [0, h]$, $u_{\delta}
+\to u$ and $u 
+\in \mathscr{D}^1_{L^2} [0, h]$. Since the operation of
+restriction is continuous and the restriction of $u_{\Delta}$ to $t =
+0$, namely $u_{\Delta} (x, 0))$, is $u_0$ we see that $u(x, 0) =
+u_0$. 
+
+Now it only remains to show that $\{ u_{\Delta} (t) \}$ is a bounded
+set in $\mathscr{E}^1_{L^2}$. For this we proceed as follows. We use
+the norm defined by  
+$$
+(Lu, u) = (\mathfrak{N} \wedge u, \mathfrak{N} \wedge u) + \beta (u, u) 
+$$
+for suitable $\beta > 0$ (see (8.7)). $\mathscr{D}^1_{L^2}$ is
+provided with this norm. 
+
+By the energy inequalities we have, for $j = 1,\ldots, s$
+\begin{align*}
+(L (t_{j-1}) u_{\Delta}, u_{\Delta}) & = (L(t_{j-1}) u_j (t), u_j(t))
+  \tag{8.21}\label{chap3-eq8.21}\\ 
+& \leq \exp (\gamma( t -t_{j-1})) (L (t_{j-1}) u_j (t_{j-1}), u_j
+  (t_{j-1}))\\ 
+& \qquad + \int\limits^{t_j}_{t_{j-1}} \exp ( \gamma (t-s)) (L(t_{j-1})
+  f(s), f(s)) \; ds. 
+\end{align*}
+
+The $L(t)$ depends on the $\mathfrak{N} (t)$ which form a bounded set
+of singular integral operators and hence by the remark ater
+prop. \ref{chap3-sec6-prop2}, \S\ \ref{chap3-sec6}
+we can use the same constant $\beta$ to the new norm in
+$D^{1}_{L^{2}}$. Further letting $L_{k}=L(t_{k})$
+\begin{align*}
+(L_j u_{\Delta}, u_{\Delta}) - (L_{j-1} u_{\Delta}, u_{\Delta}) & = ||
+  \mathfrak{N} (t_j) \wedge u_{\Delta} ||^2 - ||^{\mathfrak{N}}
+  (t_{j-1}) \wedge u_{\Delta} ||^2 \\ 
+& \leq C|| (\mathfrak{N} (t_j) - \mathfrak{N}(t_{j-1})||_{\alpha (L^2,
+    L^2)}|| u_{\Delta}||^{\alpha}_1. 
+\end{align*}
+
+Since $(L_{j -1} u_{\Delta}, u_{\Delta}) \sim || u_{\Delta} ||^2_1$
+we have $|| u_{\Delta}||^2_1 \leq k (L_{j-1} u_{\Delta},
+u_{\Delta})$ and hence  
+\begin{align*}
+(L_j u_{\Delta}, u_{\Delta}) & \leq (1 + k|| \mathscr{H}(t_j) -
+  \mathfrak{N}(t_{j-1}||_{\alpha (L^2, L^2)}) (L_{j-1}u_{\Delta},
+  u_{\Delta})\\ 
+&= (1 + \varepsilon (t_{j-1}, t_j)) (L_{j-1} u_{\Delta}, u_{\Delta}).  
+\end{align*}\pageoriginale
+
+Using this in the above inequality \eqref{chap3-eq8.21} we have  
+\begin{align*}
+(L_{s-1} u_{\Delta}, u_{\Delta}) & \leq \exp (\gamma t) (L_0 u (t_0),
+u(t_0)) \\
+& + \int\limits^h_0 \exp (\gamma(t-s)) (L_0 f(s), f(s)) ds
+\prod\limits^{\mathscr{S}}_{j=1} \{1+ \varepsilon (t_{j-1}), t_j \}. 
+\end{align*}
+
+But we have, by a will-known inequality,
+$$
+\prod^{\mathscr{S}}_{j=1} \{1 + \varepsilon (t_{j-1}, t_j) \}
+\leq \left(1 + \frac{1}{S} \sum \in (t_{j-1}, t_j)\right)^s \leq e^{\gamma_0} 
+$$
+where
+\begin{align*}
+\gamma_0 & = \sup \sum \varepsilon (t_{j-1}, t_j) = \sup
+\limits_{\Delta} k  \sum || \mathfrak{N} (t_j) -
+\mathfrak{N}(t_{j-1})||_{\alpha (L^2, L^2}))\\
+& \leq k \int\limits^h_0 \sup\limits_{x \in R^n} \sum\limits_{| \nu | \leq
+  2n} \sup\limits_{| \xi | \geq 1} \left| \left(\frac{\partial}{\partial
+  \xi}\right)^{\nu} \frac{\partial}{\partial t} \sigma (\mathfrak{N}) (x, t,
+\xi) \right|. 
+\end{align*}
+
+Hence $\{u_{\Delta} (t) \}$ is a bounded set in $\mathscr{E}^1_{L^2}$, 
+this completes the proof. 
+
+If we assume taht that coefficients and the initial data $u_0$ and $f$
+are sufficiently smooth we can improve Theorem
+\ref{chap3-sec8-thm2}. We indicate this briefly. 
+
+We assume 
+$$
+A_k \in \mathbb{B}^2 [0, h], \frac{\partial A_k}{\partial t}
+\in \mathbb{B}^0 [0, h], B \in \mathbb{B}^2 [0, h], u_0
+\in \mathscr{D}^2_{L^2}, f \in \mathscr{D}^2_{L^2}, [0,
+  h] 
+$$
+
+From theorem \ref{chap3-sec8-thm2}, we know that there exists a unique
+solution $u \in\mathscr{D}^1_{L^2} [0, h]$ of  
+\begin{equation*}
+M[ u ] = f. \tag{8.16}\label{chap3-eq8.16}
+\end{equation*}
+
+Differentiating\pageoriginale with respect to $x_j$ (denoting
+$\dfrac{\partial}{\partial x_j}$ by $D_j$) we have  
+\begin{equation}
+M [ D_j u] - \sum_{k} ~ (D_j A_k ) [ D_k u ]  = D_j f + ~ (D_j B) [ u]
+~ (j = 1, 2,\ldots, n) \tag{8.22} \label{chap3-eq8.22} 
+\end{equation}
+where the second member $D_j f + (D_j B) [ u ] ~ \in
+\mathscr{D}^{1}_{L^2} [ 0, h ]$ and $D_j u (0) \in 
+\mathscr{D}^{1}_{L^2}$. 
+Now \eqref{chap3-eq8.22} is a system of equations with unknown
+functions $( D_1 u, 
+\ldots, D_n u )$ which has the same principal part $M$. We can show,
+without any singnificant modification in the previous argument, that
+there exists a unique  solution $( D_1 u, \ldots, D_n u ) \in
+\mathscr{D}^{1}_{L^2} [0, h]$. On the other hand, by the energy
+inequality, we can see that the system: 
+$$
+M[v_j] - \Sigma_k ~ ( D_j A_k ) [ v_k ] = g_j \varepsilon ~ L^2 [ 0,
+  h ] 
+$$
+has atmost one solution $v$ in $L^2 [0, h]$. This shows that $u
+\in \mathscr{D}^{2}_{L^2} [0, h]$. 
+\end{proof}
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap3-sec8-coro1} %corollary 1.
+ Let \eqref{chap3-eq8.16} be a regularly hyperbolic system in the set $\Omega =
+ \underbar{R}^n \times [0, T]$ with 
+ \begin{gather*}
+\left(A_k (x,t), ~ \frac{\partial}{\partial t} A_k (x, t )\right) \in
+   ( \mathscr{B}^2 [ 0, T ], ~ \mathscr{B}^1 [ 0, T ] ), \\ 
+\left(B (x,t), ~ \frac{\partial}{\partial t} B (x,t )\right) \in (
+   \mathscr{B}^2 [ 0, T ], ~ \mathscr{B}^1 [ 0, T ] )  
+\end{gather*} 
+and  $f (x, t ) \varepsilon \mathscr{D}^{2}_{L^2} [ 0,T]$.
+\end{corollary}
+
+Then, given an element $u_0 \in \mathscr{D}^{2}_{L^2}$ there
+exists a unique solution  $u \in \mathscr{D}^{2}_{L^2} [0,T]$ of
+\eqref{chap3-eq8.3} with $u (0) = u_0$.  
+
+\begin{proof}
+Defferentiating both sides of the equation \eqref{chap3-eq8.3} with
+respect to $x_j$ in the sense of distributions we have  
+$$
+\frac{\partial}{\partial x_j} M [ u ] = \frac{\partial}{\partial x_j}
+\frac{\partial}{\partial  t} u - \frac{\partial}{\partial x_j} \left(
+\sum A_k (x,t) \frac{\partial}{\partial x_k} \right)
+-\frac{\partial}{\partial x_j} (B (x,t) u ) = \frac{\partial
+  f}{\partial x_j} 
+$$\pageoriginale
+which can be rewritten as 
+\begin{align*}
+\frac{\partial}{\partial  t} \left(\frac{\partial u}{\partial x_j}\right) - \sum
+& A_k (x,t) \frac{\partial}{\partial x_j} \left( \frac{\partial u}{\partial
+  x_j} \right) - \sum \frac{\partial A_k}{\partial x_j} (x,t) 
+\frac{\partial u}{\partial x_k} - B (x, t) \frac{\partial u}{\partial
+  x_j} \\
+& = \frac{\partial B}{\partial x_j} (x,t) u + \frac{\partial
+  f}{\partial x_j}. 
+\end{align*}
+
+That is,
+\begin{equation}
+M \left[  \frac{\partial u}{\partial x_j} \right] = -\sum \frac{\partial
+  A_k}{\partial x_j} (x, t) \frac{\partial u}{\partial x_k} =
+\frac{\partial f}{\partial x_j} + \frac{\partial B}{\partial x_j}
+(x,t) u. \tag{8.22}\label{chap3-eq8.22} 
+\end{equation}
+
+Setting $\dfrac{\partial u}{\partial x_j} = v_j$ for $j = 1,
+\ldots, n$ we obtain a new system  
+$$
+M \left[ v_j \right] - \sum \frac{\partial A_k}{\partial x_j} (x, t) 
+v_k  = \varphi_j 
+$$
+and we can take for $v_j (0)$ the function $\dfrac{\partial 
+  u_0}{\partial x_j} \in \mathscr{D}^{1}_{L^2}$ (the
+derivative being taken in the sense of distributions) since $u_o
+\in \mathscr{D}^{2}_{L^2}$. 
+If we assume $u \in \mathscr{D}^{1}_{L^2} \left[  0, T
+  \right]$ it follows then that $\varphi_j \in
+\mathscr{D}^{1}_{L^2} \left[  0, T \right]$ since  $f \in
+\mathscr{D}^{2}_{L^2} \left[0, T \right]$ and  $B \in
+\mathscr{B}^{2} \left[0, T \right]$. Then by Th. 2 there exists a
+unique solution (in $L^2$) $v = ( v_1, \ldots , v_n )$ with  $v_j
+\in \mathscr{D}^{1}_{L^2} \left[ 0, T \right]$. Hence $u
+\in \mathscr{D}^{2}_{L^2} \left[ 0, T \right]$. 
+\end{proof} 
+
+\begin{corollary}\label{chap3-sec8-coro2} %corollary 2.
+Let \eqref{chap3-eq8.16} be regularly hyperbolic in the set $\Omega$ with  
+$$
+\left( A_k, \frac{\partial A_k}{\partial t}, \ldots, \left(
+\frac{\partial}{\partial t} \right)^m A_k \right) 
+\in ( \mathscr{B}^{m}
+\left[  0, T \right], \ldots, \mathscr{B}^{0} \left[  0, T \right] ),
+~ B \in \mathscr{B}^{m} \left[0, T \right] 
+$$
+and $f \in \mathscr{D}^{m}_{L^2} \left[ 0, T \right]$; then
+given $u_0 \in \mathscr{D}^{m}_{L^2} $ there exists a unique
+solution $u$ in\pageoriginale $\mathscr{D}^{m}_{L^2} \left[ 0, T
+  \right]$ of \eqref{chap3-eq8.3} with $u (0) = u_0$.  
+
+ This can be proved by successively applying  the argument of
+ Corollary \ref{chap3-sec8-coro1}.  
+
+Taking $m = \left[\frac{n}{2}\right] + 2$ we obtain, using Sobolev's lemma, the
+following  
+\end{corollary}
+
+\begin{corollary}\label{chap3-sec8-coro3} % corollary 3.
+ Let \eqref{chap3-eq8.16} be regularly hyperbolic with 
+ $$
+ \left(A_k,  \frac{\partial A_k}{\partial t},\ldots\right) \in
+ \left(\mathscr{D}^{[\frac{n}{2}] +2}_{L^2} \left[  0, T \right], ~
+ \mathscr{D}^{[\frac{n}{2}] +1}_{L^2},\ldots\right), \;  B \in
+ \mathscr{D}^{[\frac{n}{2}] +1}_{L^2} \left[  0, T \right] 
+ $$
+ and $f \in \mathscr{D}^{[\frac{n}{2}] +2}_{L^2} \left[  0, T
+   \right]$ 
+  then, given $u_0 \in  \mathscr{D}^{[\frac{n}{2}] + 2}_{L^2}
+  $ there exists a solution $u \in\mathscr{E}^1$ of \eqref{chap3-eq8.16}
+  with $u (0) = u_0$, unique in $L^2$. 
+\end{corollary} 
+
+\begin{corollary}\label{chap3-sec8-coro4} % corollary 4.
+Assume that \eqref{chap3-eq8.16} is regularly hyperbolic in an open
+neighbourhood $U$ 
+of 0 in $\underbar{R}^{n+1}$, $A_k$, $B \in \mathscr{E} (U)$
+then there  exists a neighbourhood $U' \subset U$ such that for any
+$u_0 \subset \mathscr{E} (  U \cap \{ t = 0 \} )$, $f \in
+\mathscr{E} (U)$ there exists a solution $u \in \mathscr{E}
+(U')$ of \eqref{chap3-eq8.16}, unique in $L^2$. 
+\end{corollary}
+
+\begin{remark*}%rema 0
+If we use a partition of unity the above arguments can be used to
+proved results analogous to the above corollaries in the spaces
+$\mathscr{E}^m_{L^2 (\loc)}$ in place of $\mathscr{D}^m_{L^2}$. 
+
+Finally we have the following result on the existence of solutions of
+a single regularly hyperbolic equation of order $m$. 
+\end{remark*}
+
+\begin{corollary}\label{chap3-sec8-coro5} % corollary 5.
+ Let 
+ \begin{equation*}
+L \left[  u \right]  \equiv \left( \frac{\partial}{\partial t}
+\right)^{m_u} + \sum\limits_{\substack{ j + | \nu | \leq m  \\ j < m}} a_{j, \nu} (x,t)
+\left(\frac{\partial}{\partial  x}\right)^\nu  \left(
+\frac{\partial}{\partial t} \right)^j 
+u = g  \tag{8.23} \label{chap3-eq8.23}
+ \end{equation*} 
+be a\pageoriginale regularly hyperbolic equation of order $m$ in a
+neighbourhood of the origin with infinitely  differentiable
+coefficients $a_{j,\nu}$. Let $g$ be infinitely diffrentiable in a
+neighbourhood $U$ of the origin. Then given the initial conditions  
+$$
+(u_o, u_1, \ldots ,  u_{m-1} )\in \prod \mathscr{E}( U \cap \{ t = 0
+\}) 
+$$
+there exists a solution $u \in \mathscr{E}(U')$ in a neighbourhood
+$U'$ such that  
+$$
+\left(\frac{\partial}{\partial t}\right)^j u (x, 0) = u_j (x), \;\; j
+=0, 1,  \ldots, (m-1). 
+$$
+\end{corollary}
+
+\section[Necessary condition for the well posedness.....]{Necessary
+  condition for the well posedness of the Cauchy problem}\label{chap3-sec9}%sec 9  
+
+In chapter \ref{chap2} we considered necessary condition for well posedness of
+the Cauchy problem when the coefficients were inependent of $x$. In
+Chapter \ref{chap3} we considered some sufficiency condition for well
+posedness e.g, hyperbolicity, when the coefficients depended on $x$.  
+
+Now we consider some necessary conditions in this later case. For
+simplicity we shall consider single, first order differential
+opearator, 
+\begin{equation*}
+\frac{\partial u}{\partial t} = \sum a_k (x, t) \frac{\partial
+  u}{\partial x_k} + b(x, t)u \tag{9.1}\label{chap3-eq9.1}
+\end{equation*}
+(for a fuller treatement see Mizohata \cite{key3}).
+
+If all $a_k (x, t)$, $b(x, t)$ are real the classical method of
+characteristics establishes the well posedness of the Cauchy
+problem. However if the $a_k$ are complex the question of existence
+was not settled till recently. The characteristic polynomial of the
+above equation is $\sum a_k (2 \pi \xi_k) - \lambda$. If this has real
+eigenvalues i.e. $a_k$'s are real, the Cauchy problem is well
+posed\pageoriginale as 
+shown by the results  of Chap III. We shall prove that if there is
+$\xi^o$ such that $\im \sum a_k (0, 0) \xi^o \neq 0$ (say $\neq 0$),
+the problem is not well posed. The idea of the proof is as follows: we
+construct a sequence of solution $u_n (x)$, $n = 1, 2$ for which, on
+the hypothesis of well-posedness, we must have $\sup |u_n (x, t)| =
+0(n^h)$ while on the other hand by using an energy inequality for a
+suitable operator we, must have a minorization by $\exp(n)$ for some
+functions closely related to $u'_n$ above which will give a
+contradiction. More precisely we shall prove 
+
+\begin{proposition}\label{chap3-sec9-prop1} % \prop 1
+Let 
+\begin{equation*}
+\frac{\partial u}{\partial t} = H \wedge u + b(x, t) u + f
+\tag{9.2} \label{chap3-eq9.2} 
+\end{equation*}
+be an equation in the singular integral form with $\sigma (H) = h (x,
+t, \xi)$ satisfying 
+\begin{equation*}
+ \re h(x,t,\xi ) \le 0 \text{ for all } (x, t, \xi ) \text{ and
+} t \to h(x, t,\xi) \in C^\infty_{1 +  \sigma} \tag{9.3}\label{chap3-eq9.3} 
+\end{equation*}
+is continuous. Then given any $u_o \in \mathscr{D}^1_{L^2}$ and $f \in
+\mathscr{D}^1_{L^2}[0, h]$ there exists a unique solution 
+$$
+u \in \mathscr{D}^1_{L^2}[0, h] \text{~ of  \eqref{chap3-eq9.2} with~ } u(x, 
+0) = u_o(x). 
+$$
+ 
+ On the contrary, if there exists a $\xi^o$ such that $\re h(x, t,
+ \xi^o) > 0$ then the energy inequality cannot be obtained in the
+ $L^2$-space. Of course this does not immediately imply that the
+ Cauchy problem is not well posed in $\mathscr{D}^\infty_{L^2}$. 
+ 
+ We see\pageoriginale that $a(x, t, - \xi)= - a(x, t, \xi)$ which
+ shows that in the case of a differential operator \eqref{chap3-eq9.1} the
+ condition $\re a(x, t, \xi)  \equiv 0$ will be necessary for the
+ existence theorem. We analyse  this situation more clearly.  
+ \end{proposition}
+ 
+\setcounter{theorem}{0}
+\begin{theorem}\label{chap3-sec9-thm1} % \the 1
+Suppose there exists a real vector $\xi^o \in \underbar{R}^n$, $\xi^o
+\neq 0$ and $x^o$ such that $\Iim \sum a_k (x^o, 0) \xi^o_k < 0$. Then
+the forward Cauchy problem is not well posed for \eqref{chap3-eq9.1} in
+$\mathscr{E}$ or in $\mathscr{D}^\infty_{L^2}$ or in $\mathscr{B}$.  
+ \end{theorem} 
+
+\begin{remark*}%rema 0
+P.D. Lax \cite{key1} also proved a similar theorem, by using the
+characteristic method, that if eigenvalues are simple for the well
+posedness of the Cauchy problem it is necessary that the eigenvalues
+be real. 
+\end{remark*} 
+ 
+ We first prove an energy inequlity for a suitably modified operator
+ and then establish two lemmas for commutators which together will
+ prove the theorem. Suppose $x^0 = 0$. 
+ 
+ First of all we localize the differential operator given in
+ \eqref{chap3-eq9.1}. Suppose $u$ is a solution of \eqref{chap3-eq9.1}
+ of class  $\mathscr{E}^1$. Let 
+ $\beta (x) \in \mathscr{D}$ with support contained in a small
+ neighbourhood of the origin. Now 
+ \begin{equation}
+\frac{\partial}{\partial t} (\beta  u) = \sum a_k
+\frac{\partial}{\partial x_k} (\beta u) +  b (\beta u) - \sum a_k
+\frac{\partial \beta}{\partial x_k} u \tag{9.4} \label{chap3-eq9.4}
+\end{equation} 
+
+ Since the support of $\beta u$ and of $\dfrac{\partial}{\partial
+   x_k}(\beta u)$ are contained in the support of $\beta$ we can
+ modify $a_k$ and $b$ outside the support of $\beta$. We can write 
+ \begin{equation*}
+\frac{\partial}{\partial t} (\beta u) - \sum \tilde{a}_k (x, t)
+\frac{\partial}{\partial x_k} (\beta u) - \tilde{b} (x,t) (\beta u)
+=- \sum \tilde{a}_k (x,t) \frac{\partial \beta}{\partial x_k} \cdot u
+\tag*{$(9.4)'$} 
+ \end{equation*} 
+ where\pageoriginale $\tilde{a}_k$ and $\tilde{b}$ are equal to $a_k$
+ and $b$ respectively on the support of $\beta$ and   
+\begin{align*}
+{\rm(i)}~  &  \tilde{a}_k,  \; \tilde{b} \in \mathscr{B}^\infty_{x, t} \\
+{\rm(ii)}~ &  \im \sum \tilde{a}_k (x,t) \xi^o_k  < - \delta, \; \delta > 0
+  \text{ for all }(x,t) \text{ with } x \in  \underbar{R}^n \text{ and
+  } 0 \le t \le t_o \tag{9.5} \label{chap3-eq9.5}
+\end{align*}
+
+We can assume $|\xi^o| = 1$ if necessary by multiplying by a
+suitable constant. There exists a neighbourhood $V$ of $\xi^o$ such
+that  
+\begin{equation}
+\im  \sum \tilde{a}_k (x,t) \xi_k \le - \delta \text{ for } 0 \le t
+\le t_o, \xi \in V. \tag{9.6}  \label{chap3-eq9.6}
+\end{equation}
+
+Let $\hat{\alpha} \in \mathscr{D}$ with the support contained on $V$
+and $\hat{\alpha}(\xi) \equiv 1$ in a neighbourhood of $\xi^o$. Define
+$\hat{\alpha}_p$ by 
+\begin{equation}
+\hat{\alpha}_p (\xi) = \hat{\alpha} ( \frac{\xi}{p}), \alpha_p (x) =
+\bar{\mathscr{F}} [\hat{\alpha}_p (\xi ) ]. \tag{9.7} \label{chap3-eq9.7}
+ \end{equation} 
+ 
+Convolving both sides of $(9.4)'$ with $\alpha_p$ we obtain
+ \begin{align*}
+& \left(\frac{\partial}{\partial t} - \sum \tilde{a}_k
+   \frac{\partial}{\partial x_k} - \tilde{b} \right) \left(\alpha_p
+   *_{(x)} (\beta  u) \right) \equiv L \left[ \alpha_p *_{(x)} (\beta
+     u) \right] \\
+&= - \left[ \alpha_p *, L \right](\beta u) - \sum \tilde{a}_k
+   (\alpha_p 
+   *_{(x)}(\beta_k u)) - \sum \left[\alpha_p *_{(x)}, \tilde{a}_k
+     \right] (\beta_k  u). \tag{9.8} \label{chap3-eq9.8}
+\end{align*}
+where $\beta_k = \dfrac{\partial\beta}{\partial x_k}$.
+ 
+We rewrite
+ $$
+ \sum \tilde{a}_k \frac{\partial}{\partial x_k} (\alpha_p *_{(x)}v) =
+ H \wedge (\alpha_p *_{(x)}v) 
+ $$
+ where $v = \beta u$ and $\sigma (H)= 2 \pi i \sum \tilde{a}_k
+ \frac{\xi_k}{|\xi|} =  h(x, t, \xi)$. That is  
+ $$
+ H \wedge (\alpha_p *_{(x)}v) = \int \exp (2 \pi ix. \xi) \cdot h (x, t,
+ \xi)|  \xi | \hat{\alpha}_p  (\xi) \hat{v} (\xi) d \xi. 
+ $$\pageoriginale
+
+ This operator depends only on the value of the symbol $h$ on the set
+ $\{ \lambda V\}_{\lambda \geq 0}$ since the support of $| \xi |
+ \hat{\alpha_p} \hat{v}$ is contained in the set $\{ \lambda V
+ \}$. Hence we can modify the symbol $h$ to $h$ outside $\{ 
+ \lambda V\}$ as follows: 
+\begin{enumerate}[(i)]
+\item $\tilde{h} (x, t, \xi) \equiv h(x, t, \xi)$ for $\xi \in \lambda
+  V$ 
+
+\item $\re \tilde{h} (x, t, \xi) \ge \delta', \delta' > 0 $. 
+ \end{enumerate} 
+ 
+ Thus we have finally an equation
+ \begin{equation}
+( \frac{\partial}{\partial t} - \tilde{H}\wedge - \tilde{b}) ( \alpha_p
+   *_{(x)}(\beta u)) = f \tag{9.9} \label{chap3-eq9.9}
+ \end{equation} 
+ where $\tilde{H}$ is the singular integral operator whose symbol
+ $\sigma (\tilde{H})$ is $\tilde{h}, f$ being the right-hand side of
+ \eqref{chap3-eq9.8}. 
+ 
+\setcounter{lemma}{0}
+ \begin{lemma}\label{chap3-sec9-lem1}% \lem 1
+Suppose $H(t)$ is a singular integral operator of class
+$C^\infty_\beta$, $\beta = \infty$ such that  
+\begin{equation}
+\sigma (H) (x, t, \xi) \ge \delta' > 0. \tag{9.10} \label{chap3-eq9.10}
+\end{equation}
+
+Suppose $f \in L^2 [0, h]$ is given. If $u \in \mathscr{D}^1_{L^2}[0, 
+  h]$ satisfies 
+ \begin{equation}
+\frac{\partial}{\partial t} (\alpha_p *_{(x)} u) = H \wedge (\alpha_p
+*_{(x)}u) + b(x, t)( \alpha_p *_{(x)}u) +  f
+\tag{9.11} \label{chap3-eq9.11} 
+ \end{equation} 
+ then there exists $a\ \delta'' > 0$ such that 
+ \begin{equation}
+\frac{d}{dt} \| \alpha_p *_{(x)}u \|  \ge \delta'' p \| \alpha_p
+*_{(x)} u \| - \| f \| \tag{9.12}\label{chap3-eq9.12} 
+\end{equation} 
+for sufficiently large $p$.
+\end{lemma}
+
+\begin{proof}
+Let\pageoriginale us denote $\alpha_p  *_{(x)}u$ by $v_p$. Then we
+have   
+$$
+\frac{d}{d t} (v_p, v_p) = (( H \wedge  + \wedge H^*)v_p, v_p) + 2 \re 
+(bv_p, v_p) + 2 \re (v_p, f). 
+$$
+
+But $\wedge H^* = H^{\#} \wedge (\text{mod} \wedge^o)$ implies
+ $$
+ \frac{d}{dt}(v_p, v_p) =  (( H + H^{\#}) \wedge v_p , v_p) +  2  \re 
+ (bv_p, v_p) + 2  \re (v_p, f) + (Bv_p,  v_p), 
+ $$
+ with $B$ a bounded operator. If $P$ denotes the singular integral
+ operator $H + H^{\#}$ then $\sigma (P)\ge 2 s'$. We remark that $(P
+ \wedge^s - \wedge^s P) \wedge^\sigma$ is a bounded operator if $s,
+ \sigma \ge 0$ and  $s + \sigma \le 1$. Taking $s= \sigma =
+ \dfrac{1}{2}$ 
+ $$
+ P \wedge \equiv \wedge^{\frac{1}{2}} P \wedge^{\frac{1}{2}} (\text{mod~}
+ \wedge^0). 
+ $$
+
+ Hence 
+ $$
+ (P \wedge v_p, v_p) = P \wedge^{\frac{1}{2}} v_p,
+ \wedge^{\frac{1}{2}} v_p) + ((C v_p, v_p)  
+ $$
+ where $C = P \wedge - \wedge^{\frac{1}{2}} P \wedge^{\frac{1}{2}}$
+ is a bounded operator. Thus 
+ \begin{equation}
+\frac{d}{d t} (v_p, v_p) \ge \re ((H +H^{\#}) \wedge^{\frac{1}{2}}
+v_p, \wedge^{\frac{1}{2}} v_p) - \gamma_1 \| v_p \|^2 -2 v_p \|\;  \| f
+\|   \tag{9.13} \label{chap3-eq9.13}
+ \end{equation} 
+ on the other hand we have by G$\ring{\text{a}}$rding's lemma that  
+\begin{equation}
+\re ((H +H^{\#}) \wedge^{\frac{1}{2}} v_p, \wedge^{\frac{1}{2}}v_p)
+\ge \delta' (\wedge^{\frac{1}{2}}_{p}, \wedge^{\frac{1}{2}} v_p) -
+\gamma_2 \|  v_p \| ^2. \tag{9.14} \label{chap3-eq9.14}
+ \end{equation} 
+
+  Since the distance of the support of $\hat{v}_p (\xi, t) \equiv
+  \hat{\alpha}_p (\xi) \hat{u} (\xi, t)$ from the origin is larger
+  than $\sigma p$, $\sigma > 0$, we have by Plancheral's formula 
+ \begin{align*}
+(\wedge^{\frac{1}{2}} v_p, \wedge^{\frac{1}{2}} v_p) & = \int |\xi
+   |\hat{v}_p (\xi, t) |^2 d \xi \\ 
+& \ge \sigma p  \int | \hat{v}_p (\xi, t) |^2 d \xi = \sigma p \| v_p
+   \|^2  
+ \end{align*} 
+
+Thus\pageoriginale we have 
+ $$
+ \frac{d}{d t} \|v_p \|^2 \ge \sigma^{\delta'} p \|v_p \|^2 - (\gamma_1 +
+ \gamma_2) \|v_p \|^2 - 2 \| v_p \|\;\;  \| f \| 
+ $$
+ which implies
+ $$
+ \frac{d}{dt} \|v_p \| \ge ( \delta p - \gamma) \|  v_p \| - \| f \|  
+ $$ 
+ where  $\delta > 0 $, $\gamma > 0$ are constants. Therefore for large
+ $p ( \delta p- \gamma) \ge \delta'' _p$, $\delta'' >0$. 
+ 
+For such $p$ we have 
+$$
+ \frac{d}{dt} \| v_p \| \ge \delta '' p \| v_p \| - \|  f \|. 
+$$ 
+
+In other words we have
+\begin{equation}
+\frac{d}{dt} \| \alpha_p *_{(x)}u \| \ge \delta '' p \| \alpha_p
+*_{(x)}u \| - \|  f \| \tag{9.12}\label{chap3-eq9.12} 
+\end{equation} 
+completing the proof of the lemma.
+\end{proof}
+
+\begin{lemma}\label{chap3-sec9-lem2} % \lem 2
+If $a \in \mathscr{B}$ and $u \in \mathscr{D}^1_{L^2}$ there exists a
+constant $c > 0$ such that  
+\begin{gather*}
+\| \left[ \alpha_p *, a(x) \frac{\partial}{\partial x_j} \right] u \|  \le c
+\left\{ \sum_{1 \le  | \rho | \le m-1} \|  \frac{\partial}{\partial
+  x_j} (x^{\rho} \alpha_p) * u \| \right.\\
+\left.  +  \left( \sum_{| \rho | = m} \|
+\frac{\partial}{\partial x_j}(x^\rho \alpha_p) \|_{L^1} +  \| (x^\rho
+\alpha_p) \| _{L^1}\right) \| u \| \right\}. \tag{9.15}\label{chap3-eq9.15} 
+\end{gather*}
+ \end{lemma}
+
+\begin{proof}
+Let $v =  \left[ \alpha_p *, a(x) \dfrac{\partial}{\partial
+    x_j}\right] u$; then  
+$$
+v(x) = \int (a(y) - a(x)) \alpha_p (x-y) \frac{\partial u}{\partial
+  y_j} (y) dy. 
+$$
+ 
+Expanding\pageoriginale $a(y)- a(x)$ by mean value theorem upto order
+$m$, to be determine later,  
+ $$
+ a(y) - a(x) = \sum\limits_{1 \le | \varrho | \le m-1} \frac{(y -
+   x)^\rho}{\rho !} ( \frac{\partial}{\partial x})^\rho a(x) + \sum_{|
+   \rho | =m} a_\rho (x,y) (x-y)^\rho 
+ $$
+ and hence 
+ \begin{align*}
+ v(x) & = \sum\limits_{1 \le | \rho | \le m-1} \frac{(-1)^\rho}{\rho
+   !} (\frac{\partial}{\partial x})^\rho a(x) \frac{\partial}{\partial
+   x_j}(x^\rho \alpha_p) * u\\
+& \qquad  +  \sum\limits_{|\rho| = m}\int (x-y)^\rho
+ \alpha_p (x-y) a_\rho (x,y) \frac{\partial u}{\partial y_j}(y) \; dy.  
+ \end{align*}
+
+  Now \quad $\varphi (x) = \int (x-y)^\rho \alpha_p (x-y) a_\rho (x,y)
+  \dfrac{\partial u}{\partial y_j} (y) \, dy$ 
+ \begin{align*}
+& = - \int \frac{\partial}{\partial y_j} \left\{ (x-y)^\rho \alpha_p
+   (x-y) a_\rho (x,y) \right\} u(y) \, dy \\ 
+& = - \int \left\{ \frac{\partial}{\partial y_j} \left[ (x-y)^\rho
+     \alpha_p (x-y) \right] a_\rho (x,y)  \right.\\
+& \qquad  \left. +(x-y)^\rho \alpha_p (x-y)
+   \frac{\partial}{\partial y_j} a_\rho (x,y) \right\} u(y) \, dy. 
+ \end{align*} 
+
+ Hence $\|\varphi (x) \| \le c \| \; |x^\rho \alpha_p | *|u| +  |
+ \dfrac{\partial}{\partial x_j} (x^\rho \alpha_p) | *| u |
+ \|$. Applying Haus\-dorff-Young inequality to the right hand side we
+ obtain the desired inequality. 
+ 
+ Similarly one can prove that if $a \in \mathscr{B}$ and $u \in  L^2$
+ then  
+\begin{equation*} 
+\| [ \alpha_p *, a] u \| \le c \left\{ \sum_{1 \le |  \delta | \le
+  m-1} \| (x^\rho \alpha_p )* u \| + ( \sum_{| \rho |=m} \|
+x^\rho \alpha_p \|_{L^1}) \| u \| \right\}\tag{9.16} \label{chap3-eq9.16}
+\end{equation*} 
+where $c$ is a positive constant.
+ 
+ Now\pageoriginale we look  at the terms appearing in the right hand
+ side of \eqref{chap3-eq9.15}.  
+ 
+ First of all $\dfrac{\partial}{\partial x_j}(x^\rho \alpha_p) * u$
+ has its Fourier image $(2 \pi i \xi_j) (\hat{x^\rho} \alpha_p)
+ \hat{u} = (2 \pi i \xi_j) \hat{u}$. const.${\hat{\alpha}}^{\rho}_p
+ (\xi)$ which shows, since the support of ${\hat{\alpha}}^{\rho}_p
+ (\xi)$ has diameter $\sigma' p$ where $\sigma'$ is a constant
+ depending only on $\hat{\alpha}$, that, 
+ \begin{equation}
+\|  \frac{\partial}{\partial x_j}(x^\rho \alpha_p) * u \| \le c p \|
+(x^\rho \alpha_p) * u \|. \tag{9.17} \label{chap3-eq9.17} 
+ \end{equation} 
+
+ Next consider $\| x^\rho \alpha_p \|_{L^1}$ for $| \rho | = m$ 
+\begin{align*}
+\sup \left| x^\rho \alpha_p \right| & \le \text{ const. }  \int 
+|\hat{\alpha}^{(\rho )}_p (\xi)  | d \xi 
+ = \text{ const. } \int | ( \frac{\partial}{\partial \xi})^\rho
+ \hat{\alpha}_p (\xi)  | d \xi \\ 
+& = \text{ const. }  (\frac{1}{p})^{| \rho| -n} \int  | (
+\frac{\partial}{\partial \xi})^\rho \hat{\alpha}| d \xi. 
+ \end{align*}
+
+Similarly $| x |^{2n}| x^\rho \alpha_p | \le$ const
+ $\left(\dfrac{1}{p}\right)^{|\rho|+n} \int \left| \Delta^n_\xi (
+ \dfrac{\partial}{\partial \xi})^\rho \hat{\alpha}\right| d  \xi$
+ which implies that   
+ $$
+ (1 + |x|^{2n}) |x^\rho \alpha_p |\le \text{ const. }
+ \left(\frac{1}{p}\right)^{|\rho|-n}. 
+ $$
+
+Hence $\|x^\rho \alpha_p \|_{L^1} \le$ const. $\int \dfrac{dx}{1 + |
+  x|^{2n}} \cdot \left( \dfrac{1}{p}\right)^{ | \rho | -n} \le c
+\left(\dfrac{1}{p}\right)^{|\rho | -n}$. In the same way one can show that  
+ $$
+ \| \frac{\partial}{\partial x_j}(x^\rho \alpha_p) \|_{L^1} \le c\left(
+ \frac{1}{p}\right)^{| \rho | -n -1}. 
+ $$
+\end{proof}
+
+Thus we have proved the 
+
+\smallskip
+\noindent
+{\bf Corollary of Lemma \ref{chap3-sec9-lem2}:}
+If\pageoriginale $a \in \mathscr{B}$ and $u \in \mathscr{D}^1_{L^2}$ then 
+\begin{equation}
+\|  [ \alpha_p *, a (x) \frac{\partial}{\partial x_j} ] u \| \le c p
+\sum\limits_{1\le|\rho|\le m-1} \| (x^\rho \alpha_p) * u \| + O \left(
+\frac{1}{p^{m-n-1}}\right) \| u \|. \tag{9.18} \label{chap3-eq9.18}
+\end{equation} 
+
+This follows from \eqref{chap3-eq9.15}.
+
+Similarly it follows from  \eqref{chap3-eq9.16} that 
+\begin{equation*}
+\|  [ \alpha_p *, a (x)  ] u \| \le c  \sum\limits_{1\le|\rho|\le m-1}
+\| (x^\rho \alpha_p) * u \| + O (\frac{1}{p^{m-n}}) \|
+u\|. \tag*{$(9.18)'$}  
+\end{equation*}
+
+\begin{lemma}\label{chap3-sec9-lem3}% lemma 3
+If $L$ is a differential operator of the first order with its
+coefficients in $\mathscr{B}$ 
+\begin{equation*}
+L = \sum a_k (x) \frac{\partial}{\partial x_k} + b(x)
+\tag{9.19}\label{chap3-eq9.19} 
+\end{equation*}
+then for any $u \in  \mathscr{D}^1_{L^2}$
+\begin{equation*}
+\|  [ \alpha_p *, L ] u \| \le c  \sum\limits_{1\le|\rho|\le m-1} p\|
+(x^\rho \alpha_p) * u \| + O ( \frac{1}{p^{m-n-1}}) \| u
+\|. \tag{9.20} \label{chap3-eq9.20}
+\end{equation*}
+
+This is an immediate consequence of the inequalities \eqref{chap3-eq9.18} and
+$(9.18)'$. More generally one can prove exactlly in the same way 
+\begin{equation*}
+\| [ ( x^\nu \alpha_p ) *, L] u \| \le c
+\sum\limits_{|\nu|+1\le|\rho|\le m-1} \| (x^\rho \alpha_p) * u \| + O
+\left( \frac{1}{p^{m-n+ | \nu |}}\right) \| u
+\|.\tag{9.21} \label{chap3-eq9.21} 
+\end{equation*}
+and 
+\begin{equation*}
+\| [ ( x^\nu \alpha_p ) *, L] u \| \le cp
+\sum\limits_{|\nu|+1\le|\rho|\le m-1} \| (x^\rho \alpha_p) * u \| + O
+( \frac{1}{p^{m+  1 
+    | \nu | - n -}}) \| u \|. \tag{9.22} \label{chap3-eq9.22}
+\end{equation*}
+for every $u \in  \mathscr{D}^1_{L^2}$.
+\end{lemma}
+
+Now we\pageoriginale can complete the 
+
+\smallskip
+\noindent
+{\bf Proof of Theorem \ref{chap3-sec9-thm1}:~}
+We prove this theorem in the spaces $\mathscr{E}$. As we shall see from
+the method of proof the same will be valid for the spaces
+$\mathscr{D}^\infty_{L^2}$ and $\mathscr{B}$. The proof is by
+contradiction. 
+
+Suppose the Cauchy problem is well posed in the spaces. We construct a
+sequence of initial conditions $\psi_q (x)$ and consider the
+corresponding sequence of solutions $\psi_q(x)$ are defined as
+follows: 
+
+Let $V$ be a small a neighbourhood of $\xi^o$ and $\hat{\alpha} \in
+\mathscr{D}$ have its support in $V$ with $\hat{\alpha} (\xi) \equiv
+1$ in neighbourhood $V'$ of $\xi^o$, $V'  \subset V$. Take $a\
+\hat{\psi} \in \mathscr{D}$, $\hat{\psi} (\xi) \neq 0$ with support
+contained in $V'$. Denoting  
+$$
+\hat{\psi}_q ( \xi ) = \hat{\psi}( \xi - q \xi^o) 
+$$
+we have by taking inverse Fourier transforms
+\begin{equation}
+\psi_q (x) = \exp (2 \pi iqx. \xi^o ) \psi (x)
+\tag{9.23} \label{chap3-eq9.23} 
+\end{equation}
+$\psi_q \in \mathscr{E}$ (also in $\mathscr{D}^\infty_{L^2}$,
+$\mathscr{B}$). Further 
+\begin{equation}
+\| \psi_q \|_{\mathscr{E}^h} = O (q^h). \tag{9.24}\label{chap3-eq9.24}
+\end{equation}
+(We remark that \eqref{chap3-eq9.24} holds for the semi-norms in
+$\mathscr{D}^\infty_{L^2}$ and $\mathscr{B}$ also). 
+
+By hypothesis of the well posedness, the corresponding solution $u_q
+(x,t)$ of \eqref{chap3-eq9.1} having $\psi_q(x)$ as the initial data
+is estimated by   
+\begin{equation*}
+\sup\limits_{K} |u_q (x, t)| = O(q^h) \tag{9.25}\label{chap3-eq9.25}
+\end{equation*}
+for some fixed $h$ where $K$ is a compact set in the
+$(x,t)$-space. Also we see that  
+\begin{equation}
+\| \alpha_p  * (\beta \psi_p) \| \ge c >
+0. \tag{9.26}\label{chap3-eq9.26} 
+\end{equation}\pageoriginale
+
+In fact,
+\begin{gather*}
+\alpha_p *(\beta \psi_p ) =  \beta( \alpha_p * \psi_p) +  [ \alpha_p
+  *, \beta ] \psi_p. \\ 
+\| \beta(\alpha_p * \psi_p) \|  = \| \hat{\beta} * ( \hat{\alpha}_p
+\hat{\psi}_p) \| = \| \hat{\beta} *\hat{\psi}_p \|  = \| \beta \psi_p
+\| = \| \beta \psi \| >  0 
+\end{gather*}
+by using Plancheral's formula and the fact that $\hat{\alpha}_p \equiv
+1$ on the support of $\hat{\psi}_p, \psi$ being an analytic function
+and $\|\beta \psi ||> 0$. On the other hand it is easy to see that $\|
+[\alpha_p *, \beta] \psi_p \| = O\left(\dfrac{1}{p}\right)$. Now we prove this
+leads to contradiction as follows. Instead of $\alpha_p * (\beta u)$
+in \eqref{chap3-eq9.8} we consider $( x^\nu \alpha_p) * (\beta^\nu
+u_p)$ with $| \nu | \le m-1$, $| \nu | \le m + mh$ which form a system
+of localisers, $\beta^\mu = \left( \dfrac{\partial}{\partial
+  x}\right)^\mu \beta (x)$. Then we have   
+$$  
+\left( \frac{\partial}{\partial t} - \sum 
+\tilde{a}_{k}\frac{\partial}{\partial x_k} - \tilde{b}\right) (( x^\nu
+\alpha_p) * ( \beta^\mu u_p)) 
+$$  
+\begin{align*}
+= [L, (x^\nu \alpha_p ) *] (\beta^{\mu} u_p) &- \sum \tilde{a}_k ((
+x^\nu \alpha_p ) *  ( \beta^{\mu_k} u_p)) \\ 
+&- \sum [(x^\nu \alpha_p ) *, \tilde{a}_k ] ( \beta^{\mu_k} u_p) 
+\end{align*}
+where $\mu_k = \mu +  e_k$, $\ell_k = (0, \ldots , 1 , \ldots , 0)$
+the $kth$ component is 1. 
+
+Applyinginequallity \eqref{chap3-eq9.12} for $(x^\nu \alpha_p) * (
+\beta^\mu u_p)$ 
+and using inequalities \eqref{chap3-eq9.21}, \eqref{chap3-eq9.22} with
+$m = h  + n +2$, we have   
+{\fontsize{10pt}{12pt}\selectfont
+\begin{gather*}
+\frac{d}{dt} \|  ( x^\nu \alpha_p) * ( \beta^\mu u_p) \| \ge \delta''
+p \| (x^\nu \alpha_p) * ( \beta^\mu u_p) \| - \| f \| \\ 
+\ge \delta'' p \| (x^\nu \alpha_p) * ( \beta^{(\mu)} u_p) \| - cp
+\sum\limits_{|\nu|+1\le|\rho\le m-1} || (x^\rho \alpha_p) *  ( \beta^\mu
+u_p) \| \\ 
+- c \sum\limits_{\substack{|\nu|+1\le|\rho|\le m-1 \\ |\mu'|=|\mu|+1}}
+\| (x^\rho \alpha_p)   * ( \beta^{(\mu ')} u_p )\| -c 
+\sum\limits_{|\mu'|=|\mu|+1} \| (x^\nu \alpha_p) * ( \beta^{\mu'}u_p)\|
+- O \left( \frac{1}{p}\right)   
+\end{gather*}}
+
+Now\pageoriginale consider the functions $\theta_p(\nu, \mu) u_p$
+defined by  
+$$
+\theta_p (\nu, \mu )u_p = p^{\theta(|\nu|-|\mu|)} (x^\nu)\alpha_p) *
+(\beta^{(\mu)}u_p)  
+$$
+where $0<\theta<1$. In fact we take $\theta = \dfrac{1}{m}$. We
+have from above inequality  
+\begin{gather*}
+\frac{d}{dt} || \theta_p (\nu, \mu ) u_p || \geq \delta '' p ||
+\theta_p (\nu , \mu ) u_p || - cp^{1 - \theta}  \sum_{ |\nu| + 1 \leq
+  |\rho| \leq m -1} || \theta_p (\rho , \mu )u_p || \\ 
+  -  c p^\theta \sum_{ |\mu | = |\mu | + 1 } || \theta _p (\nu , \mu'
+  ) u_p || - c \sum_{\substack{|\nu | + 1 |\leq 1|\rho| \leq m-1\\ |\mu'| =
+      |\mu|+1}}  || \theta _p (\rho , \mu') u_p || \\
+  - p^{\theta (|\nu | - | \mu |)} O (\frac{1}{p}).
+  \tag{9.27}\label{chap3-eq9.27} 
+\end{gather*}
+
+Now if $|\mu'| = m + mh $ we have, by \eqref{chap3-eq9.25}
+$$
+|| \theta_p (\nu , \mu ) u_p || \leq c p^{\theta(|\nu | - | \mu |)}
+|| u _p || \leq c' p^{ \theta(|\nu| - |\mu |) + h}.  
+$$
+
+But $\theta (|\nu | - |\mu |) \leq \theta (m - 1- m - mh - 1) = \theta 
+(-mh - 2) = - h - 2 \theta$ since $\theta = \dfrac{1}{m}$. Thus $||
+\theta_p (\nu, \mu )u_p || \leq c p^{-2 \theta }$. Denoting  
+$$
+S_p (t) = \sum_{\substack{0 \leq | \nu | \leq m - 1  \\ 0 \leq | \mu
+    | \leq m + mh} } || \theta_p (\nu, \mu ) u_p (t) ||  
+$$
+we have from \eqref{chap3-eq9.27} that 
+\begin{align*}
+\frac{d}{dt} S_p (t) & \geq  \delta''  p S_p (t) - c p ^{1 -\theta }
+S_p (t) - O (1) \\ 
+& \geq \gamma'' p S_p (t) - O (1) \text{ for large  }  p, r'' > 0.  
+\end{align*}
+
+Integrating this with respect to $t$ 
+\begin{align*}
+S_p (t) & \geq \exp (\gamma'' pt ) S_p(0)  - \int\limits^t_0 \exp (r''
+p(t - s)) O (1) ds  \\  
+& = \exp (\gamma'' ~ pt )  \left[ S_p (0) -
+  O\left(\frac{1}{p}\right)\right].  
+\end{align*}\pageoriginale
+
+But $S_p (0) = \sum\limits_{\substack{0 \leq |\nu| \leq m - 1 \\ 0 \leq | \mu
+    | \leq m + mh}}  ||  \theta_p (\nu,  \mu ) u_p (0) || \geq ||
+\alpha_p * (\beta u_p) (0) || \geq c > 0$ by \eqref{chap3-eq9.26} 
+for large
+$p$. Hence for every fixed $t$ the function $S_p (t)$ increases
+exponentially with respect to $p$ i.e. $S_p (t) \geq c e^{\gamma''{\rm
+    pt}}$. On the other hand   
+$$
+|| \theta_p (\nu , \mu ) u_p (t) || = p^{\theta (|\nu| - |\mu|)} ||
+(x^\nu \alpha_p) * (\beta^\mu u_p)||  
+$$
+and $|| \beta^\mu u_p (t) || = 0 (p)^h$. Hence $S_p (t) \geq c p^k $ 
+for a large $k$. In fact $||\theta_p (\nu, \mu ) u_p (t) || \leq
+0(p^{h +1 })$ since $\theta | \nu | < 1 )$. This is a
+contradiction. This completes the proof of the theorem
+\ref{chap3-sec9-thm1}.   

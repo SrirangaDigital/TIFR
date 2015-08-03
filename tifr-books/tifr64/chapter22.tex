@@ -1,0 +1,1233 @@
+\chapter{Large Deviations}\label{chap22}
+
+LET\pageoriginale $P_{\epsilon}$ BE THE Brownian motion starting from
+zero scaled to Brownian motion corresponding to the operator
+$\epsilon\dfrac{\Delta}{2}$. More precisely, let
+$$
+P_{\epsilon}(A)=P\left(\frac{A}{\sqrt{\epsilon}}\right)
+$$
+where $P$ is the Brownian motion starting at time $0$ at the point
+$0$.
+
+\begin{interpretation}\label{chap22-inter1}
+Let $\{X_{t}:t\geq 0\}$ be Brownian motion with $X(0)=x$. Let
+$Y(t)=X(\epsilon t)$, $\forall t\geq 0$. Then $P_{\epsilon}$ is the
+measure induced by the process $Y(t)$. This amounts to stretching the
+time or scaling time.
+\end{interpretation}
+
+\begin{interpretation}\label{chap22-inter2}
+Let $Y(t,\cdot)=\surd\epsilon X(t,\cdot)$. In this case also
+$P_{\epsilon}$ is the measure induced by the process
+$Y(t,\cdot)$. This amounts to `looking at the process from a distance'
+or scaling the length.
+\end{interpretation}
+
+\begin{exer*}
+Make the interpretations given above precise.
+
+\noindent
+(Hint: Calculate (i) the probability that $X(\epsilon t)\in A$, and
+(ii) the probability that $\surd\epsilon X(t,)\in A$).
+\end{exer*}
+
+\begin{problem*}
+Let
+$$
+I(w)=\frac{1}{2}\int\limits^{1}_{0}|\dot{w}(t)|^{2}dt
+$$
+if $w(0)=0$, $w$ absolutely continuous on $[0,1]$. Put $I(w)=\infty$
+otherwise. We would like to evaluate
+$$
+\int\limits_{\Omega}e^{\frac{F(w)}{\epsilon}}dP_{\epsilon}(w)
+$$
+for\pageoriginale small values of $\epsilon$. Here $F(w):C[0,1]\to
+\mathbb{R}$ is 
+assumed to the a bounded and continuous function.
+\end{problem*}
+
+
+\begin{theorem*}
+Let $C$ be any closed set in $C[0,1]$ and let $G$ be any open set in
+$C[0,1]$. Then
+\begin{align*}
+&\mathop{\lim\sup}\limits_{\epsilon\to 0}\in\log P_{\epsilon}(C)\leq
+  -\int\limits_{w\in C}I(w),\\
+&\q \mathop{\lim\inf}_{\epsilon\to 0}\epsilon \log P_{\epsilon}(G)\geq
+  -\inf\limits_{w\in G}I(w).
+\end{align*}
+
+Here $P_{\epsilon}(G)=P_{\epsilon}(\pi^{-1}G)$ where
+$\pi:C[0,\infty)\to C[0,1]$ is the canonical projection.
+\end{theorem*}
+
+\noindent
+\textbf{\textit{Significance of the theorem }}.~ If
+\begin{enumerate}
+\item
+$$
+dP_{\epsilon}=e^{\frac{-I(w)}{\epsilon}},
+$$
+then
+$$
+P_{\epsilon(A)}=\int\limits_{A}e^{\frac{-I(w)}{\epsilon}}dP_{\epsilon}
+$$
+is asymptotically equivalent to
+$$
+\exp[-\frac{1}{\epsilon}\inf\limits_{w\in A}I(w)].
+$$
+
+\item If $A$ is any set such that
+$$
+\inf\limits_{w\in A^{0}}I(w)=\inf\limits_{w\in \overline{A}}I(w),
+$$
+then by the theorem
+$$
+\Lt\limits_{\epsilon\to 0}\log P_{\epsilon}(A)=\inf\limits_{w\in
+  A}I(w).
+$$
+\end{enumerate}
+
+\noindent
+{\bf Proof of the theorem.}\pageoriginale
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap22-lem1}
+Let $w_{0}\in \Omega$ with $I(w_{0})=\ell<\infty$. If
+$S=S(w_{0};\delta)$ is any sphere of radius $\delta$ with centre at
+$w_{0}$ then $\varliminf\limits_{\epsilon\to 0}\in \log
+P_{\epsilon}(S)\geq -I(w_{0})$. 
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+& P(S)=\int \chi^{(w)}_{S(w_{0},\delta)}dP_{\epsilon}\\
+&\qq =\int\chi_{S(0;)}^{(w-w_{0})}dP_{\epsilon}\\
+&= \int \chi_{S(0;\delta)}(\lambda
+  w)dP\left(\frac{w}{\sqrt{\epsilon}}\right),\quad\text{where}\quad
+  \lambda(w)=w-w_{0},\\
+&= \int \chi_{S(0;\delta)}(\lambda(\surd\epsilon w))dP(w)\\
+&= \int\chi_{S(0,\delta)}(\surd \epsilon w)\exp
+  \left[\int\limits^{1}_{0}\langle w_{0},dX\rangle
+    -\frac{1}{2}\int\limits^{1}_{0}|\dot{w}_{0}|^{2}d\sigma\right]dP(w)\\
+&=\int\chi_{S(0;\delta)}(\surd \epsilon w)\exp
+  \left[\int\limits^{1}_{0}\langle \dot{w}_{0},dX\rangle
+    -I(w_{0})\right]dP(w)\\
+&= \int\chi_{S(0;\delta)}(w)\exp
+  \left[-\frac{1}{\epsilon}\int\limits^{1}_{0}\langle
+    \dot{w}_{0},dX\rangle
+    -\frac{1}{\epsilon}I(w_{0})\right]dP_{\epsilon}(w)\\
+&=
+  e^{\frac{-I(w_{0})}{\epsilon}}P_{\epsilon}(S(0;\delta))\frac{1}{P_{\epsilon}(S(0;\delta))}\int\limits_{S(0;\delta)}\exp\left[-\frac{1}{\epsilon}\int\limits^{1}_{0}\langle
+    \dot{w}_{0},dX\rangle\right]dP_{\epsilon}\\
+&\geq
+  e^{\frac{-I(w_{0})}{\epsilon}}P_{\epsilon}(S(0;\delta))e\left[-\frac{1}{\epsilon}\frac{1}{P_{\epsilon}(S(0;\delta))}\int\limits_{S(0;\delta)}\int\limits^{1}_{0}\langle
+    \dot{w}_{0},dX\rangle dP_{\epsilon}\right]\\
+&\qq\qq \text{by Jensen's inequality,}\\
+&=
+  e^{\frac{-I(w_{0})}{\epsilon}}P_{\epsilon}(S(0,\delta))e^{0}(\text{use~
+  } P_{\epsilon}(w)=P_{\epsilon}(-w)\text{~ if~ }w\in S(0;\delta))\\
+&= e^{\frac{-I(w_{0})}{\epsilon}}P_{\epsilon}(S(0,\delta)).
+\end{align*}\pageoriginale
+
+Therefore
+$$
+P_{\epsilon}(S(w_{0};\delta))\geq
+e^{\frac{-I(w_{0})}{\epsilon}}P(S(0;\frac{\delta}{\sqrt{\epsilon}}))
+$$
+or,
+$$
+\epsilon\log P_{\epsilon}(S(w_{0};\delta))\geq -I(w_{0})+\epsilon \log
+P(S(0;\frac{\delta}{\sqrt{\epsilon}}));
+$$
+let $\epsilon\to 0$ to get the result. Note that the Lemma is
+trivially satisfied if $I(w_{0})=+\infty$.
+\end{proof}
+
+\noindent
+{\bf Proof of Part 2 of the theorem.}
+
+Let $G$ be open, $w_{0}\in G$; then there exists $\delta>0$ with
+$S(w_{0},\delta)\subset G$. By Lemma \ref{chap22-lem1}
+$$
+\varliminf\limits_{\epsilon\to 0}\in \log P_{\epsilon}(G)\geq
+\varliminf\limits_{\epsilon\to 0}\in \log
+P_{\epsilon}(S(w_{0};\delta))\geq -I(w_{0}).
+$$
+
+Since $w_{0}$ is arbitrary, we get
+$$
+\varliminf \in \log P_{\epsilon}(G)\geq -\inf \{I(w_{0}):w_{0}\in G\}.
+$$
+
+For part 1 we need some more preliminaries.
+
+\begin{lemma}\label{chap22-lem2}
+Let $(w_{n})\in C[0,1]$ be such that $w_{n}\to w$ uniformly on
+$[0,1]$, $I(w_{n})\leq \alpha< \infty$. Then $I(w)<\alpha$, i.e. $I$
+is lower semi-continuous.
+\end{lemma}
+
+\begin{proof}
+\setcounter{step}{0}
+\begin{step}%1
+$w$ is absolutely continuous. Let $\{(x'_{i},x''_{i})\}^{n}_{i=1}$ be
+  a collection of mutually disjoint intervals in $[0,1]$. Then
+\begin{align*}
+&\sum^{n}_{i=1}|w_{m}(x'_{i})-w_{m}(x''_{i})|\leq
+\sum\limits^{n}_{i=1|}|x''_{i}-x'_{i}|^{1/2}[\int\limits^{x''_{i}}_{x'_{i}}|w_{m}|^{2}]^{1/2}\\
+&\hspace{3cm} \text{(by H\"older's inequality)}\\
+&\q \leq
+\left(\sum\limits^{n}_{i=1}\int\limits^{x''_{i}}_{x'_{i}}|w_{m}|^{2}\right)^{1/2}\left(\sum\limits^{n}_{i=1}|x''_{i}-x'_{i}|\right)^{1/2}\q\text{(again
+  by H\"older)}\\
+&\q \leq \surd(2\alpha)(\sum |x''_{i}-x'_{i}|)^{1/2}.
+\end{align*}\pageoriginale
+
+Letting $m\to \infty$ we get the result.
+\end{step}
+
+\begin{step}%2
+Observe that $w_{m}(0)=0S_{0}w(0)=0$. Therefore
+\begin{gather*}
+|\frac{w_{n}(x+h)-w_{n}(x)}{h}|^{2}=|\frac{1}{h}\int\limits^{x+h}_{x}w_{n}dt|^{2}\leq
+\frac{1}{h^{2}}\left(\int\limits^{x+h}_{x}|w_{n}|dt\right)^{2}\\
+\leq \frac{1}{h}\int\limits^{x+h}_{x}|w_{n}|^{2}dt.
+\end{gather*}
+
+Hence
+\begin{align*}
+\int\limits^{1-h}_{0}|\frac{w_{n}(x+h)-w_{n}(x)}{h}|^{2}dx
+&\leq
+\frac{1}{h}\int\limits^{1-h}_{0}dx\int\limits^{h}_{0}|(\dot{w}_{n}(x+t))|^{2}dt\\ 
+&\leq
+\frac{1}{h}\int\limits^{h}_{0}dt\int\limits^{1-h}_{0}|\dot{w}_{n}(x+t)|^{2}dx\\ 
+&\leq \frac{1}{2}2\int\limits^{h}_{0}dt=2\alpha
+\end{align*}
+letting $n\to \infty$, we get
+$$
+\int\limits^{1-h}_{0}|\frac{w(x+h)-w(x)}{h}|^{2}dx\leq 2\alpha.
+$$
+
+Let $h\to 0$ to get $I(w)\leq \alpha$, completing the proof.
+\end{step}
+\end{proof}
+
+\begin{lemma}\label{chap22-lem3}
+Let\pageoriginale $C$ be closed and put
+$C^{\delta}=\bigcup\limits_{w\in C}S(w;\delta)$; then
+$$
+\lim\limits_{\delta\to 0}(\inf\limits_{w\in
+  C^{\delta}}I(w))=\inf\limits_{w\in C}I(w).
+$$
+\end{lemma}
+
+\begin{proof}
+If $\delta_{1}<\delta_{2}$, then $C^{\delta_{1}}\subset
+C^{\delta_{2}}$ so that $\inf\limits_{w\in C^{\delta}}I(w)$ is
+decreasing. As $C^{\delta}\supset C$ for each $\delta$,
+$$
+\lim\limits_{\delta\to 0}(\inf\limits_{w\in C^{\delta}}I(w))\leq
+\inf\limits_{w\in C}I(w)
+$$
+
+Let $\ell=\lim\limits_{\delta\to 0}(\inf\limits_{w\in
+  C^{\delta}}I(w))$. Then there exists $w_{\delta}\in C^{\delta}$ such
+that $I(w_{\delta})\to \ell$, and therefore $(I(w_{\delta}))$ is a
+bounded set bounded by $\alpha$ (say).
+
+
+\begin{claim*}
+\begin{align*}
+|w_{\delta}(t_{1})-w_{\delta}(t_{2})| &=
+|\int\limits^{t_{2}}_{t_{1}}w_{\delta}dt|\leq \surd
+|(|t_{1}-t_{2}|)(\int|w_{\delta}|^{2})^{1/2}\\
+&\leq \surd (2\alpha|t_{1}-t_{2}|).
+\end{align*}
+
+The family $(w_{\delta})$ is therefore equicontinuous which, in view
+of the fact that $w_{\delta}(0)=0$, implies that it is uniformly
+bounded and the claim follows from Ascoli's theorem. Hence every
+subfamily of $(w_{\delta})$ is equi\-continuous. By Ascoli's theorem
+there exists a sequence $\delta_{n}\to 0$ such that $w\delta_{n}\to w$
+uniformly on $[0,1]$. It is clear that $w\in C$. By lower
+semicontinuity of $I(w)$,
+$$
+\lim\limits_{\delta\to 0}\inf\limits_{w\in C^{\delta}}I(w)\geq
+\inf\limits_{w\in C}
+$$
+completing the proof.
+\end{claim*}
+\end{proof}
+
+\noindent
+{\bf Proof of Part 1 of the theorem.}~ Let\pageoriginale $X$ be continuous in
+$[0,1]$. For each $n$ let $X_{n}$ be a piecewise linear version of $X$
+based on $n$ equal intervals, i.e.\@ $X_{n}$ is a polygonal function
+joining the points $(0,X(0))$, $(1/n,X(1/n)),\ldots,\break (1,X(1))$.
+\begin{gather*}
+P_{\epsilon}(||X_{n}-X||\geq \delta), (||\cdot||=||\cdot||_{\infty})\\
+\leq P\left(\bigcup\limits_{n}\sup\limits_{i\leq j\leq n}\cdot
+\sup\limits_{\frac{j-1}{n}\leq t\leq
+  \frac{j}{n}}|X_{r}(t)-X_{r}\left(\frac{j-1}{n}\right)|\geq
+\frac{\delta}{2\surd d}\right),\\
+\text{where}\q X=(X_{1},\ldots,X_{d}).
+\end{gather*}
+$\leq nd P_{\epsilon}(\sup\limits_{0\leq t\leq 1/n}|X(t)-X(0)|\geq
+\dfrac{\delta}{2\surd d}$ (Markov property; here $X$ is one-dimensional).
+\begin{align*}
+&\leq nd P_{\epsilon}\left(\sup\limits_{0\leq t\leq 1/n}|X_{t}|\geq
+  \frac{\delta}{2\surd d}\right)\q(\text{since~ } X(0)=0)\\
+&\leq 2nd\ P_{\epsilon}(\sup\limits_{0\leq t\leq 1/n}X_{t}\geq
+  \frac{\delta}{2\surd d})\\
+&=2dn\ P(\sup\limits_{0\leq t\leq 1/n}X_{t}\geq \frac{\delta}{2\surd
+    \epsilon d})\\
+&= 4dn\ P(X(1/n)\geq \frac{\delta}{2\surd\epsilon d})\q\text{(by the
+    reflection principle)}\\
+&=4dn\ \int\limits^{\infty}_{\delta\surd n/2\surd \epsilon
+    d}\frac{1}{\surd 2\pi /n}e^{-ny^{2}/2}dy\\
+&= 4d\ \int\limits^{\infty}_{\delta\surd n/2\surd \epsilon
+    d}\frac{1}{\surd 2\pi}e^{-x^{2}/2}dx
+\end{align*}
+
+Now, for every $a>0$,
+$$
+a\int\limits^{\infty}_{a}e^{-x^{2}/2}dx\leq
+\int\limits^{\infty}_{a}xe^{-x^{2}/2}dx=e^{-a^{2}/2}. 
+$$
+
+Thus\pageoriginale
+$$
+P_{\epsilon}(||X_{n}-X||\geq \delta)\leq
+\frac{4dn\ e^{-n\delta^{2}/(8\in d)}}{\delta\surd n/2\sqrt{\epsilon}
+  d}=C_{1}(n)\frac{\surd \epsilon}{\surd\delta}e^{-n\delta^{2}/(8\in
+  d)},
+$$
+where $C_{1}$ depends only on $n$. We have now
+\begin{align*}
+P_{\epsilon}(X_{n}\in C^{\delta}) &\leq P_{\epsilon}(I(X_{n})\geq
+\ell_{\delta})\text{~ where~ }\ell_{\delta}=\inf \{I(w)w\in
+C^{\delta}\}.\\
+&=
+P\left(\frac{1}{2}\sum\limits^{n-1}_{j=0}n|X\left(\frac{j+1}{n}\right)-X\left(\frac{j}{n}\right)|^{2}\geq
+\ell_{\delta}\right)\\
+&= P\left(Y^{2}_{1}+Y^{2}_{2}+\cdots+Y^{2}_{nd}\geq
+\frac{2\ell_{\delta}}{\epsilon}\right), 
+\end{align*}
+where $Y_{1}=\surd n(X_{1}(1/n)-X_{1}(0))$ etc.\@ are {\em
+  independent} normal random variables with mean $0$ and variance
+$1$. Therefore,
+\begin{align*}
+& P(Y^{2}_{1}+\cdots+Y^{2}_{nd}\geq \frac{2\ell_{\delta}}{\epsilon})\\
+&=\int\limits_{y^{2}_{1}+\cdots+y^{2}_{nd}}\frac{2\ell_{\delta}}{\epsilon}e^{-(y^{2}_{1}+\cdots+y^{2}_{nd})^{1/2}}dy_{1}\ldots
+  dy_{nd}.\\
+&=
+  C(n)\int\limits^{\infty}_{\surd(2\ell_{\delta}/\epsilon)}e^{-r^{2}/2}r^{nd-1}dr, 
+\end{align*}
+using polar coordinates, i.e.
+$$
+P(Y^{2}_{1}+Y^{2}_{2}+\cdots+Y^{2}_{nd}\geq
+\frac{2\ell_{\delta}}{\epsilon})=C'(n)\int\limits^{\infty}_{(\ell_{\delta}/\epsilon)}e^{-s}s^{\frac{nd}{2}-1}ds
+$$
+(change the variable from $r$ to $s=\dfrac{r^{2}}{2}$). An integration
+by parts gives
+$$
+\int\limits^{\infty}_{\alpha}e^{-s}s^{k}ds=e^{-\alpha}(\alpha^{k}+\frac{k!}{(k-1)!}\alpha^{k-2}+\cdots). 
+$$
+
+Using this estimate (for $n$ even) we get
+$$
+P((Y^{2}_{1}+\cdots+Y^{2}_{nd})\geq
+\frac{2\ell_{\delta}}{\epsilon})\leq
+C_{2}(n)e^{-\ell_{\delta}/\epsilon}(\frac{\ell_{\delta}}{\epsilon})^{\frac{nd}{2}-1},
+$$
+where $C_{2}$ depends only on $n$. Thus,
+\begin{align*}
+P_{\epsilon}(C) &\leq P_{\epsilon}(||X_{n}-X||\geq
+\delta)+P_{\epsilon}(X_{n}\not\in C^{\delta})\\
+&\leq C_{1}(n)\surd\left(\frac{\epsilon}{\delta}\right)e^{-n\delta^{2}/(8\in
+  d)}+C_{2}(n)e^{-\ell_{\delta}/\epsilon}\left(\frac{\ell_{\delta}}{\epsilon}
+\right)^{\frac{nd}{2}-1}\\ 
+&\leq 2\max [C_{1}(n)\surd
+  \left(\frac{\epsilon}{\delta}\right)e^{-n\delta^{2}/(8\in
+    d)},C_{2}(n)e^{-\ell_{\delta}/\epsilon}
+\left(\frac{\ell_{\delta}}{\epsilon}\right)^{\frac{nd}{2}-1} \\
+&\in \log P_{\epsilon}(C)\leq \epsilon \log 2+\epsilon
+\max[\log(C_{1}(n)\surd\left(\frac{\epsilon}{\delta}\right)e^{-n\delta^{2}/(8\in
+    d)}\\
+&\qq \log
+  C_{2}(n)e^{-\ell_{\delta}/\epsilon}(\frac{\ell_{\delta}}{\epsilon})^{\frac{nd}{2}-1}] 
+\end{align*}\pageoriginale
+
+
+Let $\epsilon\to 0$ to get
+$$
+\varlimsup \in \log P_{\epsilon}(C)\leq \max
+\left\{\frac{-n\delta^{2}}{8d},\frac{-\ell_{\delta}}{1}\right\}.
+$$
+
+Fix $\delta$ and let $n\to \infty$ through even values to get
+$$
+\varlimsup \in \log P_{\epsilon}(C)\leq -\ell_{\delta}.
+$$
+
+Now let $\delta\to 0$ and use the previous lemma to get
+$$
+\varlimsup\limits_{\epsilon\to 0}\in \log P_{\epsilon}(C)\leq
+-\int\limits_{w\in C}I(w).
+$$
+
+\begin{prop*}
+Let $\ell$ be finite; then $\{w:I(w)\leq \ell\}$ is compact in $\Omega$.
+\end{prop*}
+
+\begin{proof}
+Let $(w_{n})$ be any sequence, $I(w_{n})\leq \ell$. Then
+$$
+|w_{n}(t_{1})-w_{n}(t_{2})|\leq \surd(\ell|t_{1}-t_{2}|)
+$$
+and since $w_{n}(0)=0$, we conclude that $\{w_{n}\}$ is equicontinuous
+and uniformly bounded.
+\end{proof}
+
+\noindent
+{\bf Assumptions.}~ Let $\Omega$ be any separable metric space,
+$\mathscr{F}=$ Borel $\sigma$-field on $\Omega$. For every
+$\epsilon>0$ let $P_{\epsilon}$ be a probability measure. Let
+$I:\Omega\to [0,\infty]$ be any function such that
+\begin{itemize}
+\item[(i)] $I$ is lower semi-continuous.
+
+\item[(ii)] $\forall$\pageoriginale finite $\ell$, $\{w:I(w)\leq
+  \ell\}$ is compact.
+
+\item[(iii)] For every closed set $C$ in $\Omega$,
+$$
+\lim\limits_{\epsilon\to 0}\sup \in \log P_{\epsilon}(C)\leq
+-\inf\limits_{w\in C}I(w).
+$$
+
+\item[(iv)] For every open set $G$ in $\Omega$
+$$
+\lim\limits_{\epsilon\to 0}\inf \in \log P_{\epsilon}(G)\geq
+-\inf\limits_{w\in G}I(w).
+$$
+\end{itemize}
+
+\begin{remark*}
+Let $\Omega=C[0,1]$, $P_{\epsilon}$ the Brownian measure corresponding
+to the scaling $\epsilon$. If
+$I(w)=\dfrac{1}{2}\int\limits^{1}_{0}|w|^{2}dt$ if $w(0)=0$ and
+$\infty$ otherwise, then all the above assumptions are satisfied.
+\end{remark*}
+
+\begin{theorem*}
+Let $F:\Omega\to \mathbb{R}$ be bounded and continuous. Under the
+above assumptions the following results hold.
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\rm(\theenumi)}
+\item For every closed set $C$ in $\Omega$
+$$
+\lim\limits_{\epsilon\to 0}\sup \epsilon \log \int\limits_{C}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq \sup\limits_{w\in C}(F(w)-I(w)).
+$$ 
+
+\item For every open set $G$ in $\Omega$
+$$
+\lim\limits_{\epsilon\to 0}\inf\in \log\int\limits_{G}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\geq \sup\limits_{w\in
+  G}(F(w)-I(w)).
+$$
+In particular, if $G=\Omega=C$, then
+$$
+\lim\limits_{\epsilon\to 0}\in \log \int\limits_{\Omega}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}=\sup\limits_{w\in
+  \Omega}(F(w)-I(w)).
+$$
+\end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+Let $G$ be open, $w_{0}\in G$. Let $\delta\to 0$ be given. Then there
+exists a neighbourhood $N$ of $w_{0}$, $F(w)\geq F(w_{0})-\delta$,
+$\forall w$ in $N$. Therefore
+$$
+\int\limits_{G}\exp\frac{F(w)}{\epsilon}dP_{\epsilon}\geq
+\int\limits_{N}\exp \frac{F(w)}{\epsilon}dP_{\epsilon}\geq
+e^{\frac{F(w_{0})-\delta}{\epsilon}}P_{\epsilon}(N). 
+$$\pageoriginale
+
+Therefore
+$$
+\epsilon \log\int\limits_{G}\exp\frac{F(w)}{\epsilon}dP_{\epsilon}\geq
+F(w_{0})-\delta+\epsilon \log P_{\epsilon}(N).
+$$
+
+Thus
+\begin{gather*}
+\varliminf \log \int\limits_{G}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\geq F(w_{0})-\delta+\varliminf
+\epsilon \log P_{\epsilon}(N).\\
+\geq F(w_{0})-\delta-\inf\limits_{w\in N}I(w)\geq F(w_{0})-I(w_{0})-\delta.
+\end{gather*}
+
+Since $\delta$ and $w_{0}$ are arbitrary $(w_{0}\in G)$ we get
+$$
+\varliminf \in \log \int\limits_{G}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\geq \sup\limits_{w\in
+  G}(F(w)-I(w)).
+$$
+
+This proves Part (ii) of the theorem.
+\end{proof}
+
+\noindent
+{\bf Proof of Part (i).}~ 
+\setcounter{step}{0}
+\begin{step}%1
+Let $C$ be compact; $L=\sup\limits_{w\in G}(F(w)-I(w))$. If
+$L=-\infty$ it follows easily that
+$$
+\lim\limits_{\epsilon\to 0}\sup \in
+\log\int\limits_{C}e^{F/\epsilon}dP_{\epsilon}\leq -\infty.
+$$
+(Use the fact that $F$ is bounded). Thus without any loss, we may
+assume $L$ to be finite. Let $w_{0}\in C$; then there exists a
+neighbourhood $N$ of $w_{0}$ such that $F(w)\leq F(w_{0})+\delta$ and
+by lower semi-continuity of $I$,
+$$
+I(w)\geq I(w_{0})-\delta,\ \forall w\in N(w_{0}).
+$$
+
+By regularity, there exists an open set $G_{w_{0}}$ containing $w_{0}$
+such that $G_{w_{0}}\overline{G}_{w_{0}} N(w_{0})$.\pageoriginale
+Therefore
+$$
+\int\limits_{\overline{G}_{w_{0}}}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\exp
+\left(\frac{F(w_{0})+\delta}{\epsilon}\right)P_{\epsilon}(\overline{G}_{w_{0}}). 
+$$
+
+Therefore
+\begin{align*}
+& \lim\limits_{\epsilon\to 0}\sup \in \log
+\int\limits_{\overline{G}_{w_{0}}}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq
+F(w_{0})+\delta+\epsilon\varlimsup\limits_{\epsilon\to
+  0}P_{\epsilon}(\overline{G}_{w_{0}})\\ 
+&\qq \leq F(w_{0})+\delta-\inf\limits_{w\in
+  \overline{G}_{w_{0}}}I(w)\\
+&\qq F(w_{0})+\delta-I(w_{0})+\delta\\
+&\qq \leq L+2\delta.
+\end{align*}
+
+Let $K_{\ell}=\{w:I(w)\leq \ell\}$. By assumption, $K_{\ell}$ is
+compact. Therefore, for each $\delta>0$, there exists an open set
+$G_{\delta}$ containing $K_{\ell}\cap C$ such that
+$$
+\lim\limits_{\epsilon\to 0}\sup \in
+\log\int\limits_{G_{\delta}}e^{\frac{F(w)}{\epsilon}}dP_{\epsilon}\leq L+2\delta.
+$$
+
+Therefore
+\begin{gather*}
+\lim\limits_{\epsilon\to 0}\sup \in \log \int\limits_{G_{\delta}\cap
+  C}e^{\frac{F(w)}{\epsilon}}dP_{\epsilon}\leq L+2\delta,\\
+\int\limits_{G^{c}_{\delta}\cap C}e^{\frac{F(w)}{\epsilon}}dP_{\epsilon}\leq
+e^{M/\epsilon}P(C\cap G^{c}_{\delta}).
+\end{gather*}
+
+Therefore
+\begin{gather*}
+\lim\limits_{\epsilon\to 0}\sup \in \log
+\int\limits_{G^{c}_{\delta}\cap
+  C}e^{\frac{F(w)}{\epsilon}}dP_{\epsilon}\leq
+M+\lim\limits_{\epsilon\to 0}\sup \epsilon \log
+P_{\epsilon}(C^{c}_{\delta}\cap C)\\
+\leq M-\inf\limits_{w\in C\cap G^{c}_{\delta}}I(w).
+\end{gather*}
+
+Now\pageoriginale
+$$
+G^{c}_{\delta}\subset K^{c}_{\ell}\cap C^{c}.
+$$
+
+Therefore
+$$
+C\cap G^{c}_{\delta}\subset C\cap K^{c}_{\ell}
+$$
+if $w\in C\cap G^{c}_{\delta}$, $w\not\in K_{\ell}$. Therefore
+$I(w)>\ell$. Thus
+$$
+\lim\limits_{\epsilon\to 0}\sup \in \log
+\int\limits_{G^{c}_{\delta}\cap C}e^{F(w)/\epsilon}dP_{\epsilon}\leq
+M-\ell \leq L\leq L+2\delta.
+$$
+
+This proves that
+$$
+\lim\limits_{\epsilon\to 0}\sup \in \log \int\limits_{C}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq L+2\delta.
+$$
+
+Since $C$ is compact there exists a finite number of points
+$w_{1},\ldots,w_{n}$ in $C$ such that
+$$
+C\subset \bigcup\limits^{n}_{i=1}G_{w_{i}}
+$$
+
+Therefore
+\begin{gather*}
+\varlimsup \in \log \int\limits_{C}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq \varlimsup \epsilon \log
+\int\limits_{\bigcup^{n}_{i=1}G_{w_{i}}}e^{F(w)/\epsilon}dP_{\epsilon}\\
+\leq \varlimsup (\epsilon \log n\Max\limits_{1\leq i\leq
+}\int\limits_{G_{w_{i}}}\exp \frac{F(w)}{\epsilon}dP_{\epsilon})\\
+\leq L+2\delta.
+\end{gather*}
+
+Since $\delta$ is arbitrary.
+$$
+\varlimsup \in \log \int\limits_{C}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq \sup\limits_{w\in
+  C}(F(w)-I(w)).
+$$
+\end{step}
+
+The\pageoriginale above proof shows that given a compact set $C$, and
+$\delta>0$ there exists an open set $G$ containing $C$ such that
+$$
+\varlimsup \in \log\int\limits_{G}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq L+2\delta.
+$$
+
+\begin{step}%2
+Let $C$ be any arbitrary closed set in $\Omega$. Let
+$$
+L=\sup\limits_{w\in C}(F(w)-I(w)).
+$$
+
+Since $F$ is bounded there exists an $M$ such that $|F(w)|\leq M$ for
+all $w$. Choose $\ell$ so large that $M-\ell\leq L$. Since $\delta$ is
+arbitrary 
+$$
+\lim\limits_{\epsilon\to 0}\sup \in\log \int\limits_{C}\exp
+\frac{F(w)}{\epsilon}dP_{\epsilon}\leq \sup\limits_{w\in C}(F(w)-I(w))
+$$
+
+We now prove the above theorem when $P_{\epsilon}$ is replaced by
+$Q^{\epsilon}_{x}$. Let $P^{\epsilon}_{x}$ be the Brownian motion
+starting at time $t=0$ at the space point $x$ corresponding to the
+scaling $\epsilon$. Precisely stated, if
+$$
+\tau_{\epsilon}:C([0,\infty);\mathbb{R}^{d})\to
+  C([0,\infty);\mathbb{R}^{d})
+$$
+is the map given by $(\tau_{\epsilon}w)(t)=w(\epsilon t)$, then
+$P^{\epsilon}_{x}{\displaystyle{\mathop{=}_{\text{def}}}}P_{x}\tau^{-1}_{\epsilon}$. Note
+$T''_{1}\tau_{\epsilon}=T_{\epsilon}$ and $T_{\epsilon}$ is given by
+$$
+T_{\epsilon}w=y\text{~ where~ } y(t)=w(\epsilon
+t)+\int\limits^{t}_{0}b(y(s))ds. 
+$$
+
+Hence
+$$
+P_{x}T^{-1}_{\epsilon}=P_{x}(T_{1},\tau_{\epsilon})^{-1}=P_{x}\tau^{-1}_{\epsilon}T^{-1}_{1}=P^{\epsilon}_{x}T^{-1}_{1};
+$$
+either of these probability measures is denoted by $Q^{\epsilon}_{x}$.
+\end{step}
+
+\begin{theorem*}
+Let $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ be bounded measurable and
+locally Lipschitz. Define
+$$
+I(w):\frac{1}{2}\int\limits^{1}_{0}|X(t)-b(X(t))|^{2}dt
+$$\pageoriginale
+
+If $w\in C([0,\infty);\mathbb{R}^{d})$, $w(0)=x$ and $x$ absolutely
+  continuous. Put $I(w)=\infty$ otherwise. If $C$ is closed in
+  $C[(0,1];\mathbb{R}^{d})$, then
+$$
+\varlimsup\limits_{\epsilon\to 0}\in \log Q^{\epsilon}_{x}(C)\leq
+-\inf\limits_{w\in C}I(w).
+$$
+
+If $G$ is open in $C([0,1];\mathbb{R}^{d})$, then
+$$
+\varliminf\limits_{\epsilon\to 0}\in \log Q^{\epsilon}_{x}(G)\geq
+-\inf\limits_{w\in G}I(w).
+$$
+
+As usual $Q^{\epsilon}_{x}(C)=Q^{\epsilon}_{x}\pi^{-1}(C)$ where
+$$
+\pi:C([0,\infty); \mathbb{R}^{d})\to C([0,1];\mathbb{R}^{d})
+$$ 
+is the canonical projection. 
+\end{theorem*}
+
+\begin{remark*}
+If $b=0$ we have the previous case.
+\end{remark*}
+
+\begin{proof}
+Let $T$ be the map $x(\cdot)\to y(\cdot)$ where
+$$
+y(t)=x(t)+\int\limits^{t}_{0}b(y(s))ds.
+$$
+
+Then
+$$
+Q^{\epsilon}_{x}=P^{\epsilon}_{x}(T^{-1}).
+$$
+
+If $C$ is closed
+$$
+Q^{\epsilon}_{x}(C)=P^{\epsilon}_{x}(T^{-1}C).
+$$
+
+The map $T$ is continuous. Therefore $T^{-1}(C)$ is closed. Thus
+\begin{equation*}
+\begin{split}
+& \lim\limits_{\epsilon\to 0}\sup \in \log
+Q_{x}(C)=\lim\limits_{\epsilon\to 0}\sup \in \log
+P^{\epsilon}_{x}(T^{-1}C)\\
+& \leq -\inf\limits_{w\in
+  T^{-1}(C)}\frac{1}{2}\int\limits^{1}_{0}|X|^{2}dt\q \text{(see
+  Exercise \ref{chap22-exer1} below)}\\
+&= -\inf\limits_{w\in C}\frac{1}{2}\int\limits^{1}_{0}|T^{-1}w|^{2}dt.
+\end{split}\tag{*}
+\end{equation*}
+
+Now\pageoriginale
+$$
+y(\cdot)\xrightarrow{T^{-1}}y(t)-\int\limits^{t}_{0}b(y(s))ds.
+$$
+
+Therefore
+$$
+(T^{-1}y)=y-b(y(s)).
+$$
+
+Therefore
+$$
+\lim\limits_{\epsilon\to 0}\sup \in \log Q^{\epsilon}_{x}(C)\leq
+-\inf\limits_{w\in C}I(w).
+$$
+
+The proof when $G$ is one is similar.
+\end{proof}
+
+\setcounter{exercise}{0}
+\begin{exercise}\label{chap22-exer1}
+Replace $P_{\epsilon}$ by $P^{\epsilon}_{x}$ and $I$ by $I_{x}$ where
+\begin{align*}
+I_{x}(w) &= \frac{1}{2}\int\limits^{1}_{0}|w|^{2},\ w(0)=x,w\text{~
+  absolutely continuous},\\
+&= \infty \text{~ otherwise.}
+\end{align*}
+
+Check that (*) holds, i.e.
+$$
+\lim\limits_{\epsilon\to 0}\sup \in \log P^{\epsilon}_{x}(C)\leq
+-\inf\limits_{w\in C}I_{x}(w),\text{~ if~ } C\text{~ is closed},
+$$
+and
+$$
+\lim\limits_{\epsilon\to 0}\inf \in \log P^{\epsilon}_{x}(G)\geq
+-\inf\limits_{w\in G}I_{x}(w).
+$$
+
+Let $G$ be a bounded open set in $\mathbb{R}^{n}$, with a smooth
+boundary $\Gamma=\p G$. Let $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$
+be a smooth $C^{\infty}$ function such that
+\begin{itemize}
+\item[(i)] $\langle b(x),n(x)\rangle 0$, $\forall x\in \p G$ where
+  $n(x)$ is the unit inward normal.
+
+\item[(ii)] there exists a point $x_{0}\in G$ with $b(x_{0})=0$ and
+  $|b(x)|>0$, $\forall x$ in $G-\{x_{0}\}$.
+
+\item[(iii)] for\pageoriginale any $x$ in $G$ the solution
+$$
+\xi(t)=x+\int\limits^{t}_{0}b(\xi(s))ds,
+$$
+of the vector field starting from $x$ converges to $x_{0}$ as $t\to
++\infty$. 
+\end{itemize}
+\end{exercise}
+
+\begin{remark*}
+\begin{itemize}
+\item[(a)] (iii) is usually interpreted by saying that ``$x_{0}$ is
+  stable''.
+
+\item[(b)] By (i) and (ii) every solution of (iii) takes all its
+  values in $G$ and ultimately stays close to $x_{0}$.
+\end{itemize}
+
+Let $\epsilon>0$ be given; $f:\p G\to \mathbb{R}$ be any continuous
+bounded function. Consider the system
+\begin{gather*}
+L_{\epsilon}u_{\epsilon}=\frac{1}{2}\Delta u_{\epsilon}+b(x)\cdot
+\Delta u_{\epsilon}=0\text{~ in~ }G\\
+u_{\epsilon}=f\text{~ on~ } \p G.
+\end{gather*}
+
+We want to study $\lim\limits_{\epsilon\to 0}u_{\epsilon}(x)$. Define
+$$
+I^{T}_{0}(X(t))=\frac{1}{2}\int\limits^{T}_{0}|X(t)-b(X(t))|^{2}dt;\ X:[0,T]\to
+\mathbb{R}^{d} 
+$$
+whenever $X$ is absolutely continuous, $=\infty$ otherwise.
+\end{remark*}
+
+\begin{remark*}
+Any solution of (iii) is called an integral curve. For any curve $X$
+on $[0,T]$, $I^{T}_{0}$ gives a measure of the deviation of $X$ from
+being an integral curve. Let
+$$
+V_{T}(x,y)=\inf\{I^{T}_{0}(X):X(0)=x;\ X(T)=y\}
+$$
+and 
+$$
+V(x,y)=\inf\{V_{T}(x,y):T>0\}.
+$$
+$V$ has the following properties.
+\begin{itemize}
+\item[(i)] $V(x,y)\leq V(x,z)+V(z,y)\;\forall x,y,z$.\pageoriginale
+
+\item[(ii)] Given any $x$, $\exists \delta\to 0$ and $C>0$ such that
+  for all $y$ with $|x-y|\leq \delta$.
+$$
+V(x,y)\leq C|x-y|
+$$
+\end{itemize}
+\end{remark*}
+
+\begin{proof}
+Let $X(t)=\dfrac{t(y-x)}{|y-x|}+x$.
+
+Put
+\begin{gather*}
+T=|y-x|,\ X(0)=x,\ X(T)=y,\\
+I^{T}_{0}(X(t))=\frac{1}{2}\int\limits^{T}_{0}\left|\frac{y-x}{T}-b(X+\frac{S}{T}(y-x))\right|^{2}ds. 
+\end{gather*}
+
+Then
+$$
+I^{T}_{0}\leq
+\frac{1}{2}\int\limits^{T}_{0}2\left(\frac{|y-x|^{2}}{T^{2}}+||b||^{2}_{\infty}\right)ds,
+$$
+where
+$$
+||b||_{\infty}=\sup\limits_{|\lambda-x|\leq |y-x|}b(\lambda),
+$$
+or,
+$$
+I^{T}_{0}\leq (1+||b||^{2}_{\infty})|y-x|.
+$$
+
+As a consequence of (ii) we conclude that
+$$
+V(x,y)\leq \left(1+\sup\limits_{|\lambda-x\leq |y-x|}|b(\lambda)|^{2}\right)|y-x|,
+$$
+i.e.\@ $V$ is locally Lipschitz.
+
+The answer to the problem raised is given by the following.
+\end{proof}
+
+\begin{theorem*}
+$$
+\lim\limits_{\epsilon\to 0}u_{\epsilon}(x)=f(y_{0})
+$$
+where $y_{0}$ is assumed to be such that $y_{0}\in \p G$ and
+$$
+V(x_{0},y_{0})<V(x,y),\ \forall y\in \p G,\ y\neq y_{0}.
+$$\pageoriginale
+\end{theorem*}
+
+We first proceed to get an equivalent statement of the theorem. Let
+$P^{\epsilon}_{x}$ be the Brownian measure corresponding to the
+starting point $x$, and corresponding to the scaling $\epsilon$. Then
+there exists a probability measure $Q^{\epsilon}_{x}$ such that
+$$
+\frac{dQ^{\epsilon}_{x}}{dP^{\epsilon}_{x}}\Big|\mathscr{F}_{t}=Z(t)
+$$
+where
+$$
+Z(t,\cdot)=\exp \int\limits^{t}_{0}\langle b^{*}(X(s)),\ dX(s)\rangle
+-\frac{1}{2}\int\limits^{t}_{0}b^{*}(X(s)) ds;
+$$
+$b^{*}$ is any bounded smooth function such that $b^{*}=b$ on
+$G$. Further we have the integral representation
+$$
+u_{\epsilon}(x)=\int\limits_{\p G}f(X(\tau))dQ^{\epsilon}_{x}
+$$
+where $\tau$ is the exit time of $G$, i.e.
+\begin{gather*}
+\tau(w)=\inf \{t:w(t)\not\in G\}.\\
+|u_{\epsilon}(x)-f(y_{0})|=|\int\limits_{\p
+  G}(f(X(\tau))-f(y_{0}))dQ^{\epsilon}_{x}|\\
+\leq |\int\limits_{N\cap \p
+  G}(f(X(\tau))-f(Y_{0}))dQ^{\epsilon}_{x}|+\\
++|\int\limits_{N^{c}\cap \p
+  G}(f(X(\tau))-f(Y_{0}))dQ^{\epsilon}_{x}|\\
+\,\hspace{2cm} (N\text{~ is any neighbourhood of~ } y_{0}).\\
+\leq Q^{\epsilon}_{x}(X(\tau)\in N\cap \p G)\sup\limits_{\lambda \in
+  N\cap \p G}|f(\lambda)-f(y_{0})|+\\
++2||f||_{\infty}Q^{\epsilon}_{x}(X(\tau)\in N^{c}\cap \p G).
+\end{gather*}\pageoriginale
+
+Since $f$ is continuous, to prove the theorem it is sufficient to
+prove the
+
+\begin{theorem*}
+$$
+\lim\limits_{\epsilon\to 0}Q_{x}(X(\tau)\in N^{c}\cap \p G)=0
+$$
+for every neighbourhood $N$ of $y_{0}$.
+\end{theorem*}
+
+Let $N$ be any neighbourhood of $y_{0}$. Let
+$$
+V=V(x_{0},y_{0}), V'=\inf\limits_{y\in N^{c}\cap \p G}V(x,y).
+$$
+
+By definition of $y_{0}$ and the fact that $N^{c}\cap \p G$ is
+compact, we conclude that $V'>V$. Choose $\eta=\eta(N)>0$ such that
+$V'=V+\eta$. For any $\delta>0$ let
+$D=S(x_{0};\delta)=\{y:|y-x_{0}|<\delta\}$, $\p
+D=\{y:|y-x_{0}|=\delta\}$.
+
+\begin{claim*}
+We can choose a $\delta_{2}$ such that
+\begin{itemize}
+\item[(i)] $V(x,y)\geq V+\dfrac{3\eta}{4}$, $\forall x\in \p D_{2}$,
+  $y\in N^{c}\ \p G$.
+
+\item[(ii)] $V(x,y_{0})\leq V+\dfrac{\eta}{4}$, $\forall x\in \p D_{2}$.
+\end{itemize}
+\end{claim*}
+
+\begin{proof}
+\begin{itemize}
+\item[\rm(i)] $V(x_{0},y)\geq V+\eta$, $\forall y\in N^{c}$ $\p
+  G$. Therefore
+\begin{align*}
+& V+\eta\leq V(x_{0},y)\leq V(x_{0},x)+V(x,y)\\
+& \leq C|x-x_{0}|+V(x,y).
+\end{align*}
+
+Choose $C$ such that $C|x-x_{0}|\leq \dfrac{\eta}{4}$. Thus
+$$
+V+\frac{3\eta}{4}\leq V(x,y)\text{~ if~ } C|x-x_{0}|\leq
+\frac{\eta}{4},\ \forall y\in N^{c}\ \p G.
+$$\pageoriginale
+$C$ depends only on $x_{0}$. This proves (i).
+
+
+\item[(ii)] $|V(x_{0},y_{0})-V(x,y_{0})|\leq V(x_{0},x)\leq
+  C|x_{0}-x|\leq \dfrac{\eta}{4}$ if $x$ is close to $x_{0}$. Thus
+$$
+V(x,y_{0})\leq V(x_{0},y_{0})+\frac{\eta}{4}=V+\frac{\eta}{4}
+$$
+if $x$ is close to $x_{0}$. This can be achieved by choosing
+$\delta_{2}$ very small.
+\end{itemize}
+\end{proof}
+
+\begin{claim*}[(iii)]
+We can choose $\delta_{1}<\delta_{2}$ such that for
+  points $x_{1}$, $x_{2}$ in $\p D_{1}$ there is a path $X(\cdot)$
+  joining $x_{1}$, $x_{2}$ with $X(\cdot)\in D_{2}-D_{1}$, i.e.\@ it
+  never penetrates $D_{1}$; and
+$$
+I(X)\leq \frac{\eta}{8}.
+$$
+\end{claim*}
+
+\begin{proof}
+Let $C=\sup \{|b(\lambda)|^{2}:|\lambda-x_{0}|\leq
+\delta_{2}\}$. Choose $X(\cdot)$ to be any path on $[0,T]$, taking
+values in $D_{2}$ with $X(0)=x_{1}$; $X(T)=x_{2}$ and such that
+$|X|=1$ (i.e. the path has unit speed). Then
+\begin{align*}
+& I^{T}_{0}(X)\leq \int\limits^{T}_{0}(|X|^{2}+C)dt\leq
+  CT+\int\limits^{T}_{0}|X|dt\\
+&\q =(c+1)T=(C+1)|x_{2}-x_{1}|.
+\end{align*}
+
+Choose $\delta_{1}$ small such that $(C+1)|x_{2}-x_{1}|\leq
+\dfrac{\eta}{8}$.
+
+Let $\Omega\delta_{1}=\{w:w(t)\in \overline{G}-D_{1},\forall t\geq
+0\}$, i.e.\@ $\Omega\delta_{1}$ consists of all trajectories in
+$\overline{G}$ that avoid $D_{1}$.
+\end{proof}
+
+\begin{claim*}[(iv)]
+\begin{gather*}
+\inf\limits_{T>0} \inf\limits_{X\in \Omega_{\delta_{1}},X(0)\in \p
+  D_{2}}I^{T}_{0}(X(\cdot))\geq V+\dfrac{3\eta}{4}\\
+X(T)\in N^{c}\cap \p G
+\end{gather*}\pageoriginale
+\end{claim*}
+
+\begin{proof}
+Follows from Claim (i) and (ii).
+\end{proof}
+
+\begin{claim*}[(v)]
+\begin{gather*}
+\inf\limits_{T>0}\inf\limits_{\substack{X\in \Omega_{\delta_{1}},X(0)\in \p
+  D_{2}\\ X(T)=y_{0}}}I^{T}_{0}(X(\cdot))\leq V+\dfrac{3\eta}{8}.
+\end{gather*}
+\end{claim*}
+
+\begin{proof}
+By (ii) $V(x,y_{0})\leq V+\dfrac{\eta}{4}\forall x\in \p D_{2}$, i.e.
+$$
+\inf\limits_{T>0}\inf\limits_{X(0)=x,X(T)=y_{0}}I^{T}_{0}(X(\cdot))\leq
+V+\dfrac{\eta}{4}. 
+$$
+
+Let $\epsilon>0$ be arbitrary. Choose $T$ and $X(\cdot)$ such that
+$I^{T}_{0}(X)\leq V+\dfrac{\eta}{4}+\epsilon$ with $X(0)=x$,
+$X(T)=y_{0}$, $X(\cdot)\in \overline{G}$. If $X\in\Omega_{\delta_{1}}$
+define $Y=X$. If $X\not\in \Omega_{\delta_{1}}$ define $Y$ as follows:
+
+Let $t_{1}$ be the first time that $X$ enters $D_{1}$ and $t_{2}$ the
+last time that it gets out of $D_{1}$. Then $0<t_{1}\leq t_{2}<T$. Let
+$X^{*}$ be a path on $[0,s]$ such that (by Claim (iii))
+$I^{s}_{0}(X^{*})\leq \dfrac{\eta}{8}$ with $X^{*}(0)=X(t_{1})$ and
+$X^{*}(s)=X(t_{2})$. Define $Y$ on $[0,T-(t_{2}-t_{1})+s]$
+$[T-(t_{2}-t_{1})+s,\infty)$ by
+\begin{align*}
+Y(t) &= X(t)\text{~ on~ } [0,t_{1}]=X^{*}(t-t_{1})\text{~ on~
+}[t_{1},t_{1}+s]\\
+&= X(t-t_{1}-s+t_{1}),\text{~ on~ }[t_{1}+s,T-(t_{2}-t_{1})+s]\\
+&= X(t_{2}),\text{~ for~ }t\geq T-(t_{2}-t_{1})+s.
+\end{align*}
+
+Then
+\begin{gather*}
+I^{T-t_{2}+t_{1}+s}_{0}=\frac{1}{2}\int\limits^{t_{1}}_{0}|X-b(X(s))|^{2}ds+\frac{1}{2}\int\limits^{s}_{0}|X^{*}-b(X^{*}(s))|^{2}ds\\
++\frac{1}{2}\int\limits^{T}_{t_{2}}|X(s)-b(X(s))|^{2}ds\\
+\leq V+\frac{\eta}{4}+\epsilon+\frac{\eta}{8}
+\end{gather*}\pageoriginale
+by choice of $X$ and $X^{*}$. As $Y\in \Omega_{\delta_{1}}$, we have
+shown that
+\begin{gather*}
+\inf\limits_{T>0}\inf\limits_{\substack{X\in
+    \Omega_{\delta_{1}},X(0)\in \p
+    D_{1}\\ X(T)=y_{0}}}I^{T}_{0}(X(\cdot))\leq V+\frac{3\eta}{8}+\epsilon.
+\end{gather*}
+
+Since $\epsilon$ is arbitrary we have proved (v).
+\end{proof}
+
+\begin{lemma*}
+$I^{T}_{0}$ is lower semi-continuous for every finite $T$.
+\end{lemma*}
+
+\begin{proof}
+This is left as an exercise as it involves a repetiti on of an
+argument used earlier.
+\end{proof}
+
+\begin{lemma*}
+Let $X_{n}\in \Omega_{\delta_{1}}$. If $T_{n}\to \infty$ then
+$I^{T_{n}}_{0}(X_{n})\to \infty$.
+\end{lemma*}
+
+This result says that we cannot have a trajectory which starts outside
+of a deleted ball for which $I$ remains finite for arbitrary long
+lengths of time.
+
+\begin{proof}
+Assume the contrary. Then there exists a constant $M$ such that
+$I^{T_{n}}_{0}(X_{0})\leq M$, $\forall n$. Let $T<\infty$, so that
+$M_{T}=\sup\limits_{n}I^{T}_{0}(X_{n})<\infty$. 
+
+Define $X^{T}_{n}=X_{n}|_{[0,T]}$.
+\end{proof}
+
+\begin{claim*}
+$\{X^{T}_{n}\}_{n=1}$\pageoriginale is an equicontinuous family.
+\end{claim*}
+
+\begin{proof}
+\begin{align*}
+& |X^{T}_{n}(x_{2})-X^{T}_{n}(x_{1})|^{2}=|\int\limits^{x_{2}}_{x_{1}}X^{T}_{n}(t)dt|^{2}\\ 
+& \leq |x_{2}-x_{1}|^{2}\int\limits^{x_{2}}_{x_{1}}|X^{T}_{n}|^{2}dt\\
+&\leq 2|x_{2}-x_{1}|^{2}\int\limits^{x_{2}}|X^{T}_{n}-b(X^{T}_{n})|^{2}ds+\int\limits^{T}_{0}b(X^{T}_{n})^{2}ds]\\
+&\leq 2|x_{2}-x_{1}|^{2}[2M_{T}+T||b||^{2}_{\infty}].
+\end{align*}
+
+Thus, $\{X^{T}_{n}\}_{n}$ is an equicontinuous family. Since
+$\overline{G}$ is bounded, $\{X^{T}_{n}\}_{n}$ is uniformly
+bounded. By Arzela-Ascoli theorem and a ``diagonal procedure'' there
+exists a subsequence $X_{n_{k}}$ and a continuous function to $X$
+uniformly on compact subsets of $[0,\infty)$. As $X_{n_{k}}(\cdot)\in
+  \overline{G}-D_{1}$, $X\in \overline{G}-D_{1}$. Let $m\geq
+  n$. $I^{T_{n}}_{0}(X_{m})\leq M$. $X_{n}\to X$ uniformly on
+  $[0,T_{n}]$. By lower semi-continuity $I^{T}_{0}(X)\leq M$. Since
+  this is true for every $T$ we get on letting $T$ tend to $\infty$,
+  that
+$$
+\frac{1}{2}\int\limits^{\infty}_{0}|X-b(X(s))|^{2}ds\le M.
+$$
+
+Thus we can find a sequence $a_{1}<b_{1}<a_{2}<b_{2}<\ldots$ such that
+$$
+I^{b_{n}}_{a_{n}}(X(\cdot))=\frac{1}{2}\int\limits^{b_{n}}_{a_{n}}|X(t)-b(X(t))|^{2}dt
+$$
+converges to zero with $b_{n}-a_{n}\to \infty$. Let
+$Y_{n}(t)=X(t+a_{n})$. Then
+$$
+I^{b_{n}-a_{n}}_{0}(Y_{n})\to 0\q\text{with}\q b_{n}-a_{n}\to
++\infty,\q Y_{n}\in \Omega_{\delta_{1}}.
+$$
+
+Just\pageoriginale as $X$ was constructed from $X_{n}$, we can
+construct $Y$ from $Y_{n}$ such that $Y_{n}\to Y$ uniformly on compact
+subsets of $[0,\infty)$. 
+$$
+I^{b_{n}-a_{n}}_{0}(Y)\leq \inf\limits_{m\geq
+  n}I^{b_{n}-a_{n}}_{0}(Y_{m})=0
+$$
+(by lower semi-confirmity of $I^{T}_{0}$). Thus
+$I^{b_{n}-a_{n}}_{0}(Y)=0$, $\forall n$, showing that
+$$
+\int\limits^{\infty}_{0}Y(t)-b(Y(t))|^{2}dt=0
+$$
+
+Thus $Y$ satisfies $Y(\cdot)=x+\int\limits^{t}_{0}b(Y(s))ds$ with
+$Y(t)\in\overline{G}-\p D_{1}$, $\forall t$.
+
+\medskip
+\noindent
+{\bf Case (i).}~$Y(t_{0})\in G$ for some $t_0$. Let $Z(t)=Y(t+t_{0})$
+so that $Z$ is an integral curve starting at a point of $G$ and
+remaining away from $D_{1}$ contradicting the stability condition.
+\medskip
+
+\noindent
+{\bf Case (ii).}~$Y(t_{0})\not\in G$ for any $t_{0}$, i.e. $Y(t)\in \p
+G$ for all $t$. Since $Y(t)=b(Y(t))\langle Y(t)$, $n(Y(t))\rangle$ is
+strictly positive. But $Y(t)\in \p G$ and hence $\langle Y(t),
+n(Y(t))\rangle =0$ which leads to a contradiction. Thus our assumption
+is incorrect and hence the lemma follows.
+\end{proof}
+
+\begin{lemma*}
+Let $x\in \p D_{2}$ and define
+\begin{align*}
+& E=\{X(t)\text{~exits from $G$ before hitting $D_{1}$ and it exits from
+  $N$}\}\\
+& F=\{X(t)\text{~exists from $G$ before hitting $D_{1}$ and it exits
+    from $N^{c}$}\}
+\end{align*}
+
+Then
+$$
+\frac{Q^{\epsilon}_{x}(F)}{Q^{\epsilon}_{x}(E)}\leq \exp
+\left(-\frac{3\eta}{8\epsilon}+0\left(\frac{1}{\epsilon}\right)\right)\to
+0\text{~ uniformly in~ } x(x\in \p D_{2}).
+$$
+\end{lemma*}
+
+\noindent
+{\bf Significance.}~ $Q^{\epsilon}_{x}(E)$\pageoriginale and $Q^{\epsilon}_{x}(F)$
+are both small because diffusion is small and the drift is large. The
+lemma says that $Q^{\epsilon}_{x}(E)$ is relatively much larger than
+$Q^{\epsilon}_{x}(F)$. 
+
+\begin{proof}
+$Q^{\epsilon}_{x}(E)\geq Q^{\epsilon}_{x}\{X(t)$ exists from $G$
+  before hitting $D_{1}$, and exists in $N$ before time $T\}$,
+  $=Q_{x}(B)\geq \exp [-\dfrac{1}{\epsilon}\inf I^{T}_{0}(X(\cdot))]$
+  where the infimum is taken over the interior of $B$,
+$$
+\geq \exp \left[-\frac{1}{\epsilon}\left(V+\frac{3\eta}{8}\right)+0\left(\frac{1}{\epsilon}\right)\right].
+$$
+
+Similarly,
+$$
+Q^{\epsilon}_{x}(F)\leq \exp
+\left[-\frac{1}{\epsilon}\left(V+\dfrac{3\eta}{4}\right)+0\left(\frac{1}{\epsilon}\right)\right]. 
+$$
+
+Therefore
+$$
+\frac{Q^{\epsilon}_{x}(F)}{Q^{\epsilon}_{x}(E)}\leq \exp
+\left[-\frac{3\eta}{8\epsilon}+0\left(\frac{1}{\epsilon}\right)\right]\to
+0\q\text{as}\q \epsilon\to 0.
+$$
+
+We now proceed to prove the main theorem. Let
+\begin{align*}
+& \qq \tau_{0}=0,\\
+& \tau_{1}=\text{first time~ } \p D_{1}\text{~ is hit},\\
+& \tau_{2}=\text{next time~ }\p D_{2}\text{~ is hit},\\
+& \tau_{3}=\text{next time~ }\p D_{1}\text{~ is hit},\\
+& \ldots\ldots\ldots\ldots\ldots\ldots 
+\end{align*}
+and so on. Observe that the particle can get out of $G$ only between
+the time intervals $\tau_{2n}$ and $\tau_{2n+1}$. Let
+$E_{n}=\{$between $\tau_{2n}$ and $\tau_{2n+1}$ the path exits from
+$G$ for the first time and that it exits in $N\}$,\pageoriginale 
+$F_{n}=\{$between
+$\tau_{2n}$ and $\tau_{2n+1}$ the path exits from $G$ for the first
+time and that it exists in $N^{c}\}$.
+$$
+Q^{\epsilon}_{x}(X(\tau)\in N)+Q_{x}(X(\tau)\in N^{c})=1.
+$$
+
+Also
+\begin{gather*}
+Q^{\epsilon}_{x}(X(\tau)\in
+N^{c})=\sum\limits^{\infty}_{n=1}Q^{\epsilon}_{x}(F_{n}),\\
+Q^{\epsilon}_{x}(X(\tau)\in
+N)=\sum\limits^{\infty}_{n=1}Q^{\epsilon}_{x}(E_{n}),\\ 
+\sum\limits^{\infty}_{n=1}Q^{\epsilon}_{x}(F_{n})=\sum\limits^{\infty}_{n=1}E^{Q^{\epsilon}_{x}}(Q^{\epsilon}_{x}(F_{n}|\mathscr{F}_{\tau_{2n}}))\\
+\leq
+\sum\limits_{n=1}E^{Q^{\epsilon}_{x}}[\chi_{(\tau>\tau_{2n})}\sup\limits_{x\in
+    \p D_{2}}Q^{\epsilon}_{x}(F)]\q\text{(by the Strong Markov
+  property)}\\
+\leq
+0(\epsilon)\sum\limits^{\infty}_{n=1}E^{Q^{\epsilon}_{x}}[\chi_{(\tau>\tau_{2n})}\inf\limits_{x\in
+    \p D_{2}}Q^{\epsilon}_{x}(E)]\q(\text{as~
+}\frac{Q^{\epsilon}_{x}(F)}{Q^{\epsilon}_{x}(E)}\to 0)\\
+\leq
+0(\epsilon)\sum\limits^{\infty}_{n=1}Q^{\epsilon}_{x}(E_{n})=0(\epsilon)Q_{x}(X(\tau)\in N^{c}). 
+\end{gather*}
+
+Therefore
+$$
+Q^{\epsilon}_{x}(\chi(\tau)\in N)\to 1,\q Q_{x}(X(\tau)\in N^{c})\to
+0.
+$$
+\end{proof}
+
+\begin{exer*}
+Suppose $b(x)=\nabla u(x)$ for some $u\in C^{1}(G\cup
+\p G,R)$. Assume that $u(x_{0})=0$ and $u(x)<0$ for $x\neq
+x_{0}$. Show that
+$$
+V(x_{0},y)=-2u(y).
+$$
+[Hint:~ For any trajectory $X$ with $X(0)=x_{0}$,
+$$
+X(T)=y, I^{T}_{0}(X)=\frac{1}{2}\int\limits^{T}_{0}|X+\nabla
+u(X)|^{2}dt-2\int\limits^{T}_{0}\nabla u(X)\cdot X(t)dt\geq -2u(y) 
+$$\pageoriginale
+so that $V(x_{0},y)\geq -2u(y)$. For the other inequality, let $u$ be
+a solution of $X(t)+\nabla u(X(t)=0$ on $[0,\infty)$ with
+  $X(0)=y$. Show that because $\dfrac{duX(s)}{ds}0$ for $X(s)\neq 0$
+  and $x_{0}$ is the only zero of $u$,
+  $\displaystyle{\mathop{\rm limit}_{t\to \infty}}X(t)=x_{0}$. Now
+  conclude that $V(x_{0},y)\leq -u(y)$].
+\end{exer*}
+

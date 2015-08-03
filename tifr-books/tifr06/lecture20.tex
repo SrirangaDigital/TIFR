@@ -1,0 +1,446 @@
+\chapter{Lecture 20}\label{chap20:lec20}
+  
+\begin{defi*}%defi 0
+If\pageoriginale $\Omega$ is a directed set, a {\em direct system of double
+  complexes} $\bigg\{ K_\lambda , \phi_{\mu \lambda} \bigg\}_{\lambda
+  , \mu \in \Omega}$ is a system of double complexes $K_\lambda$ and
+maps 
+$$
+\phi_{\mu \lambda} : K_\lambda \rightarrow K_\mu \quad{(\lambda <
+  \mu)}, 
+$$
+such that 
+\begin{enumerate}[(i)]
+\item $\phi_{\lambda \lambda}$ is the identity, 
+
+\item $\phi_{\nu \mu} \phi_{\mu \lambda}$ is {\em homotopic} to
+  $\phi_{\nu \lambda}$ for $\lambda < \mu < \nu$. 
+\end{enumerate}
+  \end{defi*}  
+  
+\textit{If $\bigg\{ K_{\lambda}, \phi_{\mu \lambda} \bigg\}$ is a
+  direct system of double complexes, there are unique\-ly determined
+  direct limits:} 
+  \begin{enumerate}[(i)]
+\item $H^{p,q}_{12}(K ) = \text { direct limit } \{
+  H^{p,q}_{12}(K_\lambda), \phi^*_{\mu \lambda} \}$, 
+
+\item $H^{p,q}_{21}(K ) = \text {direct limit} \{
+  H^{p,q}_{21}(K_\lambda), \phi^*_{\mu \lambda} \}$, 
+
+\item $H^n (K) = \text {direct limit} \{ H^n (K_\lambda), \phi^*_{\mu
+  \lambda} \}$. 
+  \end{enumerate}  
+  
+  \begin{proof}
+(i) The system $\bigg\{ H^{p,q}_{12}(K_\lambda), \phi^*_{\mu
+      \lambda} \bigg\}$ is a direct system, as  
+\begin{enumerate}[(a)]
+\item $\phi^\ast_{\lambda \lambda}$ is the identity, since $\phi_{\lambda
+  \lambda}$ is the identity, 
+
+\item $\phi^\ast_{\nu \mu} \phi^\ast_{\mu \lambda} = (\phi_{\nu \mu}
+  \phi_{\mu \lambda})^\ast = \phi^\ast_{\nu \lambda}$, since homotopic maps
+  induce the same homomorphism on the cohomology groups. 
+\end{enumerate}
+  \end{proof}  
+  
+  The proofs of (ii) and (iii) are carried out in a similar
+  manner. 
+  
+  \begin{defi*}%defi 0
+We say that a system $\{ K_\lambda \}$ of double complexes is bounded
+{\em on the right} if there is some integer $m$, such that
+$K^{p,q}_\lambda = 0$\pageoriginale whenever $q > m$ (for all $p$ and
+$\lambda$). The 
+system is said {\em to be bounded on the left} (resp. {\em above,
+  below}) if there is an integer $m$ such that $K^{p,q}_\lambda = 0$
+whenever $q < m$ (resp. $p < m, p > m$). 
+  \end{defi*}  
+
+  \begin{proposition}\label{chap20:prop15}%prop 15
+If $\bigg\{K_\lambda , \phi_{\mu \lambda} \bigg\}$  is a direct
+  system of double complexes which is bounded above or on the right
+  and if $H^{p,q}_{12}(K) = 0$ for all $p$ and $q$, then $H^n(K)
+  = 0$ for all $n$. 
+  \end{proposition}  
+
+  \begin{proof}
+	Let $\alpha \in H^n(K)$, let $\alpha_\lambda$ be its
+        representative in some $H^n(K_\lambda)$ and let $a_\lambda \in
+        Z^n(K_\lambda)$ represent the class $\alpha_{\lambda}$. Let $a_{\lambda}
+        = a^{p,q}_{\lambda} + a^{p-1, q+1}_{\lambda} + \ldots$, where
+        $p+q = n$ and the sum terminates with $a^{m,n-m}_{\lambda}$
+        (resp. $a^{n-m, m}_{\lambda}$). 
+  \end{proof}  
+  
+  Since $a_\lambda \in Z^n (K_{\lambda})$,  $d a_\lambda = (d_1 + d_2) 
+  a_{\lambda} = 0$, i.e., 
+  $$
+  d a_{\lambda} = d_1 a^{p,q}_{\lambda} + (d_2 a^{p,q}_{\lambda} + d_1
+  a^{p-1, q+1}_{\lambda}) + \cdots , 
+  $$
+  and the sum being direct, we have $d_1 a^{p,q}_{\lambda} = 0$ and
+  $d_2 a^{p,q}_{\lambda} + d_1 a^{p-1 , q+1}_{\lambda} = 0$. Thus
+  $a^{p,q}_{\lambda} \in Z^{p,q}_1(K_\lambda)$ and $d_2
+  a^{p,q}_{\lambda} \in B^{p,q+1}_{1} (K_\lambda)$. Therefore,
+  $a^{p,q}_{\lambda}$ represents an element of
+  $Z^{p,q}_{12}(K_\lambda)$. Since $H^{p,q}_{12} = 0$, there is some
+  $\mu > \lambda$ such that $a^{p,q}_{\mu} = \phi_{\mu \lambda}
+  a^{p,q}_{\lambda}$ represents an element of
+  $B^{p,q}_{12}(K_\mu)$. Thus, for some $b \in Z^{p,q-1}_{1}(K_\mu),
+  a^{p,q}_{\mu} - d_2 b \in B^{p,q}_1 (K_\mu)$, and hence
+  $a^{p,q}_{\mu} = d_2 b + d_1 c$ for some $c \in K^{p-1,q}_{\mu}$. 
+  \begin{align*}
+\text{ Let } a_{\mu} & = \phi_{\mu \lambda} a_{\lambda} \text{ and
+  let } \\ 
+e_{\mu} & = a_{\mu }- d (b + c) \\
+& = a_{\mu }- d_1 b - d_2 b-d_1 c-d_2 c \\
+& = a_{\mu } - a^{p,q}_{\mu} - d_2 c  \quad (\text { since } d_1 b = 0)\\
+ &= (a^{p-1,q+1}_\mu - d_2 c) + a^{p-2,q+1}_\mu  + \cdots \\
+ & = e^{p-1, q+1}_\mu + a^{p-2,q+2}_\mu  + \cdots
+ \end{align*}  
+ where\pageoriginale $e^{p-1,q+1}_\mu  = a^{p-1,q+1}_\mu - d_2 c$. Then since
+ $e_\mu$ and $a_\mu$ represent the same class $\alpha_{\mu} \in H^n
+ (K_\mu)$, they represent the same element $\alpha \in H^n(K)$. The
+ reason for choosing this representative $e_\mu$ is the fact that its
+ $(p, q)$-th component is zero. Continuing thus, after a finite
+ number $k$ of steps for a suitable $\rho$, $\alpha$ is represented by
+ $e_\rho = -d_2 c'$, consisting of a single term in $K^{p-k,
+   q+k}_\rho$. Continuing the construction still further, since the
+ system of double complexes is bounded above or to the right, after a
+ finite number of steps, we obtain a representative $e_\nu = - d_2 c''
+ = 0$, i.e., $\alpha$ is represented by $0 \in Z^n(K_\nu)$ for a
+ suitable $\nu$. Hence $\alpha = 0$. 
+
+\medskip
+\noindent{\textbf{Proposition 15-a.}}
+\textit{If $\bigg\{ K_\lambda , \phi_{\mu \lambda} \bigg\}$ is a direct
+  system of double complexes which is bounded below or on the left,
+  and if $H^{p,q}_{21} (K) = 0$ for all $p$ and $q$ then $H^n(K)= 0$ for
+  all $n$.}
+ 
+ \begin{proof}
+This is carried out exactly as in Proposition \ref{chap20:prop15},
+except that we 
+eliminate the component of $a_\lambda$ with highest second degree $q$
+instead of the one with highest first degree, and $-d_1 c$ plays the
+role of $-d_2 c$.	 
+ \end{proof} 
+
+ \begin{proposition}\label{chap20:prop16}%prop 16
+ If $\bigg\{ K_\lambda , \phi_{\mu \lambda} \bigg\}$  is a direct
+  system of double complexes which is bounded above or on the right
+  and if $H^{p,q}_{12} (K) = 0$ except (at most) for $p=0$,  then
+  there exist isomorphisms $\theta : H^q(K) \rightarrow
+  H^{o,q}_{12}(K)$ for all $q$. 
+ 
+If another direct system $\bigg\{ K_lambda , \phi_{\mu
+   \lambda} \bigg\}$ is bounded above or on the right with
+ $H^{p,q}_{12}(K') = 0$ except for $p=0$ and if
+   $h_{\lambda}: K'_{\lambda} \to K_{\lambda}$ are maps with
+ $ h_\mu \phi'_{\mu \lambda} = \phi_{\mu \lambda} h_{\lambda}$, then
+there are induced\pageoriginale homomorphisms  
+ $$
+ h^\ast : H^q (K') \rightarrow H^q(K) \text{ and } h^\ast : H^{o,q}_{12}(K')
+ \rightarrow H^{o,q}_{12}(K) 
+ $$ 
+commuting with the isomorphisms $\theta$. 
+\[
+\xymatrix{
+  H^q(K') \ar[r]^{\theta}\ar[d]_{h^{\ast}} & H^{0,q}_{12}(K')
+  \ar[d]^{h^{\ast}}\\
+H^q(K) \ar[r]^{\theta} & H^{0,q}_{12}(K).
+}
+\]
+ \end{proposition}
+
+
+ \begin{proof}
+Let $L_\lambda$ be the subcomplex
+\[
+\xymatrix{
+L_{\lambda} :  & \ar[d] & \ar[d] & \\
+\qquad  \ldots \ar[r] & K^{-1,q-1}_{\lambda} \ar[d] \ar[r] &
+K^{-1,q}_{\lambda} \ar[r] 
+\ar[d] & \ldots\\
+\qquad  \ldots \ar[r] & Z^{0,q-1}_1 \ar[r]\ar[d] & Z^{0,q}_1\ar[r]\ar[d] &
+\ldots\\
+ & 0 & 0 & 
+}
+\]
+ of $K_{\lambda}$, with $L^{p,q}_{\lambda} = K^{p,q}_{\lambda}$ for
+ $p < 0; L^{p,q}_{\lambda} = 0$ for $p >0$ and $L^{o,q}_{\lambda} =
+ Z^{o,q}_1 (K_\lambda)$. Since $L_{\lambda}$ is stable under $d_1$ and
+ $d_2$, it is a subcomplex of $K_{\lambda}$. 
+
+ Let $M_\lambda$ be the subcomplex 
+\[
+\xymatrix{
+M_{\lambda} : &  & \ar[d] & \ar[d] & \\
+& \ldots \ar[r] & K^{-1,q-1}_{\lambda} \ar[d] \ar[r] &
+K^{-1,q}_{\lambda} \ar[r] 
+\ar[d] & \ldots\\
+&  \ldots \ar[r] & B^{0,q-1}_1 \ar[r]\ar[d] & B^{0,q}_1\ar[r]\ar[d] &
+\ldots\\
+ & & 0 & 0 & 
+}
+\]
+ of\pageoriginale $L_{\lambda}$, with $M^{p,q}_{\lambda} = L^{p,q}_{\lambda} =
+ K^{p,q}_{\lambda}$ for $p < 0; M^{p,q}_{\lambda} = L^{p,q}_{\lambda}
+ = 0$ for $p>0$ and $M^{o,q}_{\lambda} =
+ B^{o,q}_{\lambda}(K_{\lambda})$. Since $M_{\lambda}$ is stable $d_1$
+ and $d_2$, it is a subcomplex of $L_{\lambda}$. 
+ \end{proof}
+
+ Since $h_{\lambda} : K'_{\lambda} \rightarrow K_{\lambda}$ commutes
+ with $d_1$ and $d_2$, we have $h_{\lambda} : L'_{\lambda} \rightarrow
+ L_{\lambda}$ and $h_{\lambda} : M'_{\lambda} \rightarrow
+ M_{\lambda}$. Thus there are induced maps $h_{\lambda} : K'_{\lambda}
+ / L'_{\lambda} \rightarrow K_{\lambda}/L_{\lambda}$ and $h_{\lambda} :
+ L'_{\lambda}/M'_{\lambda} \rightarrow L_{\lambda}/M_{\lambda}$ which
+ commute with $i$ and $j$ in the exact sequences 
+\[
+\xymatrix{
+0\ar[r] & L'_{\lambda} \ar[r]^i\ar[d]_{h_{\lambda}} & K'_{\lambda}
+\ar[r]^j\ar[d]_{h_{\lambda}} & K'_{\lambda} / L'_{\lambda} \ar[r]
+\ar[d]_{h_{\lambda}} & 0\\
+0 \ar[r] & L_{\lambda} \ar[r]^i & K_{\lambda} \ar[r]^j &
+K_{\lambda}/L_{\lambda} \ar[r] & 0,
+}
+\]
+and
+\[
+\xymatrix{
+0\ar[r] & M'_{\lambda} \ar[r]^i\ar[d]_{h_{\lambda}} & L'_{\lambda}
+\ar[r]^j\ar[d]_{h_{\lambda}} & L'_{\lambda} / M'_{\lambda} \ar[r]
+\ar[d]_{h_{\lambda}} & 0\\
+0 \ar[r] & M_{\lambda} \ar[r]^i & M_{\lambda} \ar[r]^j &
+L_{\lambda}/M_{\lambda} \ar[r] & 0.
+}
+\]
+
+ Hence $h^\ast_{\lambda}$ commutes with $d^\ast$, $i^*$ and $j^*$ in the
+ exact cohomology sequences: 
+{\fontsize{9}{11}\selectfont
+\[
+\xymatrix{
+\ldots \ar[r] & H^{n-1} (K'_{\lambda}/L'_{\lambda})
+\ar[r]^{d^{\ast}}\ar[d]_{h^{\ast}_{\lambda}} &
+H^n(L'_{\lambda})\ar[r]^{i^{\ast}}\ar[d]_{h^{\ast}_{\lambda}} &
+H^{n}(K'_{\lambda}) \ar[r]^{j^{\ast}}\ar[d]_{h^{\ast}_\lambda} &
+H^n(K'_{\lambda}/L'_{\lambda}) \ar[r] \ar[d]_{h^{\ast}_\lambda} &  \\
+\ldots \ar[r] & H^{n-1}(K_{\lambda}/L_{\lambda}) \ar[r]^{d^{\ast}} &
+H^n(L_{\lambda}) \ar[r]^{i^{\ast}} & H^n(K_{\lambda})
+\ar[r]^{j^{\ast}} & H^n (K_{\lambda}/L_{\lambda})& 
+}
+\]
+and
+\[
+\xymatrix{
+\ldots \ar[r] & H^{n} (M'_{\lambda})
+\ar[r]^{i^{\ast}}\ar[d]_{h^{\ast}_{\lambda}} &
+H^n(L'_{\lambda})\ar[r]^{j^{\ast}}\ar[d]_{h^{\ast}_{\lambda}} &
+H^{n}(L'_{\lambda}/M'_{\lambda}) \ar[r]^{d^{\ast}}\ar[d]_{h^{\ast}_\lambda} &
+H^{n+1}(M'_{\lambda}) \ar[r] \ar[d]_{h^{\ast}_\lambda} & \ldots \\
+\ldots \ar[r] & H^n(M_{\lambda}) \ar[r]^{i^{\ast}} &
+H^n(L_{\lambda}) \ar[r]^{j^{\ast}} & H^n(L_{\lambda}/M_{\lambda})
+\ar[r]^{d^{\ast}} & H^{n+1} (M_{\lambda}) \ar[r]& \ldots 
+}
+\]}\relax
+
+  In\pageoriginale the direct limit, we have the following commutative
+  diagram where each row is exact.  
+{\fontsize{8}{10}\selectfont
+\[
+\xymatrix{
+(A_1) \cdots \ar[r] & H^{n-1}(K'/L')
+  \ar[r]^{d^{\ast}}\ar[d]_{h^{\ast}} &
+  H^n(L')\ar[r]^{i^{\ast}}\ar[d]^{h^{\ast}} & H^n(K')
+  \ar[r]^{j^{\ast}}\ar[d]_{h^{\ast}} & H^n(K'/L')
+  \ar[r]\ar[d]_{h^{\ast}} & \ldots\\
+(A_2) \cdots \ar[r] & H^{n-1}(K/L) \ar[r]^{d^{\ast}} & H^n(L)
+  \ar[r]^{i^{\ast}} & H^n(K) \ar[r]^{j^{\ast}} & H^n(K/L) \ar[r] & \ldots
+}
+\]}\relax
+and
+{\fontsize{8}{10}\selectfont
+\[
+\xymatrix{
+(B_1) \cdots \ar[r] & H^{n}(M')
+  \ar[r]^{i^{\ast}}\ar[d]_{h^{\ast}} &
+  H^n(L')\ar[r]^{j^{\ast}}\ar[d]_{h^{\ast}} & H^n(L'/M')
+  \ar[r]^{d^{\ast}}\ar[d]_{h^{\ast}} & H^{n+1}(M')
+  \ar[r]\ar[d]_{h^{\ast}} & \ldots\\
+(B_2) \cdots \ar[r] & H^{n}(M) \ar[r]^{i^{\ast}} & H^n(L)
+  \ar[r]^{j^{\ast}} & H^n(L/M) \ar[r]^{d^{\ast}} & H^{n+1}(M) \ar[r] &
+  \ldots 
+}
+\]}\relax
+  
+   The quotient double complex $K_{\lambda}/L_{\lambda}$ is 
+\[
+\xymatrix{
+K_{\lambda}/L_{\lambda}: &  & 0\ar[d] & 0 \ar[d]& \\
+& \ldots \ar[r] & K^{0,q-1}_{\lambda} / Z^{0,q-1}_1 \ar[r]\ar[d] &
+K^{0,q}/Z^{0,q}_1 \ar[r]\ar[d] & \ldots\\
+& \ldots \ar[r] & K^{1,q-1}_{\lambda} \ar[r]\ar[d] & K^{1,q}_{\lambda}
+\ar[r]\ar[d] & \ldots\\
+& & & & & 
+}
+\]
+
+and since the sequence $0 \rightarrow K^{o,q}_{\lambda} / Z^{o,q}_1
+\rightarrow K^{1,q}_{\lambda}$ is exact, we have  $H_{1}(K_{\lambda}/L_{\lambda})$: 
+%{\fontsize{7}{9}\selectfont
+\[
+\xymatrix{
+ & 0\ar[d] & 0 \ar[d]& \\
+\ldots \ar[r] & H^{1,q-1}_1(K_{\lambda})  \ar[r]\ar[d] &
+H^{1,q}_1(K_{\lambda}) \ar[r]\ar[d] & \ldots\\
+\ldots \ar[r] & H^{2,q-1}_1(K_{\lambda}) \ar[r]\ar[d] & H^{2,q}_1(K_{\lambda})
+\ar[r]\ar[d] & \ldots\\
+& & & 
+}
+\]\pageoriginale
+
+Thus $H^{p,q}_{12} (K_{\lambda}/ L_{\lambda})  = 0$ for $p \leqq 0$,
+and is equal to $H^{p,q}_{12}(K_{\lambda})$ for $p>0$, hence
+$H^{p,q}_{12}(K/L) = $ direct limit $\bigg\{ H^{p,q}_{12}(K_{\lambda}
+/ L_{\lambda}) \bigg\} = 0$ for $p \leqq 0$, and by hypothesis is also
+zero for $p>0$, hence is zero for all pairs $(p,q)$. Since
+$K_{\lambda}/ L_{\lambda}$ is bounded above or to the right, by
+Proposition \ref{chap20:prop15}, we have $H^n (K/L) = 0$ for all
+$n$. Thus, in the 
+sequence $(A_2)$, we see that $i^* : H^n(L) \rightarrow H^n (K)$ is an
+isomorphism.  
+   
+   Again, since the sequence $K^{-1,q}_\lambda \rightarrow B^{o,q}_1
+   \rightarrow 0$ is exact, we have for 
+\[
+\xymatrix{
+H_1(M_{\lambda}): &  & \ar[d] & \ar[d] & \\
+& \ldots \ar[r] & H^{-1,q-1}_1 (K_{\lambda}) \ar[r] \ar[d]& H^{-1,q}_1
+(K_{\lambda}) \ar[r] \ar[d]& \ldots\\
+& & 0 & 0 & 
+}
+\]   
+
+   Thus, $H^{p,q}_{12}(M_{\lambda}) = 0$ for $p > 0$ and is equal to
+   $H^{p,q}_{12}(K_{\lambda})$ for $p <0$, hence $H^{p,q}_{12}(M) = $
+   direct limit $\bigg\{ H^{p,q}_{12}(M_{\lambda}) \bigg\}$ is equal
+   to zero for $p \ge 0$, and by hypothesis, is also zero for $p < 0$,
+   hence is zero for all pairs $(p,q)$. As before, the conditions of
+   Proposition \ref{chap20:prop15} being\pageoriginale satisfied, we
+   have $H^n(M) = 0$ 
+   for all $n$. Thus, in the sequence $(B_2)$, we see that $j^* :
+   H^n(L) \rightarrow H^n (L/M)$ is an isomorphism.  
+   
+ The quotient double complex $L_{\lambda}/ M_{\lambda}$ is given by  
+\[
+\xymatrix{
+L_{\lambda}/M_{\lambda}: &  & 0 \ar[d] & 0\ar[d] & \\
+& \ldots \ar[r] & H^{0,q-1}_1 (K_{\lambda}) \ar[r] \ar[d]& H^{0,q}_1
+(K_{\lambda}) \ar[r] \ar[d]& \ldots\\
+& & 0 & 0 & 
+}
+\]   
+
+ Thus $(L_{\lambda}/ M_{\lambda})^q = H^{o,q}_1 (K_{\lambda})$ and $d
+ = d_2 :H^{o,q-1}_1 (K_{\lambda}) \rightarrow H^{o,q}_1
+ (K_{\lambda})$. Hence $H^q(L_{\lambda}/M_{\lambda}) = H^{o,q}_{12}
+ (K_{\lambda})$; similarly $H^q(L'_{\lambda}/ M'_{\lambda}) =
+ H^{o,q}_1 (K'_{\lambda})$. Furthermore, in the limit we have
+ $H^q(L/M) = H^{o,q}_{12} (K)$ and $H^q(L' /M') = H^{o,q}_1
+ (K')$. 
+ 
+ From the sequences $(A_1)$, $(A_2)$, $(B_1)$, $(B_2)$, we have the
+ commutative diagram : 
+\[
+\xymatrix{
+H^q(K')\ar[d]_{h^{\ast}} & H^q(L') \ar[l]_{i^{\ast}} \ar[r]^{j^{\ast}}
+\ar[d]_{h^{\ast}} & H^q(L'/M') \ar[d]_{h^{\ast}} & = &
+H^{0,q}_{12}(K')\ar[d]_{h^{\ast}} \\
+H^q(K) & H^q(L) \ar[l]_{i^{\ast}} \ar[r]^{j^{\ast}} & H^q(L/M) & = &
+H^{0,q}_{12} (K).
+}
+\]
+
+ Then there is an isomorphism	
+ $$
+ \theta : H^q(K) \rightarrow H^{o,q}_{12} (K),  
+ $$
+ where $\theta = j^* (i^*)^{-1} : H^q (K) \rightarrow H^q(L)
+ \rightarrow H^q(L/M) = H^{o,q}_{12} (K)$, $\theta $ \break
+ being\pageoriginale an isomorphism since we have proved that each of
+ $i^*$ and $j^*$ is an isomorphism. 
+ 
+ Further, form $(I)$, we have obviously commutativity in the following
+ diagram : 
+\[
+\xymatrix{
+H^q(K') \ar[r]^{\theta}\ar[d]_{h^{\ast}} & H^{0,q}_{12}(K')
+\ar[d]^{h^{\ast}}\\
+H^q(K) \ar[r]^{\theta} & H^{0,q}_{12}(K).
+}
+\]
+
+\medskip
+\noindent{\textbf{Proposition 16-a.}}
+\textit{If $\bigg\{K_{\lambda}, \phi_{\mu \lambda} \bigg\}$ is a direct
+  system of double complexes which is bounded below or on the left and
+  if  $H^{p,q}_{21} (K) = 0$  except for $q = 0$,  then there exist
+  isomorphisms $\theta : H^p(K) \rightarrow H^{p,o}_{21} (K)$ for all
+$p$.}
+
+\textit{If another direct system $\bigg\{ K'_{\lambda} , \phi'_{\mu \lambda}
+\bigg\}$ is bounded below or on the left with  $H^{p,q}_{21}
+  (K') = 0$ except for $q=0$, and if $h_{\lambda} : K'_{\lambda}
+  \rightarrow K_{\lambda}$ are maps with $h_{\mu \phi_{\mu \lambda}} =
+  \phi_{\mu \lambda} h_{\lambda}$, then there are induced
+  homomorphisms 
+ $$
+ h^\ast : H^p(K') \rightarrow H^p (K) \text{ and } h^\ast :
+ H^{p,o}_{21} (K')  \rightarrow H^{p,o}_{21} (K)  
+ $$
+which commute with $\theta$.}
+ 
+ \begin{remark*}%rema 0
+In particular, all the propositions proved in this lecture are true
+for a double complex $K = \bigg\{K^{p,q} \bigg\}$ satisfying the
+conditions stated in the propositions. We have only to replace the
+$\phi_{\mu \lambda}$ by the identity map $K \rightarrow K$. 
+ \end{remark*} 
+
+ \begin{exam}%exam 29
+Let\pageoriginale
+\begin{align*}
+K^{p,q} & = Z \text{ (ring of integers) if  } q \geqq 0 \text{ and } p = - q
+\text{ or  } - q-1, \\ 
+& = 0 \text{ otherwise. }
+\end{align*}
+
+ For $q \geqq 0$, let $d_1 : K^{-q-1, q} \rightarrow K^{-q,q}$ 
+ and 
+ $$
+ d^2 : K^{-q-1,q} \rightarrow K^{-q-1, q+1} 
+ $$
+ be the identity isomorphisms of $Z$ onto itself. The other 
+ homomorphisms are all the trivial homomorphisms. Then $K = \bigg\{
+ K^{p,q} \bigg\}$ is a double complex with 
+ \begin{align*}
+H^{p,q}_{21}(K)  = H^{p,q}_{2}(K) & = Z  \text { if } (p,q) = (0,0),\\ 
+& = 0 \text{ otherwise };\\
+H^{p,q}_{12}(K)  = H^{p,q}_{1}(K) &= 0 \text{ for all } (p,q),
+ \end{align*} 
+ and 
+ \begin{align*}
+H^n(K) & = Z \text { if } n= 0, \\
+& = o \text { otherwise }.
+ \end{align*} 
+ 
+ This double complex is bounded below and on the left, but is
+ unbounded above and on the right.	 
+ \end{exam}
+
+

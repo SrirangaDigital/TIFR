@@ -1,0 +1,2046 @@
+\chapter{Dirichlet Series and Euler Products}\label{chap5}
+
+\section{Gamma Functions and Mellin Transforms}\label{chap5:sec1}\pageoriginale
+
+In this section, we study some generalised gamma functions and Mellin
+transforms of some functions, which will be required in the sequel for
+the investigation of the connection between Dirichlet series and
+modular forms.
+
+We introduce the gamma functions
+\begin{equation*}
+\Gamma(s;\alpha, \beta) = \int\limits^{\infty}_0 W(y;\alpha,\beta)
+y^{s-1} dy \tag{1}\label{c5:eq1:1}
+\end{equation*}
+as the Mellin transform of the function $W(y;\alpha,\beta)$, which
+satisfies the differential equation
+\begin{equation*}
+y W''(y;\alpha,\beta) + q W'(y;\alpha,\beta) +
+(r-y)W(y;\alpha,\beta)=0 \tag{2}\label{c5:eq1:2}
+\end{equation*}
+where $r=\alpha-\beta$ and $q=\alpha+\beta$. This differential
+equation has 0 as a `place of determinacy' so that 
+$$
+W(y;\alpha,\beta) =o(y^{-K})(y\to 0)
+$$
+for $K>K_0=\max(0,\re(q-1))$. Since $W(y;\alpha,\beta)$ tends to zero
+exponentially when $y\to \infty$, it follows that the function
+$\Gamma(s;\alpha,\beta)$, in any case, is regular in the half plane
+$\sigma=\re s>K_0$. The integral representation of Whittaker's
+function mentioned in lemma~\ref{chap4:lem8} 
+(chapter~\ref{chap4}, \S~\ref{chap4:sec2}) gives
+\begin{align*}
+W(y;\alpha,\beta)& =y^{-\frac{1}{2}q}
+W_{\frac{1}{2}r,\frac{1}{2}(q-1)} (2y)\\
+& = \frac{2^{1-\frac{1}{2}q}}{\Gamma(\beta)} \int\limits^{\infty}_1
+  e^{-yu} (u-1)^{\beta-1} 
+(u+1)^{\alpha+1} du \;\; (\re \beta > 0), \tag{3}\label{c5:eq1:3}
+\end{align*}
+which \pageoriginale leads to 
+\begin{equation*}
+\Gamma(s;\alpha,\beta) = 2^{1-\frac{1}{2}q}
+\frac{\Gamma(s)}{\Gamma(\beta)}\int\limits^{\infty}_1 (u-1)^{\beta-1}
+(u+1)^{\alpha-1} u^{-s} du \;\; (\re \beta >0) \tag{4}\label{c5:eq1:4}
+\end{equation*}
+for $\sigma > \re(q-1)$. Substituting $u=1/(1-v)$ in \eqref{c5:eq1:4}, we get
+\begin{align*}
+\Gamma(s;\alpha,\beta) & = 2^{1-q/2} \frac{\Gamma(s)}{\Gamma(\beta)}
+\int\limits^1_0 v^{\beta-1} (1-v)^{s-q} (2-v)^{\alpha-1} dv\\
+& = 2^{r/2}
+\frac{\Gamma(s)}{\Gamma(\beta)}\sum^{\infty}_{n=0} \begin{pmatrix}
+\alpha-1\\n\end{pmatrix} \frac{(-1)^n}{2^n} \int\limits^1_0
+v^{\beta+n-1} (1-v)^{s-q} dv\\
+& = 2^{r/2} \frac{\Gamma(s)}{\Gamma(\beta)} \sum^{\infty}_{n=0}
+\frac{(1-\alpha)_n}{n!2^n}
+\frac{\Gamma(\beta+n)\Gamma(s+1-q)}{\Gamma(s+n+1-\alpha)}, 
+\end{align*}
+where, in general
+$$
+(a)_n = \frac{\Gamma(a+n)}{\Gamma(a)} = a(a+1) \ldots (a+n-1), (a)_0=1.
+$$
+We can thus, conclude finally that 
+\begin{equation*}
+\Gamma(s;\alpha,\beta) = 2^{r/2} \Gamma(s)\Gamma(s+1-q)
+\sum^{\infty}_{n=0}
+\frac{(1-\alpha)_n(\beta)_n}{n!2^n
+\Gamma(s+n+1-\alpha)} \tag{5}\label{c5:eq1:5}
+\end{equation*}
+This series converges for all $s,\alpha$ and $\beta$ showing that
+$\Gamma(s;\alpha,\beta)$ is a meromorphic function, which has
+singularities at most at the poles of $\Gamma(s)\break\Gamma(s+1-q)$. In
+particular, when $\alpha=\beta$, we see, from (4), that 
+$$
+\Gamma(s;\alpha,\alpha) = 2^{1-\alpha}
+\frac{\Gamma(s)}{\Gamma(\alpha)} \int\limits^{\infty}_1
+(u^2-1)^{\alpha-1} u^{-s} du.
+$$
+On substituting $u^2=1/(1-v)$, we are led to 
+\begin{align*}
+\Gamma(s;\alpha,\alpha) & = 2^{-\alpha}
+\frac{\Gamma(s)}{\Gamma(\alpha)} \int\limits^1_0
+v^{\alpha-1}(1-v)^{\frac{s-1}{2}-\alpha} dv\\
+& = 2^{-\alpha}
+\frac{\Gamma(s)\Gamma(\frac{s+1}{2}-\alpha)}{\Gamma(\frac{s+1}{2})}. 
+\end{align*}
+Using \pageoriginale Legendre's relation
+$$
+\Gamma(s) = \frac{1}{\surd\pi} 2^{s-1} \Gamma(\frac{s}{2})
+\Gamma(\frac{s+1}{2}), 
+$$
+we obtain from above that 
+\begin{equation*}
+\Gamma(s;\alpha,\alpha) = \frac{2^{s-\alpha-1}}{\surd\pi}
+\Gamma(\frac{s}{2}) \Gamma
+(\frac{s+1}{2}-\alpha). \tag{6}\label{c5:eq1:6}
+\end{equation*}
+If $\beta=0$, then it follows immediately from \eqref{c5:eq1:5} that 
+\begin{equation*}
+\Gamma(s;\alpha,0) = 2^{\alpha/2} 
+\Gamma(s). \tag{7}\label{c5:eq1:7}
+\end{equation*}
+
+With the help of the differential equation~\eqref{c5:eq1:2}, we shall show that the
+function $\Gamma(s;\alpha,\beta)$ satisfies the functional equation
+\begin{equation*}
+\Gamma(s+2;\alpha,\beta) + (\beta-\alpha)\Gamma(s+1;\alpha,\beta)
+-s(s+1 -\alpha-\beta) \Gamma
+(s;\alpha,\beta) =0.\tag{8}\label{c5:eq1:8}
+\end{equation*}
+It is obvious that 
+\begin{align*}
+0 & = \int\limits^{\infty}_0 \{-y^2 W''(y;\alpha-\beta) - qy
+W'(y;\alpha,\beta) + (y^2-ry) W(y;\alpha,\beta)\} y^{s-1} dy\\
+& =\int\limits^{\infty}_0 \{W(y;\alpha,\beta) - W''(y;\alpha,\beta)\}
+y^{s+1} dy-r\int\limits^{\infty}_0 W(y;\alpha,\beta) y^s dy-q\\
+&\qquad\qquad\int\limits^{\infty}_0 W'(y;\alpha,\beta) y^s dy\\
+& = \int\limits^{\infty}_0 \{W(y;\alpha,\beta) + \frac{r}{s+1}
+W'(y;\alpha,\beta) -\frac{s(s+1-q)}{s(s+1)} W''(y;\alpha,\beta)\} y^{s+1}
+ dy. \tag{9}\label{c5:eq1:9}
+\end{align*}
+But, by the definition of $\Gamma(s;\alpha,\beta)$, we have 
+\begin{align*}
+\Gamma(s+2;\alpha,\beta) & = \int\limits^{\infty}_0 W(y;\alpha,\beta)
+y^{s+1} dy,\\
+\Gamma(s+1;\alpha,\beta) & = \int\limits^{\infty}_0 W(y;\alpha,\beta)
+\;\; y^s dy = -\frac{1}{s+1} \int\limits^{\infty}_0 W'(y;\alpha,\beta)
+\;\; y^{s+1}dy, \\
+\Gamma(s;\alpha,\beta) & =\int\limits^{\infty}_0 W(y;\alpha,\beta)
+y^{s-1} dy = -\frac{1}{s} \int\limits^{\infty}_0 W'(y;\alpha,\beta)
+y^s dy\\
+& = \frac{1}{s(s+1)} \int\limits^{\infty}_0 W''(y;\alpha,\beta)
+y^{s+1} dy. 
+\end{align*}
+Therefore \pageoriginale equation~\eqref{c5:eq1:8} is 
+an immediate consequence of \eqref{c5:eq1:9}.
+
+We now consider the determinant
+\begin{equation*}
+D(s;\alpha,\beta) = 
+\begin{vmatrix}
+\Gamma(s;\alpha,\beta) & \Gamma(s;\beta,\alpha)\\
+-\Gamma(s+1;\alpha,\beta) & \Gamma(s+1;\beta,\alpha)
+\end{vmatrix}\tag{10}\label{c5:eq1:10}
+\end{equation*}
+which shall be of use later. With the help of~\eqref{c5:eq1:8}, we see that
+$D(s;\alpha,\beta)$ satisfies the functional equation
+\begin{align*}
+D(s+1;\alpha,\beta) = & 
+\begin{vmatrix}
+\Gamma(s+1;\alpha,\beta) & \Gamma(s+1;\beta,\alpha)\\
+-\Gamma(s+2;\alpha,\beta) & \Gamma(s+2;\beta, \alpha)
+\end{vmatrix}.\\
+& = s (s+1-q) \begin{vmatrix}
+\Gamma(s+1;\alpha,\beta) & \Gamma(s+1;\beta,\alpha)\\
+-\Gamma(s;\alpha,\beta) & \Gamma(s,\beta,\alpha)
+\end{vmatrix}\\
+& = s (s+1-q) \;\; D (s; \alpha, \beta).\tag{11}\label{c5:eq1:11}
+\end{align*}
+Let us set 
+$$
+H(s) =\frac{D(s;\alpha,\beta)}{\Gamma(s)\Gamma(s+1-q)}. 
+$$
+Then it can be seen easily from \eqref{c5:eq1:11} that $H(s)$ is a periodic
+function of period 1. Since $H(s)$ is regular in the half plane
+$\sigma=\re s> K_1$, where $K_1$ is a sufficiently large number, it
+follows that $H(s)$ is an entire function of $s$. We shall now show
+that $\lim_{s\to \infty}H(s)=2$, which together with the periodicity
+of $H(s)$ will imply that $H(s) = 2$ for all $s$. In order to
+calculate the limit of $H(s)$ as $\re s\to \infty$, we consider
+equation \eqref{c5:eq1:5} which shows that
+\begin{equation*}
+\Gamma(s;\alpha,\beta) = 2^{r/2}
+\frac{\Gamma(s)\Gamma(s+1-q)}{\Gamma(s+1-\alpha)} F(\beta,1-\alpha;
+s+1-\alpha;\frac{1}{2}),\tag{12}\label{c5:eq1:12} 
+\end{equation*}
+where \pageoriginale $F(a,b;c;z)$ is the hypergeometric function
+defined by
+$$
+F(a,b;c;z) = \sum^{\infty}_{n=0} \frac{(a)_n(b)_n}{(c)_n n!} z^n.
+$$
+As a result, we have
+$$
+H(s) =
+\frac{\Gamma(s)\Gamma(s+2-q)}{\Gamma(s+1-\alpha)
+\Gamma(s+1-\beta)} \begin{vmatrix}
+a_1(s) & a_2(s)\\
+a_3(s) & a_4(s)
+\end{vmatrix}
+$$
+with 
+\begin{align*}
+a_1(s) & = F(\beta, 1-\alpha; s+1-\alpha;\frac{1}{2}),\\
+a_2(s) & = F(\alpha,1-\beta; s+1-\beta;\frac{1}{2}),\\
+a_3(s) & = -\frac{s}{s+1-\alpha} F(\beta,1-\alpha;
+s+2-\alpha;\frac{1}{2}),\\
+a_4 (s) & = \frac{s}{s+1-\beta} F(\alpha,1-\beta;
+s+2-\beta;\frac{1}{2}). 
+\end{align*}
+But is is well known that 
+$$
+\lim_{\sigma \to \infty} \frac{\Gamma(s+a)}{\Gamma(s)} e^{-a\log s}
+=\lim_{\sigma \to \infty} F(\alpha,\beta; s;\frac{1}{2}) =1,
+$$
+and therefrom it is clear that
+$\lim\limits_{\sigma\to\infty}H(s)=2$. Consequently, we have proved that 
+\begin{equation*}
+D(s;\alpha,\beta) = 2\Gamma(s) \;\; 
+\Gamma (s+1-\alpha-\beta). \tag{13}\label{c5:eq1:13}
+\end{equation*}
+
+By the general theory of Mellin transforms (see H. Mellin,
+Math. Ann. 68 (1910), 305-337), in order to invert relation \eqref{c5:eq1:1}
+i.e. to show that
+\begin{equation*}
+W(y;\alpha,\beta) =\frac{1}{2\pi i}
+\int\limits^{\sigma+i\infty}_{\sigma-i\infty}
+\Gamma(s;\alpha,\beta)y^{-s}ds \tag{14}\label{c5:eq1:14}
+\end{equation*}
+for $\sigma > \max (0,\re(q-1))=K_0$, it suffices to know that
+$\Gamma(s;\alpha,\beta)$ is regular \pageoriginale for
+$\sigma>K_0(s=\sigma + it)$ and satisfies the following growth
+condition:
+\begin{equation*}
+\Gamma(s;\alpha,\beta)= o (e^{-(1-\in)\frac{\pi}{2}|t|})
+\text{ for } |t| \to \infty \tag{15}\label{c5:eq1:15}
+\end{equation*}
+uniformly in any given strip $\sigma_1\leq \sigma\leq \sigma_2$, with
+given $\in >0$. The regularity of the function
+$\Gamma(s;\alpha,\beta)$ in the half plane $\sigma >K_{0}$ has been
+already established. We shall therefore prove only the latter
+assertion. It is well known that
+$$
+C_1 \leq |\Gamma(s)|e^{\frac{\pi}{2}|t|} |t|^{\frac{1}{2}-\sigma} \leq
+C_2 \text{ for } |t| \geq 1, \sigma_1  \leq \sigma \leq \sigma_2
+$$
+with certain positive constants
+$C_{\ell}=C_{\ell}(\sigma_1,\sigma_2) \;\; (\ell=1,2)$. This inequality
+together with \eqref{c5:eq1:12} leads to \eqref{c5:eq1:15}, because
+$\left|\dfrac{s+n-\alpha}{n}\right|\geq 
+1 -\in$ and $|(s+1-\alpha)_n|\geq (1-\in)^nn!$ for
+$\sigma_1 \leq \sigma \leq \sigma_2$, $|t| \geq t_0(\in,
+\alpha, \sigma_1, \sigma_2)$, for all $n \geq 1$ and for a given
+$\in > 0$. Thus we have 
+$$
+\lim_{|t|\to \infty} F(\beta, 1-\alpha, s+1-\alpha;\frac{1}{2}) =1
+$$
+uniformly in $\sigma_1\leq \sigma\leq \sigma_2$ and relation (14) is
+proved.
+
+Finally, we shall calculate the Mellin transform $\xi(s)$ of an
+infinite series
+\begin{equation*}
+F(y) = \sum_{n\neq 0} a_nW(\frac{2\pi n}{\lambda} y;\alpha,\beta) \; 
+(\lambda >0) \tag{16}\label{c5:eq1:16}
+\end{equation*}
+with $a_n=o(|n|^{K_1})\;  (n\to \infty)$.
+
+Let $K_0=\max(0,\re(q-1))$. We shall that $\xi(x)$ exists for
+$\sigma>\max(K_0, K_1+1)$; moreover, in this domain, we can calculate
+it by term-wise integration of the series $F(y)$. Without loss of
+generality, we can assume, in the very beginning, that 
+$$
+|a_n| < |n|^{K_1} \text{ for } n \neq 0.
+$$
+Now \pageoriginale it is not hard to prove that for a given
+$\in > 0$ and $K>K_0$, there exists a positive constant
+$C=C(K,\in)$, such that
+$$
+|W(\pm y ; \alpha,\beta)|< Cy^{-K} e^{-(1-\in)y} \text{ for }
+y>0. 
+$$
+Having fixed $\sigma$, the number $K$ is supposed in the sequel, to
+lie between $\sigma$ and $K_0$. Consider
+$$
+G(y) = 2C\sum^{\infty}_{n=1} n^{K_1} (\frac{2\pi ny}{\lambda})^{-K}
+e^{-2\pi(1-\in) ny/\lambda} 
+$$
+which is a series of positive terms and converges for $y>0$. It is
+obvious from the above discussion that the series $G(y)$ majorises the
+series $F(y)$. Since the series 
+$$
+2C(\frac{\lambda}{2\pi})^{\sigma} (1-\in)^{K-\sigma}
+(\sigma-K) \sum^{\infty}_{n=1} n^{K_1-\sigma}
+$$
+obtained by the term-wise integration of the series representing the
+function $G(y) y^{s-1}$ converges for $\sigma > \max (K_0, K_1 +1)$,
+it follows that 
+\begin{align*}
+\xi(s) & = \int\limits^{\infty}_0 F(y) y^{s-1} dy = \sum_{n\neq 0} a_n
+\int\limits^{\infty}_0 W(\frac{2\pi n}{\lambda} y;\alpha,\beta)
+y^{s-1} dy\\
+& = \sum_{n>0} a_n \int\limits^{\infty}_0 W(\frac{2\pi n}{\lambda}
+y;\alpha,\beta) y^{s-1} dy + \sum_{n<0} a_n \int\limits^{\infty}_0
+W(\frac{2\pi |n|}{\lambda} y;\beta,\alpha)y^{s-1} dy\\
+& = (\frac{\lambda}{2\pi})^s \Gamma(s;\alpha,\beta) \sum_{n>0}
+\frac{a_n}{n^s} + (\frac{\lambda}{2\pi})^s \Gamma(s;\beta,\alpha)
+\sum_{n<0} \frac{a_n}{|n|^s} \tag{17}\label{c5:eq1:17}
+\end{align*}
+under the assumption that $\re s>\max (K_0,K_1+1)$.
+
+Now relation \eqref{c5:eq1:17} can be inverted i.e.
+\begin{equation*}
+F(y) =\frac{1}{2\pi i} \int\limits^{\sigma+i\infty}_{\sigma-i\infty}
+\xi(s)y^{-s} ds \; (\text{for } \sigma > 
+\max (K_0, K_1 +1)) \tag{18}\label{c5:eq1:18}
+\end{equation*}
+and the right hand side of \eqref{c5:eq1:18} can be calculated by term-wise
+integration of the series representing the function
+$\xi(s)y^{-s}$. Indeed, the function $\xi(s)$ satisfies the
+requirements for the inversion of relation \eqref{c5:eq1:17}, 
+in view of \eqref{c5:eq1:15}
+\pageoriginale and the fact that the Dirichlet series 
+$\sum_{n>0}\dfrac{a_n}{n^s}$ and $\sum_{n<0}\dfrac{a_n}{|n|^s}$ can be
+majorised by $\sum^{\infty}_{n=1} n^{K_1-\sigma}=\zeta (\sigma-K_1)$,
+which is independent of $t$.
+
+\section{Automorphic Forms and Dirichlet Series}\label{chap5:sec2}
+
+The following lemma will be used often to prove the equality of
+functions of the space $\{\alpha,\beta\}$.
+
+\setcounter{lem}{8}
+\begin{lem}\label{chap5:lem9}
+A function $g(x,y)$ belonging to the space $\{\alpha,\beta\}$ vanishes
+identically if and only if
+$$
+g(0,y) = \left(\frac{\partial q (x,y)}{\partial x}\right)_{x=0} = 0.
+$$
+\end{lem}
+
+\begin{proof}
+Since $g(x,y)$ satisfies the differential equation
+$\Omega_{\alpha,\beta}g=0$, it can be written as a power series in $x$
+of the type
+$$
+g(x,y) = \sum^{\infty}_{n=0} g_n(y) x^n,
+$$
+so that the coefficients $g_n$ satisfy the recursion formula
+$$
+(n+2)(n+1) y g_{n+2} + (\beta-\alpha) i(n+1)g_{n+1} + y g''_n +
+(\alpha+\beta) g'_n = 0.
+$$
+
+It is an obvious consequence that if $g_0=g_1=0$, then $g_n=0$ for all
+$n$ and the lemma is proved.
+
+In the following, we shall consider automorphic forms for the group
+$\Gamma<\lambda>$ generated by
+$$
+u^{\lambda} = \begin{pmatrix}
+1&\lambda\\
+0&1
+\end{pmatrix} , \quad T = \begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix} (\lambda>0).
+$$
+We know from Hecke that the group $\Gamma<\lambda>$ is discontinuous
+if and only if $\lambda$ satisfies any one of the two conditions:
+\begin{itemize}
+\item[1.] $\lambda \geq 2$
+
+\item[2.] $\lambda=2 \cos \pi/\ell \; (\ell=3,4,5,\ldots)$.
+\end{itemize}
+\end{proof}
+
+Hecke \pageoriginale has also shown that the domain $\{\tau|\tau=x+iy,
+|2x| \leq \lambda, |\tau| \geq 1\}$ is a fundamental domain for the
+group $\Gamma<\lambda>$. It is evident that the subgroups of the
+modular group that occur among these groups are the modular group
+$\Gamma=\Gamma<1>$ itself and the theta group
+$\Gamma_{\vartheta}=\Gamma<2>$. Moreover, in case $\lambda>2$, the
+group $\Gamma<\lambda>$ is no more a Grenzkreis group.
+
+We shall now derive, for the multiplier system $v$ of the group
+$\Gamma<2\cos \pi/\ell>$ and weight $r$, certain relations which are
+analogues of the relations for the modular group given in 
+chapter~\ref{chap3}, \S~\ref{chap3:sec1} and coincide with 
+them in case $\ell=3$. It is easy to see that the  transformation
+$$
+V=U^{-\lambda} T=\begin{pmatrix}
+\lambda & 1\\
+-1 & 0
+\end{pmatrix}, \quad \lambda = 2 \cos \pi/\ell
+$$
+leaves the point $-e^{-\pi i/\ell} = -\cos \pi/\ell+i\sin \pi/\ell$
+fixed and therefore is an elliptic transformation. Since
+$$
+V= \begin{pmatrix}
+1 & e^{-\pi i/\ell}\\
+1 & e^{\pi i/\ell}
+\end{pmatrix}^{-1} \begin{pmatrix}
+e^{\pi i/\ell} & 0\\
+0 & e^{-\pi i/\ell}
+\end{pmatrix} \begin{pmatrix}
+1 & e^{-\pi i/\ell}\\
+1 & e^{\pi i /\ell}
+\end{pmatrix},
+$$
+it follows that $V^{\ell} =-E$. If there exists an automorphic form
+for the group $\Gamma<2\cos \pi /\ell>$, the multiplier system $v$ and
+weight $r$, then it can be proved, as in chapter~\ref{chap3}, 
+\S~\ref{chap3:sec1}, that
+$$
+v(V) = e^{(\pi i r/\ell)+2\pi i a/\ell} \; (0\leq a < \ell), v(T) =
+e^{(\pi i r/2)+2\pi i b/2} \; (0\leq b < 2).
+$$
+Let $v(U^{\lambda}) =e^{2\pi i \kappa}, 0\leq \kappa <1$. Thus 
+$$
+v(T) = v(U^{\lambda}V) = v(U^{\lambda})v(V)
+$$
+implies that
+$$
+\frac{\ell-2}{4\ell} r \equiv\kappa+\frac{a}{\ell} + \frac{b}{2}(\text{ mod }
+1). 
+$$\pageoriginale 
+We set $v(T)(-\tau)^r=\gamma(-i\tau)^r$ so that $v(T)=\gamma e^{\pi i
+  r/2}$, showing that 
+$$
+e^{2\pi i b/2} = \gamma \text{ or } b = (1-\gamma)/2, (\gamma^2=1).
+$$
+For the unramified case $(\kappa=0)$, we have 
+\begin{align*}
+\frac{\ell-2}{4\ell} r & = \frac{g-(1-\gamma)/2}{\ell}  +
+\frac{1-\gamma}{4},\\
+\text{i.e. } \hspace{3cm} r & = \frac{4q}{\ell-2} + 1 -\gamma
+(\kappa=0), \hspace{3cm}
+\end{align*}
+where $g$ is an integer. If $r=0$, then $\kappa$ is a rational
+number. Let us write $\kappa=k/h$ with $h>0$ and $(k,h)=1$. Then it
+can be seen easily that $h$ divides $\ell$ or $2\ell$ according as 2
+divides $\ell$ or does not divide $\ell$. 
+
+An entire function $\varphi(s)$ is said to be of \textit{finite
+  genus}, if, in every strip $\sigma_1\leq \sigma \leq
+\sigma_2 \; (s=\sigma+ it)$,
+$$
+\varphi(s) = o (e^{|t|K}) \text{ for } |t| \to \infty
+$$
+uniformly in $\sigma_1 \leq \sigma \leq \sigma_2$, with some positive
+constant $K$.
+
+\setcounter{thm}{34}
+\begin{thm}\label{chap5:thm35}
+Suppose we are given complex numbers $\alpha,\beta$ with real
+$r=\alpha-\beta$, real $\lambda>0,\gamma=\pm 1$ and real $\kappa$ with
+$0\leq \kappa < 1$ such that the equalities $\gamma=1$, $\kappa=0$ and
+$\alpha=\beta=0$ or 1 do not all hold at the same time. Let us
+consider 
+\begin{enumerate}
+\renewcommand{\theenumi}{\Roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item functions $f(\tau,\bar{\tau})$ with the properties:
+\begin{itemize}
+\item[1)] $f(\tau,\bar{\tau}) \in \{\alpha,\beta\}$,
+
+\item[2)]
+\begin{tabbing}
+$f(\tau,\bar{\tau})$ \= = \= $o (y^{K_1}) \text{ for } y \to \infty$,\\
+$f(\tau,\bar{\tau})$ \> = \> $o(y^{-K_2}) \text{ for } y \to 0$,
+\end{tabbing}
+uniformly in $x$ with suitable positive constants $K_1,K_2$,
+
+\item[3)] $f(\tau+\lambda,\bar{\tau}+\lambda) =e^{2\pi i
+  \kappa}f(\tau,\bar{\tau})$\pageoriginale
+
+\item[4)] $f(-\dfrac{1}{\tau}, - \dfrac{1}{\tau}) =
+  \gamma(-i\tau)^{\alpha} (i\bar{\tau})^{\beta} f(\tau,\bar{\tau})$,
+  and 
+\end{itemize}
+
+\item pairs of functions $\varphi=\varphi(s)$, $\psi=\psi(s)$ having
+  the properties:
+\begin{enumerate}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+\item the functions $\varphi$ and $\psi$ are meromorphic and can be
+  represented by Dirichlet series of the type
+$$
+\varphi(s) = \sum_{n+\kappa>0} \frac{a_{n+\kappa}}{(n+\kappa)^s},
+\quad \psi(s) = \sum_{n+\kappa<0} \frac{a_{n+\kappa}}{|n+\kappa|^s}
+$$
+in some half-plane,
+
+\item for $\xi, \eta$ defined by 
+\begin{align*}
+\xi (s) & = (\frac{\lambda}{2\pi})^s \{\Gamma(s;\alpha,\beta)
+\varphi(s) + \Gamma(s;\beta, \alpha)\psi (s)\},\\
+\eta(s)+\lambda\frac{\alpha-\beta}{4\pi}\xi(s) & =
+(\frac{\lambda}{2\pi})^{s+1} \{
+\Gamma(s+1;\alpha,\beta)\varphi(s)-\Gamma(s+1;\beta,\alpha) \psi (s)\}
+\end{align*}
+and for $q=\alpha+\beta$, the functions
+\begin{equation*}
+\xi(s) -\frac{a_0}{s(s+1-q)} -\frac{\gamma a_0}{(q-s)(1-s)} + \frac{b_0}{s}
+ + \frac{\gamma b_0}{q-s} \tag{1}\label{c5:eq2:1}
+\end{equation*}
+and
+\begin{equation*}
+\eta(s) + \lambda\frac{\alpha-\beta}{4\pi} \xi (s) -\lambda
+\frac{\alpha-\beta}{2\pi} \left\{\frac{\gamma b_0}{s-q} + \frac{\gamma
+  a_0}{(s-q)(s-1)}\right\}, \tag{2}\label{c5:eq2:2}
+\end{equation*}
+for a suitable choice of the constants $a_0$ and $b_0$, are entire
+functions of finite genus and moreover, for $\kappa\neq 0$, $a_0$ and
+$b_0$ are both equal to zero.
+
+\item the functions $\varphi$ and $\psi$ satisfy the functional
+  equations 
+$$
+  \xi(q-s) = \gamma\xi(s), \quad \eta(q-s)=-\gamma\eta(s).
+$$
+\end{enumerate}
+
+Then the linear space of functions $f$ mentioned in I) is mapped by
+means of the Mellin transformation onto the linear space of pairs of
+functions described \pageoriginale in II) and this correspondence
+between the two spaces is invertible.
+\end{enumerate}
+\end{thm}
+
+\begin{remark*}
+As we shall see later, the function $f(\tau,\bar{\tau})$ has the
+Fourier expansion
+\begin{equation*}
+f(\tau,\bar{\tau}) = a_0 u (y,q) + b_0 + \sum_{n+\kappa \neq 0}
+a_{n+\kappa} W (\frac{2\pi(n+\kappa)}{\lambda} y;\alpha,\beta) e^{2\pi
+i (n+\kappa)x/\lambda} \tag{3}\label{c5:eq2:3}
+\end{equation*}
+with $a_0$ and $b_0$ as determined by II), 2). Clearly, a one-one
+invertible correspondence $f\longleftrightarrow (\phi, \psi)$ may now
+be seen to 
+exist only if the constants $a_0$ and $b_0$ are uniquely determined by
+the condition II), 2). It may be verified that this happens except
+when $\kappa=0$, $\gamma=1$ and $\alpha=\beta=0$ or 1. We recall that both
+these possibilities have been excluded in the statement of 
+theorem~\ref{chap5:thm35}. It can also be checked that 
+these are exactly the cases for which the identity
+$$
+a_0u(\frac{y}{\tau\bar{\tau}},q) + b_0 = \gamma(-i\tau)^{\alpha}
+(i\bar{\tau})^{\beta} \{a_0u(y,q)+b_0\}
+$$
+has a non-trivial solution for $a_0$ and $b_0$.
+\end{remark*}
+
+\begin{proof}
+\begin{enumerate}
+\renewcommand{\theenumi}{\Alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item We start with a function $f(\tau,\bar{\tau})$ with the
+properties mentioned in I) and prove the existence of a pair of
+functions $\varphi$ and $\psi$ with the properties in II). It is an
+immediate consequence of I), 1), 2), 3) that the function
+$f(\tau,\bar{\tau})$ has a Fourier expansion of the type
+$$
+f(\tau,\bar{\tau}) = a_0 u(y,q) + b_0 + \sum_{n+\kappa\neq 0}
+a_{n+\kappa} W(\frac{2\pi(n+\kappa)}{\lambda}y;\alpha,\beta) e^{2\pi i
+  (n+\kappa)x/\lambda},
+$$
+where $a_0$ and $b_0$ both vanish when $\kappa\neq 0$. Since the
+function
+$$
+g(x,y) = f(-\frac{1}{\tau}, -\frac{1}{\bar{\tau}}) (-i\tau)^{-\alpha}
+(i\bar{\tau})^{-\beta} -\gamma^f(\tau,\bar{\tau})
+$$
+satisfies the differential equation $\Omega _{\alpha\beta}g=0$, it
+follows from\break lemma~\ref{chap5:lem9} that \pageoriginale the conditions
+\begin{equation*}
+g(0,y) = [\frac{\partial}{\partial x} 
+g(x,y)]_{x=0} =0 \tag{5}\label{c5:eq2:5}
+\end{equation*}
+are equivalent with I), 4). It now follows, by simple calculation,
+that 
+\begin{align*}
+F^{\ast} (\frac{1}{y}) y^{-q} & = \gamma F^{\ast} (y),\\
+H^{\ast} (\frac{1}{y}) y^{-q} 
+& = -\gamma H^{\ast}(y) \tag{6}\label{c5:eq2:6}
+\end{align*}
+with 
+\begin{align*}
+F^{\ast}(y) & = f(iy,-iy) = a_0u(y,q) + b_0 + F(y)\\
+H^{\ast} (y) & = G(y) -\lambda\frac{\alpha-
+\beta}{4\pi} F^{\ast}(y) \tag{7}\label{c5:eq2:7}\\
+H(y) & = G(y) -\lambda\frac{\alpha-\beta}{4\pi} F(y),
+\end{align*}
+where 
+\begin{align*}
+F(y) & = \sum_{n+\kappa \neq 0} a_{n+\kappa}
+W(\frac{2\pi(n+\kappa)}{\lambda}y;
+\alpha,\beta), \tag{8}\label{c5:eq2:8}\\
+G(y) & = \sum_{n+\kappa\neq 0} (n+\kappa) a_{n+\kappa} y
+W(\frac{2\pi(n+\kappa)}{\lambda}y;\alpha,\beta). 
+\end{align*}
+With the help of I), 2), the equation
+$$
+a_{n+\kappa} W(\frac{2\pi(n+\kappa)}{\lambda} y;\alpha,\beta) =
+\frac{1}{\lambda} \int\limits^{\lambda}_0 f(\tau,\bar{\tau}) e^{-2\pi
+  i(n+\kappa)x/\lambda}dx 
+$$
+entails that
+$$
+a_{n+\kappa} W(\frac{2\pi(n+\kappa)}{\lambda} y;\alpha,\beta) = 
+o(y^{-K_2}) \text{ for } y \to 0.
+$$
+Let us choose $y=\dfrac{c}{|n+\kappa|}$, where the constant $c$ is so
+determined that $W(\pm \dfrac{2\pi}{\lambda} c;\alpha,\beta)\neq
+0$. Then it results from above that
+\begin{equation*}
+a_{n+\kappa} =  o(|n+\kappa|^{K_2}) 
+\;\; (|n+\kappa| \to \infty). \tag{9}\label{c5:eq2:9} 
+\end{equation*}
+This \pageoriginale shows, as already proved in \S~\ref{chap5:sec1}, that the Mellin
+transforms 
+\begin{align*}
+\xi(s) & = \int\limits^{\infty}_0 F(y) y^{s-1} dy \tag{10}\label{c5:eq2:10}\\
+\eta(s) & = \int\limits^{\infty}_0 H(y)y^{s-1} dy =
+\int\limits^{\infty}_0 G(y) y^{s-1} dy -\lambda \frac{\alpha
+  -\beta}{4\pi} \xi (s)
+\end{align*}
+can be calculated by term-wise integration on making use of the series
+representation \eqref{c5:eq2:8} for $F(y)$ and $G(y)$. Thus we obtain that $\xi(s)$
+and $\eta(s)$ have the form II), 2), where 
+$$
+\varphi(s) = \sum_{n+\kappa>0} \frac{a_{n+\kappa}}{(n+\kappa)^s},
+\quad \psi (s) = \sum_{n+\kappa<0} \frac{a_{n+\kappa}}{|n+\kappa|^s}
+$$
+which converge in some half-plane, because of condition \eqref{c5:eq2:9} satisfied
+by the coefficients $a_{n+\kappa}$. In order to get the functional
+equation for $\varphi$ and $\psi$ we proceed  as follows. 
+From \eqref{c5:eq2:10}, we have 
+\begin{align*}
+\xi(s) & = \int\limits^{\infty}_1 F(y) y^{s-1} dy + \int\limits^1_0
+F(y) y^{s-1} dy\\
+& = \int\limits^{\infty}_1 \{F(y) y^s + F(\frac{1}{y}) y^{-s}\}
+\frac{dy}{y} 
+\end{align*}
+and similarly
+$$
+\eta(s) = \int\limits^{\infty}_1 \{H(y) y^s + H(\frac{1}{y}) y^{-s}\}
+\frac{dy}{y}. 
+$$
+With the help of the transformation formulae
+{\fontsize{9}{11}\selectfont
+\begin{align*}
+F(\frac{1}{y}) & = \gamma F(y) y^q+ \gamma\{a_0 u(y,q)+b_0\}y^q - a_0
+u(\frac{1}{y},q) - b_0,\\
+H(\frac{1}{y}) & = -\gamma H(y)y^q + \lambda \frac{\alpha-\beta}{4\pi}
+\gamma\{a_0u(y,q) +b_0\} y^q + \lambda \frac{\alpha-\beta}{4\pi} \{a_0
+u(\frac{1}{y},q) + b_0\}, 
+\end{align*}}\relax
+which result from \eqref{c5:eq2:6} and \eqref{c5:eq2:7}, 
+we obtain by integrating the elementary terms that 
+{\fontsize{9}{11}\selectfont
+\begin{align*}
+\xi(s) & = \int\limits^{\infty}_1 F(y) \{y^s+\gamma y^{q-s}\}
+\frac{dy}{y} - \frac{b_0}{s} -\frac{\gamma b_0}{q-s} +
+\frac{a_0}{s(s+1-q)} + \frac{a_0\gamma}{(q-s)(1-s)},\\
+\eta{s} & = \int\limits^{\infty}_1 H(y) \{y^s-\gamma y^{q-s}\}
+\frac{dy}{y} + \lambda \frac{\alpha-\beta}{4\pi}\\ 
+&\qquad\qquad\left\{\frac{b_0}{s}
+-\frac{\gamma b_0}{q-s} - \frac{a_0}{s(s+1-q)} + \frac{\gamma
+a_0}{(q-s)(l-s)}\right\} \tag{11}.\label{c5:eq2:11} 
+\end{align*}}\relax\pageoriginale
+The functional equations for $\varphi$ and $\psi$ are now trivial
+conse\-que\-nces. Both the integrals are obviously entire functions of
+$s$, which are bounded in any strip $\sigma_1 \leq \sigma \leq
+\sigma_2$. Thus $\xi(s)$ and $\eta(s)$ are meromorphic functions of
+$s$, the singularities of which are explicitly given by \eqref{c5:eq2:11}. Finally,
+it remains to prove that the functions \eqref{c5:eq2:1} and \eqref{c5:eq2:2} are entire
+functions of finite genus. But this follows easily from \eqref{c5:eq2:11} and the
+fact that
+\begin{equation*}
+\xi(s) = o (1), \quad \eta(s) = o (1) 
+\text{ for } |t|\to \infty \tag{12}\label{c5:eq2:12}
+\end{equation*}
+uniformly in any strip $\sigma_1\leq \sigma \leq \sigma_2$. Therefore
+the pair of functions $\varphi$ and $\psi$ defined above satisfies all
+the requirements of theorem~\ref{chap5:thm35}, II).
+
+\item We now start with a pair of functions $\varphi$and $\psi$ with
+  the properties mentioned in II) and prove the existence of a
+  function $f$ satisfying the properties mentioned in I). We define
+  the function $f(\tau,\bar{\tau})$ by 
+$$
+f(\tau,\bar{\tau}) =a_0 u(y,q) + b_0 + \sum_{n+\kappa \neq 0}
+a_{n+\kappa} W(\frac{2\pi (n+\kappa)}{\lambda} y;\alpha,\beta) e^{2\pi
+i(n+\kappa)x/\lambda}
+$$
+and prove that it has the desired properties. Since the Dirichlet
+series $\varphi$ and $\psi$ converge in some half-plane, it follows
+that the coefficients $a_{n+\kappa}$ satisfy the growth condition \eqref{c5:eq2:9}
+with some positive constant $K_2$. Thus, for $\sigma>K_2+1$, the
+series converge absolutely and the considerations of \S 1 show that
+formula \eqref{c5:eq2:10} can be inverted i.e.
+\begin{align*}
+F(y) & = \frac{1}{2\pi i}
+\int\limits^{\sigma_0+i\infty}_{\sigma_0-i\infty} \xi(s) y^{-s} ds,\\
+& \quad \qquad \sigma_0 >\max (K_2+1, \re
+(\alpha+\beta-1)). \tag{13}\label{c5:eq2:13}\\
+H(y) & = \frac{1}{2\pi i}
+\int\limits^{\sigma_0+i\infty}_{\sigma_0-i\infty} \eta(s) y^{-s} ds.
+\end{align*}\pageoriginale
+We choose the line of integration in such a way that the singularities
+of $\xi(s)$ and $\eta(s)$ lie in the half plane $\sigma<\sigma_0$. If
+we replace in the integrals \eqref{c5:eq2:10} the functions $\xi(s)$ and $\eta(s)$
+by the functions given in II), 2) and substitute the Dirichlet series
+for $\varphi$ and $\psi$, then we obtain the functions $F$ and $G$
+given in \eqref{c5:eq2:8}, by term-wise integration which is justified. Moving the
+line of integration in \eqref{c5:eq2:13} from $\sigma=\sigma_0$ to
+$\sigma=\sigma_1=\re (\alpha+\beta)-\sigma_0$, we shall show that 
+\begin{align*}
+F(y) & = \frac{1}{2\pi i}
+\int\limits^{\sigma_1+i\infty}_{\sigma_1-i\infty} \xi(s) y^{-s} ds+
+\sum \Res \xi(s) y^{-s},\\
+H(y) & = \frac{1}{2\pi i}
+\int\limits^{\sigma_1+i\infty}_{\sigma_1-i\infty} \eta(s) y^{-s} ds +
+\sum \Res \eta(s) y^{-s}. \tag{14}\label{c5:eq2:14}
+\end{align*}
+In order to prove \eqref{c5:eq2:14}, it is sufficient to show that for every
+$\in >0$ 
+\begin{equation*}
+\xi(s),\eta(s) = o (e^{-(1-\in)\frac{\pi}{2}|t|}) \text{ for }
+|t| \to \infty \tag{15}\label{c5:eq2:15}
+\end{equation*}
+uniformly in $\sigma_1 \leq \sigma \leq \sigma_0$. Such an estimate
+for $\xi(s)$ and $\eta(s)$ holds on the line $\sigma=\sigma_0$ because
+of \eqref{c5:eq2:15} of \S~\ref{chap5:sec1}, and therefore holds also on the line
+$\sigma=\sigma_1$ in view of the functional equation II), 3). If $t_0$
+is sufficiently large, then functions $\xi(s)e^{-\pi
+  i(1-\in)s/2}$ and $\eta(s)e^{-\pi i(1-\in)s/2}$ are
+regular in the domain $t\geq t_0$, $\sigma_1 \leq \sigma \leq
+\sigma_0$ and are bounded on its boundary. But by II), 2) there exists
+a constant $K$ such that both the functions \pageoriginale are
+$o(e^{t^K})$ in the interior of the above domain; therefore, by the
+principle of Phragmen-Lindel\"of both the functions are bounded in the
+whole of the above domain. Consequently, \eqref{c5:eq2:15} is proved for
+$t\to\infty$. In a similar way, it is proved for $t\to
+-\infty$. Replacing $\xi(s)$ and $\eta(s)$ by $\gamma\xi(q-s)$ and
+$-\gamma \eta(q-s)$ respectively in the integrals \eqref{c5:eq2:14} and applying
+the substitution $s\to q-s$ we see that 
+\begin{align*}
+F(y) & = \gamma y^{-q} F(\frac{1}{y}) + \sum \Res \xi(s) y^{-s},\\
+H(y) & = -\gamma y^{-q} H(\frac{1}{y}) + \sum \Res \eta(s)
+y^{-s}. \tag{16}\label{c5:eq2:16} 
+\end{align*}
+The sum of the residues of $\xi(s)y^{-s}$ can be evaluated with the
+help of II), 2). As a matter of fact, it can be seen that
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+\sum \Res \xi(s) y^{-s} & = -a_0 u(y,q) -b_0 + \gamma \{a_0
+u(\frac{1}{y},q) + b_0\} y^{-q}\\
+\sum \Res \eta(s) y^{-s} & = \lambda \frac{\alpha-\beta}{2\pi} \gamma
+\{a_0 u(\frac{1}{y},q) + b_0\} y^{-q} -\lambda
+\frac{\alpha-\beta}{4\pi} \sum \Res \xi(s) y^{-s}\\
+& = \lambda \frac{\alpha-\beta}{4\pi} \{a_0u(y,q) + b_0 +
+\gamma(a_0u(\frac{1}{y},q)+b_0) y^{-q}\}.
+\end{align*}}\relax
+Thus formulae \eqref{c5:eq2:16} are identical with formulae \eqref{c5:eq2:6} 
+from which I), 4)
+follows by lemma~\ref{chap5:lem9}. The assertions in I), 1), 2), 3) follow form the
+Fourier series of $f(\tau,\bar{\tau})$ and the estimate \eqref{c5:eq2:9}. Hence the
+theorem is proved.
+\end{enumerate}
+\end{proof}
+
+In order to determine the singularities of the functions $\varphi$ and
+$\psi$ we solve the equations
+\begin{align*}
+\Gamma(s;\alpha,\beta) \;\;  \varphi(s) + \Gamma(s;\beta, \alpha)
+\;\;\psi(s) & = (\frac{2\pi}{\lambda})^s \xi(s),\\
+\Gamma(s+1;\alpha,\beta) \varphi(s) -\Gamma(s+1;\beta,\alpha) \psi(s)
+& = (\frac{2\pi}{\lambda})^{s+1}
+\{\eta(s)+\lambda\frac{\alpha-\beta}{4\pi} \xi(s)\}, 
+\end{align*}
+for \pageoriginale $\varphi$ and $\psi$. These equations are nothing
+but trivial modifications of those in theorem~\ref{chap5:thm35}, II), 2). Using the
+value of the functional determinant $D(s;\alpha,\beta)$ obtained in
+\S~\ref{chap5:sec1} we get
+\begin{align*}
+2\Gamma(s) \Gamma(s+1-q) \varphi(s) & = (\frac{2\pi}{\lambda})^s
+\Gamma(s+1;\beta, \alpha) \xi(s)\\ 
+&+ (\frac{2\pi}{\lambda})^{s+1}
+\Gamma(s;\beta,\alpha) \left\{\eta(s)+ \lambda\frac{(\alpha-\beta)}{4\pi}
+\xi (s)\right\}, \\
+2\Gamma(s) \Gamma(s+1-q) \psi (s) & = (\frac{2\pi}{\lambda})^s
+\Gamma(s+1;\alpha,\beta)\xi(s)\\
+& -(\frac{2\pi}{\lambda})^{s+1}
+\Gamma(s;\alpha,\beta) \left\{\eta(s)+ \lambda \frac{(\alpha-\beta)}{4\pi}
+\xi(s)\right\}. \tag{17}\label{c5:eq2:17}
+\end{align*}
+Let us set 
+\begin{equation*}
+w(s;\alpha,\beta)
+=\frac{\Gamma(s;\alpha,\beta)}
+{\Gamma(s)\Gamma(s+1-q)} \tag{18}\label{c5:eq2:18}
+\end{equation*}
+Then it is immediate from (5) of \S 1 that
+\begin{equation*}
+w(s;\alpha,\beta) = 2^{\frac{1}{2}(\alpha-\beta)} \sum^{\infty}_{n=0}
+\frac{(\beta)_n(1-\alpha)_n}{2^n n!
+\Gamma(s+n+1-\alpha)}, \tag{19}\label{c5:eq2:19}
+\end{equation*}
+which implies that $w(s;\alpha,\beta)$ is an entire function of
+$s$. Moreover, the functional equation~\eqref{c5:eq2:8} of \S~\ref{chap5:sec1} for
+$\Gamma(s;\alpha,\beta)$ shows that $w(s;\alpha,\beta)$ satisfies the
+functional equation 
+\begin{equation*}
+s(s+1-q) \; w(s+1;\alpha,\beta) + (\beta-\alpha) \; w(s;\alpha,\beta)
+-w(s-1;\alpha,\beta) =0. \tag{20}\label{c5:eq2:20}
+\end{equation*}
+Expressing the function $\Gamma(s;\alpha,\beta)$ in \eqref{c5:eq2:17} in terms of
+the function\break $w(s;\alpha,\beta)$, we obtain 
+\begin{align*}
+2\varphi(s) & = (\frac{2\pi}{\lambda})^s w(s+1;\beta,\alpha) s(s+1-q)
+\xi(s) + (\frac{2\pi}{\lambda})^{s+1}w(s;\beta,\alpha)\\ 
+&\qquad\left\{\eta (s)+
+\frac{\lambda(\alpha-\beta)}{4\pi} \xi(s)\right\},\\
+2\psi (s) & = (\frac{2\pi}{\lambda})^s w(s+1;\alpha,\beta) s(s+1-q)
+\xi(s) -(\frac{2\pi}{\lambda})^{s+1} w(s;\alpha,\beta)\\  
+&\qquad\left\{\eta(s) +
+\lambda \frac{\alpha-\beta}{4\pi} \xi(s)\right\}.\tag{21}\label{c5:eq2:21}
+\end{align*}
+In the following, $A_i(s) \; (i=1,2\ldots)$ will denote an entire function
+of $s$. From theorem~\ref{chap5:thm35}, II), 2), we have the relations
+\begin{align*}
+s(s+1-q) \xi(s) & = s(s+1-q) \{\frac{\gamma b_0}{s-q} + \frac{\gamma
+  a_0}{(s-q)(s-1)}\} + A_1(s),\\
+\eta(s) + \lambda \frac{\alpha-\beta}{4\pi} \xi(s) & =\lambda
+\frac{(\alpha-\beta)}{2\pi} \{\frac{\gamma b_0}{2\pi} + \frac{\gamma
+  a_0}{(s-q)(s-1)}\} + A_2(s),
+\end{align*}\pageoriginale
+which, on using \eqref{c5:eq2:20}, give
+\begin{align*}
+2\varphi(s) & = (\frac{2\pi}{\lambda})^s w(s-1;\beta, \alpha)
+\{\frac{\gamma b_0}{s-q} + \frac{\gamma a_0}{(s-q)(s-1)}\} + A_3(s),\\
+2\psi (s) & = (\frac{2\pi}{\lambda})^s w(s-1;\alpha,\beta)
+\{\frac{\gamma b_0}{s-q} + \frac{\gamma a_0}{(s-q)(s-1)}\} + A_4
+(s). \tag{22}\label{c5:eq2:22} 
+\end{align*}
+
+For computing the principal parts of the functions $\varphi$ and
+$\psi$, we shall require the following special values of the function
+$w(s;\alpha,\beta)$ and its derivative:
+\begin{align*}
+w(0;\alpha,\beta) & =\frac{2^{q/2}}{\Gamma(1-\alpha)},
+w(q-1;\alpha,\beta) =\frac{2^{1-q/2}}{\Gamma(\beta)}
+(q=\alpha+\beta)\\
+w' (0;1-\beta,\beta) & = \frac{-\surd 2}{\Gamma(\beta)}
+\{\frac{\Gamma'}{\Gamma} (\beta) + \log 2\}. 
+\end{align*}
+The first two values are immediate consequences of the series
+representation \eqref{c5:eq2:19}, when we take into 
+consideration the fact that
+$$
+(1-x)^{-\beta} = \sum^{\infty}_{n=0} \frac{(\beta)_n}{n!} x^n =
+\frac{1}{\Gamma(\beta)} \sum^{\infty}_{n=0} 
+\frac{\Gamma(\beta+n)}{n!}
+x^n. 
+$$
+For the third, differentiating the series \eqref{c5:eq2:19} term by term and
+substituting $s=0$ and $\alpha=1-\beta$ yield
+\begin{align*}
+w'(0;\alpha,\beta) & = -2^{\frac{1}{2}(\alpha-\beta)}
+\sum^{\infty}_{n=0} \frac{(\beta)_n (1-\alpha)_n}{2^n n!
+  \Gamma(n+1-\alpha)} \frac{\Gamma'}{\Gamma} (n+1-\alpha)\\
+& = -\frac{2^{\frac{1}{2}-\beta}}{(\Gamma(\beta))^2}
+\sum^{\infty}_{n=0} \frac{\Gamma'(n+\beta)}{2^n n!} = -
+\frac{2^{\frac{1}{2}-\beta}}{(\Gamma (\beta))^2}
+(\Gamma(\beta)2^{\beta})'\\
+& = \frac{\surd 2}{\Gamma(\beta)} \{\frac{\Gamma'}{\Gamma} (\beta) +
+\log 2\}. 
+\end{align*}
+Consequently, \pageoriginale we have
+{\fontsize{10}{12}\selectfont
+\begin{equation*}
+\varphi(s) = \begin{cases}
+\frac{\gamma\cdot 2^{q/2}}{q-1} & \frac{\pi}{\lambda}
+\{(\frac{\pi}{\lambda})^{q-1} \frac{a_0+(q-1)b_0}{\Gamma(\alpha)}
+\frac{1}{s-q} -\frac{a_0}{\Gamma(1-\beta)} \frac{1}{(s-1)}\} + A_5
+(s), \text{ for } q \neq 1\\
+\frac{\gamma \cdot 2^{1/2}}{\Gamma(\alpha)}& \frac{\pi}{\lambda} \{
+\frac{a_0}{(s-1)^2} + (b_0+a_0\{\log \frac{\pi}{\lambda}
+-\frac{\Gamma'}{\Gamma}(\alpha)\}) \frac{1}{s-1}\} + A_6(s), \text{ for
+} q =1
+\end{cases}\tag{23}\label{c5:eq2:23}
+\end{equation*}}\relax
+and 
+{\fontsize{10}{12}\selectfont
+\begin{equation*}
+\psi(s)= \begin{cases}
+\frac{\gamma\cdot 2^{q/2}}{q-1} \frac{\pi}{\lambda}
+\{(\frac{\pi}{\lambda})^{q-1}\frac{a_0+(q-1)b_0}{\Gamma(\beta)}
+\frac{1}{s-q} -\frac{a_0}{\Gamma(1-\alpha)} \frac{1}{s-1}\} + A_7(s),
+\text{ for } q \neq 1\\
+\frac{\gamma\cdot 2^{1/2}}{\Gamma(\beta)} \frac{\pi}{\lambda}
+\{\frac{a_0}{(s-1)^2} + (b_0 + a_0 \{\log\frac{\pi}{\lambda} -
+\frac{\Gamma'}{\Gamma}(\beta)\}) \frac{1}{s-1}\} + A_8 (s), \text{ for
+} q=1.\end{cases}\tag{24}\label{c5:eq2:24}
+\end{equation*}}\relax
+In particular, we see that
+$$
+(s-1)(s-q) \varphi(s) \text{ and }(s-1)(s-q)\psi (s)
+$$
+are entire functions of $s$. Moreover, using the well-known asymptotic
+behaviour of the $\Gamma$-function, \S~\ref{chap5:sec1}, \eqref{c5:eq1:15}, 
+and the fact that the
+functions $\xi(s)$ and $\eta(s)$ are of finite genus, it can be seen
+that $(s-1)(s-q)\varphi(s)$ and $(s-1)(s-q)\psi(s)$ are also entire
+functions of finite genus.
+
+We remark here that conversely, from \eqref{c5:eq2:23}, \eqref{c5:eq2:24} and the functional
+equations of $\varphi$ and $\psi$, it cannot be concluded that the
+functions mentioned in \eqref{c5:eq2:1} and \eqref{c5:eq2:2} are entire functions.
+
+From the various properties of $\Gamma(s;\alpha,\beta)$ derived in \S
+1, it follows that the poles of the function $\xi(s)$ are contained in
+the sequences of numbers 
+$$
+1, 0, -1, -2, \ldots \text{ and } q,q-1, q-2, \ldots
+$$
+But $\xi(q-s)=\gamma\xi(s)$; therefore the poles of $\xi(s)$ are also
+contained in the sequences of numbers 
+$$
+q-1, q, q+1, q+2, \ldots, \text{ and } 0,1,2,\ldots
+$$\pageoriginale 
+In any case, the common points of these two sets of sequences of
+numbers are $0,1,q-1$ and $q$. There will be some more common points,
+in case $q$ is an integer and $q\leq -2$ or $q\geq 4$. Thus the poles
+of $\xi(s)$ are contained in 
+\begin{alignat*}{3}
+& \{0,1,2,\ldots, q-1,q\},& & \text{ for integral } q\geq 4,\\
+&\{q-1, q,\ldots, 0,1,\}, && \text{ for integral } q \leq -2, \text{
+  and}\\
+&\{0, 1, q-1, q\}, & &\text{ otherwise}.
+\end{alignat*}
+If $q=4$, the regularity of $\xi(s)$ at $s=2$ leads to a relation
+between some special values of $\varphi$ and $\psi$. Since
+$\lim\limits_{s\to -n}(s+n)\Gamma(s)=\dfrac{(-1)^n}{n!}(n\geq 0)$, it
+follows that 
+$$
+\lim\limits_{s\to 2} (s-2)\xi(s) = - \left(\frac{\lambda}{2\pi}\right)^2 
+\{w(2;\alpha,\beta) \varphi(2) + w(2;\beta,\alpha)\psi(2)\}. 
+$$
+But, for $q=4$,
+\begin{align*}
+w(2;\alpha,\beta) & =
+\frac{2^{\frac{1}{2}(\alpha-\beta)}}{\Gamma(\beta-1)}
+\sum^{\infty}_{n=0} \frac{(\beta)_n(\beta-3)}{2^nn!(\beta-1)_n}\\
+& = \frac{2^{\frac{1}{2}(\alpha-\beta)}}{\Gamma(\beta)}
+\sum^{\infty}_{n=0} \frac{(\beta+n-1)(\beta-3)}{2^n n!}\\
+& = \frac{2^{\frac{1}{2}(\alpha-\beta)} (\beta-1)}{\Gamma(\beta)}
+\sum^{\infty}_{n=0} \frac{(\beta-3)}{2^n n!} +
+\frac{2^{\frac{1}{2}(\alpha-\beta)}}{2\Gamma(\beta)}
+\sum^{\infty}_{n=1} \frac{(\beta-2)_{n-1}}{2^{n-1}(n-1)!}. 
+\end{align*}
+Therefore, we get the condition
+$$
+\frac{\beta-2}{\Gamma(\beta)} \varphi(2) +
+\frac{\alpha-2}{\Gamma(\alpha)} \psi(2) = o (\alpha+\beta=4) 
+$$
+Conversely, if this condition is satisfied, then $\xi(s)$ is regular
+at $s=2$ provided $\alpha+\beta=4$.
+
+The case of analytic modular forms considered by Hecke appears as a
+\pageoriginale particular case of our considerations when we assume
+that $\beta=0$, $a_0=0$ and $\psi(s)=0$. Under these assumptions we
+obtain, using \eqref{c5:eq1:7} of \S~\ref{chap5:sec1}, that 
+\begin{align*}
+\xi(s) & = (\frac{\lambda}{2\pi})^s \Gamma(s;\alpha,0) \varphi(s) =
+2^{\alpha/2} (\frac{\lambda}{2\pi})^s \Gamma (s) \varphi(s)\\
+\eta(s) &= (\frac{\lambda}{2\pi})^{s+1} \{\Gamma(s+1;\alpha,0)
+-\frac{\alpha}{2} \Gamma(s;\alpha,0)\} \varphi(s)\\
+& = 2^{\alpha/2} (\frac{\lambda}{2\pi})^{s+1} (s-\frac{\alpha}{2})
+\Gamma(s) \varphi(s).
+\end{align*}
+The function $\xi(s)$ as given above is a constant multiple of the
+function $(\dfrac{\lambda}{2\pi})^s\Gamma(s)\varphi(s)$ considered by
+Hecke and both the functional equations for $\xi(s)$ and $\eta(s)$
+lead to the same conclusion. 
+
+In the non-analytic case $\alpha=\beta$, by \S~\ref{chap5:sec1}, \eqref{c5:eq1:6}, we have 
+\begin{align*}
+\xi(s) & = (\frac{\lambda}{2\pi})^s \Gamma(s;\alpha,\alpha)
+\{\varphi(s)+\psi(s)\}\\
+& = \frac{2^{-\alpha-1}}{\surd\pi} (\frac{\lambda}{\pi})^s
+\Gamma(\frac{s}{2}) \Gamma(\frac{s+1}{2}-\alpha) \{\varphi(s)+
+\psi(s)\}, \\
+\eta(s) & = (\frac{\lambda}{2\pi})^{s+1} \Gamma(s+1;\alpha,\alpha)
+\{\varphi(s) - \psi(s)\} \\
+& = \frac{2^{-\alpha-1}}{\surd \pi} (\frac{\lambda}{\pi})^{s+1}
+\Gamma(\frac{s+1}{2}) \Gamma(\frac{s}{2}+1-\alpha) \{\varphi(s) - \psi
+(s)\}. 
+\end{align*}
+
+For $\lambda \leq 2$, the linear space of functions
+$f=f(\tau,\bar{\tau})$ characterised in theorem~\ref{chap5:thm35}, 
+I) coincides with the space $[\Gamma<\lambda>, \alpha,\beta,v]$, 
+where the multiplier system $v$ is defined by 
+$$
+v(U^{\lambda}) = e^{2\pi i\kappa} \text{ and } v(T) = \gamma e^{\pi
+  ir/2}. 
+$$
+We prove here this statement in the two special cases $\lambda=1$ and
+2. In these two cases, the assertion results easily from the following
+two lemmas.
+
+\begin{lem}\label{chap5:lem10}
+Let $\Gamma_0$ \pageoriginale be a subgroup of finite index in the
+modular group $\Gamma$ and let $r=\alpha-\beta$ be real, where
+$\alpha$ and $\beta$ are two complex numbers. If $f(\tau,\bar{\tau})$
+belongs to the space $[\Gamma_0, \alpha,\beta, v]$, then
+$$
+f(\tau,\bar{\tau}) = o (y^{-K_2}) \text{ for } y \to 0 \;  (\text{with }
+\tau=x+iy) 
+$$ 
+uniformly in $x$, with a positive constant $K_2$. 
+\end{lem}
+
+\begin{proof}
+Let $\mu$ be the index of $\Gamma_0$ in $\Gamma$ and
+$$
+\Gamma = \bigcup^{\mu}_{n=1} \Gamma_0 S_n
+$$
+be a coset decomposition of $\Gamma$ modulo $\Gamma_0$. We may assume
+that $S_1=E$. Consider 
+$$
+g(\tau,\bar{\tau}) =\sum^{\mu}_{n=1}|(f|S_n)(\tau,\bar{\tau})|,
+$$
+which obviously does not depend upon the choice of the coset
+representatives $S_n$. Since, along with the set $\{S_n\}$, the set
+$\{S_n \; S\}$ for $S\in \Gamma$ is also a representative system
+for the left cosets of $\Gamma$ modulo $\Gamma_0$ and since 
+$$
+|(c\tau+d)^{\alpha} (c\bar{\tau}+d)^{\beta}| = |c\tau+d|^p \;\; 
+(p=\re(\alpha+beta)), 
+$$
+we obtain
+$$
+\mathop{(g|S)_{\frac{p}{2},\frac{p}{2}}} (\tau,\bar{\tau}) =
+g(\tau,\bar{\tau}) \text{ for } S \in \Gamma,
+$$
+showing that $y^{p/2}g(\tau,\bar{\tau})$ is invariant under the
+transformation of $\Gamma$. For a given point $\tau=x+iy$ with
+$y<\dfrac{\surd 3}{2}$ we determine an equivalent point $\tau_0 = x_0
++ iy_0=S<\tau>$ with $y_0 \geq \dfrac{\surd 3}{2}, S =
+\left(\begin{smallmatrix}
+a&b\\c&d\end{smallmatrix}\right)\in \Gamma$. It is obvious 
+that \pageoriginale $c\neq 0$ and
+$$
+y_0 = \frac{1}{|c\tau+d|^2} \leq \frac{1}{c^2y} \leq \frac{1}{y}. 
+$$
+Since $S_n<\infty>$ is a parabolic cusp of $\Gamma_0$, we have, by the
+definition of a non-analytic modular form,
+$$
+(f|S_n) (\tau_0,\bar{\tau}_0) = o (y^{K_1}_0) \text{ for } y_0 \to
+\infty, 
+$$
+uniformly in $x_0$ with a positive constant $K_1$. Consequently, 
+$$
+g(\tau_0,\bar{\tau}_0) \leq C y^{K_1}_0 \text{ for } y_0 \geq
+\frac{\surd 3}{2},
+$$
+with some suitable constant $C$. It follows from above that 
+\begin{align*}
+|f(\tau,\bar{\tau})| \leq g(\tau,\bar{\tau}) = (\frac{y_0}{y})^{p/2}
+g(\tau_0\bar{\tau}_0) & \leq C y^{-p/2} y^{p/2+K_1}_{0}\\
+& \leq C y^{-p-K_1} \text{ for } y \leq \frac{\surd 3}{2}, 
+\end{align*}
+because $K_1$ can be so chosen that $K_1+\dfrac{p}{2} \geq 0$. Hence
+the lemma is proved.
+\end{proof}
+
+\begin{lem}\label{chap5:lem11}
+Let $\Gamma_0$ be a subgroup of finite index in the modular group
+$\Gamma$ and let $f(\tau,\bar{\tau})$ be a continuous function in
+$\mathscr{G}$, which satisfies the transformation formula
+$$
+\mathop{(f|S)}_{\alpha,\beta} (\tau,\bar{\tau}) = f(\tau,\bar{\tau})
+\text{ for every } S\in \Gamma_0,
+$$
+where $\alpha$ and $\beta$ are complex numbers with $\alpha-\beta$
+real. Further, let
+\begin{align*}
+f(\tau,\bar{\tau}) & = o(y^{K_1}) \text{ for } y \to \infty\\
+f(\tau,\bar{\tau}) & = o(y^{-K_2}) \text{ for } y \to 0
+\end{align*}
+uniformly in $x(\tau=x+iy)$ with positive constants $K_1$ and
+$K_2$. Then
+$$
+(\mathop{f|A^{-1}}_{\alpha,\beta}) (\tau,\bar{\tau}) = o (y^K) \text{ 
+    for } y \to \infty,
+$$
+uniformly \pageoriginale in $x$ with a suitable constant $K$ for every
+$A$ belonging to $\Gamma$.
+\end{lem}
+
+\begin{proof}
+Obviously, for the proof of the lemma, it is sufficient to confine
+ourselves to those elements $A=\left(\begin{smallmatrix}
+a&b\\c&d \end{smallmatrix} \right)$ of $\Gamma$ for which $c\neq
+0$. We set $\tau_1=x_1+iy_1=A^{-1}<\tau>$ for $y \geq 1$. Then we have
+$y_1 =\dfrac{y}{|-c\tau+a|^2} \leq 1$ and 
+$$
+|f(\tau_1,\bar{\tau}_1)| \leq C y^{-K_2}_2 \text{ for } y_1 \leq 1. 
+$$
+with a certain constant $C$. Here $K_2$ can be so chosen that $K_2
+\geq \dfrac{p}{2}$, where $p=\re(\alpha+\beta)$. Let us consider the
+points $\tau$ with 
+$$
+|x-\frac{a}{c}| \leq m, \quad 1 \leq m \leq y,
+$$
+$m$ being a given constant. Then we have 
+\begin{align*}
+|(\mathop{f|A^{-1}}_{\alpha,\beta}) (\tau,\bar{\tau})| & =
+|f(\tau_1,\bar{\tau}_1)||-c\tau+a|^{-p}\\
+& \leq C y^{-K_2}_{1} |-c\tau+a|^{-p}\\
+& = C y^{-K_2} |-c+a|^{2K_2-p}\\
+& = C |c|^{2K_2-p} y^{-K_2} \{y^2+(x-\frac{a}{c})^2\}^{K_2-p/2} \\
+& \leq C |\surd 2 c|^{2K_2-p} y^{K_2-p}
+\end{align*}
+But $(\underset{\alpha,\beta}{f|A^{-1}})(\tau,\bar{\tau})$ is periodic
+in $x$; therefore our assertion follows with $K=K_2-p$.
+
+In the sequel, we shall give some applications of theorem~\ref{chap5:thm35} to the
+spaces $[\Gamma<\lambda>,\alpha, \alpha, v]$ with $\lambda=1$ or $2,
+\alpha>0, \alpha\neq 1$ where the multiplier system $v$ is determined
+by $v(U^{\lambda})=e^{2\pi i \kappa}, v(T)=\gamma$, and satisfies the
+condition $v^2=1$. We have proved already in \eqref{c4:eq2:10} of chapter
+\pageoriginale \ref{chap4}, \S~\ref{chap4:sec2}, that the operator $\bX=\Theta(r=0)$ maps the
+space $[\Gamma<\lambda>, \alpha,\alpha,v]$ onto the space
+$[(\Gamma<\lambda>)^{\ast}, \alpha,\alpha,v^{\ast}]$ with
+$(\Gamma<\lambda>)^{\ast}$ and $v^{\ast}$ as defined in the
+above-mentioned chapter. But $v^2=1$ implies that $v^{\ast}=v$ and
+$(\Gamma<\lambda>)^{\ast} = \Gamma<\lambda>$ for $\lambda=1$ or 2;
+therefore, the operator $\bX=\Theta$ leaves the spaces
+$[\Gamma<\lambda>, \alpha, \alpha,v]$ invariant. Since every function
+$f$ belonging to $[\Gamma<\lambda>, \alpha,\alpha,v]$ can be written
+as 
+$$
+f=\frac{1}{2} (f+\Theta f) + \frac{1}{2} (f-\Theta f),
+$$
+if follows that the space $[\Gamma<\lambda>,\alpha,\alpha, v]$ can be
+represented as a direct sum 
+$$
+[\Gamma<\lambda>, \alpha,\alpha, v] =
+\mathscr{L}^{(1)}(\lambda,\alpha,v) + \mathscr{L}^{(-1)}(\lambda,
+\alpha,v) 
+$$
+so that 
+$$
+\Theta f = \in f \text{ for } f \in
+\mathscr{L}^{\in} (\lambda, \alpha, v), (\in = \pm
+1). 
+$$
+Moreover, if $f\in \mathscr{L}^{\in}(\lambda,
+\alpha,v)$ has the Fourier expansion
+$$
+f(\tau,\bar{\tau}) = a_0u(y,q) + b_0 + \sum_{n+\kappa\neq 0}
+a_{n+\kappa} W(\frac{2\pi(n+\kappa)}{\lambda} y;\alpha,\alpha) e^{2\pi
+i(n+\kappa)x/\lambda},
+$$
+we obtain, from~\eqref{c4:eq2:14} of chapter~\ref{chap4}, 
+\S~\ref{chap4:sec2}, the following relations for
+the coefficients:
+$$
+a_0 = \in a_0, \quad b_0 = \in b_0, \quad a_{n+\kappa}
+= \in a_{-n-\kappa} \text{ for } n+\kappa \neq 0.
+$$
+This shows that if $f$ belongs to $\mathscr{L}^{(-1)} (\lambda,
+\alpha, v)$ then $a_0=b_0=0$ i.e. $f$ is a cusp form, in case $\lambda
+=1$. Let $\varphi$ and $\psi$ be the Dirichlet series associated to
+the function $f\in \mathscr{L}^{(\in)}(\lambda,
+\alpha, v)$. Then $\varphi(s)=\psi(s)$ and 
+\begin{align*}
+\xi(s) & = \frac{2^{-\alpha}}{\surd\pi} (\frac{\lambda}{\pi})^s
+\Gamma(\frac{s}{2}) \Gamma (\frac{s+1}{2}-\alpha) \varphi(s),
+\eta(s)=0 \text{ for } \in =1,\\
+\xi(s) & = 0, \quad \eta(s) = \frac{2^{-\alpha}}{\surd \pi}
+(\frac{\lambda}{\pi})^{s+1} \Gamma(\frac{s+1}{2})
+\Gamma(\frac{s}{2}+1-\alpha) \varphi(s) \text{ for } \in = -1.
+\end{align*}
+We shall \pageoriginale denote by $\vartheta^{\in}(\lambda,
+\alpha, \kappa \gamma)$ the linear space of meromorphic functions
+$\varphi(s)$, which with $\beta =\alpha$ and $\psi=\varphi$ satisfy
+the conditions of theorem~\ref{chap5:thm35}, II), so that the linear mapping $f\to
+\varphi$ is an isomorphism between the spaces
+$\mathscr{L}^{(\in)} (\lambda, \alpha,v)$ and
+$\vartheta^{(\in)}(\lambda, \alpha, \kappa, \gamma)$. In the
+following theorem, we explicitly give a basis for the space
+$\vartheta^{(\in)}(\lambda, \alpha,\kappa, \gamma)$ .
+\end{proof}
+
+\begin{thm}\label{chap5:thm36}
+Under the assumptions $\alpha > 0, \alpha \neq 1$ the space
+$\vartheta^{(\in)}(\lambda, \alpha,\break \kappa, \gamma)$ is
+generated by 
+\begin{align*}
+& \zeta (s) \zeta (s+1-2\alpha), \text{ in case } \lambda =1, \kappa =
+0, \gamma = 1, \in = 1,\\
+& \left.
+  \begin{aligned}
+& 2^{-s} \zeta(s) \zeta (s+1-2\alpha)\\
+& 2^{-s}(2^s+2^{2\alpha-s})\zeta(s) \zeta(s+1-2\alpha) 
+  \end{aligned}
+\right\}, \quad \text{ in case } \lambda =2, \kappa =0, \gamma=1,
+\in =1 \\
+& 2^{-s} (2^s - 2^{2\alpha-s}) \zeta(s) \zeta(s+1-2\alpha), \text{ in
+  case } \lambda=2, \kappa=0, \gamma = -1, \in =1,\\
+& 2^sL(s,\chi) \; L(s+1-2\alpha,\chi), \text{ in case } \lambda = 2,
+\kappa =\frac{1}{2}, \gamma=-1, \in = -1
+\end{align*}
+and 0, otherwise so long as $\lambda=1$ or 2 and $\kappa=0$ or
+$\dfrac{1}{2}$.
+
+The functions $\zeta(s)$ and $L(s,\chi)$ are defined for $\re s>1$ by
+$$
+\zeta(s) = \int\limits^{\infty}_{n=1} n^{-2} \text{ and } L(s,\chi) =
+\sum^{\infty}_{n=1} \chi(n) n^{-s}
+$$
+where $x$ is the proper character modulo 4.
+\end{thm}
+
+\begin{proof}
+Using the well-known properties of the functions $\zeta(s)$ and\break
+$L(s,\chi)$, it can be shown without any difficulty that the given
+functions belong to the space $\vartheta^{\vartheta}(\lambda, \alpha,
+\kappa, \gamma)$. Thus to complete the proof of the theorem, it is
+sufficient to establish that the dimension of
+$\vartheta^{(\in)}(\lambda, \alpha, \kappa, \gamma)$ is not
+greater than the number of functions mentioned in 
+theorem~\ref{chap5:thm36} in each individual case. Since 
+$$
+\text{dimension } \vartheta^{(\in)}(\lambda, \alpha,\kappa,
+\gamma) \leq \text{ dimension } [\Gamma<\lambda>,\alpha,\alpha, v],
+$$\pageoriginale 
+it suffices to prove the following under the assumptions $\alpha >0$
+and $v^2=1$: namely,
+$$
+\text{dimension } [\Gamma<\lambda>, \alpha, \alpha,v] \leq 
+\begin{cases}
+1, & \text{ in case } \lambda =1, v=1,\\
+2, & \text{ in case } \lambda =2, v=1\\
+1, & \text{ in case } \lambda =2, v=v_1 \text{ or } v_2\\
+0, & \text{ otherwise},
+\end{cases}
+$$
+where $v_1$ and $v_2$ are even abelian characters of
+$\Gamma_{\vartheta}$ mentioned before the proof of theorem~\ref{chap4:thm32}. Since
+under the given assumptions, $[\Gamma_{\vartheta}, \alpha, \alpha, v]$
+does not contain any cusp form, which does not vanish identically, and
+since $\Gamma_{\vartheta} \subset \Gamma$, the dimension of the space
+$[\Gamma<\lambda>,\alpha, \alpha, v]$ for $\lambda=1$ or 2 is at most
+equal, by theorem~\ref{chap4:thm29}, to the number of inequivalent parabolic cusps of
+$\Gamma<\lambda>$ at which the multiplier system $v$ is
+unramified. But we have already shown that in case $\lambda=1$, the
+multiplier system $v$ is unramified at $\infty$ only if $v=1$ and in
+case $\lambda=2$, the multiplier system $v_1$ respectively $v_2$,
+respectively $v_3=v_1v_2$ is ramified at 1 respectively $\infty$,
+respectively 1 as well as $\infty$. Therefore the above estimates hold
+for the dimension of $[\Gamma<\infty>, \alpha,\alpha,v]$. Hence the
+proof of the theorem is complete.
+\end{proof}
+
+Theorem~\ref{chap5:thm36} provides us three examples of functions which 
+are uni\-que\-ly fixed upto a constant factor by their functional 
+equation and the fact that they can be represented by Dirichlet series in some
+half-plane. One of these functions, namely, the function defined by
+$2^sL(s,\chi) L(s+1-2\alpha,\chi)$, is an entire function.
+
+\section{The Hecke Operations $T_n$}\label{chap5:sec3}\pageoriginale
+
+In this section, we shall investigate the multiplicative properties of
+the Fourier coefficients of non-analytic modular forms in connection
+with the Euler product development of the corresponding Dirichlet
+series. For the sake of simplicity, we shall confine ourselves to the
+modular group $\Gamma$, though almost the same type of results as
+proved by Hecke and Petersson for the analytic case can be obtained
+for subgroups of the modular group, of arbitrary level. 
+
+For defining Hecke operators $T_n$, we consider the set
+$\mathcal{O}_n$ of all integral matrices
+$\left(\begin{smallmatrix} a&b\\c&d \end{smallmatrix}\right)$ of
+determinant $n$ ($n$ a natural number). Let $\mathcal{O}_{n,g}$ denote
+the subset of $\mathcal{O}_n$ consisting of matrices
+$\left(\begin{smallmatrix} a&b\\c&d\end{smallmatrix}\right)$ with
+  $(a,b,c,d)=g$. Then obviously
+\begin{equation*}
+\mathcal{O}_{n,g} =
+\left(\begin{smallmatrix} g&0\\0&g \end{smallmatrix}\right)
+\mathcal{O}_{ng^{-2},1} \text{ for } g^2|n, \mathcal{O}_n =
+\bigcup_{\substack{g^2|n\\g>0}} \mathcal{O}_{n,g}. \tag{1}\label{c5:eq3:1}
+\end{equation*}
+Since, with $S$, the set $\Gamma S\Gamma$ of matrices is also
+contained in $\mathcal{O}_n$, it follows that $\mathcal{O}_n$ can be
+decomposed completely into left and right cosets modulo
+$\Gamma$. Moreover, any two left or right cosets are either identical
+or disjoint, because $\Gamma$ is a group. For our later
+considerations, we shall need 
+
+\begin{lem}\label{chap5:lem12}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item The subset of $\mathcal{O}_n$ defined by
+$$
+\left\{ \begin{pmatrix} a&b\\0&d 
+\end{pmatrix}| ad =n,
+\quad d >0, b\text{ mod } d\right\}
+$$
+forms a complete system of representatives of left cosets of
+$\mathcal{O}_n$ modulo $\Gamma$.
+
+\item There exists a common system of representatives for left and
+right \pageoriginale cosets of $\mathcal{O}_n$ modulo $\Gamma$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+\item For every $S = \left(\begin{smallmatrix}
+  a&b\\c&d \end{smallmatrix}\right)\in \mathcal{O}_n$, there
+  exists a matrix $L=\left(\begin{smallmatrix} \alpha &\beta\\
+\gamma &\delta  \end{smallmatrix}\right)$ such that $LS =
+  \left(\begin{smallmatrix}
+    \ast&\ast\\0&\ast \end{smallmatrix}\right)$, because the equation
+  $\gamma a+ \delta c=0$ has a solution for $\gamma$ and $\delta$ with
+  $(\gamma, \delta)=1$ and then with suitable $\alpha$ and $\beta$ we
+  can construct a matrix $L=\left(\begin{smallmatrix} \alpha & \beta\\
+\gamma & \delta \end{smallmatrix}\right)$ belonging to $\Gamma$. Since
+  $-E$ belongs to $\Gamma$, it follows that every left coset of
+  $\mathcal{O}_n$ modulo $\Gamma$ contains a matrix of the type
+  $\left(\begin{smallmatrix} a&b\\0&d \end{smallmatrix}\right)$ with
+  $d>0$. If 
+$$
+L \begin{pmatrix}
+a&b\\0&d
+\end{pmatrix} = \begin{pmatrix}
+a^{\ast} & b^{\ast}\\
+0 & d^{\ast} 
+\end{pmatrix} \text{ with } L =
+\left(\begin{smallmatrix} \alpha & \beta\\
+\gamma & \delta 
+ \end{smallmatrix}\right) \in \Gamma,
+$$
+then $\gamma=0$ and from $d>0$, $d^{\ast}>0$, we have
+$\alpha=\delta=1$ implying that $a=a^{\ast}$, $d=d^{\ast}$ and
+$b^{\ast} =b+\beta d$ i.e. $b^{\ast}\equiv b(\text{ mod } d)$. Hence the
+assertion 1) of the lemma is proved.
+
+\item Since any matrix $S\in \mathcal{O}_{n,1}$ has 1 and $n$
+  as its elementary divisors, we have 
+$$
+\mathcal{O}_{n,1} = \Gamma S_n \Gamma \text{ with } S_n
+= \begin{pmatrix}
+1 & 0\\0 & n 
+\end{pmatrix}.
+$$
+Let $\{S_n L_i\} \; (i=1,2,\ldots, \rho(n))$ be a system of
+representatives of left cosets of $\mathcal{O}_{n,1}$ modulo $\Gamma$,
+with $L_i\in \Gamma$. Then the matrices $A_i=L'_i S_n L_i
+\; (i=1,2,\ldots, \rho(n))$ ($L'_i$, the transpose of $L_i$) in any case
+form a system of representatives for the left cosets of
+$\mathcal{O}_{n,1}$ modulo $\Gamma$ and therefore 
+$$
+\mathcal{O}_{n,1} = \bigcup^{\rho(n)}_{i=1} \Gamma A_i.
+$$
+By transposition, we get 
+$$
+\mathcal{O}_{n,1} = \bigcup^{\rho(n)}_{i=1} A_i \Gamma.
+$$
+Thus \pageoriginale there exists a common representative system for
+the left and right cosets of $\mathcal{O}_{n,1}$ modulo $\Gamma$. Our
+assertion 2) now follows from the decomposition \eqref{c5:eq3:1} above.
+
+Let $\alpha,\beta$ be complex numbers such that $r=\alpha-\beta$ is an
+integer. Let $V_n$ denote a system of representatives of left cosets
+of $\mathcal{O}_n$ modulo $\Gamma$. We define the linear operator
+$T_n$ on the space $[\Gamma, \alpha, \beta,1]$
+\begin{equation*}
+f|T_n = n^{q-1} \sum_{S\in V_n} f|S (q=\alpha+\beta).\tag{2}\label{c5:eq3:2} 
+\end{equation*}
+The definition of the operator $T_n$ is independent of the choice of
+$V_n$, because, if we replace $S$ belonging to $V_n$ by $LS$ for any
+$L$ in $\Gamma$, then
+$$
+f|(LS) = (f|L)|S = f|S \text{ for } f \text{ in } [\Gamma, \alpha,
+  \beta, 1]. 
+$$
+\end{enumerate}
+\end{proof}
+
+\begin{thm}\label{chap5:thm37}
+The linear space $[\Gamma, \alpha, \beta, 1]$ is mapped into itself by
+$f\to f|T_n$.
+\end{thm}
+
+\begin{proof}
+Let $f=f(\tau,\bar{\tau})$ be an element of $[\Gamma, \alpha,
+  \beta,1]$. Then by \eqref{c4:eq1:10} of chapter~\ref{chap4}, 
+\S~\ref{chap4:sec1}, $f|T_n$ belongs to
+$\{\alpha, \beta\}$ and for $L\in \Gamma$, we have 
+$$
+(f|T_n) |L = n^{q-1} \sum_{S\in V_n} f|(SL) = f|T_n,
+$$
+because, along with $S$, the matrix $SL$ also runs over a system of
+representatives of left cosets of $\mathcal{O}_n$ modulo
+$\Gamma$. Thus, in order to complete the proof of the theorem, it
+remains to show that, at the parabolic cusp $\infty$ of $\Gamma$, 
+$$
+(f|T_n) (\tau,\bar{\tau}) = o (y^K) \text{ for } y \to \infty 
+$$
+with \pageoriginale some positive constant $K$. For this, we shall
+compute explicitly the Fourier expansion of $f|T_n$. In the following,
+we shall take, for $V_n$, the special set of representatives given in
+lemma~\ref{chap5:lem12}. Let 
+\begin{equation*}
+f(\tau,\bar{\tau}) = a(0) u(y,q) + b(0) + \sum_{k\neq 0} a(k) W(2\pi
+y;\alpha, \beta) e^{2\pi i \kappa x} \tag{3}\label{c5:eq3:3}
+\end{equation*}
+be the Fourier expansion of $f(\tau,\bar{\tau})$ at the parabolic cusp
+$\infty$. Then 
+\begin{align*}
+(f|T_n) (\tau,\bar{\tau}) & = n^{q-1} \sum_{\substack{d|n\\d>0}}
+  d^{-q} \sum_{b\text{ mod } d} \{a(0) u (\frac{ay}{d}, q) + b(0)\} + \\
+& + n^{q-1} \sum_{\substack{d|n\\d>0}} d^{-q} \sum_{b \text{ mod }d}
+  \sum_{k\neq 0} a(k) W (\frac{2\pi a k}{d}y;\alpha,\beta) e^{2\pi i k
+  \frac{ax+b}{d}}.\\
+& = \sum_{\substack{d|n\\d>0}} (\frac{n}{d})^{q-1} \{a(0) u
+  (\frac{ny}{d^2}, q) + b(0)\} +\\
+& + \sum_{\substack{k\neq 0\\d|n\\d>0}} (\frac{n}{d})^{q-1} \sum_{k\neq
+  0} a(kd) W(\frac{2\pi n k}{d}; \alpha,\beta) e^{\frac{2\pi i n
+      k}{d}} x\\
+\end{align*}
+Let us set $m=\dfrac{nk}{d}=ak$. Then $kd=\dfrac{m}{a}\cdot
+\dfrac{n}{a}$, where a runs over all positive divisors of
+$(m,n)$. Writing $d$ in place of $a$, we obtain from above, by a brief
+calculation, that 
+\begin{equation*}
+(f|T_n) (\tau,\bar{\tau}) = a^{\ast} (0) u (y,q) + b^{\ast}(0) +
+  \sum_{k\neq 0} a^{\ast} (k) W(2\pi k y;\alpha,\beta) e^{2\pi i k x}
+  \tag{4} \label{c5:eq3:4}
+\end{equation*}
+with 
+\begin{align*}
+a^{\ast}(0) & = d_{q-1} (n) a_0, \quad b^{\ast} (0) = d_{q-1} (n) b(0)
+\\
+a^{\ast}(m)& = \sum_{\substack{d|(m,n)\\d>0}} d^{q-1}
+a(\frac{mn}{d^2}). \tag{5}\label{c5:eq3:5}
+\end{align*}
+Consequently, \pageoriginale theorem~\ref{chap5:thm37} is proved.
+\end{proof}
+
+\begin{thm}\label{chap5:thm38}
+The operators $T_n=T(n) \;\; (n=1,2,\ldots)$ commute with each other and
+satisfy the composition rule 
+$$
+T(m) T(n) = \sum_{\substack{d|(m,n)\\d>0}} T(mn/d^2) d^{q-1}.
+$$
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Let $(m,n)=1$. For $f\in [\Gamma, \alpha, \beta, 1]$, we
+  have, by definition, 
+\begin{align*}
+f|T(m) T(n) & = (f|T(m))|T(n)\\
+& = (nm)^{q-1} \sum_{\substack{a'd'=m\\b'\text{ mod  }d'}}
+\sum_{\substack{ad=n\\b\text{ mod } d}} f|\begin{pmatrix}
+a'&b'\\0&d'
+\end{pmatrix} \begin{pmatrix}
+a&b\\0&d
+\end{pmatrix}\\
+& = (nm)^{q-1} \sum_{\substack{a'd' =m\\b'\text{ mod }d'}}
+\sum_{\substack{ad=n\\b\text{ mod }d}} f|\begin{pmatrix}
+a'a & a'b+b'd\\
+0 & dd'
+\end{pmatrix}.
+\end{align*}
+But, for $(m,n)=1$, the product $d'd$ runs over the positive divisors
+of $mn$ when $d'$ (respectively $d$) runs over positive divisors of
+$m$ (respectively $n$) and $a'b+bd'$ runs through all the residue
+classes modulo $dd'$ when $b'$ (respectively b) does so modulo $d'$
+(respectively $d$); therefore, the matrix
+$\left(\begin{smallmatrix} a'a& a'b+b'd\\ 0 &
+  dd' \end{smallmatrix}\right)$ runs over a system $V_{mn}$ and we
+have
+$$
+T(m) T(n) = T(mn).
+$$
+
+\item Let $m=p$, $n= p^r$, $r\geq 1$ and $p$ a prime number. We shall
+  show that 
+$$
+T(p^r) T(p) = T(p^{r+1}) + p^{q-1} T(p^{r-1}). 
+$$
+Let $f$ be any element of the space $[\Gamma, \alpha, \beta, 1]$. Then
+from 
+$$
+f|T(p) = p^{q-1} \{f| \begin{pmatrix} 
+p&0\\0&1
+\end{pmatrix} + \sum_{\ell \text{ mod } p} f|\begin{pmatrix}
+1&\ell\\0&p
+\end{pmatrix}\}
+$$\pageoriginale  
+and 
+$$
+f|T(p^r) = p^{r(q-1)} \sum_{\substack{0\leq t \leq r\\b_t \text{ mod } p^t}}
+f| \begin{pmatrix}
+p^{r-t} & b_t\\
+0 & p^t
+\end{pmatrix},
+$$
+it follows that 
+\begin{align*}
+f|T(p^r) T(p) & = p^{(r+1)(q-1)} \sum_{\substack{0\leq t \leq r\\b_t
+    \text{ mod } p^t}} f|\begin{pmatrix}
+p^{r+1-t } & b_t\\
+0 & p^t
+\end{pmatrix}+\\
+& + p^{(r+1)(q-1)} \sum_{\substack{0\leq t \leq r\\
+b_t \text{ mod } p^t}} \sum_{\ell \text{ mod } p} f| \begin{pmatrix}
+p^{r-t} & p^{r-t}\ell+b_tp\\
+0 & p^{t+1}
+\end{pmatrix}.
+\end{align*}
+It is obvious that the first sum along with the term $t=r$ from the
+second double sum gives the term $f|T(p^{r+1})$. Thus, on simplifying
+the second sum by taking out the factor $p$, we get 
+\begin{align*}
+f|T(p^r) T(p) & = f|T(p^{r+1}) + p^{(r+1)(q-1)} p^{-q}\\
+&\qquad\sum_{\substack{0\leq t < r\\b_t\text{ mod } p^t}} \sum_{\ell \text{ mod } p}
+f| \begin{pmatrix}
+p^{r-l-t} & p^{r-1-t} \ell+b_t\\
+0 & p^t
+\end{pmatrix}\\
+& = f|T(p^{r+1}) + p^{(r+1)(q-1)} p^{q-1} p^{-q+1}\\
+&\qquad\sum_{\substack{0\leq t < r\\ b_t \text{ mod } p^t}} f|\begin{pmatrix}
+p^{r-1-t} & b_t\\
+0 & p^t
+\end{pmatrix}\\
+& = f|T(p^{r+1}) + p^{q-1} f|T(p^{r-1}).
+\end{align*}
+This shows that $T(p^r)$ is a polynomial in $T(p)$ with complex
+numbers as coefficients and therefore the operators
+$T(p^r)(r=0,1,\break 2,\ldots)$ commute with each other. By (i), it follows
+trivially that the operators $T(n)$ commute with each other. 
+
+\item In order \pageoriginale to prove the second assertion of the
+  theorem, it is sufficient, because of (i), to prove that 
+$$  
+T(p^r)T(p^s) =\sum_{0\leq u \leq \min (r,s)} p^{u(q-1)}
+T(p^{r+s-2u}). 
+$$
+Without loss of generality, we can assume that $r\leq s$. The
+assertion is clearly true for $r=0,1$. Let us assume that $1\leq r <s$
+and that the assertion is proved for $r$ and $r-1$ instead of
+$r$. Then we shall establish it for $r+1$ instead of $r$. By (ii) and
+the induction hypothesis, we have 
+\begin{align*}
+T(p) T(p^r) T(p^s) & = T(p^{r+1}) T(p^s) + p^{q-1} T(p^{r-1}) T(p^s)\\
+& = \sum_{0\leq u \leq r} p^{u(q-1)} T(p) T (p^{r+s-2u}), 
+\end{align*}
+which implies that 
+\begin{align*}
+T(p^{r+1}) T(p^s) & = \sum_{0\leq u \leq r} p^{u(q-1)} T(p^{r+s+1-2u})\\
+&+ \sum_{0\leq u \leq r} p^{(u+1)(q-1)} T(p^{r+s-1-2u})-\\
+& - p^{q-1} T(p^{r-1}) T(p^s)\\
+& = \sum_{0\leq u \leq r} p^{u(q-1)} T(p^{r+s+1-2u}) + p^{(r+1)(q+1)}
+T(p^{s-1-r})\\
+ & = \sum_{0\leq u \leq r +1} p^{u(q-1)} T(p^{r+1+s-2u}). 
+\end{align*}
+Hence the assertion is proved for all $r,s$ and the proof of 
+theorem~\ref{chap5:thm38} is complete.
+\end{enumerate}
+\end{proof}
+
+\begin{thm}\label{chap5:thm39}
+Under the assumptions that $r=\alpha-\beta$ is an even non-neqative
+integer and $\Gamma(\beta)\neq \infty$, we have, for all natural
+numbers $n$ and for all $f\in [\Gamma, \alpha,\beta,1]$.
+$$
+(\Theta f)|T(n) = \Theta (f|T(n)),
+$$\pageoriginale 
+where $\Theta$ is the operator defined in chapter IV, \S 1, (20). 
+\end{thm}
+
+\begin{proof}
+By \eqref{c4:eq1:17} and \eqref{c4:eq1:19} of chapter~\ref{chap4}, 
+\S~\ref{chap4:sec1}, we have 
+\begin{align*}
+(\Theta f) |T(n) & = n^{q-1} \sum_{S\in V_n} (\Theta f)|S\\
+& = n^{q-1} \frac{\Gamma(\beta)}{\Gamma(\alpha)} \sum_{S\in
+    V_n} \bX (\Lambda^r f|S^{\ast})\\
+& = n^{q-1} \frac{\Gamma(\beta)}{\Gamma(\beta)} \sum_{S\in
+    V_n} \bX \Lambda^r (f|S^{\ast})\\
+& = \Theta n^{q-1} \sum_{S\in V_n} f|S^{\ast}, 
+\end{align*}
+where $S^{\ast} = \left(\begin{smallmatrix}
+  1&0\\0&-1 \end{smallmatrix}\right) S
+\left(\begin{smallmatrix}
+1&0\\0&-1  \end{smallmatrix}\right)^{-1}$. But $S^{\ast}$, along
+with $S$, runs over a representative system of left cosets of
+$\mathcal{O}_n$ modulo $\Gamma$; therefore it follows that 
+$$
+(\Theta f)|T(n) = \Theta (f|T(n)).
+$$
+
+In the following, unless otherwise stated, $\alpha-\beta$ will be an
+even non-negative integer and $\Gamma(\beta)\neq\infty$. Under these
+assumptions, the operator $\Theta$ is well-defined on the space
+$[\Gamma,\alpha, \beta,1]$ and maps it onto itself. Since
+$\Theta^2=1$, the space $[\Gamma, \alpha, \beta,1]$ can be expressed
+as a direct sum of the subspaces $\mathscr{L}^{(1)}_{\alpha,\beta}$
+and $\mathscr{L}^{(-1)}_{\alpha\beta}$ defined by
+$$
+\mathscr{L}^{(\in )}_{\alpha\beta} = \{f|\Theta f =\in
+f, f \in [\Gamma, \alpha,\beta,1]\} (\in^2=1).
+$$
+Let $f\in [\Gamma, \alpha,\beta, 1]$ have a Fourier expansion
+of the type \eqref{c5:eq3:3}. Then, by 
+\eqref{c4:eq2:14} of chapter \pageoriginale \ref{chap4}, 
+\S~\ref{chap4:sec2}, we have
+\begin{align*}
+\Theta f(\tau,\bar{\tau}) & = a(0) u (y,q) + b(0) +\\
+& + \frac{\Gamma(\beta)}{\Gamma(\alpha)} \sum_{k>0} a_{(-k)} W(2\pi k
+y ;\alpha, \beta) e^{2\pi i k x} +\\
+& +  \frac{\Gamma(\alpha)}{\Gamma(\beta)} \sum_{k<0} a (-k) W(2\pi k y
+;\alpha,\beta) e^{2\pi i k x}. \tag{6}\label{c5:eq3:6}
+\end{align*}
+If we further assume that $f$ belongs to
+$\mathscr{L}^{(\in)}_{\alpha\beta}$, then $\Theta f=\in
+f$. Therefore, comparing the coefficients of the Fourier expansion \eqref{c5:eq3:6}
+and that of $f$, we obtain 
+\begin{align*}
+\in a(0) & = a(0), \in b(0) =b(0),\\
+\in a(k) & = \frac{\Gamma(\beta)}{\Gamma(\alpha)} a(-k) \quad
+(k>0) \tag{7}\label{c5:eq3:7}
+\end{align*}
+This shows that the Eisenstein series
+$G^{\ast}(\tau,\bar{\tau};\alpha,\beta)$ introduced in the previous
+chapter belongs to $\mathscr{L}^{(1)}_{\alpha\beta}$. Since the term
+$\varphi^{\ast}_k (y) \;\; (r=2k)$ independent of $x$ in the Fourier
+expansion of $G^{\ast}(\tau,\bar{\tau};\alpha,\beta)$ under the
+assumption of theorem~\ref{chap5:thm39} never vanishes, it follows, 
+by theorem~\ref{chap4:thm29}, that with the help of $G^{\ast}
+(\tau,\bar{\tau};\alpha,\beta)$, any
+modular form of the space $\mathscr{L}^{(1)}_{\alpha\beta}$ can be
+reduced to a cusp form. Moreover, the space
+$\mathscr{L}^{(-1)}_{\alpha\beta}$ consists of cusp forms only. It is
+an immediate consequence of theorem~\ref{chap5:thm39} that the 
+operators $T(n)$ leave 
+the spaces $\mathscr{L}^{(\in)}_{\alpha\beta}$ invariant.
+
+In addition to the spaces $\mathscr{L}^{(\in)}_{\alpha\beta}$,
+we shall be interested also in the space $\mathscr{L}_{\alpha}$
+consisting of analytic modular forms belonging to the space $[\Gamma,
+  \alpha, 0, 1]$, where $\alpha$ is an even integer $\geq 4$. With the
+help of the Eisentein series $G(\tau,\bar{\tau};\alpha,0)$, which
+belongs to the space $\mathscr{L}_{\alpha}$, every form of
+$\mathscr{L}_{\alpha}$ can be reduced to a cusp form. Moreover, the
+operators $T(n)$ leave \pageoriginale the space $\mathscr{L}_{\alpha}$
+invariant.
+
+It follows immediately from the preceding results that the Dirichlet
+series 
+$$
+\varphi(s) = \sum^{\infty}_{n=1} \frac{a(n)}{n^s}, \psi(s) =
+\sum^{\infty}_{n=1} \frac{a(-n)}{n^s}
+$$
+associated to the forms of $\mathscr{L}^{(\in)}_{\alpha\beta}$
+differ from each other only by a constant factor so that 
+$$
+f\to \varphi(s)
+$$
+is a one-one invertible correspondence between modular forms and\break
+Dirichlet series except when $\alpha=\beta=0$ or $1$.
+\end{proof}
+
+\begin{thm}\label{chap5:thm40}
+The Eisenstein series $G^{\ast}(\tau,\bar{\tau};\alpha,\beta)$ is an
+eigen-function of all operators $T(n)$ and 
+$$
+(G^{\ast}(\quad, ;\alpha,\beta)|T(n)) (\tau,\bar{\tau}) = d_{q-1}
+(n)G^{\ast} (\tau,\bar{\tau};\alpha,\beta) \;\; (n\geq 1).
+$$
+\end{thm}
+
+\begin{proof}
+Since we have seen already in the previous chapter that the $m$-th
+Fourier coefficient of the series
+$G^{\ast}(\tau,\bar{\tau};\alpha,\beta)$ is, upto a constant factor,
+dependent only on $\sgn m$, equal to $d_{q-1}(m)$, it is obvious from
+\eqref{c5:eq3:5} that the assertion of the theorem is equivalent with
+\begin{equation*}
+d_{q-1}(n) d_{q-1}(m) = \sum_{\substack{d|(m,n)\\d>0}} d^{q-1} d_{q-1}
+(mn/d^2) (m,n \geq 1). \tag{8}\label{c5:eq3:8}
+\end{equation*}
+The proof of theorem~\ref{chap5:thm37} shows that the term 
+independent of $x$ in the
+Fourier expansion of $(G^{\ast}(, \; ;\alpha,\beta)|
+T(n))(tau,\bar{\tau})$ is obtained by multiplying 
+$\varphi^{\ast}_k(y)$ with $d_{q-1}(n)$. Therefore our assertion \eqref{c5:eq3:8}
+follows immediately from theorem~\ref{chap5:thm38}.
+
+The theorem \pageoriginale above shows that in order to prove the
+decomposability of the linear spaces
+$\mathscr{L}^{(\in)}_{\alpha\beta}(\in^2=1)$ and
+$\mathscr{L}_{\alpha}(\beta=0)$ as direct sums of subspaces of
+dimension 1, which are invariant under the operators $T(n)$, it is
+sufficient to confine ourselves to the linear spaces of cusp forms
+which are invariant by the operators $T(n)$ and are contained in any
+one of the three above-mentioned spaces. We shall denote one such
+space by $\gamma$ and prove with the help of Petersson's Metrisation
+Principle that it can be decomposed into subspaces of dimension 1
+which are invariant under the operators $T(n)$.
+
+Let $\Gamma_0$ be a subgroup of finite index in the modular group and
+let $\mathfrak{F}_0$ be a fundamental domain for $\Gamma_0$ consisting
+of a finite number of hyperbolic triangles. Let $f$ and $g$ be two
+modular forms belonging to the space $[\Gamma_0, \alpha,\beta,1]$ such
+that at least one of them is a cusp form. Then we define as in 
+chapter~\ref{chap3}, \S~\ref{chap3:sec3}, the scalar product of $f$ and $g$ by
+$$
+(f,g) = \frac{1}{\mathfrak{I}(\mathfrak{F}_0)}
+\iint\limits_{\mathfrak{F}_0} f\bar{g} y^{p-2} dxdy \;\; (p =\re q =\re
+(\alpha+\beta)),
+$$
+where $\mathfrak{I}(\mathfrak{F}_0)$ denotes the hyperbolic area of
+$\mathfrak{F}_0$. In the same way as for the analytic modular forms,
+it can be proved that the scalar product is independent of the choice
+of a fundamental domain and does not depend upon the group $\Gamma_0$
+in the sense described before.
+\end{proof}
+
+\begin{thm}\label{chap5:thm41}
+The operators $T(n)$ acting on the space $[\Gamma, \alpha,\beta,1]$ are
+Hermitian operators i.e. 
+$$
+(f|T(n),g) =(f,g|T(n)),
+$$
+for any \pageoriginale two cusp forms $f$ and $g$ belonging to the
+space $[\Gamma, \alpha,\beta,1]$. 
+\end{thm}
+
+\begin{proof}
+For $S \in \mathscr{O}_n$, we have 
+\begin{equation*}
+\Gamma[n] \subset S \Gamma S^{-1}. \tag{9}\label{c5:eq3:9}
+\end{equation*}
+Since the principal congruence  subgroups are normal subgroups of
+$\Gamma$ and $S =
+L_1\left(\begin{smallmatrix} g&0\\0&gd \end{smallmatrix}\right)L_2$
+with $L_i\in \Gamma(i=1,2)$ and $g^2d=n$, it suffices to prove
+\eqref{c5:eq3:9} for $S=\left(\begin{smallmatrix}
+  1&0\\0&d \end{smallmatrix}\right)$, where $d$ is a divisor of
+$n$. If $L=\left(\begin{smallmatrix} \alpha &
+  \beta\\\gamma&\delta \end{smallmatrix}\right)$ is a matrix belonging
+to $\Gamma[n]$, then the matrix
+$$
+S^{-1} L S = \begin{pmatrix}
+\alpha & \beta d\\
+\gamma d^{-1} & \delta 
+\end{pmatrix}
+$$
+obviously belongs to $\Gamma$. Thus assertion \eqref{c5:eq3:9} is proved. Since the
+matrix $n S^{-1}$ along with $S$ is in $\mathcal{O}_n$, relation \eqref{c5:eq3:9}
+remains true when $S$ is replaced by $S^{-1}$. 
+
+Let $f$ and $g$ be two modular forms belonging to the space $[\Gamma,
+  \alpha, \beta, 1]$. Then it is an immediate consequence of \eqref{c5:eq3:9}
+that, for $S\in \mathcal{O}_n$, the forms $f|S$ and $g$ are
+modular forms for the groups $S^{-1}\Gamma[n]S$ and
+$\Gamma[n]$. Moreover, it is obvious that, when it exists, the scalar
+product of $f|S$ and $g$ defined for either of the two groups is the
+same. If $\mathfrak{F}_n$ is a fundamental domain for $\Gamma[n]$,
+then $S^{-1}<\mathfrak{F}_n>$ is a fundamental domain for the group
+$S^{-1}\Gamma[n]S$. Let us set $S = \surd n S^{\ast}(|S^{\ast}|=1)$
+and $p=\re q$. Then 
+\begin{align*}
+(f|S, g) & = \frac{1}{\mathfrak{I}(\mathfrak{F}_n)}
+  \iint\limits_{S^{-1}<\mathfrak{F}_n>} f|S\cdot \bar{g} y^{p-2} dx
+  dy\\
+& = \frac{n^{-q/2}}{\mathfrak{I}(\mathfrak{F}_n)}
+  \iint\limits_{S^{-1}<\mathfrak{F}_n>} f|S^{\ast} \cdot\bar{g}
+  y^{p-2} dx dy. 
+\end{align*}
+Since \pageoriginale the substitution $\tau\to S^{\ast-1}<\tau>$ with
+$S^{\ast}= \left(\begin{smallmatrix}
+  a&b\\c&d \end{smallmatrix}\right)$ transforms the function
+$(f|S^{\ast})(\tau,\bar{\tau})\overline{g(\tau,\bar{\tau})}y^p$ into
+the function 
+\begin{align*}
+& \frac{f(\tau,\bar{\tau}) \overline{g(S^{\ast-1} <\tau>,
+      S^{\ast-1} <\bar{\tau}>)}y^p}{(c S^{\ast-1} <\tau>+d)^{\alpha}
+  (cS^{\ast-1}<\bar{\tau}>+d)^{\beta} | (-c\tau+a)^{\alpha}
+  (-c\bar{\tau}+a)^{\beta}|^2 }    \\
+& = f(\tau,\bar{\tau}) \overline{(g|S^{\ast-1})(\tau,\bar{\tau})y^p}
+\end{align*}
+and leaves the measure $\dfrac{dx dy}{y^2}$ invariant, it follows that 
+\begin{align*}
+(f|S,g) & = \frac{n^{-q/2}}{\mathfrak{I}(\mathfrak{F}_n)}
+  \iint\limits_{\mathfrak{F}_n} \overline{f\cdot g |S^{\ast-1}}
+  y^{p-2} dx dy\\
+& = \frac{1}{\mathfrak{I}(\mathfrak{F}_n)}
+  \iint\limits_{\mathfrak{F}_n} \overline{f\cdot g|n S^{-1}}
+  y^{p-2} dx dy\\
+& = (f,g|nS^{-1}).
+\end{align*}
+Let $V_n$ denote a common representative system of left and right
+cosets of $\mathcal{O}_n$ modulo $\Gamma$; such a representative
+system exists, by lemma~\ref{chap5:lem12}. 
+By the definition of the operator $T(n)$, we have 
+\begin{align*}
+(f|T(n),g)= n^{q-1} \sum_{S \in V_n} (f|S, g) & = n^{q-1}
+  \sum_{S\in V_n}(f,g|n S^{-1})\\
+& = (f,g|T(n)), 
+\end{align*}
+because it can be seen easily that whenever $S$ runs through a
+representative system of right cosets of $\mathcal{O}_n$ modulo
+$\Gamma$, then $nS^{-1}$ runs through the left cosets of
+$\mathcal{O}_n$. Hence the theorem is proved.
+\end{proof}
+
+\begin{lem}\label{chap5:lem13}
+Let $\mathfrak{m}$ be a set of pairwise commuting Hermitian
+matrices. Then there exists a unitary matrix $U$ such that the matrix
+$\bar{U}'HU=U^{-1}HU$ for every \pageoriginale $H$ in $\mathfrak{m}$ is
+a diagonal matrix.
+\end{lem}
+
+\begin{proof}
+It suffices to prove the assertion for a finite set $H_1,H_2,\ldots,
+H_r$ of Hermitian matrices, because there exist in $\mathfrak{m}$ only
+finitely many linearly independent matrices over the field of real
+numbers. We shall prove the assertion by induction on $r$. It is
+well-known that the assertion is true for $r=1$. Let us assume $r>1$
+and the assertion to be true for any set of $r-1$ mutually commuting
+Hermitian matrices. Since $\bar{U}' H U$ is Hermitian along with $H$
+and since the unitary matrices form a group, we can assume, without
+loss of generality, that $H_1,H_2,\ldots, H_{r-1}$ are already
+diagonal matrices. We can also assume that the matrix
+$H=\sum\limits^{r-1}_{k=1} x_k H_k$ with $x_k$ as real variables has
+the form  
+$$
+H=\begin{pmatrix}
+\ell_1 E^{(k_1)} & &&& 0\\
+& \ell_2 E^{(k_2)} &&& \\
+& & \cdot & & \\
+& & & \cdot &\\
+0 & & & & \ell_t E^{(k_t)}
+\end{pmatrix},
+$$
+where $\ell_1,\ell_2,\ldots, \ell_t$ are pairwise distinct linear
+forms in the variables $x_k$ and in general $E^{(k)}$ denotes the
+$k$-rowed unit matrix. From $HH_r=H_rH$, it follows that $H_r$ must be
+of the form 
+$$
+H_r = 
+\begin{pmatrix}
+A^{(k_1)}_1& &&& 0\\
+& A^{(k_2)}_2 && &\\
+& & \cdot  &&\\
+&&&\cdot &\\
+0 & & & & A^{(k_t)}_t
+\end{pmatrix}
+$$
+where each $A^{(k_i)}$ is a Hermitian matrix. We now find unitary
+matrices $U_i$ so that \pageoriginale $\bar{U}'_i   A^{(k_i)}_i
+\; U_i(i=1,2,\ldots t)$ are diagonal matrices. Let us set 
+$$
+U= 
+\begin{pmatrix}
+U_1 & & & & &0\\
+& U_2 & & & & &\\
+& & \cdot & & &&\\
+& & & \cdot & && \\
+& & & & \cdot & &\\
+0 & & & && U_t 
+\end{pmatrix}\cdot
+$$
+Then it is obvious that $U$ transforms the matrices $H_1,H_2,\ldots,
+H_r$ into diagonal matrices.
+\end{proof}
+
+\begin{thm}\label{chap5:thm42}
+A linear space $\gamma$ of cusp forms contained in any one of the
+spaces $\mathscr{L}^{(\in)}_{\alpha\beta}(\in^2=1)$ and
+$\mathscr{L}_{\alpha}(\beta=0)$ and invariant under the operators
+$T(n)$ has an orthonormal basis $g_1,g_2,\ldots, g_t$ ($t=$ dimension
+$\gamma$) so that 
+$$
+g_i|T_n=\rho_i(n)g_i
+$$
+for all $n\geq 1$ and $i=1,2,\ldots ,t$.
+\end{thm}
+
+\begin{proof}
+Let $\{f_1,f_2,\ldots, f_t\}$ be an orthonormal basis for $\gamma$
+i.e.
+$$
+(f_i,f_k) =\delta_{ik} \;\;  (\delta_{ik}, \text{ Kronecker's symbol}).
+$$
+Let 
+$$
+f_i|T_n = \sum^t_{k=1} \lambda_{ik} f_k.
+$$
+Then, by theorem~\ref{chap5:thm41}, we have 
+\begin{align*}
+\lambda_{ik}(n) & = (f_i |T_n, f_k) = \overline{(f_k,f_i|T_n)}\\
+& = \overline{(f_k|T_n, f_i)} = \overline{\lambda_{ki}(n)}
+\end{align*}
+showing that the matrix $\Lambda(n)=(\lambda_{ik}(n))$ is
+Hermitian. But, by theorem~\ref{chap5:thm38}, the operators $T(n)$ commute with each
+other; therefore, the matrices $\Lambda(n)$, which \pageoriginale
+define a representation of the operators $T(n)$, commute
+pairwise. Thus, by lemma~\ref{chap5:lem13}, there exists a unitary matrix $U$ such
+that 
+$$
+U^{-1}\Lambda (n) U = \begin{pmatrix}
+\rho_1(n) & & & & & 0\\
+& \rho_2^{(n)} & & & & \\
+& & \cdot & & & \\
+& & & \cdot & & \\
+& & & & \cdot & \\
+0 & & & & & \rho_t(n)
+\end{pmatrix}
+$$
+If
+$$
+\begin{pmatrix}
+f_1\\\vdots\\f_t
+\end{pmatrix} = U \begin{pmatrix}
+g_1 \\\vdots \\g_t
+\end{pmatrix},
+$$
+then $g_1,g_2,\ldots, g_t$ constitute a basis of $\gamma$ having the
+properties mentioned in theorem~\ref{chap5:thm42}.
+
+Denoting the Fourier coefficients of $g_i$ by $a_i(m)$ with $m\geq 1$,
+we claim that for every $n\geq 1$, $\rho_i(n)$ is equal to $a_i(n)$
+upto a constant factor independent of $n$. In fact, from \eqref{c5:eq3:5}, we have 
+$$
+\rho_i(n) a_i(m) = \sum\limits_{\substack{{d|(m,n)}\\ 
+d>0}} a_i(mn/d^2) d^{q-1} (m,n\geq 1)
+$$
+and on taking $m=1$,
+$$
+\rho_i(n)a_i(1) = a_i(n) n =1,2,\ldots
+$$
+Consequently $a_i(1)\neq 0$, for $i=1,2,\ldots, t$. Moreover, it
+follows immediately that 
+\begin{equation*} 
+\rho_i (n)\rho_i(m) = \sum_{\substack{d|(m,n)\\d>0}} 
+\rho_i (mn/d^2) d^{q-1} \tag{10}\label{c5:eq3:10} 
+\end{equation*}
+If we \pageoriginale drop the condition of orthonormality for the
+basis $\{g_1, g_2, \ldots , g_t\}$ of $\gamma$ and assume only the
+orthogonality with $a_i(1)=1$, then the Dirichlet series
+$$
+\varphi_i(s) = \sum^{\infty}_{n=1} \frac{a_i(n)}{n^s}
+$$
+associated with $g_i(s) \; (i=1,2,\ldots ,t)$ has an Euler product
+development of the type 
+$$
+\varphi_i(s) = \prod_p \{1-a_i(p) p^{-s} + p^{q-1-2s}\}^{-1}, 
+$$
+where $p$ runs over all primes. For, it can be seen, by using \eqref{c5:eq3:10},
+that 
+$$
+\sum^{\infty}_{k=0} \frac{a_i(p^k)}{p^{ks}}  \{1-a_i (p) p^{-s} +
+p^{q-1-2s}\} =1
+$$
+and 
+$$
+\prod_{p} \{\sum^{\infty}_{k=0} \frac{a_i(p^k)}{p^{ks}}\} =
+\sum^{\infty}_{n=1} \frac{a_i(n)}{n^s}.
+$$
+Thus it follows, from theorem~\ref{chap5:thm40}, that the Dirichlet series
+corresponding to the normalised Eisenstein series (i.e. with
+$a_i(1)=1$) has an Euler product development i.e.
+$$
+\sum^{\infty}_{n=1} \frac{d_{q-1}(n)}{n^s} = 
+\prod_p\{1-d_{q-1}(p)p^{-s} + p^{q-1-2s} \}^{-1} =\zeta (s) \zeta
+(s+1-q). 
+$$
+Consequently, we have proved the following 
+\end{proof}
+
+\begin{thm}\label{chap5:thm43}
+For every linear space $\mathscr{L}^{(\in)}_{\alpha\beta}
+(\in^2 =1)$ and $\mathscr{L}_{\alpha}(\beta=0)$ there exists a
+basis $\{h_1, \ldots, h_t\}$ so that the Dirichlet series
+corresponding to $h_i$ can be represented as an Euler product.
+\end{thm}
+
+Finally, \pageoriginale we remark that the functions mentioned in
+theorem~\ref{chap5:thm36} have an Euler product development which 
+can be obtained using the well-known product representation
+$$
+\zeta(s) = \prod_p(1-p^{-s})^{-1}, L(s,\chi) = \prod_p
+(1-\chi(p)p^{-s})^{-1} v
+$$
+for the functions $\zeta(s)$ and $L(s,\chi)$. In case $\lambda=2$,
+these Euler products coincide with the Euler products of the Dirichlet
+series corresponding to certain modular forms of level 4 as for as the
+contributions of the odd primes are concerned, because the space
+$[\Gamma_{\vartheta}, \alpha, \alpha, v](v^2=1)$ is contained in the
+space $[\Gamma[4], \alpha, \alpha, 1]$. 
+
+\begin{thebibliography}{99}
+\bibitem{c5:key1} E. Hecke: \"Uber die L\"osungen der Riemannschen
+  Funktionalgleichung, Math. Zeit., 16 (1923), 301-307.
+
+\bibitem{c5:key2} E. Hecke: Die Primzahlen in der Theorie der
+  elliptischen Modulfunktionen, Kgl. Danske Videnskabernes Selskab,
+  Mathematisk - fysiske Meddeleser XIII, 10 (1935), 1-16.
+
+\bibitem{c5:key3} E. Hecke: \"Uber die Bestimmung Dirichletscher Reihen
+  durch ihre Funktionalgleichung, Math. Ann., 112 (1936), 664-699.
+
+\bibitem{c5:key4} E. Hecke: \"Uber Modulfunktionen and die Dirichletschen
+  Reihen mit Eulerscher Produktentwicklung I, II, Math. Ann., 114
+  (1937), 1-28 ibid., 316-351.
+
+\bibitem{c5:key5} E. Hecke: Herleitung des Eulerproduktes der
+  Zetafunktion and einiger L-Reihen aus ihrer Funktionalgleichung,
+  Math. Ann., 119 (1944), 266-287.
+
+\bibitem{c5:key6} H. Maass: \pageoriginale \"Uber die r\"aumliche
+  Verteilung der Punkte in Gittern mit indefiniter Metrik, Math. Ann.,
+  138 (1959), 287-315. 
+
+\bibitem{c5:key7} H. Petersson: Konstruktion der s\"amtlichen L\"osungen
+  einer Riemannschen Funktionalgleichung durch Dirichletreihen mit
+  Eulerscher Produktentwicklung I, II, III, Math. Ann., 116 (1939),
+  401-412, ibid., 117 (1939), 39-64, ibid., 117 (1940/41), 277-300.
+
+\bibitem{c5:key8} H. Petersson: \"Uber die lineare Zerlegung der den
+  ganzen Modulformen von h\"oherer Stufe entsprechenden
+  Dirichletreihen in vollst\"andige Eulersche Produkte, Acta Math., 80
+  (1948), 191-221.
+
+\bibitem{c5:key9} K. Wohlfahrt: \"Uber Operatoren Heckescher Art bei
+  Modulformen reeller Dimension, Math. Nach., 16 (1957), 233-256.
+\end{thebibliography}

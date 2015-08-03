@@ -1,0 +1,190 @@
+
+\chapter{Lecture}\label{lec9}%%%9
+
+\setcounter{section}{4}
+\section{Complete Continuity}\label{lec9:sec5}%sec 5
+
+\subsection{}\label{lec9:sec5:subsec1}
+ 
+We\pageoriginale recall the definition of a completely
+continuous operator. Let $E$ 
+and $F$ be two Hilbert spaces, then a continuous linear mapping $U$ of
+$E$ into $F$ is said to be completely continuous if for any sequence
+$u_n \to 0$ weakly in $E, U (u_n) \to 0$ strongly in $F$ or
+equivalently for bounded set $B$ in $E$, $U(B)$ relatively compact. 
+
+\begin{theorem}\label{lec9:sec5:subsec1:thm5.1}%the 5.1
+  Let $\Omega$ be a bounded open set in $R^n$. Then the injection
+  $H^1_o (\Omega) \to L^2 (\Omega)$ is completely continuous. 
+\end{theorem}
+
+\begin{proof}
+We have to prove that if $u_k \to 0$ in $H^1_o (\Omega)$ weakly, then
+$u_k \to 0$ strongly in $L^2 (\Omega)$. Let $\tilde{u}_k$ be the
+extension of $u_k$ to $R^n$ equal to $u_k$ on $\Omega$ and $0$
+elsewhere. Then $u_k \to 0$ weakly in $H^1_o (R^n)$ and hence weakly
+in $L^2 (R^n)$. Let $\hat{u}_k$ be the Fourier transform of $u_k$,
+i.e., $\hat{u}_k (\xi)= (u_k , e^{2 \pi ix \xi})_o$. Since $\Omega$ is
+bounded for every $\xi , e^{2 \pi ix \xi} \in L^2 (\Omega)$
+and hence for fixed $\xi , \hat{u}_k (\xi)\to 0$. Further $u_k$ is
+weakly bounded in $H^1_o (\Omega)$ and hence bounded in $H^1_o
+(\Omega)$. So $|u_k|_o \leq c_o, |u_k|_1 \leq c_1$. Hence, by
+Schwartz's inequality $|\hat{u}_k (\xi)|\leq c_2$. 
+\end{proof}
+
+To prove $u_k \to 0$ strongly in $L^2$ we need prove $\int |\hat{u}_k
+(\xi)|^2 d \xi \to 0$. Now 
+$$ 
+\int |\hat{u}_k (\xi)|^2 d \xi = \int\limits_{|\xi|< R} |\hat{u}_k
+(\xi)|^2 d \xi + \int\limits_{|\xi|\geq R} |\hat{u}_k (\xi)|^2 d \xi. 
+$$
+
+\noindent
+Given any $\in > 0$ we shall prove that we can choose $R$ so
+large that the second term is less than $\in / 2$, and then
+that we can choose $k_o$ such that for $k = k_o$, the first term is
+less than $\in / 2$. This will complete\pageoriginale the proof. Now 
+\begin{align*}
+\int\limits_{|\xi| \geq R} |\hat{u}_k (\xi )|^2 & = \int\limits_{|\xi|
+  \geq R} (1+ |\xi|^2) |\hat{u}_k (\xi )|^2 . \frac{1}{1+ |\xi |^2} d
+\xi\\ 
+& \leq \frac{1}{1+ R^2} \int\limits_{|\xi| \geq R} (1+ |\xi|^2)
+|\hat{u}_k (\xi )|^2 d\xi\\ 
+&\leq \frac{\| u_k \|_1}{1+R^2} \leq \frac{c_3 }{1+ R^2}.
+\end{align*}
+
+We choose $R$ so that $\dfrac{c_3}{1+ R^2} < \in / 2$.
+
+Next since we have proved above that $|\hat{u}_k (\xi )| < c_2$ and
+that for every $\xi$, $\hat{u}_k (\xi) \to 0$, observing that $c_2$ is
+integrable on $|\xi| < R$, by Lebesgue bounded convergence theorem, it
+follows that 
+\begin{align*}
+ &\int |\hat{u}_k (\xi )|^2 d \xi \to 0\\
+ & |\xi |< R.
+\end{align*}
+
+\subsection{}\label{lec9:sec5:subsec2}  %%% subsec5.2
+
+We have seen that if $\Omega$ is bounded, the
+injection of $H^1_o (\Omega)$ into $L^2 (\Omega)$ is completely
+continuous. It is not true that the injection of $H^1(\Omega)$ into
+$L^2 (\Omega)$ is always completely continuous. (For a  necessary and
+sufficient condition, see Deny-Lions \cite{k7}). 
+
+However we have the
+\begin{theorem}\label{lec9:sec5:subsec2:thm5.2}%the 5.2
+ If $\Omega$ is bounded and has $1$-extension property, then the
+ injection $H^1 (\Omega) \to L^2 (\Omega)$ is completely continuous. 
+\end{theorem}
+
+\begin{proof}
+Let $0$ be a relatively compact open set containing $\Omega$. Let
+$u_k$ be a sequence weakly converging to $0$ in $H^1 (\Omega)$ and
+$\pi u_k$ be extensions of $u_k$ to $R^n$. Since $\pi$ is continuous
+from $H^1 (\Omega)$ to $H^1 (R^n)$, $\pi (u_k)$ converge to $0$ weakly
+in $H^1 (R^n)$, and hence the restrictions of $\pi (u_k)$ to $0$ also
+converge to $0$ weakly in $H^1(0)$. 
+\end{proof}
+
+Let\pageoriginale $\Theta$ be a function in $\mathscr{D}(0)$ which is 1 on
+$\bar{\Omega}$. Then $\Theta u_k \in H^1_o (0)$. Since 0 is
+bounded by theorem \ref{lec9:sec5:subsec1:thm5.1} $\Theta \pi (u_k) \to 0$ strongly in $L^2
+(0)$, and hence $u_k \to 0$ strongly in $L^2 (\Omega)$. 
+
+\begin{coro*}
+If $\Omega$ is bounded and has m-extension property, then the
+injection of $H^m (\Omega)$ into $L^2 (\Omega)$ is completely
+continuous. 
+\end{coro*}
+
+\subsection{Applications}\label{lec9:sec5:subsec3} %% subsec5.3
+
+Let $V$ be such that $H^1_o (\Omega) \subset V \subset H^1 (\Omega)$
+and $a(u,v) = (u, v)_1$. The operator $A$ associated with $a (u,v)$ is
+$-\Delta$. We wish to show how when $\Omega$ is bounded and has
+$1$-extension property, Fredholm theory can be applied to consider the
+solutions of $(A-\lambda) u =f$ for $f \in L^2 (\Omega)$. 
+
+We recall the Riesz- Fredholm theorem for completely continuous operator.
+
+Let $H$ be a Hilbert space and $A$ be a Hermitian and a completely
+continuous operator of $H$ into $H$. Then  
+\begin{enumerate}[1)]
+\item $A- \mu I$ is an isomorphism of $H$ onto itself except for
+  countable values of $\mu$, say $\mu_o \geq \mu _1 \geq \cdots$ such
+  that $\mu_n \to 0$. $\mu_n$ are called eigenvalues of $A$. 
+\item The kernel of $A- \mu_n$ is finite dimensional. It is called the
+  eigenspace corresponding to $\mu _n$ and its dimension is called the
+  multiplicity of $\mu_n$. 
+\item If $w_{n_1}, \ldots w_{n_m}$ is an orthonormal base for the
+  eigenspace then $(w_n)$ from an orthonormal system and any $y
+  \in H$ can be written as $y = h + \Sigma (y , w_n)w_n$,
+  where $h$ is a solution of $Ah =0$. 
+
+ Hence\pageoriginale if we assume that $Ah = 0$ implies $h=0$, we have
+\item $(w_n)$ forms a complete orthonormal system and 
+  $$
+  Ay = \Sigma \mu_n (y , w_n)w_n.
+  $$
+
+  Hence $(A- \mu) x= y$ has a unique solution for all $\mu $ except
+  those which are eigenvalues and the solution is given by 
+  $$
+  x = \sum \frac{(y, w_n)}{\mu_n - \mu} w_n \text{ for } \mu \neq \mu_n
+  $$
+  and if $\mu = \mu_n x= \sum\limits_{n \neq m} \dfrac{(y ,
+    w_m)}{\mu_m - \mu_n} w_m + h_n$ where $h_n$ is such that $(A -
+  \mu_n)h_n =0$.  
+\end{enumerate}
+
+We know that the problem of finding $u \in N$ such that $(-
+\Delta - \lambda) u = f$ for $f \in L^2 (\Omega)$ is to find
+$u \in N$ such that $(u, v)_1 - \lambda (u, v)_o = (f , v)_o $
+for all $v \in V$. 
+
+Let $[u,v]= (u,v)_1 + (u,v)_o$ so that we have to consider $[u,v]-
+(\lambda + 1) (u,v)_o$ for all $v \in V$. Now the semilinear
+mapping $v \to (f, v)_o$ is continuous on $V$, hence there exists $Jf
+\in V$ such that $[Jf , v]= (f,v)_o$. $J$ is then a continuous
+mapping of $L^2 \to V$. Let $J_1$ be the restriction $J$ to $V$. We
+have to consider then 
+$$
+[u,v]- (\lambda + 1)[J_1 u,v] = [Jf , v] \text{ for all } v,
+$$
+i.e., \qquad $(J_1 - \mu )_u =- \dfrac{g}{\lambda + 1}$ where $=
+\dfrac{1}{\lambda+1}$. 
+
+\begin{lemma*} 
+$J_1$ is a completely continuous mapping of $V$ into $V$.
+\end{lemma*}
+
+\begin{proof}
+$J_1$ is the composite of $V \to L^2 \xrightarrow{J} L^2$. Since
+  $\Omega$ is bounded and has $1$-extension property, the injection $V
+  \to L^2$ is completely continuous. Hence $J_1$ is completely
+  continuous. 
+\end{proof}
+
+Further\pageoriginale $(J_1 u, v) = (u, v)_o$. Hence $J_1 u =0$ implies $u = 0$, and
+trivially $J_1$ is Hermitian. 
+
+Applying the theorem of Riesz-Fredholm quoted above, $J_1 - \mu$ is an
+isomorphism of $V$ onto $V$ except for $\mu = \mu_1 \cdots \mu_1
+\cdots$. Let $\lambda _n =- 1+ \dfrac{1}{\mu_n}$. Let $w_n$ be
+orthonormal set of eigenvalues. We have proved then 
+
+\begin{theorem}\label{lec9:sec5:subsec3:thm5.3}%the 5.3
+  ~
+  \begin{enumerate}[\rm (1)]
+  \item $- \Delta - \lambda$ is an isomorphism of $N \to L^2$ expect for
+    $\lambda = \lambda_1 \cdots \lambda_n \cdots$ such that $-1 \leq
+    \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n \leq \cdots,
+    \lambda_n \to \infty$. 
+  \item $- \Delta w_n = \lambda w_n$ and $w_n$ is a complete orthonormal
+    system in $V$ and complete orthogonal in $L^2$ 
+  \item $\dfrac{w_n}{\sqrt{1+ \lambda_n}}$ is complete orthonormal in
+    $L^2 (\| w_n \|^2_1 =1)$ and so $(1+ \lambda_n) |w_n|^2 = 1$. 
+  \item $w_n$ is complete orthogonal in $N$. 
+  \end{enumerate}
+\end{theorem}

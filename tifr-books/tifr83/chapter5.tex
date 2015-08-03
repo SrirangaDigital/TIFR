@@ -1,0 +1,426 @@
+\chapter[Mixed Complexes, the Connes Operator B, and ...]{Mixed
+  Complexes, the Connes Operator B, and Cyclic 
+  Homology}\label{chap5}\index{Connes' operator B}
+
+THE\pageoriginale DOUBLE COMPLEX $CC_{\ast,\ast}(A)$ has acyclic
+columns in odd degrees, and this property leads to the concept of a
+mixed complex. Thus we effectively suppress part of the cyclic
+homology complex $CC_{\ast}(A)$. In the second section this new
+definition is shown to be equivalent to the old one. Yet another way
+of simplifying the Connes-Tsygan double complex is to normalize the
+Hochschild complexes, and this is considered in \S\ \ref{chap5-sec3}.
+
+\section{The operator $B$ and the notion of a mixed
+  complex}\label{chap5-sec1}
+
+Let $A$ be an algebra over $k$. The last simplicial operator defines a
+homotopy operator $s:C_{q}(A)\to C_{q+1}(A)$ by the relation
+$s=(-1)^{q}s_{q}$. It has the basic property that $sb'+b's=1$, and
+this is a general property of simplicial objects over an abelian
+category.
+
+\begin{definition}\label{chap5-defi1.1}
+Let $A$ be an algebra over $k$. The Connes operator is
+$B=(1-T)sN:C_{q}(A)\to C_{q+1}(A)$ on the standard complex.
+\end{definition}
+
+For any cyclic object $X_{\bigdot}$ the Connes operator is
+$$
+B=(1-T)sN:X_{q}\to X_{q+1}
+$$
+a morphism of degree $+1$. The corresponding diagram is
+\[
+\xymatrix{
+X_{q+1} & \ar[l]_{1-T} X_{q+1}\ar@<.25em>[d]^{s} & \\
+ & X_{q}\ar@<.25em>[u]^{b'} & X_{q}\ar[l]_{N}
+}
+\]
+
+\begin{proposition}\label{chap5-prop1.2}
+Let $X_{\bigdot}$ be a cyclic object over an abelian category
+$\A$. The Connes operator $B$ of degree $+1$ and the usual boundary
+operator $b$ satisfy the following relations
+$$
+b^{2}=0,B^{2}=0,\q\text{and}\q Bb+bB=0.
+$$
+\end{proposition}
+
+\begin{proof}
+The\pageoriginale first relation was already contained in 3(2.4), and
+the second $BB=(1-T)sN(1-T)sB=0$ since $N(1-T)=0$ by 3(3.3). For the
+last relation we calculate using 3(3.4)
+\begin{align*}
+Bb+bB &= (1-T)(sNb+b(1-T)sN=(1-T)sb'N+(1-T)b'sN\\
+      &= (1-T)(sb'+b's)N=(1-T)N=0.
+\end{align*}
+
+This proves the proposition.
+\end{proof}
+
+\begin{remark}\label{chap5-rem1.3}
+For the standard cyclic object $C_{\bigdot}(A)$ associated with an
+algebra $A$, the following formula defines $B$ on an element,
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+B(a_{0}\otimes\cdots\otimes a_{q}) &=
+\sum(-1)^{iq}(a_{q-i}\otimes\cdots\otimes a_{q}\otimes
+a_{0}\otimes\cdots\otimes a_{q-1-i}\otimes 1)- \\
+&\q-\sum(-1)^{(i-1)q}(1\otimes a_{q-i}\otimes\cdots\otimes
+a_{q}\otimes a_{0}\otimes\cdots\otimes a_{q-1-i}).
+\end{align*}}
+\end{remark}
+
+This leads to a new structure called a mixed complex\index{mixed complex} which is a
+complex with two operators one of degree $-1$ and one of degree $+1$
+which commute in the graded sense, that is, anticommute in the
+ungraded sense. This is the relation $Bb+bB=0$. Each mixed complex has
+homology in the usual sense with its operator of $-1$. Using the two
+operators, we can associate a second complex, which can be thought of
+as the total complex of a double complex associated with the mixed
+complex. The homology of this complex is called the cyclic homology of
+the mixed complex. This terminology is justified because the cyclic
+homology of a mixed complex associated with a cyclic object will shown
+to be isomorphic to the cyclic homology of the cyclic object as
+defined in the previous chapter. A second point justifying the
+terminology is that there is a Connes exact couple\index{Connes' exact couple} relating the
+ordinary and cyclic homology of a mixed complex.
+
+There are two advantages in considering mixed complexes. The complex
+defining cyclic homology of the mixed complex is smaller than
+$CC_{\bigdot\bigdot}(X)$ for a cyclic object. Then there are mixed
+complexes which do not come from cyclic objects which are useful,
+namely the one corresponding to the normalized\pageoriginale standard
+complex $\overline{C}_{\ast}(A)$ for Hochschild homology.
+
+\section{Generalities on mixed
+  complexes}\label{chap5-sec2}
+
+\begin{definition}\label{chap5-defi2.1}
+Let $\A$ be an abelian category. A mixed complex $X$ is a triple
+$(X_{\ast},b,B)$ where $X_{\ast}$ is a $\bfZ$-graded object in $\A$,
+$b:X_{\ast}\to X_{\ast}$ is a morphism of degree $-1$, and
+$B:X_{\ast}\to X_{\ast}$ is a morphism of degree $+1$ satisfying the
+relations
+$$
+b^{2}=0, B^{2}=0, Bb+bB=0.
+$$
+
+A morphism $f:X\to Y$ of mixed complxes is a morphism of graded
+objects such that $bf=fb$ and $Bf=fB$. A mixed complex is positive if
+$X_{q}=0$ if $q<0$.
+\end{definition}
+
+Let $\Mix(\A)$ denote the category of mixed complexes and
+$\Mix^{+}(\A)$ the full subcategory of positive mixed complexes.
+
+\begin{remark}\label{chap5-rem2.2}
+We have the following functors associated with mixed complexes. Let
+$\A$ denote an abelian category.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item The functor which assigns to a mixed complex $(X,b,B)$ the
+  complex $(X,b)$ is defined $\Mix(\A)\to \C(\A)$ and it restricts to
+  $\Mix^{+}\break(\A)\to \C^{+}(\A)$ to the full subcategories of positive
+  objects. When it is composed with the homology functor $H:\C(\A)\to
+  Gr_{Z}(\A)$, it defines the homology $H(X)$ of the mixed object $X$.
+
+\item The functor which assigns to a cyclic object $X_{\bigdot}$ the
+  mixed object $(X,b,B)$ as in (\ref{chap5-prop1.2}) is defined
+  $\Lambda(\A)\to \Mix^{+}(\A)$, and when composed with
+  $\Mix^{+}(\A)\to \C^{+}(\A)$ gives the usual simplicial differential
+  object whose homology is the ordinary homology of the cyclic object.
+
+\item Finally the standard cyclic object $C_{\bigdot}(A)$ associated
+  with an algebra $A$ over a ring $k$ is a functor defined
+  $\Alg_{k}\to \Lambda(k)$ which can be composed with the above
+  functors to give a positive mixed complex of $k$-modules\index{module} whose
+  homology is in turn its Hochschild homology.
+\end{enumerate}
+
+Now\pageoriginale we wish to define a functor $\Mix^{+}(\A)\to
+\C^{+}(\A)$ whose homology is to be the cyclic homology. There is a
+similar construction for $\Mix(\A)\to \C(\A)$ which is not given since
+it is not needed for our purposes.
+\end{remark}
+
+\begin{definition}\label{chap5-defi2.3}
+Let $(X,b,B)$ be a positive mixed complex over an abelian category
+$\A$. The cyclic complex $(X[B],b_{B})$ associated with the mixed
+complex\index{cyclic complex associated to a mixed complex} $(X,b,B)$ is defined as a graded object by
+$X[B]_{n}=X_{n}\oplus X_{n-2}\oplus\ldots$ which is a finite sum since
+$X$ is positive and $b_{B}:X[B]_{n}\to X[B]_{n-1}$ is defined using
+the projections $p_{i}:X[B]_{n}\to X_{i}$ by the relation
+$p_{i}b_{B}=bp_{i+1}+Bp_{i-1}$. The cyclic homology $HC_{\ast}(X)$ of
+the mixed complex $X_{\ast}$ is $HC_{\ast}(X)=H_{\ast}(X[B])$, the
+homology of cyclic complex associated with $X_{\ast}$.
+\end{definition}
+
+If the abelian category $\A=(k)$, the category of $k$-modules, then
+the boundary in the cyclic complex can be described by its image on
+elements $(x_{n},x_{n-2},x_{n-4},\ldots)\in X[B]_{n}$, and the above
+definition gives
+$$
+b_{B}(x_{n},x_{n-2},x_{n-4},\ldots)=(b(x_{n})+B(x_{n-2}),b(x_{n-2})+B(x_{n-4}),\ldots). 
+$$
+
+\begin{remark}\label{chap5-rem2.4}
+To $(X,b,B)$, a positive mixed complex over an abelian complex $\A$,
+we associate an exact sequence
+$$
+0\to (X,b)\xrightarrow{i}(X[B],b_{B})\to (s^{-2}X[B],b_{B})\to 0
+$$
+where $i:X_{n}\to X[B]_{n}$ is defined by $p_{n}i=X_{n}$ and
+$p_{i}i=0$ for $i<n$. Observe that $i$ is a monomorphism of complexes
+with quotient of $X[B]$ equal to $s^{-2}X[B]$ which is $X[B]$ shifted
+down by 2 degrees. The exact triangle of this short exact sequence is
+the Connes exact couple for mixed complexes\index{Connes' double complex}
+\[
+\xymatrix{
+HC_{\ast}(X)\ar[rr]^{S} & & HC_{\ast}(X)\ar[dl]\\
+ & H_{\ast}(X)\ar[ul] & 
+}
+\]
+and as usual $\deg(S)=-2$, $\deg(B)=+1$, and $\deg(I)=0$.
+\end{remark}
+
+If\pageoriginale we can show that the Connes exact sequence of the
+previous Remark (\ref{chap5-rem2.4}) is the same as the Connes exact
+sequence for a cyclic object in terms of $CC_{\bigdot}(X)$, then we
+have a new way of calculating cyclic homology for a cyclic object and
+hence also for an algebra. This we do in the next section.
+
+First we remark that the above construction of the complex
+$(X[B],\break b_{B})$ from a mixed complex $(X,b,B)$ can be viewed as the
+total complex of a double complex $\B(X)$. 
+
+\begin{definition}\label{chap5-defi2.5}
+Let $(X,b,B)$ be a positive mixed complex over an abelian category
+$\A$. The Connes double complex $\B(X)$ associated with $X$ is defined
+by the requirement that $\B(X)_{p,q}=X_{q-p}$ for $p$, $q\geq 0$ and
+$0$ otherwise, the differential $d'=B$ and $d''=b$.
+\end{definition}
+
+The double complex $\B(X)$ is concentrated in the $2^{nd}$ octant of the
+first quadrant, that is, above the line $p=q$ in the first quadrant.
+\[
+\xymatrix@C=.2cm@R=.5cm{
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots
+& \ldots & \ldots & \ldots\\
+X_{q}\ar[d]^{b} & \xleftarrow{B} & X_{q-1}\ar[d]^{b} & \xleftarrow{B}
+& X_{q-2}\ar[d]^{b} & \xleftarrow{B} & \ldots & \xleftarrow{B} & 
+X_{1}\ar[d]^{b}  & \xleftarrow{B} & X_{0}\\
+\ldots\ar[d] & \ldots &  \ldots\ar[d] &  \ldots &  \ldots\ar[d] &
+\ldots &  \ldots & \ldots & & & \\
+X_{2}\ar[d]^{b} & \xleftarrow{B} & X_{1}\ar[d]^{b} & \xleftarrow{B} & X_{0} & & & & & \\
+X_{1}\ar[d]^{b} & \xleftarrow{B} & X_{0} & & & & & & & &\\
+X_{0} & 
+}
+\]
+
+The associated single complex of the double complex $\B(X)$ is just
+$X[B]$, $b_{B}$. Once again one can see the double periodicity which
+arises by deleting the first column.
+
+\section[Comparison of two definition of cyclic
+  homology...]{Comparison of two definition of cyclic homology for a
+  cyclic 
+  object}\label{chap5-sec3}\pageoriginale 
+
+We have two functors defined on category $\Lambda(\A)$ of cyclic
+objects over an abelian category $\A$ with values in the category of
+positive complexes $\C^{+}(\A)$ over $\A$. The first is
+$CC_{\ast}(X)$, the associated complex of the cyclic homology double
+complex $CC_{\bigdot\bigdot}(X)$, and the second is $X_{\bigdot}[B]$
+where $X_{\bigdot}$, $b$, $B$ is the mixed complex associated with
+$X$, see (\ref{chap5-defi1.1}) and (\ref{chap5-prop1.2})
+
+\begin{notation}\label{chap5-not3.1}
+For a cyclic object $X_{\bigdot}$ over an abelian category $\A$ we
+define a comparison morphism $f:X_{\bigdot}[B]\to CC_{\ast}(X)$ by the
+following relations in degree $n$. For $f_{n}:X_{\bigdot}[B]_{n}\to
+CC_{n}(X)$ we require that
+$$
+pr_{i}f=
+\begin{cases}
+pr_{i} & \text{for~ } i\text{~ even}\\
+s'N\,pr_{i-1} & \text{for~ } i\text{~ odd}
+\end{cases}
+$$
+where is degree $n$ the diagram takes the form
+\[
+\xymatrix{
+X_{\bigdot}[B]_{n}=\coprod_{i}X_{n+2i}\ar[r] &
+\coprod_{i}X_{n+i}\ar[d]^{pr_{i}}\\ 
+& X_{n+i}. 
+}
+\]
+
+If $X_{\bigdot}$ is a cyclic $k$-module, then this definition can be
+given in terms of elements,
+$$
+f(x_{n},x_{n-2},x_{n-4},\ldots)=(x_{n},s'Nx_{n-2},x_{n-2},s'Nx_{n-4},x_{n-r},\ldots).
+$$
+\end{notation}
+
+\begin{lemma}\label{chap5-lem3.2}
+The graded morphism $f:X_{\bigdot}[B]\to CC_{\ast}(X)$ is a morphism
+of differential objects.
+\end{lemma}
+
+\begin{proof}
+There is a general argument that says that abelian categories can be
+embedded in a category of modules. The result is that we can check the
+commutativity of $f$ with boundary morphisms using elements. Now the
+differential of 
+$$
+f(x_{n},x_{n-2},x_{n-4},\ldots)=(x_{n},s'Nx_{n-2},x_{n-2},s'Nx_{n-4},x_{n-4}x\ldots) 
+$$
+is\pageoriginale the element
+$$
+(bx_{n}+(1-t)s'Nx_{n-2'}-b's'Nx_{n-2}+Nx_{n-2},\ldots).
+$$
+If we apply $f$ to the element
+$$
+b_{B}(x_{n},x_{n-2},x_{n-4},\ldots)=(bx_{n}+Bx_{n-2},bx_{n-2}+Bx_{n-4},\ldots), 
+$$
+then we obtain
+$$
+(bx_{n}+Bx_{n-2},s'Nbx_{n-2}+s'NBx_{n-4},\ldots).
+$$
+
+A direct inspection shows that the differential of
+$f(x_{n},x_{n-2},\ldots)$ and $f(b_{B}(x_{n},x_{n-2},\ldots))$ have
+the same even coordinates. For the odd indexed coordinates, we
+calculate
+\begin{align*}
+s'Nbx_{n-2}+s'NBx_{n-4} &= s'Nbx_{n-2}+s'N(1-t)s'Nx_{n-4}\\
+&= s'b'Nx_{n-2}\\
+&= Nx_{n-2}-b's'Nx_{n-2}.
+\end{align*}
+This shows that $f$ is a morphism of complexes and proves the lemma.
+\end{proof}
+
+The following result shows that the two definitions of cyclic homology
+are the same.
+
+\begin{theorem}\label{chap5-thm3.3}
+Let $X_{\bigdot}$ be a cyclic object in an abelian category $\A$. The
+above comparison morphism $f:X_{\bigdot}[B]\to CC_{\ast}(X)$ induces
+an isomorphism $H(f):H_{\ast}(X_{\bigdot}[B])\to HC_{\ast}(X)$.
+\end{theorem}
+
+\begin{proof}
+The first index of the double complex $X_{\bigdot\bigdot}$ determines
+a filtration $F_{p}CC_{\ast}(X)$ on $CC_{\ast}(X)$ where
+$$
+F_{p}CC_{n}(X)=\coprod\limits_{i+j=n,i\leq p}X_{i,j}
+$$
+and there is a related filtration $F_{p}X_{\bigdot}[B]$ on
+$X_{\bigdot}[B]$
+$$
+F_{p}X_{\bigdot}[B]_{n}=\coprod_{2i\leq p}X_{n-2i}. 
+$$
+
+From\pageoriginale the definition of $f$, we check that $f$ is
+filtration preserving. The morphism $E^{0}(f)$ is a monomorphism and
+$d^{0}=b$ with $E^{0}_{2k,\ast}(f)$ and isomorphism,
+$E^{0}_{2k+1,\ast}X_{\bigdot}[B]=0$, and $E^{0}_{2k+1,\ast}CC(X)$
+acyclic. Thus $E^{1}(f)$ is an isomorphism. By 1(5.6) the induced
+morphism $H_{\ast}(f)$ is an isomorphism. This proves the theorem.
+\end{proof}
+
+\begin{remark}\label{chap5-rem3.4}
+The morphism $f$ considered above can be viewed as
+$f:\B(X)_{\ast}=X_{\bigdot}[B]\to CC_{\ast}(X)$. These complexes come
+from double complexes with a periodic structure. The first vertical
+column of $\B(X)$ maps to the total subcomplex of $CC_{\ast}(X)$
+determined by the first two vertical columns of
+$CC_{\bigdot\bigdot}(X)$. The resulting subcomplexes have homology
+equal to Hochschild homology while the quotient complexes have the
+form of $\B(X)_{\ast}$ and $CC_{\ast}(X)$ respectively. We arrive at a
+sharper form of the isomorphism in (\ref{chap5-thm3.3}), namely that
+$f$ induces an isomorphism of the Connes' exact couple defined by
+mixed complexes onto the Connes' exact couple defined by the cyclic
+homology double complex.
+\end{remark}
+
+\section{Cyclic structure on reduced Hochschild
+  complex}\label{chap5-sec4}\index{reduced Hochschild complex}
+
+In 3(2.6), we remarked that for a simplicial $k$-module $X$, the
+subcomplex $D(X)$ generated by degenerate elements was contractible,
+and thus the quotient morphism induces an isomorphism on homology
+$$
+H_{\ast}(X)\to H_{\ast}(X/D(X)).
+$$
+
+For the standard complex $C_{\ast}(A)$ of an algebra $A$ the quotient
+complex $C_{\ast}(A)/DC_{\ast}(A)$ is the reduced standard complex
+$\overline{C}_{\ast}(A)$ where
+$$
+\overline{C}_{q}(A)=A\otimes \overline{A}^{q\otimes}
+$$
+as noted in 3(2.7). To study the cyclic homology $HC_{\ast}(A)$ with
+the reduced standard complex, we use the mixed complex construction
+and the following formula for the Connes' operator $B$.
+
+\begin{proposition}\label{chap5-prop4.1}
+The operators $b$ and $B$ on the standard complex
+$C_{\ast}(A)$\pageoriginale define operators $b$ and $B$ on the
+quotient reduced standard complex $\overline{C}_{\ast}(A)$ given by
+the formulas
+\begin{multline*}
+b(a_{0}\otimes \cdots\otimes a_{q})=a_{0}a_{1}\otimes
+a_{2}\otimes\cdots\otimes a_{q}\\
++\sum_{0<i<q}(-1)^{i}a_{0}\otimes\cdots\otimes
+a_{i}a_{i+1}\otimes \cdots\otimes a_{q}\\
+(-1)^{q}a_{q}a_{0}\otimes a_{1}\otimes\cdots\otimes a_{q-1}
+\end{multline*}
+where the ambiguity in $a_{0}a_{1}$ and in $a_{q}a_{0}$ is cancelled
+with the terms $i=1$ and $i=q-1$ respectively in the sum and 
+$$
+B(a_{0}\otimes\cdots\otimes a_{q})=\sum_{1\leq i\leq
+  q}(-1)^{iq}1\otimes a_{i}\otimes\cdots\otimes a_{q}\otimes
+a_{0}\otimes\cdots\otimes a_{i-1}. 
+$$ 
+\end{proposition}
+
+\begin{proof}
+The first formula is just a quotient of the usual formula, and for the
+second we calculate immediately that
+$$
+sN(a_{0}\otimes\cdots\otimes a_{q})=\sum_{1\leq i\leq
+  q}(-1)^{iq}1\otimes a_{i}\otimes\cdots\otimes a_{q}\otimes
+a_{0}\otimes \cdots\otimes a_{i-1}. 
+$$
+
+The statement follows from the fact that $tsN(a_{0}\otimes\cdots
+a_{q})=0$ in the reduced complex with $1$ in the nonzero place giving
+a degenaracy and the formula $B=(1-t(sN_{\bigdot}$ This proves the
+proposition. 
+\end{proof}
+
+Now we rewrite the $b$, $B$ double complex for the reduced standard
+complex $\overline{C}_{\ast}(A)$ where $\overline{C}_{q}(A)=A\otimes
+\overline{A}^{q\otimes}$. It is in this form that we will compare it
+with complexes of differential forms in the next two chapters.
+\[
+\xymatrix@C=0cm@R=.5cm{
+\ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots
+& \ldots & \ldots & \ldots\\
+A\otimes \overline{A}^{(q+1)\otimes}\ar[d]^{b} & \xleftarrow{B} &
+A\otimes \overline{A}^{q\otimes}\ar[d]^{b} & \xleftarrow{B} & A\otimes
+\overline{A}^{(q-1)\otimes}\ar[d]^{b} 
+& \xleftarrow{B} & & \xleftarrow{B} & A\otimes \overline{A}\ar[d]^{b}
+& \xleftarrow{B} & A\\
+\ldots\ar[d]^{b} & \ldots & \ldots\ar[d]^{b} & \ldots & \ldots
+\ar[d]^{b} & \ldots & \ldots & \ldots & A\\
+A\otimes \overline{A}^{2\otimes}\ar[d]^{b} & \xleftarrow{B} & A\otimes
+\overline{A}\ar[d]^{b} & \xleftarrow{B} & A \\
+A & & A 
+}
+\]
+
+
+
+

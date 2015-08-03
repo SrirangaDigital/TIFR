@@ -1,0 +1,359 @@
+\chapter{Lecture 2}\label{chap2}
+
+\section{Linear operators}\label{chap2:sec1}\pageoriginale
+
+\begin{defi*}%def
+ An additive operator $T$ from a normed linear space $X$ into a
+ normed linear space $Y$ whose domain $\mathscr{D}(T)$ is the whole
+ space $X$ and which is continuous is called a {\em linear operator}
+ from $X$ to $Y$. The \textit{norm }$|| T ||$ of a linear operator is
+ by definition: $|| T || = || T ||_X = \sup\limits_{x \in X, || x ||
+  \le 1} || Tx ||$. If $Y$ is the real or complex numbers (according
+ as $X$ is a real or a complex linear space) the linear operator $T$
+ is called a {\em linear functional} on $X$. 
+\end{defi*}
+
+So far we have proved the existence of non-trivial linear
+functionals. We shall prove the Hahn-Banach extension theorem which
+will have as a consequence the existence of many linear functionals on
+a normed linear space. 
+
+\section{Hahn-Banach lemma}\label{chap2:sec2}
+
+\begin{defi*}%def
+ Let $X$ be a linear space (over real or complex numbers). A real
+ valued function $p$ on $X$ will be called a {\em semi-group}(or a
+ sub-additive functional) if it satisfies the following conditions: 
+ \begin{enumerate}[\rm i)]
+ \item $p(\alpha x) = | \alpha | p(x)$, for each $\alpha \in K$ and
+  $x \in X$. 
+ \item $p(x + y) \le p(x) + p(y)$ for all $x, y \in X$.
+
+  Note that these conditions imply that $p(x) \ge 0$ for all $x \in X$.
+ \end{enumerate}
+\end{defi*}
+
+\section{Lemma (Hahn-Banach)}\label{chap2:sec3}
+
+Let $X$ be a real linear space and $p$ a semi-norm on $X$. Let $M$ be
+a (real) subspace of $X$ and $f$ a real additive functional on $M$
+such that $f(x) \le p(x)$ for all $x \in M$. Then there exists a real\pageoriginale
+additive functional $F$ on $X$ such that $F$ is an extension of
+$f$(i.e., $F(x) = f(x)$ for $ x \in M)$ and $F(x) \le p(x)$ for all $x
+\in X$. 
+
+\begin{proof}
+ By the application of Zorn's lemma or transfinite induction, it is
+ enough to prove the lemma when $X$ is spanned by $M$ and an element
+ $x_0 \notin M$, i.e., when 
+ $$
+ X = \{ M, x_0\} = \{x | x \in X, x =m + \alpha x_0, m \in M, \alpha
+ \text{ real }, x_0 \notin M \}.  
+ $$
+
+ The representation of an element $x \in X$ in the form $x = m +
+ \alpha x_0, (m \in M, \alpha ~real)$ is unique. It follows that if,
+ for any real number $c$, we define 
+ $$
+ F(x) = f(m) + \alpha c, 
+ $$
+ then $F(x) $ is an additive functional on $X$ which is an extension
+ of $f(x)$. We have now to choose $c$ in such a way that $F(x)\le
+ p(x), x \in X$, i.e., 
+ $$
+ f(m) + \alpha c \le p(m + \alpha x_0). 
+ $$
+
+ This condition is equivalent to the following two conditions: 
+ $$
+ \begin{cases}
+  f\left(\frac{m}{\alpha}\right)+ c \le p \left(\frac{m}{\alpha} +
+  x_0\right)
+  &\text{for} \quad \alpha > 0\\[5pt]
+  f\left(\frac{m}{-\alpha}\right) - c \le p \left(\frac{m}{-\alpha} -
+  x_0\right) &\text{for} \quad \alpha < 0. 
+ \end{cases}
+ $$
+ 
+ To satisfy these conditions, we shall choose $c$ such that
+ $$
+ f(m') - p(m' - x_0) \le c \le p(m'' + x_0) - f(m'')
+ $$
+ for all $m', m'' \in M$. Such a choice of $c$ is possible since
+ \begin{align*}
+  f(m') + f(m'') & = f(m' + m'')\\
+  & \le p(m' + m'')\\
+  & = p(m' - x_0 + m'' + x_0)\\
+  &\le p(m' - x_0) + p(m'' + x_0).
+ \end{align*}
+ So \quad $f(m') - p(m' - x_0) \le p(m'' + x_0) - f(m''), m', m'' \in M$. 
+ 
+ So\pageoriginale
+ $$
+ \sup_{m' \in M} \left\{f(m') - p(m' -x_0) \right\} \le \inf_{m'' \in
+  M} \left\{ p(m'' + x_0) - f(m'') \right\} 
+ $$
+ and we can choose for $c$ any number in between.
+\end{proof}
+
+\section[Hahn-Banach extension theorem...]{Hahn-Banach extension theorem for real normed linear spaces}\label{chap2:sec4}
+
+\begin{theorem*}%thm
+ Let $X$ be a real normed linear space and $M$ a real subspace of
+ $X$. Given a (real) linear functional $f$ on $M$, we can extend $f$
+ to a (real) linear functional on the whole space $X$ in such a way
+ that the norm is preserved: 
+ $$
+ || F || = || F ||_X = || f ||_M.
+ $$
+\end{theorem*}
+
+\begin{proof}
+ Take $p(x) = || f||_M ||x||$ in the Hahn-Banach lemma. We have
+ $f(x) \le p(x)$ on $M$ and $p(x)$ is subadditive. We then have an
+ additive functional $F(x)$ on $X$ which is an extension of $f$ with
+ $F(x) \le || f ||_M || x ||$ for all $x \in X$. Also $-F(x) = F(-x)
+ \le ||f||_M ||-x|| = || f||_M ||x||$. Hence 
+ $$
+ | F(x) | \le ||f||_M ||x||. 
+ $$
+ 
+ This shows that $F$ is a linear functional on $X$ and $|| F ||_X \le
+ || f ||_M$. The reverse inequality, $|| F ||_X \ge || f ||_M$, is
+ trivial as $F$ is an extension of $f$. 
+\end{proof}
+
+\section[Hahn-Banach extension theorem for...]{Hahn-Banach extension theorem for complex\hfill\break normed linear
+ spaces (Bohnenblust-Sobczyk)}\label{chap2:sec5} 
+
+\begin{theorem*}%thm
+ Let $X$ be a complex normed linear space and $M$ a (complex)
+ subspace. Given a complex linear functional $f$ on $M$ we can extend
+ $f$ to a complex linear functional $F$ on $X$ in such a way that
+ $||F||_X = ||f||_M$. 
+\end{theorem*}
+
+\begin{proof}
+ A\pageoriginale complex normed linear space becomes a real normed linear space if
+ scalar multiplication is restricted to real numbers and the real and
+ imaginary parts of a complex linear functional are real linear
+ functionals. If $f(x) = g(x) + ih(x)~ (g(x), h(x) \text{ real })$,
+ $g$ and $h$ are real linear functionals on $M$ and $|| g ||_M \le
+ ||f||_M$, $||h||_M \le ||f||_M$. Since, for each $x \in M$, 
+ \begin{align*}
+  g(ix) + ih(ix) & = f(ix)\\
+  & = if(x)\\
+  & = i(g(x) + ih(x))\\
+  & = -h (x) + ig(x),
+ \end{align*}
+ we have $h(x) = -g(ix)$, for $x \in M $. 
+ 
+ By the Hahn-Banach theorem for real linear spaces $g$ can be
+ extended to a real linear functional $G$ on $X$ with the property
+ $|| G ||_X = || g ||_M$. Now define 
+ $$
+ F(x) =G(x) - iG(ix).
+ $$
+ $F$ is then a complex linear functional on $X$. (For complex additivity notice that 
+ $$
+ F (ix) = G(ix ) - iG (-x ) = G(ix ) + iG(z) = iF (x )).
+ $$
+ $F$ is an extension of $f$; for, if $x \in M$, 
+ $$
+ F(x) = G(x) - iG(ix) = g(x) - ig(ix) = g(x) + ih(x) = f(x).
+ $$
+ 
+ We have now only to show that the norm is not changed. For this,
+ writes, for $x \in X, F(x) = re^{ie}$. Then $E^{-i\theta}F(x)$ is
+ real. So 
+ \begin{align*}
+  |F(x)| & = |e^{-i\theta} F(x)| = |F(e^{-i\theta} x)|\\
+  & = |G(e^{-i\theta} x)| \quad (=\text{ since }~ e^{-i\theta} F(x)
+  \text{is real}).\\ 
+  & \le || G ||~ || e^{-i\theta} x||\\
+  & = || g ||_M ||x||\\
+  & \le ||f ||_M x. 
+ \end{align*}
+ 
+ So\pageoriginale $|| F ||_X \le ||f||_M$ and the reverse inequality holds since
+ $F$ is an extension of $f$. 
+\end{proof}
+
+\section{Existence of non-trivial linear functionals}\label{chap2:sec6}
+
+We consider some consequences of the Hahn-Banach extension theorem; we
+prove the existence of plenty of linear functionals on a normed linear
+space. 
+
+\begin{prop*}%proposition
+ Let $X$ be a normed linear (real or complex) and $x_o \neq 0$ be an
+ elements of $X$. Then there exists a linear functional $f_o$ on $X$
+ such that $f_o$ on $X$ such that $f_o (x_o)= || x_o || $ and $||
+ f_o || =1$. 
+\end{prop*}
+
+\begin{proof}
+ Let $M$ be the subspace spanned by $x_o$, i.e., $M= \{ x | x=
+ \alpha x_o$ for some number $\alpha \}$. Define $f(x)= \alpha
+ ||x_o ||$ for $x = \alpha x_o \in M$. This is a linear functional
+ on $M$ and $|| f ||_M=1$. By the Hahn-Banach extension theorem there
+ exists a linear functional $f_o$ on $X$ which extends $f$ in such a
+ way that $|| f_o|| = || f ||_M=1$; $f_o (x_o)= f(x_o) = ||x_o ||$. 
+\end{proof}
+
+\begin{remark*}
+ For a pre-Hilbert space the existence of such a linear functional is
+ evident; we may take $f_o(x)= (x, \dfrac{x_o}{|| x_o ||})$. The
+ additivity of $f_o$ follows from the homogeneity and distributivity
+ of the scalar product. The continuity of $f_o$ is a consequence of
+ Schwarz's' inequality. 
+\end{remark*}
+
+\begin{prop*}
+ Let $X$ be a normed linear space. Let $M$ be a subspace and $x_o$
+ an element $X$ such that $d= \inf\limits_{m \in M} || x_o -m ||
+ >0$. Then there exists a linear functional $f_o$ on $X$ such that
+ $f_o (x) =0$ for every $x \in M$ and $f_o (x_o)=1$. 
+\end{prop*}
+
+\begin{proof}
+ Let $M_\circ = \{ x | x=m + \alpha x_\circ , m \in M \}$. Define $f(x)=
+ \alpha$ for $x= m+ \alpha x_\circ \in M_\circ(m \in M)$. $f$ is
+ additive on $M_\circ$, 
+ vanishes on $M$ and $f(x_\circ)=1$. Also $f$ is continuous on $M_\circ$: if
+ $\alpha \neq 0$, then 
+
+ $x =m + \alpha x_\circ \neq 0 (m \in M)$,\pageoriginale and 
+ \begin{align*}
+  |f (x)| = |\alpha| & = \alpha ||x|| \big / || x|| \\
+  & =|\alpha| ||x|| \big/ ||m+ \alpha x_o || \\
+  & =||x|| \big / ||x_o -(-m/ \alpha) ||\\
+  & \le d^{-1} ||x|| (-m/\alpha \in M);
+ \end{align*}
+ if $\alpha =0, f (x) = 0$ and the inequality $|f (x)| \le d^{-1}
+ ||x||$ is still valid. If $f_o$ is a linear functional on $X$ which
+ is an extension of $f$, then $f_o$ satisfies the requirements of the
+ proposition. 
+\end{proof}
+
+\section[Orthogonal projection and...]{Orthogonal projection and the Riesz representation theorem}\label{chap2:sec7}
+
+\begin{defi*} % def 
+ Let $x$ and $y$ be two elements of a pre-Hilbert space $X$; we say
+ that $x$ is orthogonal to $y$ (written $x \perp y$) if $(x,y) =
+ 0$. If $x \perp y$ then $y \perp x$; if $x \perp x$, then $x=0$. 
+\end{defi*}
+
+Let $M$ be a subset of a pre-Hilbert space; we denote by $M^\perp$ the
+set of elements $x \in X$ such that $x \perp y$ for every $y
+\in M$. 
+
+\begin{theorem*}
+ Let $M$ be a closed liner subspace of a Hilbert space $X$. Then any
+ $x_o \in X$ can be decomposed uniquely in the form $x_o =
+ m+n, m \in M, n \in M^\perp$. ($m$ is called the
+ {\em{orthogonal projection}} of $x_o$ on $M$ and is denoted by $P_M
+ x_\circ$). 
+\end{theorem*}
+
+\begin{proof}
+ The uniqueness of the decomposition is clear from the fact that an
+ element orthogonal to itself is zero. To prove the existence of the
+ decomposition we may assume $M \neq X$ and $x_o \notin M$ (if $x_o
+ \in M$ we have the trivial decomposition with $n =0$). Let
+ $d = \inf\limits_{m \in M} || x_o - m||$; since $M$ is
+ closed and $x_o \notin M,d > 0 $. Let $\{m_k\} \subset M$ be a
+ minimizing sequence, i.e., $\lim\limits_{k \to \infty} || x_o -m_k
+ || = d$. $\{m_k\} $ is a Cauchy sequence; for   
+ \begin{align*}
+  || m_k - m_n ||^2 & = || (x_o - m_n) - (x_o - m_k) ||^2 \\
+  & = 2 (|| x_o - m_n||^2 +|| x_o - m_k||^2) - ||2 x_o - m_k - m_n||
+ ^2 \tag{(Euclidean property )} \\ 
+  & = 2 (|| x_o - m_n ||^2 + ||x_o- m_k||^2) - 4 || x_o -
+  \frac{m_k + m_n}{2}||^2\\ 
+  &\leq 2 (|| x_o - m_n ||^2 + ||x_o- m_k||^2 - 4d^2 (\text{ as
+  }\frac{m_k + m_n}{2} \in M)\\ 
+  & \to 2 (d^2 + d^2 ) - 4d^2 = \text{ as } m, n \to \infty. 
+ \end{align*}
+
+ By\pageoriginale the completeness of the Hilbert space there exists and element $m
+ \in X$ with $\lim\limits_ { k \to \infty}|| m - m_k|| = 0 $;
+ in fact $m \in M$, as $M$ is closed. Also $||x_o - m || = d$. Write
+ $x_o = m + (x_o - m)$. Putting $n = x_0 - m$ we have to show that $
+ n \in M^\perp$. Let $m'\in M$. Since, for any real $\alpha, m +
+ \alpha m' \in M$ we have $d^2 \leq || x_o - m - \alpha
+ m'||^2 = || n - \alpha m'||^2 = (n - \alpha m ', n - \alpha m ' )$ 
+ $$
+ = ||n ||^2 - \alpha (n, m') - \alpha (m', n ) + \alpha^2 ||m'||^2. 
+ $$ 
+ 
+ Since $||n||^2 = d^2 $, this gives, for any real $\alpha$, 
+ $$
+ 0 \leq -2 \alpha \mathscr{R}(n, m')+ \alpha^2 ||m'||^2. 
+ $$
+ 
+ So $\mathscr{R} (n, m') = 0 $ for every $m ' \in
+ M$. Replacing $m'$ by $im'$ we have $\mathscr{I} m\, (n, m') = 0$, for
+ every $m ' \in M$. Thus $(n, m') = 0$ for each $m '
+ \in M$. 
+\end{proof}
+
+\begin{remark*}
+ If $x_o \notin M$, then $n \neq 0$ and $f_o (x) = (x,
+ \dfrac{n}{||n||^2})$ satisfies the conditions of the last
+ proposition. 
+\end{remark*}
+
+\begin{theorem*}[Riesz]
+ Let $X$ be a Hilbert space and $f$ a linear functional on $X$. Then
+ there exists a unique element $y_f$ of $X$ such that 
+ $$
+ f(x) = (x, y_f )
+ $$
+ for every $x \in X$.
+\end{theorem*}
+
+\begin{proof}
+ \textbf{ Uniqueness:}\pageoriginale If $(x, y_1) = (x, y_2)$ for every $x, (x,
+ y_1- y_2) = 0$ for every $x$; choosing $x=y_1-y_2$ we find
+ $y_1-y_2=0$. 
+ 
+ \textbf{Existence:}
+ Let $M$ be the zero manifold of $f$, i,e,., $M = \{x | f(x) =
+ 0\}$. Since $f$ is additive, $M$ is a linear subspace and since $f$
+ is continuous $M$ is closed. The theorem is evident if $M =
+ X$. i.e., if $f(x) = 0 $ on $X$; in this case we need only take $y_f
+ = 0$. So suppose $M \neq X$. Then there exists, by the last theorem,
+ an element $y_0 \neq 0$ such that $y_o$ is orthogonal to every
+ element of $M$. Define 
+ $$
+ y_f = \frac{\overline{ f (y_o)}}{|| y_o ||^2} Y_o. 
+ $$
+ $y_f$ meets the condition of the theorem. First, for $x \in
+ M, f(x) = (x, y_f)$ since $f(x) = 0 $ for $x \in M$ and
+ $y_f \in M^\perp$. For elements $x$ of the form $x = \alpha y_0$. 
+ \begin{align*}
+  (x, y_f ) & = (\alpha y_o, y_f) = \left(\alpha, \frac{\overline{
+    f(y_0)}}{||y_0||^2} y_0\right)\\ 
+  & = \alpha f(y_o) = f(\alpha y_o)\\
+  & = f(x). 
+ \end{align*}
+ 
+ Since $f$ is linear and $(x, y_f)$ is linear and $(x, y_f)$ is
+ linear in $x$, to show that $f(x) = (x, y_f)$ for each $x
+ \in X $ it is enough to show that $X$ is spanned by $M$
+ and $y_o$. If $x \in X$, write, noting that $f(y_f) \neq 0$, 
+ $$
+ x = \frac{f(x)}{f(y_f)} y_f + \left( x - \frac{f(x)}{f(y_f)} y_f \right). 
+ $$
+ $\dfrac{f(x)}{f(y_f)} f_y$ is of the form $\alpha y_o$. The second
+ term is an element of $M$, since $ 
+ f\left(x - \dfrac{f(x)}{f(y_f)} y_f\right) =  f(x) -
+ \dfrac{f(x)}{f(y_f)} y_f = 0 $. 
+\end{proof} 
+
+\begin{remark*}
+ $$
+ || f || = || y_f ||. 
+ $$
+\end{remark*} 

@@ -1,0 +1,347 @@
+\chapter{Lecture 23}\label{chap23} 
+
+\section[Integration of the Fokker-Planck equation (Contd.) ....]{Integration of the Fokker-Planck equation\\ (Contd.)
+  Differentiability and representation\\ of the
+ operator-theoretical solution}\label{chap23:sec1}  
+$$
+f(t,x) = (T_t f) (x), f \in L_1 (R)
+$$
+\begin{lemma}\label{chap23:sec1:lem1}  %Lem 1
+ Let\pageoriginale $h(x, \tau)$ be $C^\infty$ in $(x, \tau)\, x \in R, t \ge \tau \ge
+ 0$, and vanish outside a compact coordinate neighbourhood of $P$
+ (independent of $\tau$). Then 
+ \begin{multline*}
+  \int_R f(y, t)\, h( y,t) dy = \int_R f(y,o) h(y,o) dy \\
+  + \int^t_o d \tau \int_R \left\{ \partial_\tau f(y, \tau). h (y,
+  \tau) +f(y, \tau ) \frac{\partial h(y, \tau )}{\partial \tau}
+  \right\} dy 
+ \end{multline*}
+ where $\partial_\tau f(y, \tau) =\strong \lim\limits_{\delta \to 0}
+ \left\{ f(y, \tau + \delta ) - f (y, \tau ) \right\} \delta^{-1}$. 
+\end{lemma}
+
+\begin{proof}
+ $f(y, \tau)\, h(y, \tau)$ is weakly differentiable with respect to
+ $\tau$ in $L_1(R)$ and the weak derivative is 
+ $$
+ \partial_\tau f(y, \tau)\, h(y, \tau) + f(y, \tau) \frac{\partial h
+  (y, \tau)}{\partial \tau} 
+ $$
+\end{proof}
+
+\eject
+
+\begin{coro*}%Corlry 
+ We have 
+ \begin{multline*}
+  \int_R f(y,t)\, h(y,t) dy = \int_R f(y,o) h(y,o) dy \\
+  + \int^t_o d \tau \left\{\int_R f(y, \tau) \left( \frac{\partial
+   h (y, \tau )}{\partial \tau }+ A^*_y h(y, \tau ) \right)\right\}
+  dy 
+ \end{multline*}
+\end{coro*}
+
+\begin{proof}
+ By Lemma \ref{chap23:sec1:lem1}, the right hand side is 
+ \begin{align*}
+  &=- \int^t_o d \tau \left\{ f(y, \tau) \left(- \frac{\partial h(y, \tau
+   )}{\partial \tau} - A^*_y h(y, \tau )\right)\right.\\ 
+  & \left.\vphantom{\frac{\partial}{\partial}} 
+  \hspace{4cm} - h(y, \tau)\, 
+  (\partial_\tau f(y, \tau) - \bar{A}_y f(y, t) \right\} dy\\ 
+  &= \int_o^t d \tau \int_R \left\{ \partial_\tau f(y,\tau ) h(y, \tau)
+  + f(y, \tau ) \frac{\partial h(y, \tau}{\partial \tau}\right\} dy\\ 
+  &+ \int^t_o d \tau \int_R \left\{ f(y, \tau ) A^*_y h(y, \tau ) -
+  h(y, \tau ) \bar{A}_y f(y, \tau )\right\} dy. 
+ \end{align*}
+\end{proof}
+
+We\pageoriginale have, by the definition of the smallest closed extension $\bar{A}$, 
+\begin{multline*}
+ \int_R \left\{ f(y, \tau ) A^*_y h(y, \tau) - h(y, \tau ) \bar{A}_y
+ f(y, \tau )\right\} dy \\ 
+ = \lim_{k \to \infty} \int_R \left\{ f_k (y, \tau)A^*_y h(y, \tau) -
+ h(y, \tau) A_y f_k(y, \tau ) \right\}dy 
+\end{multline*}
+where $s-\lim f_k = f, s-\lim A_y f_k= \bar{A} f$. The integral on the
+right is zero, by Green's formula and the fact that $h$ vanishes
+near the boundary $\partial R$. 
+
+We take for $h(y, \tau)$ the function
+$$
+h(y, \tau)= h(Q, \tau)= H_k (P,Q, t+ \varepsilon - \tau ) \delta (P,Q)
+\delta (P_o, P); 
+$$
+here $P_o$ is a point of $R, \varepsilon$ a positive constant and
+$\delta (P, Q)= \alpha (r(P, Q))$ where $\alpha (r)$ is $C^\infty$
+function of $r$ such that $0 \le \alpha (r) \leq 1, \alpha (r) =1$ for
+$r \le 2^{-1} \eta$ and $=0$ for $r \ge \eta$. $\eta > 0$ is chosen so
+small that the point $Q$ satisfying $\delta (P_o, P)\, \delta (P, q) 0$
+are contained in a compact coordinate neighbourhood of $P_o$. We then
+have 
+\begin{align*}
+  f(Q,t) H_k (P, Q,\varepsilon) & \delta\, (P_o, P) \,\delta\, (P,Q) d Q \\
+ =&f(Q,0)H_k(P,Q, t + \varepsilon)\, \delta\, (P_o, P)\, \delta
+ \,(P,Q) dQ\tag{2} \\ 
+ -& \int^t_o d \tau \int f (Q, \tau )\, K_k (P, Q, t+ \varepsilon - \tau ) d Q
+\end{align*}
+where 
+$$
+K_k (P, Q, t+ \varepsilon - \tau )=- \left( \frac{\partial}{\partial \tau}+
+A^*_Q\right) H_k (P, t + \varepsilon - \delta) \,(P_o, P)\, \delta\,(P,Q) 
+$$
+
+If $k$ is chosen such that $k- \dfrac{m}{2} \ge 2$, then by lemma \ref{chap23:sec1:lem1},
+$K_k(P,Q, t+ \varepsilon - \tau)$ is for $r(P_o, P)\le 2^{-1} \eta$,
+devoid of singularity even if $t +\varepsilon - \tau =0$. We now show
+that the left side of (2) tends as $\varepsilon \downarrow 0$ to
+$f(P,t)$ in the vicinity of $P_o$. 
+\begin{align*}
+ \int_R & \delta(P_o, P) dP | f(Q, t) H_k (P,Q, \varepsilon) \delta (P,
+ Q) d Q\\ 
+ & \hspace{4cm}- \delta(P,t) \int H_k (P,Q, \varepsilon)\, \delta\, (P, Q) dQ | \\
+ & \le C \int\limits_{(P_o, Q)\le 2 \eta} \left(~\int\limits_{r(P_o,
+  P) \le \eta} | f(Q,t)- f(P,t)| dP \right) |H_k (P,Q,\varepsilon
+ ) dQ \\ 
+ \le &\, C_1 \int \cdots \int \Big(\int | f(z+ \varepsilon^{frac{1}{2}}
+  \xi, t) - f(z,t)| d z ex \left( - \frac{\Sigma \xi^2_i}{4}\right) d \xi_1
+ \cdots d \xi_n 
+\end{align*}
+$((z^1 \cdots z^m)$\pageoriginale and $(z^1 + y^1, \ldots, z^m +y^m)$ are
+coordinates of $P$ and $C, C_1$ are constants). The inner integral on
+the right converges as $\varepsilon \downarrow 0$, to zero boundedly
+by Lebesgue's theorem. 
+
+There exists therefore a sequence $\{\varepsilon_i\}$ with
+$\varepsilon_i \downarrow 0$ such that 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{multline*}
+ f(P,t) \lim_{i \to \infty} \int H_k (P,Q, \varepsilon_i)\, \delta(P,Q) d Q
+ = \int_R f(Q,0) H_k (P,Q,t) \delta (P,Q) dy\\ 
+ - \int^t_0 d \tau \int_R
+ f(Q,\tau) K_k (P,Q, t- \tau ) dQ 
+\end{multline*}}\relax
+almost everywhere with respect to $P$ in the vicinity of $P_o$. Hence
+$f(P,t)$ may be considered to be continuously differentiable once in $t>
+o$ and twice in $P$ in vicinity of $P_o$ if 
+$$
+\lim_{\varepsilon \downarrow o} \int_R H_k (P,Q,\varepsilon ) \delta (P,Q) dQ
+$$
+is positive and twice continuously differentiable in $P$ in the
+vicinity of $P_o$. Now,
+$$
+\lim\limits_{\varepsilon \downarrow o} \int H_k (P, Q, \varepsilon)\,
+\delta (P,Q)d Q = - \lim\limits_{\varepsilon \downarrow o} \int
+\varepsilon^{m/2} \underset{r(P,Q) \le \xi}{\exp} \left(\frac{\Gamma(P,Q)}{4}\right) dQ 
+$$
+for $\xi > 0$. Hence, putting
+\begin{align*}
+ds^2 & = \wp_{ij} (y) dy^i dy^j, y^i = \varepsilon^{\frac{1}{2}} \xi^i,
+\lim_{\varepsilon \downarrow o} \int_R H_k(P,Q, \varepsilon) \delta (P,Q) d Q\\
+ &=\lim_{\varepsilon \downarrow o} \int \cdots \int\limits_{- \zeta
+  \le \varepsilon^{1/2} \xi \le S} \exp (- \alpha_{ij}(0) \xi^i
+ \xi^j ) \,\wp\, (0)^{\frac{1}{2}} d \xi^1 \cdots d \xi^n \\ 
+ &= \pi^{m/2} ( \wp ((0))^{\frac{1}{2}} (\alpha (0))^{\frac{1}{2}} \\
+ &= \pi^{m/2}(g(P))^{\frac{1}{2}} / ( \alpha (P))^{1/2}
+\end{align*}
+where\pageoriginale $g(P)= \det(G_{ij} (P))$ and $\alpha (P)= \det (\alpha_{ij}(P))$.
+
+Thus in the vicinity of $P_o, f(P,t)$ is equivalent to 
+\begin{multline*}
+ \pi^{m/2} g(P)^{- \frac{1}{2}} \alpha (P)^{\frac{1}{2}} \bigg \{
+ \int_R f(Q,0)\, H_k(P,Q,t)\, \delta \,(P, Q) d Q \\ 
+ - \int^t_o d \tau \int_R f(q, \tau )K_k(P,Q,t- \tau ) dQ
+\end{multline*}
+
+So it is differentiable once in $t$ and twice in $P$. Moreover, we
+have $| f(P,t) |\le \const || f(Q,0) |$. Therefore there exists
+$\rho (P,Q,t)$ bounded in $Q$, such that 
+$$
+f(P,t)= \int \rho (P,Q,t) f(Q,0) d Q.
+$$
+
+\begin{thebibliography}{99}
+\bibitem{1}{F.V. Atkinson}:\pageoriginale 
+ \begin{enumerate}[(i)]
+ \item On a theorem of $K$. Yosida, Proc. Jap. Acad. 28
+   (1952),327-329. 
+ \end{enumerate}
+\bibitem{2}{N. Dunford}: 
+ \begin{enumerate}[(i)]
+ \item On one-parameter semi-group of linear transformations,
+  Ann. of Math. 39 (1938), 569-573. 
+ \end{enumerate}
+\bibitem{3}{W. Feller}: 
+ \begin{enumerate}[(i)]
+ \item Zur Theorie der stochstischen Prozesse, Math. Ann. 113
+  (1937), 113-160. 
+ \item Some recent trends in the mathematical theory of diffusions,
+  Proc. Internat. Congress of Math. Vol. 2. (1950) 322-339. 
+ \item Two singular diffusion problems, Ann. of Math. 54 (1951), 173-182.
+ \item The parabolic differential equations and the associated
+  semi-groups of transformations, Ann. of Math. 55 (1952),
+  468-519. 
+ \item On a generalization of M.Riesz' potentials and the semi-groups
+  generated by them, Comm. Semin. Math. de 1'Univ. de Lund. tome
+  supplement, (1952) dedie a M.Riesz, 73-81. 
+ \item On positivity preserving semi-groups of transformations on $C
+  [r_1, r_1]$, Ann. Soc. Polonaise de Math. 25(1952), 85-94. 
+ \item Semi-groups of transformations in general weak topologies,
+  Ann. of Math. 57 (1953), 287-308. 
+ \item On the generation of unbounded semi-groups of bounded linear
+  operators, Ann. of Math. 58 (1953), 166-174. 
+ \end{enumerate}
+\bibitem{4}{K. 0. Friedrichs}: 
+ \begin{enumerate}[(i)]
+ \item On the differentiability of the solutions of linear elliptic
+  differential equations, Comm. Pure App. Math. 6 (1953) 299-326. 
+ \end{enumerate}
+\bibitem{5}{M. Fukamiya}: 
+ \begin{enumerate}[(i)]
+ \item On one-parameter groups of operators, Proc. Imp. Acad. Tokyo,
+  16 (1940), 262-265. 
+ \end{enumerate}
+\bibitem{6}{I. Gelfand}: 
+ \begin{enumerate}[(i)]
+ \item On one-parameter groups of operators in a normed space,
+  C.R.(Doklady) Acad. Sci. URSS, 25 (1939), 713-718. 
+ \end{enumerate}
+\bibitem{7}{E. Hille}:\pageoriginale 
+ \begin{enumerate}[(i)]
+ \item Functional Analysis and Semi-groups,
+  Amer. Math. Soc. Colloq. Publ. 31 (1948). 
+ \item On the integration problem for Fokker-Planck's equatin, 10th
+  Congress of Scandin. Math. Trondheim (1949), 183-194. 
+ \item Les probabilites continues en chaine, C.R.Acad. Sci. Paris,
+  230 (1950), 34-35. 
+ \item Explosive solutions of Fokker-Planck's equation,
+  Proc. Internat. Congress of Math. Vol. 2 (1950), 435. 
+ \item On the generation of semi-groups and the theory of conjugate
+  functions, Comm. Semin. Math. de 1'Univ. de Lund, tome supplement
+  (1952) dedie a M. Riesz, 1-13. 
+ \item Une generalisation du probleme de Cauchy, Ann. L'Institut
+  Fourier, 4 (1952), 31-48. 
+ \item Sur le probleme abstrait de Cauchy, C.R. Acad. Sci. Paris,
+  236 (1953), 1466-14670. 
+ \item Le probleme abstrait de Cauchy, Rendiconti del Seminario
+  Matermatico di Univ. di Torino, 12 (1952-1953), 95-103. 
+ \item A note on Cauchy's problem, Ann. Soc. Polonaise de Math. 25
+  (1952), 56-68. 
+ \item On the integration of Kolmogoroff's differential equations,
+  Proc. Nat. Acad. Sci. (40 (1954), 20-25. 
+ \end{enumerate}
+\bibitem{8}{K. Ito}: 
+ \begin{enumerate}[(i)]
+ \item On stochastic differential equations, Memoirs of the
+  Amer. Math. Soc. No. 4 (1951). 
+ \item Brownian motion in a Lie group, Proc. Jap. Acad. 26 (1950), 4-10.
+ \item Stochastic differential equations in a differentiable
+  manifold, Nagoya Math. J.E. (1950), 35-47. 
+ \end{enumerate}
+\bibitem{9}{S. Ito}: 
+ \begin{enumerate}[(i)]
+ \item The fundamental solution of the parabolic equations in a
+  differentiable manifold, Osaka Math. J. 5 (1953), 75-92. 
+ \end{enumerate}
+\bibitem{10}{T. Kato}: 
+ \begin{enumerate}[(i)]
+ \item Integration of the equation of evolution in a Banach space,
+  J.Math. Soc. japan, 5 (1953), 208-234. 
+ \item On the semi-group generated by Kolmogoroff's differential
+  equations, forthcoming in the J.Math. Soc. Japan. 
+ \end{enumerate}
+\bibitem{11}{A. Kolmogoroff}:\pageoriginale 
+ \begin{enumerate}[(i)]
+ \item Uber die analytischen Methoden in Nahrscheinlichkeit
+  srechnung, Math. Ann. 104 (1931), 415-458. 
+ \item Zur-Theorie der stetigen zufalligen Prozesse, Math. Ann. 108
+  (1933), 149-160. 
+ \end{enumerate}
+\bibitem{12}{P.D.Lax}: 
+ \begin{enumerate}[(i)]
+ \item On Cauchy's problem for hyperbolic equations and the
+  differentiability of solutions of elliptic equations, Comm. Pure
+  App. Math., 8 (1955), 615-633. 
+ \end{enumerate}
+\bibitem{13}{P. D. Lax and A.N. Milgram}: 
+ \begin{enumerate}[(i)]
+ \item Parabolic equatins, Contributions to the theory of partial
+  differential equations, Princeton, 1954. 
+ \end{enumerate}
+\bibitem{14}{S. Minakshisundaram}: 
+ \begin{enumerate}[(i)]
+ \item Eigenfunctions on Riemannian manifolds, J. Ind. Math. Soc.,
+  17 (1953 - 1954), 159-165. 
+ \end{enumerate}
+\bibitem{15}{S. Minakshisundaram and A. Pleijel}: 
+ \begin{enumerate}[(i)]
+ \item Some properties of the eigenfunctions of the Laplace operator
+  on Riemannian manifolds, Canad. J. Math 1 (1949), 242-256. 
+ \end{enumerate}
+\bibitem{16}{L.Nirenberg}: 
+ \begin{enumerate}[(i)]
+ \item Remarks on strongly elliptic differential equations,
+  Comm. Pure App. Math. 8(1955), 649-675. 
+ \end{enumerate}
+\bibitem{17}{F. Perrin}: 
+ \begin{enumerate}[(i)]
+ \item Etude mathematique du mouvement brownien de rotation,
+  Ann. Ec. norm. sup. 45 (1928), 1-51. 
+ \end{enumerate}
+\bibitem{18}{R.S. Phillips}: 
+ \begin{enumerate}[(i)]
+ \item On one-parameter semi-groups of linear operators,
+  Proc. Amer. Math. Soc. 2 (1951), 234-237. 
+ \item Perturbation theory for semi-groups of linear operators,
+  Trans. Amer. Math. Soc. 74 (1953), 199-221. 
+ \item An inversion formula for Laplace transforms and semi-groups of
+  linear operators, Ann. of Math. 59 (1954), 325-356. 
+ \end{enumerate}
+\bibitem{19}{G. de Rham}:\pageoriginale 
+ \begin{enumerate}[(i)]
+ \item Varietes Differentiables, Paris, 1955.
+ \end{enumerate}
+\bibitem{20}{F. Riesz and B. Sz. Nagy}: 
+ \begin{enumerate}[(i)]
+ \item Lecons d'analyse fonctionnelle, Budapest, 1952.
+ \end{enumerate}
+\bibitem{21}{M.H.Stone}: 
+ \begin{enumerate}[(i)]
+ \item Linear transformations in Hilbert space III,
+  Proc. Nat. Acad. Sci. 16(1930), 172-175. 
+ \end{enumerate}
+\bibitem{22}{L. Schwartz}: 
+ \begin{enumerate}[(i)]
+ \item Theorie des distributions I et II, Paris (1950-1951).
+ \end{enumerate}
+\bibitem{23}{K. Yosida}: 
+ \begin{enumerate}[(i)]
+ \item On the differentiability and the representation of
+  one-parameter semi-group of linear operators, J. Math. Soc. Japan,
+  1 (1948), 15-21. 
+ \item An operator -theoretical treatment of temporally homogeneous
+  Markoff process, J. Math. Soc. Japan, 1 (1949) 244-253. 
+ \item Brownian motion on the surface of the 3-sphere, Ann. of
+  Math. Statist. 20 (1949), 292-296. 
+ \item Integration of Fokker-Planck's equation in a compact
+  Riemannian space, Arkiv for Matematik, 1 (1949), 244-253. 
+ \item Stochastic process built from flows, Proc. Internat. Congress
+  Math. Vol. 1 (1950). 
+ \item Integration of Fokker-Planack's equation with a boundary
+  condition, J. Math. Soc. Japan, 3 (1951), 29-73. 
+ \item A theorem of Liouville's type for meson equations,
+  Proc. Jap. Acad. 27 (1951), 214-215. 
+ \item Integrability of the backward diffusion equation in a compact
+  Riemannian space, Nagoya Math. J 3(1951), 1-4. 
+ \item On Brownian motion in a homogeneous Riemannian space, Pacific
+  J. of Math. 2 (1952), 263-270. 
+ \item On the integration of diffusion equations In Riemannian
+  spaces, Proc. Amer. Math. Soc. 3 (1952), 864-873. 
+ \item On the fundamental solution of the parabolic equations in a
+  Riemannian space, Osaka Math. J. 5 (1953), 65-74. 
+ \item On the integration of the temporally inhomogeneous diffusion
+  equation in a Riemannian space, Proc. Jap. Acad. 30 (1954), 19-23
+  and 273-275. 
+ \end{enumerate}
+\end{thebibliography}
+

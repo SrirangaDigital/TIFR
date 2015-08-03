@@ -1,0 +1,456 @@
+
+\chapter{Sobolev Spaces}\label{chap1}
+
+IN THIS CHAPTER\pageoriginale the notion of Sobolev space $H^1(\Omega)$ is
+introduced. We state the Sobolev imbedding theorem, Rellich theorem,
+and Trace theorem for $H^1(\Omega)$, without proof. For the proof of
+the theorems the reader is referred to ADAMS \cite{key1}.
+
+\section{Notations}\label{chap1:subsec1.1} 
+Let $\Omega\subset \mathbb{R}^n(n=1, 2\; or\; 3)$ be an open set. Let $\Gamma$
+denote the boundary of $\Omega$, it is assumed to be bounded and
+smooth. Let 
+\begin{align*}
+L^2(\Omega)&=\left\{f:\int\limits_\Omega|f|^2\,dx <\infty\right\} \quad \text{and}\\
+(f, g)&=\int\limits_\Omega fg \,dx
+\end{align*}
+Then $L^2(\Omega)$ is a Hilbert space with $(\cdotp,\cdotp)$ as the
+scalar product.
+
+\section{Distributions}\label{chap1:subsec1.2}
+Let $\mathscr{D}(\Omega)$ denote the space of infinitely
+differentiable functions with compact support in
+$\Omega$. $\mathscr{D}(\Omega)$ is a nonempty set. If 
+\begin{equation*}
+f(x)= 
+\begin{cases}
+\exp\left(\frac{1}{|x|^2-1}\right) & \text{if}\quad |x|<1\\
+0 & \text{if}\quad |x|\geq 1
+\end{cases}
+\end{equation*}
+then $f(x) \epsilon\mathscr{D}(\Omega),\Omega=\mathbb{R}$. 
+
+The topology chosen for $\mathscr{D}(\Omega)$ is such that a sequence
+of elements $\phi_n$ in $\mathscr{D}(\Omega)$ converges to an element
+$\phi$ belonging to $\mathscr{D}(\Omega)$ in $\mathscr{D}(\Omega)$ if
+there exists a compact set $K$ such that 
+$$
+\supp \;\phi_n, \supp \;\phi\subset K
+$$ 
+$D^\alpha \phi_n\to D^\alpha \phi$\pageoriginale uniformly for each
+multi-index $\alpha =(\alpha_1,\ldots,\alpha_n)$ where $D^\alpha\phi$
+stands for 
+$$
+\frac{\partial^{{\alpha}_1+\ldots +{\alpha}_n}\phi}
+     {\partial^{\alpha_1}x_1\cdots\partial^{\alpha_n}x_n}.
+$$
+
+A continuous linear functional on $\mathscr{D}(\Omega)$ is said to be
+a {\it distribution}. The space of distributions is denoted by
+$\mathscr{D}'(\Omega)$. We use $<\cdotp,\cdotp>$ for the duality
+bracket between $\mathscr{D}'(\Omega)$ and $\mathscr{D}(\Omega)$.
+
+\begin{exam}\label{chap1:exam1}
+\begin{itemize}
+\item [(a)] A square integrable function defines a distribution: If
+$f\epsilon L^2(\Omega)$ then 
+$$
+\langle f, \phi \rangle=\int\limits_\Omega f\phi \,dx 
+\quad \text{for all } \phi\epsilon \mathscr{D}(\Omega)
+$$
+can be seen to be a distribution. We identify $L^2(\Omega)$ as a space
+of distribution, i.e.
+$$
+L^2(\Omega)\subset\mathscr{D}'(\Omega).
+$$
+\item [(b)] The dirac mass $\delta$, concentrated at the origin,
+  defined by 
+$$
+\langle\delta,\phi \rangle=\phi(0)\quad\text{for all }
+\phi\epsilon\mathscr{D}(\Omega)
+$$
+defines a distribution. 
+\end{itemize}
+\end{exam}
+
+\begin{def*}
+{\bf Derivation of a Distribution}
+
+If $f$ is a smooth function and $\phi\epsilon\mathscr{D}(\Omega)$
+then using integration by parts we obtain
+$$
+\int\limits_\Omega\frac{\partial f}{\partial x_i}\phi \,dx= -
+\int\limits_\Omega f\frac{\partial\phi}{\partial x_i} \,dx.
+$$
+This\pageoriginale gives a motivation for defining the derivative of a
+distribution.
+
+If $T\epsilon\mathscr{D}'(\Omega)$ and $\alpha$ is a multi index
+then $D^\alpha T\epsilon\mathscr{D}'(\Omega)$ is defined by
+$$
+\langle D^\alpha T, \phi \rangle=(-1)^{|\alpha|}\langle T, 
+D^\alpha\phi \rangle \; \forall \phi\epsilon \mathscr{D}(\Omega).
+$$
+If $T_n, T\epsilon \mathscr{D}'(\Omega)$ then we say $T_n\to T$ in
+$\mathscr{D}'(\Omega)$ if 
+$$
+\langle T_n, \phi \rangle\to 
+\langle T, \phi \rangle\quad \text{for all }\phi\epsilon\mathscr{D}
+(\Omega).
+$$
+
+The derivative mapping $D^\alpha :\mathscr{D}'\to\mathscr{D}'$ is
+continuous since if $T_n\to T$ in $\mathscr{D}'$ then
+\begin{align*}
+\langle D^\alpha T_n, \phi \rangle &=(-1)^{|\alpha|} \langle T_n, D^\alpha \phi \rangle\\
+&\to (-1)^{|\alpha|} \langle T, D^\alpha\phi \rangle\\
+&= \langle D^\alpha T, \phi \rangle\quad \text{for all } \phi\epsilon \mathscr{D}
+(\Omega). 
+\end{align*}
+\end{def*}
+
+\section{Sobolev Space}\label{chap1:subsec1.3} 
+The Sobolev space $H^1(\Omega)$ is defined by 
+$$ 
+H^1(\Omega)=\left\{v\epsilon L^2(\Omega):\frac{\partial v}{\partial
+  x_i} \epsilon L^2(\Omega), \;1\leq i\leq n\right\}
+$$
+where the derivatives are taken in the sense of distribution.
+$$
+f\epsilon L^2(\Omega) \text{ need not imply }  
+\frac{\partial f}{\partial x_i}\epsilon L^2(\Omega).
+$$
+
+\begin{exam}\label{chap1:exam2}
+Let $\Omega =[-l, l]$
+\begin{equation*}
+f(x)=
+\begin{cases}
+ -1 & \text{if}\; x< 0\\
+0 & \text{if}\; x\geq 0.
+\end{cases}
+\end{equation*}
+Then $f\epsilon L^2[-l, l]$; but $df/dx =\delta$ is not given by a
+locally integrable function and hence not by an $L^2$ function.  
+\end{exam}
+
+We\pageoriginale define an inner product $(\cdotp,\cdotp)_1$ in
+$H^1(\Omega)$ as follows:
+$$
+(u, v)_1=(u, v)+\sum\limits_{i=1}^{n}\left(\frac{\partial u}{\partial x_i},
+\frac{\partial v}{\partial x_i}\right)\quad \text{for all } u, v \epsilon
+H^1(\Omega). 
+$$
+Let $\parallel \cdotp \parallel_1$ be the norm associated with this
+inner product. Then 
+
+\begin{lem}\label{chap1:lem1}
+$H^1(\Omega)$ with $\parallel \cdotp\parallel_1$ is a Hilbert spaces.
+\end{lem}
+
+\begin{proof}
+Let $u_j$ be a Cauchy sequence in $H^1(\Omega)$. This imply 
+$$
+\{u_j\},\left\{\frac{\partial u_j}{\partial x_i}\right\} 
+i=1, 2, \ldots, n 
+$$
+are Cauchy in $L^2$. Hence there exists $v, v_i\epsilon L^2(\Omega)
+1\leq i\leq n$ such that 
+\begin{gather*}
+u_j\to v \; \text{in} \; L^2(\Omega),\\
+\frac{\partial u_j}{\partial x_i}\to v_i \; 
+\text{in} \; L^2(\Omega), 1\leq i\leq n,
+\end{gather*}
+For any $\phi\epsilon\mathscr{D}(\Omega)$,
+$$
+\left\langle\frac{\partial u_j}{\partial x_i},\phi \right\rangle = -\left\langle u_j,
+\frac{\partial\phi}{\partial x_i}\right\rangle\to - \left\langle u, \frac{\partial\phi}
+{\partial x_i}\right\rangle=\left\langle\frac{\partial u}{\partial x_i},\phi\right\rangle.
+$$
+But 
+$$
+\left\langle<\frac{\partial u_j}{\partial x_i}, \phi\right\rangle\to 
+\left\langle v_i, \phi \right\rangle.
+$$
+Hence
+$$
+v_i=\frac{\partial u}{\partial x_i}.
+$$
+Thus
+\begin{align*}
+u_j &\to u \quad\text{in} \quad L^2(\Omega)\\
+\frac{{\partial u}_j}{\partial x_i}&\to \frac{\partial u}{\partial x_i}
+\quad\text{in} \quad L^2(\Omega).
+\end{align*}
+This\pageoriginale proves $u_j\to u$ in $H^1(\Omega)$. 
+\end{proof}
+
+\section{Negative Properties of $H^1(\Omega)$}\label{chap1:subsec1.4}
+
+\begin{itemize}
+\item [(a)] The functions in $H^1(\Omega)$ need not be continuous
+  except in the case $n=1$.
+
+\begin{exam}\label{chap1:exam3} 
+Let 
+\begin{align*}
+\Omega&=\left\{(x, y)\epsilon\mathbb{R}^2:x^2+y^2 < r_\circ^2\right\}, r_\circ < 1.\\
+f(r)&= (\log 1/r)^k, k< 1/2 \quad \text{where}\\
+r&= (x^2+y^2)^{1/2}.
+\end{align*}
+Then $f\epsilon H^1(\Omega)$ but $f$ is not continuous at the
+origin. 
+
+
+In the case $n=1$, if $u\epsilon H^1(\Omega), \Omega\subset\mathbb{R}^1$
+then $u$ can be shown to be continuous using the formula 
+$$
+u(y)-u(x)=\int\limits_x^y\frac{du}{dx}(s)\,ds
+$$
+where $du/ds$ denotes the distributional derivative of $u$.
+\end{exam}
+
+\item [(b)] $\mathscr{D}(\Omega)$ is not dense in $H^1(\Omega)$. To
+  see this let $u\epsilon (\mathscr{D}(\Omega))^\bot$ in
+  $H^1$ and $\phi\epsilon \mathscr{D}(\Omega)$. We have
+$$
+(u, \phi)_1=(u, \phi)+\sum\limits_{i=1}^n \left(\frac{\partial
+ u}{\partial x_i}, \frac{\partial \phi}{\partial x_i}\right)=0 
+$$
+$$
+i.e.\qquad  \left\langle u, \phi \right\rangle +\sum\limits_{i=1}^n 
+\left\langle -\frac{\partial^2u}{\partial x_i^2}, \phi \right\rangle=0 $$
+Thus 
+$$
+\langle -\Delta u +u, \phi \rangle=0 \quad \text{for all}\quad \phi \epsilon
+\mathscr{D}(\Omega).
+$$
+Hence
+$$
+-\Delta u +u=0 \quad \text{in} \quad \mathscr{D}'(\Omega).
+$$
+\end{itemize}
+
+Let\pageoriginale $\Omega = \{x\epsilon \mathbb{R}^n:|x|< 1\}$,
+\begin{align*}
+u(x)&= e^{r.x} \quad \text{where} \quad r \epsilon \mathbb{R}^n,\\
+\Delta u(x)&= |r|^2 e^{r.x} = |r|^2 u.\\
+&= u \quad \text{if} \quad |r|=1.
+\end{align*}
+
+Thus when $n=1, u$ with $r=\pm 1$ belongs to
+$\mathscr{D}(\Omega))^\bot$, when $n>1$ there are infinitely many
+$r's(r\epsilon S^{n-1})$ such that $u\epsilon
+(\mathscr{D}(\Omega))^\bot$. Moreover these functions for different
+$r$'s are linearly independent. Therefore 
+\begin{align*}
+\text{dimension}\quad (\mathscr{D}(\Omega))^\bot\geq 2 \quad \text{if}
+\quad n=1\\
+\text{dimension} \quad (\mathscr{D}(\Omega))^\bot =\infty \quad
+\text{if} \quad n>1.
+\end{align*}
+This proves the claim (b).
+
+We shall define $H_\circ^1(\Omega)$ as the closure of
+$\mathscr{D}(\Omega)$ in $H^1(\Omega)$. We have the following
+inclusions
+$$
+\mathscr{D}(\Omega) \underset{dense}{\subset} H_\circ^1(\Omega)\subset
+H^1(\Omega)\underset{dense}{\subset} L^2(\Omega).
+$$
+
+\section{Trace Theorem}\label{chap1:subsec1.5} 
+Let $\Omega$ be a bounded open subset of $\mathbb{R}^n$ with a Lipschitz
+continuous boundary $\Gamma :i.e.$ there exists finite
+number of local charts $a_j, 1\leq j\leq J$ from $\{y'
+\epsilon \mathbb{R}^{n-1}:|y'|<\alpha\}$ into $\mathbb{R}^n$ and a
+number $\beta > 0$ such that 
+\begin{gather*}
+\Gamma = \bigcup\limits_{j=1}^J \left\{(y', y_n):y_n = a_j(y'), |y'|<\alpha \right\},\\
+\left\{(y', y_n):a_j(y')<y_n < a_j(y')+\beta, |y'|<\alpha\right\}\subset\Omega,
+1 \leq j \leq J,\\
+\left\{(y', y_n):a_j(y')-\beta < y_n <a_j(y'), |y'| < \alpha\right\} \subset C
+\overline{\Omega},1\leq j\leq J.
+\end{gather*}
+
+It\pageoriginale can be proved that $C^\infty (\overline{\Omega})$ is dense
+in $H^1(\Omega)$. If $f \epsilon C^\infty (\overline{\Omega})$ we
+define the trace of $f$, namely $\gamma f$, by 
+$$
+\gamma f = f|_\Gamma. \quad \text{Note} \quad \gamma f \epsilon
+L^2(\Gamma)\quad \text{if } f \epsilon
+C^\infty(\overline{\Omega})
+$$
+
+$\gamma : C^\infty (\overline{\Omega})\to L^2(\Gamma)$ is continuous
+and linear with norm $\parallel \gamma u\parallel_{L^2(\Gamma)}\leq
+C\parallel u \parallel_1$. Hence this can be extended as continuous
+linear map from $H^1(\Omega)$ to $L^2(\Gamma)$. 
+$$
+H_\circ^1(\Omega) \quad\text{is characterised by}
+$$
+\setcounter{THM}{1}
+\begin{THM}\label{chap1:THM1}
+$$
+H_\circ^1(\Omega) = \{ v \epsilon H^1(\Omega):\gamma V=0\}
+$$
+\end{THM}
+
+\section{Dual Spaces of $H^1(\Omega)$ and 
+$H_\circ^1(\Omega)$}\label{chap1:subsec1.6} 
+
+The mapping 
+\begin{align*}
+I:H^1(\Omega)\to(L^2(\Omega))^{n+1} \quad \text{defined by}\\
+I(v)=\left(v, \frac{\partial v}{\partial x_1},\ldots,\frac{\partial v}
+{\partial x_n}\right)
+\end{align*}
+is easily seen to be an isometric isomorphism of $H^1(\Omega))$ into
+subspace of $(L^2(\Omega))^{n+1}$. If $f \epsilon(H^1(\Omega))'$
+then $F:I(H^1(\Omega))\to \mathbb{R}$ with $F(Iu)=f(u)$ is a continuous linear
+functional on $I(H^1(\Omega))$. Hence by Hahn Banach theorem $F$ can be
+extended to $(L^2(\Omega))^{n+1}$. Therefore, there exists $(v,
+v_1,\ldots, v_n) \epsilon (L^2(\Omega))^{n+1}$ such that 
+$$
+f(u)=F(Iu)=(v, u)+\sum\limits_{i=1}^n (v_i, \partial u/\partial x_i).
+$$
+This representation is not unique since $F$ cannot be extended
+uniquely to $(L^2(\Omega))^{n+1}$ For all $\phi \epsilon
+\mathscr{D}(\Omega)$ we have 
+$$
+f(\phi)=\langle v, u \rangle -\sum\limits_{i=1}^n \left\langle\frac{\partial v_i} {\partial
+x_i}, \phi \right\rangle ,
+$$\pageoriginale
+Thus
+$$
+f|_{\mathscr{D}(\Omega)}=v-\sum\limits_{i=1}^n\frac{\partial v_i}
+{\partial x_i}. 
+$$
+
+Conversely if $T\epsilon \mathscr{D}'(\Omega)$ is given by 
+$$
+T=v-\sum\limits_{i=1}^n\frac{\partial v_i}{\partial x_i},
+$$
+where $v, v_i \epsilon L^2(\Omega), 1\leq i\leq n$ then $T$ can be
+extended as a continuous linear functional on $H^1(\Omega)$ by the
+prescription
+$$
+T(u)=(v, u)+\sum\limits_{i=1}^n \left(v_i,\frac{\partial u}{\partial x_i} \right)
+\quad \text{for all } u \epsilon H^1(\Omega).
+$$
+
+The extension of $T$ to $H^1(\Omega)$ need not be unique. But we will
+prove that the extension of $T$ to $H_\circ^1(\Omega)$ is unique. Let
+$\tilde{T} \epsilon (H_\circ^1(\Omega))'$ be such that
+$\tilde{T}|_{\mathscr{D}(\Omega)}=T$. 
+
+Let $u \epsilon H_\circ^1(\Omega)$. Then there exists $u_m
+\epsilon \mathscr{D}(\Omega)$ such that $u_m\to u$ in $H^1$. Now 
+\begin{align*}
+\tilde{T}(u) &= \tilde{T}(\lim\limits_{\text{in}\;H^1} u_m)= \lim_m
+\tilde{T}(u_m)\\
+&= \lim\limits_m T(u_m)\\
+&= \lim\limits_m \left[(v, u_m) + \sum\limits_{i=1}^n \left(v_i, \frac{{\partial
+u}_m}{\partial x_i}\right)\right]\\
+&= (v, u)+\sum\limits_{i=1}^n \left(v_i, \frac{\partial u}{\partial x_i}\right) 
+\end{align*}
+Thus 
+$$
+\tilde{T}=T  \text{ on }  H_\circ^1(\Omega).
+$$
+
+Hence\pageoriginale we identify $(H_\circ^1(\Omega))'$ with a space of
+distribution and we denote it by $H^{-1}(\Omega)$. That is 
+$$
+H^{-1}(\Omega)=\left\{v-\sum\limits_{i=1}^n\frac{\partial v_i}{\partial
+x_i}: (v, v_1,\ldots,v_n) \epsilon (L^2(\Omega))^{n+1}\right\} \subset
+\mathscr{D}' (\Omega).
+$$
+
+\begin{exer}\label{chap1:exer1}
+Show that $\partial/\partial x_i:L^2(\Omega)\to H^{-1}(\Omega)$ is continuous.
+\end{exer}
+
+\section{Positive Properties of $H_\circ^1(\Omega)$ and
+  $H^1(\Omega)$.}\label{chap1:subsec1.7}
+
+\begin{THM}\label{chap1:THM3}
+{\bf (Poincare's Inequality)}. Let $\Omega$ be an open bounded subset
+of $\mathbb{R}^n$. Then there exists a constant $C(\Omega)$ such that 
+$$
+\int\limits_\Omega v^2\,dx \leq C(\Omega)\int\limits_\Omega|\nabla v|^2
+\,dx \quad \text{for all } v \epsilon H_\circ^1(\Omega).
+$$
+\end{THM}
+
+\begin{proof}
+We shall prove the inequality for the functions in $\mathscr{D}
+(\Omega)$ and use the density of $\mathscr{D} (\Omega)$ in
+$H_\circ^1(\Omega)$.
+
+Since $\Omega$ is bounded, we have 
+$$
+\Omega \subset[a_1, b_1] \times\ldots\times[a_n, b_n].
+$$
+
+For any $u(x) \epsilon \mathscr{D}(\Omega)$, we have 
+$$
+u(x)=\int\limits_{a_i}^{x_i}\frac{\partial u}{\partial
+x_i}(x_1,\ldots, x_{i-1},t, x_{i+1},\ldots,x_n)\,dt.
+$$
+Thus 
+$$
+|u(x)|\leq (b_i-a_i)^{1/2} \left(\int\limits_{a_i}^{b_i}\left|\frac{\partial u}
+{\partial x_i}\right|^2\,dt\right)^{1/2}
+$$
+
+Squaring both sides and integrating we obtain
+$$
+\int\limits_{a_1}^{b_1}\cdots \int\limits_{a_n}^{b_n} |u(x)|^2\,dx\leq
+(b_i-a_i)^2 \int\limits_{a_1}^{b_1}\cdots \int\limits_{a_n}^{b_n}
+\left|\frac{\partial u}{\partial x_i}\right|^2 \,dx.
+$$
+Thus\pageoriginale
+$$
+\int\limits_\Omega |u(x)|^2 \,dx \leq C(\Omega)\int\limits_\Omega
+|\nabla u|^2 \,dx
+$$
+where
+$$
+C(\Omega)=(b_1-a_1)^2+\cdots +(b_n-a_n)^2.
+$$
+
+Let $v\epsilon H_\circ^1(\Omega)$. Then there exists $u_n
+\epsilon \mathscr{D}(\Omega)$ such that $u_n\to v$ in $H^1$, which
+implies $u_n\to v$ in $L^2$ and $\dfrac{\partial u_n}{\partial x_i} \to
+\dfrac{\partial v}{\partial x_i}$ in $L^2$. Using this and the
+inequality for smooth functions we arrive at the result.
+\end{proof}
+
+\begin{REM}\label{chap1:rem1}
+The theorem is not true for functions in $H^1(\Omega)$. For example a
+nonzero constant function belongs to $H^1(\Omega)$ but does not
+satisfy the above inequality.
+
+We state Sobolev imbedding theorem and Rellich's theorem, which have
+many important applications. 
+\end{REM}
+
+\setcounter{sobolev}{3}
+\begin{sobolev}\label{chap1:sobo4}
+If $\Omega$ is an open bounded set having a Lipschitz continuous
+boundary then we have the imbedding 
+$$
+H^1(\Omega)\hookrightarrow L^p(\Omega),
+$$
+$p < q$ or $p \leq q$ according as $n=2$ or $n>2$ where 
+$$
+1/q=1/2-1/n.
+$$
+\end{sobolev}
+
+\setcounter{rellich}{4}
+\begin{rellich}\label{chap1:rell5}
+The above imbedding is compact for\break $p < q$. 
+\end{rellich}
+

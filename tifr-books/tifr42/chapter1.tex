@@ -1,0 +1,651 @@
+
+\chapter{The differential equations of mechanics}\label{chap1}
+
+\section{The Euler-Lagrange equations}\label{chap1:sec1}
+
+We shall\pageoriginale begin with some introductory remarks on the differential equations of mechanics; we shall indicate their connection with the calculus of variatinos and discuss briefly the transformatin theory due to Hamilton and Jacobi. 
+
+Let $n$ be a positive integer and let $x=(x_1, \ldots, x_n)$, $\dot{x} = (\dot{x}_1, \ldots, \dot{x}_n)$ and $t$ be $2n+1$ independent real variables. Suppose that $f(x, \dot{x}, t)$ is a real twice continuously differentiable function of the $2n+1$ variables $(x, \dot{x}, t )$ for $t_1 \leq t \leq t_2$ and $(x, \dot{x})$ belonging to an open set $G$ of $2n$-dimensional Euclidean space. Next, let us suppose that each $x_k$, $k = 1, \ldots, n$, is a twice continuously differentiable real-valued function $x_k (t)$ of the variable $t$ in $t_1 \leq t \leq t_2$; we set $\dot{x}_k (t) = \dfrac{dx_k(t)}{dt}$. We also write $x(t) = (x_1(t), \ldots, x_n(t))$, $\dot{x} (t) = (\dot{x}_1(t), \ldots, \dot{x}_n(t))$, and assume that $(x(t), \dot{x}(t)) \in G$ for $t_1 \leq t \leq t_2$. Then $f(x(t), \dot{x} (t),t)$ is a continuous (in fact, twice continuously differentiable) function of the variable $t$ in $t_1 \leq t \leq t_2$ and so we can form the integral
+\begin{equation*}
+\int\limits^{t_2}_{t_1} f(x(t), \dot{x}(t), t) dt. 
+\tag{1.1.1}\label{chap1:eq1.1.1}
+\end{equation*}
+The classical problem of the calculus of variations consists in determining a twice continuously differentiable function $x = x(t)$ of the\pageoriginale variable $t$ in $t_1 \leq t \leq t_2$ with $(x(t), \dot{x}(t)) \in G$  and satisfying prescribed initial conditions $x(t_1) = a$ and $x(t_2) = b$, where $a$ and $b$ are given points in $n$-dimensional Euclidean space, such that the integral (\ref{chap1:eq1.1.1}) is a minimum. Let us assume that this minimising problem has a solution. We derive a necessary condition for the existence of such a solution $\bar{x} = \bar{x}(t)$. Let $y = y(t) = (y_1 (t), \ldots, y_n(t))$ be a fixed twice continuously differentiable function of the variable $t$ in $t_1 \leq t \leq t_2$ with $y(t_1) = 0$ and $y(t_2) = 0$. Since $G$ is open, if $x = x(t, \epsilon) = \bar{x}(t) + \epsilon y(t)$, then $(x, \dot{x}) \in G$ for all real $\epsilon$ with sufficiently small absolute value. Moreover, we have $x(t_1, \epsilon) = a$ and $x(t_2 , \epsilon) = b$ for all $\epsilon$. Then the integral
+$$
+\int\limits^{t_2}_{t_1} f(x(t, \epsilon), \dot{x}(t, \epsilon), t) \; dt,
+$$
+where $\dot{x}(t, \epsilon)$ denotes $\dfrac{d}{dt} x (t, \epsilon)$, defines a real-valued function $J = J(\epsilon)$ of the parameter $\epsilon$. Since $f(x, \dot{x},t)$ is twice continuously differentiable in all the $2n+1$ variables $(x,\dot{x},t)$ and $x(t, \epsilon)$ is linear in $\epsilon$, the function $J(\epsilon)$ is a twice continuously differentiable function of $\epsilon$. Further, since $\bar{x} = x(t,0)$ is a minimising function for the integral (\ref{chap1:eq1.1.1}), $J(0)$ is a minimum value of the function $J(\epsilon)$ A necessary condition that $J(\epsilon)$ has a minimum value at $\epsilon = 0$ is that $\dfrac{dJ(\epsilon)}{d\epsilon} =0$ at $\epsilon = 0$. From this one gets the Euler-Lagrange equations in the following way. We have
+$$
+\frac{dJ(\epsilon)}{d\epsilon} = \int\limits^{t_2}_{t_1} \frac{\partial}{\partial\epsilon} f(x(t, \epsilon), \dot{x}(t, \epsilon), t) dt,
+$$\pageoriginale
+and if, for any fixed value of the parameter $\epsilon$, $f_{x_k}$ and $f_{\dot{x}_k}$ denote the partial derivatives $\dfrac{\partial f(x, \dot{x},t)}{\partial x_k}$ and $\dfrac{\partial f (x,\dot{x}, t)}{\partial \dot{x}_k}$ of the function $f$, considered as a function of the $2n+1$ variables $(x,\dot{x}, t)$, then we have, by the chain-rule for differentiation,
+\begin{align*}
+\frac{\partial}{\partial \epsilon} f(x, \dot{x},t) & = \sum\limits^n_{k=1} (f_{x_k} \frac{\partial x_k(t, \epsilon)}{\partial \epsilon} + f_{\dot{x}_k} \frac{\partial \dot{x}_k (t, \epsilon)}{\partial \epsilon})\\
+& = \sum^n_{k=1} (f_{x_k } (x, \dot{x}, t) y_k(t) + f_{\dot{x}_k} (x,\dot{x},t) \dot{y}_k (t)). 
+\end{align*}
+Hence we obtain
+$$
+\frac{dJ(\epsilon)}{d\epsilon} = \int\limits^{t_2}_{t_1} \sum\limits^n_{k=1} (f_{x_k} (x, \dot{x}, t) y_k (t) + f_{\dot{x}_k} (x, \dot{x}, t) \dot{y}_k (t)) dt,
+$$
+and this gives, on integration by parts, 
+\begin{align*}
+\frac{dJ(\epsilon)}{d\epsilon} & = \int\limits^{t_2}_{t_1} \sum\limits^n_{k=1} (f_{x_k} (x, \dot{x} , t) - \frac{d}{dt} f_{\dot{x}_k} (x,\dot{x}, t) ) y_k (t) dt+\\
+& \qquad \qquad + \int\limits^{t_2}_{t_1} \frac{d}{dt} \left(\sum\limits^n_{k=1} f_{\dot{x}_k} (x, \dot{x}, t) y_k(t) \right) \; dt. 
+\end{align*}
+The second term on the right side vanishes since $y_k (t_1) = 0 = y_k (t_2)$. Therefore a necessary condition for $\dfrac{dJ(\epsilon)}{d\epsilon}$ to vanish at $\epsilon = 0$ is that all\pageoriginale the $f_{x_k} - \dfrac{d}{dt} f_{\dot{x}_k}$, $k =1 , \ldots, n$, vanish for $x= x(t,0) = \bar{x}(t)$. Thus we obtain a system of differential equations
+\begin{equation*}
+\wedge_k (f) \equiv f_{x_k} - \frac{d}{dt} f_{\dot{x}_k} = 0, \; k = 1, \ldots, n; 
+\tag{1.1.2}\label{chap1:eq1.1.2}
+\end{equation*}
+these are the {\em Euler-Lagrange differential equations.}
+
+We can rewrite the system (\ref{chap1:eq1.1.2}) of differential equations more explicitly using the fact that the function $f$ is twice continuously differentiable in all its $2n+1$ independent variables $(x, \dot{x},t)$. Carrying out the differentiation with respect to $t$ we get
+$$
+\wedge_k (f) = f_{x_k} - \sum\limits^n_{l=1} (f_{\dot{x}_k x_1} \dot{x}_1 + f_{\dot{x}_k \dot{x}_1} \ddot{x}_1) - f_{\dot{x}_kt} = 0,
+$$
+where
+$$
+\ddot{x}_k = \frac{d^2 x_k(t)}{dt^2} , f_{\dot{x}_kt} = \frac{\partial^2 f(x, \dot{x},t)}{\partial \dot{x}_k \partial t}, f_{\dot{x}_k \dot{x}_1} = \frac{\partial^2 f(x,\dot{x},t)}{\partial \dot{x}_k \partial \dot{x}_1} , f_{\dot{x}_k x_1} = \frac{\partial^2 f(x, \dot{x},t)}{\partial \dot{x}_k \partial x_1}, 
+$$
+$k, l = 1, \ldots, n$. This is a system of $n$ partial differential equations of the second order in $n$ unknown function $x_k(t)$, $k=1, \ldots, n$.
+
+If $f = f(x, \dot{x},t)$ is an arbitrary twice continuously differentiable function of $2n+1$ independent real variables $(x, \dot{x},t)$ in $t_1 \leq t \leq t_2$ and $(x, \dot{x}) \in G$, and if $x = x(t)$ is a twice continuously differentiable function of $t$ in $t_1 \leq t\leq t_2$ such that $(x(t), \dot{x}(t)) \in G$ (where $\dot{x}_k(t) = \dfrac{d}{dt} x_k(t)$, $k=1, \ldots, n$), then we can form the expression 
+$$
+\wedge_k(f) \equiv f_{x_k} - \sum\limits^n_{l=1} (f_{\dot{x_k} x_1} \dot{x}_1+ f_{\dot{x}_k  \dot{x}_1} \ddot{x}_1) - f_{\dot{x}_k t}, k = 1, \ldots, n;
+$$
+this\pageoriginale is called the {\em Lagrangian derivative} of $f$.
+
+We can try to simplify the Euler-Lagrange equations by means of a suitably chosen substitution. We introduce new independent variables $\xi = (\xi_1, \ldots, \xi_n)$ and set
+\begin{equation*}
+x_k = x_k (\xi, t), \; k = 1, \ldots, n, \tag{1.1.3}\label{chap1:eq1.1.3}
+\end{equation*}
+where $x_k(\xi, t)$ are twice continuously differentiable functions of the $n+1$ independent real variables $(\xi, t)$, and we assume that the Jacobian of $x$ with respect to $\xi$ does not vanish anywhere in the region under consideration, so that the transformation from $\xi$ to $x$ is locally one-to-one everywhere. Thus, writing $x_{k \xi_1} = \dfrac{\partial x_k}{\partial \xi_1}$, we assume that the determinant $|x_{k \xi_1}| \neq 0$ everywhere. Then we can invert the transformation (\ref{chap1:eq1.1.3}) locally and determine $\xi_1$ as a function $\xi_1 (x,t)$ of the $n+1$ independent variables $(x,t)$, $l=1, \ldots, n$. We can write, by the chain-rule for differentiation,
+\begin{equation*}
+\dot{x}_k = \sum\limits^{n}_{r=1} x_{k\xi_r} \dot{\xi}_r+ x_{kt}, \tag{1.1.4}\label{chap1:eq1.1.4}
+\end{equation*}
+\begin{equation*}
+\ddot{x}_k = \sum\limits^r_{r=1} \left(\sum\limits^n_{l=1} x_{k \xi_r \xi_1} \dot{\xi}_1 \dot{\xi}_r + x_{k \xi_r t} \dot{\xi}_r + x_{k \xi_r} \ddot{\xi}_r  \right) + x_{ktt}, \tag{1.1.5} \label{chap1:eq1.1.5}
+\end{equation*}
+where 
+\begin{align*}
+& \dot{\xi}_r = \frac{d}{dt} \xi_r (t), \ddot{\xi}_r = \frac{d^2}{dt^2} \xi_r (t) , x_{ktt} = \frac{\partial^2 x_k(\xi, t)}{\partial t^2},\\
+& x_{k \xi_1 \xi_r} = \frac{\partial^2 x_k(\xi, t)}{\partial \xi_1 \partial \xi_r} \quad \text{and} \quad  x_{k \xi_r t} = \frac{\partial^2 x_k(\xi, t)}{\partial \xi_r \partial t}. 
+\end{align*}
+(We may\pageoriginale also consider $\dot{\xi}_1, \ddot{\xi}_1$ as independent variables and define $\dot{x}_k$, $\ddot{x}_k$ in terms of $\dot{\xi}_1, \ddot{\xi}_1$ by means of the  equations (\ref{chap1:eq1.1.4}) and (\ref{chap1:eq1.1.5})). 
+
+We suppose that $(\xi, \dot{\xi})$ varies in an open set $G_1$ in $2n$-dimensional Euclidean space so that $(x, \dot{x}) \in G$. Then we define the function $g = g(\xi, \dot{\xi}, t)$ by
+$$
+g(\xi,\dot{\xi},t ) = f(x(\xi, t), \dot{x} (\xi, \dot{\xi}, t), t). 
+$$
+The function $g$ is again twice continuously differentiable in the variables $(\xi, \dot{\xi}, t)$. We shall now obtain the relation between the Lagrangian derivatives $\wedge_k(f)$ and $\wedge_k(g)$ of $f$ and $g$. We have, by definition,
+$$
+\wedge_1(g) = g_{\xi_1} - \frac{d}{dt} g_{\dot{\xi}_1},
+$$
+and by the chain-rule for differentiation, using (\ref{chap1:eq1.1.4}), we get 
+\begin{align*}
+g_{\xi_1} & = \sum\limits^n_{k=1} \left(f_{x_k} x_{k \xi_1} + f_{\dot{x}_k} (\sum\limits^n_{r=1} x_{k\xi_r \xi_l} \dot{\xi}_r+ x_{kt \xi_1}) \right),\\
+g_{\dot{\xi}_1} & = \sum\limits^n_{k=1} f_{\dot{x}_k} (\dot{x}_k) \dot{\xi}_1 = \sum\limits^n_{k=1} f_{\dot{x}_k} x_{k \xi_1}, \\
+\frac{d}{dt} g_{\dot{\xi}_1} & = \sum\limits^n_{k=1} \left(\frac{d}{dt} f_{\dot{x}_k} x_{k \xi_1} + f_{\dot{x}_k} \sum\limits^n_{r=1} (x_{k \xi_1 \xi_r} \dot{\xi}_r + x_{k \xi_1 t}) \right)
+\end{align*}
+Since $x_k = x_k(\xi, t)$ is twice continuously differentiable in $(\xi, t)$,
+$$
+x_{kt \xi_1} = x_{k \xi_1t} \quad\text{and} \quad x_{k\xi_r\xi_1} = x_{k \xi_1 \xi_r},
+$$
+and consequently,\pageoriginale
+$$
+\wedge_1(g) = \sum\limits^n_{k=1} (f_{x_k} - \frac{d}{dt} f_{\dot{x}_k}) x_{k\xi_1} = \sum\limits^n_{k=1} \wedge_k(f) x_{k\xi_1}. 
+$$
+As a result, if $\wedge_k(f) = 0$, $k=1, \ldots, n$, and if $x_k = x_k (\xi, t)$ are twice continuously differentiable functions of $(\xi, t)$ with the determinant $|x_{k\xi_1}| \neq 0$, then the function $g(\xi, \dot{\xi},t) = f(x, \dot{x},t)$ satisfies the relation $\wedge_1 (g) = 0$, $l = 1, \ldots, n$, and conversely. This relation could also be obtained directly by considering the integral
+$$
+\int\limits^{t_2}_{t_1} g(\xi, \dot{\xi},t) dt = \int\limits^{t_2}_{t_1} f(x, \dot{x}, t) dt
+$$
+and differentiating partially.
+
+We can write the relation obtained above:
+\begin{equation*}
+\wedge_1 (g) = \sum\limits^n_{k=1} \wedge_k (f) x_{k \xi_1}, \tag{1.1.6}\label{chap1:eq1.1.6}
+\end{equation*}
+in a simpler way as follows. If we denote the Jacobian matrix $(x_{k\xi_1})$ by $M$ and write
+$$
+\wedge (f) = (\wedge_1(f), \ldots , \wedge_n (f)); \; \wedge (g) = (\wedge_1(g), \ldots, \wedge_n(g)),
+$$
+then 
+$$
+\wedge (g)= \wedge (f) M.
+$$
+This is the covariance property of the Lagrangian derivative.
+
+The Lagrangian\pageoriginale derivative $\wedge_k(f)$ of a function $f$ can be considered as a function of $3n+1$  independent real variables $(x, \dot{x}, \ddot{x},t)$. Now we investigate the condition under which the relation $\wedge_k(f) = \wedge_k(h)$ holds identically in all the $3n+1$, independent variables for two functions $f(x, \dot{x},t)$ and $h(x,\dot{x},t)$ which are twice continuously differentiable in the $2n+1$ variables $(x, \dot{x},t)$ for $t_1 \leq t \leq t_2$ and $(x,\dot{x}) \in G$.
+
+Since the Lagrangian derivatives are linear homogeneous operators, it is enough, setting $s = h -f$, to investigate when  $\wedge_k(s) = 0$, $k = 1, \ldots, n$, identically in the $3n+1$ independent variables $x, \dot{x}, \ddot{x},t$. Since
+$$
+\wedge_k(s) = s_{x_k} - \sum\limits^n_{l=1} (s_{\dot{x}_k x_l} \dot{x}_1+ s_{\dot{x}_k \dot{x}_1} \ddot{x}_1) - s_{\dot{x}_kt},
+$$
+it follows that the coefficient of $\ddot{x}_1$ vanishes identically, i.e.
+$$
+s_{\dot{x}_k \dot{x}_1} \equiv 0, \quad k, l = 1, \ldots, n,
+$$
+which means that $s$ is a linear function of $(\dot{x}_1, \ldots, \dot{x}_n)$. Hence $s$ has the form
+$$
+s(x, \dot{x},t) = \sigma_\circ (x,t) + \sum\limits^n_{l=1} \sigma_1 (x,t) \dot{x}_1, 
+$$
+where $\sigma_\circ (x,t)$, $\sigma_1(x,t)$ are twice continuously differentiable functions of $(x,t)$. So $\wedge_k (s) \equiv 0$ gives
+$$
+\sigma_{\circ  x_k} + \sum\limits^n_{l=1} \sigma_{lx_k} \dot{x}_l - \sum\limits^n_{l=1} \sigma_{kx_1} \dot{x}_l - \sigma_{kt} \equiv 0.
+$$
+This implies that\pageoriginale
+$$
+\sigma_{\circ x_k} = \sigma_{kt} \quad \text{and}\quad \sigma_{1 x_k} = \sigma_{kx_1}, k,l = 1,\ldots, n.
+$$
+If we define for the moment $x_\circ  =t$, then the first condition becomes $\sigma_{\circ x_k} = \sigma_{kx_\circ}$, $k=1, \ldots, n$, which is of the same form as the other conditions. These are necessary and sufficient conditions in order that there exist a function $\sigma (x,t)$, twice continuously differentiable in the $n+1$ independent variables $(x_\circ, x_1 , \ldots x_n)$, such that
+$$
+\sigma_k(x,x_\circ) = \frac{\partial \sigma (x,x_\circ)}{\partial x_k}, \quad k = 0, \; 1, \ldots n.
+$$
+Hence, under these condition there exists a function $\sigma (x,t)$, twice continuously differentiable in the $n+1$ independent variables $(x,t)$, such that 
+$$
+\sigma_\circ (x,t) = \frac{\partial \sigma(x,t)}{\partial t} \quad \text{and}\quad \sigma_k(x,t) = \frac{\partial \sigma (x,t)}{\partial x_k} , k = 1, \ldots, n.
+$$
+Then $s$ can be written in the form
+$$
+s(x, \dot{x}, t) = \frac{\partial \sigma (x,t)}{\partial t} + \sum\limits^n_{l=1} \frac{\partial \sigma(x,t)}{\partial x_l} \dot{x}_l = \frac{d\sigma (x,t)}{dt},
+$$
+which means that a necessary condition that $\wedge_k (f) = \wedge_k(h)$ is that there exists a twice continuously  differentiable function $\sigma (x,t)$ of $n+1$ independent variables $(x,t)$ such that 
+\begin{equation*}
+h = f+ \frac{d\sigma (x,t)}{dt}\tag{1.1.7}\label{chap1:eq1.1.7}
+\end{equation*}
+Conversely,\pageoriginale if there exists a twice continuously differentiable function $\sigma (x,t)$ and if $f$ and $h$ are connected by the relation (\ref{chap1:eq1.1.7}), then $\wedge_k (f) = \wedge_k(h)$ identically, $k=1, \ldots, n$. This assertion could also have been proved starting from the original problem of the Calculus of Variations.
+
+We proceed to derive the canonical equations of Hamilton. This is done by means of the `Legendre transformation'. We set
+\begin{equation*} 
+y_k = f_{\dot{x}_k} (x, \dot{x},t), \; k = 1, \ldots, n, \tag{1.1.8}\label{chap1:eq1.1.8}
+\end{equation*}
+and consider $f_{\dot{x}_k}$ as functions of $\dot{x} = (\dot{x}_1, \ldots, \dot{x}_n)$. If we suppose that the Jacobian $|f_{\dot{x}_k \dot{x}_l}| \neq 0$ everywhere in the region under consideration, then we can solve the system of equations (\ref{chap1:eq1.1.8}) locally and determine $\dot{x}_k$ as functions of $2n+1$ independent variables $(x,y,t)$. If $f$ satisfies the Euler-Lagrange equations
+$$
+f_{x_k} - \frac{d}{dt} f_{\dot{x}_k} = 0, \quad k =1 , \ldots, n,
+$$
+then it follows that $\dot{y}_k = f_{x_k}$, $k =1,\ldots,n$. Therefore, we obtain by the substitution (\ref{chap1:eq1.1.8}) a system of $2n$ differential equations of the first order,
+\begin{align*}
+\dot{x}_k & = \dot{x}_k (x,y, t),\\
+\dot{y}_k = f_{x_k} (x,\dot{x},t) & = f_{x_k} (x, \dot{x}(x, y, t), t), \; k = 1, \ldots, n. 
+\end{align*}
+Thus the Euler-Lagrange system of $n$ equations of the second order has been reduced to a system of $2n$ equations of the first order.
+
+This system\pageoriginale of differential equations can be written in a different way as follows. Consider the function $E(x, y, \dot{x},t)$ of $3n+1$ independent real variables, defined by
+\begin{equation*}
+E (x, y, \dot{x}, t) = \sum\limits^n_{k=1} \dot{x}_k y_k - f(x, \dot{x},t); 
+\tag{1.1.9}\label{chap1:eq1.1.9}
+\end{equation*}
+this is twice continuously differentiable in all the variables. Then 
+$$
+dE = \sum\limits^n_{k=1} (\dot{x}_k dy_k + y_k d\dot{x}_k) - \sum\limits^n_{k=1} (f_{x_k} dx_k +f_{\dot{x}_k} d\dot{x}_k) - f_t dt .
+$$
+Now if we assume that $y_k = f_{\dot{x}_k}$, $k=1, \ldots, n$, and $|f_{\dot{x}_k \dot{x}_1}| \neq 0$  everywhere, then 
+$$
+\sum\limits^n_{k=1} (y_k d\dot{x}_k - f_{\dot{x}_k} d\dot{x}_k) = 0,
+$$
+and hence
+$$
+dE = \sum\limits^n_{k=1} (\dot{x}_k dy_k - f_{x_k} dx_k) - f_t dt, 
+$$
+which means that $E$ is a function $E(x,y,t)$, twice continuously differentiable in the $2n+1$ independent variables $(x,y,t)$. Therefore we get
+$$
+\frac{\partial E}{\partial x_k} = - f_{x_k}, \quad \frac{\partial E}{\partial y_k} = \dot{x}_k \quad \text{and} \quad \frac{\partial E}{\partial t} = - f_t.
+$$
+If now $f$ satisfies the Euler-Lagrange equations, so that 
+$$
+f_{x_k} = \frac{d}{dt} f_{\dot{x}_k} = \dot{y}_k, \; k = 1, \ldots, n,
+$$
+then we get a system of $2n$ differential equations satisfied by $E$:
+\begin{equation*}
+\dot{x}_k = E_{y_k}, \dot{y}_k = -E_{x_k}, \; k = 1, \ldots, n. \tag{1.1.10}\label{chap1:eq1.1.10}
+\end{equation*}\pageoriginale 
+where $E_{x_k} = \dfrac{\partial E(x,y,t)}{\partial x_k}$ and $E_{y_k} = \dfrac{\partial E(x,y,t)}{\partial y_k}$. These equations are called the {\em canonical equations of Hamilton}. If we assume that $|y_{k\dot{x}_1}| = |f_{\dot{x}_k \dot{x}_1}| \neq 0$, then we see from the relation $y_k = f_{\dot{x}_k}$ (considering $f_{\dot{x}_k}$ as a function of $\dot{x}$) that 
+$$
+dy_k = \sum\limits^n_{l=1} f_{\dot{x}_k \dot{x}_1} d\dot{x}_1. 
+$$
+Since $d\dot{x}_k = \sum\limits^n_{l=1} E_{y_ky_l} dy_1$, it follows that $(f_{\dot{x}_k \dot{x}_1})$ and $(E_{y_ky_l})$ are matrices which are inverses of each other. We have $E_{y_k y_l} = \dot{x}_{ky_l}$ and hence $|\dot{x}_{ky_l}| \neq 0$. Conversely, suppose that $E=E(x,y,t)$ is 0 given twice continuously differentiable function of all the $3n+1$ independent variables and $|E_{y_k y_l}| \neq 0$ everywhere, then the system of differential equations
+$$
+\dot{x}_k = E_{y_k}, \; \dot{y}_k = - E_{x_k}, \; k = 1, \ldots, n,
+$$
+can be reduced to the system of Euler-Lagrange equations. To see this we put 
+\begin{equation*}
+f(x, y, \dot{x},t) = \sum\limits^n_{k=1} \dot{x}_k y_k - E(x,y,t)\tag{1.1.11}\label{chap1:eq1.1.11}
+\end{equation*}
+and consider $f$ as a function of $3n+1$ independent variables. Then 
+$$
+df = - \sum\limits^n_{k=1} (E_{x_k} dx_k + E_{y_k} dy_k) - E_t dt + \sum\limits^n_{k=1} (\dot{x}_k dy_k + y_k d\dot{x}_k).
+$$\pageoriginale
+If the equations (\ref{chap1:eq1.1.10}) are satisfied, then
+$$
+df = - \sum\limits^n_{k=1} E_{x_k} dx_k - E_t dt + \sum\limits^n_{k=1} y_k d\dot{x}_k,
+$$
+and if $|E_{y_k y_1}| \neq 0$, then we can solve locally for $y_l$ as a function of $\dot{x} = (\dot{x}_1, \ldots, \dot{x}_n)$. Substituting this in the expression (\ref{chap1:eq1.1.11}) for $f$, we may consider $f$ as a function of $2n+1$ independent variables $(x, \dot{x},t)$. Consequently,
+$$
+f_{x_k} = - E_{x_k}, \; f_{\dot{x}_k} = y_k, \; k = 1, \ldots, n,
+$$
+which, together, with the system of equations $\dot{y}_k = - E_{x_k}$ of (\ref{chap1:eq1.1.10}), implies that 
+$$
+f_{x_k} - \frac{d}{dt} f_{\dot{x}_k} = 0, \quad k = 1, \ldots, n.
+$$
+
+\section{The transformation theory of Hamiltonian equations}\label{chap1:sec2}
+
+We have shown in \S\ \ref{chap1:sec1} that the system of Hamiltonian differential equations can be obtained from the Euler-Lagrange differential equations (by means of the Legendre transformation) and conversely. We shall now show that the Hamiltonian equations can also be obtained directly from the variational problem, without using the Legendre transformation. This is done in the following way. Suppose that a twice continuously differentiable function $E(x,y, t)$ of $2n+1$ independent real variables $(x,y,t)$ is given. We generalize slightly and consider the function $f$ of $4n+1$ independent variables\pageoriginale $(x, y, \dot{x}, \dot{y}, t)$ defined by
+\begin{equation*} 
+f (x, y, \dot{x}, \dot{y}, t) = \sum\limits^n_{r=1} \dot{x}_r y_r - E(x,y,t).
+\tag{1.2.1}\label{chap1:eq1.2.1}
+\end{equation*}
+(The variable $\dot{y} = (\dot{y}_1, \ldots, \dot{y}_n)$) does not really appear on the right hand side.) It is clear that the function $f$ is twice continuously differentiable in all its variables. Then the Lagrangian derivatives of $f$, calculated with respect to $(x_k, \dot{x}_k)$ and $(y_k, \dot{y}_k)$ and denoted by $\wedge_{x_k}(f)$ and $\wedge_{y_k} (f)$ respectively, are given by 
+\begin{align*}
+\wedge_{x_k} (f) & \equiv f_{x_k} - \frac{d}{dt} f_{\dot{x}_k} = - E_{x_k} - \dot{y}_k, \tag{1.2.2}\label{chap1:eq1.2.2}\\
+\wedge_{y_k} (f) & \equiv f_{y_k} - \frac{d}{dt} f_{\dot{y}_k} = \dot{x}_k - E_{y_k}, \; k =1 ,\ldots, n.
+\end{align*}
+Hence the Euler-Lagrange equations for $f$ become
+\begin{equation*}
+-E_{x_k} - \dot{y}_k = 0, \quad \dot{x}_k - E_{y_k} = 0, \quad k = 1, \ldots, n,
+\tag{1.2.3}\label{chap1:eq1.2.3}
+\end{equation*}
+which are precisely the Hamiltonian equations. Conversely the system (\ref{chap1:eq1.2.3}) of equations implies that $f$ satisfies the Euler-Lagrange equations. Thus the Hamiltonian equations can be considered as necessary conditions for the existence of a twice continuously differentiable function $(x(t), y(t)) = (x_1 (t), \ldots, x_n(t), y_1(t),\ldots , y_n(t))$ which is a solution of the problem of minimising the integral
+$$
+\int\limits^{t_2}_{t_1} f(x, y, \dot{x}, \dot{y}, t) dt
+$$
+with the prescribed initial conditions $(x(t_1), y(t_1))$ and $(x(t_2), y (t_2))$.
+
+We proceed\pageoriginale to discuss the transformation theory of the Hamiltonian equations. We consider $2n$ new independent real variables $\xi = (\xi_1, \ldots, \xi_n)$ and $\eta = (\eta_1, \ldots, \eta_n)$ and the transformation
+\begin{equation*}
+x_k = \varphi_k (\xi, \eta, t), \; y_k = \psi_k(\xi, \eta, t), \; k = 1, \ldots, n, \tag{1.2.4}\label{chap1:eq1.2.4}
+\end{equation*}
+where $\varphi_k$ and $\psi_k$ are twice continuously differentiable functions of the $2n+1$ independent variables $(\xi, \eta, t)$ with the Jacobian $\dfrac{\partial (\varphi, \psi)}{\partial (x,y)}$ non-vanishing. In general such a transformation does not leave invariant the Euler-Lagrange equations in the Hamiltonian form:
+\begin{equation*}
+E_{x_k} = - \dot{y}_k, \; E_{y_k} = \dot{x}_k, \; k = 1, \ldots, n. 
+\tag{1.2.5}\label{chap1:eq1.2.5}
+\end{equation*}
+We wish to investigate conditions under which a transformation of the type (\ref{chap1:eq1.2.4}) leaves the equations in the Hamiltonian form (\ref{chap1:eq1.2.5}) invariant. For this purpose we consider the function $f$ of $4n+1$ independent variables $(x,y,\dot{x}, \dot{y}, t)$ defined by (\ref{chap1:eq1.2.1}):
+$$
+f(x,y, \dot{x}, \dot{y}, t) = \sum\limits^n_{r=1} \dot{x}_r y_r - E(x,y,t). 
+$$
+We have seen that the Lagrangian derivatives of $f$, computed formally relative to $(x_k, \dot{x}_k)$ and $(y_k, \dot{y}_k)$ respectively, are 
+$$
+\wedge_{x_k(f)} = - E_{x_k} - \dot{y}_k \quad \text{and}\quad \wedge_{y_k} (f) = \dot{x}_k - E_{y_k}, k =1 , \ldots, n.
+$$
+These are in the Hamiltonian form. We substitute $\varphi_k(\xi, \eta,
+t)$ and $\psi_k (\xi,\break \eta, t)$ for $x_k$ and $y_k$ respectively in
+the expression (\ref{chap1:eq1.2.1}) for $f$ and we consider $f$ as a
+function of the $4n+1$ new independent variables\pageoriginale $(\xi,
+\eta,\dot{\xi}, \dot{\eta}, t)$. We then obtain the Lagrangian
+derivatives in the new variables:      
+$$
+\wedge_{\xi k} (f) \equiv  f_{\xi_k} - \frac{d}{dt} f_{\dot{x}_k}, \wedge_{\eta_k} (f) \equiv f_{\eta, k} -\frac{d}{dt} f_{\dot{\eta}_k} , k = 1, \ldots, n.
+$$
+Now if the transformation of the variables from $(\xi, \eta)$ to $(x,y)$ is to leave invariant the Lagrangian derivative in the Hamiltonian form, we have to determine a twice continuously differentiable function $\mathbb{E} = \mathbb{E} (\xi, \eta, t)$ of the $2n+1$ independent real variables $(\xi, \eta, t)$ such that 
+\begin{equation*}
+\wedge_{\xi_k} (f) = - \mathbb{E}_{\xi_k} - \dot{\eta}_k, \; \wedge_{\eta_k} (f) = \dot{\xi}_k - \mathbb{E}_{\eta_k}, \; k = 1, \ldots, n. \tag{1.2.6}\label{chap1:eq1.2.6}
+\end{equation*}
+On the other hand, if we consider the function $h = h (\xi, \eta, \dot{\xi}, \dot{\eta}, t)$ of the $4n+1$ independent variables $(\xi, \eta, \dot{\xi}, \dot{\eta}, t)$ defined by 
+\begin{equation*}
+h(\xi, \eta, \dot{\xi}, \dot{\eta},t) = \sum\limits^n_{k=1} \dot{\xi}_n \eta_k - \mathbb{E} (\xi, \eta, t), \tag{1.2.7}\label{chap1:eq1.2.7}
+\end{equation*}
+then the Lagrangian derivatives of $h$ are again given by
+\begin{equation*}
+\wedge_{\xi_k} (h) = - \mathbb{E}_{\xi_k} - \dot{\eta}_k, \wedge_{\eta_k} (h) = \dot{\xi}_k - \mathbb{E}_{\eta_k}, k = 1, \ldots, n . \tag{1.2.8}\label{chap1:eq1.2.8}
+\end{equation*}
+The systems (\ref{chap1:eq1.2.6}) and (\ref{chap1:eq1.2.8}) together mean that the function $s = f - h$ is twice continuously differentiable in the variables $(\xi,\eta, \dot{\xi}, \dot{\eta},t)$ and satisfies the Euler-Lagrange equations
+$$
+\wedge_{\xi_k} (s) = 0, \;\wedge_{\eta_k} (s) = 0,\; k =1 , \ldots, n.
+$$
+We have shown in \S\ \ref{chap1:sec1} that in such a case there exists a twice continuously differentiable function $\sigma = \sigma (\xi, \eta, t)$ of the $2n+1$ independent\pageoriginale variables $(\xi, \eta, t)$ such that $s = \dfrac{d}{dt} \sigma (\xi, \eta, t)$. This means that $f=h+ \dfrac{d\sigma}{dt}$ and hence, $f$ considered as a function of the variables $(\xi, \eta, \dot{\xi}, \dot{\eta},t)$ has the form 
+\begin{equation*}
+f(\xi, \eta, \dot{\xi}, \dot{\eta}, t)= \sum\limits^n_{k=1} \dot{\xi}_k \eta_k - \mathbb{E} (\xi, \eta, t) + \frac{d}{dt} \sigma (\xi, \eta, t). \tag{1.2.9}\label{chap1:eq1.2.9}
+\end{equation*}
+If we denote by $\sigma_t$, $\sigma_{\xi_k}$, $\sigma_{\eta_k}$ the partial derivatives of $\sigma$ with respect to $t$, $\xi_k$ and $\eta_k$ respectively, then we have 
+$$
+\dfrac{d}{dt} \sigma (\xi, \eta, t) = \sum\limits^n_{k=1} (\sigma_{\xi_k} \dot{\xi}_k + \sigma_{\eta_k} \dot{\eta}_k) + \sigma_t. 
+$$
+Since $\dot{x}_r = \sum\limits^n_{k=1} (x_{r \xi_k} \dot{\xi}_k + x_{r\eta_k } \dot{\eta}_k) + x_{r_t}$, the expression (\ref{chap1:eq1.2.1}) for $f$ becomes
+$$
+f = - E (x(\xi, \eta, t), y (\xi, \eta, t), t) + \sum\limits^n_{r=1} ((x_{r\xi_k} \dot{\xi}_k + x_{r\eta_k} \dot{\eta}_k) + x_{rt}) y_r. 
+$$
+Then we get
+\begin{align*}
+\frac{d}{dt} \sigma (\xi , \eta, t) = f - h & = \mathbb{E} (\xi , \eta, t) - E(x,y,t) - \sum\limits^n_{k=1} \dot{\xi}_k \eta_k + \\
+& + \sum\limits^n_{r=1} \left(\sum\limits^n_{k=1} (x_{r\xi_k} \dot{\xi}_k + x_{r\eta_k} \dot{\eta}_k) + x_{rt} \right) y_r, 
+\end{align*}
+and therefore, comparing the coefficients of $\dot{\xi}_k$ and $\dot{\eta}_k$ and the remaining terms, we have
+\begin{align*}
+\sigma_{\xi_k} & = \sum\limits^n_{r=1} x_{r\xi_k} y_r - \eta_k, \\
+\sigma_{\eta_k} & = \sum\limits^n_{r=1} x_{r \eta_k} y_r, \; k = 1, \ldots, n, \tag{1.2.10}\label{chap1:eq1.2.10}\\
+\text{and } \qquad \sigma_t & = \sum\limits^n_{r=1} x_{rt} y_r + \mathbb{E} (\xi, \eta, t) - E(x,y,t). 
+\end{align*}
+The function\pageoriginale $\mathbb{E}(\xi, \eta, t)$ is therefore determined by the last identity if the function $\sigma (\xi, \eta, t)$ is known. However, the first two identities in (\ref{chap1:eq1.2.10}) give the partial derivatives of $\sigma$ with respect to $\xi_k$ and $\eta_k$. Hence a necessary and sufficient condition that there exist a twice continuously differentiable function $\sigma$ of $2n+1$ independent variables $(\xi, \eta, t)$ with $\dfrac{\partial \sigma}{\partial \xi_k}$ and $\dfrac{\partial \sigma}{\partial \eta_k}$ given by the first two equations in (\ref{chap1:eq1.2.10}) is that $\sigma$ satisfy the integrability conditions:
+$$
+\sigma_{\xi_k \xi_1} = \sigma_{\xi_1 \xi_k} , \sigma_{\xi_k \eta_1} =\sigma_{\eta_1 \xi_k}, \sigma_{\eta_k \eta_1} = \sigma_{\eta_1 \eta_k}, k, l=1, \ldots, n. 
+$$
+Using the expressions for $\sigma_{\xi_k}$ and $\sigma_{\eta_1}$ from (\ref{chap1:eq1.2.10}) the integrability conditions become
+\begin{align*}
+& \left(\sum\limits^n_{r=1} x_{r\xi_k} y_r - \eta_k \right)_{\xi_1} = \left(\sum\limits^n_{r=1} x_{r\xi_l} y_r - \eta_1 \right)_{\xi_k},\\
+& \left(\sum\limits^n_{r=1} x_{r\xi_k} y_r - \eta_k \right)_{\eta_1} = \left(\sum\limits^n_{r=1} x_{r\eta_1} y_r \right)_{\xi_k},\\
+& \left(\sum\limits^n_{r=1} x_{r\eta_k} y_r \right)_{\eta_1} = \left(\sum\limits^n_{r=1} x_{r\eta_1} y_r \right)_{\eta_k}. 
+\end{align*}
+Since $x_r$ is twice continuously differentiable in all the variables $(\xi, \eta, t)$, we have 
+$$
+x_{r \xi_k \xi_1} = x_{r\xi_1 \xi_k}, x_{r\xi_k \eta_1} = x_{r\eta_1 \xi_k}, x_{r\eta_k \eta_1} = x_{r\eta_1 \eta_k},
+$$
+$k, l = 1, \ldots, n$, and we get 
+\begin{align*}
+& \sum\limits^n_{r=1} x_{r\xi_k} y_{r\xi_1} = \sum\limits^n_{r=1} x_{r\xi_1}  y_{r\xi_k}, \\
+& \sum\limits^n_{r=1} x_{r\xi_k} y_{r\eta_1} - \delta_{kl} = \sum\limits^n_{r=1} x_{r\eta_1} y_{r\xi_k} , \tag{1.2.11}\label{chap1:eq1.2.11}\\
+& \sum\limits^n_{r=1} x_{r\eta_k} y_{r\eta_1} = \sum\limits^n_{r=1} x_{r\eta_1} y_{r\eta_k}, 
+\end{align*}\pageoriginale
+$k,l = 1, \ldots ,n$, where $\delta_{kk} =1$ and $\delta_{kl} = 0$, $k \neq 1$. These integrability conditions can best be written in matrix form. Denoting by $A,B,C,D$ respectively the $n$-rowed square matrices
+$$
+A = (x_{k\xi_1}), B= (x_{k\eta_1}) , C= (y_{k\xi_1}), D = (y_{k\eta_1}), 
+$$
+we can write the equations (\ref{chap1:eq1.2.11}) in the form
+\begin{equation*}
+A' C= C' A, \; A'D - E = C' B, \; B'D = D' B, \tag{1.2.12}\label{chap1:eq1.2.12}
+\end{equation*}
+where $E$ is the $n$-rowed unit matrix $(\delta_{kl})$. We denote by $M$ the $2n$-rowed matrix
+$$
+M = \begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}. 
+$$
+$M$ is precisely the Jacobian matrix of the transformation from $(\xi, \eta)$ to $(x,y)$ given by $x_k = \varphi_k(\xi, \eta, t)$, $y_k = \psi_k(\xi, \eta, t)$, $k = 1, \ldots, n$. Denoting by $J$ the $2n$-rowed matrix
+$$
+J = 
+\begin{pmatrix}
+0 & E \\
+-E & 0
+\end{pmatrix},
+$$
+where $0$ stands for the $n$-rowed zero-matrix, the integrability conditions\pageoriginale  (\ref{chap1:eq1.2.12}) can be condensed into the single condition:
+\begin{equation*}
+M' J M = J. \tag{1.2.13}\label{chap1:eq1.2.13}
+\end{equation*}
+A $2n$-rowed matrix $M$ satisfying the condition (\ref{chap1:eq1.2.13}) is called a {\em symplectic matrix}. We observe that $J' = - J$ and that $J^2 = - \begin{pmatrix}
+E & 0\\
+0 & E
+\end{pmatrix}$, which shows that $J$ itself is a symplectic matrix. We recall that the symplectic matrices form a group under matrix multiplication; this group is called the real symplectic group.
+
+Thus the integrability conditions expressed by (\ref{chap1:eq1.2.13}) state that the Jacobian matrix of the transformation from $(\xi, \eta)$ to $(x,y)$ defined by (\ref{chap1:eq1.2.4}) is symplectic. Since the integrability conditions are derived from the first two equations in (\ref{chap1:eq1.2.10}) which are independent of the function $E(x,y,t)$, it follows that the condition $M' J M = J$ is also independent of the choice of the function $E(x, y, t)$ in the expression (\ref{chap1:eq1.2.1}) for $f$.
+
+A transformation $x_k = \varphi_k (\xi, \eta, t)$, $y_k = \psi_k(\xi, \eta, t)$ where $\varphi_k, \psi_k, k =1 , \ldots, n$, are twice continuously differentiable functions of the $2n+1$ independent variables $(\xi, \eta, t)$ such that the Jacobian matrix $M$ of the transformation is non-singular, is called {\em canonical} if the matrix $M$ is symplectic.
+
+Under a canonical transformation then the Hamiltonian equations preserve their form. We consider now the question of determining all canonical transformations, or, equivalently, the problem of solving the matrix equations $M'J M = J$ in $M$. We do this first under an additional\pageoriginale restriction. Suppose that $x_k = \varphi_k(\xi, \eta, t)$, $y_k = \psi_k (\xi, \eta, t)$, $k =1, \ldots, n$, is a given  transformation with the additional property that the determinant $B = |x_{k\eta_1}| \neq 0$; $|B|$ is precisely the Jacobian of the transformation $x_k = \varphi_k (\xi, \eta, t)$, $k =1 , \ldots, n$, where $\varphi_k$ are considered as functions of the independent variables $\eta= (\eta_1, \ldots, \eta_n) $ alone. Now by the implicit function theorem we can slove locally for $\eta_1$ as functions of $(x, \xi,t) : \eta_1 = \eta_1 (x, \xi, t)$ and substituting this in $y_k = \psi_k(\xi, \eta, t)$, we have $y_k = y_k (x,\xi, t)$. Since $\varphi_k$ and $\psi_k$ are twice continuously differentiable in all the variables $(\xi, \eta, t)$, it follows that $\eta_1$, and hence $y_1$, are twice continuously differentiable functions of $(x,\xi, t)$. Substituting $\eta_1 = \eta_1 (x, \xi, t)$, $l =1, \ldots, n$, in $\sigma = \sigma (\xi, \eta, t)$, we get a new function
+$$
+W \equiv W (x, \xi, t) = \sigma (\xi, \eta (x, \xi, t), t),
+$$
+which is again twice continuously differentiable in $(x, \xi, t)$. Then we have the identity
+$$
+\frac{d}{dt} \sigma (\xi, \eta, t) = \sum\limits^n_{r=1} \dot{x}_r y_r - E(x,y,t) - \sum\limits^n_{r=1} \dot{\xi}_r \eta_r + \mathbb{E} (\xi, \eta, t),
+$$
+from which we obtain
+\begin{align*}
+\frac{d}{dt } W (x, \xi, t) & = \sum\limits^n_{r=1} \dot{x}_r y_r (x, \xi, t) - E (x, y(x, \xi, t), t) - \\
+& - \sum\limits^n_{r=1} \dot{\xi}_r \eta_r(x, \xi, t) + \mathbb{E} (\xi, \eta (x, \xi, t),t).
+\end{align*}
+But since
+$$
+\frac{d}{dt} W(x, \xi, t) = W_t + \sum\limits^n_{k=1} (W_{x_k} \dot{x}_k  + W_{\xi_k} \dot{\xi}_k),
+$$\pageoriginale
+we get, comparing the coefficients of $\dot{x}_k$, $\dot{\xi}_k$ and the remaining terms,
+\begin{align*}
+y_k & = W_{x_k}, \eta_k = - W_{\xi_k}, \; k =1, \ldots, n,\\
+& E(x,y,t) = \mathbb{E} (\xi, \eta, t) - W_t.  \tag{1.2.14}\label{chap1:eq1.2.14}
+\end{align*}
+Since $|B| = |x_{k\eta_1}| \neq 0$ and the matrix $(\eta_{kx_1})$ is the inverse of the matrix $(x_{k\eta_1})$, it follows that $|\eta_{kx_1}| \neq 0$. Therefore we have $|W_{\xi_k x_1}| = (-1)^n | \eta_{kx_1}| \neq 0$. Thus, given the transformation $x_k =  \varphi_k (\xi, \eta, t)$, $y_k = \psi_k(\xi, \eta, t)$, $k=1, \ldots, n$, with $|x_{k\eta_1}| \neq 0$, there exists a twice continuously differentiable function $W = W(x, \xi, t)$ such that $|W_{\xi_k x_1} | \neq 0$. Conversely, suppose that we are given an arbitrary twice continuously differentiable function $W(x,\xi,t)$ of $2n+1$ independent variables $(x,\xi,t)$ with $|W_{\xi_k x_l}| \neq 0 $. Then we set
+$$
+\eta_k (x, \xi, t) = - W_{\xi_k} (x, \xi, t) , \; y_k = W_{x_k} (x, \xi, t). 
+$$
+The first of these can be considered as a function of $x$ only and since $|W_{\xi_k x_1}| = (-1)^n | \eta_{kx_1}| \neq 0$ by assumption, we can solve locally and obtain $x_k$ as a function $\varphi_k(\xi, \eta, t)$ of $(\xi, \eta, t)$. Substituting this in $y_k = W_{x_k} (x, \xi, t)$, we define the transformation
+$$
+x_k = \varphi_k (\xi, \eta, t), y_k = \psi_k (\xi, \eta, t) , k = 1, \ldots, n.
+$$
+Further, since the matrix $(x_{k\eta_1})$ is the inverse of the matrix 
+$(\eta_{kx_1}) = - (W_{\xi_k x_1})$,\pageoriginale it follows that $|B| = |x_{k \eta_1}| \neq 0$.
+
+Let us consider the identity transformation $x_k = \xi_k$, $y_k = \eta_k$, whose Jacobian matrix $M = \left(\begin{smallmatrix} 
+A & B\\C & D\end{smallmatrix} \right)$ is the $2n$-rowed identity matrix (evidently symplectic); here $B=0$, so that the condition $|B| \neq 0$ is not satisfied and the theory above does not apply. However, even this case can be covered in the following way. We use the fact that nevertheless $|A| = |E| \neq 0$.
+
+Suppose that we are given a transformation $x_k = \varphi_k(\xi, \eta, t), y_k = \psi_k (\xi, \eta, t)$ where $\varphi_k$, $\psi_k$ are twice continuously differentiable functions of $(\xi, \eta, t)$ with the Jacobian matrix $M = \dfrac{\partial (\varphi, \psi)}{\partial (\xi, \eta)}$ non-singular. Suppose that $M$ has the additional property that $|A| = |x_{k\xi_1}| \neq 0$. We consider the transformation $\xi_k = \eta'_k$, $\eta_k = - \xi'_k$, $k=1, \ldots, n$, from the independent variables $(\xi', \eta')$ to $(\xi, \eta)$. The Jacobian matrix of this transformation is $\left(\begin{smallmatrix}
+0 & E \\ -E & 0\end{smallmatrix} \right) = J$ and $J$ itself is a symplectic matrix. The Jacobian matrix of the composite transformation of the variables $(\xi', \eta')$ to $(x,y)$ defined by
+\begin{align*}
+x_k & = \varphi_k (\xi, \eta, t) = \varphi_k (\eta' , - \xi', t)\\
+y_k & = \psi_k (\xi, \eta, t) = \psi_k (\eta', - \xi',t), k =1, \ldots, n,
+\end{align*}
+is the product matrix 
+$$
+\begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix} \; 
+\begin{pmatrix}
+0 & E\\
+-E & 0
+\end{pmatrix}
+ = 
+\begin{pmatrix}
+-B & A \\
+-D & C
+\end{pmatrix}.
+$$
+Since $J$ is symplectic and the symplectic matrices form a group under matrix multiplication, we see that if $M = \left(\begin{smallmatrix}
+A & B \\ C & D\end{smallmatrix}\right)$ is symplectic, then\pageoriginale $\left(\begin{smallmatrix} 
+-B & A \\ -D & C\end{smallmatrix}\right)$ is also  symplectic and conversely. Thus the Jacobian matrix of the composite of the two transformations is of the form previously considered since $|A| \neq 0$, and hence our argument can be applied to prove that there exists a twice continuously differentiable function $W' = W' (x, \xi' , t)$ such that $|W'_{x_k \xi'_1}| \neq 0$ and $y_k = W'_{x_k}$, $\eta'_k = - W'_{\xi'_k}$, $k = 1, \ldots, n$. 
+
+We remark that the transformation $x_k = \eta_k$, $y_k = - \xi_k$ whose Jacobian matrix is $\left(\begin{smallmatrix} 
+0 & E \\ -E & 0 \end{smallmatrix}\right) = J$ belongs to the type we have considered and moreover $J$ is symplectic. This proves the existence of non-trivial canonical transformations with the property that $|B| = |x_{k\eta_1} | \neq 0$.
+ 
+If both $|A|$ and $|B|$ are zero we can still proceed using the fact that a symplectic matrix can be expressed as a product of two symplectic matrices in each of which either the condition $|A| \neq 0$ or $|B| \neq 0$ is satisfied.
+
+We now come to the partial differential equation of Hamilton-Jacobi. Consider the system of Hamiltonian differential equations
+$$
+\dot{x}_k = E_{y_k}, \dot{y}_k = - E_{x_k}, \; k = 1, \ldots, n,
+$$
+where $E = E(x,y,t)$ is a twice continuously differentiable function of the $2n+1$ variables $(x,y, t)$. Taking $f = \sum\limits^n_{k=1} \dot{x}_k y_k - E$ we can write this in the form 
+$$
+\wedge_{x_k} (f) \equiv - \dot{y}_k - E_{x_k} = 0, \; \wedge_{y_k} (f) \equiv \dot{x}_k - E_{y_k}  = 0, \; k =1, \ldots, n.
+$$\pageoriginale 
+Let $x_k = \varphi_k(\xi, \eta, t)$, $y_k = \psi_k(\xi, \eta, t)$ be a transformation of the variables $(\xi, \eta)$ to $(x,y)$, where $\varphi_k$, $\psi_k$ are twice continuously differentiable functions of all the variables $(\xi, \eta, t)$ with Jacobian $\dfrac{\partial (\varphi, \psi)}{\partial(\xi, \eta)} \neq 0$. If this is a canonical transformation, then there exists a twice continuously differentiable function $\mathbb{E} = \mathbb{E}(\xi, \eta, t)$ such that
+$$
+\wedge_{\xi_k} (f) = - \dot{\eta}_k - \mathbb{E}_{\xi_k}, \wedge_{\eta_k}(f) = \dot{\xi}_k - \mathbb{E}_{\eta_k}, k =1 , \ldots, n, 
+$$
+where $f$ is considered as a function of the variables $(\xi, \eta, \dot{\xi}, \dot{\eta}, t)$. Since the Lagrangian derivatives are invariant under a canonical transformation, this would imply that $\wedge_{\xi_k} (f) = 0$, $\wedge_{\eta_k} (f) = 0$, $k=1, \ldots,n$.
+
+Now suppose that the canonical transformation above:
+$x_k = \varphi_k(\xi,\break \eta, t)$, $y_k = \psi_k (\xi, \eta, t)$, is such that $\mathbb{E} (\xi, \eta, t) \equiv 0$; then the Hamiltonian differential equations take the trivial form $\dot{\xi}_k  = 0$, $\dot{\eta}_k =0$, which has a trivial solution $\xi_k = $ constant, $\eta_k = $ constant, $k=1, \ldots n$.
+
+We have constructed a canonical transformation starting from a\break `generating function', i.e. a twice continuously differentiable function $W = W(x, \eta, t)$ of the $2n+1$ variables $(x, \xi, t)$ with $|W_{x_k \xi_1}| \neq 0$. Then we have seen that $W$ satisfies the relation $\mathbb{E}(\xi, \eta, t) = E(x,y,t) + W_t$. Hence, in order that $\mathbb{E} (\xi, \eta, t) \equiv 0$ it is necessary and sufficient that $E(x,y,t) + W_t = 0$. We obtained the canonical\pageoriginale transformation by defining $y_k = W_{x_k}$. Then this condition becomes
+\begin{equation*}
+E(x, W_x, t) + W_t = 0,\tag{1.2.15}\label{chap1:eq1.2.15}
+\end{equation*}
+and this is the {\em Hamilton-Jacobi partial differential equation} satisfied by $W$. Thus, if the canonical transformation constructed from a generating function $W$ transforms the Hamiltonian differential equations into the trivial form $\dot{\xi}_k = 0$, $\dot{\eta}_k = 0$, $k=1, \ldots, n$, then $W$ satisfies the Hamilton-Jacobi partial differential equation.
+
+Conversely, suppose that $W$ satisfies the Hamilton-Jacobi partial differential equation; then we obtain a canonical transformation in the following way. Define $\eta_k = - W_{\xi_k}, y_k = W_{x_k}$. Since $|W_{\xi_k x_l}| = |W_{x_k \xi_1}| \neq 0$, we can solve the equation $\eta_k = - W_{\xi_k}$ locally and express $x_k$ as a function $\varphi_k(\xi, \eta, t)$ which, on substitution in $y_k = W_{x_k}$, gives $y_k = \psi_k(\xi, \eta, t)$. Moreover, since under this transformation $\mathbb{E}(\xi, \eta, t) = E(x,y,t)+ W_t = E(x, W_x, t) + W_t = 0$, it follows that the transformation thus obtained reduces the Hamiltonian system of differential equations into the trivial form $\dot{\xi}_k = 0$, $\dot{\eta}_k = 0$. 
+
+\section[Cauchy's theorem on the existence of solutions...]{Cauchy's
+  theorem on the existence of solutions of a system of ordinary
+  differential equations}\label{chap1:sec3} 
+
+Suppose that we are given $m$ real-valued functions $f_k = f_k (x_1, \ldots, x_m)$, $k =1 , \ldots, m$, of $m$ independent real variables $(x_1, \ldots, x_m)$ and $m$ real numbers $\xi_1, \ldots, \xi_m$. Let now $x_k = x_k(t)$ be $m$ real-valued functions of a real variable $t$ in some interval; denote\pageoriginale by $\dot{x}_k$ the derivative $\dfrac{d}{dt} x_k(t)$. We shall consider the system of ordinary differential equations
+$$
+\dot{x}_k = f_k (x_1, \ldots, x_m), \;k = 1, \ldots, m,
+$$
+in the $m$ unknown functions $x_k(t)$ taking the initial values $\xi_k$ at the point $t = \tau : x_k(\tau) = \xi_k$. It is well known that if $f_k$ are, for instance, H\"older continuous in a real neighbourhood of the point $(\xi_1, \ldots, \xi_m)$ in $m$-dimensional Euclidean space, then there exists a solution $x_k$ of the system of differential equations in a real neighbourhood of $\tau$, satisfying the initial condition $x_k(\tau) = \xi_k$. We shall consider the system of differential equations in the complex domain and seek complex solutions $x_k$. More precisely, let $\xi_1, \ldots, \xi_m$ be $m$ given complex numbers. We shall assume that the $f_k$ are complex valued regular analytic functions of $m$ independent complex variables $(x_1, \ldots, x_m)$ in a complex neighbourhood of $(\xi_1, \ldots, \xi_m)$:
+
+$|x_k - \xi_k| < r_k$, $r_k > 0$, $k = 1, \ldots, m$. To simplify the notation we shall assume that the $f_k$ are regular analytic functions in the region $|x_k - \xi_k| < r = \min (r_1, \ldots, r_m)$. Let us suppose further that there is a positive constant $C$ such that $|f(x_1, \ldots, x_m)| \leq C$ for $x$ in the region $|x_k - \xi_k| < r$. We shall prove the following existence theorem due to Cauchy. 
+
+\begin{theorem*} 
+If $f_k$ are regular analytic functions of $m$ complex variables $(x_1, \ldots, x_m)$ in a complex neighbourhood $|x_k - \xi_k| < r$ of the point $(\xi_1, \ldots, \xi_m)$ and $|f_k| \leq C$ in this region, then the system of differential equations
+\begin{equation*}
+\dot{x}_k = f_k (x_1, \ldots, x_m) , \; k=1, \ldots, m,\tag{1.3.1}\label{chap1:eq1.3.1}
+\end{equation*}\pageoriginale
+has a solution $x_k = x_k(t)$ in the complex neighbourhood
+\begin{equation*}
+|t - \tau| < r / (m+1) C\tag{1.3.2}\label{chap1:eq1.3.2}
+\end{equation*}
+of the point $\tau$, such that the $x_k(t)$ are regular analytic functions of the variable $t$ in this region with $x_k(\tau) = \xi_k$ and 
+$$
+|x_k (t) - \xi_k| < r, \;k = 1, \ldots, m
+$$
+in the region (\ref{chap1:eq1.3.2}).
+\end{theorem*}
+
+\begin{proof}
+The idea used by Cauchy is the following. One writes the $x_k$ as power-series with undertermined coefficients, inserts these into the differential equations (\ref{chap1:eq1.3.1}) and equates the coefficients on both sides; the coefficients of the power-series for $x_k$ are now determined and one then proves the convergence of the resulting power-series by the method of majorization. We shall first of all simplify the notation in the following way. Define new variables $x^*_1, \ldots, x^*_m$ and $t^*$ by means of the substitutions
+\begin{align*}
+x^*_k & = (x_k - \xi_k) / r, \; k =1 , \ldots, m; t^* = \frac{c}{r} (t-\tau),\\
+\text{i.e. } \qquad x_k & = rx^*_k + \xi_k, \quad \text{and} \quad t = \frac{r}{C} t^* + \tau. 
+\end{align*}
+
+Then $|x^*_k| < 1$ and $|t^*|<1/(m+1)$ for $(x_1, \ldots, x_m, t)$ in the region $|x_k - \xi_k|<r$ and $|t-\tau| < r / (m+1)C$. Now the system of differential equations (\ref{chap1:eq1.3.1}) becomes 
+$$
+c \frac{dx^*_k}{dt^*} = f_k (rx^*_1 + \xi_1 \ldots, rx^*_m + \xi_m).
+$$\pageoriginale
+Setting $f^*_k (x^*_1, \ldots, x^*_m) = \dfrac{1}{C} f_k(r x^*_1 + \xi_1, \ldots, rx^*_m+ \xi_m)$, this takes the form
+\begin{equation*}
+\frac{dx^*_k}{dt^*} = f^*_k(x^*_1, \ldots, x^*_m), \; k =1 ,\ldots, m, \tag{1.3.3}\label{chap1:eq1.3.3}
+\end{equation*}
+where $f^*_k$ are regular analytic functions of the new complex variables $(x^*_1, \ldots, x^*_m)$ in the region $|x^*_k| <1$ and further, $|f^*_k| \leq 1$ in this region. This is again of the form (\ref{chap1:eq1.3.1}). Now the statement of the theorem reads as follows: there exists a complex regular analytic solution $x^*_k = x^*_k(t^*)$ in the complex region $|t^*| < 1 /(m+1)$ of the system (\ref{chap1:eq1.3.3}) with the initial condition $x^*_k (0) = 0$ and with $|x^*_k (t^*)| <1$ for $|t^*| < 1 /(m+1)$. It is clear that every solution $x^*_k(t^*)$ of this problem gives a solution of the original problem (\ref{chap1:eq1.3.1}) and vice versa. Hence it is enough to consider the system (\ref{chap1:eq1.3.1}) in the situation in which $\xi_k = 0$, $\tau =0$, $f_k$ regular analytic in the complex region $|x_k| < 1$, and $|f_k| \leq 1$.
+
+We shall, first of all, construct a formal solution of the system (\ref{chap1:eq1.3.1}) with the initial condition $x_k (0) = 0$. Since we seek regular analytic solutions $x_k = x_k (t)$ with $x_k(0) =  0$, we shall consider the formal power-series
+\begin{equation*}
+x_k = x_k(t) = \sum\limits^\infty_{n=1} \alpha_{k,n} t^n, \tag{1.3.4}\label{chap1:eq1.3.4}
+\end{equation*}
+where the coefficients $\alpha_{k,n}$ are complex numbers, to be determined. We introduce the following notation in order to simplify the writing. If $\varphi = \sum\limits^\infty_{l=0} c_l t^l$\pageoriginale is a formal power-series in one variable with complex coefficients, for each integer $n \geq 0$ we shall denote the partial sum $\sum\limits^n_{l=0} c_l t^l$ by $\varphi_n$, and the coefficient of $t^n$ by $(\varphi)_n$. It is clear that $(\varphi_n)_n = (\varphi)_n$. Further, if $\psi $ is another formal power series, then we have $(\varphi \pm \psi)_n = \varphi_n\pm \psi_n$ and $(\varphi \psi)_n = (\varphi_n \psi_n)_n$. Since each $f_k$ is a complex regular analytic function of the variables $(x_1, \ldots, x_m)$, is has a power-series expansion with complex coefficients:
+\begin{equation*}
+f_k = \sum\limits^\infty_{l_1, \ldots, l_m = 0} \; a_{k,l_1 \ldots l_m}  x^{l_1}_1 \ldots x^{l_m}_m .\tag{1.3.5}\label{chap1:eq1.3.5}
+\end{equation*}
+For the moment we shall not be interested in the convergnece of this series. Substituting (\ref{chap1:eq1.3.4}) for $x_k(t)$ and $\sum\limits^\infty_{n=0} (n+1) \alpha_{k,n+1} t^n$ for $\dot{x}_k(t)$ in the differential equations $\dot{x}_k = f_k(x_1, \ldots, x_m)$ and comparing the coefficients of $t^n$ on the two sides, we obtain, using (\ref{chap1:eq1.3.5}),
+\begin{equation*}
+(n+1) \alpha_{k,n+1} = \sum\limits^\infty_{l_1 \ldots l_m =  0} a_{k,l_1\ldots l_m} (x^{l_1}_1 \ldots x^{l_m}_m)_n. \tag{1.3.6}\label{chap1:eq1.3.6}
+\end{equation*}
+We observe that the power-series for $x_k(t)$ contains  no constant term and consequently, there is no contribution to the term $t^n$ on the right side in (\ref{chap1:eq1.3.6}) if $l_1 + \ldots + l_m > n$; hence, for each $n$, the right side of (\ref{chap1:eq1.3.6}) contains only finitely many terms. Then, with the notation introduced earlier, (\ref{chap1:eq1.3.6}) becomes
+\begin{equation*}
+(n+1) \alpha_{k,n+1} = \sum\limits^\infty_{l_1 \ldots l_m = 0} a_{k, l_1 \ldots l_m} ((x_{1n})^{l_1} \ldots (x_{mn})^{l_m})_n\tag{1.3.7}\label{chap1:eq1.3.7}
+\end{equation*}
+
+This is\pageoriginale a recurrence formula for determining the coefficients $\alpha_{k,n}, k=1,\ldots,m$; $n=1,2,\ldots$. We show now by induction on $n$ that the $\alpha_{k,n}$ are polynomials in $a_{r,l_1 \ldots l_m}$ with non-negative rational coefficients. In fact, we have $\alpha_{k,1} = a_{k,0\ldots 0}$ for $k=1,\ldots , m$, so that we can start the induction. Suppose that $\alpha_{k,1}, \ldots, \alpha_{k,n}$, $k = 1, \ldots, m$, have already been determined as polynomials in $a_{r,l_1\ldots l_m}$ with non-negative rational coefficients. Since each $x_{k,n} = \sum\limits^n_{q=1} \alpha_{k,q} t^q$, and $l_1, \ldots, l_m$ are non-negative integers, it follows that $((x_{1n})^{l_1} \ldots (x_{mn})^{l_m})_n$ is a polynomial in $a_{r,p_1, \ldots, p_m}$ and hence, by (\ref{chap1:eq1.3.7}), so is $\alpha_{k,n+1}$. Thus the coefficients $\alpha_{k,n}$ in the formal power-series expansion (\ref{chap1:eq1.3.4}) for $x_k$ are determined.
+
+Next we shall prove the convergence of the formal power-series (\ref{chap1:eq1.3.4}) for $x_k = x_k(t)$. For this we make use of the method of majorants and this idea is due to Cauchy. Suppose that
+$$
+f = \sum\limits^\infty_{l_1 \ldots l_m = 0} a_{l_1 \ldots l_m} x^{l_1}_1 \ldots x^{l_m}_m , \; g = \sum\limits^\infty_{l_1 \ldots l_m = 0} b_{l_1 \ldots l_m} x^{l_1}_1 \ldots x^{l_m}_m
+$$
+are two formal power-series in $m$ variables with the coefficients $a_{l_1 \ldots l_m}$ complex and $b_{l_1 \ldots l_m}$ non-negative real numbers. We shall say that $f$ {\em is majorized by $g$} (or $g$ is a {\em majorant} of $f$) if
+$$
+|a_{l_1 \ldots l_m}| \leq b_{l_1 \ldots l_m} , \; l_1, \ldots, l_m = 0, \; 1, \ldots
+$$
+and we denote this by $f \prec g$ or $g  \succ f$. If $f_k$ and $g_k$ are formal power-series\pageoriginale with $f_k \prec g_k$, then the system of differential equations 
+$$
+\dot{y}_k = g_k(y_1, \ldots, y_m) , \; k = 1, \ldots, m,
+$$
+where $g_k = \sum\limits^\infty_{l_1 \ldots l_m = 0} b_{k,l_1\ldots l_m} y^{l_1}_1 \ldots y^{l_m}_m$, is called a {\em majorant system}. This system of differential equations with the initial condition $y_k(0) = 0$, $k=1, \ldots, m$, can be solved as above and one obtains a formal solution $y_k(t)$ in a formal power-series in one variable $t$:
+$$
+y_k(t) = \sum\limits^\infty_{n=1} \beta_{k,n} t^n, \; k = 1, \ldots , m.
+$$
+Once again the coefficients $\beta_{k,n}$ are determined by means of the recurrence formula
+\begin{equation*}
+(n+1) \beta_{k,n+1} = \sum\limits^\infty_{l_1 \ldots l_m = 0} b_{k,l_1\ldots l_m} ((y_{1n})^{l_1} \ldots (y_{mn})^{l_m})_n. \tag{1.3.8}\label{chap1:eq1.3.8}
+\end{equation*}
+As before one can show by induction that the $\beta_{k,n}$ are polynomials in $b_{r, l_1 \ldots l_m}$ with non-negative rational coefficients. Since $b_{r, l_1 \ldots l_m}$ are themselves non-negative, we see that the $\beta_{k,n}$ are non-negative.
+
+Now we shall show that if $y_k= y_k (t)$ is a solution of a majorant system
+\begin{equation*}
+\dot{y}_k = g_k(y_1, \ldots, y_m), \; k = 1 , \ldots , m, \tag{1.3.9}\label{chap1:eq1.3.9}
+\end{equation*}
+of the system (\ref{chap1:eq1.3.1}), with initial conditions $y_k(0)=0$, then $x_k \prec y_k$, $k=1, \ldots, m$, as power-series in the variable $t$. In other words, we show that 
+\begin{equation*}
+|\alpha_{k,n}| \leq \beta_{k,n}, \; k =1 , \ldots, m; \; n = 1, 2, \ldots \tag{1.3.10}\label{chap1:eq1.3.10}
+\end{equation*}\pageoriginale 
+This is done by induction on $n$. Since for $n=1$ we have
+$$
+|\alpha_{k,1}| = |a_{k,0\ldots 0}| \leq b_{k, 0 \ldots 0} = \beta_{k,1}, 
+$$
+we can start the induction. Suppose that (\ref{chap1:eq1.3.10}) has been proved for $n=1, \ldots, q$; then by the recurrence formulas (\ref{chap1:eq1.3.7}) and (\ref{chap1:eq1.3.8}) we have
+\begin{align*}
+(q+1) |\alpha_{k, q+1}| & = |\sum\limits^\infty_{l_1 \ldots l_m = 0} a_{k,l_1 \ldots l_m} ((x_{1q})^{l_1} \ldots (x_{mq})^{l_m})_q| \\
+& \leq \sum\limits^\infty_{l_1 \ldots l_m = 0} |a_{k,l_1 \ldots l_m}| \; |((x_{1q})^{l_1} \ldots (x_{mq})^{l_m})_q|\\
+& \leq \sum\limits^\infty_{l_1 \ldots l_m =0} b_{k,l_1 \ldots l_m} ((y_{1q})^{l_1} \ldots (y_{mq})^{l_m})_q\\
+& = (q+1) \beta_{k,q+1} .
+\end{align*}
+This proves the assertion that $x_k \prec y_k$, $k=1, \ldots m$.
+
+Thus, in order to prove that the $x_k(t)$ are regular analytic functions of the variable $t$, it is enough to determine a suitable majorant system of differential equations (\ref{chap1:eq1.3.9}) and solve it for $y_k(t)$, with initial condition $y_k(0) = 0$, as a power-series convergent in some region. This is done in the following way. If $f_k$ are regular analytic functions of the complex variables $x_1, \ldots, x_m$ in a complex region $|x_k| < r_k$, $k=1, \ldots, m$, then by  Cauchy's integral formula we have
+$$
+a_{k, l_1 \ldots  l_m} = \frac{1}{(2\pi i)^m} \int\limits_{C_1} \ldots \int\limits_{C_m} \frac{f_k (x_1, \ldots , x_m)}{x^{l_1 + 1}_1 \ldots x^{l_m+1}_m} dx_1 \ldots dx_m,
+$$\pageoriginale
+where $C_k$ denotes the circle $|x_k| = \rho_k < r_k$, $k = 1, \ldots,
+m$. If $|f_k (x_1, \ldots,\break x_m)| \leq M$, then it follows that 
+$$
+|a_{k,l_1 \ldots l_m}| \leq M/ \rho^{l_1}_1 \ldots \rho^{l_m}_m, l_1, \ldots , l_m = 0, 1,2, \ldots 
+$$ 
+Since in our case $M=1$ and $r=1$, we have $|a_{k,l_1 \ldots l_m}| \leq 1$ for all $l_1, \ldots, l_m = 0,1,2, \ldots$. Hence we choose $b_{k,l_1 \ldots l_m} =1$ for $k=1, \ldots,m$ and all $l_1, \ldots, l_m = 0,1,2 \ldots$. Thus for each $g_k$, $k =1,\ldots, m$, we take the power-series 
+$$
+\sum\limits^\infty_{l_1, \ldots, l_m = 0} y^{l_1}_1 \ldots y^{l_m}_m,
+$$
+which is the product of $m$ geometric series with sum 
+$$\dfrac{1}{(1-y_1) \cdots (1-y_m)}.$$ 
+This is independent of $k$ and hence a majorant system for (\ref{chap1:eq1.3.1}) is given by 
+$$
+\dot{y}_k = \frac{1}{(1-y_1) \ldots (1-y_m)}, \; k = 1, \ldots , m,
+$$
+with the initial condition $y_k (0) = 0$. A solution of this system is given by the solution $y_1 = \ldots = y_m = y = y(t)$ of the single differential equation
+$$
+\dot{y} (t) = 1/ (1-y)^m, 
+$$
+with the\pageoriginale initial condition $y(0) = 0$; integrating this we get 
+$$
+y(t) = 1 - (1-(m+1) t)^{\frac{1}{m+1}}.
+$$
+Expanding the right side as a binomial series we get
+$$
+y(t) = \sum\limits^\infty_{n=1} \begin{pmatrix}
+\frac{1}{m+1} \\
+n
+\end{pmatrix} (-1)^{n-1} (m+1)^n t^n.
+$$
+The coefficients in this expansion are all positive and the power-series converges for $|t| < 1 / (m+1)$. Since $y_k \succ x_k$, this proves that the power-seris (\ref{chap1:eq1.3.4}) for $x_k(t)$ converges for $|t| < 1/(m+1)$, so that the $x_k(t)$ are regular analytic functions in this region of the complex $t$-plane.
+
+It now remains only to show that $|x_k(t)| <1$ in the region $|t| < 1/(m+1)$. This is an immediate consequence of the fact that for $|t|<1 /(m+1)$, we have
+$$
+|x_k(t)| \leq y(|t|) = 1 - (1-(m+1)|t|)^{\frac{1}{m+1}} < 1. 
+$$
+This completes the proof of the theorem.
+
+We have so far assumed that the $f_k$ do not contain the variable $t$ explicitly. However, the case in which the $f_k$ are regular analytic functions of the $m+1$ complex variables $(x_1, \ldots, x_m, t)$ in the neighbourhood $|x_k - \xi_k| < r, |t-\tau| < r$ of the point $(\xi_1, \ldots, \xi_m,t)$ can be covered as follows. We take $x_{m+1} =t$ and consider the system of $m+1$ differential equations
+\begin{align*}
+& \dot{x}_k  =  f_k(x_1, \ldots, x_m, x_{m+1}), \; k=1, \ldots, m, \\
+& \dot{x}_{m+1} = 1,
+\end{align*}\pageoriginale
+with initial conditions $x_k(\tau) = \xi_k, k = 1, \ldots, m$, and $x_{m+1} (\tau) = \tau$. Thus we obtain Cauchy's theorem in this more general case also.
+
+For our applications to Celestial Mechanics we need consider only a real variable $t$. Let us suppose that $\tau, \xi_1, \ldots, \xi_m$ are $m+1$ real numbers and that the $f_k$ are real:
+$$
+f_k = \sum\limits^\infty_{l_1 \ldots l_m = 0} a_{k, l_1 \ldots l_m} x^{l_1}_1 \ldots x^{l_m}_m,
+$$
+with the coefficients $a_{k,l_1 \ldots l_m}$ real; then by the recurrence formula (\ref{chap1:eq1.3.7}), the coefficients $\alpha_{k,n}$ in the power-series expansion $x_k(t) = \sum\limits^\infty_{n=0} \alpha_{k,n} (t-\tau)^n$ of the solution of the system of equations (\ref{chap1:eq1.3.1}) with initial condition $x_k(\tau) = \xi_k$, being polynomials in $a_{r, l_1 \ldots l_m}$ with non-negative coefficients, are themselves real.
+
+Consider the half-open interval $t_1 \leq t < t_2$ and suppose  that $x_k = x_k(t)$ are real-valued regular analytic functions of the variable $t$ in this interval. We have therefore a regular analytic curve in $m$-dimensional Euclidean space. Assume that $f_k = f_k(x_1, \ldots, x_m)$ are regular analytic functions in a bounded closed point set $D$ of $m$-dimensional Euclidean space containing this curve $x(t)$, $t_1 \leq t < t_2$ and suppose that the functions $x_k = x_k (t)$ satisfy the differential equations $\dot{x}_k = f_k (x_1, \ldots, x_m)$ in the interval $t_1 \leq t < t_2$. Then we claim\pageoriginale  that the solutions $x_k(t)$ of the system (\ref{chap1:eq1.3.1}) which are regular analytic in the interval $t_1 \leq t < t_2$ can be continued analytically as anlytic functions regular also at $t=t_2$. This can be proved in the following way.
+\end{proof}
+
+For every point $(\xi_1, \ldots, \xi_m)$ of $D$ there exists a complex neighbourhood $|x_k - \xi_k| < r_k$, $k =1 , \ldots, m$, in which $f_k$ is a regular analytic function of the $m$ complex variables $(x_1, \ldots, x_m)$. As $(\xi_1, \ldots, \xi_m)$ runs through the point set $D$ such neighbourhoods cover $D$. The union of all these neighbourhoods is an open point set $F$. Then by the idea of the proof of the Heine-Borel theorem we can choose a sufficiently small positive number $r$ such that a finite union $G$ of the neighbourhoods $|x_k - \xi_k| \leq r$, $k=1, \ldots, m$ contains $D$ and is contained in $F$. Since $G$ is closed and bounded and the $m$ functions $f_k$ are regular analytic everywhere on $G$, it follows that each $f_k$ is bounded on $G$. Therefore we can assume that $|f_k| \leq C$ in the region $|x_k - \xi_k| \leq r$, $k=1, \ldots, m$, where $C$ is a positive constant independent of the point $\xi$ in $D$.
+
+Now take any real number $\tau$ in the interval $t_1 \leq t < t_2$. Then by Cauchy's existence theorem there exists a regular analytic solution $x^*(t) = (x^*_1(t), \ldots, x^*_m(t))$ in the complex region $|t-\tau| < r/ (m+1) C$, taking the initial values $x^*_k(\tau) = \xi_k$. If we now take $\tau$ in $t_1 \leq t < t_2$ such that $|t_2 -\tau| < r / (m+1) C$ and $\xi_k = x_k(\tau)$, then it follows that the solution $x^*_k(t)$ is regular analytic at $t=t_2$, $k =1 , \ldots, m$. Since $x_k(t)$ and $x^*_k(t)$ are regular analytic functions of the variable $t$ in the\pageoriginale (connected) region $|t-\tau| < r / (m+1) C$, $\tau \leq t < t_2$, and $x_k(\tau) = \xi_k = x^*_k(\tau)$, we conclude that $x_k(t) = x^*_k(t)$ for all $t$ in this region. This shows that $x_k(t)$ can be continued analytically on the real interval $\tau \leq t \leq t_2$ so as to be regular at $t = t_2$. 
+
+In the following we shall be interested in applying the Cauchy existence theorem to a Hamiltonian system of differential equations. We observe that in this case the functions $f_k$ in the system $\dot{x}_k = f_k (x_1, \ldots, x_m)$, $k = 1, \ldots, m$, are obtained starting from a single function $E = E(x,y,t)$ which is twice ontinuously differentiable in all its variables $(x,y,t)$. (We have used the obvious notation $m=2n$ and $x_1, \ldots, x_m$ stand for the $2n$ independent variables $x,y$). In fact, the functions $f_k$ are the derivatives $E_{y_k}$ and - $E_{x_k}$, and so in order to apply the Cauchy existence theorem we need estimates for - $E_{x_k}$ and $E_{y_k}$. If the function $E$ is a regular analytic function of its variables $(x,y,t)$ in some complex region and is bounded by a constant $M$ there, then one can obtain a bounded $C$ for $E_{x_k}$ and $E_{y_k}$ in terms of $M$ by using the Cauchy integral formula. Since the domain of existence of the solution depends on this constant $C$, it follows that this domain can be determined in terms of $M$ itself in our case. 
+
+In order to make this more precise we begin with the following remark. Let $f(x)$ be a regular analytic function of are complex variable in the disc $|x|<r$ and let $|f(x)| \leq C$ in $|x| <r$. If $\xi$ is any point in the disc, then by the Cauchy integral formula we have
+$$
+f'(\xi) = \frac{1}{2\pi i} \int\limits_\Gamma \frac{f(x)}{(x-\xi)^2} dx,
+$$\pageoriginale
+where $\Gamma$ is a simple closed curve around $\xi$ and contained in the disc $|x| <r$. We however assume now that $f$ is regular analytic in a larger disc $|x|<2r$ and restrict ourselves to points $\xi$ in the closed disc $|\xi| \leq r$. We take for the curve $\Gamma$ the circle $|x-\xi| = \rho$ where $0 <\rho < r$. Then we get, from the formula above, the estimate $|f'(\xi)| \leq C/r$.
+
+Now we take $m=2n$ and the $2n$ variables $(x,y) = (x_1, \ldots, x_n, y_1,\break \ldots, y_n)$. Let $\xi_k$, $\eta_k$, $k=1, \ldots,n$, be $2n$ given complex constants. Suppose that $E = E(x,y)$ is a regular analytic function of the $2n$ complex variables $(x,y)$ in the region $|x_k - \xi_k| < 2r$, $|y_k - \eta_k| < 2r$, $k=1, \ldots, n$, and is independent of the variable $t$. Then, by the remarks  made above, considering $E$ as a function of the variables $x_k$ and $y_k$ in turn, it follows immediately that for all points $(x,y)$ in the region $|x_k - \xi_k| \leq r,|y_k -\eta_k| \leq r, k=1,\ldots,n$, we have the estimates $|Ey_k(x,y)| \leq C/r$, $|-E_{x_k}(x,y)| \leq C/r$. Consequently, by the existence theorem we see that if $\tau$ is a given complex number, then there exists a regular analytic solution $x_k = x_k (t)$, $y_k = y_k (t)$ of the Hamiltonian system of equations $\dot{x}_k = E_{y_k}$, $\dot{y}_k = - E_{x_k}$, $k=1, \ldots, n$, in the complex neighbourhood $|t-\tau| <r^2 / (m+1)C$ and that the initial conditions $x_k(\tau) = \xi_k, y_k(\tau) = \eta_k$ are satisfied and $|x_k(t) - \xi_k| <r$, $|y_k(t) -\eta_k| <r$, $k=1, \ldots,n$.
+
+
+We remark\pageoriginale that the case in which $E$ is a regular analytic function of all the $2n+1$ variables $(x,y,t)$ can be considered exactly in the same way by taking $t$ to be the $(2n+1)^{\rm th}$ variable $z$ and the system of $2n+1$ differential equations
+$$
+\dot{x}_k = E_{y_k}, \dot{y}_k = - E_{x_k}, k = 1, \ldots, n , \dot{z} =1,
+$$
+with the initial conditions $x_k(\tau) = \xi_k$, $y_k(\tau) = \eta_k$ and $z(\tau) = \tau$. The remark on the continuation of the solution to the right-hand end-point of a real $t$-interval we made earlier is valid in this case also.
