@@ -578,8 +578,8 @@ The usual sheaf-theoretic proof of de Rham's theorem will apply if we can prove 
 \begin{lemma}\label{art4-lem2.20}
 The sheaf sequences on $V$
 \begin{align*}
-& 0 \;  \to  \; C \; \to \; \sW^0 \; {\displaystyle{\mathop{\rightarrow}^d}} \; \sW^1 \; {\displaystyle{\mathop{\rightarrow}^d}} \; \sW^2  \; \to  \; \ldots \\
-& 0 \; \to \; \Omega^p_V \; \to \; \sW^p \; {\displaystyle{\mathop{\rightarrow}^{\bar{\partial}}}} \; \sW^{p,l} \; {\displaystyle{\mathop{\rightarrow}^{\bar{\partial}}}} \; \sW^{p,2} \; \to 
+& 0 \;  \to  \; C \; \to \; \sW^0 \; {\displaystyle{\mathop{\longrightarrow}^d}} \; \sW^1 \; {\displaystyle{\mathop{\longrightarrow}^d}} \; \sW^2  \; \to  \; \ldots \\
+& 0 \; \to \; \Omega^p_V \; \to \; \sW^p \; {\displaystyle{\mathop{\longrightarrow}^{\bar{\partial}}}} \; \sW^{p,l} \; {\displaystyle{\mathop{\longrightarrow}^{\bar{\partial}}}} \; \sW^{p,2} \; \to 
 \end{align*}
 are exact.
 \end{lemma}
@@ -847,6 +847,7 @@ With this lemma, the comparison of the metrics in \eqref{art4-lem3.19} can now b
 (c)~ \textit{Period matrices.} In his book \cite{art4-key30} on harmonic integrals, Hodge phrased his results on the cohomology of K\"ahler manifolds in the language of \textit{period matrices}. For some questions, such as computations of specific examples, it is useful to be able to think in this way, and so we shall give a brief ``dictionary'', relating the preceding discussion to the language of period matrices. This description\pageoriginale of Hodge structures will be used in \S \S 8, 9 below. We conclude this section with a proof of the theorem of the regularity of the connection on the Hodge bundles.
 
 Let us consider a polarized Hodge structure $\{H^{p,q}\}$ of weight $m$ on the vector space $H$, with polarization form $Q$. Once and for all, we assume that $H^{p.q} =0$ unless $p, q \geqslant 0$. Also to simplify the discussion, we shall limit ourselves mainly to the case when $m =2$, with only some parenthetical remarks about the general case. Under these hypotheses, the Hodge filtration has length 2:
+\setcounter{equation}{23}
 \begin{equation}
 H = F^0 \supset F^1 \supset F^2 \supset 0. \label{art4-eq3.24}
 \end{equation}
@@ -902,10 +903,533 @@ It may be possible to find a holomorphic frame $\{\sigma_1, \ldots, \sigma_r\}$ 
 \end{equation}
 Equivalently, we may think of $\Omega (s)$ as a \textit{multiple-valued} function on $S$.
 
-We shall use the language of period matrices to sketch a proof of the theorem on regular singular points. Let $\pi : X \to \Delta^\ast$  be a family of polarized algebraic manifolds over the punctured disc $\Delta^\ast = \{z \in \bC | 0 < |z| < 1\}$, 
+We shall use the language of period matrices to sketch a proof of the theorem on regular singular points. Let $\pi : X \to \Delta^\ast$  be a family of polarized algebraic manifolds over the punctured disc $\Delta^\ast = \{z \in \bC | 0 < |z| < 1\}$,\pageoriginale which can be continued to a family $\pi :X \to \Delta$ over the entire disc $\Delta$, by inserting a possibly  singular fibre over the origin. For any $m$ between 0 and the fibre dimension, we consider the period mapping $f : S \to M = \Gamma / D$ which corresponds to the $m$-th primitive cohomology groups.
 
-%%%%% 66
+\setcounter{theorem}{30}
+\begin{theorem}\label{art4-lem3.31}
+(Regular singular points):\footnote[17]{The theory of differential equations with regular singular points arising in algebraic geometry is discussed extensively in \cite{art4-key15} where several different proofs of the regularity theorem are given.} The period mapping can be represented by holomorphic, multiple valued period matrices $\{t \in \Delta^\ast\}$, which satisfy the estimate
+$$
+||\Omega_{k} (t) || \leqslant C |t|^{-\mu}
+$$
+in the slit disc $0< \arg t < 2\pi$.
+\end{theorem}
 
+\begin{remark*}
+For a more concrete statement of the theorem, one should mention which choice of a holomorphic frame of the bundles $\bF^p \to \Delta^\ast$ gives period matrices with this property. This will be done in the course of the argument.
+\end{remark*}
+
+\medskip
+\textsc{Sketch of Proof.} We will discuss how one proves the theorem for $m = 2$, \ie for the periods of the holomorphic two-forms, referring to the reference cited in footnote (17) for the general argument. Our proof will be analytic, but it is worthwhile remarking that a purely algebraic argument has been found by Katz \cite{art4-key31}.
+
+By assumption, there is a projective embedding $X \subset \bP^N$. Standard arguments involving the Lefschetz theorem allows us to replace $V_t = \pi^{-1} (t)$ by a surface lying in $V_t$\footnote[18]{The point is that, if $\dim V_t=n$, and if $S_t = V_t \cap \bP^{n-2}$ is a generic intersection, then there is an injection
+$$
+H^2 (V_t, \bQ) \hookrightarrow H^2 (S_t, Q)
+$$}, and so we shall assume that the $V_t$ are algebraic surfaces. A generic projection $X \to \bP^3$ will now realize the $V_t$ as hypersurfaces in $\bP^3$ given by a  single polynomial equation of fixed degree $\delta$
+\setcounter{equation}{31}
+\begin{equation}
+P(x, y, z; t) = 0, 
+\label{art4-eq3.32}
+\end{equation}
+where the coefficients of $P$ are holomorphic functions of $t \in \Delta$. For this, we may have to shrink the disc $\Delta$. The arguments given by Landman \cite{art4-key35} show that we may assume that the surface \eqref{art4-eq3.32} has at most\pageoriginale \textit{ordinary singularities} for $t \neq 0$.\footnote[19]{Families of surfaces with ordinary singularities are discussed in Appendix Ii to [19].} The holomorphic 2-forms on $V_t$ are given by 
+\begin{align*}
+\omega = \frac{Q (x, y, z; t) dx \wedge dy}{\frac{\partial P}{\partial x} (x, y, z ; t)}
+\end{align*}
+where $Q (x, y, z ; t)$ is a polynomial of degree $\delta - 4$ vanishing on the double curve of $V_t$\footnote[20]{This is classical; \cf the reference cited in footnote (19).} Since $\dim H^{2,0} (V_t)$ is constant, if follows that we may choose a basis
+\begin{equation}
+\omega_j (t) = \frac{Q_j (x, y, z; t ) dx \wedge dy}{\frac{\partial P}{\partial z} (x, y, z ; t)}
+\label{art4-eq3.33}
+\end{equation}
+for $H^{2,0} (V_t)$, where the $Q_j (x, y, z; t)$ are polynomials of degree $\delta - 4$ whose coefficients are holomorphic functions of $t$ in the whole disc $\Delta$, again possibly after shrinking $\Delta$. We may think of the $\omega_j(t)$ as an \textit{algebraic framing} for the vector bundle $\bF^2 \to \Delta^\ast$. In more sheaf-theoretic terms, the $\omega_j (t)$ are rational sections of the \textit{coherent sheaf} over $\Delta$,
+$$
+R^0_{f_\ast} (\Omega^2_{X/\Delta})
+$$
+which give a basis for each fibre $R^0_{f_\ast} (\Omega^2_{X/\Delta})_t (t \neq 0)$. It is this latter language which forms the natural setting for the generalization of our argument to Hodge structures of arbitrary weight.
+
+Now choose a basis $e_1, \ldots e_{2r+s}$ for the primitive part of $H_2 (V_{t_0}, \bQ)$. The cycles $e_i$ displace in a multiple-valued fashion to give cycles $e_i(t)$ all fibres $V_t (t \neq 0)$. Moreover, by considering the ``collapsing map''
+$$
+V_t \to V_0,
+$$
+the cycles $e_i (t)$ will tend to cycles $e_i (0)$ on $V_0$, and during this process the \textit{volumes} of the $e_i(t)$ will remain \textit{bounded} (\cf the explicit description of the $e_i(t)$ given by Landman \cite{art4-key35}). It is now clear that the integrals\pageoriginale satisfy the estimate
+$$
+\int\limits_{e_i (t)} \omega_j (t) = 0 (|t|^{-\mu})
+$$
+on any section $0 < \arg t < 2\pi$. The period matrix
+$$
+\Omega (t) = \left(\int_{e_i (t)} \omega_j (t) \right)
+$$
+describes the period mapping, and so we have proved the theorem.
+
+\section{Varieties with normal crossings.}\label{art4-sec4}
+As was mentioned in the introduction, Deligne has put functorial mixed Hodge structures on the complex cohomology groups of a projective variety \cite{art4-key14}. The construction involues a substantial amount of homological algebra. However, the mixed Hodge structures can be described very concretely in one special case, namely that of a variety with normal crossings. According to Hironaka \cite{art4-key29}, a suitable modification of an arbitrary variety has this form. For many applications, the knowledge of the general existence theorem, together with the concrete description in the case of a variety with normal crossings, suffices already.
+
+(\textsc{Added in Proof}: Recent notes by M. Anderson at the I.A.S. give a proof of Deligne's general result, extending the methods of this section.)
+
+Thus we consider a compact analytic space  $V$, which can be realized locally as a union of coordinate hyperplanes
+\setcounter{equation}{0}
+\begin{equation}
+\{(z_1 \ldots z_{n+1}) \in \bC^{n+1} | z_1 \cdot z_2 \cdot \ldots \cdot z_k = 0,  \; |z_i| < \epsilon \}. 
+\label{art4-eq4.1}
+\end{equation}
+We assume moreover that globally $V = D_1 \cup \ldots \cup D_N$, where the $D$ are compact K\"ahler manifolds meeting transversely, as in \eqref{art4-eq4.1}.
+
+\setcounter{proposition}{1}
+\begin{proposition}\label{art4-prop4.2}
+On $H^\ast (V, \bC)$, there exists a mixed Hodge structure, which is functorial for holomorphic mappings between compact analytic spaces satisfying the above two conditions.
+\end{proposition}
+
+As a corollary to the proof, we will find that the weight filtration on $H^m (V, \bC)$ has the form 
+$$
+\{0\} \subset W_0 \subset W_1 \subset \ldots \subset W_{m-1} \subset W_m  = H^m (V, \bC); 
+$$
+in particular,\pageoriginale $h^{p,q} (H^m (V, \bC)) =0$ unless $p, q \geqslant 0$ and $p+q \leqslant m$. The same restrictions apply to the mixed Hodge structures on the cohomology of a general projective variety.
+
+The proof will be given in several steps.
+
+\textsc{Step One.} We recall the spectral sequence of a double complex \cite{art4-key17}. Let $A^{\ast \ast} = \oplus_{p,q \geqslant 0} A^{p,q}$ be a bigraded vector space and assume given
+\setcounter{equation}{2}
+\begin{equation}
+\left.
+\begin{aligned}
+& d : A^{p,q} \to A^{p+1, q}, d^2 = 0\\
+&  \delta : A^{p,q} \to A^{p, q+1} , \delta^2 =0\\
+& d \delta +\delta d = 0.
+\end{aligned} 
+\right\}
+\label{art4-eq4.3}
+\end{equation}
+Then one may consider the total differential $D = d + \delta : A^k \to A^k$, where $A^k = \oplus_{p+q = k} A^{p,q}$. There is a spectral sequence $\{E^{p,q}_r\}$ with
+\begin{equation}
+\left.
+\begin{aligned}
+E_1 & = H^\ast_d (A^{\ast \ast}); \\
+E_2 & = H^\ast_{\delta} (H^\ast_d (A^{\ast \ast}));\\
+d_1 & = \delta; \text{ and }\\
+E_\infty & = H^\ast_D (A^{\ast \ast}).
+\end{aligned}
+\right\}
+\label{art4-eq4.4}         
+\end{equation}
+
+Here the filtration on $H^\ast_D (A^{\ast\ast})$, with associated graded $E_\infty$, is induced from the filtration $W_n = \oplus_{p \leqslant n} A^{p^\ast}$, on $A^{\ast\ast}$
+
+\medskip
+\textsc{Step two.} For each index set $I = \{i_1, \ldots, i_q\} \subset \{1, \ldots, N\}$ we set
+\begin{align*}
+D_I & = D_{i_1} \cap \ldots \cap D_{i_q},\\
+|I| & = q , \\
+ D^{[q]} & = \bigsqcup_{|I| = q} D_I \quad  \text{ (disjoint union)}.
+\end{align*}
+Each $D^{[q]}$ is a compact K\"ahler manifold, and we define
+$$
+A^{p,q} = A^p (D^{[q]}),
+$$
+where $A^\ast (D^{[q]})$ is the usual de Rham complex. A form $\varphi \in A^{p,q}$ may be written as 
+$$
+\varphi = \sum\limits_{|I| = q} \varphi_I ;
+$$
+$\varphi_I \in A^\rho (D_1)$ is the ``value'' of $\varphi$ on $D_1$. Define
+\begin{align*}
+& d : A^{p,q} \to A^{p+1,q} (d = \text{ exterior derivative}), \text{ and }\\
+& \delta : A^{p,q} \to A^{p,q+1}
+\end{align*}\pageoriginale 
+by the formula 
+\setcounter{equation}{4}
+\begin{equation}\label{art4-eq4.5}
+\left. (\delta \varphi)_{(j_1 \ldots j_{q+1})} = \sum^q_{l=1} (-1)^l \varphi_{(j_1 \ldots \hat{j}_l \ldots j_{q+1})}  \right|_{D (j_1 \ldots j_{q+1})}  
+\end{equation}
+The properties \eqref{art4-eq4.3} are immediate, and so $\{A^{\ast\ast}, d, \delta\}$ is a double complex.
+
+\setcounter{lemma}{5}
+\begin{lemma}\label{art4-lem4.6}
+(de Rham theorem for $V$): $H^\ast_D (A^{\ast\ast}) \cong H^\ast (V,C)$.
+\end{lemma}
+
+\begin{proof}
+There are obvious sheaves $\sA^{p,q}$ on $V$ with $\Gamma (V, \sA^{p,q}) = A^{p,q}$ and where $H^r (V, \sA^{p,q}) = 0$ for $r >0$ (partition of unity). Setting $\sA^n = \oplus_{p+q=n} \bA^{p,q}$ we consider the complex of sheaves
+$$
+0 \; \to \; \bC_V  \; \to  \; \sA^0 \; {\displaystyle{\mathop{\longrightarrow}^D}} \; \sA^1  \; {\displaystyle{\mathop{\longrightarrow}^D}} \; \sA^2 \; \to \; \ldots
+$$
+The usual sheaf-theoretic proof of the de Rham theorem on manifolds will apply if we can prove the \textit{Poincar\'e lemma} for $D$.
+
+This may be done directly, or deduced from the spectral sequence of a double complex as follows: Let $A^{p,q} (U) = \Gamma (U, \sA^{p,q})$, where $U$ is the open set \eqref{art4-eq4.1} on $V$. By the usual $d$-Poincar\'e lemma
+\begin{align*}
+& H_d (A^{p,q}) = 0, \quad p > 0.\\
+& H_d (A^{o,q}) \cong H^0 \; (q-\text{fold intersections}).
+\end{align*}
+In the spectral sequence for $\{A^{p,q} (U), d, \delta\}$,
+\begin{align*}
+& E^{p,q}_1 = 0, \quad p>0,\\
+& E^{0,q}_1 \cong \bC^{(^n_q)}. 
+\end{align*}
+The $d_1 \map \delta : E^{0,q}_1 \to E^{0,q+1}_1$ is given by the same formula as occurs in the coboundary operator of a simplex, and consequently
+\begin{align*} 
+E^{p,q}_2 & = 0 \textit{ if } p + q > 0,\\
+E^{0,0}_2 & \cong \bC \cong H^0 (U,\bC).
+\end{align*}
+Thus $E_2 = E_\infty$ and we have the Poincar\'e lemma for $D$.
+\end{proof}
+
+\medskip
+\textsc{Step three.} Returning to the global case, we define a \textit{weight filtration} $w_n$ and \textit{Hodge filtration} $F^p$ on $A^{\ast\ast}$ by
+\begin{equation}
+\left.
+\begin{aligned}
+W_n & = \oplus_{r\leqslant n} A^{r \cdot \ast},\\
+F^p & = \oplus_{r,s} F^p (A^{r,s}). 
+\end{aligned}
+\right\} \label{art4-eq4.7}
+\end{equation}\pageoriginale
+associated graded of the weight filtration on $H^\ast_D(A^{\ast\ast})$ is the $E_\infty$ term in the spectral sequence of a double complex. Thus proposition \eqref{art4-prop4.2} will follow from the
+
+\setcounter{lemma}{7}
+\begin{lemma}\label{art4-lem4.8}
+The Hodge filtration \eqref{art4-eq4.7} induces a Hodge structure of pure weight $m$ on $E^m_\infty$ in the spectral sequence of $(A^{\ast\ast}, d, \delta)$.
+\end{lemma}
+
+Referring to \eqref{art4-eq4.4} the $E_1$ term is 
+$$
+E^m_1 \cong \oplus_q H^m (D^{[q]}),
+$$
+and consequently has a Hodge structure of pure weight $m$ induced by the Hodge filtration \eqref{art4-eq4.7}. The $d_1$ map is
+$$
+\delta : E^n _1 \to E^n_1
+$$
+and, by \eqref{art4-eq4.5} is a morphism of Hodge structures of pure weight $m$. Thus by Corollary \eqref{art4-cor1.15} the $E^m_2$ term has a Hodge structure of pure weight $m$. Our task will be complete if we can show that 
+\setcounter{equation}{8}
+\begin{equation}
+E_2 = E_\infty.
+\label{art4-eq4.9}
+\end{equation}
+This is accomplished in the last step of our proof.
+
+\textsc{Step four.} We must show that 
+$$
+d_2 = d_3 = \ldots = 0.
+$$
+Suppose that $[\alpha] \in E^{m,q}_2$. Then $[\alpha]$ is represented by a class in $H^m (D^{[q]})$. Decomposing this class into type, we may assume that $[\alpha]$ is represented by a closed $C^\infty$ form $\alpha$ on $D^{[q]}$ which has type $(r,s)$ with $r + s = m$.  The condition $d_1 [\alpha] =0$ is that
+\begin{equation}
+\label{art4-eq4.10}
+\delta \alpha = d \beta 
+\end{equation}
+for some $\beta\in A^{m-1, q+1}$, and then 
+$$
+d_2 (\alpha) = \delta \beta
+$$
+viewed\pageoriginale as a class in $E^{m-1, q+2}_2$. Applying Lemma \eqref{art4-lem2.13}, we may write in two ways
+\begin{align*}
+\delta \alpha & = d \beta'\\
+\delta \alpha & = d \beta''
+\end{align*}
+where $\beta'$ has type $(r, s-1)$ and $\beta''$ has type $(r-1, s)$. But $[\delta \beta'] = [\delta \beta'']$ in $E^{m-1}_2$ which has a Hodge structure of pure weight $m-1$. Thus $d_2 [\alpha] = 0$ by the principle of two types.
+
+\section{The case of non-compact varieties.}\label{art4-sec5}
+Let $X$ be a smooth, quasiprojective algebraic variety/$\bC$. We will prove the following result of Deligne \cite{art4-key13}:
+
+\setcounter{theorem}{0}
+\begin{theorem}\label{art4-thm5.1}
+The cohomology $H^\ast(X)$ has a functorial mixed Hodge structure.
+\end{theorem}
+
+The following will be corollaries of the proof of \eqref{art4-thm5.1}:
+
+\setcounter{corollary}{1}
+\begin{coro}\label{art4-coro5.2}
+The Hodge numbers $h^{p,q} (H^n (X)) = 0$ unless $0 \leqslant p$, $q \leqslant n$, $n \leqslant p + q \leqslant 2 n$.
+\end{coro}
+
+\begin{coro}\label{art-coro5.3}
+Let $\bar{X}$ be a smooth compactification (\cf \S \eqref{art4-sec5}(a) below) of $X$. Then the image of $H^n (\bar{X}) \to H^n (X)$ is $W_n \{H^n (X)\}$.
+\end{coro}
+
+\medskip
+\noindent
+(a)~ \textit{The $C^\infty$ log complex.} According to Hironaka \cite{art4-key29}, we may find a \textit{smooth compactification} $\bar{X}$ of $X$. Thus $X$ is a smooth, projective variety on which there is a divisor $D$ with \textit{normal crossings}, such that $X = \bar{X} - D$. Locally $D$ is given by
+\setcounter{equation}{3}
+\begin{equation}
+\left. 
+\begin{aligned}
+z = (z_1, \ldots z_n) \in \bC^n\\
+|z_i| < \epsilon \qquad\; \\
+z_1 \ldots z_k = 0, \;\;\;
+\end{aligned}
+\right\} \label{art4-eq5.4}
+\end{equation}
+and it will simplify matters notationally to assume (as we may) that globally
+$$
+D = D_1 \cup \ldots \cup D_N,
+$$
+where the $D_i$ are smooth divisors meeting transversely. The general case can be treated with only a slight additional twist.
+\setcounter{figure}{4}
+\begin{figure}[H]
+\centering
+\includegraphics{art4-fig2.eps}
+\caption{}
+\end{figure}
+By\pageoriginale a \textit{neighborhood at infinity} we will mean an open set $U \subset X$ given by \eqref{art4-eq5.4}. By $\bar{U}$ we will mean the polycylinder $|z_i| < \epsilon$ so that 
+$$
+ U = \bar{U} - \bar{U} \cap D.
+$$
+
+\setcounter{definition}{5}
+\begin{definition}\label{art4-def5.6}
+The `$C^\infty$ log complex' $A^\ast (U, \log \langle D\rangle)$ is the complex of $C^\infty$ forms $\varphi \in A^\ast (U)$ such that
+\begin{gather*}
+z_1 \ldots z_k \varphi \\
+z_2 \ldots z_k d \varphi 
+\end{gather*}
+are $C^\infty$ in $\bar{U}$.
+\end{definition}
+
+Note that $A^\ast (U, \log \langle D \rangle)$ is closed under $d$, and it will follow from Lemma \eqref{art4-lem5.7} that the product of two forms in $A^\ast (U, \log \langle D \rangle )$ is again in the log complex. Thus $A^\ast (U, \log \langle D \rangle)$ is a sub-complex of the full de Rham complex $A^\ast (U)$. Note that $A^\ast (U, \log \langle D \rangle)$ is \textit{not} closed under conjugation.
+
+\setcounter{lemma}{6}
+\begin{lemma}\label{art4-lem5.7}
+$A^\ast (U, \log \langle D \rangle) = A^\ast (U) \left\{\dfrac{dz_1}{z_1} \ldots , \dfrac{dz_k}{z_k} \right\}$.
+\end{lemma}
+
+\begin{proof}
+We assume that $k =1$; the general case is similar. Clearly
+$$
+A^\ast (\bar{U}) \left\{\frac{dz_1}{z_1}, \ldots, \frac{dz_k}{z_k} \right\} \subset A^\ast (U, \log \langle D \rangle).
+$$
+Conversely, suppose that $\alpha \in A^\ast (U, \log\langle D \rangle)$  and write 
+$$
+\alpha = \beta \wedge \frac{dz_1}{z_1} + \frac{\gamma}{z_1},
+$$
+where $\beta$, $\gamma$ do not involve $dz_1$. By the first condition in \eqref{art4-eq5.6}, we may assume that $\beta$, $\gamma$ are $C^\infty$ in $\bar{U}$. Now
+$$
+d\alpha = \left(\frac{(d \beta \wedge dz_1)}{z_1} + \frac{d\gamma}{z_1} \right) + \frac{\gamma \wedge dz_1}{(z_1)^2}
+$$\pageoriginale
+and the second condition in \eqref{art4-eq5.6} gives that $\dfrac{\gamma}{z_1} = \delta \in A^\ast (\bar{U})$. Then $\alpha = \beta \wedge \dfrac{dz_1}{z_1} + \delta$ lies in $A^\ast (\bar{U}) \left\{\dfrac{dz_1}{z_1} \right\}$.
+\end{proof}
+
+\setcounter{definition}{7}
+\begin{definition}\label{art4-def5.8}
+The `$C^\infty \log$ complex' $A^\ast (X, \log \langle D \rangle)$ on $X$ is the sub-complex of $A^\ast (X)$ consisting of all $\varphi$ which are in $A^\ast (U, \log \langle D \rangle)$ for all neighborhoods $U$ at infinity.
+\end{definition}
+
+To give the global analogue of \eqref{art4-lem5.7}, we consider the line bundles $[D_i] \to \bar{X}$ and choose sections $\sigma_i \in \Gamma (\bar{X}, \cO[D_i])$ with $(\sigma_i) = D_i$ and fibre metrics in $[D_i]$. Setting
+\begin{gather*}
+\eta_i = \frac{1}{2\pi \sqrt{-1}} \partial \log |\sigma_i|^2,\\
+\omega_i = \bar{\partial} \eta_i,
+\end{gather*}
+it follows (\cf \S \ref{art4-sec2}(b)) that
+\setcounter{equation}{8}
+\begin{equation}
+A^\ast (X, \log \langle D \rangle) = A^\ast (\bar{X}) \{\eta_1, \ldots , \eta_N\}, \label{art4-eq5.9}
+\end{equation}
+and $\omega_i \in H^2_{DR} (\bar{X})$ is the dual cohomology class of $D_i$.
+
+It will be proved now that the natural map
+$$
+H^\ast (A^\ast (X, \log \langle D \rangle)) \to H^\ast (A^\ast (X)) \cong H^\ast (X, \bC)
+$$
+is an isomorphism, and that $A^\ast (X, \log \langle D \rangle)$ has a weight and Hodge filtration inducing a mixed Hodge structure on $H^\ast (X)$.
+
+\medskip
+\noindent
+(b)~ \textit{The weight filtration and the Poincar\'e residue operator.}
+
+\begin{defi*}
+On $A^\ast (X, \log \langle D \rangle)$ we define the weight filtration'\break $W_l = W_l (A^\ast (X, \log \langle D \rangle)$  to be those forms $\varphi$ such that locally at infinity
+$$
+\varphi \in A^\ast (\bar{U}) \left\{\frac{dz_{i_1}}{z_{i_1}}, \ldots, \frac{dz_{i_l}}{dz_{i_l}} \right\}.
+$$
+\end{defi*}
+
+Informally, $\varphi$ has weight $l$ if $\varphi$ involves at most $l \dfrac{dz_i}{z_i}s$. Clearly
+\setcounter{equation}{9}
+\begin{equation}
+\left. 
+\begin{aligned}
+W_l \subset W_{l+1} \;\; & \\
+dW_l \subset W_l \;\; & \\
+W_l \wedge W_{l'} \subset W_{l+l'}. \;\;
+\end{aligned}
+\right\}\label{art4-eq5.10} 
+\end{equation}\pageoriginale
+
+Note that the definitions of the log complex and weight filtration are local around a point $z \in X$. Thus we may define \textit{complexes} of sheaves on $\bar{X}$
+\begin{align*}
+& \sA^\ast (\log \langle D \rangle)\\
+& \sW_l = W_l (\sA^\ast (\log \langle D \rangle))
+\end{align*}
+such that  $A^\ast (X, \log \langle D \rangle) = \Gamma (\bar{X}, \sA^\ast (\log \langle D \rangle))$ and similarly for $W_l$. By the usual partition of unity argument, these sheaves have no higher higher cohomology.
+
+Given that $D = D_1 \cup \ldots \cup D_N$, we shall use the following notations:
+\begin{align*}
+I & = \{i_1, \ldots , i_k\} \subset \{1, \ldots, N\} \; \text{ is an \textit{ index } set;}\\
+D_I & = D_{i_1} \cap \ldots \cap D_{i_k},\\
+|I| & = k;
+\end{align*}
+and 
+$$
+D^{[k]} = \cup_{|I|=k} D_1.
+$$
+
+\begin{defi*}
+The `Poincar\'e residue operator'
+\footnotetext[21]{$A^\ast(\sD^{[k']})$ is the sheaf of $C^\infty$ forms on $D^{[k]}$, sometimes referred to as the \textit{de Bham sheaf}.}
+$$
+R^{[K]}: \sW_k (\sA^\ast (\log \langle D \rangle)) \to A^{\ast -k} (D^{[k]})\footnotemark[21]{}
+$$
+is defined by 
+\begin{equation}
+R^{[k]} \left(\alpha \wedge \frac{dz_{i_1}}{z_{i_1}} \wedge \ldots \wedge \frac{dz_{i_k}}{z_{i_k}} \right)  = \alpha|_{D_I}. 
+\label{art4-eq5.11}
+\end{equation}
+\end{defi*}
+
+The following lemma is easy to verity
+
+\setcounter{lemma}{11}
+\begin{lemma}\label{art4-lem12}
+\begin{itemize}
+\item[(i)] $R^{[k]}$ is well defined and $R^{[k]} (\sW_{k-1}) = 0$; and 
+
+\item[(ii)] $R^{[k]}$ commutes with $d$, $\partial$, and  $\bar{\partial}$.
+\end{itemize}
+\end{lemma}
+
+Not quite so simple is the \textit{Poincar\'e lemma} in the present context. To explain it, we recall that associated to a complex of sheaves $\sL^\ast = \{\ldots \to \sL^p {\displaystyle{\mathop{\longrightarrow}^d}} \sL^{p+1} \to \ldots \}$\pageoriginale on a space, the \textit{cohomology sheaf}
+$$
+\sH^\ast (\sL^\ast)
+$$
+is that sheaf coming from the presheaf
+$$
+U \longmapsto \text{ cohomology of } \{ \ldots \Gamma (U, \sL^p) {\displaystyle{\mathop{\longrightarrow}^d}} \Gamma (U, \sL^{p+1}) \to \ldots \}.
+$$
+Thus, \eg, the statement $\sH^q (\sL^\ast) = 0$ for $q>0$ is nothing other than the Poincar\'e lemma. In the situation that we shall encounter, $\sL^\ast$ will be a subcomplex of the de Rham sheaf and will be closed under $d$, $\partial$, and $\bar{\partial}$. We shall denote the various cohomology sheaves by $\sH^\ast_d (\sL^\ast)$, $\sH^\ast_\partial (\sL^\ast)$, $\sH^\ast_{\bar{\partial}}(\sL^\ast)$.
+
+\begin{lemma}\label{art4-lem5.13}
+The induced mappings 
+\begin{align*}
+& R^{[k]}: \sH^\ast_d (\sW_k / \sW_{k-1}) \to \sH^{\ast-k}_d (\sA^\ast (D^{[k]}))\\
+& R^{[k]} : \sH^\ast_{\bar{\partial}} (\sW_k / \sW_{k-1}) \to \sH^{\ast-1}_{\partial} (\sA^\ast (D^{[k]}))
+\end{align*}
+are isomorphisms.\footnote[22]{Since $R^{[k]}$ is surjective, the subtlety here is that there are forms $\alpha \in \sW_k$ with $R^{[k]}\alpha =0$ but $\alpha \not\in \sW_{k-1}$ (\eg $\bar{z} \dfrac{dz}{z}$ on $\bC$.) What must be proved is that these don't matter when we pas to cohomology. The lemma is \textit{false} for $\partial$-cohomology, essentially because we are using $\dfrac{dz}{z}$ and not $\dfrac{d\bar{z}}{z}$ for the long complex.}
+\end{lemma}
+
+The proof of \eqref{art4-lem5.13} is essentially the same as the proof of Proposition  \eqref{art4-prop2.18}, and will be omitted.
+
+(c) ~ \textit{de Rham's theorem for the log complex.}
+
+\setcounter{proposition}{13}
+\begin{proposition}\label{art4-prop5.14}
+The inclusion $A^\ast (X, \log \langle D \rangle) \hookrightarrow A^\ast (X)$ induces an isomorphism on cohomology. Thus
+$$
+H^\ast (A^\ast X, \log \langle D \rangle) {\displaystyle{\mathop{\longrightarrow}^{\sim}}} H^\ast )(X, \bC).
+$$
+\end{proposition}
+
+\begin{proof}
+Essentially, this proposition is true because it is true locally at infinity by  \eqref{art4-lem5.13}. The easiest way to make this precise is using some homological nonsense.
+
+The basic fact we shall utilize is that if $\sL^\ast = \{\ldots \to \sL^p {\displaystyle{\mathop{\longrightarrow}^d}} \sL^{p+1} \to \ldots \}$ is a complex of sheaves on a space $Y$ and if the cohomology $H^q (Y, \sL^p) =0$ for $q > 0$ then there is a spectral sequence $\{E_r\}$ with 
+\begin{gather*}
+E_2 = H^\ast (Y, \sH^\ast (\sL^\ast))\\
+E^\infty \Rightarrow \text{ cohomology of } \{\ldots \Gamma (Y, \sL^p) {\displaystyle{\mathop{\longrightarrow}^{d}}} \Gamma (Y, \sL^{p+1}) \to \ldots  \}
+\end{gather*}\pageoriginale
+(\cf \cite{art4-key17}, pages 176-179). As an application, we see that if $\sL^\ast$, $\sK^\ast$ are two complexes of sheaves with $H^q (Y, \sL^\ast) = 0 = H^q (Y, \sK^\ast)$ for $q >0$, and if we are given a morphism
+$$
+\sL^\ast {\displaystyle{\mathop{\longrightarrow}^{\psi}}} \sK^\ast
+$$
+of complexes of sheaves such that cohomology sheaf map
+$$
+\psi_\ast : \sH^\ast (\sL^\bigdot) {\displaystyle{\mathop{\longrightarrow}^{\sim}}} \sH^\ast (\sK^\bigdot)
+$$
+is an isomorphism, then the global cohomology map
+$$
+\frac{\ker \{\Gamma (Y, \sL^p) \to \Gamma (Y, L^{p+1})\}}{d \Gamma (Y, L^{p+1})} \to \frac{\ker \{\Gamma (Y, \sK^p) \to \Gamma (Y, \sK^{p+1})\}}{d\Gamma (Y, \sK^{p-1})}
+$$
+is also an isomorphism.
+
+We shall apply this principle taking $Y =\bar{X}$, $\sL^\ast = \sA^\ast (\log \langle D \rangle)$, and $\sK^\ast = j_\ast (\sA^\ast (X))$, where $j:X \hookrightarrow\bar{X}$ is the inclusion mapping. Note that $\Gamma (\bar{X}, \sA^\ast (\log \langle D \rangle)) = A^\ast (X, \log \langle D\rangle)$  and $\Gamma (\bar{X}, j_\ast (\sA^\ast (X))) = A^\ast (X)$. Proposition \ref{art4-prop5.14} consequently follows from the
+\end{proof}
+
+\begin{lemma*}
+The induced mapping
+$$
+\sH^\ast (\sA^{\ast} (\log \langle D \rangle)) {\displaystyle{\mathop{\longrightarrow}^{\sim}}} \sH^{\ast} (j_\ast (\sA^\ast (X)))
+$$
+is an isomorphism.
+\end{lemma*}
+
+\begin{proof}
+The question is local in a neighborhood $U$ at infinity give by \eqref{art4-eq5.4}. Let
+$$
+\bC \left\{\frac{dz_1}{z_1}, \ldots, \frac{dz_k}{z_k} \right\} = \bC \left\{ \left\{\frac{dz_i}{z_i} \right\} \right\}
+$$
+be the free differential graded algebra generated by $\dfrac{dz_1}{z_1} ,\ldots,\dfrac{dz_k}{z_k}$ and having differential $d=0$. There is a commutative triangle
+%$$
+%\xymatrix{
+%A^\ast (U, logs \langle D \rangle)&  \ar[r] & A^\ast (U)\\
+%& \bC \left\{\frac{dz_1}{z_1} , \ldots , \frac{dz_k}{z_k} \right\}   &
+%}
+%$$
+\pageoriginale
+of complexes, and $v_\ast$ is an isomorphism on cohomology by the usual de Rham theorem. Thus it will suffice to show that $\mu_{\ast}$ is an isomorphism on cohomology.
+
+There is an obvious weight filtration $W_l \left(\bC \left\{\left\{\dfrac{dz_i}{z_i} \right\} \right\} \right)$ such that 
+$$
+\mu \left[W_l \left(\bC\left\{ \left\{ \frac{dz_i}{z_i}\right\}  \right\}\right) \right] \subset W_l (A^\ast (U, \log \langle D \rangle)).
+$$
+Moreover, there is a commutative triangle
+$$
+\xymatrix{
+\frac{W_l (A^\ast (U, \log \langle D \rangle))}{W_{l-1} (A^\ast (U, \log \langle D \rangle))}  \ar[r]^{R^{[K]}} && A^{\ast =k } (D^{[k]} \cap U)\\
+& \frac{W_l \left(\bC \left\{ \left\{ \frac{dz_i}{z_i} \right\} \right\}\right)}{W_{l-1} \left(\bC \left\{ \left\{ \frac{dz_i}{z_i}  \right\} \right\} \right)} \ar[ur]_{\beta = \text{Poincar\'e residue}} \ar[ul]_{\alpha} & 
+}
+$$
+where $\beta_\ast$ is obviously an isomorphism on cohomology, and $R^{[k]}_\ast$ is also an isomorphism by Lemma \eqref{art4-lem5.13}. (This is the main step in the proof). Thus $\alpha_\ast$ is an isomorphism on cohomology. Using this it follows inductively on $l$ that
+$$
+\mu : W_l \left[ \bC \left\{ \left\{ \frac{dz_i}{z_i} \right\} \right\} \right] \to W_l (A^\ast (U, \log \langle D \rangle))
+$$
+induces\pageoriginale an isomorphism on cohomology. For $l=k$, we obtain our lemma.
+\end{proof}
+
+\begin{remark*}
+Lemma \ref{art4-lem5.13} plus the same method of proof gives the 
+\end{remark*}
+
+\setcounter{corollary}{14}
+\begin{corollary}\label{art4-coro5.15}
+The residue mapping $R^{[k]} : W_k / W_{k-1} \to A^{\ast -k} (D^{[k]})$ induces isomorphism on both $d$ and $\bar{partial}$ cohomology.
+\end{corollary}
+
+\medskip
+(d)~ \textit{The weight and Hodge filtration on cohomology.} On the $C^\infty$ log complex $A^\ast (X, \log \langle D \rangle)$ we have defined the weight filtration, $W_l$ in \S \ref{art4-sec5}(b), and we now define the \textit{Hodge filtration by}
+\begin{equation}
+F^p A^{\ast} (X, \log \langle D \rangle) = \oplus_{i \geqslant p} A^{i,\ast} (X, \log \langle D \rangle) .
+\label{art4-eq5.16}
+\end{equation}
+The weight and Hodge filtrations induce filtrations on the cohomology $H^\ast (A^\ast (\log \langle D \rangle)) \cong H^\ast (X, \bC)$, and it is to be proved that (with suitable indexing!) this gives a mixed Hodge structure.
+
+\setcounter{proposition}{16}
+\begin{proposition}\label{art4-prop5.17}
+The weight filtration $W_n \{H^\ast (X, \bC)\}$ is defined over $\bQ$.
+\end{proposition}
+
+\begin{proof}
+We begin with a preliminary remark. Suppose that $\varphi \in W_l (A^\ast (X, \log \langle D \rangle))$ is a closed form of filtration level $l$. Then the Poincar\'e residue
+$$
+R^{[l]} \varphi \in A^{\ast -l} (D^{[l]})
+$$
+is a closed form giving a cohomology class in $H^{\ast-1} (D^{[l]}, \bC)$. If this class is zero, then by Corollary \ref{art4-coro5.15} we may find $\theta \in W_l$ such that $\varphi -d \theta \in W_{l-1}$.
+
+To prove the proposition, we take a closed form $\varphi\in A^{\ast} (X, \log \langle D \rangle)$. Then
+$$
+R^{[n]} \varphi \in H^\ast (D^{[n]} , \bC)
+$$
+is well defined. If $\varphi \in W_{n-1}$, then $R^{[n]} \varphi =0$, and conversely if $R^{[n]} \varphi$ is zero in cohomology, then by the above remark we may find $\theta \in A^\ast (X, \log \langle D \rangle)$ such that $\varphi - d \theta \in W_{n-1}$. Repeating this argument we find that 
+\begin{equation}
+W_l \{H^\ast (X,\bC)\} = \{\varphi \in H^\ast (X, \bC): R^{[n]} \varphi = \ldots = R^{[l+1]} \varphi =0\} \label{art4-eq5.18}
+\end{equation} 
+where, on the right hand side, the $R^{[v]}\varphi$ are taken in $H^\ast (D^{[v]}, \bC)$.
+
+%%%% 80 page
+
+\end{proof}
 
 
 
