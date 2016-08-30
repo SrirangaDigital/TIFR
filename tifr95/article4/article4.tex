@@ -8,16 +8,285 @@
 \maketitle
 
 \section*{Introduction}
-In the\pageoriginale papers \cite[DK]{art4-key1-2}, \cite[DKP]{art4-key1-2} the quantized enveloping algebras introduced by Drinfeld and Jimbo have been studied in the case $q=\varepsilon$, a primitive $l$-th root of 1 with $l$ odd (cf. $\calx$ for basic definitions). Let us only recall for the moment that such algebras are canonically constructed starting from a Cartan matrix of finite type and in praticular we can talk of the associated classical objects (the root system, the simply connected algebraic group $G$. etc.) For such a algebra tha generic (resp. any) irreducible representation has dimesion equal to (resp. bounded by) $l^{N}$ where $N$ is the number of positive roots and the set of irreducible representations has a canonical map to the big cell of the corresponding group $G$.
+In the\pageoriginale papers \cite[DK]{art4-key1-2}, \cite[DKP]{art4-key1-2} the quantized enveloping algebras introduced by Drinfeld and Jimbo have been studied in the case $q=\varepsilon$, a primitive $l$-th root of 1 with $l$ odd (cf. calx for basic definitions). Let us only recall for the moment that such algebras are canonically constructed starting from a Cartan matrix of finite type and in praticular we can talk of the associated classical objects (the root system, the simply connected algebraic group $G$. etc.) For such a algebra tha generic (resp. any) irreducible representation has dimesion equal to (resp. bounded by) $l^{N}$ where $N$ is the number of positive roots and the set of irreducible representations has a canonical map to the big cell of the corresponding group $G$.
 
 In this paper we analyze the structure of some subalgebras of quanrized enveloping algebras corresponding to unipotent and solvable subgroups of $G$. These algebras have the non-commutative structure of iterated algebras of twisted polynomials with a derivation, an object which has often appeared in the general theory of non-commutative rings (see e.g. \cite{art4-keyKP}, \cite{art4-keyGL} and references there). In  pariticular, we find maximal demensions of their irreducible representations. Our results confirm the validity of the general philosophy that the representation theory is intimately connected to the Poisson geometry.
 
 \section{Twisted polynomial rings}
 
 \subsection{}
-In this section we will collect some well knownn definitions and properties of twisted derivations.
+In this section we will collect some well knownn definitions and properties of twisted derivations.\label{art4-subsec-1.1}
 
 Let $A$ be an algebra and let $\sigma$ be an automorphism of $A$. A \textit{twisted derivation} of $A$ realtive ot $\sigma$ is a linear map $D:A\rightarrow A$ such that:
 $$
 D(ab)=D(a)b+ \sigma(a)D(b).
 $$
+\begin{example*}
+An element $a\in A$ induces an inner twisted derivation $ad_{\sigma}a$ relative to $\sigma$ defined by the formula:
+$$
+(ab_{\sigma}a)b=ab-\sigma(b)a.
+$$
+
+The following well-known fact is very useful in calculations with twisted derivations. (Hre and further we use ``box" notation:
+$$ [n] = \dfrac{q^{n}-q^{-n}}{q-q^{-1}}, [n]! = [1][2]\ldots[n],
+\begin{bmatrix}
+m\\
+n
+\end{bmatrix}
+= \dfrac{[m][m-1]\ldots[m-n+1]}{[n]!}
+$$
+One also writes $[n]_{d}$, etc. if $q$ is replaced by $q^{d}$.)
+\end{example*}
+
+\begin{prop*}
+Let $a\in A$ and let $\sigma$ be an automorphism of $A$ such that $\sigma(a) = q^{2}a$, where $q$ is a scalar. Then
+$$
+(ad_{\sigma}a)^{m}(x)=\sum\limits_{j=0}^{m}(-1)^{j}q^{j(m-1)}
+\begin{bmatrix}
+m\\
+j
+\end{bmatrix}
+a^{m-j}\sigma^{j}(x)a^{j}.
+$$
+\end{prop*}
+
+\begin{proof}
+Let $L_{a}$ and $R_{a}$ denote the operators of left and right multiplications by $a$ in $A$. Then
+$$
+ad_{\sigma}a= L_{a}-R_{a}\sigma.
+$$
+Since $L_{a}$ and$R_{a}$ commute, due to the assumption $\sigma(a)=q^{2}a$ we have
+$$
+L_{a}(R_{a}\sigma)=q^{-2}(R_{a}\sigma)L_{a}.
+$$
+Now the proposition is immediate from the following well-known binomial formula applied to the algebra End $A$.
+\end{proof}
+
+\begin{lemma*}
+suppose that $x$ andy $y$ are elements of an algebra such that $yx=q^{2}xy$ for some scalar $q$. Then
+$$
+(x+y)^{m} = \sum\limits_{j=0}^{m}
+\begin{bmatrix}
+m\\
+j
+\end{bmatrix}
+q^{j(m-j)}x^{j}y^{m-j}.
+$$
+\end{lemma*}
+
+\begin{proof}
+in by induction on $m$ using
+$$
+\begin{bmatrix}
+m\\
+j-1
+\end{bmatrix}
+q^{m+1} + 
+\begin{bmatrix}
+m\\
+j
+\end{bmatrix}
+=
+\begin{bmatrix}
+m+1\\
+j
+\end{bmatrix}
+q^{j},
+$$
+which follows from
+$$
+q^{b}[a]+ a^{-a}[b] = [a+b].
+$$
+\end{proof}
+
+Let $\ell$ be a positive integer and let $q$ be a primitive $\ell$-th root of 1. Let $\ell' = \ell$ if $\ell$ is odd  and =$\frac{1}{2}\ell$ if $\ell$ is even. Then, by definition, we have
+$$
+\begin{bmatrix}
+\ell'\\
+j
+\end{bmatrix}  
+=0\; \text{for all}\; j\; \text{such that} \;0 < j < \ell'.
+$$
+This together with Proposition \ref{art4-subsec-1.1} implies
+
+\begin{coro*}
+Under the hypothesis of Proposition \ref{art4-subsec-1.1} we have:
+$$
+(ad_{\sigma}a)^{\ell'}(x)= a^{\ell'}x-\sigma^{\ell'}(x)a^{\ell'}\; \text{\rm if}\; q\; \text{\rm is a primitive}\; \ell-\text{\rm th root of}\; 1.
+$$ 
+\end{coro*}
+
+\begin{remark*}
+Let $D$ be a twisted derivation associated to an automorphism $\sigma$ such that $\sigma D=q^{2}D\sigma$. Then by induction on $m$ one obtains the following well-known $q$-analogue of the Leibniz formula:
+$$
+D^{m}(xy) =\sum\limits_{j=0}^{m}
+\begin{bmatrix}
+m\\
+j
+\end{bmatrix}
+q^{j(m-j)}D^{m-j}(\sigma^{j}x)D^{j}(y).
+$$
+It follows that if $q$  is  a primitive $\ell$-th root of 1, then $D^{\ell'}$ is a twisted derivation associated to $\sigma^{\ell'}$
+ \end{remark*}
+
+\subsection{}
+Given an automorphism $\sigma$ of $A$ and a twisted derivation $D$ of $A$ relative to $\sigma$ we define the \textit{twisted polynomial algebra} $A_{\sigma, D}[x]$ in the indeterminate $x$ to be the $\bbF$-module $A\otimes_{\bbF}\bbF[x]$
+thought as formal polynomials with multiplication defined by the rule:\label{art4-subsec-1.2}
+$$
+xa = \sigma(a)x+ D(a).
+$$
+When $D=0$ we will also denote theis ring by $A_{\sigma}[x]$. Notice that the definition has been chosen in such a way that in the new ring the given twisted derivation becomes the inner derivation $ad_{\sigma}x$. 
+
+Let us notice that if $a,b\in A$ and $a$ is invertible we can perform the change of variables $y:=ax+b$ and we see that $A_{\sigma, D}[x]=A_{\sigma', D'}[y]$. It is better to make the formulas explicit separately when $b=0$ and when $a=1$. In the fist case $yc=axc=a(\sigma(c)x+ D(c)) =a(\sigma(c))a^{-1}y+aD(c)$ and we see that the new automorphism $\sigma'$ is the composition $(Ada)\sigma$, so that $D' :=aD$ is a twisted derivation relative to $\sigma'$. Here and further $Ada$ stands for the inner automorphism:
+$$
+(Ada)x = axa^{-1}.
+$$
+In the case $a=1$ we have $yc=(x+b)c =\sigma(c)x+ D(b)+bc =\sigma(c)y+D(b)+bc-\sigma(c)b$, so that $D'=D+ad_{\sigma}b$. Summarizing we have
+
+\begin{prop*}
+Changing $\sigma, D$ to $(Ada)\sigma, aD$ (resp. to $\sigma, D+D_{b}$) does not change the twisted polynomial ring up to isomorphism.
+\end{prop*}
+
+We may express the previous fact with a definition: For a ring $A$ two pairs $(\sigma, D)$ and $(\sigma', D')$ are \textit{equivalent} if they are obtained one from the other by the above moves.
+
+If $D=0$ we can also consider the twisted Laurent polynomial algebra $A_{\sigma}[x, x^{-1}]$. It is clear that if $A$ has no zero divisors, then the algebras $A_{\sigma, D}[x]$ and  $A_{\sigma}[x, x^{-1}]$ also have no zero divisors.
+
+The importance for us of twisted polynomial algebras will be clear in the section on quantum groups.
+
+\subsection{}\label{art4-subsec-1.3}
+We want to study special cases of the previous construction.
+
+Let us first consider a finite dimensional semisimple algebra. $A$ over and algebraically closed field $\bbF$, let
+$\bigoplus_{i}\bbF e_{i}$ be the fixed points of the center of $A$ under $\sigma$ where the $e_{i}$ are central idempotents. We have $D(e_{i}) =D(e_{i}^{2}) =2D(e_{i})e_{i}$ hence $D(e_{i}) = 0$ and, if $x=xe_{i}$, then $D(x)=D(x)e_{i}$. It follows that, decomposing $A \bigoplus_{i}Ae_{i}$, each component $Ae_{i}$ is stable under $\sigma$ and $D$ and thus we have
+$$
+A_{\sigma, D}[x]= \bigoplus\limits_{i}(Ae_{i})_{\sigma,D}[x].
+$$ 
+This allows us to restrict our analysis to the case in which 1 is the only fixed central idempotent.
+
+The second special case is described by the following:
+
+\begin{lemma*}
+Consider the algebra $A=\bbF^{\oplus k}$ with $\sigma$ the cyclic permutation of the summands, and let $D$ be a twisted derivation of this algebra relative to $\sigma$. Then $D$ is an inner twisted derivation.
+\end{lemma*}
+
+\begin{proof}
+Compute $D$ on the idempotents: $D(e_{i}) = D(e_{i}^{2}) =D(e_{i})(e_{i}+e_{i+1})$. Hence we must have $D(e_{i})=a_{i}e_{i}-b_{i}e_{i+1}$ and from $0=D(e_{i}e_{i+1}) = D(e_{i})e_{i+1}D(e_{i+1})$ we deduce $b_{i} =a_{i+1}$. Let now $a = (a_{1},a_{2}, \ldots, a_{k})$; an easy computation shows that $D= ad_{\sigma}a$. 
+\end{proof}
+
+\begin{prop*}
+Let $\sigma$ be the cyclic permutation of teh summands of the algebra $\bbF^{\oplus k}$. Then
+\begin{enumerate}[{\it (a)}]
+\item $\bbF_{\sigma}^{\oplus k}\left[x, x^{-1}\right]$ is an Azumaya algebra of degree $k$ over its center\break $\bbF\left[x^{k}, x^{-k}\right]$.\label{art4-enum-a}
+\item $R:=\bbF_{\sigma}^{\oplus k}\left[x, x^{-1}\right]\otimes_{\bbF[x^{k}, x^{-k}]}\bbF\left[x, x^{-1}\right]$ is the algebra of $k\times k $ matrices over $\bbF\left[x, x^{-1}\right]$.\label{art4-enum-b}
+\end{enumerate}
+\end{prop*}
+
+\begin{proof}
+It is enough to prove (\ref{art4-enum-b}). Let $u:=x\otimes x^{-1}$, $e_{i}:=e_{i}\otimes 1$; we have $u^{k} = x^{k}\otimes x^{-k} = 1$ and $ue_{i}=e_{i+1}u$. From these formulas it easily follows that the elements
+$e_{i}u^{j}(i,j =1,\ldots, k)$ span a subalgebra $A$ and that there exists an isomorphism $A\widetilde{\longrightarrow}(\bbF)$ mapping $\bbF^{\oplus k}$ to the diagonal matrices and $u$ to the matrix of the cyclic permutation. Then $R=A\otimes_{\bbF}\bbF\left[x, x^{-1}\right]$. 
+\end{proof}
+
+\subsection{}\label{art4-subsec-1.4}
+
+Assuem now that $A$ is semi-simple and that $\sigma$ induces a cyclic permutation of the central idempotents.
+\begin{lemma*}
+~
+
+\begin{enumerate}[\it (a)]
+\item $A= M_{d}(\bbF)^{\oplus k}$ \label{art4-enum-(a)}
+\item Let $D$ be a twisted derivation of $A$ realtive to $\sigma$. Then the pair $(\sigma, D)$ is equivalent to the pair $(\sigma', 0)$ where\label{art4-enum-(b)}
+\end{enumerate}
+\end{lemma*}
+\begin{equation}\label{art4-subseceq-1.4.1}
+\sigma'(a_{1}, a_{2},\ldots, a_{k}) = (a_{k},a_{1}, a_{2}, \ldots, a_{k-1})
+\end{equation}
+
+\begin{proof}
+Since $\sigma$ permutes transitively the simple blocks they must all have the same degree $d$ so that $A=M_{d}(F)^{\oplus k}$. Furthermore we can arrange the identifications of the simple blocks with matrices so that: 
+$$
+\sigma'(a_{1}, a_{2},\ldots, a_{k}) = (\tau(a_{k}),a_{1}, a_{2}, \ldots, a_{k-1}),
+$$
+where $\tau$ is an automorphism of $M_{d}(\bbF)$. Any such automorphism in inner, hence after composing $\sigma$ with an inner automorphism, we any assume in the previous formula that $\tau =1$, Then we think of $A$ as $M_{d}(\bbF)\otimes \bbF^{\oplus k}$, the new automorphism being of the form $1\otimes \sigma'$ where $\sigma':\bbF^{\oplus k} \rightarrow
+ \bbF^{\oplus k}$ is given by (\ref{art4-subseceq-1.4.1}).
+
+ We also have that $M_{d}(\bbF) = A^{\sigma}$ and $\bbF^{\oplus k}$ is the centralizer of $A^{\sigma}$. Nest observe that $D$ restricted to $A^{\sigma}$ is a derivation of $M_{d}(\bbF)$ with values in $\oplus_{i=1}^{k}M_{d}(\bbF)$, i.e., $D(a)= (D_{1}(a), D_{2}(a), \ldots, D_{k}(a))$ where each $D_{i}$ is a derivation of $M_{d}(\bbF)$. Since for $M_{d}(\bbF)$. all derivations are inner we can find an element $u \in A$ such that $D(a) =[u,a]$ for all $a\in M_{d}\bbF$. So $(D-ad_{\sigma}u)(a) = [u,a]-(ua-\sigma(a)u)=0$ for $a\in A^{\sigma}$. Thus, changing $D$ by adding $-ad_{\sigma}u$ we may assume that $D=0$ on $M_{d}(\bbF)$.
+
+ Now consider $b \in \bbF^{\oplus k}$ and $ac\in M_{d}(\bbF)$; we have $D(b)a = D(ba) = D(ab) =aD(b)$. Since $\bbF^{\oplus k}$ is the centralizer of $M_{d}(\bbF)$ we have $D(b)\in \bbF^{\oplus k}$ and $D$ induces a twisted derivation of $\bbF^{\oplus k}$. By Lemma \ref{art4-subsec-1.3} this last derivation is inner and the claim is proved.
+\end{proof}
+
+Summarizing we have
+
+\begin{prop*}
+Let $A$ be a finite- dimensional semisimple algebra over an algebraically closed field $\bbF$. Let $\sigma$ be an automorphism of $A$ which induces a cyclic permutation of order $k$ of the central idempotents of $A$. Let $D$ be a twisted derivation of $A$ relative to $\sigma$. Then:
+\begin{gather*}
+ A_{\sigma,D}[x] \cong M_{d}(\bbF)\otimes \bbF_{\sigma}^{\oplus k}[x],\\
+ A_{\sigma,D}[x, x^{-1}]\cong M_{d}(\bbF)\otimes \bbF_{\sigma}^{\oplus k}[x, x^{-1}].
+\end{gather*}
+This last algebra is Azumaya of degree dk.
+\end{prop*}
+
+\subsection{}\label{art4-subsec-1.5}
+We can now globalize the previous constructions. Let $A$ be a prime algebra (i.e. $aAb =0$, $a, b\in A$, implies that $a=0$ or $b=0$) over a field $\bbF$ and let $Z$ be the center of $A$. Then $Z$ is a domain and $A$ is torsion free module over $Z$. Assume that $A$ is a finite module over $Z$. Then $A$ embeds in a finite-dimensional central simple algebra $Q(A) = A\otimes_{Z}Q(Z)$, where $Q(Z)$ is the ring of fractions of $Z$. If $\overline{Q(Z)}$ denotes the algebraic closure of $Q(Z)$ is the ring of fractions of $Z$. If $\overline{Q(Z)}$ denotes the algebraic closure of $Q(Z)$ in the ring of fractions of $Z$. If $\overline{Q(Z)}$ denotes the algebraic closure of $Q(Z)$ we have that $A\otimes_{z}\overline{Q(Z)}$ is the full ring $M_{d}\overline{(Q(Z))}$ of $d \times d$ matrices over $\overline{Q(Z)}$. Then $d$ is called the \textit{degree} of $A$.
+
+Let $\sigma$ be an automorphism of the algebra $A$ and let $D$ be a twisted derivation of $A$ relative to $\sigma$. Assume that
+\begin{enumerate}[(\rm a)]
+\item There is subalgebra $Z_{0}$ of $Z$, such that $Z$ in finite over $Z_{0}$.
+\item $D$ vanishes on $Z_{0}$ and $\sigma$ restricted to $Z_{0}$ is the identity. 
+\end{enumerate}
+
+These assumptions imply that $\sigma $ restricted to $Z$ is an automorphism of finite order. Let $d$ be the degree of $A$ and let $k$ be the order of $\sigma $ on the center $Z$. Assume that the field $\bbF$ has characteristic 0. The main result of this section is:
+
+\begin{theorem*}
+Under the above assumptions the twisted polynomial algebra $A_{\sigma, D}[x]$ is an order in a central simple algebra of degree $kd$.
+\end{theorem*}
+
+\begin{proof}
+Let $Z^{\sigma}$ be the fixed points in $Z$ of $\sigma$. By the definition, it is cleat that $D$ restricted to $Z^{\sigma}$ is derivation. Since it vanishes on a subalgebra over which it is finite hence algebraic and since we are in characteristic zero it follows that $D$ vanishes on $Z^{\sigma}$. Let us embed $Z^{\sigma}$ in an algebraically closed field $\bbL$ and let us consider the algebra $A\otimes_{Z^{\sigma}}\bbL = \bbL^{\oplus k}$ and $A \times_{Z}\bbL = M_{d}(\bbL)$. Thus we get that $A\otimes_{Z^{\sigma}}\bbL=\oplus_{i=1}^{k}M_{d}(\bbL)$. The pair $\sigma, D$ extends to $A\otimes_{Z^{\sigma}}\bbL$ and using the same notations we have that $(A\otimes_{Z^{\sigma}}\bbL)_{\sigma, D}[x] = (A_{sigma, D}[x])\otimes_{Z^{\sigma}} \bbL$. We are now in the situation of a semisimple algebra which we have already studied and the claim follows.
+\end{proof}
+
+\begin{coro*}
+Under the above assumptions, $A_{\sigma, D}[x]$ and $A_{\sigma}[x]$ have the same degree.
+\end{coro*}
+\begin{remark*}
+The previous analysis yields in fact a stronger result. Consider the open set of Spec $Z$ where $A$ is an Azumaya algebra; it is clearly $\sigma$-stable. In it we consider the open part where $\sigma $ has order exactly $k$. Every orbit of $k$ elements of the group generated by $\sigma$ gives a point $F(p)$ in Spec $Z^{\sigma}$ and $A\otimes_{Z}Z\otimes _{Z^{\sigma}}F(p) = \oplus_{i=1}^{k}M_{d}(F(p))$. Thus we can apply the previous theory which allows us to describe the fiber over $F(p)$ of the spectrum of $A_{\sigma, D}[x]$.
+\end{remark*}
+
+\subsection{}\label{art4-subsec-1.6}
+Let $A$ be a prime algebra over a field $\bbF$ of characteristic 0, let\break $x_{1}, \ldots, x_{n}$ be a set of generators of $A$ and let $Z_{0}$ be a central subalgebra of $A$. For each $i =1, \ldots, K$, denote by $A^{i}$ the subalgebra of $A$ generated by $x_{1}, \ldots, x_{i}$ and let $Z_{0}^{i} = Z_{0}\cap A^{i}$. We assume that the following three conditions hold for each $i=1,\ldots, k$:
+\begin{enumerate}[{\rm (a)}]
+\item $x_{i}x_{j} = b_{ij}x_{j}x_{i} + P_{ij}$ if $i>j$. where $b_{ij}\in \bbF$, $P_{ij} \in A^{i-1}$.\label{art4-enum_(a)}
+\item $A^{i}$ is a finite module over $Z_{0}^{i}$.\label{art4-enum_(b)}
+\item Formulas $\sigma_{i}(x_{j}) = b_{ij}x_{j}$ for $j< i$  define a automorphism of $A^{i-1}$ which is the identity on $Z_{0}^{i-1}$.\label{art4-enum_(c)}
+\end{enumerate}
+
+Note that letting $D_{i}(x_{j}) = P_{ij}$ for $J < i$, we obtain $A^{i} = A_{\sigma_{i}, D_{i}}^{i-1}[x_{i}]$, so that $A$ is an iteratated twisted polynomial algebra, Note also that each triple $(A^{i-1}, \sigma_{i}, D_{i})$ satisfies assumptions \ref{art4-subsec-1.5} (\ref{art4-enum-(a)}) and (\ref{art4-enum-(b)}). 
+
+We may consider the twisted polynomial algebras $\overline{A}^{i}$ with zero derivations, so that the relations are $x_{i}x_{j} = b_{ij}x_{j}x_{i}$ for $j < i$. We call this the \textit{associated quasipolynomial algebra} (as in \cite{art4-keyDK1}).
+
+We can prove now the main theorem of this section.
+
+\begin{theorem*}
+Under the above assumptions, the degree of $A$ is equal to the degree of the associated quasipolynomial algebra $\overline{A}$. 
+\end{theorem*}
+
+\begin{proof}
+We use the following remark. If there is an index $h$ such that the element $P_{ij} =0$ for all $i> h$ and all $j$, then monomials in the variables different from $x_{h}$ form as subalgebra $B$ and the algebra $A$ is a twisted polynomial ring $B_{\sigma, D}[X_{h}]$. The associated ring $B_{\sigma}[X_{h}]$ is obtained by setting $p_{hj} = 0$ for all $j$. Having made this remark we see that can inductively modify the relations \ref{art4-subsec-1.6}(\ref{art4-enum_(a)}) so that at the $h$-th step we have an algebra $A_{h}^{n}$ with the same type of relations but $P_{ij} = 0$ for all $i>n-h$ and all $j$. Since $A_{h}^{n}$ and $A_{h-1}^{n}$ are of type $B_{\sigma, D}[x]$ and $B_{\sigma}[x]$ respectively we see, by Corollary \ref{art4-subsec-1.5}, that they have all the same degree. 
+\end{proof}
+
+\section{Quantum groups}
+
+\subsection{}\label{art4-subsec-2.1}
+Let $(a_{ij})$ be an indecomposable $n\times n $ Cartan matrix and let $d_{1}, \ldots, d_{n}$ be relatively prime positive integers such tha $d_{i}a_{ij} = d_{j}a_{ji}$. Recall the associated notions of the weight, coroot and root lattices $p,Q\spcheck$ and $Q$, of the root and coroot systems $R$ and $R\spcheck$, of the Weyl group $W$, the $W$-invariant bilinear form $(.|.)$, etc.:  
+
+Let $P$ be a lattice over $\bbZ$ with basis $\omega_{1},\ldots, \omega_{n}$ and let $Q\spcheck = \Hom_{\bbZ}(P, \bbZ)$ be the dual lattice with the dual basis $\alpha_{1}{\spcheck}, \ldots, \alpha_{n}{\spcheck}$, i.e. $\langle \omega_{i}, \alpha_{n}{\spcheck}\rangle = \delta_{ij}$. Let $P_{+}= \sum_{i=1}^{n} \bbZ_{+}\omega_{i}$. Let 
+ $$
+ \rho = \sum\limits_{i=1}^{n} \omega_{i},\quad \alpha_{j} = \sum\limits_{i=1}^{n}a_{ij}\omega_{i}\;(j=1,\ldots, n),
+$$
+and let $Q=\sum_{j=1}^{n}\bbZ\alpha_{j} \subset P$, and $Q_{+} = \sum_{j=1}^{n}\bbZ_{+}\alpha_{j}$.
+
+Define automorphisms $s_{i}$ of $p$ by $s_{i}(\omega_{j}) = \omega_{j}-\delta_{ij}\alpha_{j}$ $(i,j = 1, \ldots, n)$.
+Then $s_{i}(\alpha_{j}) = \alpha_{j}-a_{ij}\alpha_{i}$. Let $W$ be the subgroup of $GL(p)$ generated by $s_{1}, \ldots, s_{n}$. Let
+\begin{align*}
+\Pi &= \{\alpha_{1}, \ldots, \alpha_{n}\}, \quad \Pi\spcheck = \left\{\alpha_{1}\spcheck, \ldots, \alpha_{n}\spcheck\right\},\\
+ R &= W\Pi,\quad R^{+} = R\cap Q_{+},\quad R\spcheck = W\Pi\spcheck . 
+\end{align*}
