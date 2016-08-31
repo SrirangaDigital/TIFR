@@ -21,10 +21,700 @@ In this paper I mainly consider the case that $\Gamma$ is of rank one, i.e. the 
 
 Let $G_\infty$ be a real Lie group acting transitively from the right on a contractible $C^\infty$-manifold $X$. Let $x_0 \in X$ and let us assume that the stabilizer of $x_0$ is a compact subgroup $K$. Therefore we have $K / G_\infty = X$. 
 
-Let\pageoriginale $\Gamma \subset G_\infty$ be a discrete subgroup without torsion, let us assume
+Let\pageoriginale $\Gamma \subset G_\infty$ be a discrete subgroup without torsion, let us assume that $X/\Gamma$ is a manifold; then $\Gamma$ is the fundamental group of $X/ \Gamma$ and the higher homotopy groups of $X / \Gamma$ are trivial, \ie, $X/ \Gamma$ is a $K (\Gamma , 1)$-space.
 
-%%%% 130 page
+Let $E$ be a finite dimensional vector space over the complex numbers of let $\rho_\infty: G_\infty \to G L (E)$ be a representation of $G_\infty$. We define an action of $G_\infty$ on the functions $f : X \to E$ by
+$$
+T_g (f) (x) = \rho_\infty (g^{-1}) (f (xy)) \text{ for } x \in X \text{ and } g \in G_\infty.
+$$
 
+We restrict the action of $G_\infty$ on $X$ and $E$ to the subgroup $\Gamma$, then we can construct the induced bundle $\tilde{E}_{\rho_\infty} \to X / \Gamma$ and it follows from the definition of the induced bundles that the $C^\infty$-sections of $\tilde{E}_{\rho_\infty} \to X / \Gamma$ are precisely the $\Gamma$-invariant $C^\infty$-functions $f: X to E$. The pull back of the bundle $\tilde{E}_{\rho_\infty}$ to $X$ is the trivial bundle $E \tilde X$ over $X$ and the trivial connection on $E \times X$ induces a flat connection $\tilde{\nabla}$ on $\tilde{E}_{\rho_\infty}$, which will be called the canonical connection on $\tilde{E}_{\rho_\infty}$. By means of this connection we define the sheaf of locally constant sections in $\tilde{E}_{\rho_\infty}$, and the cohomology with coefficients in this sheaf will be denoted by
+$$
+H^\bigdot (X/ \Gamma, \tilde{E}_{\rho_\infty}) = H^\bigdot (\Gamma, \rho_\infty, E)
+$$
+
+These cohomology groups can also be defined via the de Rham-cohomology: Let $\Omega^\rho (X/ \Gamma , E)$ be the vector space of $C^\infty$-$p$-differential forms on $X/\Gamma$ with values in $\tilde{E}_{\rho_\infty}$. Making use of the canonical connection we define the exterior derivative $d: \Omega^p (X/ \Gamma, E) \to \Omega^{p+1} (X/ \Gamma, E)$ which is given by the following formula : If $P_1, P_2,\ldots P_{p+1}$ are $C^\infty$-vector fields on $X/ \Gamma$ and if $\omega \in \Omega^p (X / \Gamma, E)$ then 
+\begin{multline}
+d\omega (P_1 ,\bigdot, P_{p+1}) = \sum\limits^{i = p+1}_{i=1} (-1)^{i+1} \tilde{\nabla}_{P_i} \omega (P_1, \bigdot, \hat{P}_i, \bigdot, P_{p+1}) + \\
++ \sum\limits_{1 \leqslant i < k \leqslant p+1} (-1)^{i+j} \omega ([P_i, P_j], P_1, \ldots, \hat{P}_i, \bigdot, \hat{P}_j, \bigdot, \hat{P}_j, \bigdot, P_{p+1}) \label{art5-eq1.1}
+\end{multline}
+
+Since $\tilde{\nabla}$ is flat we have $d^2 = 0$ and it is well known that the cohomology groups of the de Rham complex $(\Omega \bigdot (X/ \Gamma, E), d)$ are canonically isomorphic to the cohomology groups $H^\bigdot (X/ {}, \tilde{E}'_{\rho_\infty})$ (comp. \cite{art10-key10}, \S 1 Prop. 1.1).
+
+We may\pageoriginale look at our bundle $\tilde{E}_{\rho_\infty}$ from a different point of view. We consider the fibration
+$$
+q : G_\infty/ \Gamma \to X / \Gamma
+$$
+which is principal with structure group $K$. Therefore the restriction of $\rho_\infty$ to $K$ defines another induced bundle $E_{\rho_\infty}$ whose global $C^{\infty}$-sections are given by the $C^\infty$-functions
+$$
+f: G_\infty / \Gamma \to E
+$$
+which satisfy
+$$
+f (kg) = \rho_\infty (k) (f(g)) \text{ for all } g \in G_\infty, k \in K.
+$$
+
+\setcounter{lemma}{1}
+\begin{lemma}\label{art5-lem1.2}
+For any $C^\infty$-section $f$ of $E_{\rho_\infty}$ we define a section $\tilde{f}$ of $\tilde{E}_{\rho_\infty}$ by
+$$
+\tilde{f} (x) = \tilde{f} (x_0 g) = \rho_\infty (g^{-1}) f(x_0) x = x_0 g
+$$
+The the mapping $f \to \tilde{f}$ induces an isomorphism from $E_{\rho_\infty}$ to $\tilde{E}_{\rho_\infty}$
+\end{lemma}
+
+The proof is either trivial or can be found in \cite{art5-key10}, Prop. 3.1.
+
+By means of this identification we can define a connection $\nabla$ on $E_{\rho_\infty}$ and we shall derive a formula for this connection in terms of the bundle $E_{\rho_\infty}$ itself.
+
+Let $\fG$ be the Lie algebra of right invariant vector fields on $G_\infty$. Let $\fK$ be the Lie algebra of $K$ and we put $\fp = \fG/\fK$. Let $T^G$ (resp. $T^X$) be the tangent bundle of $G_\infty /\Gamma$ (resp. $X/ \Gamma$). The projection $q$ defines at any point $g \in G$ a surjection
+$$
+D_{g, q} : T^G_g  = \fG \longrightarrow T^X_x, \; x  = x_0 g
+$$
+and this yields isomorphisms
+$$
+\bar{D}_{g, q} : \fp \tilde{\longrightarrow} T^X_x.
+$$
+This shows that $q^\ast (T^x) = G_\infty / \Gamma \times \fp$ and that the $C^\infty$-vector fields on $X/ \Gamma$ can be identified with the $C^\infty$-functions
+$$
+P : G_\infty / \Gamma \to \fp
+$$
+which satisfy
+\setcounter{equation}{2}
+\begin{equation}
+P(kg) = ad_\fp (k) P(g) \quad g \in G_\infty, k \in K, 
+\label{art5-eq1.3}
+\end{equation}
+\ie, the tangent bundle of $X/ \Gamma$ is the bundle induced by adjoint representation $ad_\fp$ of $K$ on $\fp$.
+
+Now we\pageoriginale can give our formula for the connection $\nabla$.
+
+\setcounter{lemma}{3}
+\begin{lemma}\label{art5-lem1.4}
+Let $f: G_\infty/ \Gamma \to E$ be $C^\infty$-section of $E_{\rho_\infty}$ and let $P: Kg \to \fp$ be a tangent vector at $x = x_0$ $g = Kg$. Then
+$$
+\nabla_{P(g)} (f) |_g = \tilde{P} (g) f |_g - \rho_\infty (\tilde{P} (g)) (f(g))
+$$
+where $\tilde{P}(g)$ is a representative for $P(g)$ in $\fG$, and where $\tilde{P}(g) f|_g$ is the ordinary derivative of the function $f$ with respect to the tangent vector $\tilde{P} (g)$ at $g$.
+\end{lemma}
+
+This lemma follows from direct calculations and it is also essentially stated in \cite{art5-key10}, Prop. 4.1.
+
+\begin{remark*}
+The bundles $E_{\rho_\infty}$ and $\tilde{E}_{\rho_\infty}$ are only two different realizations of the same thing. We need $\tilde{E}_{\rho_\infty} \to X / \Gamma$ for the definition of the connections $\tilde{\nabla}$ and $\nabla$, but from now on we shall work with the realization $E_{\rho_\infty} \to X / \Gamma$.
+\end{remark*}
+
+Let us now assume that $G_\infty$ is the group of real points of a reductive algebraic group over $\bR$. Then the Lie algebra splits 
+$$
+\fG' = {}^\bigdot \fB\oplus \fG
+$$
+where $\fB$ is the centre of $\fG'$ and where $\fG$ is the semisimple part of $\fG$. Let us assume moreover that $K \subset G_\infty$ is a maximal compact sub-group, then $X = K/ G_\infty$ is homeomorphic to an euclidean space. Let 
+$$
+B : \fG \times \fG \longrightarrow \bR
+$$
+be a symmetric nondegenerate bilinear form on $\fG$ which has the following properties
+\begin{itemize}
+\item[(1)] $B$ is invariant under the adjoint action of $G_\infty$ on $\fG$.
+
+\item[(2)] The restriction of $B$ to $\fK$ is negative definite and if $\fp$ is the orthogonal complement of $\fK$ with respect to $B$, then $B / \fp$ is positive definite.
+\end{itemize}
+
+The condition (1) implies that $\fG = \fB \oplus \fG'$ is orthogonal with respect to $B$.
+
+By means of the identification $\bar{D}_{e,q} : \fp \to T^X_{x_0}$ we define as usual a Riemannian metric on $X$.
+
+We\pageoriginale assume now that $\rho_\infty$ is the complexification of a real representation $\rho_0 : G \to G L (E_0)$. Following Matsushima and Murakami in \cite{art5-key10} we call an euclidean bilinear form
+$$
+\langle, \rangle : E_0 \times E_0 \to \bR
+$$
+admissible if 
+\begin{itemize}
+\item[(1)] $\langle, \rangle$ is invariant under $\rho (K)$, 
+
+\item[(2)] $\langle \rho_\infty (P) e, f \rangle = \langle e, \rho_\infty (P) f \rangle$ for all $P \in \fp$, e. $f \in E_0$.
+\end{itemize}
+We extend $\langle , \rangle$ to a hermitian form on $E = E_0 \times \bC$. The existence of such an admissible metric on $E_0$ is proved in \cite{art5-key10}, Lemma 3.1, if $K$ is connected. In the general case we have to average over the different connected components of $K$.
+
+
+let us fix an admissible metric on $E$. It induces a $\bC$-linear isomorphism
+$$
+\# : E \tilde{\longrightarrow} E^\ast = \Hom_\bC (E, \bC)
+$$
+which is defined by $(\# a) (b) = \langle b, \bar{a} \rangle$ for all $a, b \in E$. Because of condition (1) this extends to an isomorphism $\# : E_{\rho_\infty} \tilde{\longrightarrow} E^\ast_{\rho_\infty}$ This yields a map
+\setcounter{equation}{4}
+\begin{equation}
+\# : \Omega^p (X/ \Gamma, E) \tilde{\longrightarrow} \Omega^p (X/ \Gamma, E^\ast) , \label{art5-eq1.5}
+\end{equation}
+If $\dim X =N$ and if $\Gamma$ preserves an orientation of $X$ then we define the operator 
+\begin{equation}
+\ast : \Omega^p (X / \Gamma, X) \longrightarrow \Omega^{N-p} (X/ \Gamma, E) \label{art5-eq1.6}
+\end{equation}
+(comp. \cite{art5-key10}, \S2) as usual and it is easy to see that $\ast$ and $\#$ commute.
+
+If $\omega \in \Omega^p (X / \Gamma , E)$ and $\omega' \in \Omega^{N-p} (X/ \Gamma, E^\ast)$ then $\omega \wedge \omega'$ takes its values in $E \otimes E^\ast$ and the evaluation $\map tr : E \otimes E^\ast \to \bC$ brings us back to the complex numbers. We define
+\begin{equation}
+(\omega, \omega') = tr (\omega \wedge \omega') \in \Omega^N (X/ \Gamma, \bC)
+\label{art5-eq1.7}
+\end{equation}
+We now define as usual a hermitian inner product on the $C^\infty$-$p$-forms with compact support
+$$
+\langle \omega, \omega' \rangle = \int\limits_{X/ \Gamma} (\omega, \overline{\ast \circ \# \omega'})
+$$
+The\pageoriginale operator $\delta: \Omega^{p+1} (X/ \Gamma, E) \to \Omega^p (X/ \Gamma, E)$  is defined as the adjoint of $d$ with respect to this metric. We know from \cite{art5-key10}, \S 2 that this operator can also be defined by 
+$$
+\delta = (-1)^{p+1} \ast {}^{-1} \circ \# {}^{-1} d \# \circ \ast .
+$$
+We define that Laplacian
+$$
+\Delta = d \delta + \delta d.
+$$
+
+This Laplacian operator does not depend on the choice of an orientation on $X$ and therefore we can define $\Delta$ also if $\Gamma$ does not preserve the orientation.
+
+If the quotient $X / \Gamma$ is compact then one knows that a harmonic $p$-form $\omega$, \ie, a form that satisfies $\Delta \omega = 0$, is closed and coclosed, \ie, it satisfies $d \omega = 0$ and $\delta \omega = 0$. Therefore we get a mapping from the space of harmonic forms $\bH^p (x/ \Gamma , E)$ to the cohomology
+$$
+\bH^p (X/ \Gamma, E) = \{\omega \in \Omega^p (X/ \Gamma, E) | \Delta_\omega = 0 \} \longrightarrow H^p (X/ \Gamma, E)
+$$
+and a straightforward generalization of the Hodge theory (comp. [12], \S 31, Cor. 3) tells us that this map is an isomorphism.
+
+To conclude this section we shall explain the relation of $\Delta$ to the Casimir operator $C$. The bundle $E_{\rho_\infty}$ is the induced bundle of the representation $\rho_\infty|K$, and we have seen that the tangent bundle $T^X$ is the bundle induced by $ad_\fp$. Therefore we have a natural identification between the space $\Omega^p (X \Gamma, E)$ and the functions
+$$
+\varphi : G_\infty / \Gamma \to \Hom (\Lambda^p_\fp, E)
+$$
+which satisfy
+\begin{equation}
+\varphi (kg) = \Lambda^p ad_\fp^\ast (k) \otimes \rho_\infty (k) (\varphi (g)) \quad g \in G_\infty, \; k \in K 
+\label{art5-eq1.8}
+\end{equation}
+where $ad^\ast_\fp$ is the dual representation to $ad_\fp$.
+
+The enveloping algebra $U (\fG)$ is operating as an algebra of differential operators on the $C^\infty$-functions on $G_\infty/\Gamma$ with values in $\Hom (\wedge^p_\fp, E)$ (Comp. [8], Chap. I, \S 2). Our metric on $\fG$ defines the Casimir operator $C \in \fB (\fG) =$ centre of $U (\fG)$, and this is an operator of order 2which sends the functions $\varphi$ satisfying \eqref{art5-eq1.8} into itself. We can extend the representation $\rho_\infty$ of $\fG$ in $\End (E, E)$ to a representation\pageoriginale $\rho_\infty$ of $U(\fG)$ in $\End (E, E)$. Then we have for all $C^\infty$-$p$-forms $\varphi: G_\infty/ \Gamma \to \Hom (\Lambda^P_\fp, E)$ the formula
+\begin{equation}
+\Delta_\varphi = - C_\varphi  + \rho_\infty (C)_\varphi. 
+\label{art5-eq1.9}
+\end{equation}
+This is the lemma of Kuga and it is proved in \cite{art5-key10} \S 6 for semisimple groups. The generalization to the reductive case is easy.
+
+\section{The cohomology of `parabolic' discrete groups.}\label{art5-sec2}
+Let $k$ be an algebraic number field and let $G/ k$ be a semisimple algebraic group. We define $k_\infty = k \otimes_{\bQ} \bR = \bR^{r_1} \oplus \bC^{r_2}$ and we put $G_\infty = G_{k_\infty}$. Let $\Gamma \subset G_k$ be an arithmetically defined subgroup without torsoin. Let $\rho_k : G \to G L(V)$ be a rational representation of $G/ k$. From this we get a representation $\rho_\infty$ of $G_\infty$ on the vector space $E_0 = V \otimes_{\bQ} \bR$. Let us fix an admissible metric on $E_0$ with respect to a fixed maximal compact subgroup $K \subset G_\infty$. Again we put $E = E_0 \times \bC$. This is the situation to which we shall apply the results of \S 1.
+
+Let $P \subset G/k$ be a parabolic subgroup. In this section we shall investigate the cohomology groups 
+$$
+H^\bigdot (\Gamma \cap P_k, \rho'_\infty, E)
+$$
+where $\Gamma \cap P_k = \Gamma \cap P_\infty \subset P_\infty$ is the ``parabolic'' discrete group in the heading of this section.
+
+Let us assume that $G/k$ is simply connected. Then the character module $X (P) =\Hom (P, G_m)$ is generated by fundamental dominant weights $\chi_1, \ldots, \chi_r$. These characters $\chi_i$ induce homomorphisms
+\begin{align*}
+& |\chi_i| : P_\infty \longrightarrow (\bR^+)^\ast \\
+& |\chi_i| : p \longrightarrow N_{k_\infty/\bR} (\chi_i (p)) |
+\end{align*}
+The intersection of the kernels of these homomorphisms $|\chi_i|$ is called $P_\infty(1)$, and it is well known that $P_\infty (1) \cap \Gamma = P_\infty \cap \Gamma$. We put $X = K / G_\infty$ where $K$ is our fixed maximal compact subgroup and $x_0 = K e \in X$. We define
+$$
+X(1) = X_P (1) = x_0 P_\infty (1).
+$$
+This is a $s$-codimensional subspace of $X$ which depends on $P$. We drop the index $P$ if it is clear with respect to which $P$ this subspace is defined. Since $X (1)$ is contractible we have 
+$$
+H^\bigdot (X(1)/ \Gamma \cap P_\infty, E) = H^\bigdot (X/ \Gamma \cap P_\infty, E) = H^\bigdot (\Gamma \cap P_\infty, \rho'_\infty, E)
+$$\pageoriginale
+where $\rho'_\infty$ is of course the restriction of $\rho_\infty$ to $P_\infty$.
+
+Let us denote the unipotent radical of $P$ by $U$. Then $M = P/U$ is reductive algebraic group over $k$, and $M_\infty$ (1) is the group of real points of an algebraic subgroup of $M \times {}_\bQ \bR$. Let $K_M$ be the image of $K \cap P_\infty$ in $M_\infty$ (1) then the quotient
+$$
+X_M = K_M / M_\infty (1)
+$$
+is again a symmetric space. As metric on $X_M$ we take the one which is induced by the restriction of the Killing form to the Lie algebra of $M_\infty(1)$, this restriction satisfies obviously the conditions (1) and (2) in \S 1. Let $\Gamma_m$ be the image of $\Gamma \cap P_\infty$ in $M_\infty$ (1)---this is again an arithmetically defined group. The map
+$$
+\pi : X (1) / \Gamma \cap P\infty \to X_M / \Gamma_M
+$$
+is easily seen to be an fibration with fiber $U_\infty/ U_\infty \cap \Gamma$. Therefore we have a spectral sequence
+\setcounter{equation}{0}
+\begin{align}
+H^p (X_M / \Gamma_M, H^q(U_\infty/ U_\infty \cap \Gamma, E)) \Rightarrow H^n (X (1)/ \Gamma \cap P_\infty, E) &\label{art5-eq2.1}\\
+p+q = n.&\notag
+\end{align}
+We shall see that this spectral sequence collapses and that the cohomology $H^\bigdot (X (1)/ \Gamma \cap P_\infty, E)$ is actually the direct sum of the $E_2$-terms on the left hand side.
+
+First we apply the considerations of \S 1 to the cohomology of the fiber. Since $K \cap U_\infty = e$ the tangent bundle and the bundle $E_{\rho_\infty}$ restricted to $U_\infty/ U_\infty \cap \Gamma$ are trivial and $\Omega^q (U_\infty, E)$ is the space of $C_\infty$-functions $\omega : U_\infty \to \Hom (\Lambda^q u, E)$ where $u$ is the Lie algebra of right invariant vector fields on $U_\infty$. The group $U_\infty$ is acting on the $q$-forms by right translations, and $\Omega^q (U_\infty/ U_\infty \cap \Gamma, E)$ consists exactly of those forms which are invariant under $U_\infty \cap \Gamma$. Therefore we have an embedding
+$$
+\Hom (\Lambda^\bigdot u, E) = \Omega^\bigdot (U_\infty, E)^{U_\infty} {\displaystyle{\mathop{\hookrightarrow}^j}} \Omega^\bigdot (U_\infty/ U_\infty \cap \Gamma, E).
+$$
+We have also a map in the opposite direction
+$$
+h : \omega \to \int\limits_{U_\infty/ U_\infty \cap \Gamma} \omega (u) du.
+$$
+Here, $du$ is a Haar measure on $U_\infty$ such that $\vol_{du} (U_\infty / U_\infty \cap \Gamma) = 1$.
+
+\setcounter{theorem}{1}
+\begin{theorem}[van Est, \cite{art5-key4}]\label{art5-thm2.2}
+The\pageoriginale maps $j$ and $h$ induce isomorphisms on the cohomology which are inverse to each other. We have
+$$
+H^\bigdot (U_\infty/ U_\infty \cap \Gamma, E) = H^\bigdot (\underline{u}, E)
+$$
+where the expression on the right hand side denote the cohomology of the Lie algebra $\underline{u}$ with coefficients in the $\underline{u}$-module $E$.
+\end{theorem}
+
+The first assertion is essentially a special case of Theorem 8 in van Est's paper, and the second one follows from his Theorem 9; but at this place  we have to make a few remarks about signs. Let us assume for the moment that $U_\infty$ is any Lie group and that $\underline{u}$ is the Lie algebra of right invariant vector fields. If $\rho_\infty$ is still our representation of $U_\infty$ in $GL(E)$ then we define as usual for $T \in \underline{u}$
+$$
+\rho_\infty (T) f = \lim\limits_{t \to 0} \frac{\exp (t T)f -f}{t}
+$$
+and with this definition $E$ becomes a right $\underline{u}$-module, \ie, we have
+$$
+(\rho_\infty (T_1) \rho_\infty (T_2) - \rho_\infty (T_2) \rho_\infty (T_1) ) f = \rho_\infty ([T_2, T_1]) f \text{ for } T_1, T_2 \in \underline{u}, f \in E
+$$
+where of course $[T_1 T_2] = T_1 T_2 - T_2 T_1$. Especially for the adjoint representation this yields $ad (T_1) (T_2) = [T_2, T_1]$. For a right $\underline{u}$-module $E$ the cohomology groups are computed from the following complex (comp. \cite{art5-key3}, Chap. XIII, \S 8).
+$$
+\longrightarrow \Hom (\Lambda^{q-1} \underline{u}, E) \xrightarrow{d} \Hom (\Lambda^q \underline{u}, E)\xrightarrow{d} \Hom (\Lambda^{q+1} \underline{u}, E) \longrightarrow
+$$
+where for $f \in \Hom (\Lambda^q \underline{u}, E)$  we have
+\setcounter{equation}{2}
+\begin{align}
+df (T_1 , \cdot , T_{q+1}) & = \sum\limits^{i=q+1}_{i=1} (-1)^i \rho_\infty (T_i)  f (T_1 , \cdot, \hat{T}_i, \cdot , T_{q+1}) + \notag\\
+& = + \sum\limits_{1 \leqslant i < j \leqslant q +1} (-1)^{i+ j} f ([T_i, T_j], T_1 , \cdot , \hat{T}_j, \cdot , \hat{T}_j \cdot T_{q+1}). \label{art5-eq2.3}
+\end{align}
+Actually the second statement of Theorem 2.2 is easy consequence of the definitions, Lemma \label{art5-lem1.4}, and formula (2.3).
+
+In the spectral sequence (2.1) we have to take the cohomology of $X_M/ \Gamma_M$ with coefficients in the local system of the cohomology of  the fiber\pageoriginale $H^\bigdot (U_\infty / U_\infty \cap \Gamma, E) = H^\bigdot (\underline{u}, E)$. This local system is determined by the operation of the fundamental group $\Gamma_M$ on $H^\bigdot (\underline{u}, E)$. On the other hand, the group $P_\infty (1)$ acts in a natural way on the cochain complex which defines $H^\bigdot (\underline{u}, E)$ and this gives us a representation of $M_\infty (1)$ on $H^\bigdot (\underline{u}, E)$. We claim that the restriction of the latter action to $\Gamma_M$ is equal to the first one. To see this we have to consider the pull back of the fibration $\pi$ over $\pi$ itself, we get a diagram 
+$$
+\xymatrix{
+X(1)/ \Gamma \cap P_\infty \ar[r]^-\pi & X_M / \Gamma_M \\
+Y\ar[r]^-{\pi'} \ar[u] & X(1) / \Gamma \cap P_\infty \ar[u]_-\pi
+}
+$$
+and the fiber bundle $Y \xrightarrow{\pi'} X (1) / \Gamma \cap P_\infty$ is induced by the operation of $\Gamma \cap P_\infty$ on $U_\infty/ U_\infty \cap \Gamma$. But then the corresponding assertion for the fibration $\pi'$ is clear, and this proves our original claim. 
+
+This tells us that we can apply the results of \S1 to the $E_2$-terms of the spectral sequence. The next thing we shall do is to construct for a fixed $q$ an imbedding
+$$
+\Omega^p (X_M / \Gamma_M, \; H^q (\underline{u}, E)) \hookrightarrow \Omega^{p+q} (X (1) / \Gamma \cap P_\infty, E)
+$$
+and we shall see that this imbedding commutes with the exterior derivatives.
+
+The Cartan involution corresponding to $K$ is denoted by $\theta$. It induces the well-known Cartan decomposition $\fG = \fk \oplus \fp$. Moreover it is well known that the intersection
+$$
+\tilde{M}_\infty = P_\infty \cap P^\theta_\infty
+$$
+is a real Levi subgroup of $P_\infty$ and that the restriction of $\theta$ to $\tilde{M}_\infty$ is again a Cartan involution. We introduce a positive definite metric on $\fG$ by
+$$
+B_\theta (N , N') = - B (N, \theta (N'))
+$$
+where $B$ is the Killing form. In $\tilde{M}_\infty$ we fix the maximal compact subgroup $K \cap \tilde{M}_\infty = K_M$.
+
+\setcounter{lemma}{3}
+\begin{lemma}\label{art5-lem2.4}
+The metric\pageoriginale $B_\theta$ restricted to $\underline{u}$ is admissible with respect to the adjoint representation of $\tilde{M}_\infty$ on $\underline{u}$.
+\end{lemma}
+
+\begin{proof}
+Obvious.
+\end{proof}
+
+This metric on $\underline{u}$ extends to an admissible metric on $\Hom (\Lambda^q \underline{u}, E)$ since we have already chosen an admissible metric on $E$. Following Kostant \cite{art5-key9} we construct the adjoint operator $\delta : \Hom (\Lambda^p_{\;\;\underline{u}} , E ) \to$\break $\Hom (\Lambda^{p-1} \underline{u}, E)$ to the coboundary operator $d$. Since our metric is invariant under the action of $K_M$ the operators $d$ and $\delta$ commute with the action of $K_M$. We define the Laplacian by $L = d \delta + \delta d$, and Kostant has proved (comp. \cite{art5-key9}, Prop. 2.1 and 3.5.4)
+$$
+H^q (\underline{u}, E) \tilde{\longrightarrow} \{\zeta \in \Hom (\Lambda^q \underline{u}, E) | L \zeta = 0\} = \bH^q (\underline{u}, E).
+$$
+This is an $M_\infty$ invariant subspace of $\Hom (\Lambda^q \underline{u}, E)$ since our metric is admissible.
+
+Let us put $\underline{P} = \Lie (P_\infty)$, $\underline{P}_1 = \Lie (P_\infty (1))$, $\underline{m} = \Lie (\tilde{M}_\infty)$ and $\underline{m}_1 = \Lie (\tilde{M}_\infty (1))$. The Cartan decomposition of $\underline{m}$ (resp. $\underline{m}_1$) with respect to the restriction of $\theta$ to $\tilde{M}_\infty$ (\resp. $\tilde{M}_\infty$ (1)) is denoted by 
+\begin{align*}
+& \underline{m} = \fK_M \oplus \bar{\fp}\\
+(\resp.) \quad & \\
+& \underline{m}_1 = \fK_M \oplus \bar{\fp}_1
+\end{align*}
+With respect to $B_\theta$ we have the following orthogonal decomposition (comp. \cite{art5-key6}, Prop. 1.1.1)
+$$
+\underline{P} = \underline{m} \oplus \underline{u}
+$$
+and this induces 
+$$
+\underline{P}_1 = \underline{m}_1 \oplus \underline{u} = \fK_M \oplus \bar{\fp}_1 \oplus \underline{u}.
+$$
+Our general considerations in \S 1 yield that the tangent bundle of $X(1)$ (resp. $X_M$) is canonically isomorphic to the bundle which is induced by the adjoint operation of $K_M$ on $\bar{\fp}_1 \oplus \underline{u}$ (resp. $\bar{\fp}_1$). Let us introduce the notation $\underline{r}_1 = \bar{\fp}_1 \oplus \underline{u}$. Then we have the decomposition of $K_M$-modules
+$$
+\Lambda^n \underline{r}_1 = \Lambda^n (\bar{\fp}_1 \oplus \underline{u}) = \bigoplus_{p+q=n} \Lambda^p \bar{\fp}_1 \oplus \Lambda^q \underline{u}
+$$
+
+We have\pageoriginale interpreted an element in $\Omega^p (X_M/ \Gamma_M, H^q (\underline{u}, E))$ as a $C^\infty$-function
+$$
+\varphi : M_\infty (1) / \Gamma_M \longrightarrow \Hom (\Lambda^p \bar{\fp}_1, \bH^q (\underline{u}, E))
+$$
+which satisfies 
+$$
+\varphi (kg) = \Lambda^p ad^\ast_{\bar{\fp}_1} (k)\otimes \Lambda^q ad^\ast_{\underline{u}} (k) \otimes \rho_\infty (k) (\varphi (g))
+ $$
+(comp. (1.8)). But since $\bH^q (\underline{u}, E) \subset \Hom (\Lambda^q \underline{u}, E)$ we have $\Hom (\Lambda^p \bar{\fp}_1, \bH^q (\underline{u}, E)) \subset \Hom (\Lambda^p \bar{\fp}_1, \Hom (\Lambda^q \underline{u}, E)) \subset \Hom (\Lambda^{p+q}  \underline{r}_1, E)$ we may as well consider $\varphi$ as an element of $\Omega^{p+q} (X (1)/ \Gamma \cap P_\infty, E)$. Therefore we have constructed an embedding where we consider $q$ as fixed and $p$ as variable. Let us denote by $d_M$ the exterior derivative of the complex $\Omega^\bigdot (X_M / \Gamma _M, \bH^q (\underline{u}, E))$ and respectively by $d$ the exterior derivative of $\Omega^\bigdot (X (1)/ \Gamma \cap P_\infty, E)$.
+
+\setcounter{lemma}{5}
+\begin{lemma}\label{art5-lem2.6}
+We have 
+$$
+i_q \circ d_M = d \circ i_q.
+$$
+\end{lemma}
+
+\begin{proof}
+Le us take a form $\varphi \in \Omega^p (X_M / \Gamma_M, \bH^q (\underline{u}, E))$, we put $\tilde{\varphi}= i_q (\varphi)$. We pull these two forms back to $P_\infty (1)/ \Gamma \cap P_\infty$, and  carry out the computations upstairs, the forms upstairs will be denoted by the same letters. By $M_1, M_2, \cdot, M_i$, $(\resp. U_1, U_2, \ldots)$ we denote the right invariant vector fields on $P_\infty(1)$ which are obtained from elements $M_i \in \underline{m}_1$ $(resp. U_i \in \underline{u})$ . (Therefore is no confusion in the notation since the indices are always less than infinity in $M_\infty$). We get from our construction
+$$
+\varphi (M_1, M_2, \cdot \cdot , M_p) (U_1, \cdot \cdot , U_q) = \tilde{\varphi} (M_1, M_2, \cdot , M_p, U_1, \cdot, U_q)
+$$
+and moreover it is clear that $\varphi$ is bihomogeneous of degree $(p,q)$, \ie, we have $\varphi (\cdot M_i \cdot , \cdot U_j \cdot) = 0$ unless the number of $M's$ ($\resp. U's$) is equal to $p$ $(\resp. q)$. This implies that
+$$
+d \tilde{\varphi} (M_1, \cdot \cdot , M_p, U_1, \cdot \cdot, U_{q+1}) = 0
+$$
+because the terms involving $\nabla_{M_i}$, $[M_i, M_j]$, and $[M_i, U_j]$ are zero and the terms involving $\nabla_{U_i}$ and $[U_i, U_j]$ add up to zero since $\varphi$ takes its values in $\bH^q (\underline{u}, E)$. Therefore\pageoriginale  we have only to compute $d \varphi (M_1, \cdot , M_{p+1} , U_1, \cdot , U_q)$. This breaks up into several terms; we use Lemma \ref{art4-eq1.4} repeatedly to get 
+\begin{align*}
+d\tilde{\varphi}& (M_1, \cdot \cdot , M_{p+1}, U_1, \cdot, U_q) =\\
+& \sum\limits^{i=p+1}_{i=1} (-1)^{i+1} M_i \tilde{\varphi} (M_1, \cdot , \hat{M}_i, \cdot, M_{q+1}, U_1, \cdot , U_q) \tag{I}\\
+- & \sum\limits^{i=p+1}_{i=1} (-1)^{i+1} \rho_\infty (M_i) \tilde{\varphi} (M_1, \cdot , \hat{M_1}, \cdot, M_{p+1}, U_1, \cdot , U_q) \tag{II}\\
++ & \sum\limits_{1 \leqslant i < j \leqslant p +1} (-1)^{i+j} \tilde{\varphi} ([M_i, M_j], M_1, \cdot , \hat{M}_i, \cdot , \hat{M}_j, \cdot , M_{p+1}, U_1, \cdot , U_q) \tag{III}\\
++ & \sum\limits^{i=p+1}_{i=1} \sum\limits^{j=q}_{j=1} (-1)^{i+p+1+j} \tilde{\varphi} ([M_i, U_j], M_1, \cdot , \hat{M}_i , \cdot, M_{p+1}, +\\
+& \hspace{6cm}+ U_1, \cdot, \hat{U}_j, \cdot , U_q) \tag{IV}
+\end{align*}
+$+2$ other terms which vanish because $\tilde{\varphi}$ is bihomogeneous of degree $(p,q)$.
+
+On the other hand we have 
+\begin{align*}
+&\quad d_M \varphi (M_1, \cdot \cdot, M_{p+1} ) =\\
+& \sum\limits^{i=p+1}_{i=1} (-1)^{i+1} M_i \varphi (M_1, \cdot , \hat{M}_1, \cdot , M_{p+1})  \tag{I$'$}\\
+- & \sum\limits^{i=p+1}_{i=1} (-1)^{i+1} (\rho_\infty (M_i) + \Lambda^q ad^\ast_{\underline{u}} (M_1)) \varphi (M_1, \cdot , \hat{M}_i, \cdot, M_{p+1}) \tag{II$'$}\\
++ & \sum\limits_{1 \leqslant i < j \leqslant p +1} (-1)^{i+j} \varphi ([M_i, M_j], M_1, \cdot , \hat{M}_i, \cdot, \hat{M}_j, \cdot , M_{p+1}). \tag{III$'$}
+\end{align*}
+We have to evaluate this on $(U_1, \cdot , U_q)$ and we see that (I) = (I$'$) and (III) = (III$'$). We claim that II$'$ = II + IV. We see that the typical term in IV is equal to 
+$$
+(-1)^i \tilde{\varphi} (M_1, \cdot , \hat{M}_i,\cdot , M_{p+1}, U_1, \cdot , [M_i, U_j], \cdot , U_q).
+$$
+We see that (II$'$) naturally breaks up into two terms, one of them is obviously equal to (II) and the other one is 
+$$
+\sum\limits^{i=p+1}_{i=1} (-1)^i (\Lambda^q \ad_{\underline{u}} (M_i)_\varphi (M_1, \cdot , \hat{M}_i, \; , M_{p+1})) \; (U_1, \cdot , U_q).
+$$
+If we\pageoriginale take into account that $\ad_{\underline{u}} (M_i) (U_j) =[U_j, M_i]$ (comp. remark following Theorem 2.2) then we see that this second term is equal to (IV).
+
+We introduced an admissible metric on $\Hom (\Lambda^q \underline{u}, E)$ which induces an admissible metric on $\bH^q (\underline{u}, E)$. From this metric we get a Laplacian operator
+$$
+\Delta_M : \Omega^p (X_M /\Gamma_M, \bH^q (\underline{u}, E)) \longrightarrow \Omega^p (X_M / \Gamma_M , \bH^q (\underline{u}, E)).
+$$
+On the other hand we have a Laplacian operator $\Delta_1$ on the complex $\Omega^\cdot (x(1)/ \Gamma \cap P_\infty, E)$ which is defined by means of the admissible metric on $E$.
+\end{proof}
+
+\setcounter{lemma}{6}
+\begin{lemma}\label{art5-lem2.7}
+We put $s = \dim (\underline{u})$. Then we have
+$$
+i_q \circ \Delta_M = \Delta_1 \circ i_q.
+$$
+\end{lemma}
+
+\begin{proof}
+Let us denote by $M^0_\infty$(1) (\resp. $K^0_M$) the connected components of $M_\infty$(1) (\resp. $K_M$). Since $X_M$ is connected we know that $X_M = K_M / M_\infty (1) = K^0_M / M^0_\infty$ (1) and we may assume that $\Gamma_M \subset M^0_\infty$ (1), since the Laplacian operator does not depend on an orientation. If we put $s = \dim \underline{u}$, then $K^0_M$ acts trivially on $\Lambda^s \underline{u}$, we choose an isomorphism $\Lambda^s \underline{u} \tilde{\longrightarrow} \bR$. The nondegenerated pairing
+$$
+\Hom (\Lambda^q \underline{u}, E) \times \Hom (\Lambda^{s-q} \underline{u}, E^\ast) \longrightarrow \bC = \Hom (\Lambda^s \underline, \bC)
+$$
+induces a nondegenerated pairing 
+$$
+\bH^q (\underline{u}, E) \times \bH^{s-q}(\underline{u}, E^\ast) \longrightarrow \bC
+$$
+which is compatible with the action of $K^0_M$.
+
+To prove the assertion in our lemma, we compare the operators $\delta_1$ and $\delta_M$. The operator $\delta_M$ is constructed by means of the mapping (comp. \S 1)
+$$
+\#_M L \bH^q (\underline{u}, E) \longrightarrow \bH^q (\underline{u}, E)^\ast = \bH^{s-q} (\underline{u}, E^\ast)
+$$
+and $\delta_1$ is constructed by means of the operator 
+$$
+\#_1: \Omega^{p+q} (X(1) / \Gamma \cap P_\infty, E) \tilde{\longrightarrow} \Omega^{p+q} (X (1) / \Gamma \cap P, E^\ast)
+$$
+which is constructed by means of the admissible metric on $E$. The $\ast$-operator on the forms on $X(1) / \Gamma \cap P_\infty$ is defined by means of the restriction\pageoriginale of $B_\theta$ to $\underline{r}_1 = \bar{\fp}_1 \oplus \underline{u}$ where this decomposition is orthogonal. If we restrict $B_\theta$ to $\underline{u}$ we get the admissible metric on $\underline{u}$ which induces the admissible metric on $\bH^q (\underline{u}, E)$. Therefore we get the following commutative diagram
+$$
+\xymatrix@R=1.2cm{
+\Omega^p (X_M / \Gamma_M, \bH^q (\underline{u}, E)) \ar[r]^{i_q} \ar[d]_{(-1)^{(n-p)q} \ast_M \circ \#_M} & \Omega^{p+q} (X(1) / \Gamma \cap P_\infty, E) \ar[d]^{\ast_1 \circ \#_1}\\
+\Omega^{n-p} (X_M/ \Gamma_M, \bH^{s-q} (\underline{u}, E^\ast)) \ar[r]^{i_{s-q}} & \Omega^{s+n - p-q} (X (1)/ \Gamma \cap P_{\infty}, E^\ast)
+}
+$$ 
+whee $n = \dim X_M$. A simple calculation yields
+$$
+i_q \circ \delta_M = \delta_1 \circ i_q
+$$
+and now the lemma is obvious.
+\end{proof}
+
+\setcounter{theorem}{7}
+\begin{theorem}\label{art5-thm2.8}
+If $X_M/ \Gamma_M$ is compact then the mapping $i$ induces  an isomorphism for the cohomology
+$$
+i^\ast: \oplus_{p+q = m} H^p (X_M / \Gamma_M, \bH^q (\underline{u}, E)) \tilde{\longrightarrow} H^m (X(1) / \Gamma \cap P_\infty, E).
+$$
+\end{theorem}
+
+\begin{proof}
+The Lemma \ref{art5-lem2.6} tells us that $i^\ast$ induces a homomorphism on the cohomology. The Hodge theory tells us that the cohomology groups on both sides are isomorphic to the corresponding spaces of harmonic forms with respect to $\Delta_M$ and $\Delta_1$. This implies that $i^\ast$ is injective and the surjectivity  follows then from the spectral sequence.
+
+The group $\tilde{M}_\infty$ is the group of real points of an algebraic group over the real numbers. Let us denote by $T$ the connected component of the identity of the centre of that group.  This is a torus over $\bR$ and let us denote its group of real points by $T_\infty$. The adjoint action induces an operation of $T_\infty$ on $\bH^q (\underline{u}, E)$ which is semisimple, and the eigenvalues of this action are induced by algebraic characters of $T$. The metric $B_\theta$ induces a decompositian
+\setcounter{equation}{8}
+\begin{align}
+& T_\infty = T_\infty (1)^\bigdot A \notag\\
+& \Phi : A \tilde{\longrightarrow} ((\bR^+)^\ast)^r \notag\\
+&  \Phi : a \tilde{\longrightarrow} (|\chi_1| (a), \cdot, |\chi_r| (a)) 
+\label{art5-eq2.9}
+\end{align}
+where\pageoriginale we shall use $\Phi$ to identify $A = ((\bR^+)^\ast)$ and we shall write $a = (t_1, t_2 , \cdot , t_r)$. If $r =1$ we write $a =t$. We now restrict our above action to $A$, Then $A$ acts  by algebraic characters
+$$
+\lambda: a \longrightarrow a^\lambda = t_1^{\lambda_1} \quad t^{\lambda_r}_{r} \quad \lambda_i \in \bZ
+$$
+on $\bH^q (\underline{u}, E)$ and we denote the corresponding decomposition by 
+\setcounter{equation}{9}
+\begin{equation}
+\bH^q (\underline, E) = \bigoplus\limits_\lambda \bH^q_\lambda (\underline{u}, E) 
+\label{art5-eq2.10}
+\end{equation}
+ and we shall call $\bH^q_\lambda (\underline{u}, E)$ the space of classes of weight $\lambda$.
+
+The group $A$ acts on $\Hom (\Lambda^s\underline{u}, \bC)$ by the character $a \to a^{-2\rho}$ where $2\rho$ is the sum of the positive roots. This implies 
+$$
+\#_M : \bH^q_\lambda (\underline{u}, E) \longrightarrow \bH^{s-q}_{-2\rho -\lambda} (\underline{u}, E^\ast).
+$$
+
+Since the action of $A$ on $\bH^q (\underline{u}, E)$ commutes with the action of $\tilde{M}_\infty$ we get a decomposition
+\begin{align*}
+H^\bigdot (X (1)/ \Gamma \cap P_\infty, E) & = \oplus_\lambda H^\bigdot_\lambda (X (1) / \Gamma \cap P_\infty, E)\\
+& = \oplus_\lambda H^\bigdot (X_M / \Gamma_M, \bH^\bigdot_\lambda (\underline{u}, E))
+\end{align*}
+\end{proof}
+
+\section{Extension of differential forms and Eisenstein series.}\label{art5-sec3}
+We assume that $G / k$ is of $k$-rank one. If $P\subset G/k$ is a minimal parabolic subgroup then we have only one fundamental dominant weight $\chi: P\longrightarrow G_m$. We define the function (comp. 2.9)
+\begin{align*}
+& h : X \longrightarrow (\bR^+)^\ast\\
+& h : x = x_0 p \longrightarrow |\chi|(p) = t.
+\end{align*}
+This function is equivariant with respect to the action of $P_\infty$. Let us denote $h^\ast \left(\dfrac{dx}{x} \right) = \dfrac{dt}{t}$, this is a $P_\infty$-invariant 1-form on the symmetric space $X$.
+
+We define $X (t) = \{x \in X | h(x) = t\}$. Let us define $T$ as the vector field on $X$ which is orthogonal to the vector fields along the slices $X (t)$ and for which $\dfrac{dt}{t} (T) = 1$.
+
+The metric $B_\theta$ induces a decomposition
+$$
+P_\infty = A \cdot P_\infty (1)
+$$
+where\pageoriginale $A$ centralizes $K \cap P_\infty$ and where $|\chi| : A \tilde{\longrightarrow} (R^+)^\ast$ is the identification we introduced at the end of \S 2. Now the mapping
+\begin{align*}
+& m_t : X(1) \tilde{\longrightarrow} X (t)\\
+&  m_t : x = x_0 p \tilde{\longmapsto} x_0 t p \quad p \in P_\infty (1)
+\end{align*}
+is a diffeomorphism which is compatible with the action of $P_\infty (1)$. Therefore it induces a diffeomorphism
+$$
+\bar{m}_t : X (1) / \Gamma \cap P_\infty \longrightarrow X (t) / \Gamma \cap P_\infty
+$$
+and we find a diffeomorphism $X/ \Gamma \cap P_\infty\tilde{\longrightarrow} (X(1)/ \Gamma \cap P_\infty) \times \bR$. The tangent bundle $T^X$ of $X / \Gamma \cap P_\infty$ has the orthogonal decomposition 
+$$
+T^X = T^X_0 \oplus \langle T \rangle
+$$
+where $T^X_0$ is the bundle of tangent vectors along the slices $X(t)$ and where $\langle T \rangle$ is the subbundle spanned by the vector field $T$. In the language of induced bundles this corresponds to the decomposition
+$$
+\fz = \fz_1 \oplus \bC T
+$$
+where $T$ now is considered as an element of Lie ($A$) and where $\underline{r} = \bar{\fp} \oplus \underline{u}$ (comp. \S 2.). The group $K_M$ acts trivially on $T$. 
+
+We now want to give some preparations which are necessary for the definition of Eisenstein series. Let us start with a cohomology class
+$$
+[\varphi] \in H^m (X(1)/ \Gamma \cap P_\infty, E).
+$$
+This cohomology class has a unique harmonic representative $\Omega^m (X(1) / \Gamma \cap P_\infty, E)$ which may be viewed as a function
+$$
+\varphi : P_\infty (1)/ \Gamma \cap P_\infty (1) \longrightarrow \Hom (\Lambda^m \underline{r}_1, E)
+$$
+which satisfies for $k \in K_M$, $p \in P_\infty (1)$, $u \in U_\infty$
+$$
+\varphi (k p u) = \Lambda^m \ad^\ast_{\underline{r}_1} (k) \otimes \rho_\infty (k) (\varphi (p))
+$$
+(comp. 1.8). The right invariance with respect to the action of $U_\infty$ follows from Theorem \eqref{art5-thm2.8}. We have a $K_M$-invariant embedding $\Hom (\Lambda^m \underline{r}_1, E) \hookrightarrow \Hom (\Lambda^m\underline{r}, E)$. On the bigger space the group $K$ is acting,\pageoriginale but the smaller space is not necessarily invariant under this action of $K$. We now extend our function $\varphi$ to a function
+$$
+\varphi_s : G_\infty / G \cap P_\infty \longrightarrow \Hom (\Lambda^m\underline{r}, E)
+$$
+by
+$$
+\varphi_s (ktp) = \Lambda^m \ad^\ast_{\underline{r}} (k) \otimes \rho_\infty  (k) (\varphi (p))^{t^{-\rho -s}}
+$$
+where $p \in P_{\infty} (1)$, $k \in K$, $t \in A$, and $s \in \bC$. This function can be considered as a differential $p$-form on $X/ \Gamma  \cap P_\infty$. In this case $\rho$ is of course an integer.
+
+We now denote the exterior derivative (resp. exterior coderivation, resp. Laplacian operator) on the complex $\Omega^\bigdot (X/ \Gamma \cap P_\infty, E)$ by $d$ (\resp. $\delta$, resp. $\Delta$). Then 
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{art5-lem3.1}
+If [$\varphi$] is of weight $\lambda$, then 
+\begin{align*}
+d \varphi_s & = (- \rho - s - \lambda) \frac{dt}{t} \wedge \varphi_s \\
+\delta \varphi_s & = 0 \\
+\Delta \varphi_s & = (s^2 - (\rho + \lambda)^2)\varphi_s.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+We pull $\varphi_s$ back to $P_\infty$. We have to evaluate $d \varphi_s$ on $m+1$-tuples of right invariant vector fields. Since $\varphi$ itself is closed the only nonzero terms are
+$$
+d \varphi_s (T, M_1, \cdot , M_a, U_1, \cdot , U_b )  \quad 
+\begin{array}{c}
+\\
+M_i \in \bar{\fp}_1, \; U_j \in \underline{u}\\
+\qquad a + b = m
+\end{array}
+$$
+
+Since $\varphi_s (T, \cdot , M, \cdot, U^\bigdot) =0$ we get for this last expression
+\begin{align*}
+& \Delta_{T} \varphi_s (M_1, \cdot , M_a, U_1, \cdot , U_b) + \sum\limits_{1 \leqslant j \leqslant b} (-1)^{1+ p + 1 + j_{\varphi_s}} ([T, U_j], M_i \cdot , \cdot U_j)\\
+& = (-\rho -s) \varphi_s (M_1, \cdot, M_a, U_1, \cdot , U_b) - \rho_\infty (T)\varphi_s (M_1, \cdot, M_a, U_1, \cdot , U_b) - \\
+& \hspace{3cm} - \sum\limits_{1 \leqslant j \leqslant b} \varphi_s (M_1, \cdot, M_a, U_1, \cdot , [T, U_j], \cdot , U_b).
+\end{align*}
+Since $\ad (T) (U_j) = [U_j, T]$ (comp. remark following Theorem 2.2) we see that the last two terms add up to $- \lambda \varphi_s (M_1, \cdot, M_a, U_1, \cdot , U_b)$. To prove the second formula we compare the operators $\ast$ and $\#$ on $\Omega^\bigdot (X/ \Gamma \cap P_\infty, E)$ to the corresponding operators $\ast_1$ and $\#_1$ on $\Omega^\bigdot (X(1)/ \Gamma \cap P_\infty, E)$. It is clear that $\#_1$ is the restriction of $\#$ to $\Omega^\ast (X(1)/\Gamma \cap P_\infty, E)$ and since $\dfrac{dt}{t}$ is orthogonal to the vector fields along the slices $X(t)$ we get
+\begin{equation}
+\left. 
+\begin{aligned}
+\ast \varphi_s = (-1)^p \frac{dt}{t} \wedge (\ast_1 \varphi)_s \\
+\ast \left(\frac{dt}{t}\wedge\varphi_s \right) =(\ast_1 \varphi)_s
+\end{aligned}
+\right\}
+\label{art5-eq3.2}
+\end{equation}
+
+Since $\varphi$ is harmonic we find
+$$
+\delta \varphi_s = (-1)^{p+1} \ast^{-1} \circ \#^{-1} d \# \circ \ast \varphi_s = -\ast^{-1} \circ \#^{-1} d \left(\frac{dt}{t} \wedge (\#_1 \circ \ast_1 \varphi)_s \right) = 0
+$$
+because of our previous formula.
+
+To prove the formula for the Laplacian operator, we have to observe that it follows from our considerations at the end of \S 2 that $\ast_1 \circ \#_1 \varpi = \ast_M \circ \#_M \varphi$ is of weight $-2 \rho - \lambda$. Then the formula becomes obvious. 
+
+We want to define the Eisenstein series $E(\varphi, s) \in \Omega^p (X/ \Gamma ; E)$ which is associated to [$\varphi$]. To do this we have to recall the general context in which the Eisenstein series are defined.
+
+We start with a representation
+$$
+\sigma : K \longrightarrow G L (V)
+$$
+where $\dim V < + \infty$. Let $\eta  \in \Hom_{K_M} (V, V)$, we introduce the vector space
+{\fontsize{10}{12}
+$$
+\sA (M_\infty (1) / \Gamma_M , \sigma, \eta) = \{\psi: M_\infty (1)/ \Gamma_M \to V
+\left.
+\left|
+\begin{aligned}
+&\psi(km) = \sigma (k) \psi (m) \text{ for } k \in K_M\\
+&(C_M \psi) (m) = \eta (\psi (m))
+\end{aligned}
+\right.
+\right\}
+$$}
+where $C_M$ is the Casimir operator. This vector space is of finite dimension since $M_\infty (1)/ \Gamma _M$ is compact and since the Casimir operator induces an elliptic operator on the bundle $V_\sigma \to X_M / \Gamma_M$ which is induced by $\sigma$. If $\psi \in \sA(M_\infty (1)/\Gamma_M, \sigma, \eta)$ we put, following Harish-Chandra, $\psi_s (g) = \psi_s (ktp) =\sigma (k) \psi (p)^{\bigdot t ^{-\rho - s}}$ (comp. \cite{art5-key7}, Chap. II, \S 2) and we define for $s \in \bC$, $\RE (s) > \rho$
+$$
+E (g, \psi, s) = E (\psi, s) = \sum\limits_{a \in \Gamma / \Gamma \cap P_\infty} \psi_s (ga).
+$$
+It is\pageoriginale known that this series converges for $\RE (s) > \rho$ and that it has meromorphic continuation into the entire $s$-plane (comp. \cite{art5-key8}, Chap. IV).
+
+If $P'$ is another minimal parabolic subgroup then the constant Fourier coefficient of $E(g, \psi, s)$ along $P'$ is defined by 
+$$
+E^{P'} (g,\psi, s) = \int\limits_{U_\infty / U' \infty \cap \Gamma} E (gu', \psi, s) d u'
+$$
+where $U'$ is the unipotent radical of $P'$ and where
+$$
+\vol_{du'} (U'_\infty/ U'_\infty \cap \Gamma) =1.
+$$
+
+We shall state briefly some of the results concerning there constant Fourier coefficients which are proved in \cite{art5-key8}, Chap. II. We put
+$$
+\epsilon = 
+\begin{cases}
+0 \text{if $P$ and $P'$ are not $\Gamma$-conjugate}\\
+1 \text{if $P$ and $P'$ are $\Gamma$-conjugate.}
+\end{cases}
+$$
+If $\epsilon =1$ we assume that $P = P'$. Then
+$$
+E^{P'} (\psi, s) =\epsilon (\psi)_s + (c (s) \psi)_{-s}
+$$
+where $c(s)$ is a linear mapping
+$$
+c(s) : \sQ (M_\infty (1)/ \Gamma_M, \sigma, \eta) \longrightarrow \sA (M'_\infty (1)/ \Gamma_M, \sigma, \eta')
+$$
+which is meromorphic in the variable $s$. We claim that this follows from \cite{art5-key8}, Chap. II, Theorem 5 and the results in Chap. IV on analytic continuation. To see this we choose  an element $y \in K$ which conjugates $\tilde{M}_\infty$ to $\tilde{M}'_{\infty}$ and which conjugates $P$ into the opposite $\tilde{P'}$ of $P'$ with respect to $\tilde{M}'_\infty$, \ie, $\bar{P}'_\infty, \cap P'_\infty = \tilde{M}'_\infty$. This map sends the Casimir operator on $\tilde{M}_\infty (1)$ to the Casimir operator on$M'_\infty (1)$ and it sends $\eta \in \Hom_{K_M} (V, V)$ into an element
+$$
+\eta' = \ad (y) (\eta) \in \Hom_{K_{M'}} (V, V).
+$$
+Then our statement above is a slight modification of Lemma 36 in \cite{art5-key8}, Chap. II.
+
+Now we come back to the cohomology. We have seen that the cohomology group $H^m (X (1)/ \Gamma \cap P_\infty, E)$ can be identified with the space of harmonic forms
+$$
+\varphi: M_\infty (1)/ \Gamma_M \longrightarrow \bigoplus_{p+q=m} \Hom (\Lambda^p \underline{P}_1, \bH^q (\underline{u}, E)) \text{ for which } \Delta_M \varphi = 0
+$$\pageoriginale
+(comp. Theorem \ref{art5-thm2.8}). We have the inclusions
+\begin{align*}
+& \bigoplus_{p+q=m} \Hom (\Lambda^p \bar{\fp}_1, \bH^q (\underline{u}, E)) \subset \bigoplus_{p+q = m} \Hom (\Lambda^p \bar{\fp}_1, \Hom (\Lambda^q \underline{u}, E))\\
+& = \Hom (\Lambda^m \underline{r}_1, E) \subset \Hom (\Lambda^m \underline{r}, E).
+\end{align*}
+The biggest space is invariant under $K$; the other spaces are in general only $K_M$-invariant. The Laplacian operator $\Delta_M$ acts on the space of functions 
+$$
+\varphi : M_\infty (1) / \Gamma_M \longrightarrow \bigoplus_{p+q = m} \Hom (\Lambda^p \bar{\fp}_1, \Hom (\Lambda^q \underline{u}, E))
+$$
+which satisfy \eqref{art5-eq1.8}, and it follows from the lemma of Kuga that (comp. \eqref{art5-eq1.9})
+$$
+\Delta_M \varphi = - C_M \varphi + \lambda (C_M) \varphi
+$$
+where $\lambda (C_M) = \bigoplus_{p+q=m} \lambda_{p,q} (C_M)$ and $\lambda_{p,q} (C_M)$ is the linear transformation induced by the Casimir on
+$$
+\Hom (\Lambda^p \fp_1, \Hom (\Lambda^q \underline{u}, E)).
+$$
+Because of our identifications
+$$
+\lambda(C_M) \in \End (\Hom (\Lambda^m \underline{r}_1, E))
+$$
+and since 
+$$
+\Lambda^m \underline{r} = \Lambda^m \underline{r}_1 \oplus \Lambda^{m-1} \underline{r}_1 \otimes \bC T
+$$
+we may extend $\lambda (C_M)$ trivially to $\Lambda^{m-1} \underline{r}_1 \otimes \bC T$ and therefore we may consider $\lambda (C_M)$ also as an element of 
+$$
+\End_{K_M} (\Hom(\Lambda^m \underline{r}, E)).
+$$
+Our considerations shown that 
+$$
+H^m (X(1)/ \Gamma \cap P_\infty; E) \hookrightarrow \sA (M_\infty (1) \Gamma_M, \Lambda^m \ad^\ast \otimes \rho_\infty, \lambda (C_M))
+$$
+and therefore we can associate to any cohomology class an Eisenstein series. Let us denote
+$$
+\sA (M_\infty (1)/ \Gamma_M, \Lambda^m \ad^\bigdot \underline{r} \otimes \rho_\infty, \lambda (C_M)) = \sH^{(m)}_M.
+$$
+It is clear that in this case we have
+$$
+c(s) : \sH^{(m)}_M \longrightarrow \sH^{(m)}_{M'}
+$$
+since the representation $\ad_{\underline{r}_1} | K_M$ extends to the normaliser of $K_M$ in $K$.
+\end{proof} 
+
+\begin{remark*}
+The space\pageoriginale $\sH_M$ plays only an auxiliary role; we need, it, because we want to have a home for our $c(s) \varphi$ and we want to have some space of functions which is invariant under the transformations $c(s)$. It is not clear that the $c(s) \varphi $ is again a cohomology class if $\varphi$ was one.
+\end{remark*}
+
+The Eisenstein series will now be used in the following context: We know that $X/ \Gamma$ is up to homotopy a compact manifold $V$ with boundary $\partial V$. The theory of Eisenstein series will help us to associate to any cohomology class $[\varphi] \in H^m (\partial V; E)$ an Eisenstein series $E(\varphi, s) \in \Omega^m (X/\Gamma : E)$.
+
+Before we can do this we must recall some facts from reduction theory. Let $P_1, P_2, \ldots, P_d$ be a set of representatives for the $\Gamma$-conjugacy classes of minimal parabolic subgroups. We consider the projection
+$$
+Y = \bigsqcup^{i=d}_{i=1} X / \Gamma \cap P_{i, \infty} \longrigthtarrow X / \Gamma.
+$$
+For each $X/ \Gamma \cap P_{i, \infty}$ we have the functions $h_i: X/ \Gamma \cap P_{i, \infty} \to (\bR^+)^\ast$ which have been introduced above. We collect these functions to a function $h: Y \longrightarrow (R^+)^\ast$ If $t_0 > 0$ we define 
+$$
+Y(t_0) = \{y \in Y | h (y) < t_0\}.
+$$
+It is well known that we can choose $t_0 > 0$, such that the mapping $Y(t_0) \longrightarrow X/ \Gamma$ is injective and locally diffeomorphic (comp. \cite{art5-key2}, Theorem 17.10). Let us identify $Y(t_0)$ with its image. The complement of $Y(t_0)$ is a compact manifold $V$ with boundary $\partial Y$ (comp. \cite{art5-key2}, loc. cit.,). The boundary components of $V$ are the manifolds $X_i (t_0)/\Gamma \cap P_{i, \inifty}$ where $X_i (t_0)$ is of course $\{x \in X | h_i (x) = t_0\}$.
+
+Now we come back to the Eisenstein series. Let us consider a cohomology class $[\varphi] \in H^m (\partial V, E)$, then this class may be considered as a vector $[\varphi] = ([\varphi_1], \ldots, [\varphi_d])$ where
+$$
+[\varhpi_i] \in H^m (X_i (t_0) / \Gamma \cap P_{i, \infty}, E).
+$$
+Since we have the identification
+$$
+\bar{m}_{t_0} : X_i (1) / \Gamma \cap P_{i,\infty} \longrightarrow X_i (t_0) / \Gamma \cap P_{i, \infty}
+$$
+we can\pageoriginale
+
+
+
+%%%% 151 page
 
 \eqref{art5-eq}
 
