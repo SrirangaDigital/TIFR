@@ -508,7 +508,7 @@ T^X = T^X_0 \oplus \langle T \rangle
 $$
 where $T^X_0$ is the bundle of tangent vectors along the slices $X(t)$ and where $\langle T \rangle$ is the subbundle spanned by the vector field $T$. In the language of induced bundles this corresponds to the decomposition
 $$
-\fz = \fz_1 \oplus \bC T
+\underline{r} = \underline{r}_1 \oplus \bC T
 $$
 where $T$ now is considered as an element of Lie ($A$) and where $\underline{r} = \bar{\fp} \oplus \underline{u}$ (comp. \S 2.). The group $K_M$ acts trivially on $T$. 
 
@@ -694,30 +694,374 @@ The Eisenstein series will now be used in the following context: We know that $X
 
 Before we can do this we must recall some facts from reduction theory. Let $P_1, P_2, \ldots, P_d$ be a set of representatives for the $\Gamma$-conjugacy classes of minimal parabolic subgroups. We consider the projection
 $$
-Y = \bigsqcup^{i=d}_{i=1} X / \Gamma \cap P_{i, \infty} \longrigthtarrow X / \Gamma.
+Y = \bigsqcup^{i=d}_{i=1} X / \Gamma \cap P_{i, \infty} \longrightarrow X / \Gamma.
 $$
 For each $X/ \Gamma \cap P_{i, \infty}$ we have the functions $h_i: X/ \Gamma \cap P_{i, \infty} \to (\bR^+)^\ast$ which have been introduced above. We collect these functions to a function $h: Y \longrightarrow (R^+)^\ast$ If $t_0 > 0$ we define 
 $$
 Y(t_0) = \{y \in Y | h (y) < t_0\}.
 $$
-It is well known that we can choose $t_0 > 0$, such that the mapping $Y(t_0) \longrightarrow X/ \Gamma$ is injective and locally diffeomorphic (comp. \cite{art5-key2}, Theorem 17.10). Let us identify $Y(t_0)$ with its image. The complement of $Y(t_0)$ is a compact manifold $V$ with boundary $\partial Y$ (comp. \cite{art5-key2}, loc. cit.,). The boundary components of $V$ are the manifolds $X_i (t_0)/\Gamma \cap P_{i, \inifty}$ where $X_i (t_0)$ is of course $\{x \in X | h_i (x) = t_0\}$.
+It is well known that we can choose $t_0 > 0$, such that the mapping $Y(t_0) \longrightarrow X/ \Gamma$ is injective and locally diffeomorphic (comp. \cite{art5-key2}, Theorem 17.10). Let us identify $Y(t_0)$ with its image. The complement of $Y(t_0)$ is a compact manifold $V$ with boundary $\partial Y$ (comp. \cite{art5-key2}, loc. cit.,). The boundary components of $V$ are the manifolds $X_i (t_0)/\Gamma \cap P_{i, \infty}$ where $X_i (t_0)$ is of course $\{x \in X | h_i  (x) = t_0\}$.
 
 Now we come back to the Eisenstein series. Let us consider a cohomology class $[\varphi] \in H^m (\partial V, E)$, then this class may be considered as a vector $[\varphi] = ([\varphi_1], \ldots, [\varphi_d])$ where
 $$
-[\varhpi_i] \in H^m (X_i (t_0) / \Gamma \cap P_{i, \infty}, E).
+[\varphi_i] \in H^m (X_i (t_0) / \Gamma \cap P_{i, \infty}, E).
 $$
 Since we have the identification
 $$
 \bar{m}_{t_0} : X_i (1) / \Gamma \cap P_{i,\infty} \longrightarrow X_i (t_0) / \Gamma \cap P_{i, \infty}
 $$
-we can\pageoriginale
+we can\pageoriginale associate an Eisenstein series to each of the classes [$\varphi_i$] and we put
+$$
+E(\varphi, s) = \sum\limits^{i=d}_{i=1} E (\varphi_i, s).
+$$
+This is a differential form on $X/ \Gamma$.
 
+We call $[\varphi] \in H^m (\partial V, E)$ a cohomology class of weight $\lambda$ if its components $[\varphi_1], \ldots, [\varphi_d]$ are of weight $\lambda$. In this case we have (Lemma \ref{art5-lem3.1})
+\begin{equation}
+\left.
+\begin{aligned}
+& \Delta E (\varphi, s) = (s^2 - (\lambda + \rho)^2)E (\varphi, s)\\
+& \Delta E (\varphi, s) = 0.
+\end{aligned}
+ \right\}\label{art5-eq3.3}
+\end{equation}
+For any cohomology class [$\varphi$] on the boundary we consider the constant Fourier coefficients of $E (\varphi, s)$ along the $P'_i$s
+$$
+E^{P_i} (\varphi, s) = (\varphi_i)_s + \left(\sum\limits^d_{j-1} c_{ij} (s) \varphi_j \right)_s
+$$
+and we collect them to a vector
+$$
+E^P(\varphi, s) = (E^{P_1} (\varphi, s), \ldots, E^{P_d} (\varphi, s)).
+$$
+We shall write symbolically
+$$
+E^P(\varphi, s) = (\varphi)_s + (c (s) \varphi)_{-s}.
+$$
 
+For the rest of the paper we keep this notation for the constant Fourier coefficient. This is slightly sloppy because it means that we do so as if there is only one cusp. But otherwise the notation becomes clumsy and the arguments are essentially the same.
 
-%%%% 151 page
+\section{Cohomology classes represented by singular values of the Eisenstein series.}\label{art5-sec4}
+If $\varphi$ is of weight $\lambda$, then we know that $\Delta e(\varphi, s) = (s^2 - (\rho + \lambda)^2) E (\varphi, s)$. Therefore we get a harmonic form if we evaluate $E(\varphi,s)$ at the special values $s = \pm (\rho + \lambda)$. Of course we have to be careful, since $E(\varphi, s)$ might have a pole at such a special value. Our main concern will be the case where this pole is of order one. Then we put
+$$
+\Res_{s = \rho + \lambda} E(\varphi, s) = \lim\limits_{s \to \rho + \lambda} (s - \rho - \lambda) E (\varphi, s) = E' (\varphi, \rho + \lambda).
+$$
+We call\pageoriginale these differential forms $E (\varphi , \pm  (\rho +\lambda))$ or $E' (\varphi, \pm (\rho + \lambda))$ the \textit{singular values} of the Eisenstein series. We shall discuss the following two problems:
+\begin{itemize}
+\item[(A)] When does a singular value represent a cohomology class, \ie, when is it closed?
 
-\eqref{art5-eq}
+\item[(B)] In case it represents a cohomology class, what is the restriction of this class to the boundary?
+\end{itemize}
+To attack these questions we have to consider the constant Fourier coefficient. First of all we claim that $d E (\varphi, \rho+\lambda) = 0$ if and only if $d (E^P (\varphi, \rho + \lambda)) =0$. It is clear that the first statement implies the second one. To see the other direction we have to recall the notation of the space of cusp forms. A differential form $\omega\in \Omega^m (X/\Gamma, E)$ is called a cusp form if it is square integrable and if (comp. \cite{art5-key8} Chap. I, \S 2)
+$$
+\omega^P (g) = \int\limits_{U_\infty/ U'_\infty \cap \Gamma} \omega (gu) du \equiv 0.
+$$
+Here we interpret $\omega$ as a function on $G_\infty / \Gamma$ which satisfies (1.8). We know that for any cusp form $\omega \in \Omega^{m+1} (X/ \Gamma, E)$, which is an eigenfunction with respect to the centre of the universal enveloping algebra, the integral
+$$
+\langle dE (\varphi_1 \rho + \lambda),\omega)\rangle = \int\limits_{X/\Gamma} (dE (\varphi_1 \rho + \lambda), \ast \overline{\circ \# \omega})
+$$
+exists (\cite{art5-key8}. Chap. I, Lemma 15). The results in \cite{art5-key8}, Chap. I also imply that the value of this integral is equal to $\langle E(\varphi, \lambda + \varphi), \delta \omega \rangle$ (apply cor. to Lemma 10 and Lemma 14). But the latter integral is zero since $\delta \omega$ is a cusp form. Now our assertion follows from Theorem 4 in \cite{art5-key8}, Chap. I.
 
+If $d E (\varphi, \rho + \lambda) = 0$ then we see from our Theorem \ref{art5-thm2.8} and the description of the boundary that $[E(\varphi, \rho + \lambda)]$ and $[E^P (\varphi, \rho +\lambda)]$ represent the same cohomology class on the boundary $\partial V$ of $V$.
+
+We decompose the space $\Hom (\Lambda^m \underline{r}_1, E)$ with respect to the action of $A$ and write
+$$
+\Hom (\Lambda^m \underline{r}_1, E) = \bigoplus_\mu \Hom_\mu (\Lambda^m \underline{r}_1, E)
+$$\pageoriginale
+where the $\mu$'s are algebraic characters on $A$ (comp. \S \ref{art5-sec2}). Moreover we write
+$$
+\Hom (\Lambda^m \underline{r}, E) =\bigoplus_\mu \Hom_\mu (\Lambda^m \underline{r}_1, E) \oplus \bigoplus_\mu \dfrac{dt}{t} \bC \wedge \Hom_\mu (\Lambda^{m-1} \underline{u}_{1}, E).
+$$
+This yields a decomposition of $c (s) \varphi$:
+$$
+c (s) \varphi = \sum\limits_\mu c_\mu (s) \varphi + \sum\limits_\mu \frac{dt}{t} \wedge n_\mu (s) \varphi.
+$$
+From this we get the following rather messy formula for the exterior derivative of $E (\varphi, s)$ where $\varphi$ is supposed to be of weight $\lambda$ (comp. Lemma \ref{art5-lem3.1}.)
+\setcounter{equation}{0}
+\begin{align}
+dE^P (\varphi, S) & = (-s - \rho - \lambda) \frac{dt}{t} \wedge (\varphi)_s + \sum\limits_\mu (s - \rho - \mu) \frac{dt}{t} \wedge (c_\mu (s) \varphi)_{-s} \notag\\
+& \quad - \sum\limits_s \left(\frac{dt}{t} \wedge dn_\mu (s) \varphi  \right)_{-s} + \sum\limits_\mu (dc_\mu (s) \varphi)_{-s}.   \label{art5-eq4.1}
+\end{align}
+(Actually we have to apply a slight generalization of Lemma \ref{art5-eq3.1}). On the other hand we may also start from the function
+$$
+\frac{dt}{t} \wedge \varphi : P_\infty (1) / \Gamma \cap P_\infty \longrightarrow \dfrac{dt}{t} \wedge \Hom (\Lambda^m \underline{r}_1, E) \subset \Hom (\Lambda^{m+1} \underline{r}, E)
+$$
+and we may consider its associated Eisenstein series $E \left(\dfrac{dt}{t} \wedge \varphi, s \right)$. Then it is clear that 
+\begin{equation}
+E^P \left(\frac{dt}{t}  \wedge \varphi, s \right) =\frac{1}{-s-\rho - \lambda} dE^P(\varphi, s). \label{art5-eq4.2}
+\end{equation}
+The operator $\ast \circ \#$ induces an isomorphism
+$$
+\ast \circ \# : \Hom (\Lambda^m \underline{r}, E) \longrightarrow \Hom (\Lambda^{N-m} \underline{r}, E^\ast), N = \dim (X)
+$$
+which commutes with the action of $K$. We apply this operator on both sides of \eqref{art5-eq4.2} and since the construction of Eisenstein series commutes with the operator $\ast \circ \#$, we obtain
+\begin{equation}
+E^P(\ast_1 \circ \#_1 \varphi, s) = \frac{1}{-s-\rho-\lambda} \ast \circ \# d E^P (\varphi, s)
+\label{art5-eq4.3}
+\end{equation}
+(comp. (3.2)).
+
+We now\pageoriginale assume that $\lambda > -\rho$ and that $\varphi$ runs over the classes of weight $\lambda$. We shall investigate the influence of the behavior of the Eisenstein series at $\rho + \lambda > 0$ on the solution of our problems (A) and (B). We know that the Eisenstein series has at most a pole of order 1 at this point. (comp. \cite{art5-key8}, Chap. IV, \S 6). We put
+$$ 
+C_\mu = {\displaystyle{\mathop{\res}_{s=\rho + \lambda}}} c_\mu (s) \text{ and } N_\mu = {\displaystyle{\mathop{\res}_{s = \rho + \lambda}}} n_\mu (s).
+$$
+Then we get for the residue of the Eisenstein series
+$$
+E'^P (\varphi, \rho + \lambda) = \sum\limits_\mu (C_\mu \varphi)_{ - \rho - \lambda} + \sum\limits_\mu \left(\frac{dt}{t} \wedge N_\mu (\varphi) \right)_{ - \rho - \lambda}
+$$
+Moreover it follows from the scalar product formula (comp. \cite{art5-key8}, Chap, IV, \S 8) that $E' (\varphi,\rho + \lambda)$ is square integrable and that 
+\begin{equation}
+|| E' (\varphi,\lambda + \rho) ||^2_2 = c \langle\varphi,C_\lambda \varphi \rangle  = c \int\limits_{X (1 / \Gamma \cap P_\infty)}  (\varphi, \overline{\ast_1 \circ \#_1 C_\lambda \varphi} \label{art5-eq4.4}
+\end{equation}
+(for notation comp. (1.7)) where $c$ is a positive constant. We have to observe that $C_{\mu} \varphi$ for $\mu \neq \lambda$ and $\dfrac{dt}{t} \wedge N_\mu$ are orthogonal to $\varphi$.
+
+A theorem of Andreotti and Vesentini  (comp. \cite{art5-key1}, Prop. 7 and \cite{art5-key5}, Prop. 3.20) tells us that $E'(\varphi, \lambda + \rho)$ is a closed form. Then it follows from formula \eqref{art5-eq4.1} that the forms $C_\mu \varphi$ are closed. We write $C_\lambda \varphi = \tilde{C}_\lambda \varphi + H$ where $\Delta_M \tilde{C}_\lambda \varphi = 0$ and where $H$ is a sum of eigenvectors to nonzero eigenvalues of $\Delta_M$. Then we have
+\begin{equation*}
+[C_\lambda \varphi] = [\tilde{C_\lambda} \varphi] \text{ and } \langle \varphi, \tilde{C}_\lambda\rangle  = \langle \varphi, C_\lambda, \varphi\rangle. 
+\tag{$4.4'$}\label{art5-eq4.4'}
+\end{equation*}
+
+We define $\tilde{C}_\lambda [\varphi] = [\tilde{C}_\lambda, \varphi]$.
+
+It follows from \eqref{art5-eq4.4} and \eqref{art5-eq4.4'} that $\tilde{C}_\lambda$ is a positive selfadjoint positive operator and therefore we have an orthogonal decomposition
+$$
+H^m (\partial V, E) = \ker (\tilde{C}_\lambda) \oplus \im (\tilde{C}_\lambda).
+$$
+Another consequence of \eqref{art5-eq4.4} and \eqref{art5-eq4.4'} is 
+
+\setcounter{lemma}{4}
+\begin{lemma}\label{art5-eq4.5}
+If $\varphi \in \ker (\tilde{C}_\lambda)$ then $E(\varphi, s)$ is holomorphic at the point $\rho + \lambda$.
+\end{lemma}
+
+We are\pageoriginale now ready to state and to prove the first part of our main result.
+
+\setcounter{subsection}{6}
+\begin{subtheorem}\label{art5-subthm4.6.1}
+Let us assume that $\lambda > - \rho$. Then the form $E' (\varphi, \rho + \lambda)$ is closed for all $[\varphi] \in H^m_\lambda (\partial V, E)$ and 
+$$
+[E' (\varphi , \rho + \lambda)] |_{\partial V} = \tilde{C}_\lambda [\varphi].
+$$
+\end{subtheorem}
+
+\begin{proof}
+We have already seen that $E'(\varphi, \rho +\lambda)$ is closed. We get from \eqref{art5-eq4.1}
+\begin{align*}
+0  & = dE'^P (\varphi , \rho + \lambda) = \sum\limits_\mu (\mu - \lambda) \dfrac{dt}{t} \wedge (C_\mu \varphi)_{- \rho - \lambda^-}\\
+& - \sum\limits_\mu \left(\frac{dt}{t} \wedge d N_{\mu} \varphi \right)_{-\rho - \lambda} + \sum\limits_\mu d (C_\mu \varphi)_{-\rho - \lambda}.
+\end{align*}
+This yields that $V_\mu \varphi$ is a boundary for $\lambda \neq \mu$, and that implies the last assertion of the theorem.
+
+The next case which we shall consider is $\lambda < - \rho$. We have the isomorphism
+$$
+\ast_1 \circ \#_1: H^N_\lambda  (\partial V, E) \longrightarrow H^{N-m-1}_{-2\rho -\lambda} (\partial V, E^\ast).
+$$
+Since $-2 \rho - \lambda > -\rho$  we can decompose the right hand side 
+$$
+H^{N - m -1}_{-2 \rho -\lambda} (\partial V, E) = \ker (\tilde{C}_{-2\rho - \lambda}) + \im (\tilde{C}_{-2\rho -\lambda}).
+$$
+We put 
+$$
+F_\lambda = \ast_1 \circ \#_1 \ker (\tilde{C}_{-2\rho -\lambda}).
+$$
+\end{proof}
+
+\begin{subtheorem}\label{art5-subthm4.6.2}
+If $\lambda < - \rho$, and if $[\varphi] \in F_\lambda$ then $E(\varphi, s)$ is holomorphic at $- \rho -\lambda$, Moreover the form $E (\varphi, - \rho - \lambda)$ is closed. The restriction of $[E (\varphi, -\rho - \lambda)]$ to the boundary is given by
+$$
+[E(\varphi, - p - \lambda)] |_{\partial_V} = [\varphi] + [c_{-2\rho -\lambda} (-\rho - \lambda) \varphi].
+$$
+\end{subtheorem}
+
+\begin{proof}
+If $[\varphi] \in F_\lambda$, then we have by definition $\#_1 \circ \ast_1 \varphi \in \ker (\tilde{C}_{-2\rho -\lambda})$. We have to apply the formula \eqref{art5-eq4.3} twice. The first time we substitute $\#_1 \circ \ast_1 \varphi$ for $\varphi$ and get
+$$ 
+E^P(\varphi, s) =\frac{1}{-s + p +\lambda} \bigdot dE^P  (\#_1 \circ \ast_1 \varphi, s).
+$$
+Now we obtain from Lemma \eqref{art5-lem4.5} that the right-hand side is holomorphic at $-\rho -\lambda$, and this proves that $E(\varphi, s)$ is holomorphic at $-\rho-\lambda$. The second time we apply \eqref{art5-eq4.3} to $\varphi$ itself; again we get from Lemma \eqref{art5-lem4.5} that $E(\varphi, - \rho -\lambda)$ is closed. The rest is clear, the arguments are exactly the same as in the proof of Theorem \eqref{art5-subthm4.6.1}.
+
+The last case is $\lambda = - \rho$. We know from \cite{art5-key8}, Chap. IV, \S 7 that $E(\varphi, s)$ is holomorphic at $s =0$. Moreover we have
+$$
+\#_1 \circ \ast_1: H^m_{-\rho} (\partial V,E) \longrightarrow H^{N-m-1}_{-\rho} (\partial V, E^\ast)
+$$
+and it follows from \eqref{art5-eq4.3} that $E (\varphi, 0)$ is always closed. Therefore we have to check the restriction of $[E(\varphi, 0)]$ to the boundary $\partial V$.
+
+When we introduced the Eisenstein series we embedded the cohomology of the boundary into a bigger space $\bH^{(m)}$ and we have the diagram
+$$ 
+\xymatrix{
+c(0) : H^m (\partial V, E) \ar[r] \ar[d] & \sH{(m)} \ar@{=}[d]\\
+c(0) : \sH^{(m)} \ar[r] & \sH^{(m)}  .
+}
+$$
+The functional equation for the Eisenstein series tells us that $c(0)^2 = id$ (comp. \cite{art5-key8}, Chap. IV, \S 6). Therefore we can decompose with respect to the eigenvalues $\pm 1$  and get
+$$
+\bH^{(m)} = \bH^{(m)}_+ \oplus \bH^{(m)}_-.
+$$
+It is clear that for $\psi\in\bH^{(m)}_+$
+$$
+E^P (\psi, 0) = 2 (\psi)_0
+$$
+and for $\psi \in \bH^{(H)}_-$ we have $E (\psi, 0) =0$. We claim
+\end{proof}
+
+\begin{subtheorem}\label{art5-sublem4.6.3}
+We have
+$$
+H^m_{-\rho} (\partial V, E)'_-= H^m_{-\rho} (\partial V, E)_+ \oplus H^m_{-\rho} (\partial V, E)_-
+$$
+where 
+$$
+H^m_{-\rho} (\partial V, E)_{\pm} =\bH^{(m)}_{\pm} \cap H^m_{-\rho} (\partial V, E).
+$$
+The image\pageoriginale of the map
+$$
+\proj \circ \; r :H^m (X/ \Gamma, E) \longrightarrow H^m_{-\rho} (\partial V,E)
+$$
+is $H^m_{-\rho} (\partial V, E)_+$ and for $[\varphi] \in H^m_{-\rho} (\partial V, E)_+$ we have
+$$
+[E(\varphi, 0)] |_{\partial V} =  2 [\varphi].
+$$
+\end{subtheorem}
+
+\begin{proof}
+Only the first statement has to be proved. We consider the pairing
+$$
+H^m_{-\rho} (\partial V,E) \times H^{N-m-1}_{-\rho} (\partial V, E^\ast) \longrightarrow \bC
+$$
+which is given by 
+$$
+\langle[\varphi], [\psi] \rangle \int\limits_{\partial V}  (\varphi, \psi)
+$$
+(comp. \S 1). This mapping is nondegenerate and is easy to see that for classes $[\varphi]$ and $[\psi]$ which are restrictions of classes on $X/ \Gamma$ we have
+$$
+\langle [\varphi], [\psi] \rangle = 0.
+$$
+
+If $R$ (\resp. $S$) is the space of classes in $H^\ast_{-\rho} (\partial V, E)$ (\resp. $H^{N-m-1}_{-\rho} (\partial V, E^\ast)$) which are restriction of classes on $X/ \Gamma$ then we see that $R$ and $S$ are orthogonal with respect to $\langle \rangle$ and therefore
+$$
+\dim R + \dim S \leqslant \dim H^m_{-\rho} (\partial V, E) = \dim H^{N-m-1}_{-\rho} (\partial V, E^{\ast}).
+$$
+On the other hand we know that for any $\varphi \in H^m_{-\rho} (\partial V, E)$ (\resp. $\psi \in H^{N-m-1}_{-\rho} (\partial V, E^\ast)$) we have
+$$
+[E(\varphi, 0)] |_{\partial V} \in R, \quad(\resp. [E(\psi, 0)] |_{\partial V } \in S).
+$$
+The kernel of
+$$
+[\varphi] \longrightarrow  [E(\varphi, 0)] |_{\partial V}, \quad (\resp. [\psi] \longrightarrow [E(\psi, 0)] |_{\partial V})
+$$
+is
+$$
+\sH^{(m)}_- \cap H^m_{-\rho} (\partial V, E) = F, (\resp. \sH^{(N-m -1)}_- \cap H^{N-m-1}_{-\rho} (\partial V, E^\ast) = H).
+$$
+It follows from our first inequality that
+$$
+\dim F + \dim H \geqslant \dim H^m (\partial V, E).
+$$
+The formula \eqref{art5-eq4.3} tells us that
+\begin{gather*}
+\#_1 \circ \ast_1 (F) \subset \sH^{(N-m-1)}_+ \cap H^{(N-m-1)}_{-\rho} (\partial V, E^{\ast}) \\
+\#_1 \circ \ast_1 (H) \subset \sH^{(m)}_+ \cap H^m_{-\rho} (\partial V, E).
+\end{gather*}
+Since\pageoriginale
+\begin{align*}
+& S \supset \#_1 \circ \ast_1 (F)\\
+& R \supset \#_1 \circ \ast_1 (H),
+\end{align*}
+it follows that
+\begin{align*}
+R & = H^m_{-\rho} (\partial V, E)_+,\\
+S & = H^m_{-\rho} (\partial V, E^\ast)_-,
+\end{align*}
+and that $\dim R + \dim S = \dim H^m (\partial V, E)$. This proves the theorem.
+\end{proof}
+
+\setcounter{coro}{6}
+\begin{coro}\label{art5-coro4.7}
+The image of the restriction map
+$$
+r : H^\bigdot (X/ \Gamma, E) \longrightarrow H^\bigdot (\partial V, E)
+$$
+is compatible with the decomposition
+$$
+\bigoplus_{\lambda > -\rho} (H^\bigdot_\lambda(\partial V, E) \oplus H^{\bigdot}_{-2\rho -\lambda} (\partial V, E)) \oplus H^{\bigdot_{-\rho}} (\partial V, E).
+$$
+If a cohomology class on the boundary is in the image of $r$ then we can find a representative in $H^\bigdot (X/ \Gamma , E)$ which is represented by a singular value of an Eisenstein series.
+\end{coro}
+
+\begin{proof}
+This is clear from our previous considerations.
+\end{proof}
+
+\begin{cremarks*}
+\begin{enumerate}[(1)]
+\item A consequence of our results it that we have a decomposition
+$$
+H^\bigdot (X/ \Gamma, E) = H^\bigdot_! (X/\Gamma, E) \oplus H^\bigdot_{\inf} (X/ \Gamma , E)
+$$
+where $H^\ast_!$ is the image of the cohomology with compact support in the usual cohomology and where $H^\bigdot_{\inf} (X/ \Gamma, E)$ maps isomorphically to the image of $r$. We have some sort of control of this complementary space $H^\bigdot_{\inf} (X/ \Gamma, E)$ in terms of the Eisenstein series and we know how to compute this space if we have enough information concerning the behavior of the Eisenstein series at certain critical values of $s$ and to get this information we have to understand the ``intertwining operators'' $c(s)$.
+
+\item We think that Theorem \eqref{art5-eq4.6.2} can be sharpened since it seems to be plausible that $c_{-2\rho-\lambda} (-p -\lambda)=0$ or even $c_{-2\rho -\lambda} (s) = 0$. If this would no be the case then we could get some rationality result. Let us assume our group $G$ is defined over $\bQ$ and that $\rho$ is a re-presentation defined over $\bQ$. In this case the vector spaces $H^\bigdot (X/ \Gamma, E)$ and\pageoriginale $H^\bigdot (\partial V, E)$ have a natural $\bQ$-structure and the $\map r$ is also defined over $\bQ$. Therefore we know that the image of the restriction map is also defined over $\bQ$. Therefore we know that the image of the restriction map is also defined over $\bQ$ and hence it follows from Theorem \eqref{art5-subthm4.6.2} that $c_{-2\rho-\lambda} (-\rho-\lambda)$ is defined over $\bQ$. This seems to us would be a too strong consequence and therefore we tend to believe that $c_{-2\rho-\lambda} (-\rho -\lambda)$ is defined over $\bQ$. This seems to us would be a too strong consequence and therefore we tend to believe that $c_{-2\rho-\lambda}$ vanishes at $-\rho -\lambda$. This vanishing should follow from computations at infinity which unfortunately seem to be rather messy.
+
+\item There are of course some cases where our information is slightly better, if we are dealing with cohomology classes of weight $\lambda> 0$. In this case $\rho + \lambda > \rho$ and $E(\varphi, s)$ is certainly holomorphic as $\rho + \lambda$. This means that the map (Theorem \eqref{art5-subthm4.6.2})
+$$
+H^\bigdot (X/ \Gamma , E) \longrightarrow H^\bigdot_{\lambda} (\partial V, E) \oplus H^\bigdot_{- 2 \rho -\lambda (\partial V, E)}
+$$
+has as its image a subspace which projects isomorphically to the second summand. If our conjecture made in Remark (2) is true then the image would be exactly the second summand.
+
+\item The classes in $H^\bigdot_{\inf} (X/ \Gamma, E)$ are in general not square integrable unless they come from a pole, \ie, they are represented by a residue of an Eisenstein series (comp. \cite{art5-key11}, \S 5). The classes in $H^\bigdot_! (X/\Gamma , E)$ are of course all square integrable and therefore we can apply Hodge theory to investigate that part of the cohomology. We have a splitting
+$$
+H^\bigdot_! (x/ \Gamma, E) = H^\bigdot_p (X/ \Gamma , E) \oplus H^\bigdot_{Eis} (X/ \Gamma, E)
+$$
+where the first summand denotes the space which is spanned by the harmonic cusps forms and where the second space is spanned by classes which are represented by certain residues of Eisenstein series which are harmonic. Hopefully we can apply the Hodge theory verbatim to the first part; the nature of the second part seems to be unclear. We have very explicit informations if $G = SL_2 / k_2$ (comp. \cite{art5-key7}, Prop. 2.3).
+\end{enumerate}
+\end{cremarks*}
+
+\begin{thebibliography}{99}
+\bibitem{art5-key1}  \textsc{A. Andreotti} and \textsc{E. Vesentini}:\pageoriginale Carleman estimates for the Laplace-Beltrami equation on complex manifolds, \textit{Publ. Math., I.H.E.S., No. 25}, (1965), 313-362.
+
+\bibitem{art5-key2} \textsc{A. Borel}: \textit{Introduction aux groups arithm\'etiques}, Hermann, Paris, (1969).
+
+\bibitem{art5-key3} \textsc{H. Cartan} and \textsc{S. Eilenberg}: \textit{Homological Algebra,} Princeton University Press, Princeton, (1956).
+
+\bibitem{art5-key4} \textsc{W. T. Van Est}: A generalization of the Cartan-Leray spectral sequence, \textit{Nederlands Akademic van Wetenschappen, Proceedings, Series A,} vol. 61, (1958), I, 399-405, II, 406-413.
+
+\bibitem{art5-key5} \textsc{H. Garland}: A rigidity theorem for discrete subgroups, \textit{Trans. Amer. Math. Soc.,} 129, (1967), 1-25.
+
+\bibitem{art5-key6} \textsc{G. Harder}: A Gauss-Bonnet formula for discrete arithmetically defined groups, \textit{Ann. Scient. \'Ec. Norm. Sup.,} t. 4, (1971), 409-455.
+
+\bibitem{art5-key7} \textsc{G. Harder}: On the cohomology of $SL_2 (\cO)$ to appear in the Proceedings of the Summer School on ``Representation Theory'', Budapest, (1971).
+
+\bibitem{art5-key8} \textsc{Harish-Chandra}: Automorphic forms on semisimple Lie groups, \textit{Springer Lect\`ure Notes,} vol. 62, (1968).
+
+\bibitem{art5-key9} \textsc{B. Kostant}: Lie algebra cohomology and the generalized Borel-Weil theorem, \textit{Ann. of Math.,} vol. 74, (1961), 329-387.
+
+\bibitem{art5-key10} \textsc{Y. Matsushima} and \textsc{S. Murakami}: On vector bundle valued harmonic forms and automorphic forms on symmetric Riemannian manifolds,  \textit{Ann. of Math.,} vol. 78, (1963), 365-416.
+
+\bibitem{art5-key11} \textsc{M. S. Raghunathan}: Cohomology of arithmetic subgroups of algebraic groups, \textit{Ann. of Math.}, vol. 78, (1968) , 279-304.
+
+\bibitem{art5-key12} \textsc{G. de Rham}: \textit{Var\'iet\'es Diff\'erentiables,} Paris, Hermann, (1955).
+\end{thebibliography}
+
+\bigskip
+
+\noindent
+The Institute for Advanced Study
+
+\noindent
+Princeton, New Jersey
+
+\medskip
+\noindent
+{and}
+\medskip
+
+\noindent
+53 Bonn
+
+\noindent
+Mathematisches Institut
+
+\noindent
+Wegelerstr. 10
 
 
 
