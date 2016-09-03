@@ -77,7 +77,7 @@ in the sense of Griffiths.
 The main functional properties of $\nef$ vector bundles are summarized in the following proposition.
 \end{criterion}
 
-\begin{prop}\label{art5-definition-1.6}
+\begin{prop}\label{art5-prop-1.6}
 Let $X$ be an arbitrary compact complex manifold and let $E$ be a  holomorphic vector bundle over $X$.
 \begin{enumerate}[(i)]
 \item \footnote{We expect (\ref{art5-enum-(i)}) to hold whenever $f$ is surjective, but there are serious technical difficulties to overcome in the nonalgebraic case.} If $f: Y\rightarrow X$ is a holomorphic map with equidimensional fibres, then $E$ is nef if and only if $f^{\star}E$ is nef.\label{art5-enum-(i)}
@@ -97,7 +97,7 @@ Let $X$ be an arbitrary compact complex manifold and let $E$ be a  holomorphic v
 
 The proof of these properties in the general analytic context can be easily obtained by curvature computations. The argumentsa are parallel to those of the algebraic case and will therefore be omitted (see \cite{art5-keyHa66} and \cite{art5-keyCP91} for that case). Another useful result which will be used over and over in the sequel is
 
-\begin{prop}\label{art5-definition-1.7}
+\begin{prop}\label{art5-prop-1.7}
 Let $E$ be a nef vector bundle over a connected compact n-fold $X$ let $\sigma \in H^{0}(X, E^{\star})$ be a non zero section. Then $\sigma$ does not vanish anywhere.
 \end{prop}
 
@@ -217,14 +217,204 @@ $$
 E_{k} = \bigcup\limits_{\gamma\in \pi_{1}(M),\;\; \length(\gamma)\leq k} \gamma(E)
 $$
 has volume equal to $N(k)$ $\Vol(M)$ and is contained in the geodesic ball $B(a, \alpha k + \beta)$, where $\alpha$ is maximum of the length of loops representing the generators $\mathsf{g}_{j}$. Therefore
-\begin{equation}
-N(K) \leq \dfrac{\Vol(B(a, \alpha k + \beta))}{\Vol(M)} \tag{*}\label{eq:sample2}
-\end{equation}
+\begin{equation*}
+N(K) \leq \dfrac{\Vol(B(a, \alpha k + \beta))}{\Vol(M)} \tag{$\ast$}\label{eq:sample2}
+\end{equation*}
 and it is enough to bound the volume of geodesic balls in $\widetilde{M}$. For this we use the following fundamental inequality due to R. Bishop \cite{art5-keyBi63}, Heintze-karcher \cite{art5-keyHK78} and M. Gage \cite{art5-keyGa80}.
 
 \begin{lem}
 Let
 $$
 \Phi : T_{a}\widetilde{M} \rightarrow \widetilde{M},\qquad \Phi(\zeta)= \exp_{a}(\zeta)
-$$ 
+$$
+be the (geodesic) exponential map. Denote by
+$$
+\Phi^{*}dV_{g}= a(t, \zeta)\; dt\; d\sigma(\zeta)
+$$
+the exrpression of the volume element in spherical coordinates with $t \in \bbR_{+}$ and $\zeta \in S_{a}(1) =$ unit spheren in $T_{a}\widetilde{M}$. Suppose that $a(t, \zeta)$ does not vanish for $t \in ]0, \tau (\zeta)[$, wiht $\tau(\zeta) = + \infty$ or $a(\tau(\zeta), \zeta) = 0$ Then $b(t, \zeta) - a(t, \zeta)^{1/(m-1)}$ satisfies on $]0$, $\tau(\zeta)[$ the inequality
+$$
+\dfrac{\partial^{2}}{\partial t^{2}}b(t, \zeta) + \dfrac{1}{m-1}\Ricci_{\mathsf{g}}(v(t, \zeta), v(t, \zeta))b(t, \zeta)\leq 0
+$$
+where
+$$
+v(t, \zeta) = \dfrac{d}{dt}\exp_{a}(t\zeta)\in S_{\Phi(t\zeta)}(1) \subset T_{\Phi (t\zeta)}\widetilde{M}.
+$$
 \end{lem}
+
+If $\Ricci_{\mathsf{g}} \geq -\varepsilon\mathsf{g}$, we infer in particular
+$$
+\dfrac{\partial^{2}b}{\partial t^{2}} - \dfrac{\varepsilon}{m-1} b\leq 0
+$$
+and therefore $b(t, \zeta) \leq \alpha^{-1} \sinh(\alpha t)$ wiht $\alpha = \sqrt{\varepsilon/(m-1)}$ (to check this observe that $b(t, \zeta) = t + o(t))$ at 0 and that $\sinh(\alpha t)\partial b/\partial t -\alpha \cosh(\alpha t)b$ has a negtive derivative). Now, every point $x\in B(a, r)$ can be joined to $a4$ by a minimal geodesic art of lenght $< r$. Such a geodesic are cannot contain any focal point (i.e. any critical value of $\Phi$), except possibly at the end point $x$. It follows that $B(a, r)$ is the image be $\Phi$ of the open set
+$$
+\Omega(r) = \{(t. \zeta) \in [0, r[ \times S_{a}(1); t<\tau (\zeta)\}.
+$$
+Therefore
+$$
+\Vol_{\mathsf{g}}(B(a, r)) \leq \int_{\Omega(r)} \Phi^{*}dV_{\mathsf{g}} = \int_{\Omega(r)}b(t, \zeta)^{m-1}dt\; d\sigma(\zeta).
+$$
+As $\alpha^{-1}\sinh(\alpha t)\leq t e^{\alpha t}$, we get
+\begin{equation*}
+\Vol_{\mathsf{g}}(B(a, r)) \leq \int_{S_{a}(1)} d\sigma(\zeta) \int_{0}^{r} t^{m-1}e^{(m-1) \alpha t} dt\leq v_{m}r^{m}
+e^{\sqrt{(m-1)\varepsilon r}} \tag{$\ast\ast$}\label{eq:sample3}
+\end{equation*}
+where $v_{m}$ is the volume of the unit ball in $\bbR^{m}$.
+
+In our application, the difficulty is that the matrix $\mathsf{g} = \omega_{\varepsilon}$ varies with $\varepsilon$ as well as the constants $\alpha = \alpha_{\varepsilon,}$  $\beta = \beta_{\varepsilon}$ in \eqref{eq:sample2}, and $\alpha_{\varepsilon}\sqrt{(m-1)\varepsilon}$ need nit converge to 0 as $\varepsilon$ tents to 0. We overcome theis difficulty by the following lemma.
+
+\begin{lem}\label{art5-lemma-2.8}
+Let $U_{1}, U_{2}$ be compact subsets of $\widetilde{X}$. Then for every $\delta > 0$, there are closed subsets $U_{1, \varepsilon,\delta} \subset U_{1}$ and $U_{2, \varepsilon, \delta} \subset U_{2}$ with $\Vol_{\omega}(U_{j}U_{j, \varepsilon, \delta}) < \delta$, such that any two points $x_{1}\in U_{1, \varepsilon, \delta}$, $x_{2} \in U_{3, \varepsilon, \delta}$ can be joined by a path of length $\leq C \delta^{-1/2}$ with respect to $\omega_{\varepsilon}$, where $C$ is a  constant independent of $\varepsilon$ and $\delta$. 
+\end{lem}
+
+We will not explain the details.The basic observation is that
+$$
+\int_{x}\omega_{\varepsilon} \wedge \omega^{n-1} = \int_{X} \omega^{n}
+$$
+does not depend on $\varepsilon$, therefore $||\omega_{\varepsilon}||_{L^{1} (X)}$ is uniformly bounded. This is enough to imply the existence of suffciently many paths of bounded lenght between random points taken in $X$ (this is done for example by computing the average lenght of piecewise linear paths).
+
+We let $U$ be a  comnpact set containing the fundamental domain $E$, so large that $U^{\circ} \cap\mathsf{g_{j}}(U^{\circ}) \neq \emptyset$ for each generator $\mathsf{g}_{j}$. We apply Lemma \ref{art5-lemma-2.8} with $U_{1} = U_{2} =U$ and $\delta > 0$ fixed such that
+$$
+\delta < \dfrac{1}{2}\Vol_{\omega}(E), \quad \delta < \dfrac{1}{2}\Vol_{\omega}(U\cap\mathsf{g}_{j}(U)).
+$$
+We get $U_{\varepsilon,\delta} \subset U$ with $\Vol_{\omega}(U U_{\omega, \delta}) < \delta$ and $\diam_{\omega_{\varepsilon}} \leq C\delta^{-1/2}$ The inequalities on volumes imply that $\Vol_{\omega}(U_{\varepsilon, \delta} \cap E) \geq \frac{1}{2}\Vol_{\varepsilon}(E)$ and $U_{\varepsilon,\delta} \cap \mathsf{g}_{j}(U_{\varepsilon, \delta}) \neq \emptyset$ for every $j$ (note that all $\mathsf{g}_{j}$ preserve volumes). It is then clear that
+$$
+W_{k,\varepsilon,,\delta}: = \bigcup\limits_{\gamma \in \pi_{1}(X), \length(\gamma)\leq k} \gamma (U_{\varepsilon, \delta})
+$$
+satisfies
+\begin{align*}
+&\Vol_{\omega}(W_{k,\varepsilon, \delta}) \geq N(k)\Vol_{\omega}(U_{\varepsilon, \delta} \cap E) \geq N(k)\frac{1}{2}\Vol_    {\omega}(E) \quad \text{\rm and}\\
+&\diam_{\omega_{\varepsilon}}(W_{k,\varepsilon,\delta}) \leq k \diam_{\omega_{\varepsilon}}U_{\varepsilon, \delta}\leq      kC\delta^{-1/2}.
+\end{align*}
+Since $m=\dim_{\bbR}\; X=2n$, inequality \eqref{eq:sample3} implies
+$$
+\Vol_{\omega_{\varepsilon}}(W_{k, \varepsilon, \delta}) \leq \Vol_{\omega_{\varepsilon}}(B(a, kC\delta^{-1/2})) \leq C_{4}k^{2n}e^{C_{5\sqrt{\varepsilon}k}}.
+$$ 
+Now $X$ is compact, so there is a constant $C(\varepsilon) > 0$ such that $\omega^{n} \leq C(\varepsilon)\omega_{\varepsilon}^{n}$. We conclude that
+$$
+N(K)\leq \dfrac{2\Vol_{\omega}(W_{k,\varepsilon,\delta})}{\Vol_{\omega}(E)} \leq C_{6}C(\varepsilon)k^{2n}e^{C_{5 \sqrt{\varepsilon}k}}.
+$$
+The proof of Theorem \ref{art5-thm-2.3} is complete.
+
+\begin{remark}
+It is well known and easy to check that equation \eqref{eq:simple1} implies 
+$$
+C(\varepsilon) \leq \exp \left(\max\limits_{X} f_{\varepsilon} - \min\limits_{X}f_{\varepsilon}\right).
+$$
+Therefore it is reasonable to expect the $C(\varepsilon)$ has polynomial growth in $\varepsilon^{-1}$; this would imply that $\pi_{1}(X)$ has polynomial growth by taking $\varepsilon = k^{-2}$. When $K_{X}^{-1}$ has a semipositive metric, we can even take $\varepsilon = 0$ and find a metric $\omega_{0}$ with $\Ricci(\omega_{0}) = u_{0} \leq 0$. This implies Corollary \ref{art5-coro-2.4}.
+\end{remark}
+
+\noindent
+\textbf{Proof of Corollary \ref{art5-coro-2.5}.}
+If $d=0$, then by definition $H^{0}(X, \Omega_{X}^{1}) = 0$ and $\Alb(X) = {0}$.
+
+If $d=n$, the albanese map has generic rank $n$, so there exist holomorphic 1-forms $u_{1}, \ldots, u_{n}$ such that $u_{1}\wedge \ldots \wedge u_{n} \nequiv$ 0. How ever $u_{1}\wedge \ldots \wedge u_{n}$ is a section of $K_{X}$ which has a nef dual, so $u_{1} \wedge \ldots \wedge u_{n}$ cannot vanish by Proposition \ref{art5-prop-1.7} and $K_{X}$ is trivial. Therefore $u_{1} \wedge \ldots \hat{u}_{k}\ldots \wedge u_{n} \wedge v$ must be a constant for every holomorphic !-form $v$ and $(u_{1}, ldots, u_{n})$ is a basis of $H^{\circ}(X, \Omega_{X}^{1})$. This implies $\dim A(X)= n$, hence $\alpha$ is surjective.
+
+If $d =1$, the image $C=\alpha(X)$ is a smooth curve. The genus $\mathsf{g}$ of $C$ cannot be $\geq 2$, otherwise $\pi_{1}(X)$ would be mapped onto a subgroup of finite index in $pi_{1}(C)$, and thus would be of exponential growth, contradicting Theorem \ref{art5-thm-2.3} Therefore $C$ is an elliptic curve and is a subtorus of $\Alb(X)$. By the universal property of the Albanese map, this is possible only if $C= \Alb(X)$.
+
+The case $d =n-1$ is more subtle and uses Mori theory (this is why we have to assume $X$ projective algebraic). We refer to \cite{art5-keyDPS92} for the details.
+
+\section{Compact complex manifolds with nef tangent bundles}
+
+Several interesting classes of such manifolds are produces by the following simple observation.
+
+\begin{prop}\label{art5-prop-3.1}
+Every homogeneous compact complex manifold has a nef tangent bundle.
+\end{prop}
+
+Indeed, if $X$ is homogeneous, the Killing vector fields generate $TX$, so $TX$ is a quotient of a quotient of a trivial vector bundle. In praticular, we get the following
+
+\begin{examples}(homogeneous case)\label{art5-example-3.2}
+    \begin{enumerate}[(i)]
+    \item Rational homogeneous manifolds: $\bbP_{n}$, flag manifolds,quadrics $Q_{n}$ (all are Fano manifolds, i.e.      projective algebraic with $K_{X}^{-1}$ ample.)\label{art5-enu-{i}}
+     \item Tori $\IC/\Lambda$
+     (K\"ahler, possibly non algebraic). \label{art5-enu-{ii}}   
+    \item Hopf manifolds $\IC{0}/H$ where $H$ is a discrete group of homotheties (non K\"ahler for $n\geq 2$).\label{art5-enu-{iii}}
+    \item Iwasawa manifolds $G/\Lambda$ where $G$ is the group of unipotent upper triangular $p\times p$ matrices and $\lambda$ the subgroup of matrices with entries in the ring of integers of some imaginary quadratic field. eg. $\bbZ[i]$ (non K\"ahler for $p\geq$, although $TX$ is trivial).\label{art5-enu-{iv}}
+    \end{enumerate}
+\end{examples}
+
+We must remark at this point that not all manifolds $X$ with nef tangent bundles are homogeneous, the automorphism group may even be discrete:
+
+\begin{example}\label{art5-example-3.3}
+Let $\Gamma = \IC/(\bbZ + \bbZ \tau)$, $Im\tau > 0$, be ana elliptic curve. Consider the quotient space $X = (\Gamma \times \Gamma \Gamma)/G $ where $G={1, \mathsf{g_{1}}, \mathsf{g_{2}}, \mathsf{g_{1}}\mathsf{g_{2}}} \simeq \bbZ_{2} \times \bbZ_{2}$ is given by
+\begin{align*}
+\mathsf{g_{1}}(z_{1}, z_{2}, z_{3}) &= \left(z_{1} + \dfrac{1}{2}, -z_{2}, -z_{3}\right),\\
+\mathsf{g_{1}}(z_{1}, z_{2}, z_{3}) &= \left(-z_{1}, z_{2}+ \dfrac{1}{2}, -z_{3}+ \dfrac{1}{2}\right),\\
+\mathsf{g_{1}g_{2}}(z_{1}, z_{2}, z_{3})& =\left(-z_{1}+\dfrac{1}{2}, -z_{2}+\dfrac{1}{2}, z_{3}+ \dfrac{1}{2}\right).
+\end{align*}
+
+Then $G$ acts freely, so $X$ is smooth. It is clear also that $TX$ is nef (in fact $TX$ is unityu flat). Since the pull-back of $TX$ to $\Gamma \times \Gamma \times \Gamma$ is trivial, we easily conclude that $TX$ has no sections, thanks to the change of signs in $ \mathsf{g_{1}}, \mathsf{g_{2}}, \mathsf{g_{1}g_{2}}$. Therefore the automorphism group $\Aut(X)$ is discrete. The same argument shows that $H^{0}(X, \Omega_{x}^{1}) = 0$.
+\end{example}
+
+\begin{example}\label{art5-example-3.4}
+Let $X$ be the ruled surface $bbP(E)$ over the elliptic curve $\Gamma = \IC(\bbZ + \bbZ\tau)$ defined in Example
+\ref{art5-example-1.2}. Then the relative tangent bundle of $bbP(E)\rightarrow \Gamma$(=relative anticanonical line bundle) is $\pi^{\star}(\det E^{\star})\otimes \calO_{E}(2) \simeq \calO_{E}(2)$ and $T\Gamma$ is trivial, so $TX$ is nef. Moreover $X$ is almost homogeneous, with automorphisms induced by
+$$
+(x_{1}, z_{1}, z_{2}) \mapsto (x+a, z_{1}+b, z_{2}),\quad (a,b) \in \IC^{2}
+$$ 
+and a single closed orbit equal to the curve $\{z_{2}=0\}$. Here, no finite \'etale cover of $X$ can be homogeneous, otherwise $K_{X}^{-1} = \cal_{E}(2)$ would be semi-positive. Observe that no power of $K_{X}^{-1}$ is generated by sections, although $K_{X}^{-1}$ in nef.
+\end{example}
+
+Our main result is structure theorem on the Albanese map of compact K\"ahler manifolds with nef tangent bundles.
+
+\begin{main theorem}\label{art5-main-thm-3.5}
+Let $X$ be a compact K\"ahler manifold with nef tangent bundle $TX$. Let $\widetilde{X}$, be a finite \'etale cover of $X$ of maximum irregularity $q=q(\widetilde{X}) = h^{1}(\widetilde{X}, \calO_{\widetilde{X}})$. Then
+    \begin{enumerate}[(i)]
+        \item $\pi_{1}(\widetilde{X}) \simeq \bbZ^{2_{q}}$.\label{art5-enum_(i)}
+        \item The albanese map $\alpha : \widetilde{X} \rightarrow A(\widetilde{X})$ is a smooth fibration over a q-dimensional torus with nef relative tangent bundle. \label{art5-enum_(ii)}
+        \item The fibres $F$ of $\alpha$ are Fano manifolds with nef tangent bundles.\label{art5-enum_(iii)}
+    \end{enumerate}
+\end{main theorem}
+
+Recall that  a Fano manifold is by definition a compact comples manifold with ample anticanonical bundle $K_{X}^{-1}$. It is well known that Fano manifolds are always simply connected (Kobayashi \cite{Ko61}). As a consequence we get 
+
+\begin{coro}\label{art5-coro-3.6}
+With the assumtions of \ref{art5-main-thm-3.5}. the fundamental group $\pi_{1}(X)$ is an extension of a finite group by $Z^{2_{q}}$.
+\end{coro}
+
+In order to complete the classification of compact K\"ahler maniflods with nef tangent bundles (up to finite \'etale cover), a solution of the following two conjectures would be neart5-enum-(i)eded.
+
+\begin{conjecture}\label{art5-conje-3.7}
+(Campana- Peternell \cite{CP91}) Let $X$ be ab Fano manifold Then $X$ has a nef tangent bundle of and only if $X$ i rational homogeneous.
+\end{conjecture}
+
+The evidence we have for Conjecture \ref{art5-conje-3.7} is that it is true up to dimension 3. In dimension 3 there are more than 100 different types of Fano manifolds, but only five types have a nef tangent bundle, namely $bbP_{3}$, $Q_{3}$ (quadric), $\bbP_{1}\times \bbP_{2}$, $\bbP_{1}\times \bbP_{1}$, $\bbP_{1}\times \bbP_{1}$ and the flag manifold $F_{1,2}$ of lines and planes in $\IC^{3}$;m all five are homogeneous.   
+
+A positive solution to Conjecture \ref{art5-conje-3.7} would clarify the structure of fibers in the Albanese map of Theorem \ref{art5-main-thm-3.5}. To get a complete picture of the situation, one still needs to know how the fibers are deformed and glued together to yield a holomorphic family over the Albanese torus. We note that $K_{\widetilde{X}}^{-1}$ is relatively ample, thus for $m$ large the fibres can be embedded in the projectivized bundle of the direct image bundle $\alpha_{*}(K_{\widetilde{X}}^{-m}$. The structure of the deformation i described by the following theorem.
+
+\begin{theorem}\label{art5-thm-3.8}
+In the situation of Theorem \ref{art5-main-thm-3.5}, all direct image bundles $E_{m}= \alpha_{*}(K_{\widetilde{X}}^{-m})$ are numerically flat over the Albanese torus. Moreover, for $p \gg m \gg 0$, the fibers of the Albanese map can ne described as Fano submanifolds of the fibers of $IP(E_{m})$ defined by polynomial equations of degree $p$, in such a way that the bundle of equations $V_{m, p} \subset S^{p}(E_{m})$ is itself numerically flat.
+\end{theorem}
+
+Theorem \ref{art5-thm-3.8} is proved in \cite{art5-keyDPS91} in case $X$ is projective algebraic. The extension to the K\"ahler case has been obtatined by Ch. Mourougane in his PhD Thesis work (Grenoble, still unpublished). We now explain the main steps in the proof of Theorem \ref{art5-main-thm-3.5} One of the key points is the following
+
+\begin{prop}\label{art5-prop-3.9}
+Let $X$ be a compact K\"ahler n-fold with $TX$ nef. Then
+    \begin{enumerate}[(i)]
+    \item If $c_{1}(X)^{n} > 0$, then $X$ is a Fano manifold.\label{art5-enum-[i]} 
+    \item If $c_{1}(X)^{n} = 0$, then $^{}{\chi}(\calO_{X}) = 0$ and there exists a non zero holomorphic $p$-form, $p$ suitable odd and a finite \'etale cover $\widetilde{X} \rightarrow X$ such that $q(\widetilde{X}) > 0$.\label{art5-enum-[ii]}
+    \end{enumerate}
+\end{prop}
+
+\begin{proof*}
+We first check that every effective divisor $D$ of $X$ in nef. In fact, let $\sigma \in H^{0}(X, \calO(D))$ be a section with divisor $D$. Then for $k$ larger than the maximum vanishing order of $\sigma$ on $X$, the $k$-jet section $j^{k}\sigma \in H^{0}(X, j^{k}\calO(D))$ has no zeroes. Therefore, there is an injection $\calO \rightarrow J^{k}\calO(D)$ and a dual surjection
+$$
+(J^{k}\calO(D))^{\star} \otimes \calO(D)\rightarrow(D).
+$$
+Now , $J^{k}\calO(D)$ has a filtration whose graded bundle is $\bigoplus_{0\leq p\leq k}S^{p}T^{\star}X\otimes \calO(D)$,
+so $(J^{k}\calO(D))^{\star} \otimes \calO (D)$ has a dual filtration with graded bundle $\bigoplus_{0\leq p\leq k}S^{p}TX$.
+By \ref{art5-prop-1.6} (\ref{art5-enum-(i)}) and \ref{art5-prop-1.6} (\ref{art5-enum-(v)})($\beta$), we conclude that $(J^{k}\calO(D))^{\star}\otimes \calO (D)$ is nef, so its quotient $\calO (D)$ in nef by \ref{art5-prop-1.6}
+(\ref{art5-enum-(v)}) ($\alpha$). 
+
+Part (\ref{art5-enum-(i)}) is based on the solution of the Grauert-Riemenschneider conjecture as proved in \cite{art5-keyDe85}. Namely, $L=K_{X}^{-1} = \Lambda^{n}TX$ is nef and satisfies $c_{1}(L)^{n} > 0$, so $L$ has Kodaira dimension $n$ (holomorphic More inequalities are needed at that point because $X$ is not suppose a priori to be algebraic).
+It follows that $X$ is Moishezon,thus projective algebraic, and for $m > 0$ large we have $L^{m} = \calO(D+A)$ with divisors $D$, $A$ such that $D$ is effective and $A$ ample. Since $D$ must be in fact nef, it follows that $L=K_{X}^{-1}$ is ample, as desired.
+
+The most difficult part is (\ref{art5-enum-(ii)}). Since $c_{1}(X)^{n} =0$, Corollary \ref{art5-coro-1.10} implies $_{}\chi(\calO_{X}) = 0$. By Hodge symmetry, we get $h^{0}(X, \Omega_{X}^{p}) = h^{p}(X, \calO_{X})$ and
+$$
+_{}\chi(\calO_{X}) = \sum\limits_{0 \leq p \leq n} (-1)^{p}h^{0}(X, \Omega_{X}^{p}) = 0.
+$$
+From this and the fact that $h^{0}(X, \calO_{X}) =1$, we infer the existence of a non zero $p$-form $u$ for some suitable odd number $p$. Let
+$$
+\sigma : \Lambda^{p-1}TX \rightarrow \Omega_{X}^{1} 89
+$$
+\end{proof*}
