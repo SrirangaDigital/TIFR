@@ -15,4 +15,495 @@ This paprr is an extended study of the behaviour of simplicial co- sheaves in th
 
 The line of argument I am hoping to achieve is something like this. One should attempt to use the homoligical algebra of simplicial co-sheaves to construct a category of representations of something like the loop group associated to th semisimple group, $G$, which have computable character theory. Then one should attempt to express the finite dimensional representations of $G$ as virtual representations in the category. Then presumably the ``generic decomposition patterns" should be formulae expressing the character of a dual Weyl module in terms of these computable characters. The hope of constructing such a theory has led me to conduct the rather extended exploration below.  
 
-One is immediately tempted to replace harmonic analysis with a purely algebraic theory and to use this theory to do the representation-theoretic
+One is immediately tempted to replace harmonic analysis with a purely algebraic theory and to use this theory to do the representation-theoretic computations necessary. My replacement for harmonic analysis is this. Let $G$ be algebraic of simple type over $\bbZ$. Let $K$ be a field complete with respect to a discrete rank one valuations, let $\calO$ be the valuation ring and let $L$ be its residue field. Then consider the Bruhat-Tits building of $G(K)$. It is a simplicial complex. Let $\bG =G(K)$. Let $\calI$ be its Bruhat-Tits building. Then $\calI$ is $\bG$ equivariant. Let $k$ be another field. My idea is to consider the category of $\bG$ equivariant co-sheaves of $k$-vector spaces which are, in some sense made precise within, locally algebraic. Then in a manner entirely analogous to the classical notion of rational of rational representative functions, this category admits an injective co-generator. The endomorphism ring of this canonical co-generator is a certain algebra. Let it be denoted $\calH$. \cite{art6-keyT} shows that for suitably finite $bG$ is a certain algebra. Let it be denoted $\calH$-module. Then one may sent the class of a finite dimensional $G$- representation to the alternating sum of the left derived functors of the co-limit of its induced $\bG$-co-sheaf in the Grothendieck ring of $\calH$. In this context that one would hope to obtain interesting identities relating finite dimensional representation theory to the representation theory of $\calH$.
+
+I have made certain choices in this discussion. As I am discussing sheaves and co-sheaves on simplicial complexes, I have decided to use the word carapaces for co-sheaves. There are three reasons: the first is that the word, co-sheaves, seems rather cobbled together, the second is that a carapace really would look like a lobster shell or such if one were to draw one and the third is the Leray used the word for sheaves and I don't like to see such a nice word go to waste.  am working for the most part with carapaces rather than sheaves because I am working on an infinite simplicial complex and in moving form limit to co-limit, one in moving from an infinite direct product sort of thing to an infinite co-product sort of thing. Thus,in using limits rather than co-limits, one loses structure just as one does in taking an adic completion of a commutative ring. I have also decided to include a discussion of the homological algebra of carapaces. Now all of this material is some sort of special case of certain kinds of sheaves on sites or the homological algebra of abelian group valued functors, but with all due apologies to those who have worked on those topics, I would prefer to formulate this material in a way which anticipates my intentions. A number of mathematicians have done this sort of thing. Tits and Solomon \cite{art6-keyS}, \cite{art6-keyT}, Stephen Smith and mark Ronan \cite{art6-keyRS} immediately come to mind. But again, working on a infinite complex has dictated that I reformulate many of the elements for this situation.
+
+\section{Carapaces and their Homology}\label{art6-sec-1}
+
+Basic references for this section are \cite{art6-keyMac} and \cite{art6-keyGr}. Basic notions and definition all follow those two sources. A simiplicial complex, $X$, will be a set $ver(X)$ together with a collection of finite subsets of $ver(X)$ such that when ever $\sigma \in X$ every subset of $\sigma$ is in $X$. These finite subsets of $ver(X)$ are the simplices of $X$. The dimension of $\sigma $ is its cardinal less one and the dimension of $X$, if it exists,is the maximum of the dimensions of simplices in $X$. We shall view $X$ as a category, the morphisms being the inclusions of simlices. We identify $ver(X)$ with the zero simplices of $X$. If $X$ and $Y$ are simplicial complexes a morphism of complexes from $X$ to $Y$ is just a convariant functor from $X$ to $Y$; a simplicial morphism is a morphism of complexes taking vertices to vertices.
+
+Let $R$ be a commutative ring with unit fixed for teh remainder of this work and let $M od(R)$ denote the category of $R$-modules. Let $X$ be a simplicial complex.
+
+\begin{definition}\label{art6-def-1.1}
+\textit{An $R$-carapace} on $X$ is a convariant functor from $X$ to $M od(R)$. If $A$ and $B$ are two $R$-carapaces on $X$, \textit{a morphism} of $R$-carapaces from $A$ to $B$ is a natural transformation of functors. 
+\end{definition}
+ If $A$ is an $R$-carapace on $X$ and $\sigma \in X$ is a simplex, then $A(\sigma)$ is called the segment of $A$ along $\sigma$. A sequence of morphisms of $R$-carapaces will be called exact if and only if the corresponding sequence of segments is exact for each simplex in $X$. The product (respectively co-product) of a family of $R$-carapaces is the $R$-carapace whose segments and morphisms are the products (respectively co-products) of those in  the family of carapaces. If $\sigma \subseteq \tau$ is a pair of simplices in $X$ write $e_{A, \sigma}^{\tau}$ or $e_{\sigma}^{\tau}$ when there is no possibility of confusion for the map from $A(\sigma)$ to $A(\tau)$. I will call it the expansion of $A$ form $\sigma$ to $\tau$. Finally, if $A$ and $B$ are two $R$-carapaces on $X$, write $\Hom_{R, X}(A, B)$ for the $R$-module of morphisms of $R$-carapaces from $A$ to $B$.
+
+Let $M$ be an $R$-module. Then let $M_{X}$ denote the constant carapace with value $M$. That is, its segment along any simplex is $M$ and its expansions are all the identity map. In addition for any given simplex, $\sigma$, there are two dually defined carapaces, $M \uparrow_{\sigma}$ and $M \downarrow^{\sigma}$ defined by:
+
+\setcounter{equation}{1}
+\begin{equation}
+\begin{aligned}\label{art6-eq-1.2}
+M \uparrow_{\sigma} (\tau) &= M(\sigma \subseteq \tau)\\
+M \uparrow_{\sigma} (\tau) &= (0)(\sigma \nsubseteq \tau)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}\label{art6-eq-1.3}
+M \downarrow^{\sigma} (\tau) &= M\quad(\sigma \supseteq \tau)\\
+M \downarrow^{\sigma} (\tau) &= (0)\quad(\sigma \nsupseteq \tau)
+\end{aligned}
+\end{equation}
+
+ In $M \uparrow_{\sigma}$, the expansions are the identity for paris $\tau$, $\gamma$ such that $\sigma \subseteq \tau \subseteq \gamma$ and 0 otherwise. In $M \downarrow^{\sigma}$ they are the identity for $\tau$, $\gamma$ such that $\tau \subseteq \gamma \subseteq \sigma$ and 0 otherwise.
+
+\begin{lem}\label{art6-lemma-1.4}
+Let $X$ be a simplicial complex and let $M$ be an $R$-module and let $A$ be an $R$-carapace on $X$. Then,
+\begin{enumerate}[1.]
+\item $\Hom_{R, X}(M \uparrow_{\sigma}, A) = Hom_{R}(M, A(\sigma))$\label{art6-enum-lemma1.4-(1)}
+\item $\Hom_{R, X}(A , M \downarrow^{\sigma}) = Hom_{R}( A(\sigma), M)$\label{art6-enum-lemma1.4-(2)}
+\item If $M$ is $R$-projective, then $M \uparrow_{\sigma}$ is projective in teh category of $R$-carapaces on $X$.\label{art6-enum-lemma1.4-(3)}
+\item If $M$ is $R$-injective, then $M \downarrow^{\sigma}$ is injective in the category of $R$-carapaces on $X$.\label{art6-enum-lemma1.4-(4)}
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+Statements (\ref{art6-enum-lemma1.4-(1)}) and (\ref{art6-enum-lemma1.4-(2)}) require no proof. Note that the functor which assigns to an $R$-carapace on $X$ its segment along $\sigma$ is an exact functor This observation together with (\ref{art6-enum-lemma1.4-(1)}) and (\ref{art6-enum-lemma1.4-(2)}) implies (\ref{art6-enum-lemma1.4-(3)}) and (\ref{art6-enum-lemma1.4-(4)}). 
+\end{proof}
+
+\setcounter{prop}{4}
+\begin{prop}\label{art6-prop-1.5}
+Let $X$ be a simplicial complex. Then the category of $R$-carapaces on $X$ has enough projectives and enough injectives.
+\end{prop}
+
+\begin{proof}
+Let $A$ be any $R$-carapace on $X$. We must show that there is a surjective map from a projective $R$-carapace to $X$ and an injective map from $A$ into an injective $R$-carapace. For each simplex, $\sigma$ in $X$ choose a projective $R$-module, $P_{\sigma}$, with a surjective map $\pi_{\sigma}$ mapping $P_{\sigma}$ onto $A(\sigma)$. Let
+$$
+P = \coprod\limits_{\sigma \in X}P_{\sigma} \uparrow_{\sigma} 
+$$
+For each $\sigma$, let $\overline{\pi}_{\sigma}$ be the morphism of carapaces corresponding to $\pi_{\sigma}$ given by \ref{art6-lemma-1.4}, \ref{art6-enum-lemma1.4-(1)}. Define $\pi$ by:
+$$
+\pi = \coprod\limits_{\sigma \in X}\overline{\pi}_{\sigma}.
+$$
+Then $\pi$ is a surjective map from a projective to $A$.
+
+To construct an injective, choose an injective module and an inclusion, $j_{\sigma}:A(\sigma) \rightarrow I_{\sigma}$. Then define an injective carapace, $I$, and an inclusion, $j$, as products of the carapaces $I_{\sigma} \downarrow^{\sigma}$ and inclusions $\overline{j}_{\sigma}$ defined dually to the corresponding objects in the projective case. 
+\end{proof}
+
+\begin{prop}\label{art6-prop-1.6}
+Let $X$ be a simplicial complex. Then
+    \begin{enumerate}[(1)]
+        \item If $P$ is a projective $R$-caparapace on $X$, then $P(\sigma)$ is $R$ projective for each $\sigma\in X$.\label{art6-prop1.6-enum-(1)}
+        \item If $I$ is an injective $R$-carapace on $X$, then $I(\sigma)$ is $R$ injective for each $\sigma \in X$.\label{art6-prop1.6-enum-(2)}
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+Suppose $P$ is projective. For each $\sigma$ let $\pi_{\sigma}: F_{\sigma}\rightarrow P(\sigma)$ be a surjective map from a projective $R$-module onto  $P(\sigma)$. Then $Q= \coprod_{\sigma \in X}F_{\sigma} \uparrow_{\sigma}$ is projective by \ref{art6-lemma-1.4} and $\coprod_{\sigma \in X}\pi_{\sigma}$ maps $Q$ onto $P$. Since $P$ is projective, it is a direct summand of $Q$. But then $P(\sigma)$ is a  direct summand of $Q(\sigma) = \coprod_{\tau \subseteq \sigma}F_{\tau}$ which is clearly projective. This establishes the first statement.
+
+To prove the second statement, for each $\sigma$ choose and embedding,, $j_{\sigma} : I(\sigma) \rightarrow J_{\sigma}$ where $J_{\sigma}$ in $R$-injective. Then use $\prod_{\sigma\in X}$ to embed $I$ in $\prod_{\sigma \in X}J_{\sigma}$ and reason dually to the previous argument replacing, at each point where it occurs, the co-product with the product. 
+\end{proof}
+
+It is clear that there are natural homology and cohomology theories on the category of $R$-carapaces on $X$. The most natural functors to consider are the limit and the co-limit over $X$. To simplify the discussion, \textit{$C ar_{R}(X)$ denote the category of $R$-carapaces on $X$.}
+
+\begin{definition}
+Let $U$ denote any sub-category of $X$, and let $A$ be an $R$-carapace on $X$. Then
+\begin{align*}
+\Sigma (U, A) &= \lim\limits_{\substack{\longrightarrow \\ \sigma \in U}}A(\sigma)\\
+\Gamma (U, A) &= \lim\limits_{\substack{\longleftarrow \\ \sigma \in U}}A(\sigma).
+\end{align*}
+We will refer to $\Sigma(U, A)$ as the \textit{segment} of $A$ over $U$ and to $\Gamma(U, A)$ as the \textit{sections} of $A$ over $U$.
+\end{definition}
+
+Certain observation are in order. Since subcategories of $X$ are certainly not in general filtering the functor, $\Sigma(U, ?)$, is right exact on $C ar_{R}(X)$. Similarly $\Gamma(U, ?)$ is left exact. Furthermore $\Gamma(U, A) = \Hom_{R, U}(R_{U}, A)$, On the other hand, $\Sigma(U, A)$ cannot be represented as a homomorphism functor in any obvious way but its definition as a direct limit allows us to conclude that:
+$$
+\Hom_{R}(\Sigma(X, A), M) = \Hom_{R, X}(A, M_{X})
+$$ 
+
+\begin{definition}\label{art6-definition-1.9}
+For any $R$-carapace on $X$, A, let
+$$
+H_{n}(X, A)= L_{n}\Sigma{X, A}
+$$
+and let
+$$
+H^{n}(X, A) = R^{n}\Gamma(X, A)
+$$
+the left and right derived functors of $\Sigma(X, -)$ and $\Gamma(X, -)$ respectively. These groups shall be referred to as the \textit{expskeletal homology and cohomology groups} of $X$ with coefficients in $A$.
+\end{definition}
+
+\begin{example}
+\textbf{The Koszul Resolution of the Constant Carapace.}
+
+Choose an ordering on the vertices of $X$. For each $r \geq 0$, let $X(r)$ denote the set of simplices of dimension $r$. Let $K_{q}(X, R) = \coprod _{\sigma \in X_{(q)}} R \uparrow_{\sigma}$. If $A$ is any $R$-carapace on $X$, then $\bigwedge_{R}^{q}A$ is understood to be the carapace whose segment along $\sigma$ is $\bigwedge_{R}^{q}(A(\sigma))$. Then, it is not at all difficult to see that $\bigwedge_{R}^{q+1}K_{0}(X, R) = K_{q}(X, R)$ Furthermore, when
+$\sigma \subseteq \tau$ there is always a natural map from $M\uparrow_{\tau}$ to $M \uparrow_{\sigma}$ obtained by applying 4,1 to $M\uparrow_{\tau}$ and noting that since $M\uparrow_{\sigma}(\sigma) = M = M\uparrow(\tau)$ there is a map in $\Hom_{R, X}(M\uparrow_{\tau}, MM\uparrow_{\sigma})$ corresponding to the identity. Make use of the ordering on the vertices of $X$ to define an alternating sum of the maps corresponding to the faces of a simplex. It is easy to see the that this gives a complex of carapaces:
+$$
+\ldots \rightarrow (X, R)\rightarrow K_{q-1}(X, R)\rightarrow\ldots \rightarrow K_{0}(X, R)\rightarrow R_{X}\rightarrow(0)
+$$ 
+Then check that the sequence of segments on $\sigma$ is just the standard Koszul resolution of the unit ideal which begina with a free module of rank $\dim(\sigma) + 1$ and the map which sends each of its generators to one. Consequently, this construction gives a resolution of the constant carapace by projectives. On the other hand it is evident that $\sigma(X, K_{q}(X, R))$ is just the $R$-module of simplicial $q$-chains on $X$ with coefficients in $R$ and that the boundaries are the standard simplicial boundaries. In this way, one verifies that the exoskeletal homology and cohomology with coefficients in a constant carapace is just the simplicial homology and cohomology. This phenomenon has been observed and exploited by Casselman and Wigner in their work on admissible representations and the cohomology of artihmetic groups \cite{art6-keyCW}.
+\end{example}
+
+\section{Operations on Carapaces}
+
+In the category of $R$-carapaces on $X$ there is a self-evident notion of tensor product:
+
+\begin{definition}\label{art6-definition-2.2}
+Let $A$ and $B$ be two $R$-carapaces on $X$. Let:
+$$
+(A \otimes_{R} B)(\sigma) = A(\sigma) \otimes_{R}B(\sigma)
+$$
+Then $A\otimes_{R}B$ is a carapace which we will refer to as \textit{the tensor product} of $A$ and $B$.
+
+The properties of the tensor product are for the most part clear. Most of them are stated in the following.
+\end{definition}
+
+\begin{prop}\label{art6-prop-2.2}
+Let $X$ be a simplicial complex. Then the tensor product of $R$-carapaces on $X$ is an associative, symmetric, bi-additive functor right exact in both variables. Furthermore:
+   \begin{enumerate}[(1)]
+   \item For any $R$-carapace, $A$, $R_{X}\otimes_{R}A \simeq A$\label{art6-prop2.2-enum-(1)}
+   \item If $P$ is a projective $R$-carapace then tensoring with $P$ on either side is an exact functor.\label{art6-prop2.2-enum-(2)}
+   \item For any two $R$-carapaces, $A$ and $B$, there is a natural map:
+      $$
+      t_{A, B}:\Sigma(X, A\otimes_{R}B)\rightarrow \Sigma(X, A)\otimes_{R}\Sigma(X, B)
+      $$
+      Moreover, $t_{A, B}$ is a natural transformation in $A$ and $B$ and it is functorial in $X$ as well.\label{art6-prop2.2-enum-(1)}
+   \end{enumerate}
+\end{prop}
+
+\begin{proof}
+The first statement is self-evident; the second follows trivially from \ref{art6-prop-1.6} but the third might require some comment. To construct $t_{A, B}$ let $e_{A, \sigma} : A(\sigma) \rightarrow \Sigma(X, A)$ and $e_{B, \sigma} : B(\Sigma) \rightarrow \Sigma(X, B)$ be the expansions. Then $e_{A, \sigma} \otimes_{R} e_{B, \Sigma}$ maps $A\otimes_{R} B(\sigma)$ into $\Sigma(X, A) \otimes_{R} \Sigma(X, B)$ compatibly with respect to expansion. Since $\Sigma(X, A \otimes_{R} B)$ is a colimit, this defines $t_{A, B}$ uniquely and ensures that it is functorial as asserted. 
+\end{proof}
+
+The construction of a tensor product is thus quite straightforward but the construction of an internal homomorphism functor with the requisite adjointness properties presents certain technical difficulties. For any $\sigma \in X$ let $x(\sigma)$ denote the subcategory of $X$ whose objects are the simplices $\tau$ such that $\tau \supseteq \sigma$. The morphisms of $X(\sigma)$ are inclusions of simplices. Then $X(\sigma)$ is not a subcomplex of $X$. If $\sigma \subseteq \tau$ then $X(\tau) \subseteq X(\sigma)$. There is a natural restriction map from the group $\Hom_{R, X (\sigma)}(A|_{X(\sigma)}, B|_{X(\sigma)})$ to $\Hom_{R, X(\tau)}(A|_{X(\tau)}, B|_{X(\tau)})$. We will will write $e_{\calH, \sigma}^{\tau}$ for this restriction map.
+
+\begin{definition}\label{art6-definition-2.3}
+Let $A$ and $B$ be two $R$-carapaces on $X$. \textit{The carapace of local homomorphisms} Fro  $A$ to $B$ will be written $\calH om_{R, X}(A, B)$. Its value on $\sigma$ is
+$$
+\calH om_{R, X}(A, B)(\sigma) = \Hom_{R, X(\sigma)}(A|_{X}(\sigma), B|_{X}(\sigma))
+$$
+Its expansions are the maps $e_{\calH, \sigma}^{\tau}$
+\end{definition}
+
+For want of a direct reference, we include some discussion of the basic properties of $\calH om$.
+
+\begin{theorem}\label{art6-thm-2.4}
+The local homorophism functor, $\calH om_{R, X}(A, B)$, is additive, covariant in $B$ and contravariant in $A$ and left exact in both variables. Moreover
+    \begin{enumerate}[(1)]
+    \item $\calH om_{R, X}(R_{X}, A)\simeq A$, \text{\rm functorially in} $A$\label{art6-thm2.4-enum-(1)}
+    \item $\Gamma(X, \calH om_{R,X}(A, B)) = \Hom_{R,X}(A, B)$\label{art6-thm2.4-enum-(2)}
+    \item There is a canonical isomorphism functorial in $A, B$, and $C$,\label{art6-thm2.4-enum-(3)}
+        $$
+        \phi : \Hom_{R, X}(A, \calH om_{R, X}(B, C))\rightarrow \Hom_{R, X}(A \otimes_{R} B, C)
+        $$
+    \item There is a functorial isomorphism:\label{art6-thm2.4-enum-(4)}
+    $$
+    \Hom_{R, X}(R_{X}, \calH om_{R, X}(A, B)) \simeq \Hom_{R, X}(A, B)
+    $$  
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Of the three preliminary statements, only left exactness requires comment. What must be shown is the left exactness of segments of $\calH om_{R, X}(A, B)$ as $A$ and $B$ vary over short exact sequences. But\break $\calH om_{R, X}(A, B)(\sigma) = \Hom_{R,X(\sigma)}(A|_{X(\sigma)}, B_{X(\sigma)})$. Restriction to $X(\sigma)$ is exact and $\Hom_{R, X}(\sigma)$ is left exact in both of its arguments. The requisite left exactness follows immediately.
+
+To establish (\ref{art6-thm2.4-enum-(1)}), we must establish the isomorphism on segments. But
+$$
+\calH om_{R, X}(R_{X}, A)(\sigma) = \Hom_{R,X(\sigma)}(R_{X}, A|_{X(\sigma)}),
+$$
+but this last expression is equal to:
+$$
+\lim_{\substack{\longleftarrow \\ \tau \in X(\sigma)}}A(\tau).
+$$
+However the category, $X(\sigma)$ has an initial element and so the projective limit is just $A(\sigma)$.
+
+For Statement (\ref{art6-thm2.4-enum-(2)}), write:
+$$
+\Gamma(X, \calH om_{R,X}(A, B)) = \lim_{\substack{\longleftarrow \\ \tau \in X}}(A|_{X(\sigma)}, B|_{X(\sigma)})
+$$
+There is a natural map from $\Gamma(X, \calH om_{R,X}(A, B))$ to this projective limit. Just send $f$ to the element in the limit whose component at $\sigma$ is the restriction (the pull-back actually) of $f$ to the sub-category, $X(\sigma)$. It is a triviality to verify that this map is an isomorphism.
+
+Rather than giving a fully detailed proof of (\ref{art6-thm2.4-enum-(3)}), we will give complete definitions of $\phi$ and a map $\psi$ which is inverse to it. The necessary verifications, though numerous and quite technical, contain no surprises and so we leave them to the reader. First suppose\break $f \in \Hom_{R,X}(A, \calH om_{R,X}(B, C))$. Then for
+$a \in A(\sigma)$, $f_{\sigma}(a)$ is a family, $f_{\sigma}(a)  =\{f(a)_{\tau}\}_{\tau \supseteq \sigma}$ where
+$f(a)_{\tau} \in Hom_{R}(B(\tau), C(\tau))$. The following equations express the facts that $f$ is a carapace morphism and that $f(a)$ is carapace morphism from $B|_(\sigma)$ to $C|_{x(\sigma)}$:
+\begin{equation}
+f_{\tau}(e_{A,\sigma}^{\tau}(a))_{\gamma} = f_{\sigma}(a)_{\gamma}\tag{5}\label{eq:proof-5}
+\end{equation}
+\begin{equation}
+e_{C, \tau}^{\gamma} \circ f_{\tau}(a)_{\tau} = f_{\tau}(a)\gamma \circ e_{B,\tau}^{\gamma}\tag{6}\label{eq:proof-6}
+\end{equation}
+Then we may define $\phi : \Hom_{R,X}(A, \calH om_{R,X}(B,C))\rightarrow \Hom_{R,X}(A \otimes_{R}B, C)$ and $\psi$ opposite to it by the equation:
+\begin{equation}
+\phi(f)_{\sigma}(a\otimes b) =[f_{\sigma}(a)_{\sigma}](b) \quad a\in A(\sigma), b\in B(\sigma)\tag{7}\label{eq:proof-7}
+\end{equation}
+\begin{equation}
+[\phi (F)_{\sigma}(a)]_{\tau}(b) = f_{\tau}([e_{A, \sigma}^{\tau}(a)\otimes b) \quad a\in A(\sigma), b \in B(\tau)\tag{8}\label{eq:proof-8}
+\end{equation}
+These are the two maps, inverse to one another, which establish (\ref{art6-thm2.4-enum-(3)}).
+
+The last statements is obtained by applying the third to the left hand side and observing that $R_{X}\otimes_{R}A\simeq A$.
+\end{proof}
+
+\section{Derived Functors}
+
+In this section we introduce the most elementary derived functors on $C ar_{R}(X)$. These include the derived functors of both the module valued and the carapace valued tensor and homomorphism functors and the relation between the two. First recall that by \ref{art6-lemma-1.4}, whenever $P$ is a projective $R$-module and $\sigma$ is a simplex in $X$ then $P\uparrow_{\sigma}$ is a projective $R$-carapace. Consequently a coproduct of carapaces of the form $F \uparrow_{\sigma}$, where $F$ is a free $R$-module, is a projective $R$-carapace. We will refer to such carapaces as elementary projectives. Furthermore notice that if $M$ is any $R$-module then $\sigma(X, M\uparrow_{\tau})=M$. Hence if $Q$ is an elementary projective, $\sigma(X, Q)$ is a direct sum of free modules and hence free.
+
+\begin{lemma}\label{art6-lemma-3.1}
+Let $X$ be any simplicial complex.
+    \begin{enumerate}[(1)]
+    \item Every $R$-carapace on $X$ is a surjective image of an elementary projective.\label{art6-lemma3.1-enum-1}
+    \item If $P$ is a projective $R$-carapace on $X$, then $\sigma(X, P)$ is $R$-projective.\label{art6-lemma3.1-enum-2}
+    \item A tensor product of elementary projectives is an elementary projective.\label{art6-lemma3.1-enum-3}
+    \item A tensor product of projectives is projective.\label{art6-lemma3.1-enum-4}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $A$ be an $R$-carapace on $X$. For each $\sigma \in X$ let $F_{\sigma}$ be a free $R$-module and let $q_{\sigma} : F_{\sigma} \rightarrow A(\sigma)$ be surjective morphism. Then, just as in \ref{art6-prop-1.5}, $\coprod_{\sigma \in X}F_{\sigma} \uparrow_{\sigma}$ is an elementary projective and $\coprod_{\sigma \in X}Q_{\sigma}$ maps in onto $A$. Thus \ref{art6-lemma3.1-enum-1}) is established.
+
+To prove \ref{art6-lemma3.1-enum-2}), choose an elementary projective, $F$, and a surjective map, $q: F\rightarrow P$. Since $P$ is projective, it is a direct summand of $F$ and so $\sigma(X, P)$ is direct summand of $\sigma(X, F)$ which is free. This establishes \ref{art6-lemma3.1-enum-2}.
+
+The fourth statement follows from the third because, by \ref{art6-lemma3.1-enum-1}, every projective is a direct summand of an elementary projective. Hence we must prove \ref{art6-lemma3.1-enum-3}). But this reduces to proving that is $\sigma$ and $\tau$ are two simplices, then $R\uparrow_{\sigma} \otimes_{R}R \uparrow_{\tau}$ is elementary projective. But $R\uparrow_{\sigma}\otimes_{R}R\uparrow_{\tau}(\gamma) \neq 0$ if and only if $\gamma \supseteq \sigma$ and $\gamma \supseteq \tau$. Thus $R\uparrow \otimes_{R}R \uparrow_{\tau}\neq (0)$ if and only if $\sigma \cup \tau = \alpha$ is a simplex and then $R\uparrow_{\sigma}\otimes_{R}R \uparrow_{\alpha}$. This establishes the result. 
+\end{proof}
+
+There are at least four very obvious homological bifunctors on\break $C ar_{R}(X)$
+
+\begin{definition}\label{art6-definition-3.2}
+Let $A$ and $B$ be $R$-carapaces on $X$. Write $\Ext_{R, X}^{r}$ for the $r$'th right derived functor of the left exact module valued bifunctor, $\Hom_{R, X}(a, B)$. Write $\calE xt_{R, X}^{q}$ for the carapace valued $q$'th right derived functor of the carapace valued local homomorhism functor. Write $\calT or_{q}^{R,X}(A, B)$ for the $q$'the carapace valued left derived functor of the carapace valued tensor product, $A\otimes_{R}B$ and write $\Tor_{q}^{R, X}(A, B)$ for the $q$'th left derived functor of the right exact bifunctor $\sigma(X, A\otimes_{R}B)$. 
+\end{definition}
+
+\begin{lemma}\label{art6-lemma-3.3}
+If $P$ is a projective $R$-carapace on $X$, then for any $R$-carapace, $A$, $P\otimes_{R} A$ is $\sigma$-acyclic and $\calH om_{R, X}(P, A)$ is $\Gamma$-acyclic.
+\end{lemma}
+
+\begin{proof}
+Let $\{Q_{j}\}$, $j \leq 0$ be  a projective resolution of $A$. Then $\{P \otimes_{R} Q_{j}\}$ is a projective resolution of $P \otimes_{R} A$. Apply the functor $\sigma$ to obtain $\Tor_{j}^{R,X}(A, P) = H_{j}(A\otimes_{R}P)$. But $\Tor_{j}^{R, X}(A, P) = (0)$ because $P$ is projective. This establishes the $\sigma$-acyclicity of $A\otimes_{R}P$. For the other acyclicity, let $\{K_{j}\}$ be a projective resolution of $R_{X}$. Then\break $\Hom_{R, X}(K_{j}, \calH om_{R, X}(P, A)) = \Hom_{R, x}(K_{j}\otimes_{R}P, A)$. But $K_{j} \otimes P$ is a projective resolution of $P$. Thus $H^{j}(X, \calH om_{R,X}(P, A)) = \Ext_{R, X}^{j}(P, A)$ which is $(0)$ because $P$ is projective.
+\end{proof}
+
+The elementary properties of these four functors are described in the following.
+
+\begin{prop}\label{art6-lemma-3.4}
+Let $A$ and $B$ be $R$-carapaces on $X$, Then
+    \begin{enumerate}[(1)]
+    \item $\calT or_{q}^{R,X}(A, B)(\sigma) = Tor_{q}^{R}(A(\sigma), B(\sigma))$\label{art6-lemma3.4-enum-1}
+    \item $\Tor_{q}^{R, X}(R_{X}, A) = H_{q}(X, A)$\label{art6-lemma3.4-enum-2}
+    \item $\Ext_{R,X}^{q}(R_{x}, A) = H^{q}(X,A)$\label{art6-lemma3.4-enum-3}
+    \item There is a spectral sequence with $E_{2}^{p,q}$ term:\label{art6-lemma3.4-enum-4}
+    $$
+    E_{2}^{p,q} = H^{p}(X, \calE xt_{R,X}^{q}(A, B))
+    $$
+    and whose abutment is:
+    $$
+    \Ext_{X,R}^{p+q}(A, B)
+    $$
+    \item There is a spectral sequence with $E_{p,q}^{2}$ term:\label{art6-lemma3.4-enum-5}
+    $$
+    E_{p,q}^{2} = H_{p}(X, \calT or_{q}^{R, X}(A, B))
+    $$
+    and with abutment:
+    $$
+    \Tor_{p+q}^{R,X}(A, B)
+    $$
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+To prove \ref{art6-lemma3.4-enum-1}), let ${P_{j}}$ be a projective resolution of $A$. Then for each $\sigma$, $\{P_{j}(\sigma)\}$ is a projective resolution of $A(\sigma)$. Moreover the segment of $P_{j}\otimes_{R}B$ along $\sigma$ is $P_{j}\otimes_{R}b(\sigma)$. But the segment along $\sigma$ is an exact functor on $C ar_{R}(X)$ and so the $\sigma$-segment of the homology of the complex, $P_{j}\otimes_{R}B$ is the homology of the complex $P_{j}(\sigma) \otimes_{R}B(\sigma)$. This is just the result desired.
+
+Statements \ref{art6-lemma3.4-enum-2} and \ref{art6-lemma3.4-enum-3} are both essentially trivial. Just note that\break $\Tor_{q}^{R, X}(R_{X}, A)$ (respectively $\Ext_{R,X}^{q}(R_{X}, A)$) is a connected sequence of homological functors acyclic on projectives (respectively injectives) and that $\Tor_{0}^{R,X}(R_{X},A)=\Sigma(X, A)$ (respectively $\Ext_{R,X}^{0}(R_{X},A) = \Gamma(X,A))$. The two statement follow.
+
+The local global spectral sequences in \ref{art6-lemma3.4-enum-4}) and \ref{art6-lemma3.4-enum-5}) ar just composition of two functor sequences as in \cite{art6-keyGr}. Let $F_{A}(B) = A\otimes_{R}B$ and let $G_{A}(B) = \calH om_{R,X}(B,A)$. By Lemma \ref{art6-lemma-3.3}, $F_{A}$ carries projectives to $\Sigma$-acyclics and $G_{A}$ carries projectives to $\Gamma$-acyclics. The left derived functors of $F_{A}$ are the functors, $\calT or_{q}^{R,X}(A,-)$ while the right derived functors of$G_{A}$ are the functors, $\calH om_{R,X}^{q}(A, -)$. The construction of the spectral sequences is standard.
+\end{proof}
+
+\section{Homological Dimension}\label{art6-sec-4}
+
+In this section we will determine the homological dimension of $C ar_{R}(X)$ for a finite dimensional simplicial complex, X. Write $X^{r}$ for the set of simplices in $X$ of dimension $r$ and write $X_{n}$ for $\bigcup_{r\geq n}X^{(r)}$. If $M$ is an $R$-module,write $pd(M)$ for the projective dimension of $M$ and write $hd(R)$ for the homological dimension of $R$. 
+
+\begin{defin}\label{art6-defin-1}
+Let $A$ be an $R$-carapace on $X$.
+    \begin{enumerate}[(1)]
+    \item Write $s(A)\leq n$ if $A(\sigma) = (0)$ whenever $dim(\sigma) < n$ and let $s(A) = inf\{n: s(A) \leq n\}$. Then $s(A)$ is called the \textit{support dimension} of $A$.\label{art6-defin1-enum-1}
+    \item We say that $A$ is \textit{locally bounded} if $pd(A(\sigma)) \leq q$ for some fixed $q \geq 0$. In that case let $ld(A)=sup\{pd(A(\sigma)) : \sigma \in X\}$. When it exists, $ld(A)$ is called the \textit{local projective dimension} of $A$.\label{art6-defin1-enum-2}
+    \end{enumerate}
+\end{defin}
+
+\setcounter{propo}{1}
+\begin{propo}
+Suppose that $A$ is an $R$-carapace on $X$ of support dimension at least $n$ and local projective dimension $r$. Then  there is an exact sequence:
+\setcounter{equation}{2}
+\begin{equation}\label{art6-equation-4.3}
+0 \rightarrow A^{1} \rightarrow P_{r}\rightarrow\ldots \rightarrow P_{0} \rightarrow A \rightarrow 0
+\end{equation}
+so that:
+    \begin{enumerate}[(1)]
+    \item $ld(A^{1}) = 0$\label{art6-equation-enum-1}
+    \item $P_{i}$ is projective\label{art6-equation-enum-2}
+    \item $s(A^{1})\geq n+1$\label{art6-equation-enum-3}
+    \item $s(P_{i}) \geq n$\label{art6-equation-enum-4}
+    \end{enumerate}
+\end{propo}
+
+\begin{proof}
+For each $\sigma \in X_{n}$ choose a projective module, $Q^{\sigma}$ and a surjective morphism, $\phi^{\sigma} : Q^{\sigma} \rightarrow A(\sigma)\rightarrow 0$. For each $\sigma$, let $\phi_{\sigma} : Q^{\sigma}\uparrow_{\sigma} \rightarrow A$ be the morphism of carapace induced by $\phi^{\sigma}$. Let $Q_{0}= \coprod_{\sigma\in X_{n}}(Q^{\sigma})\uparrow_{\sigma}$ and let $d_{0}=\coprod_{\sigma \in X_{n}}\phi_{\sigma}$. Since $s(A)\leq n$, $d_{0}$ in surjective. Let $N_{0} =ker(d_{0})$. Then, clearly $s(N_{0}) \leq n$ but $ld(N_{0})\leq r-1$. Thus we may repeat the process the process with $A$ replaced by $N_{0}$ and continue inductively until we obtain an exact sequence:
+$$
+0 \rightarrow N_{r-1} \rightarrow Q_{r-1} \rightarrow\ldots \rightarrow Q_{0} \rightarrow A \rightarrow 0.
+$$
+In this sequence, the $Q_{i}$ are projective, the support dimensions of the $Q_{i}$ and of $N_{r-1}$ are at least $n$ and $ld(N_{r-1})$ are at least $n$ and $ld(N_{r-1})=0$. That is $N_{r-1}(\sigma)$ is projective for each $\sigma$. Now let $Q_{r}=\coprod_{\sigma \in X_{n}}(N_{r-1}(\sigma))\uparrow_{\sigma}$. Clearly, $Q_{r}$ maps onto $N_{r-1}$ and the map is an isomorphism on segments over simplices of dimension $n$. Let $d_{r}$ be the composition of the map onto $N_{r-1}$ with the inclusion into $Q_{r-1}$ and let $A^{1} =ker(d_{r})$. Clearly, $A^{1}$ and the $Q_{i}$ answer the requirements of the proposition.
+\end{proof}
+
+\setcounter{prop}{3}
+\begin{theorem}\label{art6-thm-4.4}
+Let $X$ be a simplicial complex of dimension $d$ and let $A$ be a locally bounded $R$-carapace on $X$ of local projective dimension $r$. Then $pd(A)\leq d+r$.
+\end{theorem}
+
+\begin{proof}
+ Apply Proposition 4.2 with $n=0$. The result is the exact sequence:
+ $$
+ 0 \rightarrow A^{1} \rightarrow P_{r}\rightarrow \ldots \rightarrow P_{0}\rightarrow A \rightarrow 0
+ $$
+ Then apply 4.2 to $A^{1}$ observing that $ld(A^{1})= 0$ and $s(A^{1})\leq 1$. The result is a short exact sequence, $0 \rightarrow A^{2} \rightarrow Q_{1} \rightarrow A^{1} \rightarrow 0$ where $Q_{1}$ is projective, $ld(A^{2})=0$ and $s(A^{2})\leq 2$. We may continue until we reach $s(A^{d})\leq d$. But for any $B$, if the segments of $B$ are projective and $s(B)\leq dim(X)$ then $B$ is projective. We may thus assemble these short sequences and the sequence of $P_{i}$ to obtain a sequence:
+ $$
+ 0\rightarrow A^{d} \rightarrow Q_{d-1} \rightarrow \ldots \rightarrow Q_{1} \rightarrow P_{r} \rightarrow \ldots \rightarrow
+ P_{0}\rightarrow A \rightarrow 0
+ $$
+ This exact sequence is the projective resolution establishing the result.
+ \end{proof}
+
+\begin{coro}\label{art6-coro-4.5}
+If $dim(X) =d$ and if $M$ is an $R$-module of projective dimension $r$, then $pd(M_{X})\leq r+d$. If $M$ is projective then $pd(M_{X}) \leq d$. 
+\end{coro}
+
+\begin{coro}\label{art6-coro-4.6}
+If $R$ is of homological dimension $r$ and $dim(X)= d$ then the homological dimension of $C ar_{R}(X)$ is at most $d+r$.
+\end{coro}
+
+Neither of these corollaries requires so much as one word of proof.
+
+\section{Carapaces and Morphisms of Complexes}\label{art6-sec-5}
+Recall that a morphism of complexes from $X$ to $Y$ is just a covariant functor from the category of simplices in $X$ to the category of simplices in $Y$; it is simplicial if it carries vertices to vertices. If $S$ is a subset of the vertex set of $X$ then it admits a simplicial complex structure by taking as its set of simplices the set of simplices in $X$ all fo whose vertices lie in $S$. We will write $\tilde{S}$ fof this complex. When we speak of a subcategory of $X$ we will always, unless otherwise indicated, mean a full subcategory of the simplex category of $X$. If $U$ and $V$ are subcategories if $X$  we will write $U \subset V$ to indicate that $U$ is a full subcategory of $V$. In this case there is always a functorial map from $\Sigma(U, A)$ to $\Sigma(V, A)$ for any carapace, $A$.
+
+Suppose that $f$ is a morphism of complexes from $X$ to $Y$ and that $Z$ is a simplicial sub-complex of $Y$. Let $f^{-1}(Z)$ denote the simplicial sub-complex of $X$ which has as its set of simplices the set $\{\sigma \in X : f(\sigma)\in Z \}$. Clearly, $f^{-1}$ is a functor from the subcomplexes in $Y$ to those in $X$.
+
+\begin{definition}\label{art6-definition-5.1}
+Let $X$ and $Y$ be simplicial complexes, let $A$ be a  $R$-carapace on $X$ and let $B$ be one on $Y$. Let $F:X \rightarrow Y$ be a morphism of complexes.
+
+    \begin{enumerate}[(1)]
+    \item Let $(f^{*}(B))(\sigma)=B(f(\sigma))$ and let $ e_{f^{*}(B), \sigma}^{\tau} = e_{B, f(\sigma)}^{f(\tau)}$. Then $f^{*}(B)$ is an $R$-carapace on $X$ and $f^{*}$ is a covariant functor from $C ar_{R}(Y)$ to $C ar_{R}(X)$. The carapace $f^{*}(B)$ is called the \textit{inverse image} of $B$ under $f$. \label{art6-definition5.1-enum-(1)}
+    
+    \item Let $(f_{*}(A))(\sigma) = \Sigma(f^{-1}(\tilde{\sigma}), A)$ and let $e_{f_{*}(A), \sigma}^{\tau}$ be the natural map of segments induces by the inclusion of categories, $f^{-1}(\tilde{\sigma})\subset f^{-1}(\tilde\tau)$ when $\sigma \subset \tau$. Then $f_{*}$ is a covariant functor from carapaces on $X$ to carapaces on $Y$. The carapaces, $f_{*}(A)$ is called the \textit{direct image} of $A$ by $f$.\label{art6-definition5.1-enum-(2)}
+    \end{enumerate}
+    
+    Both $f^{*}$ and $f_{*}$ are additive. In addition they satisfy the adjointness properties expected.
+\end{definition}
+
+\begin{theorem}\label{art6-thm-5.2}
+Let $X$ and $Y$ be simplicial complexes, let $f$ be a morphism of complexes from $X$ to $Y$, let $A$ be an $R$-carapace on $X$ and let $B$ be one on $Y$.
+    \begin{enumerate}[(1)]
+    \item $f^{*}$ is exact.\label{art6-thm5.2-enum-1}
+    \item $f_{*}$ is right exact.\label{art6-thm5.2-enum-2}
+    \item $f_{*}$ is left adjoint to $f^{*}$. That is,
+    $$
+    \Hom_{R, A}(A, f^{*}(B))\simeq \Hom_{R,Y}(f_{*}(A), B)
+    $$
+    functorially in $A$ and $B$.\label{art6-thm5.2-enum-3}
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The first statement is a triviality. The second statement in nothing more than the right exactness of co-limits. Thus only the last statement requires attention.
+
+To prove \ref{art6-thm5.2-enum-3}), we will give morphisms,
+$$
+\psi : \Hom_{R,X}(A, f^{*}(B))\rightarrow \Hom_{R,Y}(f_{*}(A), B)
+$$
+and $\phi$ inverse to it. Begin with $\psi$. If $\alpha \in  \Hom_{R,X}(a, f^{*}(B))$, write $\alpha =\{\alpha_{\sigma}\}_{\sigma \in X}$. Then $\alpha_{\sigma}$ maps $A(\sigma)$ to $B(f(\sigma))$ for each $\sigma$ compatibly with respect to $\sigma$. Then  $\sigma \in f^{-1}(\tilde{\rho})$ if and only if $f(\sigma)\subseteq \rho$. Thus the set of maps, $e_{B, f(\sigma)}^{\rho} \circ \alpha_{\sigma}$ is direct system of maps giving a morphism from $[f_{*}(A)](\rho)= \Sigma(f^{-1}(\tilde{\rho}), A)$ to $B(\rho)$. For each $\rho$ call this map $\beta_{\rho}$. Then since $\beta_{\rho}$ is functorial in $\rho$, the family $\{\beta_{\rho}\}_{\rho \in Y}$ is a morphism, $\beta$, from $f_{*}(A)$ to $B$. Let $\psi (\alpha) = \beta$.
+
+Now we wish to define $\phi$ . If $\beta \in \Hom_{R,Y}(f_{*}(A), B)$ then $\beta$ is a family $\{B_{\rho}\}_{\rho in Y}$ where $\beta_{\rho}$ maps $\Sigma(f^{-1}(\tilde{\rho}), A)$ to $B(\rho)$. For any $\sigma$ in $X$, let $\rho = f(\sigma)$ and let $a_{\sigma}$ be the natural map from $A(\sigma)$ to $\Sigma(f^{-1}(\tilde{\rho}), A)$. Then $\beta_{\rho} \circ a_{\sigma}$ is a map from $A(\sigma)$ to $B(f(\sigma))$ for each $\sigma$. Let $\alpha_{\sigma} = \beta_{f(\sigma)}$ for each $\sigma$ and let $\phi(\beta)$ be the map $\alpha = \{\alpha_{\sigma}\}_{\sigma \in X}$. We leave the task of verifying that $\psi$ and $\phi$ are maps of the requisite type and that they are inverse to one another to the reader.
+\end{proof}
+
+It is entirely expected the $f^{*}$ has a left adjoint. It is a bit surprising, though not at all subtle, that is also has a right adjoint. Let $f : X \rightarrow Y$ be a morphism of complexes. For $\rho \in Y$ let $f^\dagger(\rho)$ denote the sub-category of $X$ consisting of all $\sigma \in X$ such that $f(\sigma) \supseteq \rho$.
+
+\begin{definition}\label{art6-definition-5.6}
+Let $X$ and $Y$ be simplicial complexes, let $f : X\rightarrow Y$ be a morphism of complexes and let $A$ be an $R$-carapace on $X$. Define an $R$-carapace on $Y$ by the equation:
+$$
+f_{\dagger}(A)(\rho) = \Gamma(f^{\dagger}(\rho), A)
+$$
+This is clearly an $R$-module valued functor on the simplex category of $Y$ and so it is an $R$-carapace on $Y$. We will call it the \textit{right direct image} of $A$ under $f$.
+\end{definition} 
+
+\begin{prop}\label{art6-prop-5.4}
+Let $f: X\rightarrow Y$ be a morphism of complexes, let $A$ be an $R$-carapace on $X$ and let $B$ be one on $Y$. Then $f_{\dagger}$ is left exact and right adjoint to $f^{*}$. That is,
+$$
+\Hom_{R,X}(f^{*}(B), A)\simeq \Hom_{R,Y}(B, f_{\dagger}(A))
+$$
+functorially in $A$ and $B$.
+\end{prop}
+
+\begin{proof}
+Left exactness follows from the left exactness of $\Gamma$ and so we only need to establish the adjointness. We give the two morphisms. Let
+$$
+\mu : \Hom_{R, Y}(B, f_{\dagger}(A)) \rightarrow \Hom_{R,X}(f^{*}(B), A)
+$$
+be one of the two morphisms and let $\zeta$ be its inverse.
+
+Choose $\delta$ in $Hom_{R,Y}(B, f_{\dagger}(A))$. For each $\rho \in Y$, $\delta$ takes each element, $b \in B(\rho)$ to a compatible family, $\{[\delta_{\rho}(b)]\sigma\}_{f(\sigma)\supseteq \rho}$ where $[\delta_{\rho}(b)]_{\sigma} \in A(\sigma)$. For each $\sigma$ we must give a map $\eta (\delta)_{\sigma}: B(f(\sigma)) \rightarrow A(\sigma)$. Let
+$$
+\left[\eta (\delta)_{\sigma}\right](b) = \left[\delta_{f(\sigma)}(b)\right]_{\sigma}
+$$
+This defines $\eta$.
+
+To define $\zeta$, choose $b \in B(\rho)$ adn suppose that $beta \in \Hom_{R,X}(f^{*}(B), A)$. If $f(\sigma)\supseteq \rho$ let $a_{\sigma} = \beta_{\sigma}(e_{B, \rho}^{f(\sigma)}(b))$. Then let
+$$
+\zeta(\beta)_{\rho}(b) = \{a_{\sigma}\}_{f(\sigma)\supseteq \rho}
+$$
+We leave the verifications involved to the reader.
+\end{proof}
+
+\begin{coro}\label{art6-corollary-5.5}
+Let $X, Y$ and $f$ be as above. Then:
+    \begin{enumerate}[(1)]
+    \item $f_{*}$ carries projectives on $X$ to projectives on $Y$.\label{art6-corollary5.5-enum-1}
+    \item For any $R$-carapace $A$ on $X$, $\Sigma(Y, f_{*}(A)) = \Sigma(X, A)$.\label{art6-corollary5.5-enum-2}
+    \item $f_{\dagger}$ carries injectives on $X$ to injectives on $Y$.\label{art6-corollary5.5-enum-3}
+    \item For any $A$ on $X$, $\Gamma(Y, f_{\dagger}(A))= \Gamma(x, A)$\label{art6-corollary5.5-enum-4}
+    \end{enumerate}
+\end{coro}
+
+\begin{proof}
+For the first statement, let $P$ be a projective on $X$ and let $M \rightarrow N \rightarrow 0$ be a surjective map in $C ar_{R}(X)$. Consider the map, $\Hom_{R, Y}$ $(f_{*}(P), M) \rightarrow \Hom_{R,Y}(f_{*}(P), N)$. By the adjointness statement in \ref{art6-thm-5.2}, \ref{art6-thm5.2-enum-3}), this is the same as the map $\Hom_{R, X}(P, f^{*}(M))\rightarrow \Hom_{R,X}$ $(P, f^{*}(N))$. But now $f^{*}$ is exact and $P$ is projective on $X$ and so this map is surjective. This takes care of \ref{art6-thm5.2-enum-1}).
+
+In general, if $M$ and $N$ are $R$-modules and there is an isomorphism $Hom_{R}(M,Q) \simeq Hom_{R}(N,Q)$ functorial in $Q$, then $M \simeq N$. Apply this to \ref{art6-corollary5.5-enum-2}) using the definition of the functor $\Sigma(X, ?)$ and
+\ref{art6-thm5.2-enum-3}) to obtain:
+\begin{align*}
+Hom_{R}(\Sigma(Y, f_{*}(A)), M) &= \Hom_{R,Y}(f_{*}(A), M_{Y})\\
+= \Hom_{R,X}(A, M_{X}) &= Hom_{R}(\Sigma(X, A), M)
+\end{align*}
+Statement \ref{art6-corollary5.5-enum-2}) follows.
+
+The proof of \ref{art6-thm5.2-enum-3}) is precisely dual to the proof of \ref{art6-thm5.2-enum-1}). To establish
+\ref{art6-corollary5.5-enum-4}), apply \ref{art6-prop-5.4} and \ref{art6-thm-2.4}, \label{art6-thm2.4-enum-(2)}). Write:
+$$
+\Gamma (Y, f_{\dagger}(A)) = \Hom_{R,Y}(R_{Y}, f_{\dagger}(A)) = \Hom_{R,X}(R_{X}, A) = \Gamma(X,A)
+$$
+Thus \ref{art6-corollary5.5-enum-4}) is also proven.
+\end{proof}
+
+Corollary \ref{art6-corollary-5.5} establishes exactly what is necessary for two composition of functor spectral sequences. Many are possible but we content ourselves with the two most obvious.
+
+
+\begin{prop}
+Let $X$ and $Y$ be simplicial complexes, let $A$ be an $R$-carapace on $X$ and let $f:X\rightarrow Y$ be a morphism of complexes.
+\begin{enumerate}
+\item There is a spectral sequence with $E_{p,q}^{2}$ term:
+    $$
+    E_{p,q}^{2} = H_{p}(Y, L_{q}fA)
+    $$
+    and abutment:
+    $$
+    H_{r}(X, A)
+    $$
+    \item There is a spectral sequence with $E_{2}^{p,q}$ term:
+        $$
+        E_{2}^{p,q} =H^{p}(Y, R^{q} f_{\daggar}A)
+        $$
+        and abutment:
+        $$
+        H^{r}(X, A)
+        $$
+\end{enumerate}
+
+These spectral sequences are sufficiently standard that no proof is required. The proofs in \cite{art6-keyGr}, for example, apply.
+\end{prop}
+
+\section{Certain Special Carapaces}
+This section will be devoted to the study of certain 
