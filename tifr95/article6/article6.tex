@@ -481,9 +481,9 @@ Thus \ref{art6-corollary5.5-enum-4}) is also proven.
 Corollary \ref{art6-corollary-5.5} establishes exactly what is necessary for two composition of functor spectral sequences. Many are possible but we content ourselves with the two most obvious.
 
 
-\begin{prop}
+\begin{prop}\label{art6-prop-5.6}
 Let $X$ and $Y$ be simplicial complexes, let $A$ be an $R$-carapace on $X$ and let $f:X\rightarrow Y$ be a morphism of complexes.
-\begin{enumerate}
+\begin{enumerate}[(1)]
 \item There is a spectral sequence with $E_{p,q}^{2}$ term:
     $$
     E_{p,q}^{2} = H_{p}(Y, L_{q}fA)
@@ -494,7 +494,7 @@ Let $X$ and $Y$ be simplicial complexes, let $A$ be an $R$-carapace on $X$ and l
     $$
     \item There is a spectral sequence with $E_{2}^{p,q}$ term:
         $$
-        E_{2}^{p,q} =H^{p}(Y, R^{q} f_{\daggar}A)
+        E_{2}^{p, q} =H^{p}(Y, R^{q} f_{\dagger}A)
         $$
         and abutment:
         $$
@@ -505,5 +505,297 @@ Let $X$ and $Y$ be simplicial complexes, let $A$ be an $R$-carapace on $X$ and l
 These spectral sequences are sufficiently standard that no proof is required. The proofs in \cite{art6-keyGr}, for example, apply.
 \end{prop}
 
-\section{Certain Special Carapaces}
-This section will be devoted to the study of certain 
+\section{Certain Special Carapaces}\label{art6-sec-6}
+This section will be devoted to the study of certain acyclic carapaces. We will need certain conventions. If $X$ is a simplicial, a complement in $X$ is a full subcategory of its simplex category such that the complement of its collection of simplices is a simplicial complex.  The reader may verify that $C$ is a complement in $X$ if, whenever $\sigma \in C$ and $\tau \supseteq \sigma$ then $\tau \in C$. Alternatively $C$ is a complement in $X$ if and only if whenever $\sigma \in C$, then $X (\sigma) \subseteq C$. These two conditions apply to arbitrary subcollections of the simplex set of $X$ and we will use the term complement in this sense. Clearly arbitrary unions and intersetions of complements are complements.
+
+\begin{definition}\label{art6-definition-6.1}
+Let $X$ be a simplicial complex.
+    \begin{enumerate}[(1)]
+    \item An $R$-carapace, B, is called \textit{brittle} if for every sub-complex of $X$, $Z$, the natural map, $\Sigma(Z, B) \rightarrow \Sigma(X, B)$ is injective.\label{art6-definition6.1-1}
+    \item An $R$-carapace, $F$, is called \textit{flabby} if for every complement in $X$, $C$, the natural map $\Gamma(X, F) \rightarrow \Gamma (C, F)$ in surjective.\label{art6-definition6.1-2}
+    \end{enumerate}
+\end{definition}
+
+Our development follows standard treatments of flabbyness for\break sheaves. On occasion something more is called for in the brittleness arguments. Flabbyness will be an entirely familiar concept, but brittleness might be a bit strange. We will begin with some descriptive comments. First notice that if $dim(X)>0$ then $R_{X}$ is not brittle. Suppose that $\sigma$ is positive dimensional simplex in $X$ and that $x$ and $y$ are distinct vertices in it. Let $Z=\{x, y\}$. That is, $Z$ is the disconnected two point complex. Then clearly, $\Sigma(X, R_{X})= R\oplus R$ and, since $\sigma \in X$ and $Z \subseteq \sigma$, the map, $\Sigma(Z, R_{X})\rightarrow \Sigma(X, R_{X})$ is not injective since it factors through $R_{X}(\sigma) = R$. 
+
+If $\sigma \in X$ and $B$ is brittle then by definition, $B(\sigma) \subseteq \Sigma(X, B)$. But brittleness also forces the relation, $B(\sigma)\cap B(\tau) = B(\sigma \cap \tau)$ where the intersection is taken in $\Sigma(X, B)$. To see this just note that, because $\Sigma(Z, A)$ is nothing  but the inductive limit over $Z$, there is an exact sequence,
+$$
+0 \rightarrow B(\sigma \cap \tau) \rightarrow B(\sigma) \coprod B(\tau) \rightarrow \Sigma(\sigma \cup \tau, B)\rightarrow 0
+$$
+and, by brittleness, an inclusion $\Sigma(\sigma \cup \tau, B) \subseteq \Sigma(X, B)$.
+
+Before proceeding a convention is necessary. If $\sigma$ is a simplex in $X$ then write $\hat{\sigma}$ for the complex whose vertex set is $\sigma$ but whose simplex set is the set of all proper subsets of $\sigma$. That is $\sigma$ is not a simplex in $\hat{\sigma}$ which is a simplicial sphere. Then $\hat{\sigma} \subset \tilde{\sigma}$.
+
+We will also require the following. Let $f: M \rightarrow N$ be a morphism of $R$-modules. Then $f$ is injective if and only if, for each injective $R$-module, $J$, the induced map $Hom_{R}(N, J)\rightarrow  Hom_{R}(M, J)$ is surjective.
+
+Finally suppose that $Z$ is a simplicial sub-complex of $X$. Let $C$ be the set the simplices of $X$ which are not siplices of $Z$. For any $R$-module, $M$, define $R$-carapaces $M_{Z}^{*}$ and $M_{*}^{C}$ by the equation:
+
+\setcounter{equation}{1}
+\begin{equation}
+\begin{aligned}\label{art6-eq-6.2}
+M_{z}^{*}(\sigma) &= M \quad \text{if} \quad \sigma \in Z \\
+M_{z}^{*}(\sigma) &= (0)\quad \text{if} \quad \sigma \notin Z
+\end{aligned}
+\end{equation}
+
+Then $M_{*}^{C}$ is defined by exactly the same equations, replacing $M_{Z}^{*}$ by $M_{*}^{Z}$ and $Z$ by $C$. As $Z$ is a complex $M_{Z}^{*}$ in naturally a quotient of $M_{X}$ while $M_{*}^{C}$ is naturally a subobject. In fact, the following is exact:
+$$
+0 \rightarrow M_{*}^{C}\rightarrow M_{X}\rightarrow M_{Z}^{*} \rightarrow 0
+$$
+
+In addition, the following hold
+\begin{equation}
+\begin{aligned}\label{art6-eq-6.3}
+\Hom_{R, X}(A, M_{Z}^{*}) &= Hom_{R}(\Sigma(Z, A), M)\\
+\Hom_{R, X}(M_{*}^{C}, A) &= Hom_{R}(M, \Gamma (C, A))
+\end{aligned}
+\end{equation}
+
+
+\begin{lem}\label{art6-lemma-6.4}
+Let $X$ be a simplicial complex, let $Z \subseteq X$ be a subcomplex of $X$ and let $C$ be a complement in $X$. Then if $A$ is brittle on $X$, $A|_{Z}$ is brittle on $Z$. If $A$ is flabby on $X$, then $A|_{C}$ is flabby on $C$.
+\end{lem}
+
+\begin{proof}
+If $A$ is brittle and $Z'$ is subcomplex of $Z$ then the composition, $\Sigma(Z', A)\rightarrow \Sigma(Z, A) \rightarrow \Sigma(X, A)$ is the map, $\Sigma(Z', A) \rightarrow \Sigma(X, A)$. If a composition in injective, each map in it injective. This proves the first statement. The proof of the second statement i precisely dual to it and so we leave in to the reader.
+\end{proof}
+
+\setcounter{prop}{4}
+\begin{theorem}\label{art6-thm-6.5}
+Let $X$ be a simplicial complex and let
+$$
+0 \rightarrow A' \rightarrow A \rightarrow A'' \rightarrow 0
+$$
+be exact.
+\begin{enumerate}[(1)]
+    \item If $A''$ is brittle, then
+    $$
+    0 \rightarrow \Sigma(x, A') \rightarrow \Sigma(X, A)\rightarrow\Sigma(X, A'') \rightarrow 0
+    $$
+    is exact.\label{art6-thm6.5-enmu-1}
+    
+    \item If $A'$ is flabby, then
+    $$
+    0\rightarrow \Gamma(X, A') \rightarrow \Gamma (X,A)\rightarrow \Gamma(X, A'')\rightarrow 0
+    $$
+    is exact.\label{art6-thm6.5-enum-2}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+To prove (\ref{art6-thm6.5-enmu-1}) we need only show that $\Sigma(X, A') \rightarrow \Sigma(X, A)$ is injective. By the observation above, it would suffice to show that\break $Hom_{R}(\Sigma(X, A), J) \rightarrow Hom_{R}(\Sigma(X, A'), J)$ is surjective for an injective, $J$. But $Hom_{R}(\Sigma(X, A), J) = \Hom_{R, X}(A, J_{X})$ and the same for $A'$. Thus, to establish (\ref{art6-thm6.5-enmu-1}), it suffices to prove that every carapace morphism, $f:A'\rightarrow J_{X}$ extends to a morphism. $\tilde{f}: A\rightarrow J_{X}$.
+
+Let $j : A' \rightarrow A$ be the injection and let $\pi : A\rightarrow A''$ be the surjection. Let $f: A' \rightarrow J_{X}$ be a morphism of carapaces. Let $\calF$ be the family of paris, $(Z, f_{Z})$ where $Z$ is a subcomplex and $f_{Z}:A|_{Z} \rightarrow J_{Z}$ is a morphism such that $f_{Z}\circ J = f|_{Z}$. Order these by inclusion on $Z$ and extension on $f_{Z}$. This orders $\calF$ inductively and so Zorn's Lemma yields a maximal element, $(W, f_{W})$. If $W \neq X$ there is some $\sigma \in X$ such that $\sigma \notin W$. If $\sigma \cap W = \emptyset$ we may trivially extend $f_{W}$ to $W \cup \{t\}$ where $t$ is any vertex in $\sigma$. This contradicts maximality. Thus we may assume that $\sigma \cap W \neq \emptyset$. Let $\tilde{\sigma} \cap W =Y$. Consider $f_{\sigma} : A'(\sigma)\rightarrow J$. By the injectivity of $J$, we may choose $f_{\sigma}^{1}: A(\sigma) \rightarrow J$ such  that $f_{\sigma}^{1} \circ j_{\sigma} = f_{\sigma}$.  If $\gamma \subseteq \sigma$ let $f_{\gamma}^{1}=f_{\gamma}^{1} \circ e_{A, \gamma}^{\sigma}$. Since j is morphism, the following commutes:
+$$
+\xymatrix{ 
+\ar@{}[dr]|{}
+A'(\sigma) \ar[r]^-{j_{\sigma}} & A(\sigma)  \\
+ A'(\gamma)\ar[u]^-{e_{A', \gamma}^{\sigma}}\ar[r]_-{j_{\gamma}} & A(\gamma)\ar[u]_-{e_{A, \gamma}^{\sigma} A}  }
+$$
+Hence $f_{\gamma}^{1} \circ j_{\gamma} = f_{\sigma}^{1}\circ e_{A, \gamma}^{\sigma}\circ j_{\gamma} = f_{\sigma}^{1}\circ e_{A', \gamma}^{\sigma} = f_{\gamma}$. That is, $f^{1} \circ j = f$ on $\sigma$. But on
+$\tilde{\sigma} \cap W = Y$, $f_{W}\circ j = f$. Thus on $Y$, $(f_{W}-f^{1})\circ j =0$. It follows that $f_{W}-f^{1}$ induces a map form $A''|_{Y}$ to $J_{Y}$. But $\Sigma(Y, A'')\rightarrow (X, A'')$ is brittle. Hence $\Hom_{R, X}(A'', J_{x})\rightarrow \Hom_{R, Y}(A''|Y, J_{Y})$ is surjective. Thus, there is and $f_{2} \in \Hom_{R, X}(A'', J_{X})$ such that $\pi \circ f_{2}|_{Y} =  (f_{W}-f^{1})|_{Y}$. Consequently, $(f^{1}+ \pi \circ f_{2})|_{\tilde{\sigma}\cap W}=f_{W}|_{\tilde{\sigma}\cap W}$. Hence $f_{W}$ can be extended to $W\cup \tilde{\sigma}$ contradicting the maximality of $(W, f_{W})$. That is $W = X$ and so \ref{art6-thm6.5-enmu-1}) is established.
+
+To prove \ref{art6-thm6.5-enum-2}) we must prove that $\Gamma(X, A)\rightarrow \Gamma(X, A'')$ is surjective. An element $a\in \Gamma (z, A)$ is a function on $Z$ such that $a(\sigma) \in A(\sigma)$ and $e_{A, \sigma}^{\tau}(a(\sigma)) = a(\tau)$. Suppose $a'' \in \Gamma (X, A'')$ is given. Order the pairs $(C, a_{C})$, where $C$ is a complement and $a_{C} \in \Gamma(C, A)$, $\pi(a_{c}) = a''|_{C}$, by inclusion and extension. This being an inductive order, there is a  maximal element, $(U, a_{U})$. If $U \neq X$, there is simplex, $\tau$ not in $U$. Choose $\tilde{a}_{r} \in A(\tau)$ such that $\pi_{\tau}(\tilde{a}_{r}) = a''(\tau)$. Define $\tilde{a}_{1}$ in $X(\tau)$ by $\tilde{a}_{1}(\sigma) = e_{A, \tau}^{\sigma}(\tilde(a)_{r})$. If $X(\tau) \cap U = \emptyset$ then $\tilde{a}_{1}$ extends $a_{U}$ contradicting maximality of $(U,a_{U})$, and so we may assume that $X(\tau)\cap U \neq \emptyset$. This intersection is a complement. Consider the difference $\tilde{a}_{1}-a_{U}$ on this intersection. Now $\pi(\tilde{a}_{1}-a_{U})= 0$ on $X(\tau) \cap U$ whence $^{}\tilde{(}a_{1}-a_{U})|X(\tau)\cap U \in \Gamma (X(\tau)\cap U, A')$ Since $A'$ is flabby there is an element $a' \in \Gamma (X, A')$ such that $a'|X(\tau) \cap U = (a_{1}-a_{U})|X(\tau)\cap U$. Clearly $a_{1}-(a'|X(\tau))$ extends $a_{U}$ contradicting maximality. Thus $U =X$ and we have established \ref{art6-thm6.5-enum-2})
+\end{proof} 
+
+\begin{coro}\label{art6-corollary-6.6}
+Let
+$$
+0 \rightarrow A' \rightarrow A \rightarrow A'' \rightarrow 0
+$$
+be an exact sequence of $R$-carapaces on $X$.
+    \begin{enumerate}[(1)]
+    \item If $A$ and $A''$ are brittle, then $A'$ is also.\label{art6-corollary6.6-enum-1}
+    \item If $A$ and $A'$ are flabby, then $A''$ is also.\label{art6-corollary6.6-enum-2}
+    \end{enumerate} 
+\end{coro}
+
+\begin{proof}
+We prove \ref{art6-corollary6.6-enum-1}). Suppose $Z$ is a subcomplex of $X$. Then, by \ref{art6-lemma-6.4}, $A|_{Z}$ and $A''|_{Z}$ are both brittle and hence, $0 \rightarrow \Sigma(Z, A')\rightarrow \Sigma(Z, A)$ is exact. Thus the following diagram, which has exact rows and columns, commutes:
+ $$
+ \xymatrix{
+ & & 0\ar[d]\\
+ 0 \ar[r] & \Sigma(Z, A') \ar[r]\ar[d] & \Sigma(Z, A)\ar[d]\\
+ 0 \ar [r] & \Sigma(X, A')\ar[r] & \Sigma(X, A)
+ } 
+ $$                          
+It is immediate the $\Sigma(Z, A')\rightarrow \Sigma(X, A')$ is monic. As for Statement \ref{art6-corollary6.6-enum-2}), noting that $Z$ must be replaces by a complement, the proof is both well known and strictly dual to the proof of \ref{art6-corollary6.6-enum-1}).
+\end{proof}
+
+\begin{prop}\label{art6-proposition-6.7}
+Let $X$ and $Y$ be simplicial complexes let $f: X \rightarrow Y$ be a morphism of complexes and let $A$ be an $R$-carapace on $X$. Then
+\begin{enumerate}[(1)]
+\item If $A$ is brittle, then $f_{*}(A)$ is brittle.\label{art6-proposition6.7-enum-1}
+\item If $A$ is flabby then $f_{\dagger}(A)$ is flabby. \label{art6-proposition6.7-enum-2}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+To prove \ref{art6-proposition6.7-enum-1}), let $U\subseteq Y$ be a subcomplex. Then, $f^{-1}(U)$ is a subcomplex of $X$ and so, if $A$ is brittle, then $\Sigma(f^{-1}(U), A) \rightarrow \Sigma(X, A)$ is injective. But $\Sigma(f^{-1}(U), A)=\Sigma(U, f_{*}A)$ and $\Sigma{X, A} = \Sigma(Y, f_{*}A)$ by definition. That proves the first statement. The proof of \ref{art6-proposition6.7-enum-2}) is completely parallel except that it uses \ref{art6-corollary-5.5},
+\ref{art6-corollary5.5-enum-4} in place of the corresponding properties of $f_{*}$
+\end{proof}
+
+\begin{prop}\label{art6-proposition-6.8}
+Let $X$ be a simlicial complex.
+\begin{enumerate}[(1)]
+\item Projective carapaces are brittle; injective carapaces are flabby.\label{art6-proposition6.8-enum-1}
+\item a coproduct of brittle carapaces is brittle; a product of flabby carapaces is flabby.\label{art6-proposition6.8-enum-2}
+\item For any simplex, $\sigma \in X $ and any $R$-module, $M$, $M \uparrow_{\sigma}$ is brittle and $M\downarrow^{\sigma}$ is flabby.  \label{art6-proposition6.8-enum-3}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let $Z$ be any subcomplex of $X$. let $C$ be its complement and let $M$ any $R$-module. Then $0 \rightarrow M_{*}^{C} \rightarrow M_{X} \rightarrow M_{Z}^{*} \rightarrow 0$ is exact. Thus, if $P$ is projective, $Hom_{R,X}(P, M_{X}) \rightarrow \Hom_{R, X}(P, M_{Z}^{*})$ is surjective, But this is the map, $Hom_{R}(\Sigma(P, X), M) \rightarrow Hom_{R}(\Sigma(P, Z), M)$. But this map will be surjective for every $M$ if and only if the map $\Sigma(Z, P) \rightarrow \Sigma(X, P)$ is injective (in fact, it must be split).
+
+If $I$ in injective, we need only consider the case, $M =R$. Then $\Hom_{R, X}(R_{X}, I) \rightarrow \Hom_{R, X}(R_{*}^{C}, I)$ is surjective. This is the sequence,  $\Gamma (X, I) \rightarrow \Gamma(C, I)$ and hence
+(\ref{art6-corollary6.8-enum-2}) is established.
+
+To prove \ref{art6-corollary6.8-enum-2}), let $\{A_{i}\}_{i \in I}$ be a family of $R$-carapaces on $X$. Since inductive limits of arbitrary co-products are co-products and projective limits of products are products, we may write:
+
+\setcounter{equation}{8}
+\begin{equation}
+\begin{aligned}\label{art6-eq-6.9}
+\Sigma \left(Z, \coprod_{i \in I} A_{i}\right) &= \coprod_{i \in I} \Sigma (Z, A_{i})\\
+\Gamma \left(C, \prod_{i \in I}A_{i}\right) &= \prod_{i \in I}\Gamma (C, A_{i})
+\end{aligned}
+\end{equation}
+Since a co-product of monomorphisms is monic and a product of surjections is surjective, \ref{art6-corollary6.8-enum-2}) follows at once.
+
+Statement \ref{art6-corollary6.8-enum-3}) is quite clear.
+\end{proof}
+
+
+\setcounter{prop}{9}
+\begin{prop}\label{art6-proposition-6.10}
+If $A$ a brittle $R$-carapace on $X$, then $H_{i}(X, A) = 0$ for all $i > 0$. If $F$ is flabby, then $H^{i}(X, F) = 0$ for all $i > 0$.
+\end{prop}
+
+\begin{proof}
+First choose a projective, $P$ and a surjective map so that there is an exact sequence:
+$$
+0 \rightarrow A_{0} \rightarrow P \rightarrow A \rightarrow 0
+$$
+
+The acyclicity of $P$ the Theorem \ref{art6-thm-6.5} together imply that for any brittle $A$, $H_{1}(X, A) = 0$. Then choose a projective resolution of $A$. Break this into a series of short exact sequences, use Corollary
+\ref{art6-corollary-6.6} and apply induction. The same technique, applied dually, gives the second statement.
+
+We conclude with local criteria for which there no immediate applications but which are somewhat interesting.
+\end{proof}
+
+\begin{prop}\label{art6-proposition-6.11}
+Let $A$ a be an $R$-carapace on $X$.
+    \begin{enumerate}[(1)]
+    \item If for each simplex $\sigma \in X$ the map, $\Sigma(\hat{\sigma}, A)\rightarrow \Sigma(\hat{\sigma}, A)$, is injective then $A$ is brittle.\label{art6-prop6.11-enum-1}
+    \item If for each simplex $\sigma \in X$ the restriction $A|{X}(\sigma)$ is flabby, then $A$
+     is flabby.\label{art6-prop6.11-enum-2}
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+Proofs of these statements use Zorn's lemma as its was used in Theorem \ref{art6-thm-6.5} First we prove
+\ref{art6-prop6.11-enum-1}). Let $Z$ be an arbitary subcomplex of $X$. We must show that $\Sigma(Z, A)\rightarrow \Sigma{X, A}$ is injective. As in the proof of theorem \ref{art6-thm-5}, this comes to proving that for any injective module, $J$, any morphism, $f: A|Z \rightarrow J_{Z}$, admits and extension, $f:A\rightarrow J_{X}$. Applying Zorn one finds a maximal subcomplex on which $f$ admits and extension and so, replacing $Z$ by this maximal subcomplex, we may assume that $f$ does not extend to any subcomplex contating $Z$. If the vertex $x$ is not in $Z$ then $f$ clearly extends  to the disconnected union and so we may assume that very vertex is in $Z$. Choose a simplex, $\sigma$ of minimal dimension among the simplices not in $Z$.  Then $\hat{\sigma} \subseteq Z$. Making use of the condition in
+(\ref{art6-prop6.11-enum-1}), we obtain a diagram:
+$$
+\xymatrix{
+0 \ar[r] &\Sigma(\hat{\sigma}, A)\ar [d] \ar[r]& \Sigma(\tilde{\sigma}, A)\\
+         & \Sigma(Z, A)\ar[d]^{f_{Z}} & \\
+         & J                           &
+}
+$$
+
+Hence there is a map, $f_{i} : \Sigma(\tilde{\sigma}, A) \rightarrow J$ extending $f_{Z}$ and so one may extend $f$ to $Z\cup \sigma$ contradicting maximality. It follows that it must be that $Z=X$.
+
+The proof of \ref{art6-prop6.11-enum-2}), by duality, in entirely straightforward and so we omit it.
+\end{proof}
+
+\section{Canonical Resolutions}\label{art6-sec-7}
+In this section we give canonical chain and co-chain complexes which can be used to compute the exoskeletal homology and cohomology\break groups. They arise from canonical resolutions and they are sufficiently canonical that they will be seen to be equivariant when there is a group action involved.
+
+Let $A$ be an $R$-carapace on $X$. Then by \ref{art6-lemma-1.4}, \ref{art6-enum-lemma1.4-(1)}) and \ref{art6-enum-lemma1.4-(2)}), the identity map on $A(\sigma)$ induces a map, $\pi_{\sigma} : (A(\sigma))\uparrow_{\sigma} \rightarrow A$ and a map $j_{\sigma} : A\rightarrow (A(\sigma))\downarrow^{\sigma}$.  
+
+\begin{definition}\label{art6-definition-7.1}
+Let $X$ be a simplicial complex and let $A$ be an $R$-carapace on $X$.
+    \begin{enumerate}[(1)]
+    \item Let
+        $$
+        \calT_{0}(A) = \coprod_{\sigma \in X}(A(\sigma))\uparrow_{\sigma} \quad \text{and let} \quad \pi_{A}= \coprod_{\sigma \in X}\pi_{\sigma} 
+        $$\label{art6-definition7.1-enum-1}
+        
+    \item Let
+        $$
+        \calS^{0}(A) = \prod_{\sigma \in X}(A(\sigma))\downarrow^{\sigma} \quad \text{and let} \quad j_{A}= \prod_{\sigma \in X}j_{\sigma}.
+        $$\label{art6-definition7.1-enum-2}
+
+     \item Let $\calK_{0}(A) = Ker(\pi_{A})$.\label{art6-definition7.1-enum-3}
+     \item Let $\calC^{0}(A) = Coker(j_{A})$.\label{art6-definition7.1-enum-4}  
+    \end{enumerate}
+
+    This definition has certain immediate consequences.
+\end{definition}
+
+\setcounter{prop}{1}
+\begin{lemma}\label{art6-lemma-7.2}
+ Let $X$ be a simplicial complex and let $A$ be an $R$- carapace on $X$.
+\begin{enumerate}[(1)]
+\item The four functors, $\calT_{0}$, $\calK_{0}$, $\calS^{0}$, and $\calC^{0}$ are exact additive functors.\label{art6-lemma7.2-enum-1}
+\item Both $\pi_{A}$ and $j_{A}$ are natural transformations in the argument $A$. Further $\pi_{A}$ is always surjective and $j_{A}$ is always monic.\label{art6-lemma7.2-enum-2}
+
+\item For all $A$, $\calT_{0}(A)$ is brittle and $\calS^{0}(A)$ is flabby.\label{art6-lemma7.2-enum-3}
+\item If $A$ is brittle, then $\calK_{0}(A)$ is brittle; if $A$ is flabby, $\calC^{0}(A)$ is flabby.\label{art6-lemma7.2-enum-4}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+That $\calT_{0}$ and $\calS^{0}$ are exact and additive is a trivial observation. Since $\calT_{0}(A)$ is a coproduct of carapaces of the form $M\uparrow_{\sigma}$, proposition \ref{art6-proposition-6.8}, \ref{art6-lemma7.2-enum-2}) and \ref{art6-lemma7.2-enum-3}) guarantee that it is brittle. The flabbyness of $\calS^{0}(A)$ follows similarly from the fact that it is a product of carapaces of the form $M\downarrow^{\sigma}$. That $\calK_{0}$ and $\calC^{0}$ are exact is littel more thant the snake lemma. Statement \ref{art6-lemma7.2-enum-2}) is a triviality and so only
+\ref{art6-lemma7.2-enum-4})  remains to be proven. This follows from \ref{art6-lemma7.2-enum-3}) and Corollary
+\ref{art6-corollary-6.6}.  
+\end{proof}
+
+Definition \ref{art6-definition-7.1} and lemma \ref{art6-lemma-7.2} are just what is necessary to construct standard resolutions.
+
+\begin{definition}\label{art6-definition-7.3}
+Let $A$ be an $R$-carapace on $X$. Let $\calK_{n}(A) = \calK_{0}(\calK_{n-1}(A))$ and let $\calC^{n}(A) = \calC^{0}(\calC^{n-1}(A))$. That is $\calK_{n}$ is the $(n+1)'$st iterate of $\calK_{0}$ and the same, mutatis mutandis, is ture for $\calC^{n}$. Let $\calT_{n+1}(A) = \calT_{0}(K_{n}(A))$ and let $\calS^{n+1}(A) = S^{0}(\calC^{n}(A))$ for $n\leq 0$. Define maps, $\delta_{n} : \calT_{n+1}(A) \rightarrow \calT_{n}(A)$ and $\delta^{n} : \calS^{n+1}(A)$ as follows. The map, $\delta_{n}$ is the composition of the natural surjection, $\calT_{n+1}(A)\rightarrow \cal_{n}(A)$, with the inclusion, $\calK_{n}(A) \hookrightarrow \calT_{n}$. Similarly $\delta^{n}$ is the composition of the surjection, $\calS^{n}(A) \rightarrow C^{n}(A)$, and the inclusion, $\calC^{n}(A) \hookrightarrow \calS^{n+1}(A)$. Then $\{\calT_{n}(A), \delta_{n}\}$ is called the \textit{canonical brittle resolution} and $\{\calS^{n}(A, \delta^{n})\}$ is called the \textit{canonical flabby resolution} of $A$.  
+
+Some remarks are in order. First of all, since each of the functors, $\calT_{n}$ and $\calS^{n}$, are compositions of exact functors, they are themselves exact functors. Further, by Lemma \ref{art6-lemma-7.2}, for any $A$, each of the carapaces $\calT_{n}(A)$ is brittle while the $\calS^{n}(A)$ are flabby. Thus, letting $C_{n}(X, A) = \Sigma(X, \calT_{n}(A))$ and $C^{n}(X, A)= \Gamma(X, \calS^{n}(A))$, whenever $0 \rightarrow A' \rightarrow A \rightarrow A'' \rightarrow 0$ is exact,
+$$
+0 \rightarrow C_{n}(X, A') \rightarrow C_{n}(X, A)\rightarrow C_{n}(X, A'')\rightarrow 0
+$$
+and
+$$
+0 \rightarrow C^{n}(X, A') \rightarrow C^{n}(X, A) \rightarrow C^{n}(X, A'')\rightarrow 0
+$$
+are exact. Abusing language, use $\delta_{n}$  and $\delta_{n}$ for the maps of segments and sections respectively as well as maps of carapaces, the homology groups of the complexes, $\{C_{n}(S, A), \delta_{n}\}$ and $\{C^{n}(X, A), \delta^{n}\}$ are connected sequences of homological functors. 
+\end{definition}
+
+\begin{definition}\label{art6-definition-7.4}
+Let $A$ be an $R$-carapace on $X$. The complex, $\{C_{n}(X, A), \delta_{n}\}$ will be called the \textit{complex of Alexander chains} on $X$ with coefficients in $A$; $C^{n}(X, A), \delta^{n}\}$ will be called the Alexander co-chains. The homology of the complex of Alexander chains will be called the \textit{Alexander homology} and it will be written, $H_{n}^{a}(X, A)$. The homology of the Alexander co-chain complex will be called the \textit{Alexander cohomology} and it will be written $H_{a}^{n}(X, A)$. 
+\end{definition}
+
+\begin{prop}\label{art6-proposition-7.5}
+The Alexander homology and cohomology of the simplicial complex, $X$, with coefficients in $A$ are isomorphic, respectively, to the exoskeletal homology and cohomology of $X$ with coefficients in $A$, functorially in $A$.
+\end{prop}
+
+\begin{proof}
+By Proposition \ref{art6-proposition-6.10}, the exoskeletal homology groups vanish on brittle carapaces while the cohomology groups vanish on flabby carapaces. Hence the Alexander groups are the homology groups of the segments (respectively sections) over an acyclic resolution. The proposition follows.
+\end{proof}
+
+The following is an interesting footnote.
+
+\begin{prop}\label{art6-proposition-7.6}
+If $A$ is projective, the canonical brittle resolution of $A$ consists of projective carapaces. If $A$ in injective, each term in the canonical flabby resolution in injective.
+\end{prop}
+
+\begin{proof}
+It suffices to prove that if $A$ is projective then $\calT_{0}(A)$ and $\calK_{0}(A)$ are projective and the corresponding statement for an injective $A$ and $\calS^{0}$ and $\calC^{0}$. Suppose that $P$ is projective and that $I$ in injective. Then by Proposition \ref{art6-prop-1.6}, $P(\sigma)$ is projective and $I(\sigma)$ is injective for each $\sigma \in X$. But then, by \ref{art6-lemma-1.4}, $(P(\sigma))\uparrow_{\sigma}$ is projective and $(I(\sigma))\downarrow^{\sigma}$ in injective. By the definition of $\calT_{0}$ and $S_{0}$ and because coproducts of projective are projective and products of injectives are injective, $\calT_{0}(P)$ is projective and $\calS^{0}(I)$ is injective. But then
+$$
+0 \rightarrow \calK_{0}(P) \rightarrow \calT_{0}(P) P^{\pi_{P}} \rightarrow P \rightarrow 0
+$$
+and
+$$
+0 \rightarrow I \xrightarrow{j_{I}} \calS^{0}(I) \rightarrow \calC^{0}(I)\rightarrow 0
+$$
+are exact. The last two terms of the first sequence are projective while the first two terms of the second sequence are injective. Hence $\calK_{0}(P)$ in projective and $\calC^{0}(I)$ is injective. An iterative application of these facts establishes the result.
+\end{proof}
+
+\section{G-carapaces and their Homology}
+
