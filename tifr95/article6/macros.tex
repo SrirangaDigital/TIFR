@@ -14,34 +14,40 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \marginparpush=5pt
 %\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
 
+\makeatletter
+\renewcommand \theequation {\thesection.\@arabic\c@equation}
+\makeatother
+
 \newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
 } 
 \let\pageoriginaled\pageoriginale
 
 \newtheorem{proposition}{Proposition}
-\newtheorem{corollary}{Corollary}       
+\newtheorem{corollary}{Corollary}
+
+
 
 %~ \newtheorem{lemm}[prop]{Lemma}
 \newtheorem{sublemma}{Lemma}[subsection]
 
 \newtheorem{subtheorem}{Theorem}[subsection]
 \newtheorem{autothm}{AUTOMORPHISM THEOREM}[subsection]
-\newtheorem{prop}{Proposition}[section]
+\newtheorem{prop}[equation]{Proposition}
 \newtheorem{subprop}{Proposition}[subsection]
 \newtheorem{propo}{Proposition}
 
 
-\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{lemma}[equation]{Lemma}
 \newtheorem{subdefin}{Definition}[subsection]
 \newtheorem{cor}{Corollary}
 
 \newtheorem{subcoro}{Corollary}[subsection]
-\newtheorem{defn}{Definition}
+\newtheorem{defn}[equation]{Definition}
 \newtheorem{gausslemma}{Gauss Lemma}[section]
 \newtheorem{witt's thm}{Witt's theorem}
-\newtheorem{theorem}[prop]{Theorem}%%%%art5%%%%%%%
-\newtheorem{main theorem}[prop]{Main Theorem}%%%%art5%%%%%%%
-\newtheorem{coro}[prop]{Corollary}
+\newtheorem{theorem}[equation]{Theorem}%%%%art5%%%%%%%
+\newtheorem{main theorem}[equation]{Main Theorem}%%%%art5%%%%%%%
+\newtheorem{coro}[equation]{Corollary}
 \newtheorem{lem}[equation]{Lemma}
 
 \newtheoremstyle{remark}{10pt}{10pt}{ }%
@@ -52,12 +58,12 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \newtheorem{case}{Case}
 \newtheorem{subremarks}{Remarks}[subsection]
 \newtheorem{subremark}{Remark}[subsection]
-\newtheorem{definition}[prop]{Definition}%%%%%art5%%
-\newtheorem{example}[prop]{Example}%%%%%%art5%%%
-\newtheorem{criterion}[prop]{Criterion}%%%%%%art5%%%
-\newtheorem{conjecture}[prop]{Conjecture}%%%%%%art5%%%
-\newtheorem{remark}[prop]{Remark}%%%%%%art5%%%
-\newtheorem{examples}[prop]{Examples}
+\newtheorem{definition}[equation]{Definition}%%%%%art5%%
+\newtheorem{example}[equation]{Example}%%%%%%art5%%%
+\newtheorem{criterion}[equation]{Criterion}%%%%%%art5%%%
+\newtheorem{conjecture}[equation]{Conjecture}%%%%%%art5%%%
+\newtheorem{remark}[equation]{Remark}%%%%%%art5%%%
+\newtheorem{examples}[equation]{Examples}
 \newtheorem{defin}{Definition}%%%art6%%%%
 
 \newtheorem{subexample}{Example}[subsection]
@@ -225,6 +231,26 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
                                      {\normalfont}}%
 
 \renewcommand\thesection{\@arabic\c@section}
+
+%%%%%%%%%%%%%%%%%%%art6%%%%%%%%%%%%%%%%
+\newcommand\imCMsym[4][\mathord]{%
+  \DeclareFontFamily{U} {#2}{}
+  \DeclareFontShape{U}{#2}{m}{n}{
+    <-6> #25
+    <6-7> #26
+    <7-8> #27
+    <8-9> #28
+    <9-10> #29
+    <10-12> #210
+    <12-> #212}{}
+  \DeclareSymbolFont{CM#2} {U} {#2}{m}{n}
+  \DeclareMathSymbol{#4}{#1}{CM#2}{#3}
+}
+\newcommand\alsoimCMsym[4][\mathord]{\DeclareMathSymbol{#4}{#1}{CM#2}{#3}}
+
+\imCMsym{cmmi}{124}{\CMjmath}
+%%%%%%%%%%%%%%%%%%art6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\renewcommand\thesubsection{({\thechapter.\thesection.\@arabic\c@subsection})}
 
 \renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname}\hspace{0.3em}}
@@ -235,6 +261,8 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 
 \def\fibreoproduct#1#2#3{#1{\displaystyle\mathop{\otimes}_{#3}}#2}
 \let\foprod\fibreoproduct
+
+
 
 
 \def\cf{{cf.}\kern.3em}
@@ -313,6 +341,9 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \def\fa{\mathfrak{a}}
 \def\fo{\mathfrak{o}}
 \def\fc{\mathfrak{c}}
+
+
+\def\Gg{\mathsf{g}}
 
 
 \makeatletter
