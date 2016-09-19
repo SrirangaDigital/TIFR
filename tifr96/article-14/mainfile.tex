@@ -11,8 +11,18 @@
 \usepackage{lipsum}
 \usepackage{mathabx}
 
-%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
 
+\MakeRobust{\ref}% avoid expanding it when in a textual label
+
+\makeatletter
+\newcommand{\labeltext}[2]{%
+  \@bsphack
+  \csname phantomsection\endcsname % in case hyperref is used
+  \def\@currentlabel{#1}{\label{#2}}%
+  \@esphack
+}
+\makeatother
 
 
 \floatstyle{plain}
