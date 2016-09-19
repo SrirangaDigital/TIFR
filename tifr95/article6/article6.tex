@@ -234,7 +234,7 @@ These are the two maps, inverse to one another, which establish (\ref{art6-thm2.
 The last statements is obtained by applying the third to the left hand side and observing that $R_{X}\otimes_{R}A\simeq A$.
 \end{proof}
 
-\section{Derived Functors}
+\section{Derived Functors}\label{art6-sec-3}
 
 In this section we introduce the most elementary derived functors on $C ar_{R}(X)$. These include the derived functors of both the module valued and the carapace valued tensor and homomorphism functors and the relation between the two. First recall that by \ref{art6-lemma-1.4}, whenever $P$ is a projective $R$-module and $\sigma$ is a simplex in $X$ then $P\uparrow_{\sigma}$ is a projective $R$-carapace. Consequently a coproduct of carapaces of the form $F \uparrow_{\sigma}$, where $F$ is a free $R$-module, is a projective $R$-carapace. We will refer to such carapaces as elementary projectives. Furthermore notice that if $M$ is any $R$-module then $\sigma(X, M\uparrow_{\tau})=M$. Hence if $Q$ is an elementary projective, $\sigma(X, Q)$ is a direct sum of free modules and hence free.
 
@@ -1023,7 +1023,189 @@ Only \ref{art6-proposition9.3-enum-2}) remains to be proved. We compute directly
 & = \prod_{\tau \in G\sigma}\Hom_{X, R}(M^{\tau} \uparrow_{\tau}, A)\\
 & = \prod_{\tau \in G_{\sigma}} Hom_{R}(M^{\tau}, A(\tau)) \quad \text{by} 4, \eqref{art6-proposition9.3-enum-1} \text{of} \textsection \ref{art6-proposition9.3-enum-1}
 \end{align*}
+Let $\Upsilon = \{\Upsilon_{\Gg}\}_{\Gg \in G}$ be the $G$-structure on $A$ and let $\{f_{\tau}\}_{\tau \in G_{\sigma}}$
+be an element of $\prod_{\tau \in G_{\sigma}}Hom_{R}(M^{\tau}, A(\tau))$. The element $f_{\tau}$ may be thought of as the $\tau$ segment of a morphism, $f: T_{\sigma}(M)\rightarrow A$. Moreover these segments may be chosen freely because $T_{\sigma}(M)$ is the direct sum of the carapaces, $M^{\gamma}\uparrow_{\gamma}$ ad $\gamma$ ranages over $G_{\sigma}$. Then, by equation \ref{art6-eq-8.7}, $\Gg \cdot\{f_{\tau}\}_{\tau\in G_{\sigma}}$ is the element of the same product whose $\tau$-component is $\Upsilon_{\Gg, \Gg^{-1}\tau} \circ f_{\Gg^{-1}\tau} \circ \Gg^{-1}$. This element of the product is $G$-stable if and only if
+\begin{equation}\label{art6-eq-9.5}
+\Upsilon_{\Gg, \sigma} \circ f_{\sigma} \circ \Gg^{-1} = f_{\Gg \sigma}.
+\end{equation}
+That is, if the family, $\{f_{\tau}\}$ is $G$-invariant, each component is uniquely determined by $f_{\sigma}$. Conversely, given $f_{\sigma} \in  Hom_{G_{\sigma}}(M , A(\sigma))$ one may use Equation \ref{art6-eq-9.5} to define $f_{\Gg \sigma}$ for eac, $\Gg$, chosen that carries $\sigma$ to $\Gg\sigma$. Any other such element is of the form $\Gg h$ for some $h \in G_{\sigma}$. But then replacing $\Gg$ by $\Gg h$ in \ref{art6-eq-9.5}) yields the same result because $f_{\sigma}$ is, by hypothesis, a $G_{\sigma}$-morphism. The proof for $S^{\sigma}(M)$ is too similar to bear repetition.
+
+\begin{prop}\label{art6-prop-9.6}
+Let $G$ act on $X$ and let $M$ be a representation of $G_{\sigma}$ over $R$. Then:
+\begin{align*}
+\Sigma(X, T_{\sigma}(M)) &= I_{G/G_{\sigma}}(M)\\
+\Gamma(X, S^{\sigma}(M)) &= C_{G/G_{\sigma}}(M)
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Begin by observing that for any $R$-module, $N$, $\Sigma(X, N\uparrow_{\sigma}) = N$ and $\Gamma (X, N downarrow^{\sigma}) = N$. Let $U$ be some complete set of representatives of the cosets, $\Gg G_{\sigma}$. Then,
+\begin{align*}
+\Sigma(x, T_{\sigma}(M)) &= \Sigma(X, \coprod_{\gamma \in G\sigma}M^{\gamma} \uparrow_{\gamma}) \quad \text{by Definition} \;\ref{art6-definition-9.1}\\
+&= \coprod_{\gamma \in G\sigma} \Sigma(X, M^{\gamma} \uparrow_{\gamma})\\
+& = \coprod_{x \in U} M^{x\sigma}\\
+& = \coprod_{x \in U} \otimes M = I_{G/G_{\sigma}}(M)
+\end{align*}
+
+The corresponding compution for $S^{\sigma}(M)$ is:
+\begin{align*}
+\Gamma (X, S^{\sigma}(M)) &= \Gamma(X, \prod_{\gamma \in G\sigma}M_{\gamma}\downarrow^{\gamma})\\
+& = \prod_{x \in U} \Gamma(X, M_{x\sigma} \downarrow^{x\sigma})\\
+& = \prod_{x \in U} M_{x\sigma}\\
+&= \prod_{x \in U}Hom_{R[G_{\sigma}]}(x R[G_{\sigma}], M)\\
+& = Hom_{R[G_{\sigma}]}(\coprod_{x \in U} xR[G_{\sigma}], M)\\
+& = Hom_{R[G_{\sigma}]}(R[G]^{\ell}, M ) = C_{G/G_{\sigma}(M)}.
+\end{align*}
+\end{proof}
+
+\begin{prop}\label{art6-proposition-9.7}
+Let $G$ act excellently on $X$ with retraction $\pi : X\rightarrow Y \subseteq X$. Then
+\begin{align*}
+T_{\sigma}(A(\sigma)) &= \coprod_{\gamma \in G\sigma}A(\gamma )\uparrow_{\gamma}\\
+S^{\sigma}(A(\sigma)) &= \prod_{\gamma \in G\sigma}A(\gamma)\downarrow^{\gamma}
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Let $\Phi$ be the $G$-structure on $A$. Then $\coprod_{\gamma \in G\sigma} A(\gamma)$ admits a natural representation of $G$. If $\Gg \in G$  let $\phi_{\Gg} = \prod_{\gamma \in G\sigma} \Phi_{\Gg,\gamma}$. It is understood that application of $\phi_{g}$ must be followed by reindexing of components. Furthermore, the natural injection, $j_{\sigma} : A(\sigma) \rightarrow \coprod_{\gamma \in G\sigma} A(\gamma)$ is $G_{\sigma}$ equivariant. Thus, $j_{\sigma}$ extends to a $G$-morphism, $j_{A} : I_{G/G_{\sigma}} \rightarrow A(\gamma)$. Then $j_{A}(\Gg \otimes A(\sigma)) = \phi_{\Gg}(j_{A}(1 \otimes A(\sigma))) =\Phi_{\Gg, \sigma}(A(\sigma))= A(\Gg\sigma)$. Since $I_{G/G_{\sigma}}(A(\sigma))$ is a coproduct of the $R$-submodules, $\Gg \otimes A(\sigma)$, it is clear that $j_{A}$ is an isomorphism. Since $A(\sigma)^{\gamma} = \Gg \otimes A(\sigma)$ one sees that $j_{A}$ restrict to isomorphisms $j_{\gamma} : A(\sigma)^{\gamma} \rightarrow A(\gamma)$ which comprise an equivariant family in the sense that $\phi_{\Gg} \circ j_{\gamma} = j_{\Gg \gamma} \circ h_{\Gg}$ is left homothety by $g$.
+
+Now consider $A(\sigma)_{\gamma}$ By definition it is $Hom_{R[G_{\sigma}]}(\Gg r[G_{\sigma}], A(\sigma))$ with $G_{\sigma}$-action, $xf(u) = f(x^{-1} \cdot u) = f(ux)$ and where $\Gg$ is any element carrying $\sigma$ to $\gamma$. For some choice of $\Gg$, let $\beta_{\gamma}(f) = \Phi_{\Gg, \gamma}(f(\Gg))$. Choose $x\in G_{\sigma}$. Then  $\Phi_{\Gg x, \gamma}f(\Gg x) = \Phi_{\Gg x, \gamma}(X^{-1} f)(\Gg) = \Phi_{\Gg, \sigma} \circ \Phi_{x, \sigma}(X^{-1} f)(\Gg) = \Phi_{\Gg, \sigma}f(\Gg)$. Consquently, $\beta_{\gamma}$ is independent of the choice of $\Gg$ and the maps $\{\beta_{\gamma}\}$ are an equivariant family as above.
+
+To prove the two statements of the proposition, note that, by definition, $T_{\sigma}(A(\sigma))= \coprod_{\gamma \in G\sigma} A(\sigma)_{\gamma} \uparrow_{\gamma}$ and $S^{\sigma}(A(\sigma)) = \prod_{\gamma \in G_{\sigma}}A(\sigma)^{\gamma} \downarrow^{\gamma}$. The isomorphisms in question, then, are $\coprod_{\gamma \in G\sigma}j_{\gamma} \uparrow_{\gamma}$ and $\prod_{\gamma \in G\sigma}\beta_{\gamma}\downarrow^{\gamma}$.
+\end{proof}
+
+\begin{prop}\label{art6-proposition-9.8}
+Let $(X, G)$ be excellent with quotient, $Y \subseteq X$, and retraction, $\pi$. Let $A$ be any $G$-carapace of $R$-modules on $X$. Then:
+\begin{enumerate}[(1)]
+\item $\calT_{0}(A)= \coprod_{\sigma \in Y}T_{\sigma}(A(\sigma))$.\label{art6-proposition9.8-enum-1}
+\item $\calS^{0}(A) = \prod_{\sigma \in Y} S^{\sigma}(A(\sigma))$.\label{art6-proposition9.8-enum-2}
+\item $\Sigma(X, \calT_{0}(A)) = \coprod_{\sigma \in Y} I_{G/G_{\sigma}}(A(\sigma))$. That is $\Sigma(X, \calT_{0}(A))$ is a coproduct of induced modules.\label{art6-proposition9.8-enum-3}
+\item $\Gamma(X, \calS^{0}(A))= \prod_{\sigma \in Y}C_{G/G_{\sigma}}(A(\sigma))$. That is $\Gamma(X, \calS^{0}(A))$ is a product of coinduced modules. \label{art6-proposition9.8-enum-4}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Statements \ref{art6-proposition9.8-enum-3}) and \ref{art6-proposition9.8-enum-4}) follow form \ref{art6-proposition9.8-enum-1}) and  \ref{art6-proposition9.8-enum-2}) by a direct apllication of proposition \ref{art6-prop-9.6} and so we need only prove \ref{art6-proposition9.8-enum-1})  and \ref{art6-proposition9.8-enum-2}).
+
+To prove \ref{art6-proposition9.8-enum-1}) and \ref{art6-proposition9.8-enum-2}), first notice that since $G$ acts excellently, we may write the collection of simplices in $X$ as the disjoint union $\bigcup_{\sigma \in Y}G_{\sigma}$. Then,just apply Proposition \ref{art6-proposition-9.7}. One obtains:
+\begin{align*}
+\calT_{0}(A) &= \coprod_{\tau \in X}A(\tau)\\
+& = \coprod_{\sigma \in Y} \coprod_{\tau \in G\sigma}A(\tau)\\
+ & = \coprod_{\sigma \in Y} T_{\sigma}(A(\sigma)) \quad \text{by Proposition}\; \ref{art6-proposition-9.7}
+\end{align*}
+For $calS^{0}(A)$, the proof is:
+\begin{align*}
+\calS^{0}(A) &= \prod_{\sigma \in Y} \prod_{\tau \in G\sigma}A(\tau)\\
+& = \prod_{\sigma \in Y}S^{\sigma}(A(\sigma))
+\end{align*}
+We leave the $G$-structures to the reader.
+\end{proof}
+
+Before proceeding note that if $Y \subseteq X$, if $\sigma \in Y$ and if $M$ is an $R$-module, we may perform the constructions $M \uparrow_{\sigma}$ and $M downarrow^{\sigma}$ both in $X$ and in $Y$ and that the results might differ. Rather than lingering upon unnecessary distinctions or unnecessarily complicating notation, we caution the reader to maintain a certain vigilance in reading the next proof.
+
+\begin{lem}\label{art6-lemma-9.9}
+Let $G$ act excellently on $X$ with retraction $\pi : X\rightarrow Y$ and section, $s$. Then for any $\sigma \in Y$, and $G_{\sigma}$-module, $M$, $s^{*}(T_{\sigma}(M)) = M \uparrow^{\sigma}$.
+\end{lem}
+
+\begin{proof}
+By definition, $T_{\sigma}(M) = \coprod_{\gamma \in G\sigma}M^{\gamma} \uparrow_{\gamma}$. Evaluating,
+$$
+T_{\sigma}(M)(\lambda) = \coprod_{\gamma \in \lambda \cap G{\sigma}} M^{\gamma}.
+$$
+Suppose that two simplices, $\Gg \sigma$ and $h\sigma$ both  lie in $\lambda$. The action is excellent and so separated. It followed that $\Gg \sigma = h \sigma$. If $\lambda \in Y$ then $G\sigma \cap \tilde{\lambda}$ is just one simplex and if $\sigma \in Y$ that simplex must be $\sigma$. That is, for any $\lambda \in Y$, $T_{\sigma}(M)(\lambda) = M\uparrow_{\sigma}(\lambda)$ which establishes the result.
+
+Suppose $X$ is a simplicial complex and that $M$ is a sheaf of groups on $X$. Let $V$ be a carapace of $R$-modules on $X$. Suppose that for each $\sigma \in X$, we are given a representation, $\rho_{\sigma}:M(\sigma) \rightarrow Aut_{R}(V)$. Then for each pair,  $\sigma \subseteq \tau$ notice that $V(\sigma)$ is naturally an $M(\tau)$ module simply by pulling back by the restriction, $r_{M, \tau}^{\sigma}$.
+\end{proof}
+
+\begin{definition}\label{art6-definition-9.10}
+Let $X$ be a simplicial complex and let $M$ be a sheaf of groups on $X$. Then a \textit{carapace of representations} of $M$ on $X$ over $R$ is a carapace of $R$-modules, $V$, together with a family of representations, $\rho_{\sigma}: M(\sigma) \rightarrow Aut_{R}(V)$ such that for any pair, $\sigma \subseteq \tau$, the expansion, $e_{V, \sigma}^{\tau}$, is an $M(\tau)$-morphism. If $A$ and $B$ are two carapaces of representations of $M$ on $X$ over $R$, a \textit{morphism} of carapaces of representations is morphism of carapaces which is an $M(\sigma)$-morphism for ecah simplex, $\sigma$.
+\end{definition}
+
+Notice that carapaces of representations of $M$ are clearly an Abelian category. Generally, when there is no danger of confusion, we will just say $M$-carapace to denote a carapace of representations of $M$ on $X$ over $R$.
+
+Let $G$ operate excellently on $X$ with retraction, $\pi : X\rightarrow Y$. Write $s : Y \rightarrow X$ for the inclusion. Since excellent actions are separated, $G_{\sigma} = \hat{G_{\sigma}}$, is a sheaf of groups on $X$ which we will write $G_{*}$. If $A$ is a $G$-carapace of $R$-modules on $X$, then $A$ is certainly a carapace of representations over the sheaf of groups, $G_{*}$. Finally notice that if $f : X\rightarrow Y$ is a morphism of complexes and if $V$ is a carapace of representations over the sheaf of groups, $M$ on $Y$ then it is purely formal to check that $f^{*}(M)$ is a carapace of representations over the sheaf of groups, $f^{*}M$.
+
+\begin{definition}\label{art6-definition-9.11}
+Suppose that $G$ operates excellently on $X$ with retraction, $\pi : X\rightarrow Y$, and section, $s: Y \rightarrow X$. Let $A$ be a $G$-carapace of $R$-modules on $X$. Then the\textit{prototype} of $X$ on $Y$ is $s^{*}(A)$. It is a carapace of representations over $s^{*}G_{*}$, the restriction of the sheaf of stabilizers.
+\end{definition}
+
+It is patently obvious that $s^{*}$ is ana exact functor from the category of $G$-carapaces to the category of carapaces of representations of $s^{*}G_{*}$ on $Y$ over $R$. More can be said. We will write $G_{*}$ for the restriction of the stabilizer sheaf to $Y$ if there is no danger of confusion.
+
+\begin{theorem}\label{art6-thm-9.12}
+Let $G$ act excellently on $X$ with retraction $\pi : X\rightarrow Y$ and section, $s$. Then $s^{*}$ is an isomorphism of categories from the category of $G$-carapaces of $R$-modules on $X$ to the category of carapace of representations of $s^{*}G_{*}$ on $Y$ over $R$.
+\end{theorem}
+
+\begin{proof}
+In this discussion the functors $\calT_{i}$ and $\calK_{i}$ on $X$ as well as the corresponding functors associated to $Y$ occur. Consequently we will use $\calT_{i}$ and $\calK_{i}$ exclusively for the functors associated to $X$. The corresponding functors on $Y$ will be written $\overline{\calT}_{i}$ and $ \overline{\calK}_{i}$.
+
+Write $C ar_{R}(G, X)$ for the category of $G$ carapaces of $R$-modules on $X$ and $C ar_{R}(G_{*}, Y)$ for the category of carapaces of representations of $G_{*}$ in $R$-modules on $Y$. Then $s^{*}$ is an exact functor from $C ar_{R}(G, X)$ to $C ar_{R}(G_{*}, Y)$. Define a functor from $C ar_{R}(G_{*}, Y)$ to $C ar_{R}(G, X)$ by the equation:
+\begin{equation}\label{art6-equation-9.13}
+T_{Y}^{0}(A) = \coprod_{\sigma \in Y}T_{\sigma}(A(\sigma))
+\end{equation}
+Then $s^{*}(T_{Y}^{0}(A)) = \prod_{\sigma \in Y}s^{*}(T_{\sigma}(A(\sigma))) = \coprod_{\sigma \in Y}A(\sigma) \uparrow_{\sigma}$ by Lemma \ref{art6-lemma-9.9}. But then by the definition of the functor $\overline{\calT}_{0}$, this says that $s^{*}(T_{Y}^{0}(A)) = \overline{\calT}_{0}(A)$. Let $T_{Y}^{1}(A) = T_{Y}^{0}(\overline{\calK}_{0}(A))$. For each $\sigma \in Y$, there is a natural inclusion, $\overline{\calK}_{0}(A)(\sigma) \rightarrow T_{Y}^{0}(A)(\sigma)$. By Proposition \ref{art6-proposition-9.3}, \ref{art6-proposition9.3-enum-2}), this inclusion gives a unique map $q_{\sigma} : T_{\sigma}(\overline{\calK}_{0}(A)(\sigma))\rightarrow T_{Y}^{0}(A)$. Let $q_{A}= \coprod_{\sigma \in Y} q_{\sigma}$. Then $q_{A}$ maps $T_{Y}^{1}(A)$ to $T_{Y}^{0}(A)$ and its restriction to $Y$ is just the natural map from $\overline{\calT}_{1}(A)$ to $\overline{\calT}_{0}(A)$. Define a functor on $C ar_{R}(G_{*}, Y)$ to $C ar_{R}(G, X)$ by the equation:
+\begin{equation}\label{art6-eq-9.14}
+\calI_{Y}(A)= Coker(q_{A})
+\end{equation}
+
+We will show that $\calI_{Y}$ is inverse to $s^{*}$. First suppose that $A$ is in $Car_{R}(G^{*}, Y)$. Then the sequence,
+$$
+T_{Y}^{1}(A) > q_{a}>>T_{Y}^{0}(A) \rightarrow \calI_{Y}(A)\rightarrow 0
+$$
+is exact. Apply the exact functor, $s^{*}$. The result is a commutative diagram:
+$$
+\xymatrix{
+s^{*}T_{Y}^{1}(A)\ar@{=}[d]\ar[r]^{qA} & s^{*}T_{Y}^{0}\ar@{=}[d] \ar [r] & s^{*}(\calI_{Y}(A)) \ar[r]\ar[d] & 0\\
+\overline{\calT}_{1}(A) \ar [r]_{\delta_{1}} & \overline{\calT}_{0}(A) \ar[r]_{\pi_{A}} & A \ar [r] & 0
+}
+$$
+By exactness of the rows and commutativity, $s^{*}\calI_{Y}(A)$ is isomorphic to $A$.
+
+Now consider $B$ is $Car_{R}(G, X)$. First notice that proposition \ref{art6-sec-3}, \eqref{art6-proposition-2} gives canonical maps, $T_{\sigma}(B(\sigma)) \rightarrow B$. Sum  to obtain a canonical map, $d_{0}T_{Y}^{0}(s^{*} B) \rightarrow B \rightarrow 0$. This map clearly vanishes on the image of $T_{Y}^{1}(s^{*}B)$. Hence it induces a mapping, $\xi_{B} : \calI_{Y}(s^{*}B) \rightarrow B$. Apply the exact functor, $s^{*}$ and use what we have just proven. Then $s^{*}(\calI_{Y}(S^{*}B)) = s^{*}(B)$ and $\xi_{B}$ induces the identity on segments in $Y$. Now finally note that a $G$-morphism of $G$-carapaces which is an isomorphism on $Y$ is an isomorphism. That is $\calI_{Y}(s^{*}(B))\simeq B$ functorially in $B$. It follows that $\calI_{Y}$ is inverse to $s^{*}$.
+\end{proof}
+
+In what follows, Theorem \ref{art6-thm-9.12} will be a very essential and fundamental tool for analyzing $Car_{R}(G, X)$.
+
+\section{Recollections and Fundamentals; Buildings}\label{art6-sec-10}
+
+For the most part we follow the notation and conventions of \cite{art6-keyBT-I} and \cite{BT-II}. Our purpose here is a brief review which will establish notation and emphasize one or two differences. Throughout $K$ is a field complete with respect to the discrete rank one valuation, $\omega : K^{*} \rightarrow \bbZ$. Then $\calO$  will be the center of $\omega$, $\overline{k}$ will be the residue field of $\calO$ and $\xi : \calO \rightarrow \overline{k}$ is the natural map.
+
+Let $\bG$ be be a Chevalley group scheme defined over $\bbZ$. Assume it to be split, simply connected, connected and of simple type. Let $\bT$ be a maximal torus, let $\bN$ be its Cartan subgroup and let $\bB$ be a Borel subgroup containing $\bT$  all given as group subschemes of $\bG$ defined over $\bbZ$.  
+
+Each of these group schemes being a functor, applying any one of them to $\xi$ gives a morphism which, in all cases, we will also call $\xi$ from $\bG(\calO)$ to $\bG(\overline{k})$, $\bB(\calO)$ to $\bB(\overline{k})$, etc.. let $G =\bG(K)$, let $G_{0} = \bG(\cal0)$ and let $\overline{G} = G(\overline{k})$. Let $\calB = \bB(K)$, let $\overline{B} = \bB(\overline{k})$ but let $B= \{x \in G_{0} : \xi(x) \in \overline{B}\}$. Let $N = \bN(K)$, let $T= \bT{K}$ and let $H = N\cap B$.
+
+Let $X$ denote the finite free $\bbZ$-module of characters of $\bT$, let $\Phi$ denote the roots of $\bG$ with respect to $\bT$;  let $\Phi_{+}$ denote those positive with respect to $\bB$; let $\Delta$ be a basis of simple roots in $\Phi_{+}$ and let $\tilde{\alpha}$ denote the largest root. Let $\Gamma = Hom_{\bbZ}(\bX, Z)$ be the group of one parameter subgroups of $\bT$ and let $\Phi \subseteq \Gamma$ be the set of co-roots.
+
+Let $\{\bU_{\alpha} : \alpha \in \Phi\}$ be a set of root subgroups let $U_{\alpha} = \bU_{\alpha}(K)$ and let $x_{\alpha} : \bU_{\alpha}\rightarrow G_{a, Z}$ be the natural isomorphism. Let $U_{\alpha,n} = \{u: \omega(x_{\alpha}(u)) \geq n \}$ and observe that $U_{\alpha, 0}=\bU(\calO)$.
+
+Let $N_{0} = N \cap G_{0}$. Then $\Gamma$ can be identified with the group scheme morphisms, $\gamma : G_{m, Z} \rightarrow \bT$. Write $<\gamma, \chi>$ for the value, $\gamma(\chi)$ when $\gamma  \in \Gamma$ and $ \chi \in \bX$. We  may always think of $\gamma$ as a map, $\map: K^{*}\rightarrow T$ and so we may write $\chi(\gamma(y)) = y^{<\gamma, \chi>}$. Following this convention, we may define the action of $N$ on $\Gamma$ by the equation, $(^{n}\gamma)(x) = n(\gamma(x))n^{-1}$. For $t \in T$ write $t^{\chi}$ for $\chi(t)$. Then $N$ acts on $\bX$ by the equation $\chi^{n}(t) = \chi(ntn^{-1})$. Then $N_{0}$  normalizes $T$ and so acts on it by conjugation. Consider the semi-direct product, $T\triangleleft N_{0}$. For any $(t, n)\in T \\triangleleft N_{0}$, define a mapping, $\tau_{t, n} : \Gamma \in \Gamma$ by the equation,
+$$
+< \tau_{(t, n)}(\gamma), \chi > = -\omega(t^{\chi}) + <^{n}\gamma, \chi>
+$$
+Then $\tau_{t, n}$ is an affine transformation and $(t, n)\mapsto \tau_{(t,n)}$ is an action of $T \triangleleft N_{0}$ on $\Gamma$. If $n\in T \cap N_{0}$ it is clear that $\tau_{n,n^{-1}}= id_{\Gamma}$ and so this action reduces to an affine action of $T \cdot N_{0} = N$ on $\Gamma$. If $n \in N$, $\gamma \in \Gamma$ write $n=tn_{0}$ and let $^{n}\gamma =\tau_{(t, n_{0})}(\gamma)$. It is straightforward to verify that if $^{n}\gamma = \gamma$ for all $\gamma \in \Gamma$ then $n \in H$. 
+
+Let $\bA = \Gamma \otimes_{Z} R$ and extend the action of $N$ to $\bA$ by linearity. Let $\bX_{R} = \bX \otimes_{Z} R $ and choose a form on $\bX_{R}$ invariant under the vector Weyl group. For $\lambda, \chi \in \bX_{R}$ write the form, $(\lambda|\chi)$. With this form, identify $\bA$ with $\bX_{R}$ and write $\check{\alpha} = \frac{2\alpha}{(\alpha | \alpha)}$ for each $\alpha \in \Phi$.
+
+Since $\bH$ acts trivially under $\tau$, and since $N/H$ is naturally isomorphic to the affine Weyl group $\tau$ induces an action of the affine Weyl group on $\bA$ and it is a triviality that this is the canonical action. 
+
+For any pair, $(\alpha, r) \in \Phi \times \bbZ$, let $\alpha^{*} = \{x \in \bA : \alpha(x) + r \geq 0\}$. These are closed half spaces and they are in bijective correspondence with $\Phi \times \bbZ$. If the half space, $\alpha^{*}$ corresponds to the pair $(\alpha, r)$, write $U_{\alpha^{*}}$ for the group, $U_{\alpha, r}$ defined above. Write $\partial\alpha^{*}$. The closed half spaces, $\alpha^{*}$, are called the affine roots of $G$ in $\bA$ and we write $\Sigma$ for the set of all affine roots of $G$ in $\bA$.
+
+Define an equivalence on $\bA$ by saying that $x\sim y$ if and only if $x \in \alpha^{*}$ if and only if $y \in \alpha^{*}$ for all $\alpha \in \Sigma$. These equivalence classes are the facets of $\bA$ and they are the interiors of simplies (because $\bG$ is of simple type). Their closures give a simplicial decomposition of $\bA$. The maximal dimensional facets are called chambers. They are the connected components of $\bA\ \bigcup_{\alpha^{*} \in \Sigma}\partial \alpha^{*}$.
+
+Let $\tilde{\Delta}$ denote the set of affine roots $(\alpha, 0)$, $\alpha \in \Delta$ and $(-\beta, 1)$ where $\beta$ is the unique largest root relative to the dual Weyl chamber. Let $S$ denote the set of reflections thorugh the hyperplanes, $\partial\alpha^{*}$ for all $\alpha^{*} \in \tilde{\Delta}$. These reflections afford a Coxeter presentation of the affine Weyl group, $N/H$, so that (G, B, N, S) is a Tits system in $G$. Then $N/H$ acts transitively on the chambers of $\bA$.
+
+Let $\overline{C}_{0} = \bigcap_{\alpha^{*} \in \tilde{\Delta}} \alpha^{*}$ and let $C_{0}$ be its interior. Let $F$ be any contained in $\overline{C}_{0}$ and let $S_{F} = \{ s \in S : s(F) = F \}$. In pariticular $S_{C_{0}} = \emptyset$. For any $F$, let $P_{F}$ be the subgroup of $G$ generate by $B$ and some arbitararily chosen set of representatives of $S_{F}$ chosen and it is called the parahoric subgroup of $G$ associated to $F$. By definition, the parahoric subgroup of $G$ relative to the Tits system, $(G, B, N, S)$, are the conjugates of the subgroups, $P_{F}$. We shall call the facets, $F \subseteq \overline{C}_{0}$ the types of $G$ with respect to the Tits system, $(G, B, N, S)$. If $P$ is a parahoric subgroup of $G$, then $P$ is conjugate to a unique group of the form $P_{F}$ for some $F$. Then we call $F$ the type of $P$ and we write $F= \tau{P}$. Notice that our terminology differs slightly from \cite{art6-keyBT I} in which the subsets, $S_{F}$ are called the types. 
+
+We may now describe $\calI = \calI(G, B, N, S)$, the building of $G$ with respect to the Tits system, $(G, B, N, S)$. As a point set, $\calI(G, B, N, S)$ is the set of pairs, $(P, x)$ where $P$ parahoric and $x \in \tau(P)$. Now $G$ acts on this set by the equation, $\Gg (P, x) = (\Gg P \Gg^{-1}, x)$. 
+
+Let $x$ be any point of $\bA$. Then for some $n \in N$, $nx \in \overline{C}_{0}$. Then the point $nx$ is uniquely determined. Let $F$ be the smallest open facet containing $nx$.  Let $a(x) = (n^{-1} P_{F}n, nx)$. The group, $n^{-1}P_{F}n$ is uniquely determined just as $nx$ is and so $a$ maps $bA$ into $\calI(G, B, N, S)$. (This map is called $j$ in \cite{art6-keyBT I}.) We may now make $\calI(G, B, N, S)$ into a geometric simplicial complex. Its simplices are just $G$ translates of closed facets in $a(\bA)$ and its vertices are translates of the special points. The $G$-translates of $a(\bA)$ are called the apartments of $\calI(G, B, N, S)$.
+
+There are several structures on $\calI = \calI(G, B, N, S)$. First there is what is called an affine structure in \cite{art6-keyBT I}. If $x$ and $y$ are any two points in $\calI$ they are contained in one apartment. Thus for any $\lambda \in [0,1]$, there is a  point $\lambda x + (1- \lambda)y$ determined by the apartment. This point is, however, independent of the apartment chosen and the operation which assigns to each pair, $(x, y)$ together with a real $\lambda \in [0,1]$, the point $\lambda x + (1-\lambda)y$ is the affine structure. There is a $G$ invariant metric whose restriction to any apartment is the metric is written $d(x, y)$. Finally there is a ``bornology" on subsets of $G$. $A$ set is called bounded if it is contained in a finite union of double cosets, $BwB$ for $w \in N$. Now let us record some statements particularly useful to us. They are for the most part simple rearrangements of statements in \cite{BT I} and \cite{BT II}. 
+
+\begin{lem}\label{art6-lemma-10.1}
+The action of $G$ on $\calI(G, B, N, S)$ is excellent with section, $\overline{C}_{0}$.
+\end{lem}
+
+\begin{proof}
 
 
-
-
+\end{proof}
