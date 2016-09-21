@@ -19,9 +19,10 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{appthm}[equation]{Theorem}
-\newtheorem{corollary}{Corollary}       
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{corollary}[proposition]{Corollary}
+
 \newtheorem{sublemma}{Lemma}[section]
 \newtheorem{subprop}{Proposition}[section]
 \newtheorem{subcoro}{Corollary}[section]
@@ -41,14 +42,9 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 {}{\bfseries}{.}{ }{}
 \theoremstyle{remark}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{subremark}[subsubsection]{Remark}
-\newtheorem{remarks}[theorem]{Remarks}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{subexample}[equation]{Example}
-\newtheorem{examples}[theorem]{Examples}
-\newtheorem{sconditions}{\textsc{Separation Conditions}}[section]
-\newtheorem{method}{Method}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{question}[proposition]{Question}
+\newtheorem{example}[proposition]{Example}
 
 \newtheoremstyle{nonum}{}{}{\itshape}{}{\bfseries}{\kern -2pt{\bf.}}{ }{#1 \mdseries
 {\bf #3}}
@@ -86,15 +82,12 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 }
 
 
-\DeclareMathOperator{\Fix}{\mathrm{Fix}}
+
+\DeclareMathOperator{\Hom}{\mathrm{Hom}}
+\DeclareMathOperator{\Ker}{\mathrm{Ker}}
+\DeclareMathOperator{\res}{\mathrm{res}}
+\DeclareMathOperator{\Lie}{\mathrm{Lie}}
 \DeclareMathOperator{\Aut}{\mathrm{Aut}}
-\DeclareMathOperator{\Pic}{\mathrm{Pic}}
-\DeclareMathOperator{\Gal}{\mathrm{Gal}}
-\DeclareMathOperator{\pr}{\mathrm{pr}}
-\DeclareMathOperator{\red}{\mathrm{red}}
-
-
-
 \def\uub#1{\underline{\underline{#1}}}
 \def\ub#1{\underline{#1}}
 \def\os#1{\overset{#1}}
@@ -118,6 +111,10 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 %                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
 %                                     {1.5ex \@plus .2ex}%
 %                                     {\bf}}%
+\renewcommand\section{\@startsection {section}{1}{0mm}%
+                                   {0.5ex \@plus 0.5ex \@minus .2ex}%
+                                   {-0.8ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                                      {3.25ex\@plus 1ex \@minus .2ex}%
                                      {-1.5ex}%
