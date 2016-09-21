@@ -97,7 +97,7 @@ To prove the second statement, for each $\sigma$ choose and embedding,, $j_{\sig
 
 It is clear that there are natural homology and cohomology theories on the category of $R$-carapaces on $X$. The most natural functors to consider are the limit and the co-limit over $X$. To simplify the discussion, \textit{$C ar_{R}(X)$ denote the category of $R$-carapaces on $X$.}
 
-\begin{definition}
+\begin{definition}\label{art6-prop-1.7}
 Let $U$ denote any sub-category of $X$, and let $A$ be an $R$-carapace on $X$. Then
 \begin{align*}
 \Sigma (U, A) &= \lim\limits_{\substack{\longrightarrow \\ \sigma \in U}}A(\sigma)\\
@@ -134,11 +134,11 @@ $$
 Then check that the sequence of segments on $\sigma$ is just the standard Koszul resolution of the unit ideal which begina with a free module of rank $\dim(\sigma) + 1$ and the map which sends each of its generators to one. Consequently, this construction gives a resolution of the constant carapace by projectives. On the other hand it is evident that $\sigma(X, K_{q}(X, R))$ is just the $R$-module of simplicial $q$-chains on $X$ with coefficients in $R$ and that the boundaries are the standard simplicial boundaries. In this way, one verifies that the exoskeletal homology and cohomology with coefficients in a constant carapace is just the simplicial homology and cohomology. This phenomenon has been observed and exploited by Casselman and Wigner in their work on admissible representations and the cohomology of artihmetic groups \cite{art6-keyCW}.
 \end{example}
 
-\section{Operations on Carapaces}
+\section{Operations on Carapaces}\label{art6-sec-2}
 
 In the category of $R$-carapaces on $X$ there is a self-evident notion of tensor product:
 
-\begin{definition}\label{art6-definition-2.2}
+\begin{definition}\label{art6-definition-2.1}
 Let $A$ and $B$ be two $R$-carapaces on $X$. Let:
 $$
 (A \otimes_{R} B)(\sigma) = A(\sigma) \otimes_{R}B(\sigma)
@@ -216,18 +216,18 @@ There is a natural map from $\Gamma(X, \calH om_{R,X}(A, B))$ to this projective
 Rather than giving a fully detailed proof of (\ref{art6-thm2.4-enum-(3)}), we will give complete definitions of $\phi$ and a map $\psi$ which is inverse to it. The necessary verifications, though numerous and quite technical, contain no surprises and so we leave them to the reader. First suppose\break $f \in \Hom_{R,X}(A, \calH om_{R,X}(B, C))$. Then for
 $a \in A(\sigma)$, $f_{\sigma}(a)$ is a family, $f_{\sigma}(a)  =\{f(a)_{\tau}\}_{\tau \supseteq \sigma}$ where
 $f(a)_{\tau} \in Hom_{R}(B(\tau), C(\tau))$. The following equations express the facts that $f$ is a carapace morphism and that $f(a)$ is carapace morphism from $B|_(\sigma)$ to $C|_{x(\sigma)}$:
-\begin{equation}
-f_{\tau}(e_{A,\sigma}^{\tau}(a))_{\gamma} = f_{\sigma}(a)_{\gamma}\tag{5}\label{eq:proof-5}
+\begin{equation}\label{art6-eq-5}
+f_{\tau}(e_{A,\sigma}^{\tau}(a))_{\gamma} = f_{\sigma}(a)_{\gamma}%\tag{5}\label{eq:proof-5}
 \end{equation}
-\begin{equation}
-e_{C, \tau}^{\gamma} \circ f_{\tau}(a)_{\tau} = f_{\tau}(a)\gamma \circ e_{B,\tau}^{\gamma}\tag{6}\label{eq:proof-6}
+\begin{equation}\label{art6-eq-6}
+e_{C, \tau}^{\gamma} \circ f_{\tau}(a)_{\tau} = f_{\tau}(a)\gamma \circ e_{B,\tau}^{\gamma}
 \end{equation}
 Then we may define $\phi : \Hom_{R,X}(A, \calH om_{R,X}(B,C))\rightarrow \Hom_{R,X}(A \otimes_{R}B, C)$ and $\psi$ opposite to it by the equation:
-\begin{equation}
-\phi(f)_{\sigma}(a\otimes b) =[f_{\sigma}(a)_{\sigma}](b) \quad a\in A(\sigma), b\in B(\sigma)\tag{7}\label{eq:proof-7}
+\begin{equation}\label{art6-eq-7}
+\phi(f)_{\sigma}(a\otimes b) =[f_{\sigma}(a)_{\sigma}](b) \quad a\in A(\sigma), b\in B(\sigma)
 \end{equation}
-\begin{equation}
-[\phi (F)_{\sigma}(a)]_{\tau}(b) = f_{\tau}([e_{A, \sigma}^{\tau}(a)\otimes b) \quad a\in A(\sigma), b \in B(\tau)\tag{8}\label{eq:proof-8}
+\begin{equation}\label{art6-eq-8}
+[\phi (F)_{\sigma}(a)]_{\tau}(b) = f_{\tau}([e_{A, \sigma}^{\tau}(a)\otimes b) \quad a\in A(\sigma), b \in B(\tau)
 \end{equation}
 These are the two maps, inverse to one another, which establish (\ref{art6-thm2.4-enum-(3)}).
 
@@ -309,16 +309,15 @@ The local global spectral sequences in \ref{art6-lemma3.4-enum-4}) and \ref{art6
 
 In this section we will determine the homological dimension of $C ar_{R}(X)$ for a finite dimensional simplicial complex, X. Write $X^{r}$ for the set of simplices in $X$ of dimension $r$ and write $X_{n}$ for $\bigcup_{r\geq n}X^{(r)}$. If $M$ is an $R$-module,write $pd(M)$ for the projective dimension of $M$ and write $hd(R)$ for the homological dimension of $R$. 
 
-\begin{defin}\label{art6-defin-1}
+\begin{definition}\label{art6-defin-4.1}
 Let $A$ be an $R$-carapace on $X$.
     \begin{enumerate}[(1)]
     \item Write $s(A)\leq n$ if $A(\sigma) = (0)$ whenever $dim(\sigma) < n$ and let $s(A) = inf\{n: s(A) \leq n\}$. Then $s(A)$ is called the \textit{support dimension} of $A$.\label{art6-defin1-enum-1}
     \item We say that $A$ is \textit{locally bounded} if $pd(A(\sigma)) \leq q$ for some fixed $q \geq 0$. In that case let $ld(A)=sup\{pd(A(\sigma)) : \sigma \in X\}$. When it exists, $ld(A)$ is called the \textit{local projective dimension} of $A$.\label{art6-defin1-enum-2}
     \end{enumerate}
-\end{defin}
+\end{definition}
 
-%\setcounter{propo}{1}
-\begin{propo}
+\begin{prop}\label{art6-proposition-4.2}
 Suppose that $A$ is an $R$-carapace on $X$ of support dimension at least $n$ and local projective dimension $r$. Then  there is an exact sequence:
 %\setcounter{equation}{2}
 \begin{equation}\label{art6-equation-4.3}
@@ -331,7 +330,7 @@ so that:
     \item $s(A^{1})\geq n+1$\label{art6-equation-enum-3}
     \item $s(P_{i}) \geq n$\label{art6-equation-enum-4}
     \end{enumerate}
-\end{propo}
+\end{prop}
 
 \begin{proof}
 For each $\sigma \in X_{n}$ choose a projective module, $Q^{\sigma}$ and a surjective morphism, $\phi^{\sigma} : Q^{\sigma} \rightarrow A(\sigma)\rightarrow 0$. For each $\sigma$, let $\phi_{\sigma} : Q^{\sigma}\uparrow_{\sigma} \rightarrow A$ be the morphism of carapace induced by $\phi^{\sigma}$. Let $Q_{0}= \coprod_{\sigma\in X_{n}}(Q^{\sigma})\uparrow_{\sigma}$ and let $d_{0}=\coprod_{\sigma \in X_{n}}\phi_{\sigma}$. Since $s(A)\leq n$, $d_{0}$ in surjective. Let $N_{0} =ker(d_{0})$. Then, clearly $s(N_{0}) \leq n$ but $ld(N_{0})\leq r-1$. Thus we may repeat the process the process with $A$ replaced by $N_{0}$ and continue inductively until we obtain an exact sequence:
@@ -341,7 +340,6 @@ $$
 In this sequence, the $Q_{i}$ are projective, the support dimensions of the $Q_{i}$ and of $N_{r-1}$ are at least $n$ and $ld(N_{r-1})$ are at least $n$ and $ld(N_{r-1})=0$. That is $N_{r-1}(\sigma)$ is projective for each $\sigma$. Now let $Q_{r}=\coprod_{\sigma \in X_{n}}(N_{r-1}(\sigma))\uparrow_{\sigma}$. Clearly, $Q_{r}$ maps onto $N_{r-1}$ and the map is an isomorphism on segments over simplices of dimension $n$. Let $d_{r}$ be the composition of the map onto $N_{r-1}$ with the inclusion into $Q_{r-1}$ and let $A^{1} =ker(d_{r})$. Clearly, $A^{1}$ and the $Q_{i}$ answer the requirements of the proposition.
 \end{proof}
 
-%\setcounter{prop}{3}
 \begin{theorem}\label{art6-thm-4.4}
 Let $X$ be a simplicial complex of dimension $d$ and let $A$ be a locally bounded $R$-carapace on $X$ of local projective dimension $r$. Then $pd(A)\leq d+r$.
 \end{theorem}
@@ -1206,6 +1204,198 @@ The action of $G$ on $\calI(G, B, N, S)$ is excellent with section, $\overline{C
 \end{lem}
 
 \begin{proof}
-
-
+First,m $\overline{C}_{0}$ is a fundamental domain for the $G$ action and $G$ is transitive on maximal dimensional simplices. This implies that the action is separated. The coled chamber, $\overline{C}_{0}$, is isomorphic to the quotient if $\calI$ by the $G$ action and the inclusion of $\overline{C}_{0}$ into $\calI$ is clearly a section.
 \end{proof}
+
+\begin{lem}\label{art6-lemma-10.2}
+$G$ acts transitively on the paris $(F, \bC)$ where $F$ is a facet and $\bC$ is an apartment containing $F$. 
+\end{lem}
+
+\begin{proof}
+This is just 2.26, p. 36 in \cite{art6-keyBT I}.
+\end{proof}
+
+\begin{prop}\label{art6-proposition-10.3}
+The action of $B$ on $\calI(G, B, N, S)$ is excellent with section.
+
+$a: \bA \rightarrow \calI$.
+\end{prop}
+
+\begin{proof}
+The action of $G$ on $\calI(G, B, N, S)= \calI$ is separated and so, a fortiori, the action of $B$ is as well. Let $C_{0}$ be the chamner associated ot $B$. Recall the definition of the retraction of $\calI$ on $\bA$ with center, $C_{0}$ (\cite{art6-keyBT I} 2.3.5, P. 38). As we remarked, given any two facets, there is an apartment containing them. Thus for any fact, $F\subseteq \calI$, there is an apartment $\bA_{1}$ containing $F$ and $C_{0}$. By \ref{art6-lemma-10.2}, there is an element $\Gg$ in $G$ so that $\Gg(C_{0}, \bA_{1}) = (C_{0}, \bA)$ whence $\Gg F\subseteq \bA$.
+Let $\rho_{C_{0},\bA}(F') =\Gg F$. We show that $\rho_{C_{0},\bA}^{-1}(F') =B \cdot F$.
+
+Suppose that $\rho_{C_{0},\bA}(F') = F$. Then, by definition, there is an apartment, $\bA'$, containing $C_{0}$ and $F'$ and an element $\Gg \in G$, so that $\Gg\rm A' = \rm A$, $GgF' = F$ and $\Gg C_{0} = C_{0}$. Since $\Gg C_{0} =C_{0}$, $\Gg \in B$ and $\Gg F' = F$. Hence $\rho_{C_{0},\bA}^{-1}(F') \subseteq B \cdot F$. The opposite inclusion is clear.
+
+To complete the proof that $\calI/B = \bA$. we use, nearly unmodified, the proof of 2.3.2, p. 37 of \cite{art6-BT I}. Clearly, for any facet, $F$, the orbit, $B \cdot F$ meets $\bA$. What remains to be shown is that $B \cdot F$ contains exactly one facet in $\bA$.
+
+Suppose that $F$ and $F'$ are in $\bA$ and that $F=bF'$, $b \in B$. Then, $F= n F_{0}$, $F' =n'F_{0}$ for some $F_{0} \subseteq \overline{C}_{0}$. The stabilizer of $F$ (respectively, $F'$) is $nP_{F_{0}}n^{-1}(n'P_{F_{0}}(n')^{-1}$ respectively). Then $bn'P_{F_{0}}(n')^{-1}b^{-1} =nP_{F_{0}}n^{-1}$. Since parahoric subgroups are self normalizing, $n^{-1}bn' \in P_{F_{0}}$ and hence, $b^{-1}n \in n'P_{F_{0}}$. Let $X = S_{F_{0}}$ and let $W_{x}$ be the subgroup of $W$ generated by $X$. Then $P_{F_{0}} = BW_{X}B$. By \cite{art6-NB I}, IV, \ref{art6}, Proposition \ref{art6-sec-2}, $n'P_{F_{0}} \subseteq Bn'W_{X}B$. If $\nu : N \rightarrow W$ is teh natural surjection, this implies that $\nu(n) \in \nu(n')w_{X}$ and so $nP_{F_{0}}n^{-1} = n'P_{F_{0}}(n')^{-1}$. But $F$ is the fixed point set of $nP_{F_{0}}n^{-1}$ and $F'$ is the fixed point set of $n'P_{F_{0}}(n')^{-1}$. Consequently, since the two groups are equal, $F =F'$. thus for any facet, $B \cdot F$ contains exactly one facet in $\bA$. As this is true, in particular, for vertices, $\bA$ is the quotient of $\calI$ by the action of $B$ and so the proposition is proven.  
+\end{proof}
+
+\section{Mounmental Complexes}\label{art6-sec-11}
+
+In this section the term monumental is thought of as meaning resembling or having the scale of a building ad it is used in the history of art. We use it to describe certain $G$ actions which have all the properties of the natural actions on buildings which are of interest to us. If $X$ is a finite dimensional simplicial complex and if $G$ is a group acting on it then a subcomplex, $Y \subseteq X$ will be  called homogeneous if, Whenever $Y$ contains two simplices, $\tau$ and $\gamma$ such that $\tau = \Gg \gamma$ for some $\Gg \in G$, there is an element $s\in G$ such that $sY = Y$ and $\tau = s \gamma$.
+
+\begin{definition}\label{art6-definition-11.1}
+Let $G$ be a group and let $X$ be a finite dimensional simplicial complex on  which $G$ is acting with a separared action. Then the action of $G$ on $X$ will be called \textit{monumental} if and only if the following conditions hold:
+\begin{enumerate}[\rm (1)]
+\item Every simplex in $X$ is contained in a maximal dimensional simplex.\label{art6-}\label{art6-definition11.1-enum-1}
+\item $G$ acts transitively on the maximal dimensional simplices.\label{art6-definition11.1-enum-2}
+\item For any simplex, $\sigma$ in $X$ the stabilizer, $G_{\sigma}$ is self normalizing in $G$.\label{art6-definition11.1-enum-3}
+\item If $\sigma$ is a maximal dimensional simplex, the stabilizer, $G_{\sigma}$, acts excellently and it admits a homogeneous section, $Y \subseteq X$.\label{art6-definition11.1-enum-4}
+\end{enumerate}
+\end{definition}
+
+suppose that $G$ is a group acting monumentally on $X$. Then a maximal dimensional simplex will be called a closed chamber; its interior will be called a chamber. Let $\overline{C}$ be a closed chamber in $X$. Then separation of the action implies the for any simplex $\sigma$ in $X$, the orbit, $G\sigma$ contains at most one simplex which is a face of $\overline{C}$ while homogeneity implies that there is always at least one. Consequently the action of $G$ is excellent with quotient $\overline{C}$ and section equal to the inclusion of $\overline{C}$ in $X$. Let $B = b(\overline{C})$ denote the $G$ stabilizer of $\overline{C}$ and let $Y$ be a homogeneous subcomplex of $X$ mapping isomorphically onto the quotient, $X/B$ Then any translate of $Y$, $\Gg Y$ will be called an apartment of type $Y$. In general we will think of the type, $Y$ as chosen and fixed once and for all and so we will often speak merely of apartments.  
+
+Let $F$ be a field. Let $H$ be a commutative Hopf algebra over $F$ with comultiplication, $mu_{H} : H \rightarrow H \otimes_{F} H$, augmentation, $\epsilon_{H} : H \rightarrow F$, and antipode, $s_{H} : H \rightarrow H$. Then $H$ will be called \textit{proalgebraic} if it is reduced and a direct limit of sub-Hopf algebras finitely generated over $F$. Then $Spec(H)$ is a proalgebraic group scheme over $F$.
+
+If $H$ is proalgebraic over $F$ let $\calG_{H}$ denote the group of $F$-valued points of $H$. That is $\calG_{H}$ is the group of $F$-homomorphisms from $H$ to $F$. Let $\calF(\calG_{H}, F)$ denote the ring of $F$ functions on $\calG_{H}$ and let $\gamma_{H}$ be the natural map from $H$ to $\calF(\calG_{H}, F)$, namely $\gamma_{H}(a)(\phi) = \phi(a)$. We will say that $H$ separates $k$-points if $\gamma_{H}$ is injective.
+
+\begin{definition}\label{art6-definition-11.2}
+Let $G$ be a group. A \textit{monumental $G$-complex}is a simplicial complex, $X$, on which $G$ is acting monumentally together with a $G$-carapace of commutative $F$-algebras with unit, $(\calA, \{\Phi_{\Gg}\}_{\Gg \in G})$, and $G$-morphisms, $\mu_{\calA} : \calA \rightarrow \calA \otimes_{F} \calA$, $s_{\calA} : \calA \rightarrow \calA$ and $\epsilon_{A} \rightarrow F_{X}$ so that that following conditions are satisfied:
+\begin{enumerate}[{\rm(1)}]
+\item Each of the morphisms, $\mu_{\calA}$, $s_{\calA}$ and $\epsilon_{\calA}$ is a morphism of $G$-carapaces of commutative F-algebra and for any simplex, $\sigma$, $\calA(\sigma)$, $\mu_{\calA, \sigma}$, $s_{\calA, \sigma}$, $\epsilon_{\calA, \sigma}$ is a profinite Hopf algebra over $F$.\label{art6-definition11.2-enum-1}
+
+\item For each pair of simplices, $\sigma \subseteq \tau$, the expansion, $e_{\calA, \sigma}^{\tau}$ is a surjective morphism of proalgebraic Hopf algebras.\label{art6-definition11.2-enum-2}
+
+\item The $G$ structure, $\{\Phi_{\Gg}\}_{\Gg \in G}$ acts by isomorphisms of carapraces of proalgebraic Hopf algebras. That is $\Phi_{\Gg, \sigma}$ is a Hopf algebra isomorphism for each $\Gg$ and $\sigma$.\label{art6-definition11.2-enum-3}
+
+\item For each $\sigma$ let $\calG(\sigma) =\calG_{\calA(\sigma)}$. Then $\calG$ is naturally a sheaf of groups with the $G$ structure induced by $\Phi$. Then $\calA(\sigma)$ is reduced for each $\sigma$ and there is an isomorphism of $G$-sheaves, $\alpha : G_{*} \rightarrow \calG$.\label{art6-definition11.2-enum-4}
+\end{enumerate}
+\end{definition}
+
+The first three conditions of Definition \ref{art6-definition-11.2} are self explanatory but the third requires some amplification. First of all, if $M$ is a simplicial sheaf on $X$ and $\psi$ is an automorphism of $X$, $\psi^{*}M(\sigma) = M(\psi(\sigma))$. The $G$-structure on $G_{*}$ is that arising from conjugation. That is, define $c_{\Gg, \sigma} : G_{\sigma} \rightarrow G_{\Gg \sigma}$ by the equation:
+\begin{equation}\label{art6-eq-11.3}
+c_{\Gg,\sigma}(x) = \Gg x \Gg^{-1}
+\end{equation}
+
+Now we explain the $G$-structure on $\calG$ induced by $\Phi$. The functor $G$ is contravariant and so $\calG(\Phi_{\Gg, \sigma})$ maps $\calG(\Gg \sigma)$ to $\calG(\sigma)$. Thus define a $G$-structure, $\{\Gamma_{\Gg}\}_{\Gg \in G}$ by the equation:
+\begin{equation}\label{art6-eq-11.4}
+\Gamma_{\Gg, \sigma} \calG(\Phi_{\Gg^{-1}, \Gg \sigma})
+\end{equation}
+Recalling that elements of $\calG(\sigma)$ are the $F$-homomorphisms from $\calA(\sigma)$ to $F$, this map can be more explicitly written, $\Gamma_{\Gg, \sigma}(x) - x \circ \Phi_{\Gg^{-1}, \Gg \sigma}$.
+
+It is customary to write $a(x)$ for $x(a)$ when $a$ is in a ring and $x$ is a $F$-point of the ring. We may use $\alpha$ to identify $G_{\sigma}$ with $\calG(\sigma)$, writing, for $a\in \calA(\sigma)$ and $\Gg \in G_{\sigma}$, $a(\Gg)$ to denote $[\alpha_{\sigma}(\Gg)](a)$. With these conventions, Condition \ref{art6-definition11.2-enum-3}) is nothing more than the equation: 
+\begin{equation}\label{art6-eq-11.5}
+[\Phi_{\Gg, \sigma}(a)](x) = a(\Gg^{-1}x \Gg)
+\end{equation}
+
+Henceforth of $X$ is a monumental $G$-complex with carapace of F-Hopf algebras $\calA$ we will just say that $(G, X, \calA)$ is a monumental $G$-complex over $F$. Further we will use $\alpha$ to identify $G_{*}$ with $\calG$ and we will always view $\calA(\sigma)$ as a ring of function of $G_{\sigma}$. The definitions of this section contain all the properties of buildings which will be used lated on. The next section explains how the affine building of the group of $K$-valued points of some semi-simple group for some valued field, $K$ satisfies all of these conditions for an appropriate choice of the carapace $\calA$.  
+
+\section{The Main Examples}\label{art6-sec-12}
+ In this section we will discuss three monumental complexes. The first two are quite straightforward by the third requires a short dicussion of some classical results of M. Greenberg. Such symbols as $K, \omega, \overline{k}, \calO, \bG, \bG, \calB, \overline{B}$ etc. mean just what they did in the previous section.  
+
+\section*{The Admissible Complex}
+Let $K$ be a locally compact, non-Archimedean field and let $F$ be any (discrete) field. Let $\calI(G, B, N, S)$ be the buildings associated to $G$. For each $\sigma \calI$, $G_{\sigma}$, the parahoric subgroup associated to the facet, $\sigma$, is a profinite group. For each $\sigma$ let $\calA_{F}^{0}(\sigma)$ denote the ring of locally constant $F$-valued functions on $G_{\sigma}$. For any set $T$, $T^{F}$ will denote the set of all $F$-valued functions on $T$. Then
+$$
+\calA_{F}^{0}(\sigma) = \lim\limits_{\substack{\longrightarrow \\ M}}(G_\sigma/M)^{F} 
+$$
+where $M$ varies over the open normal subgroups of $G_{\sigma}$. Since each of the algebras, $(G_{\sigma}/M)^{F}$ is in fact a finite dimensional Hopf algebra with augmentation and antipode and since the inclusions$(G_{\sigma}/M_{1})^{F}\subseteq (G_{\sigma}/M_{2})^{F}$ when $M_{2} \subseteq M_{1}$, is a Hopf morphism, $\calA_{F}^{0}(\sigma)$ is a Hopf algebra with antipode and augmentation.It is clearly profinite and it is also clear that the expansions are surjective Hopf morphisms. Let $\calG_{F}$ be the sheaf of $F$-points of the carapace $\calA_{F}^{0}$ as in \S\ref{art6-definition-11.2}, \ref{art6-definition11.2-enum-4}). Then $\calG_{F}(\sigma)$ is the set of algebra homomorphisms,
+\begin{align*}
+Hom_{F}^{al}(\lim\limits_{\substack{\longrightarrow \\ M}}(G_\sigma/M)^{F}) &= \lim\limits_{\substack{\longrightarrow \\                                                  M}} Hom_{F}^{al}((G_{\sigma}/M)^{F}, F)\\
+&=\lim\limits_{\substack{\longrightarrow \\ M}} G_{\sigma}/M\\
+&=G_{\sigma}
+\end{align*}
+That is, there is a canonical isomorphism of sheaves of groups, $\alpha : G_{*} \rightarrow \calG_{F}$. Finally define the $G$ structure $\{\Phi_{\Gg}\}_{\Gg \in G}$ by the equation, $[\Phi_{\Gg, \sigma}(a)](x) = a(\Gg ^{-1}x\Gg)$. Since $\calI$ is the building of $G$ \ref{art6-definition11.2-enum-1}),\ref{art6-definition11.2-enum-2}) and \ref{art6-definition11.2-enum-3}) of \S \ref{art6-sec-11} show that $G$ acts monumentally on it. We have just observed that $\calA_{F}^{0}$ and $\calI$ satisfy Conditions \ref{art6-definition11.2-enum-1}) through \ref{art6-definition11.2-enum-4}) of Definition \ref{art6-lemma-10.2}. Hence $(\calI, \calA_{F}^{0})$ is a monumental $G$ complex. We shall call it the admissible complex of $G$ over $F$. We note that the group. $G$, may be replaced by a central extension, $\tilde{G}$. 
+
+\section*{The Spherical Complex}
+ For this example we depart somewhat from usual  terminology. Let $F$ be an algebraically closed field and let $G_{F} = \bG(F)$ be the group of $F$ points of the Chevalley scheme, $\bG$ which we assume to be of simple type. Construct a complex as follows. The vertices of $\calS$ are the proper reduced maximal parabolic subgroup schemes of $G_{F}$ which we regard as the base extension of $\bG$ to $F$. The set $P_{1},ldots P{n}$ is a simplex in $\calS$ if and only if the intersection  $P_{1}\cap \ldots \cap P_{n}$ is parabolic. Let $G_{F}$ act on $\calS$ by conjugation. For any $\sigma \in \calS$, we write $G_{\sigma}$ for the stabilizer. Then $G_{\sigma}$ is just the intersection of the groups corresponding to the vertices of $\sigma$. A chamber is the set of maximal parabolics containing a maximal torus. We must first establish that the action of $G$ on $\calS$ is monumental. The first three conditions of Definition
+ \ref{art6-definition-11.1} are quite well  known. The proof of the fourth condition is again a modification of the proof of 2.3.2 of \cite{BT I}. Let $B$ be a Borel subgroup containing the maximal torus, $T$, and let $N$ be the normalizer of $T$. Let $P$ be any parabolic subgroup of $G$. By \cite{art6-keyH}, \cite{art6-definition-6.1}, the intersection of any two parabolic subgroups contains a maximal torus. Thus there is maximal torus, $S$, in $P \cap B$. Hence there is some element, $b \in B$, so that $bsb^{-1} = T$. Hence $bPb^{-1}$ contains $T$. Let $\bA(T)$ denote the apartment corresponding to $T$.m We have shown that for any facet, $\tau$, the $B$ orbit, $B\tau$  meets $\bA(T)$.  
+
+Now suppose that $P$ and $Q$ are two $B$-conjugate parabolics both of which contain $T$. Then there are element $m$ and $n$ in $N$ and $b$ in $B$ and a parabolic $P_{0}$ containing $B$ so that $P=nP_{0}n^{-1}$, $Q=m P_{0}m^{-1}$ and $bPb^{-1}=Q$. Thus, $bnP_{0}n^{-1}b^{-1} = mP_{0}m^{-1}$ and so, since $P_{0}$ is self normalizing, $bn \in m P_{0}$. By \cite{art6-keyBo}, IV, 2.5.2, $bn \in BMW_{0} B$ where $W_{0}$ is the Weyl group of $P_{0}$. Hence $nP_{0}n^{-1} = mP_{0}m^{-1}$, That is any two $B$ conjugate parabolics containing $T$ are necessarily equal. It follows that any $B$ orbit $B\tau$ meets $\bA(T)$ in exactly one facet. Condition \ref{art6-definition11.2-enum-4}) of the definition in hence established.
+
+For any $\sigma \in \calS$ let $\calA(\sigma)$ be the coordinate ring of the parabolic subgroup, $G_{\sigma}$. It is an elementary exercise in the theory of algebraic groups to see that $(G_{F}, \calS, \calA)$ is a monumental $G_{F}$ complex. 
+
+\section*{The Affine Complex}
+To describe this complex, we must recall some classical results of M. Greenberg. Let $\overline{k}$ be a perfect field and let $R$ be a ring scheme over $\overline{k}$. Let $X$ be any $\overline{k}$ scheme. Define a ringed space, $\tilde{R}(X)$ as follows. Its topological space is the underlying topological space of $X$ and we denote it $b(X)$. If U is open in $b(X)$, let $\calG_{R, X}(U)= R(Spec(\calO_{X}(U)))$. As this functor is representible, it is a sheaf of rings on $b(X)$. Call $R$ a scheme of local rings if $\calG_{R, X}$ is a sheaf of local rings for each scheme, $X$ and assume this to be the case. 
+
+Let $V=R(\overline{k})$. Then for each $X$, $\calG_{R, X}$ is a sheaf of $V$ algebras. Let $\tilde{R}(X) = (b(X), \calG_{R, X})$. Then $\tilde{R}$ is a covariant functor from  $\overline{k}$ schemes to $V$ local of $Spec(V)$ schemes. Though we call the following the first theorem of Greenberg, it is not given as one theorem in \cite{art6-keyMG I} but it largely summarizes the content of \S\ref{art6-definition11.2-enum-4} of that work, especially Propositions \ref{art6-equation-enum-1} to \ref{art6-equation-enum-4} of \S \ref{art6-sec-4} and the extensions thereof in  \S\ref{art-sec-6}.
+
+\subsection{First Theorem of Greenberg}\label{art6-subsec-12.1}
+\textit{Suppose the ring scheme, $R$, is a projective limit of schemes each isomorphic to affine $n$ space over $\overline{k}$ for varying $n$. Then there is a right adjoint to the functor $\calG_{R, X}$ from the category of $\overline{k}$ schemes to the category of $V$-schemes. That is, there is a functor $\bF$ so that for any $\overline{k}$ scheme, $X$, and any $Spec(V)$ scheme, $Y$, the following holds:
+$$
+Hom_{V}(\calG_{R}(X), Y) = Hom_{k}-(X, \bF(Y))
+$$
+Moreover $\bF$ satisfies:}
+\begin{enumerate}[(1)]
+{\it
+\item If $Y$ is of finite type over $Spec(V)$, then $\bF(Y)$ is a projective limit of schemes of finite type over $\overline{k}$.\label{art6-greenberg12.1-enum-1}
+
+\item If $Y$ is affine then so is $\bF(Y)$.\label{art6-greenberg12.1-enum-2}
+
+\item If $Y$ is a group scheme over $Spec(V)$, then $\bF(Y)$ is group scheme over $\overline{k}$ in such a way that the adjointness isomorphism of (\ref{art6-greenberg12.1-enum-2}) is a group morphism functorially in $X$.\label{art6-greenberg12.1-enum-3}}
+\end{enumerate} 
+
+
+This brings us to what we will call the second theorem of Greenberg. In this case we are assemblings parts of \S \ref{art6-sec-6}, Proposition \ref{art6-sec-1} of \cite{art6-keyMG I} and Proposition \ref{art6-prop2.2-enum-(2)} and the structure theorem of \cite{art6-keyMG II}, \S \ref{art6-sec-2}. Assume that $R= \lim\limits_{\substack{\longrightarrow \\n}}$ where $R_{n}$ is a ring scheme over $\overline{k}$ which is $\overline{k}$. isomorphic to $\bA\frac{n}{k}$, affine $n+1$ space over $\overline{k}$. Let $I_{n}$ be the scheme of ideals in $R$ corresponding to the kernel of the projection $R \rightarrow R_{n}$. Let $I_{n}^{r}$ be the scheme of ideals in $R_{r}$ such that $o\rightarrow I_{n}^{r} \rightarrow R_{r}\rightarrow 0$ is an exact sequence of group schemes for the additive structure. Assume that $I_{n}^{r}$ is affine $n-r$ space over $\overline{k}$ and that $R_{r}$ is a locally trivial fiber space over $R_{n}$ with fibre $I_{n}^{R}$ and the it is in fact a vector bundle over $R_{n}$. Let $\calG_{n} = \calG_{R_{n}}$ and let $\bF_{n}$ be its right adjoint. Let $\bU_{n}(Y)$ be the kernel of $\bF(Y) \rightarrow \bF_{n}(Y)$ and let $\bU_{n}^{r}(Y)$ be the kernel of $\bF_{r}(Y) \rightarrow \bF_{n}(Y)$, $(r > n)$. 
+
+\subsection{Second Theorem of Greenberg}\label{art6-subsec-12.2}
+\textit{Let $Y$ be a smooth group\break scheme with connected fibres over $Spec(V)$. If $r \geq n \geq 0$, $\bU_{n}^{r}$ is a finite dimensional unipotent group scheme.  Moreover, $\bF_{r}(Y)$ is $Spec(V)$ isomorphic to the total space of a vector bundale over $\bF_{0}(Y)$.}
+
+We will refer to $bU_{n}(Y)$ (respectively, $\bU_{n}^{r}(Y)$) as the congruence subscheme of $bF(Y)$ (respectively $\bF_{r}(Y))$ of level $n$, and we shall call $\bF(Y)$ the realization of $Y$ over $\overline{k}$.
+
+Now we return to the notation and conventions, of \S \ref{art6-sec-10}. Assume that $\overline{k}$ in perfect. Let $X = \calI(G, B, N, S)$. By Proposition \ref{art6-proposition-10.3}, the $G$ action os monumental. We will show that $X$ is a monumental complex over $G$. One of the more astonishing results i \cite{art6-keyBT II} is that for any $\sigma \in X$, there is group scheme over $\calO$, $M_{\sigma}$, so that the generic fiber of $M_{\sigma}$ is the base extension to $K$ of $\bG$ and such that $M_{\sigma}(\calO) = G_{\sigma}$. Since $\bG$ is split and simply connected and $\omega$ is discrete, $M_{\sigma}$ can be assumed to be smooth with connected fibers. These group schemes are determined up to isomorphism if one requires that they admit Bruhat decompositions of a particular type. (see section \ref{art6-coro-4.6} of \cite{art6-keyBT II}) We may assume that the schemes $M_{\sigma}$ are carried to each other by the conjugation action on the generic fibre. Finally we will assume that $\calO$ is the ring of $\overline{k}$ points of a ring scheme which is a projective limit of affine spaces over $\overline{k}$. This is the case when $\calO$ is the ring of Witt vectors of $\overline{k}$ or the ring the of formal power series in one variable over $\overline{k}$. Then for any $\sigma \in X$, $G_{\sigma}$ is the set of $\overline{k}$ points of $\bF M_{\sigma}$, the Greenberg realization of $M_{\sigma}$ over $\overline{k}$.  
+
+Now we may describe the affine complex. Choose $\calO$ as above to be the $\overline{k}$ points of a ring scheme isomorphic to an inverse limit of affine spaces. Choose $\bG, \omega, B$ etc. as in \S \ref{art6-sec-11} and let $X = \calI(G, B, N, S)$. For each $\sigma in X$, le $\calA(\sigma)$ be the $\overline{k}$ coordinate ring of $\bF M_{\sigma}$. The verification that $(G, X, \calA)$ is a monumental complex is now an  entirely routine affair. This monumental complex over $G$ is what we shall call the affine complex of $G$ over $\overline{k}$.
+
+\section{Locally Rational Carapaces}\label{art6-sec-13}
+ In this section and for the remainder of this discussion $(G, X, \calA)$ will always denote a monumental $G$-complex over the field , $k$, Recall that the action of the $G$-structure on $\calA$ can be described by the equation $\Phi_{\Gg, \sigma}(f) = f \circ c_{\Gg^{-1}}$ where $c_{y}$ denotes conjugation by $y$. Recall also that if $M$ is any proalgebraic group with coordinates ring, $A$, over $k$, and if $V$ is a rational representation of $M$ with structure map $\beta : V \rightarrow V \otimes_{k} A$, then if $M$ acts on $A$ be conjugation,  $\gamma_{\Gg}(f) = f \circ c_{g^{-1}}$, then $\beta$ is equivariant as a map from the representation, $V$, to the representation $V\otimes_{k} A$, where the actions on $V$ and $\calA$ are determined by $\beta$ and $\gamma$ respectively.
+
+\begin{definition}
+Let $(G, X, \calA)$ be a monmental complex and let $\Phi$ be the $G$-structure on $\calA$. A \textit{locally rational carapace of representations} on $(G, X, \calA)$ is a $G$-carapace of $k$-vector spaces on $X$, $V$, with $G$ structure, $\psi$ and a morphism of $G$-carapaces, $beta : V \rightarrow V \otimes_{k}\calA$ so the for each $\sigma$, the map $\beta_{\sigma} : V(\sigma) \rightarrow V(\sigma)\otimes_{k}\calA(\sigma)$ is a comodule structure map in such a way that for each $\Gg, \psi_{\Gg, \sigma}$ is morphism of comodules.
+\end{definition}
+
+A morphism of locally rational carapaces is a $G$-morphism of $G$-carapaces, $f : V\rightarrow U$ which is a comodule morphism on each segment. It is clear that the locally rational carpaces on $(G, X, \calA)$ are an abelian category.
+
+The reader is cautioned to note that that the $G$-structures on $\calA$ and $V$ exist quite apart from the local comodule structure map $\beta$. In particular $\calA$ admits several local comodule structures corresponding to left translation,  right translation and conjugation. These are non-isomorphic locally rational structures on the same $G$-carpace. The comultiplication $\mu : \calA \rightarrow \calA\otimes_{k}\calA$ may be regarded as the local structure corresponding locally to right translation. We will write $\calA^{r}$ for $\calA$ with this local comodule structure. 
+
+The reader is cautioned to note that that the $G$-structures on $\calA$ and $V$ exist quite apart from the local comodule structure map, $\beta$. In particular $\calA$ admits several local comodule structure corresponding to left translation, right translation and conjugation. These are non-isomorphic locally rational structures on the same $G$-carapace. The comultiplication, $\mu :\calA \rightarrow \calA \otimes_{k} \calA$ may be regarded as the local structure corresponding locally to right translation. We will write $\calA^{r}$ for $\calA$ with this local comodule structure.
+
+\begin{prop}\label{cart6-proposition-13.2}
+Let $(G, X, \calA)$ be a monumental complex and let $V$, $\beta$ be a locally rational carapace of representation on $(G, X, \calA)$. Let $mu, \epsilon, s$ denote the structure morphisms on $\calA$. Then
+\begin{enumerate}[(1)]
+\item The structures on $\calA$ endow the segment, $\Sigma(X, \calA)$, with the structure of a co-algebra with co-unit and antipode.\label{art6-proposition13.2-enum-1}
+
+\item The structure morphism, $\beta$, makes the segment, $\Sigma(X, V)$ into a comodule
+ over $\Sigma(X, \calA)$.\label{art6-proposition13.2-enum-2}
+
+ \item Both the co-algebra structure data on $\Sigma(X, \calA)$ and the comodule structure map on $\Sigma(X, V)$ are $G$ morphisms of representations.\label{art6-proposition13.2-enum-3}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Inn this proof, we will make use of two functional properties of the map, $t_{A, B}$ of Proposition
+\ref{art6-prop-2.2}, \ref{art6-prop2.2-enum-(3)}) which have not been established. Let $A, A', B, B'$ and $C$ be $k$-carapaces on $X$ and let $\alpha : A \rightarrow A'$ and $ \beta : B \rightarrow B'$ be morphisms. The two functorial properties, whose proofs we leave to the reader, are these:
+\begin{align}\label{art6-eq-13.3}
+t_{A' B'} \circ \Sigma(\alpha \otimes \beta) &= (\Sigma \alpha \otimes \Sigma \beta) \circ t_{A, B}\nonumber\\
+(t_{A, B}\otimes id_{\Sigma C}) \circ t_{A \otimes B,C} &= (id_{\Sigma A} \otimes t_{B, C}) \circ t_{A, B \otimes C}
+\end{align}
+
+Now define structure data on $\Sigma \calA$ as follows. Let $\mu^{\Sigma} = t_{\calA, \calA} \circ \Sigma\mu$, let $e^{\sigma} = \Sigma e$ and let $s^{\Sigma} = \Sigma s$.
+
+The proof, for example, of co-associativity is the following computation:
+\begin{align*}
+(\mu^{\Sigma} \otimes id_{\Sigma \calA}) \circ \mu^{\Sigma} &= (t_{\calA, \calA} \otimes id_{\Sigma \calA}) \circ ((\Sigma\mu) \otimes id_{\Sigma \calA}) \circ t_{\calA, \calA} \circ \Sigma\mu \\
+&= (t_{\calA, \calA} \otimes id_{\Sigma \calA}) \circ  t_{\calA \otimes \calA, \calA} \circ \Sigma(\mu \otimes id_{\calA}) \circ \Sigma_{\mu}\\
+&= (t_{\calA, \calA} \otimes id_{\Sigma\calA}) \circ t_{\calA \otimes, \calA, \calA} \circ \Sigma(id_{\calA} \otimes \mu) \circ \Sigma_{\mu}
+\end{align*}
+by the co-associativity of $\mu$
+\begin{align*}
+& = (id_{\Sigma\calA} \otimes t_{\calA, \calA}) \circ t_{A\calA, \calA \otimes \calA} \circ \Sigma(id_{\calA} \otimes \mu) \otimes \Sigma\mu \quad \text{by} (\ref{art6-proposition13.2-enum-3})\\
+&= (\id_{\Sigma \calA} \otimes t_{\calA, \calA}) \circ (id_{\Sigma \calA} \otimes \Sigma\mu) \circ t_{\calA, \calA} \circ \Sigma\mu\\
+&=[id_{\Sigma \calA} \otimes (t_{\calA, \calA} \circ \Sigma\mu)]\circ (t_{\calA, \calA} \circ \Sigma\mu)\\
+&= (id_{\Sigma \calA} \otimes \mu^{\Sigma}) \circ \mu^{\Sigma}
+\end{align*}
+
+The proof of the remaining axioms making $\Sigma \calA$ into a coalgebra with co-unit and antipode are similar and are, for that reason, left to the reader.
+
+Define the co-action on $\Sigma V$ by the equation, $\beta^{\sigma} = t_{V, \calA} \circ \Sigma \beta$. The proof that this is co-associative in truly indentical to the above computation with the first $\calA$'s in the expression there replaced by $V$'s.
+
+The last numbered assertion just follows from functoriality.
+\end{proof}
+
+\begin{definition}
+Let $(G, X, \calA)$ be monumental complex. The \textit{algebra of measures} on $(G, X, \calA)$, which we write $\calL^{1}(G, X, \calA)$ or, more briefly as $\calL^{1}(X)$ when no confusion will result, is the algebra $(\Sigma \calA)^{*}$, the $k$-linear dual of $\Sigma\calA$. 
+\end{definition}
+ 
