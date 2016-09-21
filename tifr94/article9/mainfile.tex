@@ -11,6 +11,29 @@
 \usepackage{xy}
 \usepackage{cleveref}
 
+\usepackage{threeparttable}
+
+
+\usepackage{caption}
+\renewcommand{\thetable}{\Roman{table}}
+\captionsetup[figure]{textfont=bf,labelfont=bf,justification=centering}
+\captionsetup[table]{textfont=rm,labelfont=bf,font=rm,justification=centering}
+\showcaptionsetup{figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\figurename}{Fig.}
+
+\MakeRobust{\ref}% avoid expanding it when in a textual label
+
+\makeatletter
+\newcommand{\labeltext}[2]{%
+  \@bsphack
+  \csname phantomsection\endcsname % in case hyperref is used
+  \def\@currentlabel{#1}{\label{#2}}%
+  \@esphack
+}
+\makeatother
+
+
 \floatstyle{plain}
 \floatplacement{Figure}{H}
 
