@@ -13,62 +13,67 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \marginparsep=10pt
 \marginparpush=5pt
 %\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+
+\makeatletter
+\renewcommand \theequation {\thesection.\@arabic\c@equation}
+\makeatother
+
 \newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
 } 
 \let\pageoriginaled\pageoriginale
 
-\newtheorem{lemma}{Lemma}[section]
 \newtheorem{proposition}{Proposition}
-\newtheorem{corollary}{Corollary}       
-\newtheorem{lem}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+
+
+%~ \newtheorem{lemm}[prop]{Lemma}
 \newtheorem{sublemma}{Lemma}[subsection]
-\newtheorem{theorem}{Theorem}[section]
-%\newtheorem{theorembis}{Theorem 2.6 Bis}[section]
+
 \newtheorem{subtheorem}{Theorem}[subsection]
 \newtheorem{autothm}{AUTOMORPHISM THEOREM}[subsection]
-\newtheorem{prop}{Proposition}
+\newtheorem{prop}[equation]{Proposition}
 \newtheorem{subprop}{Proposition}[subsection]
-\newtheorem{definition}{Definition}[section]
+\newtheorem{propo}{Proposition}
+
+
+\newtheorem{lemma}[equation]{Lemma}
 \newtheorem{subdefin}{Definition}[subsection]
 \newtheorem{cor}{Corollary}
-\newtheorem{coro}{Corollary}
+
 \newtheorem{subcoro}{Corollary}[subsection]
-\newtheorem{defn}{Definition}
+\newtheorem{defn}[equation]{Definition}
 \newtheorem{gausslemma}{Gauss Lemma}[section]
 \newtheorem{witt's thm}{Witt's theorem}
-\newtheorem{Theorem}{THEOREM}[section]
-
-
-%%% Theorem A
-\theoremstyle{alphtheorem}
-\newtheorem{alphtheorem}{Theorem}
-\renewcommand{\thealphtheorem}{\Alph{alphtheorem}}
-\renewcommand{\thesection}{\arabic{section}}
-
-
-%%% Theorem Bis
-\newtheoremstyle{theorembis}{10pt}{10pt}{\it}%
-{}{\bfseries}{.}{ }{#1 #2 Bis}
-\theoremstyle{theorembis}
-\newtheorem{theorembis}[theorem]{Theorem}
-
-
-
+\newtheorem{theorem}[equation]{Theorem}%%%%art5%%%%%%%
+\newtheorem{main theorem}[equation]{Main Theorem}%%%%art5%%%%%%%
+\newtheorem{coro}[equation]{Corollary}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{first theorem of greenberg}{First Theorem of Greenberg}[section]%%%art6%%%%%%%%%%
+\newtheorem{second theorem of greenberg}{Second Theorem of Greenberg}
 
 \newtheoremstyle{remark}{10pt}{10pt}{ }%
 {}{\bfseries}{.}{ }{}
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}
+%~ \newtheorem{remark}{Remark}
 \newtheorem{remarks}{Remarks}[section]
 \newtheorem{case}{Case}
 \newtheorem{subremarks}{Remarks}[subsection]
 \newtheorem{subremark}{Remark}[subsection]
-\newtheorem{example}{Example}[section]
+\newtheorem{definition}[equation]{Definition}%%%%%art5%%
+\newtheorem{example}[equation]{Example}%%%%%%art5%%%
+\newtheorem{criterion}[equation]{Criterion}%%%%%%art5%%%
+\newtheorem{conjecture}[equation]{Conjecture}%%%%%%art5%%%
+\newtheorem{remark}[equation]{Remark}%%%%%%art5%%%
+\newtheorem{examples}[equation]{Examples}
+%~ \newtheorem{defin}{Definition}%%%art6%%%%
+\newtheorem{defini}{Definition}%%%%%%%%art7%%%%%%%%%%
+
 \newtheorem{subexample}{Example}[subsection]
 \newtheorem{exam}{Example}
 \newtheorem{Definition}{Definition}
 \newtheorem{thmm}{Theorem}
-\newtheorem{examples}{Examples}[section]
+
 \newtheorem{Note}{Note}
 \newtheorem{note}{Note}[section]
 \newtheorem{notation}{Notation}[section]
@@ -80,7 +85,8 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \newtheorem{proofoftheorem}{Proof of theorem}[subsection]
 \newtheorem{proofofthm}{Proof of Theorem}
 \newtheorem{proofcontd}{Proof continued}[subsection]
-	
+\newtheorem{question}{Question}[section]%%%%%%%%%%%%%%%%%art1%%%%%	
+
 
 \newtheoremstyle{nonum}{}{}{\itshape}{}{\bfseries}{\kern -2pt{\bf.}}{ }{#1 \mdseries
 {\bf #3}}
@@ -94,8 +100,11 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \newtheorem{prop*}{Proposition}	
 \newtheorem{claim*}{Claim}
 \newtheorem{defi*}{Definition}
-\newtheorem{conjecture*}{CONJECTURE}
+\newtheorem{theoreme*}{Th\'eor\`eme}
+\newtheorem{lemme*}{Lemme}
 \newtheorem{coro*}{Corollary}
+
+
 \newtheoremstyle{mynonum}{}{}{ }{}{\bfseries}{\kern -2pt{\bf.}}{ }{#1 \mdseries
 {\bf #3}}
 \theoremstyle{mynonum}
@@ -106,11 +115,18 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \newtheorem{examples*}{Examples}	
 \newtheorem{note*}{Note}
 \newtheorem{problem}{Problem}
+\newtheorem{conjecture*}{Conjecture}
+\newtheorem{sketch of the proof}{Sketch of the Proof}
+\newtheorem{sketch of  proof}{Sketch of  Proof}
+\newtheorem{remarque*}{Remarque}
+ \newtheorem{proof*}{Proof}
+\newtheorem{proof of the main theorem*}{Proof of the Main Theorem}
 
+
+ 
 \def\ophi{\overset{o}{\phi}}
 
 \def\oval#1{\text{\cornersize{2}\ovalbox{$#1$}}}
-
 
 \newcommand*\mycirc[1]{%
   \tikz[baseline=(C.base)]\node[draw,circle,inner sep=.7pt](C) {#1};\:
@@ -118,9 +134,7 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Iim}{Im}
-\DeclareMathOperator{\Hol}{Hol}
-\DeclareMathOperator{\loc}{loc}
-\DeclareMathOperator{\cit}{cit}
+
 
 \DeclareMathOperator{\ord}{ord}
 
@@ -173,7 +187,28 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \DeclareMathOperator{\idd}{id.}
 \DeclareMathOperator{\transdeg}{trans{.}deg}
 
+%%%%%%%%%%%%%%%%%%%tifr95(article-1)%%%%%%%%%%
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GCD}{GCD}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\chc}{chc}
+\DeclareMathOperator{\GF}{GF}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Cat}{Cat}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\Todd}{Todd}
+\DeclareMathOperator{\C}{C}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\nef}{nef}
+\DeclareMathOperator{\Alb}{Alb}
+\DeclareMathOperator{\Ricci}{Ricci}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\Tor}{Tor}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\uub#1{\underline{\underline{#1}}}
 \def\ub#1{\underline{#1}}
 \def\os#1{\overset{#1}}
@@ -196,9 +231,29 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {1.5ex \@plus .2ex}%
-                                     {\bf}}%
+                                     {\normalfont}}%
 
 \renewcommand\thesection{\@arabic\c@section}
+
+%%%%%%%%%%%%%%%%%%%art6%%%%%%%%%%%%%%%%
+\newcommand\imCMsym[4][\mathord]{%
+  \DeclareFontFamily{U} {#2}{}
+  \DeclareFontShape{U}{#2}{m}{n}{
+    <-6> #25
+    <6-7> #26
+    <7-8> #27
+    <8-9> #28
+    <9-10> #29
+    <10-12> #210
+    <12-> #212}{}
+  \DeclareSymbolFont{CM#2} {U} {#2}{m}{n}
+  \DeclareMathSymbol{#4}{#1}{CM#2}{#3}
+}
+\newcommand\alsoimCMsym[4][\mathord]{\DeclareMathSymbol{#4}{#1}{CM#2}{#3}}
+
+\imCMsym{cmmi}{124}{\CMjmath}
+%%%%%%%%%%%%%%%%%%art6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\renewcommand\thesubsection{({\thechapter.\thesection.\@arabic\c@subsection})}
 
 \renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname}\hspace{0.3em}}
@@ -209,6 +264,8 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 
 \def\fibreoproduct#1#2#3{#1{\displaystyle\mathop{\otimes}_{#3}}#2}
 \let\foprod\fibreoproduct
+
+
 
 
 \def\cf{{cf.}\kern.3em}
@@ -246,19 +303,35 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \def\bX{\mathbf{X}}
 \def\bY{\mathbf{Y}}
 \def\bZ{\mathbf{Z}}
-\def\bp{\mathbf{p}}
-\def\br{\mathbf{r}}
-
 
 \def\sB{\mathscr{B}}
 \def\sF{\mathscr{F}}
 \def\sG{\mathscr{G}}
 \def\sN{\mathscr{N}}
 \def\sO{\mathscr{O}}
-\def\sS{\mathscr{S}}
 \def\sR{\mathscr{R}}
 \def\sY{\mathscr{Y}}
-\def\sE{\mathscr{E}}
+
+
+\def\calA{\mathcal{A}}
+\def\calE{\mathcal{E}}
+\def\calX{\mathcal{X}}
+\def\calU{\mathcal{U}}
+\def\calM{\mathcal{M}}
+\def\calH{\mathcal{H}}
+\def\calB{\mathcal{B}}
+\def\calO{\mathcal{O}}
+\def\calF{\mathcal{F}}
+\def\calI{\mathcal{I}}
+\def\calx{\mathcal{x}}
+\def\calT{\mathcal{T}}
+\def\calS{\mathcal{S}}
+\def\calK{\mathcal{K}}
+\def\calC{\mathcal{C}}
+\def\calG{\mathcal{G}}
+\def\calL{\mathcal{L}}
+\def\calR{\mathcal{R}}
+\def\calP{\mathcal{P}}
 
 \def\bbF{\mathbb{F}}
 \def\bbN{\mathbb{N}}
@@ -266,19 +339,16 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 \def\bbR{\mathbb{R}}
 \def\bbW{\mathbb{W}}
 \def\bbZ{\mathbb{Z}}
+\def\bbL{\mathbb{L}}
+\def\bbU{\mathbb{U}}
+\def\bbP{\mathbb{P}}
 
 \def\fa{\mathfrak{a}}
-\def\fc{\mathfrak{c}}
 \def\fo{\mathfrak{o}}
-\def\fg{\mathfrak{g}}
-\def\fk{\mathfrak{k}}
-\def\fp{\mathfrak{p}}
+\def\fc{\mathfrak{c}}
 
-\def\fC{\mathfrak{C}}
-\def\fT{\mathfrak{T}}
-\def\fI{\mathfrak{I}}
-\def\fR{\mathfrak{R}}
-\def\fA{\mathfrak{A}}
+
+\def\Gg{\mathsf{g}}
 
 
 \makeatletter
