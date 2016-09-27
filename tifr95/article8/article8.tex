@@ -1,0 +1,80 @@
+\title{Scalar conservation laws with boundary condition}
+\markright{Scalar conservation laws with boundary condition}
+
+\author{By~ K. T. Joseph}
+\markboth{K. T Joseph}{Scalar conservation laws with boundary condition}
+
+\date{}
+\maketitle
+
+\section{Introduction}\label{art8-sec-1}
+
+Many of the balance lawas in Physics are conservation laws. We consider scalar conservation laws in a single space variable,
+\begin{equation}\label{art8-eq-1.1}
+u_{t}+f(u)_{x} = 0.
+\end{equation}
+On the flux function $f(u)$, we assume either
+\begin{equation}\label{art8-eq-H1}
+f''(u)> 0 \;\text{and}\; \lim\limits_{|u|\rightarrow \infty}\dfrac{f(u)}{|u|}= \infty\tag{$H_{1}$}
+\end{equation}
+
+\begin{center}
+or
+\end{center}
+\begin{equation}\label{art8-eq-H2}
+f(u) = log\left[ae^{u} + be^{-u}\right],\tag{$H_{2}$}
+\end{equation}
+where $a$ and $b$ are positive constants such that $a+b=1$. An important special case is the Burgers equations i.e., when $f(u) = \frac{u^{2}}{2}$.
+
+Initial value problem for \eqref{art8-eq-1.1} is to find $u(x, t)$ satisfying  \eqref{art8-eq-1.1} and the initial data
+\begin{equation}\label{art8-eq-1.2}
+u(x, 0) = u_{0}(x).
+\end{equation}
+It is well known that (see Lax \cite{art8-key8}) solution of \eqref{art8-eq-1.1} in the classical sense develop singularities after a finite time, no matter how smooth the initial data $u_{0}(x)$ is and cannot be continued as a regular solution. The can be continued however as a solutions in weak sense. However, weak solutions of \eqref{art8-eq-1.1} are not determined uniquely by their initial values. Therefore, some additional principle is needed for prefering the physical solution to others. One such condition is (See Lax \cite{art8-key9}),
+\begin{equation}\label{art8-eq-1.3}
+u(x+0, t)\leq u(x-0,t).
+\end{equation}
+This condition is called entropy condition.
+
+Existence and uniqueness of weak solution of \eqref{art8-eq-1.1} and \eqref{art8-eq-1.2} satsifying the entropy condition \eqref{art8-eq-1.3} is well known (see Hopf \cite{art8-key2}, Lax \cite{art8-key9}, Olenik \cite{art8-key14}, Kruskov \cite{art8-key7} and Quinn \cite{art8-key13}). Hopf \cite{art8-key2} derived an explicit for the solution when $f(u) = \frac{u^{2}}{2}$ and Lax \cite{art8-key9} extended this formula for general convex $f(u)$.
+
+Let $f^{*}(u)$ be the convex dual of $f(u)$ i.e.,
+\begin{align}
+f^{*}(u) &= \max\limits_{\theta}[u\theta - f(\theta)],\label{art8-eq-1.4}\\
+U_{0}(x)&= \int\limits_{0}^{1} u_{0}(y)dy \label{art8-eq-1.5}
+\end{align}
+and
+\begin{equation}\label{art8-eq-1.6}
+U(x, t) = \min\limits_{-\infty < y < \infty}\left[u_{0}(y) + tf^{*}\left(\dfrac{x-y}{t}\right) \right].
+\end{equation}
+For each fixed $(x, t)$, there may be several minimisers $y_{0}(x,t)$ for \eqref{art8-eq-1.6}, define
+\begin{equation}\label{art8-eq-1.7}
+y_{0}^{+}(x,t)=\max\{y_{0}(x,t)\},y_{0}^{-}(x,t)= \min\{y_{0}(x,t)\}. 
+\end{equation}
+Lax \cite{art8-key9} proved that, for each fixed $t > 0$, $y_{0}^{-}(.,t)$ and $y_{0}^{+}(., t)$ are left continiuous and righrt continuous respectively, and both are continuous except on a common denumerable set of points of $x$ and at the points of continuity
+$$
+y_{0}^{+}(x,t) =y_{0}^{-}(x,t).
+$$
+Define
+\begin{equation}\label{art8-eq-1.8}
+u(x,t  =(f^{*})'\left(\dfrac{x-y_{0}(x,t)}{t}\right)
+\end{equation}
+
+\begin{equation}\label{art8-eq-1.9}
+u(x \pm, t) = (f^{*})' \left(\dfrac{x-y_{0}^{\pm}(x,t)}{t}\right).
+\end{equation}
+Clearly $u(x,t)$ is well defined A.e. $(x,t)$ and $u(x \pm, t)$ is well defined for all $(x, t)$ Lax \cite{art8-key9} proved the following theorem.
+
+\begin{theorem}\label{art8-thm-1}
+$u(x,t)$ defined by \eqref{art8-eq-1.8} and \eqref{art8-eq-1.9} is the weak solution of \eqref{art8-eq-1.1} and
+\eqref{art8-eq-1.2} which satisfies the entropy condition \eqref{art8-eq-1.3}. 
+\end{theorem}
+
+Let us consider the mixed initial boundary value problem for \eqref{art8-eq-1.1} in $x >0$, $t > 0$. We prescribe the initial data.
+\begin{equation}\label{art8-eq-1.10}
+u(x, 0) = u_{0}(x), \; x > 0.
+\end{equation}
+It follows from the work of Bardos et al \cite{art8-key1} that we really cannot impose such a boundary condition
+\begin{equation}\label{art8-eq-1.11}
+u(0,t)= \lambda(t)
+\end{equation}
