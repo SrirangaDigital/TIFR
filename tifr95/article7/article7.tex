@@ -36,7 +36,7 @@ The structure of the paper is as follows. In Section \ref{art7-sec-2} we conside
 
 The author wishes to thank M.F. Atiyah and A. Beauville for useful conversations.
 
-\section{Singular connections}\label{rt7-sec-2}  
+\section{Singular connections}\label{art7-sec-2}  
 We intrduce here the basic objects of our study -flat meromorphic connections with singularities of a specified type. For the most part we follow the exposition of Malgrange \cite{art7-key10}.
 
 \begin{defini}\label{art7-definition-1}
@@ -701,4 +701,446 @@ The derivative $ds$ in  invariantly defined as a section of $K_{\tilde{c}} \otim
 Fortunately Cayley's solution in 1853 to the Poncelet problem gives us means to find $y$ algebraically. A usefull modern account of this is given by Griffiths and Harris in \cite{art7-key5}, but the following description I owe to $M. F.$ Atiyah.
 
 Suppose the elliptic curve $\tilde{C}$ is described as a cubic in $\bC\bP^{2}$ given by $v^{2}=h(u)$, where $h(u)$ is a cubic in polynomial and $h(0)= c_{0}^{2} \neq 0$. We shall find the condition on the coefficients of $h$ in order that there should exist a polynomial $g(v,u)$ of degree $(n-1)$ (a section of $\calO(n-1))$ on the curve with a zero of order $(2n-1)$ at $(v,u)=(c_{0},0)$ and a pole of order $(n-2)$ at $u=\infty$. Given such a polynomial,
+$$
+s(v,u)= \dfrac{g(v,u)}{g(-v,u)}
+$$
+is the function on the curve (for $k=(2n-1)$) used above, and the zeros of its derivative define the solution $y(x)$ to the Painlev\'e equation. A very similar procedure deals with the case of even $k$.
 
+ To find $g$, expand $\sqrt{h(u)}$ as a power series in $z$, making a choice $c_{0}$ of square root of $h(0)$:
+ $$
+ v = c_{0}+c_{1}u+c_{2}u^{2}+ \cdots
+ $$
+ and the put
+ $$
+ v_{m}=c_{0}+c_{1}u+\cdots + c_{m-1}u^{m-1}.
+ $$
+
+ Now clearly $v-v{n}$ has a zero of order $n$ on the curve at $u=0$, as do other functions constructed from the $v_{m}$:
+\begin{align*}
+v-v_{n} &= c_{n}u^{n}+\cdots +c_{2n-2}u^{2n-2} + \cdots\\
+u(v-v_{n-1}) &= c_{n-1}u^{n}+ \cdots + c_{2n-3}u^{2n-2}+ \cdots\\
+u^{2}(v-v_{n-2}) &= c_{n-2}u^{n}+ \cdots + \cdots\\
+\ldots \quad &= \ldots\\
+u^{n-2}(v-v_{2}) &= c_{2}u^{n}+ \cdots + c_{n}u^{2n-2}+\cdots
+\end{align*}
+
+We can then find $n-1$ coefficients $\lambda_{0}, \lambda_{1},\ldots,\lambda_{n-2}$ such that 
+$$
+g(v,u) \equiv \lambda_{0}(v-v_{n}) + \lambda_{1}u(v-v_{n-1})+ \cdots+ \lambda_{n-2}u^{n-2}(v-v_{2})
+$$
+vanishes at $u=0$ to order $2n-1$ if and only if
+\begin{equation}\label{art7-eq-17}
+\det M=0 \quad where \quad M =
+\begin{bmatrix}
+c_{n} & c_{n-1} &\ldots &c_{2}\\
+c_{n+1} & c_{n} &\ldots & c_{3}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-2} & c_{2n-3} & \ldots & c_{n}
+\end{bmatrix}
+\end{equation}
+This is Cayley's form of the Poncelet constraint.
+
+If \eqref{art7-eq-17} holods, $g(v,u)$ is a polynomial of degree $n-1$ which, upon inspection, vanishes with multiplicity $n-2$ at the inflexion point at infinity of the curve. Its total intersection number with the cubic $\tilde{C}$ is $3(n-1) = (2n-1)+(n-2)$, so there are no more zeros. Thus the condition $\det M =0 $ is necessary and sufficient for the construction of the required function $s$ with a zero of order $k$ at $(v, u)=(c_{0},0)$ and a pole of order $k$ at $(v,u)= (-c_{0},0)$.
+
+In the case of a pair of conics in the plane, defined by symmetric matrices $B$ and $C$,. the constraint is on the cubic $h(u)=\det(B+uC)$ in order for the conics to satisfy th Poncelet condition.
+
+Note that
+$$
+g(v,u) = p(u)v +q(u)
+$$
+where $p$ and $q$ polynomials of degree $n-2$ and $n-1$ respectively. Thus
+$$
+s = \dfrac{p(u)v + q(u)}{-p(u)v + q(u)}
+$$
+and $ds$ vanishes if
+$$
+pqv' + (p'q-pq')v=0.
+$$
+Using $v^{2}=h(u)$, this is equivalent to
+$$
+r(u)\equiv p(u)q(u)h'(u) + 2(p'(u)q(u)-p(u)q'(u))h(u)=0
+$$
+This is a polynomial in $u$ of degree $n2n-1$, which by construction vanishes to order $k-1-2n-2$ at $u =0$. It is thus of the form
+$$
+r(u)=au^{2n-2}(u-b)
+$$
+and so $y$, the solution to the Painlev\'e equation which corresponds to a zero
+ of $ds$, is defined in terms of the ration of the two highest coefficients of $r(u)$. Since the solution the solution to the Painlev\'e equation has singularities at the four points $0,1,x, \infty$, a M\"obius transformation gives the variable $x$, and the solution $y(x)$, as:
+ \begin{equation}\label{art7-eq-18}
+x= \dfrac{e_{3}-e_{1}}{e_{2}-e_{1}} \quad y=\dfrac{b-e_{1}}{e_{2}-e_{1}}
+ \end{equation}   
+where $e_{1}, e_{2}$ and $e_{3}$ are the roots of $h(u)=0$.
+
+To calculate $b$ expalicitly is easy. Putting $p(u) = p_{0}+P_{1}u+ \cdots+P_{n-2}u^{n-2}$
+and $q(u) =q_{o} +q_{1}u +\cdots q_{n-1}u^{n-1}$ and looking at the coefficients of $r(u)$, we find
+\begin{align*}
+b &= \dfrac{p_{n-3}}{p_{n-2}}-3\dfrac{q_{n-2}}{q_{n-1}}\\
+  &= \dfrac{\lambda_{n-3}}{\lambda_{n-2}}-3\dfrac{\lambda_{0}+\lambda_{1}c_{n-3}+ \cdots + \lambda_{n-2}c_{0}}{\lambda_{0}c_{n-1} + \lambda_{1}c_{n-2}+\cdots + \lambda_{n-2}c_{1}}
+\end{align*}
+from the definition of $p(u)$ and $q(u)$. Now the coefficient $\lambda_{i}$ are the entries of column vector $\lambda$ such that $M\lambda =0$. Thus in the generic case where the rank of $M$ is $n-3$, these are given by cofactors of $M$. We can then write
+\begin{equation}\label{art7-eq-19}
+b =
+-\dfrac{\begin{vmatrix}
+c_{n} & \ldots & c_{4} & c_{2}\\
+c_{n+1}& \ldots & c_{5} & c_{3}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-3} & \ldots & c_{n+1} & c_{n-1}
+\end{vmatrix}}{\begin{vmatrix}
+c_{n} & c_{n-1} & \ldots   & c_{3}\\
+c_{n+1}& c_{n} &\ldots   & c_{4}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-3} & c_{2n-4} & \ldots &  c_{n}
+\end{vmatrix}}
+-3
+\dfrac{\begin{vmatrix}
+c_{n} & c_{n-1} & \ldots   & c_{2}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-3} & c_{2n-4} & \ldots &  c_{n-1}\\
+c_{n-2} & c_{n-3} & \ldots &  c_{0}
+\end{vmatrix}}{\begin{vmatrix}
+c_{n} & c_{n-1} & \ldots   & c_{2}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-3} & c_{2n-4} & \ldots &  c_{n-1}\\
+c_{n-1} & c_{n-2} & \ldots &  c_{1}
+\end{vmatrix}}
+\end{equation}
+This effectively gives us a concrete form for the solution of the Painlev\'e equaton for $k$ pdd, through we shall try to be more explicit in special cases in the nest section. When $k$ is even, a similar analysis can be applied. Very briefly, if $k=2n$ and $n\leq 2$, then the vanishing of
+$$
+\begin{vmatrix}
+C_{n+1} & c_{n} & \ldots  & c_{3}\\
+c_{n+2} & c_{n+1} & \ldots & c_{4}\\
+\ldots & \ldots & \ldots & \ldots\\
+c_{2n-1} & \ldots &\ldots & c_{n+1}
+\end{vmatrix}
+$$
+is the condition for the existence of $\lambda_{i}$ so that
+$$
+g(v,u) =\lambda_{0}(v-v_{n+1}) + \lambda_{1}u(v-v_{n}) + \cdots+\lambda_{n-2}u^{3}(v-v_{3})
+$$
+has a zero of order $2n$ at $u=0$. The rest follows in a similar manner to the above.
+
+\section{Explicit solutions}\label{art7-sec-6}
+
+We shall now calculate explicit solutions to Painlev\'e VI with coefficients $(\alpha,\beta, \gamma, \delta)=(1/8,-1/8,1/8,3/8)$ for small values of $k$. Clearly, from the interpretation in terms of Poncelet polygons, we must have $k\leq 3$. The discussion in the previous section shows that we need to perform calculations with the coefficients of the cubic $h(u)=\det(b+uC)$ where $B$ and $C$ are symmetric matrices representing the conics we have denoted with the same symbol. For convenience, we take the cubic
+\begin{align}\label{art7-eq-20}
+h(u) &=(1+(x_{1}+x_{2})u)(1+(x_{2}+x_{0})u)(1+(x_{0}+x_{1})u)\nonumber\\
+     &=1+2s_{1}u + (s_{1}^{2}+s_{2})u^{2} +(s_{1}s_{2}-s_{3})u^{3}
+\end{align}
+where $s_{i}$ is the $i$th elementary symmetric function in $x_{0}, x_{1},x_{2}$. 
+
+\subsection{Solutions for $k=3$}\label{art7-subsec-6.1}
+For $k=3$ the Poncelet constraint from \eqref{art7-eq-17} is $c_{2}=0$, which is $s_{2}=0$ for the above cubic, and can therefore be writtne
+$$
+\dfrac{1}{x_{0}}+\dfrac{1}{x_{1}} +\dfrac{1}{x_{2}}=0.
+$$
+This is the equation in homogeneous coordinates $(x_{0}, x_{1},x_{2})$ for a plane conic which can clearly be parametrized rationally by
+\begin{equation}\label{art7-eq-21}
+x_{0}=\dfrac{1}{1+s} \quad x_{1}=\dfrac{-1}{s} \quad x_{2}=-1
+\end{equation}
+The polynomial $g$ is just $g(v,u) = v-(1+s_{1}u)$, and this gives
+$$
+r(u)=s_{1}s_{3}u^{3} +3s_{3}u^{2}
+$$
+and hence $b=-3/s_{1}$. Substituting the parametrization \eqref{art7-eq-21} in \eqref{art7-eq-18} and using the fact that the roots $h(u)=0$ are $u =-1/(x_{1}+x_{2})$ etc, gives the solution $y(x)$ to the Painlev\'e equation ad
+$$
+y = \dfrac{s^{2}(s+2)}{(s^{2}+s+1)} \quad \text{where} \quad x=\dfrac{s^{3}(s+2)}{2s+1}
+$$
+
+\subsection{Solutions for $k=4$}\label{art7-subsec-6.2}
+
+The Poncelet constraing here is $c_{3}=0$, which in the formalism above is $s_{3}=0$, that is
+$$
+x_{0}=0 \quad x_{1}=0 \quad x_{2}=0.
+$$
+In $\bC\bP^{3}$ this consists of three lines. Take the component $x_{0}=0$ and parametrize it by
+$$
+x_{1}=1 \quad x_{2}=s.
+$$
+Now the polynomial $g$ is given by $g(v,u)=v-(1+s_{1}u+\frac{1}{2}s_{2}u^{2})$, which yields
+$$
+r(u) = \dfrac{1}{2}s_{1}s_{2}^{2}u^{4} +s_{2}^{2}u^{3}
+$$
+and hence $b=-2/s_{1}$. Substituting the parametrization, we obtain $x=s^{2}$, $y=s$, thus the solution to the
+ Painlev\'e equation is
+$$
+y(x) = \sqrt{x}.
+$$
+
+\begin{remark*}
+In Proposition \ref{art7-proposition-6}, we saw that the same solution $y=\sqrt{x}$ with coefficients $(\alpha, \beta,\gamma, \delta)=(1/8, -1/8, 1/8, 3/8)$ arises from taking an curve $P$ in $P(V_{2})$ with $P.D_{1} =P.D_{2}=2$, and hence has holonomy in $D_{2}$, which is the quaternion group $\{\pm 1, \pm i, \pm j, \pm k\}$, a proper subgroup of $\tilde{D}_{4}$. Recall also that from \cite{art7-key16}, $P(V_{2}) \cong P(T)$, the projectivized tangent bundle of $\bC\bP^{2}$ together with a line passing through it, or equivalently a line with a distinguished point. Thus there is a projection also to the dual projective plane $\bC\bP^{2*}$. In other words
+$$
+P(T)=\{(p, L) \in \bC\bP^{2} \times \bC\bP^{2*} : p \in L\}
+$$
+with projections onto the two factors. In the terminology above, the two corresponding hyperplane divisor classes are $H$ and $H-U$. Now the curve $P$ which defines the solution to the Painlev\'e equation satisfies $P.H =P.(H-U)=1$. It follows easily that $P$ is obtained by taking a point $q\in \bC\bP^{2}$ and a skew line $M$.  The set
+$$
+P=\{(p, L) \in P(T) :q \in L \; \text{and} \; p = L\cap M\}
+$$
+describes the rational curve $P\subset P(T)$.
+
+According to our formula, this curve must correspond to a Poncelet conic. In act, let$(p, L)$ be a point of $P$, let $\ell$ denote the pole of the line $L$ with respect to the conic $B$. The line $\ell p$ has pole $q$, and as $L$ varies in the pencil of lines through $p$, the point $q$ describes a conic $C$. If $L$ is a tangent through $p$ to the conic $B$, then $q4$ is the point of contact $B \cap L$. Let $q_{1}$ and $q_{2}$ be the two points of contact of the tangents through $p$, then the conic $C$ passes through $p, q_{1}$ and $q_{2}$. But $pq_{1}pq_{2}$ is then a degenerate Poncelet quadrilateral, and by Poncelet's theorem \cite{art7-key3}, if there is a Poncelet polygon through one point of $C$, then there exists one through each point.
+\end{remark*}
+
+\subsection{Solution for $k=5$}\label{art7-subsec-6.3}
+~
+
+\noindent
+From \eqref{art7-eq-17}, the Poncelet constraint is
+$$
+\det
+\begin{bmatrix}
+c_{3} & c_{2}\\
+c_{4} & c_{3}
+\end{bmatrix}
+=0
+$$
+which in terms of the symmetric functions $s_{i}$ is
+\begin{equation}\label{art7-eq-22}
+4s_{3}^{2} +s_{2}^{2} - 4s_{1}s_{2}s_{3} =0
+\end{equation}
+Now from \eqref{art7-eq-19},
+\begin{align*}
+b &= -\dfrac{c_{2}}{c_{3}} -3 \dfrac{(c_{3}-c_{1}c_{2})}{(c_{1}c_{3}-c_{2}^{2})}
+ &=\dfrac{s_{2}}{s_{3}} -6\dfrac{(s_{3}+s_{1}s_{2})}{(2s_{1}s_{2}+s_{2}^{2})}
+\end{align*}
+and using \eqref{art7-eq-22} this becomes
+$$
+b =-20 \dfrac{s_{2}s_{3}}{(4s_{3}^{2} + 3s_{2}^{3})}
+$$
+It is convenient to introduce coordinates $u, v$ by setting
+$$
+x_{0}=1 \quad  u=\dfrac{1}{x_{1}} + \dfrac{1}{x_{2}} \quad v= \dfrac{1}{x_{1}x_{2}}
+$$
+and then the constraint \eqref{art7-eq-22} becomes
+\begin{equation}\label{art7-eq-23}
+v = \dfrac{(1+u)(1-u)^{2}}{4u}
+\end{equation}
+and
+$$
+-5\dfrac{(u+1)(u-1)^{2}}{(3u(u+1)^{2} + (u-1)^{2})}
+$$
+
+Now $1/x_{1}$ and $1/x_{2}$ are the roots of the quadratic $z^{2}-uz +v =0$, and so, using \eqref{art7-eq-23},
+$$
+\dfrac{1}{x_{1}}, \dfrac{1}{x_{2}} = \dfrac{1}{2}(u \pm \sqrt{1+u-u^{-1}})
+$$
+and now putting
+\begin{equation}\label{art7-eq-24}
+w^{2} = 1+u +u^{-1}
+\end{equation}
+we finally obtain the solution of the Painlev\'e equation as
+\begin{align*}
+y &=  \dfrac{(u-w+2)(u+w)}{(u+w-2)(u-w)} \left(1- \dfrac{20u^{2}}{(3u(u+1)^{2} + (u-1)^{2})} \right)\\
+\text{where} \quad x &= \dfrac{(u-w-2)(u-w+2)(u+w)^{2}}{(u+w-2)(u+w+2)(u-w)^{2}}\quad \text{and} \quad w^{2}=1+u+u^{-1}
+\end{align*}
+Note that \eqref{art7-eq-24} is the equation of an elliptic curve, so that $x$ and $y$ are meromorphic functions on the curve. It is a special elliptic curve, in fact under the Cremona transformation $x_{i}\mapsto 1/x_{i}$, the equation \eqref{art7-eq-22} transforms into the plane cubic
+$$
+s_{1}^{3}-4s_{1}s_{2}+4s_{3} =0
+$$
+and the symmetric group $S_{3}$ clearly acts as automorphism of the curve.
+
+The study of the Poncelet constraints for smal values of $k$ in undertaken in \cite{art7-key1}, and the reader will find that, apart from $k=6$ and $k=8$, the formulae
+rapidly become more complicated. We shall only consider now these two further cases.
+
+\subsection{Solution for $k=6$}\label{art7-subsec-6.4}
+~
+
+Here, from \cite{art7-key1}, we find that the constraint factorizes
+\begin{equation*}
+\begin{split}
+(x_{0}x_{1} + x_{1}x_{2} +x_{2}x_{0})(-x_{0}x_{1}+x_{1}x_{2}+x_{2}x_{0})(x_{0}x_{1}-x_{1}x_{2}+x_{2}x_{0})\\
+(x_{0}x_{1}+x_{1}x_{2}-x_{2}x_{0})=0.
+\end{split}
+\end{equation*}
+The first factor represent the case $k=3$ embedded in $k=6$, by thinking of a repeated Poncelet triangle as a hexagon, We choose instead the third factor, which can be written as
+$$
+\dfrac{1}{x_{0}} = \dfrac{1}{x_{1}}+\dfrac{1}{x_{2}}.
+$$
+This is a conic, and we rationally parametrize it by setting
+$$
+x_{0}=\dfrac{1}{1+s} \quad x_{1}=\dfrac{1}{s}\quad x_{2}=1.
+$$ 
+
+After some calculation, this gives a solution to the Painlev\'e equations
+\begin{align*}
+y&=\dfrac{s(1+s+s^{2})}{(2s+1)}\\
+\text{where} \quad x &= \dfrac{s^{3}(s+2)}{(2s+1)}
+\end{align*}
+
+\subsection{Solution for $k=8$}\label{art7-subsec-6.5}
+
+Here, again referring to \cite{art7-key1}, we find the constraint equation splits into components
+$$
+(-x_{0}^{2}x_{1}^{2} + x_{1}^{2}x_{2}^{2} + x_{2}^{2}x_{0}^{2})(x_{0}^{2}x_{1}^{2} - x_{1}^{2}x_{2}^{2}+x_{2}^{2}x_{0}^{2})
+(x_{0}^{2}x_{1}^{2} + x_{1}^{2}x_{2}^{2} - x_{2}^{2}x_{0}^{2}) =0.
+$$
+one of which is given by the equation
+$$
+\dfrac{1}{x_{0}^{1}}= \dfrac{1}{x_{1}^{2}}+\dfrac{1}{x_{2}^{2}}
+$$
+and , parametrizing this conic rationally in the usual way with
+$$
+x_{0}=1 \quad x_{1}=\dfrac{1+s^{2}}{2s} \quad x_{2}= \dfrac{1+s^{2}}{1-s^{2}}
+$$
+one may obtain the solution to the Painlev\'ed equation as
+\begin{align*}
+y&= \dfrac{4s(3s^{2}-2s+1)}{(1+s)(1-s)^{3}(s^{2}+2s+3)}\\
+\text{where} \quad x &= \left(\dfrac{2s}{1-s^{2}}\right)^{4}.
+\end{align*}
+
+\section{PAinlev\'e curves}\label{art7-sec-7}
+
+The examples above show that there do indeed exist algebraic solutions to Painlev\'e sixth equation, for certain values of the coefficients, despite the general description of solutions to these equations as ``Painlev\'e transcendants". In general, an algebraic solution is given by a polynomial equation
+$$
+R(x,y) = 0
+$$
+which defines an algebraic curve. So far, we have only seen explicit examples where this curve is rational or elliptic, but higher genus curves certainly do occur. We make the following definition:
+
+\setcounter{defin}{1}
+\begin{defin}\label{art7-definition-2}
+A Painlev\'e curve is the normalization of an algebraic curve $R(x,y)=0$ which solves Painlev\'e's sixth equation
+\eqref{art7-eq-5} for some values of the coefficients $(\alpha, \beta, \gamma, \delta)$.
+\end{defin}
+ Just as the elliptic curve above corresponding to the solution for $k=5$ was special, so are Painlev\'e curves in general. The equation \eqref{art7-eq-5} was in fact found not by Painlev\'e, but by $\bR$. Fuchs \cite{art7-key4}, but nevertheless falls into the Painlev\'e classification by its characteristic property that its solution have no ``movalble singular points". What this means is that the branch points or essential singularities of solutions $y(x)$ are independent of the constants of integration. In the case of Painlev\'e VI, these points occur only at $x=0,1, \infty$. Now if $X$ is a Painlev\'e curve, $x$ and $y$ are meromorphic functions on $X$, and so there are no essential singularities. The function
+ $$
+ x : X\rightarrow \bC\bP^{1}
+ $$
+ is thus a map with branch points only at $x=0,1, \infty.$
+
+ Such curves have remarkable properties. In the first place, it follows from Weil's rigidity theorem\cite{art7-key17}, that $X$ is defined over the algebraic closure $\overline{\bQ}$ of the rationla (from Belyi's theorem \cite{art7-key2} this actually characterizes curves with such functions). Secondly, by uniformizing $\bC\bP^{1}\backslash\{0,1,\infty\}$,
+$$
+X\cong \overline{H/\Gamma}
+$$
+where $H$ is the upper half-plane and $\gamma$ is asubgroup of finite index in the principal congruence subgroup $\gamma(2) \subset SL(2,\bZ)$. Thus, in some manner, each algebraic solution of Painlev\'e VI gives rise to a problem involving elliptic curves.
+
+Coincidentally, the investigation of the Poncelet problem by Barth and Michel in \cite{art7-key1} proceeds by studying a modular curve. This is curve which occurs in parametrizing elliptic curves with     
+\begin{itemize}
+\item a level-2 structure
+
+\item a primitive element of order $k$
+\end{itemize}
+In our model of the Poncelet problem, the elliptic curve is $\tilde{C}$, the level-2
+structure identifies the elements of order two (or equivalently an ordering of the branch points of $\pi$), and the Poncelet constraint \eqref{art7-eq-11} selects the line bundle $\calO(1/2,-1/2)$ of order $k$ on $\tilde{C}$ or equivalently a point of order $k$ on the curve, the zero of the function $s$ in Section \ref{art7-sec-5}. Choosing a primitive element avoids recapturing a solution for smaller $k$.
+
+As described by Barth and Michel, the stabilizer of a primitive element of order $k$ is
+\begin{equation}\label{art7-eq-25}
+\Gamma_{00}(k) = \left\{\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}
+\in SL(2, \bZ) : a \equiv d \equiv 1(k)\quad  \text{and}\quad c\equiv 0(k)\right\}
+\end{equation}
+Now if $k$ is odd, matrices $A\in \gamma_{00}(k)$ can be chosen such that $A$ mod 2 is any element of $SL(2,\bZ_{2})$. Thus $\gamma_{00}(k)$ acts transitively on the level-2 structures. Consider in this case the modular curve
+\begin{equation}\label{art7-eq-26}
+X_{00}(k,2) = \overline{H/\Gamma_{00}(k)\cap \Gamma(2)}
+\end{equation}
+Since $-I \in \Gamma_{00}(k)$ acts trivially on $H$, this is a curve parametrizing opposite pairs of primitive elements of order $k$, and level-2 structures.
+
+When $k$ is even, however, only the two matrices
+$$
+\begin{pmatrix}
+ 1 & 0\\
+ 0 & 1
+\end{pmatrix}
+\quad 
+\begin{pmatrix}
+ 1 & 1\\
+ 0 & 1
+\end{pmatrix}
+$$
+are obtained by reducing mod 2 from $\Gamma_{00}(k)$. Thus the group has three orbits on the level-2 structures, and the curve $X_{00}(k,2)$ has three components each given by \eqref{art7-eq-26}.
+
+There is another curve in the picture: the curve $\Pi_{k}$ defined by the Cayley constraint \eqref{art7-eq-17}, with the $c_{i}$ symmetric functions of $(x_{0}, x_{1},x_{2})$ as defined by \eqref{art7-eq-20}. This is a plane curve in homogeneous coordinates $(x_{0},x_{1},x_{2})$. Barth and Michel show that a birational image of $X_{00}(k,2)$ lies as a union of components of $\Pi_{k}$. In the examples of Section \ref{art7-sec-6}, we have already seen this curve, connected for $k=3,5$ but with different components for $k=4,6,8$.
+
+In the algebraic construction of $y$ in Section \ref{art7-sec-5}, it is clear fro \eqref{art7-eq-19} that $x$ and $y$ are meromorphic functions on $\Pi_{k}$, and so the Painlev\'e curve $X_{k}$ is a rational image of the modular curve. In fact, we have the following
+
+\begin{prop}\label{art7-proposition-7}
+The Painlev\'e curve $X_{k}$ defined by Poncelet polygons is birationally equivalent to the modular curve $\overline{H/\Gamma_{00}(k)\cap \Gamma(2)}$.
+\end{prop}
+
+\begin{proof}
+Let $Y_{k}$ be the modular curve,then we already have a map $f : Y_{k}\rightarrow X_{k}$ as described above. We shall define an inverse on the complement of a finite set.
+
+Let the Painlev\'e curve be defined by the equation
+$$
+R(x,y)=0
+$$
+and suppose $(x,y)$ is a point on the curve such that $\partial R/\partial y \neq 0$. Then
+$$
+\dfrac{dy}{dx}= -\dfrac{\partial R /\partial x}{\partial R/ \partial y}
+$$
+is finite, and thus we can recover the connection matrix $A(z)$ on\break $\bC\bP^{1}\backslash \{0,1,x, \infty\}$, its coefficients being rational in $x,y, dy/dx$, by using the formulae for defining the connection from the solution of the Painlev\'e equation as in \cite{art7-key8} (cf Section \ref{art7-sec-2}).
+
+Now pull the connections back to the elliptic curve $E$ which is the double covering of $\bC\bP^{1}$ branched over the four points. The fundamental group of the punctured elliptice curve consists of he words of even length in the generators $\gamma_{1}, \gamma_{2}, \gamma_{3}$ of $\pi_{1}(\bC\bP^{1}\backslash \{0,1,x,\infty\})$. But under the holonomy representation into $SO(3)=SU(2)/\pm 1$ these generators map to reflections in a plane. Thus the even words map to the rotations in the dihedral group, the cyclic group $\bZ_{k}$. Around a singular point in $\bC\bP^{1}$, the holonomy is conjugate to
+$$
+\begin{pmatrix}
+ i & 0\\
+ 0 & -i
+\end{pmatrix}
+$$
+and so on the double covering branched around the point, the holonomy is
+$$
+\begin{pmatrix}
+ -1 & 0\\
+ 0 & -1
+\end{pmatrix}
+$$
+and hence the identity in $SO(3)$.
+
+Thus the holonomy is that of a smooth connection, and so defines an element of $\Hom(\pi_{1}(E), \bZ_{k})$. This is flat line bundle of order $k$, and through the constructions in Sections \ref{art7-sec-4} and \ref{art7-sec-5} is the same bundle as $\calO(1/2, -1/2)$. We have actually made a choice here, since holonomy is determined up to
+ conjugation. There is a rotation in $SO(3)$ which takes the generating rotation of the cyclic group $\bZ_{k}$ to its inverse. Thus $x,y$ defines a pair of $k$-torsion points on the elliptic curve, and hence a single point of the modular curve $Y_{k} = X_{00}(k,2)$.
+\end{proof}
+
+\begin{remark*}
+A straightforward consideration of the branching over $0,1,\infty$ leads to the formula
+$$
+g = \dfrac{1}{4}(p-3)^{2}
+$$
+for the genus $g$ of $X_{00}(p,2)$ when $p$ is prime (see \cite{art7-key1}). Thus the Painlev\'e curve can have arbitrarily large genus.
+\end{remark*}
+
+\begin{thebibliography}{99}
+\bibitem{art7-key1} W. Barth \& \ J. Michel. \textit{Modular curves and Poncelet polygons,} Math. Ann. {\bf 295} (1993) 25-49.
+
+\bibitem{art7-key2} G. V. Belyi, \textit{On Galois extensions of a maximal cyclotomic, field}, Math. USSR Izvestiya,
+{\bf 14} (1980) 247-256.
+
+\bibitem{art7-key3} H. J. M. Bos, C. Kers, F. Oort \& \ D. W. Raven, \textit{Poncelet,s closure theorem,} Exposition. Math. {\bf 5} (1987) 289-364.
+
+\bibitem{art7-key4} R. Fuchs, \textit{\"Uber linear homogene Differentialgleichungen zweiter Ordnung mit drei im Endlichen gelegene wesentilich singul\"aren Stellen,}Math. Ann. {\bf 63} (1907) 301-321.
+
+\bibitem{art7-key5} Ph. Griffiths \& J. Harris, \textit{On Cayley,s explicit solution to Poncelet,s porishm}, Enseign. Math {\bf 24} (1978) 31-40.
+
+\bibitem{art7-key6} N. J. Hitchin, \textit{A new family of Einstien metrics}, Proceeding of conference in honour of E. Calabi, Pisa (1993), Academic Press (to appear)
+
+\bibitem{art7-key7} N. J. Hitchin, \textit{Twistor spaces and isomonodromic deformations}, (in preparation)
+
+\bibitem{art7-key8} M. Jimbo and T. Miwa, \textit{Monodromy preserving deformation of linear ordinary differential equations with rational coefficients II}, Physica, {\bf 2D} (1981) 407-448.
+
+\bibitem{art7-key9} K. Kodaira, \textit{A theorem of completeness of characteristic systems for analytic families of compact submanifolds of complex manifolds}, Ann. of Math, {\bf 75} (1962) 146-162.
+ 
+\bibitem{art7-key10} B. Malgrange, \textit{Sur les deformations isimonodromiques I. Signgularit\'es r\'eguli\`eres}, in MNath\'ematique et Physique, S\'emainaire de l'Ec\.{o}le Normale Sup\'erieure 1979-1982, Progress in Mathematics
+{\bf 37}, Birkh\"a user, Boston (1983) 401-426.
+
+\bibitem{art7-key11} V. B Mehta and C.S. Seshadri, \textit{Moduli of vector bundles on curves with parabolic structure}, Math. Ann. {\bf 28} (1980) 205-239.
+\bibitem{art7-key12} S. Mukai and H. Umemura, \textit{Minimal rational 3-folds}, in Algebraic Geometry (Proceedings, TOkoyo/Kyoto 1982), Lecture Notes in Mathematics No.1016, Springer, Heidelberg (1983) 490-518.
+
+\bibitem{art7-key13} M. S. Narasimhan and C. S Seshadri, \textit{Stable and unitary bundles on a compact Riemann surface}, Ann. of Math. {\bf 82} (1965) 540-567.
+
+\bibitem{art7-key14} M. S. Narasimhan and G. Trautmann, \textit{Compactification of $M_{P_{3}}$(0,2) and Poncelet pairs of conics}, Pacific J. Math. {\bf 145} (1990) 255-365.
+ 
+\bibitem{art7-key15} L. Schlesinger, \textit{\"Uber eine Klasse von differentialsystemen beliebiger Ordnung mit festen Kritishcher Punkten}, J. f\"ur Math. {\bf 141} (1912) 96-145.
+
+\bibitem{art7-key16} R. L. E. Schwarzenberger, \textit{Vector bundles on the projective plane}, Proc. London Math. Soc. {\bf 11} (1961) 623-640.
+
+\bibitem{art7-key17}A. Weil, \textit{The field of definition of a variety}, American J. Math. {\bf 78} (1956) 509-524.
+\end{thebibliography}
+
+\begin{flushleft}
+Mathematics Institute
+
+University of Warwick
+
+Coventry CV4 7AL
+
+U. K.
+\end{flushleft}
