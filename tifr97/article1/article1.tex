@@ -8,7 +8,7 @@
 \date{}
 \maketitle
 
-\section{Introduction}\label{art9-sec1}
+\section{Introduction}\label{art1-sec1}
 One\pageoriginale of the most striking series Ramanujan \cite{art1-key10} found is 
 \begin{equation}
 \frac{9801}{2\pi\sqrt{2}} = \sum\limits^\infty_{n=0} [1103+26390n] \frac{(4n)!}{[n!]^4 (4.99)^{4n}}.\label{art1-eq1.1}
@@ -457,13 +457,167 @@ Actually, I would be surprised if Ramanujan was very interested in Goursat's res
 I sent an outline of the results in sections 2 and 3 to a couple of people, and George Andrews wrote back that the 4-balanced very well poised ${}_7 F_6$ sum was found by Lakin \cite{art1-key9}. The two proofs given in section 2 are easier than the two Lakin gave, so it is worth including them above. Lakin also found a basic hypergeometric extension of this sum. The derivation of his result from the $q$-extension of Whipple's formula is the most natural one, so it will be given in the next section.
 
 \section{The 3-balanced very well poised ${}_8 \varphi_7$.}\label{art1-sec5}
+The analogue of Whipple's transformation formula \eqref{art1-eq2.5} was found by Watson \cite{art1-key13}. It is 
+\setcounter{equation}{0}
+\begin{gather}
+{}_8 \varphi_7 \left(
+\begin{aligned}
+& a, q \sqrt{a}, - q \sqrt{a}, b, c, d, e, q^{-n}\\
+& \sqrt{a}, - \sqrt{a}, \frac{aq}{b}, \frac{aq}{c}, \frac{aq}{d}, \frac{aq}{e}, aq^{n+1}
+\end{aligned};q, \frac{a^2q^{n+1}}{bcde}
+ \right)
+\label{art1-eq5.1}\\
+= \frac{(aq;q)_n (\frac{aq}{bc};q)_n}{(\frac{aq}{b}; q)_n (\frac{aq}{c};q)_n} {}_4 \varphi_3 
+\left(
+\begin{aligned}
+& q^{-n} , \frac{aq}{de}, b, c, \\
+& \frac{aq}{d},\frac{aq}{e}, \frac{bcq^{-n}}{a}
+\end{aligned} ; q,q
+ \right) \notag
+\end{gather}
+where 
+\begin{equation}
+(a;q)_n = (1-a) (1-aq) \ldots (1-aq^{n-1}) \label{art1-eq5.2}
+\end{equation}
+and
+\begin{equation}
+{}_{p+1} \varphi_p 
+\left(\begin{aligned}
+& a_0, \ldots, a_p\\
+& b_1, \ldots, b_p
+\end{aligned} ; q, x
+\right)  =\sum\limits^\infty_{k=0} 
+\frac{(a_0; q)_k \ldots (a_p; q)_k x^k}{(b_1; q)_k \ldots (b_p; q)_k (q;q)_k}.
+\label{art1-eq5.3}
+\end{equation}
 
-%%%% 9 page
+The series \eqref{art1-eq5.3} is called $k$-balanced at $q^j$ if $x = q^j$, one of the numerator parameters is $q^{-n}$ and $a_0 a_1\ldots a_p q^k =b_1\ldots b_p$. It is called balanced if $k=1$ and $j=1$. The series \eqref{art1-eq5.3} is well poised if $a_0q = a_1 b_1 = \ldots =a_p b_p$, and very well poised if it is well poised and if $a_1 = q b_1, a_2 = -a_1$.
 
+The sum that corresponds to \eqref{art1-eq1.6} occurs when the ${}_4 \varphi_3$ in \eqref{art1-eq5.1} becomes a ${}_3 \varphi_2$ bey setting $a^2 q^{n+1} = bcde$, and using 
+\begin{equation}
+{}_3 \varphi_2 
+\left(
+\begin{aligned}
+& q^n, a, b\\
+& c, q^{1-n} abc^{-1}  
+\end{aligned};q, q
+\right) = \frac{(c/a;q)_n(c/b;q)_n}{(c;q)_n(c/ab;q)_n}
+\label{art1-eq5.4}
+\end{equation}
+to sum the resulting balanced ${}_3 \varphi_2$. Observe that the balancing condition is now 1-balanced in the $q$-case as opposed to 2-balanced in the hypergeometric case.
 
+The analogue of \eqref{art1-eq2.3} requires a 3-balanced very well poised ${}_8 \varphi_7$ at $q^2$. To obtain this sum, use \eqref{art1-eq5.1} with 
+\begin{equation}
+\frac{aq}{de} = \frac{bcq^{1-n}}{a} \label{art1-eq5.5}
+\end{equation}
+The\pageoriginale ${}_4 \varphi_3$ becomes
+\begin{gather}
+\sum\limits^n_{k=0} \frac{(q^{-n};a)_k(b;q)_k (c;q)_k q^k}{\frac{aq}{d}; q)_k (\frac{aq}{e};q)_k (q;q)_k } \frac{(1-bcq^{k-n}/a)}{1-bcq^{-n}/a}\label{art1-eq5.6}\\
+= {}_3 \varphi_2 \left(
+\begin{aligned}
+& q^{-n}, b, c, \\
+& aq/d, aq/e
+\end{aligned} ; q, q
+\right) + \frac{bc(1-q^{-n})(1-b)(1-c)q}{(aq^n - bc) (1-aq/d) (1-aq/e)} \times \notag\\
+\times \; {}_3 \varphi_2 
+\left(
+\begin{aligned}
+& q^{1-n}, bq, cq\\
+& aq^2/d, aq^2/e
+\end{aligned} ; q, q
+\right) \notag
+\end{gather}
+where 
+$$
+1 - bcq^{k-n} / a = 1 - bcq^{-n}/ a + bcq^{-n} (1-q^k) a^{-1}
+$$
+was used to break the series into two sums. The second sum on the right in \eqref{art1-eq5.6} is balanced, and so can be summed by \eqref{art1-eq5.4}. The first is 2-balanced at $q$, and a $q$-extension of \eqref{art1-eq2.7} can be sued to sum this series. To obtain this transformation, recall a transformation of Sears \cite{art1-key12}:
+\begin{gather}
+{}_4 \varphi_3
+\left(
+\begin{aligned}
+& q^{-n}, a, b,c \\
+& ~ d,e,f
+\end{aligned}; q, q,
+\right) = 
+\left(\frac{bc}{d} \right)^n
+\frac{(aq^{1-n}/ e;q)(aq^{1-n}/f;q)_n}{(e;q)_n (f;q)_n} \times \\
+\times {}_4 \varphi_3
+\left(
+\begin{aligned}
+& q^{-n}, a, d/b, d/c\\
+& d, aq^{1-n}/e, aq^{1-n}/f
+\end{aligned};q,q
+\right)
+\notag
+\end{gather}
+when $q^{1-n}abc= def$.
+
+Let $b$, $d \to 0$ in \eqref{art1-eq5.7}. The result is
+\begin{gather}
+{}_3 \varphi_2 
+\left(
+\begin{aligned}
+q^{-n}, a, c\\
+e,f
+\end{aligned}; q,q
+\right) = 
+\left(\frac{efq^{n-1}}{a} \right)^n \frac{(aq^{1-n}/e;q)_n(aq^{1-n}/f;q)_n}{(e;q)_n (f;q)_n} \times \label{art1-eq5.8}\\
+\times \; {}_3 \varphi_2 
+\left(
+\begin{aligned}
+& q^{-n}, a, q^{1-n} ac/ ef\\
+& aq^{1-n} / e, aq^{1-n}/f
+\end{aligned} ; q,q
+\right) \notag
+\end{gather}
+When the left hand side is $k$-balanced, $q^{n} ac = efq^{-k}$; so that right hand side is the sum of $k$ terms. 
+
+Formula \eqref{art1-eq5.8} with $k=2$ reduces to formula (27) in \cite{art1-key9}. The result obtained when the series on the right in \eqref{art1-eq5.6} are summed is equivalent to (29) in \cite{art1-key9} comes from the series on the left in \eqref{art1-eq5.6} when $1 - bc q^{k-n} a^{-1}$ is broken into the two parts 1 and $-bcq^{k-n} a^{-1}$. Since these identities and the sum of \eqref{art1-eq5.1} when it is 3-balaced at $q^2$ and very well poised are given by Lakin \cite{art1-key9}, they will not be repeated here. 
+
+\section{Acknowledgement}\label{art1-sec6}
+This work was done while visiting Japan and Australia.\pageoriginale I would like to thank the many hosts who kept me busy enough so this work could be done inthe time between talks and visits. 
 
 
 \begin{thebibliography}{99}
-\bibitem{art1-key1} 
+\bibitem{art1-key1} \textsc{W. N. Bailey} : Some theorems concerning products of hypergeometric series, \textit{Proc. London Math. Soc.} (2) 38 (1935). 377 - 384.
+
+\bibitem{art1-key2} \textsc{W. N. Bailey} : \textit{Generalized Hypergeometric Series,} Cambridge Univ. Press, 1935, Reprinted Stechert-Hafner,  New York, 1964.
+
+\bibitem{art1-key3} \textsc{J.} and \textsc{P. Borwein} : \textit{Pi and the AGM,}   Wiley, Canada, 1987.
+
+\bibitem{art1-key4} J. and \textsc{P. Borwein} : Unpublished. 
+
+\bibitem{art1-key5} D.V. and G.V. \textsc{Chudnovsky} : Approximations and complex multiplication according to Ramanujan, \textit{Ramanujan Revisited}, ed. G. Andrews et al, Academic Press, Cambridge, MA, 1987. 
+
+\bibitem{art1-key6} \textsc{T. Clausen} : Ueber die F\"alle, wenn die Reihe von der Form  $y= 1+ \dfrac{\alpha}{1} \cdot \dfrac{\beta}{\gamma} x + \ldots$ ein Quadrat von der Form $z = 1 + \dfrac{\alpha'}{1} \cdot \dfrac{\beta'}{\gamma'} \cdot \dfrac{\delta'}{\epsilon'} x + \ldots$ hat, \textit{J. Reine Angew. Math.,} 3(1828), 89-91.
+
+\bibitem{art1-key7} \textsc{J. Dougall} : On Vandermonde's theorem and some more general expansions, \textit{Proc. Edinburgh Math. Soc.} 25(1907), 114-132.
+
+\bibitem{art1-key8} \textsc{E. Goursat} : M\'emoire sur les functions hyperg\'eom\'etriques d'ordre sup\'erieur, \textit{Ann. Sci. Ecole Norm. Sup.} ser. 2; 12(1883), 216-285, first part; 395-430, second part.
+
+\bibitem{art1-key9} \textsc{A. Lakin} : A hypergeometric identity related to Dougall's theorem,  \textit{J. London Math. Soc.} 27(1952) , 229-234.
+
+\bibitem{art1-key10} \textsc{S. Ramanujan} : \textit{Collected Papers,} Cambridge, 1927, 23-29. 
+
+\bibitem{art1-key11} \textsc{S. Ramanujan} : \textsc{Notebooks}, Vol. 2, Tata Inst. Fund. Research, Bombay 1957.  
+
+\bibitem{art1-key12} \textsc{D. B. Sears} : On\pageoriginale the transformation theory of basic hypergeometric functions, \textit{Proc. London Math. Soc.} (2) 53(1951), 158-180.
+
+\bibitem{art1-key13} \textsc{G. N. Watson} : A new proof of the Rogers-Ramanujan identities, \textit{J. London Math. Soc.} 4(1929), 4-9.
+
+\bibitem{art1-key14} \textsc{F. J. W. Whipple} : On well-poised series, generalized hypergeometric series having parameters in pairs, each pair with the same sum, \textit{Proc. London Math. Soc.} (2) 24(1926), 247-263. 
 \end{thebibliography}
+
+\medskip
+{\small Mathematics Department}
+
+{\small University of Wisconsin-Madison}
+
+{\small Van Vleck Hall}
+
+{\small 480, Lincoln Drive}
+
+{\small Madison, W 53706, USA.}
+
 
