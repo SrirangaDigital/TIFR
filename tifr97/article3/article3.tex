@@ -10,33 +10,221 @@
 \setcounter{pageoriginal}{22} 
 
 \noindent
-\textsc{As is customary},\pageoriginale $\bbN$ denotes the set of positive integers, $\bbZ$ denotes the ring of rational integers, $\sH= \left\{\tau : \Iim \tau > 0 right\}$, and 
+\textsc{As is customary},\pageoriginale $\bbN$ denotes the set of positive integers, $\bbZ$ denotes the ring of rational integers, $\sH= \left\{\tau : \Iim \tau > 0 \right\}$, and 
 $$
-\Gamma\_0 (n) = \left\{
+\Gamma_0 (n) = 
+\left\{
 \begin{pmatrix}
 a & b\\
 c & d
-\end{pmatrix}: a, b, c, d \in \bbZ, \; ad - bc = 1, \; c \equiv 0 (\mod n)
+\end{pmatrix}:
+ a, b, c, d \in \bbZ, \; ad - bc = 1, \; c \equiv 0 (\mod n)
 \right\},
-$$
+$$ 
 where $n \in \bbN$. If $n=1$, $\Gamma_0 (1)$ is the full modular group $\Gamma (1)$. 
 
 Let
 $$
-E_2 (\tau ) =1 -24 \sum\limits^\infty_{k=1} \frac{kq^{2k}}{1-q^{2k}}
+E_2 (\tau ) =1 -24 \sum\limits^\infty_{k=1} \frac{kq^{2k}}{1-q^{2k}} 
 $$
 and 
 $$
-F_n(\tau) = E_2 (\tau)  -n E_2 (n \tau),
+F_n(\tau) = E_2 (\tau)  -n E_2 (n \tau), 
 $$
-where $q =e^{\pi i \tau}$, $\tau \in \sH$, and $n \in \bbN$. Although $E_2 (\tau)$ is not a modular form, it can be easily shown that $F_n (\tau)$ is a modular form of weight 2 and trivial multiplier system on $\Gamma_0(n)$.
+where $q =e^{\pi i \tau}$, $\tau \in \sH$, and $n \in \bbN$. Although $E_2 (\tau)$ is not a modular form, it can be easily shown that $F_n (\tau)$ is a modular form of weight 2 and trivial multiplier system on $\Gamma_0(n)$. 
 
-In a very famous paper \cite{art3-key8}, [10, pp. 23-39], Ramanujan gave formulas for $F_n$ when $n = 2, 3,4,5,7,11,15,17,19,23,31,35$. However, no proofs are indicated. Furthermore, in Chapter 21 of his second notebook \cite{art3-key9}, Ramanujan offers, without proofs, formulas for $F_n$ when $n = 3,5,7,9,11, 15, 17, 19, 23, 25, 31, 35$. In contrast to \cite{art3-key8} where only one formula is given for each value of $n$, in \cite{art3-key9} several formulas are stated for most values of $n$.
+In a very famous paper \cite[pp. 23-39]{art3-key8}, Ramanujan gave formulas for $F_n$ when $n = 2, 3,4,5,7,11,15,17,19,23,31,35$. However, no proofs are indicated. Furthermore, in Chapter 21 of his second notebook \cite{art3-key9}, Ramanujan offers, without proofs, formulas for $F_n$ when $n = 3,5,7,9,11, 15, 17, 19, 23, 25, 31, 35$. In contrast to \cite{art3-key8} where only one formula is given for each value of $n$, in \cite{art3-key9} several formulas are stated for most values of $n$.
 
-Part of Ramanujan's motivation in calculating $F_n$ arose from its appearance in certain approximations to $\pi$ found by Ramanujan \cite{art3-key8}. J.M. and P.B. Borwein
+Part of Ramanujan's motivation in calculating $F_n$ arose from its appearance in certain approximations to $\pi$ found by Ramanujan \cite{art3-key8}. J.M. and P.B. Borwein \cite{art3-key6} have extensively developed Ramanujan's ideas. Using their work, we shall very briefly indicate how these approximations are obtained. Let $K$ denote the complete elliptic integral of the first kind associated with the modulus  $k$, where $0< k <1$, and let $E'$ denote the complete elliptic integral of the second kind associated with the complementary modulus $k' = \sqrt{1-k^2}$. For $r>0$, define
+$$
+\alpha (r) = \frac{E'}{K} - \frac{\pi}{4K^2},
+$$
+where\pageoriginale $k = k(r) = \theta^2_2 (e^{-\pi\sqrt{r}})/\theta^2_3(e^{-\pi\sqrt{r}})$, where $\theta_2$ and $\theta_3$ are the classical theta-functions, usually so denoted. Put $\alpha_m= \alpha (n^{2m}r)$, where $m \in \bbN \cup \{0\}$ and $n \in \bbN$. There exists a recursion formula for $\alpha_m$ in terms of $F_n$ \cite[p. 158]{art3-key6}. This leads to an approximation of for $1/\pi$ given by
+$$
+0 < \alpha_m -1/\pi < 16n^m \sqrt{r} e^{-n^m\sqrt{r} \pi}
+$$
+provided that $rn^{2m} \geqslant 1$ \cite[p. 169]{art3-key6}. For complete details, see \cite{art3-key6}.
 
-%%%% 31 page 
+The Borweins leave the calculation of $F_n$ for $n = 2, 3, 4$ as exercises \cite[p. 161]{art3-key6}. In fact, they \cite[9. 158]{art3-key6} state that ``The verification... is tedious but straightforward for small $n$. For larger $n$, we rely on Ramanujan.'' The Surpose of this paper is to indicate how Ramanujan's formulas for $F_n$ can be proved. Complete proofs for all of Ramanujan's formulas for $F_n$ can be found in the author's forthcoming book \cite{art3-key2}. We offer two general approaches. The first is probably similar to that employed by Ramanujan, while the second depends upon the theory of modular forms. 
+
+The first method rests upon modular equations. Thus, we need to give the definition of a modular equation, as understood by Ramanujan.
+
+\begin{defi*}
+Let $K$, $K'$, $L$, and $L'$ denote complete elliptic integrals of the first kind associated with the moduli $k$, $K'$, $l$, and $l'$, respectively. Suppose that the equality
+\begin{equation}
+n\frac{K'}{K} = \frac{L'}{L} \label{art3-eq1}
+\end{equation}
+holds for some $n \in \bbN$. Then a modular equation of degree $n$ is a relation between the moduli $k$ and $l$ which is implied by \eqref{art3-eq1}.
+\end{defi*}
+
+Ramanujan sets $\alpha =k^2$ and $\beta = l^2$.
+
+If $q= \exp (-\pi K'/K)$ and 
+$$
+\varphi (q) = \sum\limits^\infty_{j = - \infty} q^{j^2}
+$$
+then it is well known that
+$$
+K = \frac{\pi}{2} \varphi^2 (q).
+$$
+Furthermore, set $z_n = \varphi^2 (q^n)$.
+
+\begin{defi*}
+The multiplier $m$ for a modular equation of degree $n$ is defined by
+$$
+m = \frac{K}{L} = \frac{\varphi^2(q)}{\varphi^2 (q^n)} = \frac{z_1}{z_n}.
+$$
+\end{defi*}
+
+In his\pageoriginale notebooks \cite{art3-key9}, Ramanujan devotes more space to modular equations than to any other topic. Despite this, Ramanujan never published any of his work on modular equations, except for the aforementioned formulas for Eisenstein series in \cite{art3-key8}. For an expository account of Ramanujan's discoveries on modular equations, see our paper \cite{art3-key1}. Some of Ramanujan's modular equations have been proved in three papers \cite{art3-key3}, \cite{art3-key4}, \cite{art3-key5} that we have coauthored with A. J. Biagioli and J. M. Purtilo. For proofs of all of Ramanujan's modular equations, see the author's forthcoming book \cite{art3-key2}.
+
+We now state perhaps the primary formula that Ramanujan employed in establishing formulas for $F_n (\tau)$. He has not stated this formula in either \cite{art3-key8} or \cite{art3-key9}. However, some cryptic remarks on p. 253 of his second notebook \cite{art3-key9} point to a result such as that given below.
+
+\begin{theorem}\label{art3-thm1}
+Let $q$, $F_n$, $\alpha$, $\beta$, $m$, and $z_1$ be as given above. Then
+$$
+F_n (\tau) = -\alpha (1-\alpha) z^2_1\frac{d}{d\alpha} \Log \left(\frac{\beta(1-\beta)}{m^6\alpha (1-\alpha)} \right).
+$$
+\end{theorem}
+
+We now sketch proofs for three of seven formulas for $F_3 (\tau)$ found in Entry 3 of Chapter 21 in Ramanujan's second notebook \cite{art3-key9}.
+
+\begin{theorem}\label{art3-thm2}
+Let $\varphi$, $\alpha$, and $\beta$ be as given above. Put
+$$
+\psi (q) = \sum\limits^\infty_{j=0} q^{j(j+1)/2}.
+$$
+Then 
+\begin{align}
+S_3 (\tau) : &  = -\frac{1}{2} F_3 (\tau) = \left\{\frac{\varphi^4 (q) + 3 \varphi^4 (q^3)}{4\varphi (q) \varphi(q^3)} \right\}^2\label{art3-eq2}\\
+& = \varphi^2 (q) \varphi^2 (q^3) - 4 q\psi^2 (-q) \psi^2 (-q^3)\label{art3-eq3}\\
+& = \frac{1}{2} \varphi^2 (q) \varphi^2 (q^3) \left\{1+ \sqrt{\alpha\beta} + \sqrt{(1-\alpha) (1-\beta)} \right\}.\label{art3-eq4}
+\end{align}
+The last formula was stated by Ramanujan in \cite{art3-key8}, \cite[p. 33]{art3-key10}.
+\end{theorem}
+
+\begin{proof}
+Letting $n=3$ in Theorem 1, we find that
+\begin{equation}
+S_3 (\tau) = \frac{1}{2} \alpha (1-\alpha) z^2_1 \frac{d}{d\alpha} \Log \left(\frac{\beta(1-\beta)}{m^6 \alpha (1-\alpha)} \right).
+\label{art3-eq5}
+\end{equation}
+We need to determine the interdependence of $\alpha, \beta$ and $m$ in order to calculate the derivative above. From our work \cite{art3-key2} on modular equations of degree 3 in Section 5 of Chapter 19 in Ramanujan's second notebook \cite{art3-key9},
+\begin{gather}
+\alpha (1-\alpha) = \frac{(m^2 -1)(9-m^2)^3}{256m^6},\label{art3-eq6}\\
+\frac{\beta(1-\beta)}{\alpha (1-\alpha)} = \frac{m^4 (m^2-1)^2}{(9-m^2)^2},\label{art3-eq7}
+\end{gather}\pageoriginale
+and 
+\begin{equation}
+\frac{dm}{d\alpha} = \frac{16m^4}{(9-m^2)^2} .\label{art3-eq8}
+\end{equation}
+Substituting \eqref{art3-eq6}-\eqref{art3-eq8} into \eqref{art3-eq5} and employing the chain rule, we deduce that 
+\begin{align}
+S_3 (\tau) & = \frac{(m^2-1) (9-m^2)}{16m^2} z^2_1 \frac{d}{dm} \Log \left(\frac{m^2 -1}{m(9-m^2)} \right)\label{art3-eq9}\\
+& = \frac{z^2_1}{16m^3} (m^2+3)^2. \notag
+\end{align}
+If we now use the definition of $m$, we find that \eqref{art3-eq2} readily follows.
+
+Using again the definition of $m$, we may rewrite \eqref{art3-eq9} in the form
+\begin{align}
+S_3 (\tau) & = z_1 z_3 \left(1- \frac{(9-m^2) (m^2-1)}{16m^2} \right) \label{art3-eq10}\\
+& = z_1 z_3 (1-\{\alpha \beta (1-\alpha) (1-\beta)\}^{1/4}), \notag
+\end{align}
+where we have employed \eqref{art3-eq6} and \eqref{art3-eq7}. Now in Chapter 17 of his second notebook \cite{art3-key9}, Ramanujan offers a ``catalogue'' of evaluations of theta-functions in terms of $q(q^n)$, $\alpha (\beta)$, and $z_1 (z_n)$. In particular, from Entry 11, 
+$$
+\psi (-q)  = (\frac{1}{2} z_1)^{1/2} \{\alpha (1-\alpha) / q\}^{1/8}
+$$
+and 
+$$
+\psi (-q^3) = (\frac{1}{2}z_3)^{1/2} \{\beta (1-\beta) /q^3\}^{1/8}.
+$$
+Solving these two equalities for $\alpha (1-\alpha)$ and $\beta (1-\beta)$, respectively, and substituting them in \eqref{art3-eq10}, we immediately deduce \eqref{art3-eq3}.
+
+The simplest modular equation of degree 3 is given by 
+\begin{equation}
+(\alpha \beta)^{1/4} + \left\{(1-\alpha) (1-\beta) \right\}^{1/4} =1. \label{art3-eq11}
+\end{equation}
+This was first discovered by Legendre and may be found in Cayley's book \cite[p. 196]{art3-key7}, for example. Ramanujan \cite[chpater 19, Entry 5(ii)]{art3-key9} rediscovered \eqref{art3-eq11}. If we square both sides of \eqref{art3-eq11} and substitute in \eqref{art3-eq10}, we immediately deduce \eqref{art3-eq4}.
+
+Unfortunately, we have been unsuccessful in using Theorem \ref{art3-thm1} to establish certain formulas of Ramanujan for $F_n (\tau)$. We thus have had to invoke\pageoriginale the theory of modular forms in these cases. In order to offer one such example, we need to make an additional definition. Let, in the notation of Ramanujan, 
+$$
+f(-q) = \prod\limits^\infty_{j=1} (1-q^j),
+$$
+where, as above, $q = e^{\pi i \tau}$. Note that $f(-q^2) = q^{-1/12}\eta(\tau)$, where $\eta$ denotes the Dedekind eta-function. We now state Entry 8(i) in Chapter 21 of Ramanujan's second notebook \cite{art3-key9}.
+\end{proof}
+
+\begin{theorem}\label{art3-thm3}
+Let $\varphi$, $\psi$, and $f$ be defined as above. Then 
+\begin{align}
+-\frac{1}{2} F_{11} (\tau) & = 5 \varphi^2 (q) \varphi^2 (q^{11}) - 20 qf^2 (q) f^2 (q^{11}) \label{art3-eq12}\\
+& + 32 q^2 f^2 (-q^2) f^2 (-q^{22}) - 20 q^3 \psi^2 (-q) \psi^2 (-q^{11}).\notag
+\end{align}
+\end{theorem}
+
+We now briefly describe how the theory of modular forms can be used to prove Theorem \ref{art3-thm3}. The functions $\varphi (q)$, $\psi (q)$, and $f(-q)$ are associated with modular forms of weight $1/2$ on 
+$$
+\Gamma (2) = \{\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix} \in \Gamma (1) : a\equiv d \equiv 1 (\mod 2), b \equiv c \equiv 0 (\mod 2)\}.
+$$
+Thus, \eqref{art3-eq12} is first converted into an equality relating modular forms. Each of the five expressions in \eqref{art3-eq12} is a modular form of weight 2 on $\Gamma \eqref{art3-eq2} \cap \Gamma_0 \eqref{art3-eq11}$. We have already mentioned that the multiplier system of $F_{11} (\tau)$ is trivial. By employing the multiplier system of $\eta(\tau)$, we can show that each of the four expressions on the right side of \eqref{art3-eq12} also has a trivial multiplier system.
+
+Let $\Gamma = \Gamma (2) \cap \Gamma_0 (p)$, where $p$ is an odd prime. Let $\sF$ be a fundamental set for $\Gamma$. If $F$ is a nonconstant modular form of weight $r$ on $\Gamma$, then the valence formula 
+\begin{equation}
+\sum\limits_{z \in \sF} \Ord_\Gamma (F; z) = \frac{1}{2} r (p+1) \label{art3-eq13}
+\end{equation}
+is valid, where $\Ord_\Gamma (F:z)$ is the invariant order of $F$ at $z$. Suppose that we can show that the coefficients of $q^0, q^1, q^2, \ldots, q^\mu$ in $F$ are equal to $0$, \ie $\Ord_\Gamma (F; \infty) \geqslant \mu+1$. Suppose furthermore that $\mu+1 >\frac{1}{2} r (p+1)$. Then if $\Ord_\Gamma (F:z) \geqslant 0$ for each $z \in \sF$,
+$$
+\sum\limits_{z \in \sF} \Ord_\Gamma (F; z) \geqslant \Ord_\Gamma (F; \infty)\geqslant \mu+ 1 > \frac{1}{2} r (p+1).
+$$
+Hence $F(\tau) \equiv 0$, for otherwise, we could have a contradiction to the valence formula \eqref{art3-eq13}.
+
+Now write\pageoriginale the proposed identity \eqref{art3-eq12} in the form
+\begin{equation}
+F: = F_1 + \ldots + F_5 = 0. \label{art3-eq14}
+\end{equation}
+We have shown that $F$ is a modular form of weight 2 and trivial multiplier system on $\Gamma = \Gamma \eqref{art3-eq2} \cap \Gamma_0 \eqref{art3-eq11}$. Moreover, $\Ord_\Gamma (F:z) \geqslant 0$ for each $z \in \sF$. Since $(1/2) r(p+q) =12$, it suffices to show that the coefficients of $q^j$, $0\leqslant j \leqslant 12$, in $F$ are equal to 0 in order to prove \eqref{art3-eq14}, and hence also \eqref{art3-eq12}. Using MACSYMA, we have indeed done this, and so the proof of Theorem \eqref{art3-eq3} has been completed. 
+
+More complete details on the use of modular forms and MACSYMA in proving modular equations may be found in \cite{art3-key2} and \cite{art3-key4}.
+
+We are grateful to A.J. Biagioli and J.M. Purtilo for their collaboration on modular forms and MACSYMA, respectively.
+
 
 \begin{thebibliography}{99}
-\bibitem{art3-key1}
+\bibitem{art3-key1} \textsc{B.C. Berndt} : Ramanujan's modular equations, \textit{Ramanujan Revisited,} Academic Press, Boston 1988, 313-333.
+
+\bibitem{art3-key2} \textsc{B.C. Berndt} : \textit{Ramanujan's Notebooks, Part III,} Springer Verlag, New York, to appear.
+
+\bibitem{art3-key3} \textsc{B.C. Berndt, A.J. Biagioli} and \textsc{J.M. Purtilo} : Ramanujan's ``mixed'' modular equations, \textit{J. Ramanujan Math. Soc. } 1(1986), 46-70.
+
+\bibitem{art3-key4} \textsc{B.C. Berndt, A.J. Biagioli,} and \textsc{J.M. Purtilo} : Ramanujan's modular equations of ``large'' prime degree, \textit{J. Indian Math. Soc.,} 51 (1987), 75-110.
+
+\bibitem{art3-key5} \textsc{B.C. Berndt, A.J. Biagioli,} and \textsc{J.M. Purtilo} : Ramanujan's modular equations of degrees 7 and 11, \textit{Indian J. Math.}, 29 (1987). 215-228.
+
+\bibitem{art3-key6} \textsc{J.M.} and \textsc{P.B. Borwein} : \textit{Pi and the AGM}, John Wiley, New York, 1987.
+
+\bibitem{art3-key7} \textsc{A. Cayley} : \textit{An Elementary Treatise on Elliptic Functions,} Second Ed., Dover, New York, 1961.
+
+\bibitem{art3-key8} \textsc{S. Ramanujan} :\pageoriginale  Modular equations and approximations to $\pi$, \textit{Quart. J. Math.} 45(1914), 350-372.
+
+\bibitem{art3-key9} \textsc{S. Ramanujan} : \textit{Notebooks} (2 Volumes), Tata Institute of Fundamental Research, Bombay, 1957.
+
+\bibitem{art3-key10} \textsc{S. Ramanujan} : \textit{Collected Papers,} Chelsea, New York, 1962.
 \end{thebibliography}
+
+\medskip
+\noindent
+{\small Departement of Mathematics}
+
+\noindent
+{\small University of Illinois}
+
+\noindent
+{\small 1409 West Green street}
+
+\noindent
+{\small Urbana, Illinois 61801}
+
+\noindent
+{\small U.S.A.}
