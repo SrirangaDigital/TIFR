@@ -393,14 +393,543 @@ as a consequence of the functional equation for the gamma function, this functio
 \item[2)] \textit{with the same $d'$,}
 \begin{gather}
 \sL_v (s, d/c) = (4\pi /c)^{2s-1} \gamma (1-s, v) \{-\cos (\pi s) \sL_v(1-s, -d/c) +\label{art7-eq1.51} \\
-+ \sin (\pi v) \sL_v (1-s, d'/c) \}, \notag.\\
-\end{gather}
++ \sin (\pi v) \sL_v (1-s, d'/c) \}, \notag\\
+\sH_j(s, d/c) = (4\pi/c)^{2c-1} \gamma (1-s,\frac{1}{2} + i\chi_j)  \label{art7-eq1.52}\\
+\{-\cos (\pi s) \sH_j(1-s, d'/c) + \epsilon_j \text{ch} (\pi \chi_j) \sH_j (1-s, d/c)\}. \notag
+\end{gather}\pageoriginale
 \end{enumerate}
 
+We conclude with the simple but important consequence of the multiplicative relations \eqref{art7-eq1.19} for Hecke operators : for $\re s>1 + |\re  v- \frac{1}{2}|$, we have
+\begin{equation}
+\sum\limits^\infty_{n=1} \frac{\tau_v (n) t_j (n)}{n^s} = \frac{1}{\zeta(2s)} \sH_j(s+v-\frac{1}{2}) \sH_j(s - v + \frac{1}{2}).
+\label{art7-eq1.53}
+\end{equation}
 
-%%%%% 68 page
+If we replace $t_j(n)$ by $\tau_\mu(n)$ (that corresponds to the continuous spectrum of the Hecke operators) then the well-known Ramanujan identity will arise instead of \eqref{art7-eq1.53}:
+\begin{gather}
+\sum\limits^\infty_{n=1} \frac{\tau_v(n) \tau_\mu(n)}{n^s} =  \label{art7-eq1.54}\\
+=\frac{1}{\zeta(2s)} \zeta(s+v -\mu) \zeta(s+\mu-v) \zeta(s-v-\mu +1) \zeta(s+v+\mu -1). \notag
+\end{gather}
+
+For this reason, equality \eqref{art7-eq1.53} is a direct generalization of the Ramanujan identity; both will be essential for the estimate of the eighth moment of the Riemann zeta-function.
+
+\subsection{The spectral mean of Hecke series.}\label{art7-subsec1.9}
+Let  $N\geqslant 1$ be an integer and let $s$, $v$ be complex variables. We set 
+\begin{align}
+Z^{(d)}_N (s, v; h) &= \sum\limits_{j \geqslant 1}  \alpha_j t_j (N) \sH_j (s+v -\frac{1}{2}) \sH_j(s-v+\frac{1}{2}) h (\chi_j) \label{art7-eq1.55}\\
+Z^{(d)}_N (s, v; h) & = \sum\limits_{j \geqslant 1} \epsilon_j \alpha_j t_j (N) \sH_j (s+v -\frac{1}{2}) \sH_j (s-v+\frac{1}{2}) h (\chi_j) \label{art7-eq1.56}
+\end{align}
+(with $\alpha_j = (\text{ch}(\pi\chi_j))^{-1} |\rho_j(1)|^2$). Here the summation is over the positive discrete spectrum of the automorphic Laplacian and one assumes that its eigenfunctions have been selected in such a manner that they are at the same time eigenfunctions of the ring of Hecke operators and of the reflection operator $T_{-1} (\epsilon_j = \pm 1$ are the eigenvalues of $T_{-1}$).
+
+Further, we define the square mean of the Hecke series over the continuous spectrum by the equality
+{\fontsize{10}{12}\selectfont
+\begin{align}
+&Z^{(c)}_N(s,v;h) = \label{art7-eq1.57} \\
+&=\frac{1}{\pi} \int\limits^\infty_{-\infty} \frac{\zeta (s+v-\frac{1}{2} +ir) \zeta(s+v-\frac{1}{2}-ir) \zeta (s-v+\frac{1}{2} + ir) \zeta(s-v+\frac{1}{2} -ir)}{\zeta (1+2ir) \zeta(1-2ir)} \notag\\
+& \times \tau_{(1/2) + ir} (N) h(r) dr \notag
+\end{align}}\relax\pageoriginale
+with the stipulation that, by means of integral \eqref{art7-eq1.57}, the function $Z^{(c)}_N$ is defined under the conditions
+$$
+\re(s+v-\frac{1}{2}) < 1, \re (s-v + \frac{1}{2}) < 1.
+$$
+
+If any one of the points $s \pm (v - \frac{1}{2})$ lies to the right hand side of the unit line, then the integral \eqref{art7-eq1.57} defines another function, connected with $Z^{(c)}_N$ by the Sokhotskii formulae. Fro example, if by $\tilde{Z}^{(c)}_N$, we denote the function which is defined by \eqref{art7-eq1.57} with $\re s >1$, $\re v = \frac{1}{2}$, then a simple computation gives
+\begin{gather*}
+\tilde{Z}_N^{(c)} (s,v;h) = Z^{(c)}_N (s, v; h) + 4 \zeta_N(s,v ) h (i(s-v-\frac{1}{2})) + \\
++ 4\zeta_N (s, 1-v) h(i(s+v-\frac{3}{2}))
+\end{gather*}
+where we have introduced the notation
+$$
+\xi_N (s,v) = \frac{\zeta (2s-1) \zeta(2v)}{\zeta(2-2s+2v)} \tau_{s-v} (N)
+$$
+and the regularity strip of $h$ is assumed to be sufficiently wide for the right hand side to make sense.
+
+Now we need the mean with respect to the weights of the Hecke series associated with regular cusp forms. For an integer $k \geqslant 1$, we set
+\begin{gather}
+Z_{N,k} (s,v) = 2 (-1)^k\frac{\Gamma (2k-1)}{(4\pi)^{2k}} \sum\limits^{v_{2k}}_{j=1} |\alpha_{j,2k} (1)|^2 t_{j,2k} (N) \label{art7-eq1.58}\\
+\times \sH_{j, 2k} (s+v-\frac{1}{2}) \sH_{j, 2k} (s-v+\frac{1}{2})\notag
+\end{gather}
+where $t_{j, 2k} (N)$ is the eigenvalue of the N-th Hecke operator in the space $\sM_{2k}$ of regular cusp forms of weight $2k$, $v_{2k} = \dim \sM_{2k}$; the empty sum for $1 \leqslant k \leqslant 5$ and $k=7$ is assumed to be equal to zero.
+
+Assume now that $h^\ast =\{h_{2k-1}\}^\infty_{k=1}$ is a sequence of sufficiently fast decreasing numbers; we define the mean of the Hecke series with respect to weights by the equality
+\begin{equation}
+Z^{(p)}_N (s, v; h^\ast) = \sum\limits_{k \geqslant 6} h_{2k-1} Z_{N,k} (s,v)\label{art7-eq1.59}
+\end{equation}
+
+\subsection{The convolution formula.}\label{art7-subsec1.10}
+Some of\pageoriginale the consequences of the algebra of modular forms are the so called ``exact formulae'', an example of which is the identity
+\begin{equation}
+\sum\limits^{N-1}_{n=1} \sigma_3 (n) \sigma_3 (N-n) = \frac{1}{120} (\sigma_7(N)-\sigma_3(N)), \sigma_a (n) = \sum\limits_{d|n} d^^a \label{art7-eq1.60}
+\end{equation}
+A source of similar identities is the obvious assertion that the product of modular forms of weight $k$ and $l$ is a modular form of weight $k+l$.
+
+There are analogues of these identities for the real analytic Eisenstein series of weight zero. For an integer $N\geqslant 1$, we associate to a pair of series $E(z,s)$ and $E(z,v)$ the expression of convolution type 
+\begin{gather}
+W_N(s,v; w_0, w_1) = N^{s-1} \sum\limits^\infty_{n=1} \tau_v (n) (\sigma_{1-2s} (n-N)w_0(\sqrt{n/N})\\
++ \sigma_{1-2s} (n+N) w_1 (\sqrt{n/N})) \notag
+\end{gather}
+where $\sigma_{1-2s} (0)$ means $\zeta(2s-1)$ and $w_0, w_1$ are assumed to be sufficiently smooth and sufficiently fast decreasing for $x \to + \infty$.
+
+\medskip
+\noindent
+{\bfseries Theorem \thnum{9}.\label{art7-thm9}} 
+\textit{Assume that the functions $w_0$, $w_1$ are continuous on the semiaxis $x \geqslant 0$ together with derivatives up to the fourth order, $w_j (0) = w'_j(0) = 0$ for $j=0,1$ and that, for $x \to + \infty$, the functions $w_j(x)$ as well as their derivatives up to the third order are $O(x^{-B})$ for some $B>4$.}
+
+\textit{Then, for any integer $N \geqslant 1$ and $s$, $v \in \bbC$ satisfying $\re v = \frac{1}{2},\frac{1}{2} < \re S<1$, we have}
+\begin{align}
+& W_N(s, v; w_0; w_1) = Z^{(d)}_N (s, v; h_0) + Z^{(d)}_N (s,v;h_1) + \label{art7-eq1.62} \\
+& Z^{(c)}_N (s,v; h_0 +h_1) + Z^{(p)}_N (s, v; h^\ast) + \zeta_N (s,v)V (\frac{1}{2},v) + \notag\\
+& \zeta_N (s, 1-v) V (\frac{1}{2}, 1-v) + \zeta_N (1-s,v) V(s,v) + \zeta_N(1-s, 1-v) |\times \notag\\
+& V (s, 1-v) \notag
+\end{align}
+\textit{where}
+\begin{gather}
+\zeta_N(s,v) = \frac{\zeta(2s) \zeta(2v)}{\zeta(2s+2v)} \tau_{s+v} (N), \label{art7-eq1.63}\\
+V(s,v) = 2 \int\limits^\infty_0 (|1-x^2|^{1-2s}) w_0 (x) \to (1+x^2)^{1-2s} w_1(x)) x^{2v} dx \label{art7-eq1.64}
+\end{gather}
+\textit{and the column vector $h(r;s, v) = \left(\begin{matrix}
+h_0 \\h_1\end{matrix}\right)$ is defined in terms of $w = \left(\begin{matrix}
+w_0 \\ w_1 \end{matrix}\right)$ by the integral transform}
+\begin{gather}
+h(r; s, v) = \pi \int\limits^\infty_0 
+\begin{pmatrix} 
+k_0 (x, \frac{1}{2} + ir) & 0\\
+0 & k_1 (x, \frac{1}{2} + ir)
+\end{pmatrix}
+\begin{pmatrix}
+\frac{x}{4\pi}
+\end{pmatrix}^{2s-1} \times \label{art7-eq1.65}\\
+ \int\limits^\infty_0 
+\begin{pmatrix}
+k_0 (xy, v) & k_1 (xy, v) \\
+k_1 (xy, v) & k_0 (xy, v)
+\end{pmatrix} w(y) y dy dx \notag
+\end{gather}\pageoriginale
+\textit{with the kernels}
+\begin{align}
+k_0 (x,v) & = \frac{J_{2v-1} (x) - J_{1-2v} (x)}{2 \cos (\pi v)},\label{art7-eq1.66}\\
+k_1 (x,v) & = \frac{2}{\pi} \sin (\pi v) K_{2v -1} (x). \notag
+\end{align}
+
+\textit{Finally, the coefficients of the mean of the regular forms $Z^{(\rho)}_N$ are given by the relations}
+\begin{gather*}
+h_{2k-1} = 2 (2k-1) \times \\
+\times \int\limits^\infty_0 J_{2k-1} (x) 
+\left(\frac{x}{4\pi} \right)^{2s-1} \int\limits^{\infty}_0 (k_0 (xy, v) w_0 (y)+ k_1 (xy, v) w_1 (y) ) y dy \; dx. 
+\end{gather*}
+
+\subsection{Some consequences of the convolution formula.}\label{art7-subsec1.11}
+The first example of the use of \eqref{art7-eq1.62} is the additive divisor problem; if we choose $s = v =1/2$, $w_1 =0$ and $w_0$ so that it is close to 1 in the interval $(0, \sqrt{T/N})$ (so that $w_0 (\sqrt{n/N})$ will be close to 1 for $n \leqslant T$), then the left hand side of \eqref{art7-eq1.62} gives the sum on the left side of \eqref{art7-eq1.45}. Terms with the integral \eqref{art7-eq1.64} are leading terms and all other terms give the remainder term. 
+
+Of course, the asymptotic formula for the additive divisor problem is crucial for the investigation of the fourth power moment of the Riemann zeta-function. A consequence of \eqref{art7-eq1.62} in this direction is the following 
+
+\begin{theorem*}
+(N. Zavorotnyi, 1987). Let $T \to + \infty$; then, for any $\epsilon > 0$, we have
+\begin{equation}
+\int\limits^T_0 |\zeta(\frac{1}{2} + it)|^4 dt = TP_4 (\log T) + O(T^{2/3 + \epsilon}) \label{art7-eq1.67}
+\end{equation}
+\textit{where $P_4 (z)$ is a polynomial in $z$ of the fourth degree with constant coefficients.}
+\end{theorem*}
+
+We\pageoriginale can consider the functions $h_0$ and $h_1$ in \eqref{art7-eq1.62} as given; the following unusual integral transform is useful to invert \eqref{art7-eq1.62}.
+
+Let us define the matrix kernel $\bbK (x,v)$ by the equality
+\begin{equation}
+\bbK (x,v) = 
+\begin{pmatrix}
+k_0 (x,v) & k_1 (x,v) \\
+k_1(x,v) & k_0 (x,v)
+\end{pmatrix} \label{art7-eq1.68}
+\end{equation}
+with $k_0$, $k_1$ from \eqref{art7-eq1.66}. Now we shall consider the matrix equation
+\begin{equation}
+w(x) = \int\limits^\infty_0 \bbK (xy, v) u (y) \sqrt{xy} dy \label{art7-eq1.69}
+\end{equation}
+where $w = \begin{pmatrix}
+w_0 \\
+w_1
+\end{pmatrix} (x)$, $u = 
+\begin{pmatrix}
+u_0 \\
+u_1
+\end{pmatrix} (x)$. 
+
+\medskip
+\noindent
+{\bfseries Theorem \thnum{10}.\label{art7-thm10}}
+\textit{Let $\re v =\frac{1}{2}$ and $w \in L^2 (0,\infty)$ in the sense that $w_0, w_1'\in L^2 (0,\infty)$. Then there exists a unique solution $u$ in $L^2 (0,\infty)$ of the equation \eqref{art7-eq1.69} and this solution is given by the formula}
+\begin{equation}
+u(x) = \int\limits^\infty_0 \bbK (xy, u) w(y) \sqrt{xy} dy \label{art7-1.70}
+\end{equation}
+\textit{where the integral is understood in the mean-square sense.}
+
+Now, as a special case of the convolution formula \eqref{art7-eq1.62}, we have the following asymptotic formulae.
+
+\medskip
+\noindent
+{\bfseries Theorem \thnum{11}.\label{art7-thm11}}
+\textit{Let $T \to + \infty$. Then for a fixed $\sigma$ and $t \in \bbR$ with $\frac{1}{2} < \sigma < 1$, we have}
+\begin{equation}
+\sum\limits_{\chi_j \leqslant T} \alpha_j |\sH_j (\sigma +it)|^2 =\frac{T^2}{\pi^2} (\zeta (2\sigma) + \frac{\zeta(2-2\sigma)}{2(1-\sigma)} \left(\frac{T^2}{2\pi} \right)^{1-2\sigma} ) + O(T\log T)  \label{art7-eq1.71}
+\end{equation}
+\textit{while, for $\sigma =\frac{1}{2}$ the right-hand side has to be replaced by}
+\begin{equation}
+\frac{2T^2}{\pi^2} (\log T +2 \gamma - 1 +  2 log (2\pi)) + O(T \log T). \label{art7-eq1.72}
+\end{equation}
+
+\subsection{The explicit formulae for the transformation \eqref{art7-eq1.65}}\label{art7-eq1.12}
+
+We rewrite equality \eqref{art7-eq1.65} in the form
+\begin{equation}
+h = \int\limits^\infty_0 A(r, y; s, v)
+\begin{pmatrix}
+w_0 \\
+w_1
+\end{pmatrix} 
+(y) dy, A = 
+\begin{pmatrix}
+A_{00} & A_{01}\\
+A_{10} & A_{11}
+\end{pmatrix},  \label{art7-eq1.73}
+\end{equation}
+where the matrix kernel $A$, under the conditions $\re v = \frac{1}{2}$, $\frac{1}{2} < \re s < 1$, $|Iim r| < \re s$,\pageoriginale is determined by the integrals that appear in the term-by-term integration in \eqref{art7-eq1.65}. All these integrals are given in tables (these are the Weber-Schafheitlin integrals); we will be needing the following explicit form for the kernels $A_{j,l}, j$, $l=0,1$.
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{1}.\label{art7-prop1}}
+\textit{Let us denote, for $\re v = \frac{1}{2},\frac{1}{2} < \re s < 1$, $|\Iim r| < \re s$}
+\begin{align}
+a & = s+v - \frac{1}{2} + ir, \; b = s - v + \frac{1}{2} + ir, \; c = 1 + 2 ir, \label{art7-eq1.74}\\
+a' & = s + v =-\frac{1}{2} - ir, \; b' = s-v +\frac{1}{2} - ir, \; c' = 1-2ir. \label{art7-eq1.75}
+\end{align}
+\textit{Then, for $0< y < 1$, we have}
+\begin{gather}
+(2\pi)^{2s-1} A_{00}(r,y;s,v) : = \pi y \int\limits^\infty_0 k_0 (x, \frac{1}{2} + ir) k_0 (xy, v) (\frac{x}{2})^{2s-1} dx\label{art7-eq1.76}\\
+= \frac{1}{2\cos (\pi v)} \left\{\frac{\Gamma (a) \Gamma (a')}{\Gamma (2v)} y^{2v} F(a, a'; 2v; y^2) \sin \pi (s+v) + \right. \hspace{1.5cm}\notag\\
+\hspace{1.5cm} \left. +\frac{\Gamma (b) \Gamma (b')}{\Gamma (2-2v)} y^{2-2v} F (b, b'; 2-2v; y^2) \sin \pi (s-v)  \right\} \notag
+\end{gather}
+\textit{and for $y>1$,}
+\begin{align}
+& (2\pi)^{2s-1} A_{00} (r, y; s, v)= \label{art7-eq1.77}\\
+& \; = \frac{iy^{1-2s}}{2sh (\pi r)} \left\{\frac{\Gamma (a) \Gamma (b)}{y^{c-1} \Gamma (c)} F \left(a, b; c; \frac{1}{y^2} \right) \cos \pi (s+ir) - \right. \notag\\
+& \qquad \left. - \frac{\Gamma (a') \Gamma (b')}{y^{c'-1} \Gamma (c')}  F \left(a', b'; c'; \frac{1}{y^2} \right)  \cos \pi (s-ir)\right\} \notag
+\end{align}
+
+\textit{At the same time, for all $y>0$, we have}
+\begin{gather}
+(2\pi)^{2s-1} A_{00} (r, y; s, v) = \sin (\pi s) \Gamma (2s-1) y^{2v} |1-y^2|^{1-2s} \times \label{art7-eq1.78}\\
+F(1-b, 1-b'; 2 - 2s; 1-y^2) + \frac{\Gamma (a) \Gamma (a') \Gamma (b) \Gamma (b')}{2\pi \Gamma (2s) \cos (\pi s)} \times \notag\\
+(\text{ch}^2 \pi r + \sin^2 \pi v - \sin^2 \pi s) y^{2v} F (a, a'; 2s; 1-y^2) \notag 
+\end{gather}
+\textit{where, in the first term, the absolute value sign combines the two cases $y<1$ and $y>1$.}
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{2}.\label{art7-prop2}}
+With\pageoriginale the same parameters, we have
+\begin{gather}
+(2\pi)^{2s-1} A_{01} (r, y; s, v) : = \pi y \int\limits^\infty_0 k_0 (x, \frac{1}{2} + ir)  k_1 (xy, v) (\frac{x}{2})^{2s-1} dx \label{art7-eq1.79}\\
+= \frac{iy^{1-2s} \sin (\pi v)}{2\text{sh} (\pi r)} \left\{\frac{\Gamma (a) \Gamma (b)}{y^{c-1} \Gamma (c)} F \left(a, b; c; -\frac{1}{y^2} \right) \right.\notag\\
+\left. -\frac{\Gamma (a') \Gamma (b')}{y^{c'-1} \Gamma (c')} F \left(a',b '; c'; -\frac{1}{y^2} \right) \right\} \notag
+\end{gather}
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{3}.\label{art7-prop3}}
+\textit{The kernel $A_{10}$ is defined by the relation}
+\begin{gather}
+(2\pi)^{2s-1} A_{10} (r,y;s,v) : = \pi y \int\limits^\infty_0 k_1 (x, \frac{1}{2} + ir) k_1 (xy, v) (\frac{x}{2})^{2s-1} dx\label{art7-eq1.80}\\
+=\frac{\Gamma (a) \Gamma (a') \Gamma (b) \Gamma (b')}{\pi \Gamma (2s)} \text{ ch} (\pi r) \sin (\pi v) y^{2v} F (a, a'; 2s; 1-y^2).  \notag
+\end{gather}
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{4}.\label{art7-prop4}} 
+\textit{With the parameters \eqref{art7-eq1.74}-\eqref{art7-eq1.75}, we have}
+\begin{gather}
+(2\pi)^{2s-1} A_{11} (r,y;s,v) : = \pi y \int\limits^\infty_0 k_1 (x, \frac{1}{2} + ir) k_0 (xy,v) (\frac{x}{2})^{2s-1} dx =\notag\\
+= \frac{\text{ch} (\pi r)}{2\cos (\pi v)} \left\{\frac{\Gamma (a) \Gamma (a')}{\Gamma (2v)} y^{2v} F(a, a'; 2v; -y^2) - \right. \notag\\
+\left. -\frac{\Gamma (b) \Gamma (b')}{\Gamma (2-2v)} y^{2-2v} F(b,b'; 2 -2 v; -y^2)  \right\} \label{art7-eq1.81}
+\end{gather}
+\textit{and, at the same time,}
+\begin{align}
+& (2\pi)^{2s-1} A_{11} (r, y; s, v) = \label{art7-eq1.82}\\
+& = \frac{iy^{1-2s}}{2\text{sh}(\pi r)} \left\{\frac{\Gamma (a) \Gamma (b)}{y^{c-1} \Gamma (c)} F \left(a, b; c; - \frac{1}{y^2} \right) \cos \pi(s+ir) - \right. \notag\\
+& \left. -\frac{\Gamma (a') \Gamma (b')}{ y^{c'-1} \Gamma (c')} F \left(a'; b'; c'; - \frac{1}{y^2} \right) \cos \pi (s-ir)  \right\}. \notag
+\end{align}
 
 
+\medskip
+\noindent
+{\bfseries Proposition \thnum{5}.\label{art7-prop5}} 
+\textit{Let us write the quantities $h_{2k-1}$ in \eqref{art7-eq1.62} as}
+\begin{equation}
+h_{2k-1} (s,v) = \int\limits^\infty_0 (A^0_k (y;s, v) w_0 (y) + A^1_k (y;s,v) w_1 (y)) dy. \label{art7-eq1.83}
+\end{equation}
+\textit{Then, for $0<y<1$,}
+\begin{align}
+&(2\pi)^{2s-1} A^0_k (y; s, v) =\label{art7-eq1.84}\\
+&\frac{2k-1}{\cos (\pi v)} \left\{\frac{\Gamma (s+ v-1+k)}{\Gamma (2v) \Gamma (1-s-v+k)} y^{2v} F (k+s+v -1, s+v-k; 2 v ; y^2) - \right.\notag \\
+& \left. -\frac{\Gamma (k+s-v)}{\Gamma (2-2v)\Gamma (v-s+k)} y^{2-2v} F(k+s-v, s+1-v-k; 2-2v; y^2) \right\} \notag
+\end{align}
+\textit{and, for $y>1$,}
+\begin{align}
+& (2\pi)^{2s-1} A^0_k (y;s,n) = \hspace{2cm} \label{art7-eq1.85} \\
+& \hspace{2cm} \frac{(-1)^{k-1} \sin (\pi s) }{\pi y^{2k+2s-2}} \frac{\Gamma (k+s+v-1) \Gamma(k+s-v)}{\Gamma (2k-1)} \times \notag\\
+& \hspace{3cm} F \left(k+s + v -1 , k + s-v; 2k; \frac{1}{y^2} \right). \notag
+\end{align}
+
+\textit{For the second kernel in \eqref{art7-eq1.83}, we have}
+\begin{align}
+&(2\pi)^{2s-1} A^1_k (y; s, v) = \hspace{2cm}\\
+&\hspace{2cm} = - \frac{\sin (\pi v)}{\pi y^{2k+ 2s -2}} \frac{\Gamma (k+ s+v -1) \Gamma (k+s-v)}{ \Gamma (2k-1)} \times  \notag\\
+&\hspace{3cm} F\left(k + s + v -1, \; k + s- v; 2k; - \frac{1}{y^2} \right) \notag
+\end{align}
+
+\bigskip
+\begin{center}
+{\Large \textbf{Part \thnum{II}.\label{art7-partII} The eighth moment of the Riemann zeta-function.}}
+\end{center}
+
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\subsection{The result and a rough sketch of the proof.}\label{art7-sec2.1}
+Since the question about the true order of zeta-function on the critical line is open even today - and it will be so in the foreseeable future-, a sizeable part of the theory of the Riemann zeta-function is an attempt to present the asymptotic mean value
+\setcounter{equation}{0}
+\begin{equation}
+\frac{1}{T} \int\limits^T_0 |\zeta (\frac{1}{2} + it)|^{2k} dt, \; k = 1, 2, \ldots \label{art7-eq2.1}
+\end{equation}
+
+The case $k=4$ will be investigated here; for this case, the following new estimate will be given. 
+
+\medskip
+\noindent
+{\bfseries Theorem \thnum{12}.\label{art7-thm12}}
+\textit{There\pageoriginale is an absolute constant $B$ such that}
+\begin{equation}
+\int\limits^T_0 |\zeta (\frac{1}{2} + it)|^8 dt \ll T (\log T)^B \label{art7-eq2.2}
+\end{equation}
+\textit{when $T \to + \infty$.}
+
+Furthermore, the same estimate is valid for the fourth power moment of the Hecke series of the discrete spectrum of the automorphic Laplacian. Namely, we have
+
+\medskip
+\noindent
+{\bfseries Theorem  \thnum{13}.\label{art7-thm13}}
+\textit{For every fixed $j\geqslant 1$ with the same $B$ as in \eqref{art7-eq2.2}, we have }
+\begin{equation}
+\alpha_j \int\limits^T_0 |\sH_j (\frac{1}{2} + it)|^4 dt  \ll T (\log T)^{B-6},T \to + \infty.  \label{art7-eq2.3}
+\end{equation}
+
+To give these estimates we shall consider the fourth spectral moment of the Hecke series over the discrete and continuous spectrum. The one over the discrete spectrum is defined by 
+\begin{gather}
+Z^{\text{dis}} 
+\left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right) = 
+\label{art7-eq2.4}\\
+\sum\limits_{j \geqslant 1} \alpha_j \frac{\sH_j (s+v -\frac{1}{2}) \sH_j (s- v + \frac{1}{2}) \sH_j (\rho + \mu - \frac{1}{2}) \sH_j(\rho -\mu +\frac{1}{2}) }{\zeta(2s) \zeta(2\rho)} h(\chi_j) \notag
+\end{gather}
+with
+\begin{equation}
+\alpha_j = (\text{ch} (\pi \chi_j))^{-1} |\rho_j(1)|^2. \label{art7-eq2.5}
+\end{equation}
+
+Of course, this function results from the following summation (see the generalized Ramanujan identity \eqref{art7-eq1.53}):
+\begin{equation}
+Z^{\text{dis}} 
+\left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right)  = \sum\limits_{n, m \geqslant 1} \frac{\tau_v (n)}{n^s} \frac{\tau_\mu(m)}{m^\rho} \left(\sum\limits_{j \geqslant 1} \alpha_j t_j (n) t_j (m) h(\chi_j) \right)
+\label{art7-eq2.6}
+\end{equation}
+when $\re s > \re v -\frac{1}{2}| +1$, $\re \rho > |\re \mu - \frac{1}{2}| + 1$. The function 
+$$
+\zeta(2s) \zeta(2 \rho) Z^{\text{dis}}
+\left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right) 
+$$
+is regular in some domain of the kind $\re s > s_0$' $\re \rho > \rho_0$, where $s_0' \rho_0$ depend on the order of decay of the function $|h(r)|$ for $|r| \to + \infty$. 
+
+We shall denote by $\tilde{Z}^{\text{dis}} \left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right) $ the expression obtained on replacing $\alpha_j$ by $\epsilon_j \alpha_j$ in \eqref{art7-eq2.6}:
+\begin{equation}
+\tilde{Z}^{\text{dis}} \left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right)  = \sum\limits_{n,m \geqslant 1} \frac{\tau_v(n)}{n^2} \frac{\tau_\mu(m)}{m^\rho} \left(\sum\limits_{j \geqslant 1} \epsilon_j \alpha_j t_j (n) t_j (m) h(\chi_j) \right) \label{art7-eq2.7}
+\end{equation}
+
+In the same manner as in \eqref{art7-eq2.6}, we define the fourth spectral moment over the continuous spectrum by
+\begin{equation}
+Z^{\text{con}}_0 
+\left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h
+\right)  = \frac{1}{4\pi} \int\limits^\infty_{-\infty} Z (s; v,\frac{1}{2} + ir) Z (\rho ; \mu, \frac{1}{2} + ir) \frac{h(r) dr}{\zeta(1+ 2 ir) \zeta (1-2ir)} \label{art7-eq2.8}
+\end{equation}
+where we assume $\re (s \pm (v-\frac{1}{2})) >1$, $\re (\rho \pm (\mu - \frac{1}{2})) >1$ and the notation $z$ is introduced for the right side of the well-known Ramanujan identity:
+\begin{align}
+z(s; v, \mu) & = \sum\limits^\infty_{n=1} \frac{\tau_v (n) \tau_\mu (n)}{n^s}\label{art7-eq2.9}\\
+& = \frac{1}{\zeta(2s)} \zeta(s+v - \mu) \zeta(s-v+\mu) \zeta (s+v+ \mu-1) \times \notag
+\end{align}
+$\zeta(s-v-\mu+1)$.
+
+Finally, for the given sequence $h^\ast =\{h_{2k-1}\}^\infty_{k=1}$ we define the fourth moment of the Hecke series over regular cusp forms 
+\begin{gather}
+Z^{\text{cusp}} \left(
+\left.
+\begin{matrix}
+s, v\\
+\rho, \mu
+\end{matrix}
+\right| h^\ast
+\right)  =  2 \sum\limits^\infty_{\substack{k=2\\k \equiv 0 (\mod 2)}} (-1)^{k/2} h_{k-1} \label{art7-eq2.10}\\
+\times \sum\limits^{v_k}_{j=1} \alpha_{j,k} \sum\limits_{n, m\geqslant 1} \frac{\tau_v (n) \tau_\mu (m)}{n^s m^\rho} t_{j,k} (n) t_{j,k} (m), \notag
+\end{gather}
+where $v_k =\dim \sM_k$ is the dimension of the space $\sM_k$ of the regular cusp forms of weight $k$ and $t_{j,k} (n)$ are the eigenvalues of the $n$-th Hecke operators in this space $\sM_k$. The quantities $\alpha_{j,k}$ are the normalized coefficients; if the functions $f_{j,k}$ form an orthonormal basis in $\sM_k$, then 
+\begin{equation}
+\alpha_{j,k} = \frac{\Gamma (K-1)}{(4\pi)^k} |a_{j,k} (1)|^2, \label{art7-eq2.11}
+\end{equation}
+where $a_{j, k} (1)$ is the first Fourier coefficient of $f_{j,k}$. Together with \eqref{art7-eq2.10}, we have 
+\begin{gather}
+Z^{\text{cusp}} 
+\left(\left.
+\begin{matrix}
+s, & v \\
+\rho,& v
+\end{matrix}
+\right|h^\ast\right) = 2 \sum\limits_{\substack{k\geqslant 2\\ k \equiv 0 (\mod 2)}} (-1)^{k/2} h_{k-1} \sum\limits^{v_k}_{j=1} \alpha_{j, k} \times \label{art7-eq2.12}\\
+\frac{\sH_{j,k} (s+v -\frac{1}{2}) \sH_{j,k} (s-v+\frac{1}{2}) \sH_{j,k} (\rho + \mu - \frac{1}{2}) \sH_{j,k} (\rho-\mu +\frac{1}{2})}{\zeta(2s) \zeta (2\rho)} ; \notag
+\end{gather}
+this\pageoriginale equality is quite similar to \eqref{art7-eq2.4}.
+
+Now we shall describe the main idea. We shall consider the double Dirichlet series 
+\begin{equation}
+L^{(\pm)} 
+\left(\left.
+\begin{matrix}
+s, & v \\
+\rho,& v
+\end{matrix}
+\right|\varphi\right)  = \sum\limits^{\infty}_{n,m =1} \frac{\tau_v (n) \tau_\mu (m)}{n^s m^\rho} K^{(\pm)}_{m,n} (\varphi), \label{art7-eq2.13}
+\end{equation}
+where the coefficients are sums of Kloosterman sums with the smooth ``test'' function $\varphi$:
+\begin{equation}
+K^{(\pm)}_{m,n} (\varphi) = \sum\limits_{c \geqslant 1 } \frac{1}{c} S (n, \pm m; c) \varphi \left(\frac{4\pi \sqrt{nm}}{c} \right) . 
+\label{art7-eq2.14}
+\end{equation}
+
+
+Since there is a functional equation of the Riemann type for the Dirichlet series 
+$$
+\sL_v \left(S, \frac{a}{c} \right) = \sum\limits^\infty_{n=1} n^{-s} \tau_v (n) e (n\frac{a}{c}), e(x) : = e^{2\pi i x}, 
+$$
+when $a$, $c \in \bbZ$ are coprime and this equation connects $\sL_v (S, \frac{a}{c})$ with $\sL_v (1-s, \pm \frac{a'}{c'})$, $aa'\equiv 1 (\mod c)$, a functional equation has to exist for the functions $L^{(\pm)} \left(\left.
+\begin{matrix}
+s, & v \\
+\rho,& \mu
+\end{matrix}
+\right| \varphi \right)$; it will connect this function with the functions of the same kind $L^{(\pm)} \left(\left.\begin{matrix}
+\rho ,& v\\
+s, & \mu
+\end{matrix}
+\right| \varphi \right) $  for an appropriate $\varphi$. As a consequence of the sum formula for Kloosterman sums, it means that there is a functional equation for the function
+\begin{equation}
+Z\left(\left.\begin{matrix}
+s, & v\\
+\rho, & \mu
+\end{matrix}
+\right|  h \right)   = Z^{\text{dis}}
+\left(\left.\begin{matrix}
+s, & v\\
+\rho, & \mu
+\end{matrix}
+\right| h \right)  + Z^{\text{con}}
+\left( 
+\left. 
+\begin{matrix}
+s, & v\\
+\rho, & \mu
+\end{matrix}
+\right| h
+\right); \label{art7-eq2.15}
+\end{equation}
+roughly speaking, this equation (which will be written below in detail) is the result of the exchange of $s$ and $\rho$ and the replacement of $h$ by some integral transform.
+
+Now, on the left side of this functional equation, for the special case
+\begin{equation}
+s = \mu =\frac{1}{2}, \rho = v = \frac{1}{2} + it, t \in \bbR \text{ is large and positive, }\label{art7-eq2.16}
+\end{equation}
+we have in the continuous spectrum the product
+\begin{equation}
+\zeta^3 (\frac{1}{2} + it + ir) \zeta^3 (\frac{1}{2} + it - ir) \zeta (\frac{1}{2} - it + ir) \zeta(\frac{1}{2} - it - ir) \label{art7-eq2.17}
+\end{equation}
+and the other product will be on the right side; namely, we have therein 
+\begin{equation}
+\zeta^3 (\frac{1}{2} + ir) \zeta^3 (\frac{1}{2} - ir) \zeta (\frac{1}{2} + 2 it + 2 ir) \zeta (\frac{1}{2} + 2 it - 2 ir). 
+\label{art7-eq2.18}
+\end{equation}
+After this specialization, we shall choose the special function $h$ essentially as $\exp (-\alpha r^2)$ with a fixed positive $\alpha$. Then the essential part of the interval of the integration is $|r| \ll (\log t)^{(1/2)}$. The length of this interval is small in comparison to the large $t$ and for this reason, (using the Riemann functional equation), we can reduce the main term of our product on the left side to the form 
+$$
+|\zeta^4 (\frac{1}{2} + it + ir) \zeta^4 (\frac{1}{2} + it - ir)|. 
+$$\pageoriginale
+It means that we may hope to estimate the integral 
+\begin{equation}
+\int\limits^\epsilon_{-\epsilon} \int\limits^\infty_{0} \omega_T (t) |\zeta^4 (\frac{1}{2} + it+ ir) \zeta^4 (\frac{1}{2} + it - ir)| dt r^2 dr  \label{art7-eq2.19}
+\end{equation}
+for arbitrary small positive $\epsilon$, if $\omega_T (t)$ is the smooth function which is not zero for $t \in (T, 2 T)$ only and close to 1 when $\frac{5}{4} T \leqslant t \leqslant \frac{7}{4} T$ (see picture).
+\begin{center}
+{\bf figure}
+\end{center}
+The main term will be close to the integral
+$$
+\epsilon^3 \int\limits^\infty_0 \omega_T (t) |\zeta (\frac{1}{2} + it)|^\infty dt 
+$$
+if $\epsilon \ll (\log T)^{-2}$ (see subsection \eqref{art7-eq2.4}); so we have the eighth moment of the Riemann zeta-function here. At the same time, the contribution of the discrete spectrum is positive too. Hence the desired conclusion follows if the integrals on the right side can be estimated with sufficient accuracy. 
+
+But the integrand for these integrals contains one Hecke series only; so the integration may be done asymptotically. As a result, we shall reduce the problem of the estimate of the eighth power moment to the problem of the estimate for the fourth spectral moment. It is sufficient to prove  our theorem for the latter. 
+
+In the conclusion of the introduction of the second part, we shall note that the estimate 
+$$
+|\zeta(\frac{1}{2} + it)| \ll  |t|^{1/8} (\log |t|)^{B_1} ,, t \to \pm \infty, 
+$$
+follows from \eqref{art7-eq2.2}, $B_1 = \frac{1}{8} B + \frac{1}{2}$.
+
+It is preceptibly better than the last achievement in the long chain of the results of the kind $|\zeta(\frac{1}{2} + it) \ll |t|^\gamma$.
+
+
+%%%% 80 page
 
 
 
@@ -409,6 +938,9 @@ as a consequence of the functional equation for the gamma function, this functio
 %\bibitem{art6-key1}
 %\end{thebibliography}
 
+%\medskip
+%\noindent
+%{\bfseries Proposition \thnum{5}.\label{art7-prop2}}
 
 %\noindent
-%{\bfseries Theorem \thnum{2}.\label{art8-thm2}}
+%{\bfseries Theorem \thnum{2}.\label{art7-thm2}}
