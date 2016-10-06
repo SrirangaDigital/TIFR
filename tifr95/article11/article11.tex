@@ -55,8 +55,565 @@ There seems to be no explicit construction of the moduli space $\calC_{2}^{n}$ i
 {\bfseries Step II: The inverse map $\calA_{1,n}\rightarrow \calC_{2}^{n}$.} 
 Let $f: C\rightarrow H$ be a cyclic \'etale covering in $\calC_{2}^{n}$ associated to the line bundle $l_{H} \in \Pic^{0}(H)$. Via the isomorphism $\Pic^{0}(J(H)) \xrightarrow{\sim} \Pic^{0}(H)$ the line bundle $l_{H}$ extends to a line bundle $l \in \Pic^{0}(J(H))$ of order $n$. Let $\pi : X \rightarrow Y = J(H)$ denote the cyclic \'eta;e $n$-fold covering associated to $l$. Then $L=\pi^{*}\calO_{Y}(H)$ defines a polarization of type $(1,n)$, since $K(L)$ is a finite group of order $n^{2}$ (by Riemann-Roch) and contains the cyclic group $\ker \pi$ of order $n$. Hence $\pi : (X, L) \rightarrow (Y, \calO_{Y}(H))$ is an element of $\calA_{(1,n)}$.
 
-Obviously the maps $\calA_{(1,n)}\rightarrow \calC_{2}^{n}$ and $\cal_{2}^{n} \rightarrow \calA_{(1,n)}$ are inverse to each other. Finally, extending the above construction to families of morphisms of curves and abelian varieties one easily sees that the maps are holomorphic.
+Obviously the maps $\calA_{(1,n)}\rightarrow \calC_{2}^{n}$ and $\calC_{2}^{n} \rightarrow \calA_{(1,n)}$ are inverse to each other. Finally, extending the above construction to families of morphisms of curves and abelian varieties one easily sees that the maps are holomorphic.
 
 \section{Cycli \'Etale Coverings of Hyperelliptic Curves}\label{art11-sec-2}
 
-Any curve $H$ of genus 2 (in the sense of section 1) admits a natural involution $\iota$ with quotient $H/\iota$ of arithmetic genus 0. The aim of this section is to show
+Any curve $H$ of genus 2 (in the sense of section 1) admits a natural involution $\iota$ with quotient $H/\iota$ of arithmetic genus 0. The aim of this section is to show that for any finite cyclic \'etale covering $f: C\rightarrow H$ the composition $C\rightarrow H\ rightarrow H/\iota$ is Galois and to compute its Galois group. We prove the result in greated generality than actually needed, since this makes no difference for the proof.
+
+In this section a \textit{hyperelliptic curve} means a complete, reduced, connected curve admitting an involution whose quotient is of arithmetic genus zero. Let $H$ denote a hyperelliptic curve of arithmetic genus $g$ over $k$ with hyperelliptic covering $H\rightarrow P$. Suppose $f : C\rightarrow H$ is a cyclic \'etale covering of degree $n \geq 2$. We first show that the composed map $C\rightarrow P$ is a Galois covering with the dihedral group $D_{n}$ of order $2n$ as Galois group.
+
+Let $\iota : H \rightarrow H$ denote the hyperelliptic involution and $\tau : C\rightarrow C$ an automorphism generating the group $\Gal(C | H)$. There is a line bundle $L \in \Pic^{0}(H)$ with $L^{n}\simeq \calO_{H}$ such that $C = \Spec(A)$ with $A : =\calO_{H} \oplus L \oplus \cdots \oplus L^{n-1}$ and where the $\calO_{H}$-algebra structure of $A$ is given by an isomorphism $\sigma : \calO_{H} \xrightarrow{\sim}L^{n}$. Consider the pull back diagram
+
+%~ $$
+%~ \xymatrix{
+%~ \Spec(\subset^{*} A) = \subset^{*} C \ar[d]\ar[r]^-{j} & C \ar[d]^-{f} = \Spec A \\
+                       %~ &  H \ar[r]^-{\subset}           & H}
+%~ $$
+Since $\iota^{*} L =L^{-1}$ , the isomorphism $\sigma $ induces isomorphisms
+$$
+\sigma_{\nu} = (\sigma \otimes 1_{L^{-\nu}}) \circ \iota^{*} : L^{\nu} \rightarrow L^{n-\nu}
+$$
+for $\nu = 0,\ldots,n-1$ which yields an  $\calO_{H}$-algebra isomorphism $A \rightarrow \iota^{*}A$.
+Hence we may identify $\iota^{*}C =C$ and $j:C \rightarrow C$ is an automorphism.
+
+\medskip
+\noindent
+{\bfseries \thnum{2.1} Proposition. \label{art11-pro-2.1}} \textit{The covering $C\rightarrow P$ is Galois with $\Gal(C|P_{1}) =D_{n}$}
+
+\medskip
+\noindent
+{\bfseries Proof.} If suffices to show $j\tau j =\tau^{-1}$. Accordings to [EGAI, Th.\ref{art11-thm-9.1.4}] the automorphism $\tau$ of $C=\Spec A$ corresponds to an $\calO_{H}$-algebra automorphism $\tilde{\tau}: A\rightarrow A$, namely
+$$
+\tilde{\tau}(a_{0}, a_{1}, \ldots, a_{n-1}) =(a_{0}, \xi a_{1}, \ldots, \xi^{n-1}a_{n-1})\; with \;\xi = \exp \left(\frac{2\pi i}{n}\right).
+$$ 
+Similarly using [EGAI, Cor. \ref{art11-cor-9.1.9}] the automorphism $j$ of $C$ corresponds to the algebra automorphism $\tilde{\jmath} : A\rightarrow A$ over $\iota^{*}$ defined by
+$$
+\tilde{\jmath} (a_{0}, a_{1}, \ldots, a_{n-1}) = (\sigma_{0}(a_{0}), \sigma_{n-1}(a_{n-1}), \ldots, \sigma_{1}(a_{1})).
+$$
+We have to show that $\tilde{\jmath}\tilde{\tau}, \tilde{\jmath} = \tilde{\tau}^{-1}$. But $\sigma_{n-\nu}\xi^{n-\nu}\sigma_{\nu}(a_{\nu}) = \xi^{-\nu}a_{\nu}$. This implies the assertion.
+
+\noindent
+The dihedral group $D_{n}$ contains the involutions $j\tau^{\nu}$ for $\nu = 0,\ldots,n-1$ and for even $n$ also $\tau^{\frac{n}{n}}$. These involutions correspond to double coverings $C\rightarrow C_{\nu} = C/j\tau^{\nu}$ for $\nu =0, \ldots,n-1$ and $C\rightarrow C'= C/\tau^{\frac{n}{2}}$ for even $n$. If $C$ is smooth and irreducible we have for the genera $gc_{\nu}'$ and $gc'$ of $C_{\nu}$ and $C'$ 
+
+\medskip
+\noindent
+{\bfseries \thnum{2.2} Proposition.\label{art11-prop-2.2}}
+~
+
+\begin{enumerate}[{\it a)}]
+ \item \textit{For on odd}: $gc_{\nu} = \frac{1}{2}(g-1)(n-1)$ \textit{for} $\nu =0,\ldots,
+  n-1$.\label{art11-prop2.2-enum-1}
+ \item \textit{For} $n$ \textit{even}: $(\frac{n}{2}-1)(g-1) \leq g_{\nu}\leq \frac{1}{2}n(g-1)$ \textit{for all} $0 \leq \nu \leq n-1$ \textit{and} $gc' =\frac{n}{2}+1$.\label{art11-prop2.2-enum-2}
+\end{enumerate}
+
+The proof is an application of the formula of Checvalley-Weil (see \cite{art11-keyC-W}). We omit the details. The genus of $C'$ can be computed by Hurwitz' formula since $C\rightarrow C'$ is \'etale.
+
+\medskip
+\noindent
+{\bfseries \thnum{2.3} Remark.\label{art11-remark-2.3}} Let $ H =E_{1}+ E_{2}$ be a reducible curve of genus two as in Section \ref{art11-sec-1}. The curve $H$ is hyperelliptic with hyperelliptic involution $\iota$ the multiplication by -1 on the each curve $E_{i}$. The quotient $P=H /\iota$ consists of two copies of $P_{1}$ intersecting in one point. In this situation Proposition \ref{art11-pro-2.1} can be seen also in the following way.
+
+If for example the covering $\rightarrow H$ is nontrivial on each component $E_{i}$, then $C$ consists of two elliptic curves $F_{1}$ and $F_{2}$  intersecting in $n$ points. We choose one of these points to be the origin of $F_{1}$ and $F_{2}$ the remaining intersection points are $x. \ldots, (n-1)x$ for some $n$-division point $x$ on $F_{1}$ and $F_{2}$. The automorphism $\tau : C\rightarrow C$ defined as the translation $t_{x}$ by $x$ on each $F_{i}$ generates the group of covering transformations of $C\in H$. The involution $\iota$ on $H$ lifts to an involution $j$ on $C$, the multiplication by (-1) on each $F_{i}$. Obviously $j\tau j= \tau^{-1}$ , so $C \rightarrow H/\iota$ is a Galois covering with Galois group
+$D_{n} = >j,\tau >$. As in the irreducible case we consider the double coverings $C\rightarrow C_{\nu}=C/j\tau^{\nu}$ for $\nu = 0,\ldots, n-1$ and $C \rightarrow C' =C/\tau^{\frac{\pi}{2}}$ for even $n$. Also here the result of Proposition \ref{art11-prop-2.2} is valid: for example, if $n$ is odd and the covering $C \rightarrow H$ is nontrivial on each component, then $C_{\nu}$ consists of two copies of $P_{1}$  intersection in $\frac{n+1}{2}$ points, the images of $kx$ for $k = 0 ,\ldots, \frac{n-1}{2}$. In particular $C_{\nu}$ has arithmetical genus $\frac{n-1}{2}$. The other cases can be worked out in a similar way.
+
+\section{The Moduli Space $\calA^{0}_{1,2}$}\label{art11-sec-3}
+
+Denote by $\calA^{0}_{1,n}$ the open set in $\calA_{1,n}$ corresponding to abelian surfaces of type $(1,n)$ with and isogeny onto a Jacobian of a smooth curve of genus 2. The aim of this section is to give a description of the moduli space $\calA^{0}_{1,2}$. From this it is easy to see that $\calA_{1,2}$ is rational.
+
+Let $\tilde{\calA}_{1}$ the modulo space of elliptic curves $E$ together with a set of four points of $E$ of the form $\{\pm p_{1}, \pm p_{2}\}$. Necessarily such a set does not cotain any 2-division point of $E$. We write the elements of $\tilde{\calA}_{1}$ as pairs $(E, \{\pm p_{1}, \pm p_{2}\})$. The main result of this section is
+
+\medskip
+\noindent
+{\bfseries \thnum{3.1} Theorem. \label{art11-thm-3.1}} \textit{ The moduli space $\calA^{0}_{1,2}$ of polarized surfaces with an isogeny of type $(1, 2)$ onto a Jacobian of a smooth curve of genus 2 is canonically isomorphic to $\tilde{\calA}_{1}$.}
+
+
+\medskip
+\noindent
+{\bfseries \thnum{3.2} Corollary. \label{art11-coro-3.2}} \textit{The moduli space $\calA_{(1,2)}$ is rational.}
+
+
+\medskip
+\noindent
+{\bfseries   Proof of Corollary \thnum{3.2} \label{art11-Proof of Coro-3.2}} Via the $j$-invariant, $U : = C-\{0,1728\}$ is the moduli space of elliptic curves without nontirivial automorphisms. $U$ admits a universal elliptic curve $p:\calE \rightarrow U$. Consider the quotient $\underline{p} : \calE /(-1)\rightarrow U$ by the action of $(-1)$ on every fibre. And open set of $\tilde{\calA}_{1}$ can be identified with an open set of the relative symmetric product $S\tfrac{2}{p}(\calE /(-1))$ over $U$. Every fibre of $S\tfrac{2}{p}(\calE /(-1))\rightarrow U$ is isomorphic to $P_{2}$, so $S\tfrac{2}{p}(\calE /(-1))$ is a $P_{2}$-bundle over $U$. According to \cite{art11-keyG} Corollaire
+\ref{art11-coro-1.2} the Brauer group of $U$ is zero. Hence $S\frac{2}{p}(\calE/(-1))$ is the projectivization of a vector bundle on $U$ and thus it is rational. 
+
+For the proof of Theorem \ref{art11-thm-3.1} we first describe the map $\calA^{0}_{(1,2)} \rightarrow \tilde{A}_{1}$. Let $(X, L, \pi)$ be an element in $\calA^{0}_{(1,2)}$ and $f: C \rightarrow H$ the corresponding \'etale double covering of a curve $H$ of genus 2 according ot Proposition \ref{art11-Proposition-1.1}. As we say in the last section the automorphism group of $C$ contains the group $D_{2}$. As above denote by $\tau \in D_{2}$ the involution corresponding to the covering $C \rightarrow H$ and $j \in D_{2}$ a lifting of the hyperelliptic involution on $H$. Either from the proof of Proposition \ref{art11-prop-2.2} or by considering the ramification points of the 4-fold covering $C\rightarrow P_{1}$ one easily sees that the genera of the curves $C/j$ and $C/j\tau$ are 0 and 1. By eventually interchanging the roles of $j$ and $j\tau$ we may assume that $E=C/j$ is an elliptic curve and $C/j\tau = P_{1}$. In particular the curve $C$ is hyperelliptic and we have a commutative diagram
+$$
+\xymatrix{
+C \ar[r] \ar[d]_{f} & E \ar[d]\\
+H \ar[r] & P_{1}}  
+$$
+We can choose the origin in $E$ in such a way that (-1) is the involution on $E$ corresponding to the covering $E \rightarrow P_{1}$, so that the ramification points of $E \rightarrow P_{1}$ are the 2-division points of $E$. From the commutative diagram we see that the 4 ramification points $p_{1}, \ldots, p_{4} \in E$ of the covering $c\rightarrow E$ are different from the 2-division points of $E$. Since the involutions $j$ and $\tau$ commute and $\tau$ is a lifting of (-1) on $E$, the involution (-1) acts on the set $\{p_{1}, \ldots,p_{4}\}$. Hence we may assume that $p_{3} =-p_{1}$ and $p_{4}=-p_{2}$. Now define the map
+$$
+\psi : \calA_{(1,2)}^{0} \rightarrow \tilde{A}_{1}, \quad (X, L, \pi)\mapsto (E, \{\pm p_{1}, \pm p_{2}\}).
+$$ 
+Since $E$ and the set $\{\pm p_{1}, \pm p_{2}\}$ can be given via algebraic equations out of the covering
+$C\rightarrow H$, the map $\psi$ is holomorphic and it remains to show that it admits an inverse.
+
+Let $(E,\{\pm p_{1}, \pm p_{2}\}) \in \tilde{A}_{1}$. Note that $E$ admits exactly four double coverings ramified
+in $\pm p_{1}$ and $\pm p_{2}$, since the line bundle $\calO_{E}(p_{1} +p_{2} + (-p_{1})+(-p_{2}))$ admits exactly 4 square roots in $\Pic^{2}(E)$. They can be given as  follows: Let $E$ be given by the equation $y^{2} =x(x-1)(x-a)$ and choose as usual the origin to be the flex at infinity. Then the nontivial 2-division points of $E$ are $(x,y) =(0,0),(1,0),(a,0)$. Write $p_{i} =(x_{i},y_{i})$ for $i=1,2$ and consider the double coverings $D_{i}\rightarrow P_{1}, i=0, \ldots,3,$ defined by the equations
+\begin{align*}
+y_{0}^{2} &= x(x-1)(x-a)(x-x_{1})(x-x_{2})\\
+y_{1}^{2} &= x(x-X_{1})(x-x_{2})\\
+y_{2}^{2} &= (x-1)(x-x_{1})(x-x_{2})\\
+y_{3}^{2} &=(x-a)(x-x_{1})(x-x_{2})
+\end{align*}
+Finally denote by $C_{i}$ the curve corresponding to the composition of the function fields of $E$ and $D_{i}$. Then we have the following commutative diagram
+$$
+\xymatrix{
+C_{i} \ar[r] \ar[d] & D_{i}\ar[d]\\
+E\ar[r] & P_{1} }
+$$
+According to Abhyhankar's lemma $C_{i} \rightarrow E$ is not ramified over the 2-division points of $E$, hence $C_{0}, \ldots C_{3}$ are exactly the four double coverings of $E$ ramified in $\pm p_{1} =(x_{1}, \pm y_{1})$ and $ p_{2} =(x_{2},\pm y_{2})$. Moreover $D_{0}$ is of genus 2 and $D_{1}, D_{2}, D_{3}$ are genus 1 and $C_{i} |P_{1}$ is Galois with $\Gal(C_{i}|P_{1}) = D_{2} =<j_{i}, \tau_{i} >$ where $j_{i}$ and $\tau_{i}$ are the involutions corresponding to $C_{i}\rightarrow E$ and $ C_{i} \rightarrow D_{i}$ respectively. The third involution in $\Gal(C_{i} |P_{1})$ is $j_{i}\tau_{i}$. The corresponding curves $D_{i}'=C_{i}/j_{i}\tau_{i}$ are given by the equations respectively
+\begin{align*}
+z_{0}^{2} &= (x-x_{1})(x-x_{2})\\
+z_{1}^{2} &= (x-1)(x-a)(x-x_{1})(x-x_{2})\\
+z_{2}^{2} &= x(x-a)(x-x_{1})(x-x_{2})\\
+z_{3}^{2} &= x(x-1)(x-x_{1})(x-x_{2})
+\end{align*}
+Hence $C_{0}$ is the only covering of $E$ ramified in $\pm p_{1}$ and $\pm p_{2}$ admitting an \'etale double covering of a curve of genus 2 in this way. So the data $(E, \{\pm p_{1}, \pm p_{2}\})$ determine uniquely an element of $\calC_{2}^{2}$, namely $C_{0}\rightarrow D_{0}$. Let $(X, L, \pi)$ denote the corresponding element of $\calA_{1,2}^{0}$ and define a map
+$$
+\varphi : \tilde{\calA}_{1} \rightarrow \calA_{(1,2)}^{0}, \quad (E, \{\pm p_{1}, \pm p_{2}\}) \mapsto (X, L, \pi).
+$$
+Obviously $\varphi$ is holomorphic and inverse to $\psi$. This completes the proof of Theorem \ref{art11-thm-3.1}.
+
+The above proof easily gives another description of the moduli space $\calA_{1,2}^{0}$. Let $\calH_{3}(D_{2})$ denote the moduli space of isomorphism classes of curves of geneus three given by the following equation
+\begin{equation}\label{art11-eq-1}
+y^{2} =(x^{2}-1)(x^{2}-\alpha )(x^{2}-\beta)(x^{2}-\gamma)
+\end{equation}
+with pairwise different $\alpha, \beta, \gamma \in C^{*}-\{1\}$. Every curve in $\calH_{3}(D_{2})$ is hypereliptic and its automorphism group contains $D_{2} = \{x \mapsto \pm x, y \mapsto \pm y\}$ which explains the notation.
+
+\medskip
+\noindent
+{\bfseries  \thnum{3.3} Proposition \label{art11-prop-3.3}} \textit{There is  a canonical isomorphism}
+     $\calA_{(1,2)}^{0}\simeq \calH_{3}(D_{2})$.
+
+\medskip
+\noindent
+{\bfseries Proof.} Let $(x, L, \pi )\in \calA_{1,2}^{0}$ and $ C\rightarrow H$ be the associated \'etale double covering in $\calC_{2}^{2}$. As we saw in the proof above the curve $C$ is hyperelliptic. Moreover $\Aut(C)$ contains $D_{2}$ according to Proposition \ref{art11-pro-2.1}. It is well known (see e.g. \cite{art11-keyI}) that every hyperelliptic curve $C$ of genus three with $D_{2} \subset \Aut(C)$ admits an equation of the form \eqref{art11-eq-1}. Hence the assignment $(X,L,p)\mapsto C$ gives a holomorphic map $\calA_{1,2}^{0} \rightarrow \calH_{3}(D_{2})$.
+
+For the inverse map suppose $C\in \calH_{3}(D_{2})$ is given by an equation \eqref{art11-eq-1}. The involution $(x,y) \mapsto (-x,-y)$ induces the double covering $C\rightarrow H$, where $H$ is given by the equation $v^{2} = u(u-1)(u-\alpha)(u-\beta)(u-\gamma)$. It is easy to see that $C\rightarrow H$ is an element of $\calC_{2}^{2}$ and the assignment $C\mapsto \{C\rightarrow H\}$ defines a holomorphic map $\calH_{3}(D_{2}) \rightarrow \calC_{2}^{2} \simeq \calA_{(1,2)}^{0}$ which in inverse to the  map $\calA_{(1,2)}^{0} \rightarrow \calH_{3}(D_{2})$ given above.
+
+\medskip
+\noindent
+{\bfseries  \thnum{3.4} Remark. \label{art11-remark-3.4}} Let $U =\{(\alpha, \beta, \gamma) \in (C^{*}-\{1\})^{3} : \alpha \neq \beta \neq \gamma \neq \alpha\}$. The moduli space $\calH_{3}(D_{2})$ is birational to the quotient of $U$ by a (nonlinear) action of the group $Z_{2} \times \bS_{4}$. As a consequence of Corollary \ref{art11-coro-3.2} the quotient
+$ U/Z_{2} \times \bS_{4}$ is rational, which seems not be known from Invariant Theory.
+
+
+\section{Remarks on Duality on Polarized Abelian Surfaces} \label{art11-sec-4}
+
+In this section we introduce the dual of a ploarization of an abelian surface and compile some of its properties needed in the next section. The results easily generalize to abelian varieties of arbitrary dimension.
+
+Let $(X, L)$ be a polarized abelian surface of type $(1,d)$. Recall that the polarization $L$ induces an isogeny from $X$ onto its dual $\varphi_{L}: x\rightarrow \widehat{X}$,$ x \mapsto t_{x}^{*}L \otimes L^{-1}$. Its kernel $K(L)$ is isomorphic to the group $Z/dZ \times Z/dZ$.
+
+\medskip
+\noindent
+{\bfseries \thnum{4.1} Proposition. \label{art11-prop-4.1}} \textit{There is a unique polarization $\hat{L}$ on $\hat{X}$ characterized by the following two equivalent properties:}
+$$
+i)\; \varphi_{L}^{*}\hat{L} \equiv L^{d} \qquad  and \quad ii)\; \varphi_{\hat{L}}\varphi_{L}=d \cdot 1_{X}
+$$ 
+The polarization $\hat{L}$ is also of type $(1,d)$.
+
+\medskip
+\noindent
+{\bfseries Proof.} The equivalence i) $\Longleftrightarrow $ ii) follows from the equation
+ $\varphi_{\varphi_{L}^{*} \hat{L}} = \hat{\varphi}_{L}\varphi_{\hat{L}}\varphi_{L}$, since the polarization $L$ and the isogeny $\varphi_{L}$ determin each other and $\hat{\varphi_{L}} = \varphi_{L}$ (see \cite{art11-keyL-B} Section 2.4). The uniqueness of $\hat{L}$ follows from ii) and again, since $\hat{L}$ and $ \varphi_{\hat{L}}$ determine each other.
+ 
+ For the existence of $\hat{L}$ note that $\varphi_{L}^{-1}$ exists in $\Hom(\hat{X}, X) \otimes Q$ since $\varphi_{L}$ is an isogeny. By \cite{art11-keyL-B} Proposition 1.2.6 $\psi =d\varphi_{L}^{-1} : \hat{X} \rightarrow X$ is an isogeny. We have
+
+\setcounter{equation}{0} 
+\begin{equation}\label{art11-art11-prop-4.1-proof-eq-1}
+\varphi_{\psi^{*}L} = \hat{\psi}\varphi_{L}\psi = \hat{\psi}d = d\psi.
+\end{equation}
+According to \cite{art11-keyL-B} Lemma 2.5.6 there exists a polarization $\hat{L} \in \Pic(\hat{X})$ such that
+$\hat{L}^{d} \equiv \phi^{*}L$ and hence
+$$
+\varphi_{\psi^{*}L}=\varphi_{\hat{L}^{d}} =d\varphi_{\hat{L}}.
+$$
+Together with \eqref{art11-art11-prop-4.1-proof-eq-1} this implies $\psi = \varphi_{\hat{L}}$ and thus $\varphi_{\hat{L}}\varphi_{L} =d \cdot 1_{X}$. Moreover ii) implies that $\hat{L}$ is of type $(1,d)$.
+
+In the next section we need the following example of a pair of dual polarizations.
+
+\medskip
+\noindent
+{\bfseries \thnum{4.2} Example. \label{art11-Exam-4.2}} Let $E$ be an elliptic curve and $\Xi$ the polarization on $E\times E$ defined by the divisor $E \times \{0\} + \{0\} \times E + \Delta$, where $\Delta$ denotes the diagonal in $E \times E$. If  we identity as usual $E =\hat{E}$ via $\varphi_{\calO_{E}(0)}$, then we have for the dual polarization $\hat{\Xi}$ on $E \times E$
+$$
+\widehat{\Xi} = \calO_{E \times E}(E \times \{0\} + \{0\} \times E +A),
+$$
+where $A$ denotes the antidiagonal in $E \times E$. To see this note that $\Xi$ can be written as $\Xi = p_{1}^{*}\calO_{E}(0) + p_{2}^{*}\calO_{E}(0) + \alpha^{*}\calO_{E}(0)$ where $p_{i}: E \times E \rightarrow E $ are the projections and $\alpha : E \times E \rightarrow E$ is the difference map $\alpha(x,y) = x-y$. Hence we have
+for $\varphi_{\Xi}: E \times E \rightarrow E \times E$
+\begin{align*}
+\varphi_{\Xi} &= \widehat{p_{1}}\varphi_{\calO_{E} (0)}p_{1} + \widehat{p_{2}}\varphi_{\calO_{E}(0)}p_{2} +
+\widehat{\alpha}\varphi_{\calO_{E}(0)}\alpha\\
+ & =\begin{pmatrix}
+0 & 0\\
+0 & 1
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 0\\
+0 & 1
+\end{pmatrix}
++
+\begin{pmatrix}
+1 & -1\\
+-1 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 & -1\\
+-1 & 2
+\end{pmatrix}
+\end{align*}
+Similarly, if $\Psi$ denotes the polarization defined by the divisor $E \times \{0\} + \{0\} \times E + A$, then 
+$\varphi_{\Psi} = \begin{pmatrix}
+2 & 1\\
+1 & 2
+\end{pmatrix}$.
+This implies
+$$
+\varphi_{\Psi}\varphi_{\Xi} = \begin{pmatrix}
+2 & 1\\
+1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+2 & -1\\
+-1 & 2
+\end{pmatrix}
+=3 \cdot 1_{E\times E}.
+$$
+Since both polarizations are of type (1,3), Proposition \ref{art11-prop-4.1} gives $\Psi = \widehat{\Xi}$.
+
+Let $C$ be a smooth projective curve and $(J, \Theta)$ its canonically principally polarized Jacobian variety.
+
+\medskip
+\noindent
+{\bfseries \thnum{4.3} Proposition. \label{art11-prop-4.3}} \textit{For a morphism $\varphi : C \rightarrow X$ the following statements are equivalent}
+\begin{enumerate}[{\it i)}]
+\item $(\varphi^{*})^{*} \Theta \equiv \widehat{L}$
+
+\item $\varphi_{*}[C] = [L]$ in $H^{2}(X, Z)$.
+\end{enumerate}
+\textit{Both conditions imply that $ \varphi$ is birational onto its image.}
+
+Here $[C]$ denotes the fundamental class of $C$ in $H^{2}(C, Z)$. Similarly $[L]$ denotes the first Chern class of $L$ in $H^{2}(X, Z)$. 
+
+{\bfseries Proof.} Identify $J=\hat{J}$ via $\varphi_{\theta}$. Condition i) is equivalent to
+$$
+\varphi_{\hat{L}} = \varphi_{(\varphi^{*})^{*}\Theta} = \widehat{\varphi^{*}}\varphi^{*}
+$$
+By the Universal Property of the Jacobian $\varphi$ extends to a homomorphism from $J(C)$ to $X$ also denoted
+by $\varphi$. According to \cite{art11-keyL-B} Corollary 11.4.2 the homorphisms $\varphi^{*}: \widehat{X} \rightarrow J(C)$ and $\varphi : J(C) \rightarrow X$ are related by $\widehat{\varphi} =-\varphi^{*}$.
+Hence $\varphi_{\widehat{L}} =\varphi\widehat{\varphi}$.
+
+Let $\delta(\varphi(C), L)$ and $\delta(L, L)$ denote the endomorphisms of $X$ associated to the pairs $(\varphi(C), L)$ and $(L, L)$ induced by the intersetion product (see \cite{art11-keyL-B} Section 5.4). Applying \cite{art11-keyL-B} Propositions 11.6.1 and 5.4.7 condition i) is equivalent to
+$$
+\delta(\varphi(C), L) = -\varphi\widehat{\varphi}\varphi_{L} = -\varphi_{\widehat{L}}\varphi_{L} = -d \cdot 1_{X} = -\dfrac{(L^{2})}{2}1_{X} = \delta(L,L).
+$$
+According to \cite{art11-keyL-B} Theorem 11.6.4 this is equivalent to $[\varphi(C)]= [L]$. Since $L$ is of type $(1,d)$ and
+hence primitive, i) as well as ii) imply that $\varphi$ is birtional onto its image. Hence $\varphi_{*}[C]=[\varphi(C)]$.  
+
+\section{Abelian Surfaces of Type (1,3)}\label{art11-sec-5}
+Recall that $\calA_{(1,3)}^{0} \subset \calA_(1,3)$ is the opemn subset corresponding to abelian surfaces $X$ of type $(1,3)$ with an isogeny onto a Jacobian of a smooth curve of genus 2. In this section we derive some properties of the elements of $\calA_{(1,3)}^{0}$ .
+
+Let $\pi : (X, L) \rightarrow (Y, P) \simeq (J(H), \calO(H))$ be an element of $\calA_{(1,3)}^{0}$ corresponding to the cyhclic 'etale 3-fold covering $f : C\rightarrow H$ of a smooth curve $H$ of geneus 2
+(see Proposition \ref{art11-Proposition-1.1}). According  to Proposition \ref{art11-pro-2.1} the Galois group of the composed covering $C\rightarrow H \rightarrow P_{1}$ is the dihedral group $D_{3}$ generated by an involution $j : C\rightarrow C$ over the hyperelliptic involution $\iota$ of $H$ and a covering transformation $\tau$ of $F :C \rightarrow H$. According to Proposition \ref{art11-prop-2.2} the involutions $j, j\tau, \j\tau^{2}$ are elliptic. Denote by $f_{\nu} : C\rightarrow E_{\nu} = C/j\tau^{\nu}$ the corresponding coverings. The automorphisms $j$ and $\tau$ of $C$ extend to automorphisms of the Jacobian $J(C)$ which we also denote by $j$ and $\tau$. For any point $c \in C$ we have an embedding
+$$
+\alpha_{c}: C\rightarrow J(C),\quad p \mapsto \calO_{C}(p-c).
+$$
+Since the double coverings $f_{\nu}: C \rightarrow E_{\nu}$ are ramified, the pull back homomorphism $E_{\nu} = \Pic^{0}(E_{\nu}) \rightarrow \Pic^{0}(C)=J(C)$ is an embedding (see \cite{art11-keyL-B} Proposition 11.4.3). We always
+consider the elliptic curves $E_{\nu}$ as abelian subvarieties of $J(C)$. Then the followind diagram commutes
+
+\setcounter{equation}{0}
+\begin{equation}\label{art11-sec-eq-1}
+\vcenter{
+\xymatrix{
+C  \ar@{^{(}->}[rr]^-{\alpha_{c}}\ar[dr]_{f_{\nu}} &  &J(C)\ar[dl]^-{(1+j\tau^{\nu})} \\
+   & E_{\nu}  &
+}}
+\end{equation}
+for $\nu =0,1,2$ and any $c \in C$. Since $\tau(1+j\tau^{\nu})=(1 + j\tau^{\nu+1})\tau$, the automorphism$\tau$ of $J(C)$ restritcs to isomorphisms
+$$
+\tau : E_{\nu} \rightarrow E_{\nu+1}
+$$
+for $\nu \in Z /3Z$.
+
+ The curve $C$ is containde in teh abelian surface $X$ and generates $X$ as a group, since $L =\calO_{X}(C)$ is simple. So the Universal Property of the Jacobian yields a surjective homomorphism $J(C)\rightarrow X$, the Kernel of which is described by the following
+
+\medskip
+\noindent
+{\bfseries \thnum{5.1} Proposition. \label{art11-prop-5.1}}
+$0\rightarrow  E_{nu} \times E_{\nu} \xrightarrow {p_{1}+\tau p_{2}}J(C) \rightarrow X \rightarrow 0$ \textit{is an exact sequence of abelian varieties for} $\nu \in z /3Z$. 
+
+ Here $p_{i}: E_{\nu} \times E_{\nu} \rightarrow E_{\nu}$ denotes the $i$-th projection for $i=1,2$. Forthe proof of the proposition we need the following
+
+\medskip
+\noindent
+{\bfseries \thnum{5.2} Lemma . \label{art11-lemma-5.2}} \textit{For a general} $c\in C$ \textit{either} $h^{0}(\calO_{C}(2c + jc +j \tau c)) =1$ or $h^{0}(\calO_{c}(2c +jc +j\tau^{2}c))=1$.
+
+\medskip
+\noindent
+{\bfseries proof} According to Castelnuovo's inequality (see [ACGH] Exercies C-1 p.366) $C$ is not hyperelliptic. We indentify $C$ with its image in $P_{3}$ under the canonical embedding. Assume $h^{0}(\calO_{C}(2c +jc j\tau c)) = h^{0}(\calO_{C}(2c +jc j\tau^{2} c)) =2$ for all $c \in C$. Denote $P_{c}={\rm span}(2c,jc, j\tau c)$ and $P_{c}'={\rm span}(2c, jc, j\tau^{2}c)$ in $P_{3}$. According to the Geometric Riemann-Roch Theorem (see [ACGH] p.12) the assumption is equivalent to
+$$
+\dim P_{c} =\dim P_{c}' =2.
+$$ 
+For any $p \in C$ denote by $T_{p}C$ that tangent of $C$ at $p$ in $P_{3}$. Applying the Geometric Riemann-Roch Theorem again, we obtain
+$$
+4-{\rm dim span} (T_{c}C, T_{jc}C)=h^{0}(\calO_{c}(2c +2jc))\geq h^{0}(\calO_{E_{0}}(2\pi_{0}(c)))=2.
+$$
+Since $h^{0}(\calO_{C}(2c +2jc))\geq 2 $ by Clifford's Theorem, dim span$(T_{c}C, T_{jc}C) = 2$. On the other hand, since a general $c\in C$ is not a ramification point of a trigonal pencil, we have $h^{0}(\calO_{c}(2c + jc))=1$ and thus dim span$(T_{c}C, jc)=2$. Hence
+$$
+P_{c} = span(c, jc, T_{c}C)= span(c, jc,T_{jc}C)=P_{jc}.
+$$
+Similarly we obtain $P_{c}'=P_{jc}'$. Since $\deg C =6$, this implies
+$$
+P_{c}\cap C= \{2c,2jc, j\tau c, \tau^{2}c\} \quad \text{and} \quad P_{c}'\cap C = \{2c, 2jc,j\tau^{2}c, \tau c\}.
+$$
+In particular $P_{c}= span (T_{c}C, T_{jc}C)= P_{c}'$. But then the plane $P_{c}$ contains more than 6 points of $C$, a contradiction.
+
+\medskip
+\noindent
+{\bfseries Proof of the Proposition.} It suffice  to prove the proposition for $\nu =0$.
+
+\medskip
+\noindent
+{\bfseries Step I: The map $p_{1} + \tau p_{2}$ is injective.} According to Lemma 5.2 we may assume $h^{0}(2c +jc +j \tau c) =1$ (if $h^{0}(2c + jc +j\tau^{2}c)=1$, then we work with $\nu=2$ instead of $\nu =0$). We have to determine the points $p,q\in C$ satisfying the quation
+$$
+(1 +j)\alpha_{c}(p) + \tau(1+j)\alpha_{j\tau^{2}c}(q)=0.
+$$
+Here we use the fact that $ E_{0}=(1 +j)\alpha_{c}(C)=(1+j)_{\alpha_{j\tau^{2}c}}(C)$ according to diagram \eqref{art11-diagram-eq-1}. Since $h^{0}(2c +jc +j\tau c)=1$, the above equation is equivalent to teh following identityh of divisor on $C$.
+$$
+p +jp + \tau q + \tau jq =2c +jc  +j\tau c.
+$$
+But the only solution are $(p,q) \in \{(c,\tau^{2}c), (c, j\tau^{2}c), (jc,\tau^{2}c),(jc,j\tau^{2}c)\}$, all of which represent the point $(0,0) \in E_{0} \times E_{0} =(1 +j)\alpha_{c}(C)\times (1 +j)\alpha_{j\tau^{2}c}(C)$.
+Hence $p_{1} +\tau p_{2}$ is an injective homomorphism of abelian varieties.
+
+\medskip
+\noindent
+{\bfseries Step II: The sequence is exact at $J(C)$.} The homomorphism $J(C) \rightarrow X $ fits into the following commutative diagram
+\begin{equation}\label{art11-step II-eq -2}
+\vcenter{
+\xymatrix{
+J(C)\ar[dr]\ar[dd]_-{N_{f}} & \\
+    &X \ar[dl]^-{g}\\
+J(H)  &     
+}}
+\end{equation}
+
+
+Where $N_{f}$ is the divisor norm map associated to $f: C\rightarrow H$ and $g$ is an isogeny of degree 3. Since the kernel of $N_{f}$ consists of 3 connected components,the kernel of $J(C)\rightarrow X$ is an abelian surface. Hence it suffices to show that $N_{f}(p_{1} + \tau p_{2})(E_{\nu} \times E_{\nu})=0$. But
+\begin{align*}
+N_{f}(1 + j\tau^{\nu})&= (1 +\tau \tau^{2})(1 + j\tau^{\nu})\\
+                      &=(1+ \tau + \tau^{2} + j + j\tau + j\tau^{2})
+\end{align*}
+is the divisor norm map of the covering $C\rightarrow P_{1}$ and hence is the zero map.
+
+The Proposition implies that the images of $E_{\nu} \times E_{\nu}$ in $J(C)$ coincide for $\nu =0,1,2$. Therefore it suffices to consider the case $\nu=0$.
+
+The automorphism $\tau$ of $J(C)$ is of order 3 and induces the identity on $J(H)$ . So by diagram \eqref{art11-diagram-eq-2} it induces the indentity on $X$. Hence there is an automorphism $T$ of $ E_{0} \times E_{0}$ of order 3 fitting into the following commutative diagram
+$$
+\xymatrix{
+0 \ar[r] & E_{0}\times E_{0} \ar[d]_-{T} \ar[r]^-{p_{1}+\tau p_{2}}& J(C)\ar[d]_-{\tau}\ar[r] & X\ar@{=}[d] \ar[r] & 0\\
+0 \ar[r] &E_{0}\times E_{0}  \ar[r]^-{p_{1}+\tau p_{2}} & J(C)\ar[r] & X \ar[r] & 0
+}
+$$ 
+
+\medskip
+\noindent
+{\bfseries \thnum{5.3} Lemma.\label{art11-lemma-5.3}}
+$T=\begin{pmatrix}
+0 & -1\\
+1 & -1
+\end{pmatrix}
+$
+
+\medskip
+\noindent
+{\bfseries Proof.} Since $\tau$ is a covering transformation of the 3-fold covering $f: C\rightarrow H$, it satisfies the equation $\tau^{2} \tau + 1 =0$ on im $(E_{0}\times E_{0})\subset \ker N_{f} \subset J(C)$. So in terms of matrices we have $p_{1} + \tau p_{2} = (1, \tau)=(1,-1-\tau^{2})$. An immediate computation shows that
+$T = \begin{pmatrix}
+0 & -1\\
+1 & -1
+\end{pmatrix}
+$ is the only solution of the equation $(1,\tau)T=\tau(1,-1-\tau^{2})$.
+
+The automorhism $T$ restricts to isomorphisms
+$$
+E_{0} \times \{0\} \xrightarrow{T}\{0\} \times E_{0} \xrightarrow{T}\Delta\xrightarrow{T} E_{0} \times \{0\}
+$$ 
+where $\Delta$ denotes the diagonal in $E_{0}\times E_{0}$. Hence $p_{1} + \tau p_{2}$ maps the curves $E_{0}\times \{0\}, \{0\} \times E_{0}$ and $\Delta$ onto $E_{0}, E_{1}$ and $E_{2}$ respectively.
+
+\medskip
+\noindent
+{\bfseries \thnum{5.4} Lemma.\label{art11-lemma-5.4}} \textit{The canonical principal polarization $\Theta$ on $J(C)$ induces a polarization $\Xi$ of type $(1,3)$ on $E_{0} \times E_{0}$ which is invariant with respect to the action of $\tau$.
+ Moreover $\Xi =[E_{0}\times \{0\} + \{0\} \times E_{0}+ \Delta]$ is $H^{2}(E_{0}\times E_{0}, Z)$}.
+
+ \medskip
+\noindent
+{\bfseries Proof.} The dual of the divisor norm map $N_{f}$ is the pull back map $f^{*}$
+(see \cite{art11-keyL-B} 11.4(2)). So dualizing diagram \eqref{art11-diagram-eq-2} above we get
+$$
+\xymatrix{
+J(C) & \\
+    &\widehat{X} \ar[ul]_-{\subset}\\
+J(H) \ar[ur]_-{\widehat{g}}\ar[uu]^-{f*} &     
+}
+$$
+
+Denote by $P$ the canonical principal polarization of $J(H)$. Since $(f^{*}) \Theta \equiv 3P$ and $\widehat{g}$ is an isogeny of degreee 3, the induced polarization $\iota^{*}\Theta$ on $\widehat{X}$ is of type (1,3). According to Proposition \ref{art11-thm-3.1} and \cite{art11-keyL-B} Proposition 12.1.3 $(E_{x} \times E_{0}, \widehat{x})$ is a pair of complementary abelian subvarieties of $J(C)$. Hence by \cite{art11-keyL-B} Corollary 12.1.5 the induced polarization
+$\Xi : = (p_{1} + \tau p_{2})^{*}\Theta$ on $E_{0} \times E_{0}$ is also of type (1,3). moreover $\Xi$ is invariant under $T$, since the polarization $\Theta$ is invariant undert $\tau$. It remains to prove the last assertion.
+
+It suffices to prove the equation in the N'eron-Severi group. NS$(E_{0}\times E_{0})$ is a free abelian group generated by $[E_{0} \times \{0\}],[\{0\} \times E_{0}]$, $[\Delta]$, and, if $E_{0}$ admits complex multiplication, also the class $[\Gamma]$  of the graph $\Gamma$ of an endomorphism $\gamma$ of $E_{0}$. Since $\Xi$ is invariant under $T$ and $T$ permutes the curves $E_{0} \times \{0\}$, $\{0\}\times E_{0}$ and$ \Delta$, we have
+$$
+\Xi = a([E_{0} \times \{0\}] + [\{0\} \times E_{0}] + [\Delta]) +b[\Gamma]
+$$
+for some integers $a,b$.
+
+Assume $b\neq 0$. Then necessarily $[\Gamma]$ is invariant with respect to the action of $T$. Since $(\{0\} \times E_{0}\cdot \Gamma)=1$, this implies that also
+$$
+1 =(E_{0}\times \{0\}\cdot \gamma)=(\Delta \cdot \Gamma).
+$$
+on the other hand $(E_{0} \times \{0\}\cdot \Gamma)=\deg \gamma$ and  $(\Delta \cdot \Gamma)=$ number of fixed points of $\gamma$. But on an elliptic curve there is no automporphims with exactly one fix point, a contradiction. So $b=0$.
+
+Since the polarization $\Xi$ is type (1,3) and thus
+$$
+6 = (\Xi^{2}) =a^{2}(E_{0}\times \{0\} + \{0\} \times E_{0} + \Delta)^{2}=6a^{2},
+$$
+this implies the assertion.
+
+If we identity $J(C)$ and $E_{0}\times E_{0}$ with their dual abelian varieties, the map $(p_{1} + \tau p_{2})^{\wedge}$ is a surjective homomorphism $J(C) \rightarrow E_{0}\times E_{0}$. The composed map
+$$
+a_{c}: C\xrightarrow{\alpha_{c}} J(C)\xrightarrow{(p_{1}+ \tau p_{2})^{\wedge}}E_{0} \times E_{0}
+$$
+is called the \textit{Abel-Prym map} of the abelian subvariety $E_{0}\times E_{0}$ of $(J(C), \Theta)$. Recall from Example \ref{art11-Exam-4.2} the $\widehat{\Xi} = [E_{0}\times \{0\} + \{0\} \times E_{0} + A]$ is the dual polarization of $\Xi$.
+
+\medskip
+\noindent
+{\bfseries \thnum{5.5} Lemma.\label{art11-lemma-5.5}}\textit{$a_{c}: C\rightarrow E_{0}\times E_{0}$ is an embedding and it image $a_{c}(C)$ defines the polarization}$\widehat{\Xi}$.
+
+\medskip
+\noindent
+{\bfseries Proof.} According to \cite{art11-keyL-B} Corollary 11.4.2 we have $a_{c}^{*} =\alpha_{c}^{*}(p_{1} + \tau p_{2})=-(p_{1} + \tau p_{2}): E\times E \rightarrow J(C)$. Hence $(a_{c}^{*})^{*}\Theta = (p_{1} + \tau p_{2})^{*}\Theta = \Xi$. So Proposition \ref{art11-prop-4.3} implies that $\alpha_{c}$ is birational onto its image and $a_{c*}[C]=\widehat{\Xi}$. It remains to show that $a_{c}(C)$ is smooth. But by the adjunction formula $p_{a}(a_{c}(C)) =\frac{(\widehat{\Xi}^{2})}{2} + 1 =4 = p_{g}(C)$.
+
+Recall that $K (\widehat{\Xi})$ is the kernel of the isogeny $\varphi_{\widehat{\Xi}}: E_{0} \times E_{0} \rightarrow E_{0} \times E_{0}$.
+
+According to Example \ref{art11-Exam-4.2}
+$\varphi_{\widehat{\Xi}}= \begin{pmatrix}
+2 & 1\\
+1 & 2
+\end{pmatrix}
+$and hence
+$$
+K(\widehat{\Xi}) = \{(x,x) \in E_{0} \times E_{0}: 3x =0\}.
+$$
+Consider the dual $\widehat{T}$ of the automorphism $T$ of $E \times E$ as an automorphism
+of  $ E\times E$. From Lemma \ref{art11-lemma-5.3} we deduce that
+$$
+\widehat{T}=\begin{pmatrix}
+0 & 1\\
+-1 & -1
+\end{pmatrix}
+$$
+Moreover the polarization $\widehat{\Xi}$ is invariant under $\widehat{T}$, i.e. $\widehat{T}^{*}\widehat{\Xi} = \widehat{\Xi}$. This follows for example from
+$$
+\varphi_{\widehat{\Xi}} =3 \varphi_{\Xi}^{-1} = 3\varphi_{T^{2*}\Xi}^{-1} = 3 T\varphi_{\Xi}^{-1}\widehat{T}= T \varphi_{\widehat{\Xi}}\widehat{T} = \varphi_{\widehat{T}}^{*} \widehat{\Xi}.
+$$
+Denote by $\Fix\widehat{T}$ the set of fixed points of $\widehat{T}$. We obviously have
+$$
+\Fix\widehat{T}=K(\widehat{\Xi}) = \{(x,x) \in E_{0} \times E_{0}: 3x =0\}.
+$$ 
+
+This shows that $K(\widehat{\Xi})$ is the set of those points $y$ if $E_{0} \times E_{0}$, for which the translation map $t_{y}$ commutes with $\widehat{T}$.  This is the essential argument in the proof of the following
+
+\medskip
+\noindent
+{\bfseries \thnum{5.6} Lemma.\label{art11-lemma-5.6}} $|E_{0} \times \{0\} + \{0\} \times E_{0} + A|$ \textit{is the unique linear system defining the polarization $\widehat{\Xi}$ on which induces the identity, i.e. $\widehat{T}$ restricts to an automorphims of every divisor in} $|E_{0} \times \{0\} + \{0\} \times E_{0} + A|$.
+
+\medskip
+\noindent
+{\bfseries Proof.} Let $D$ any divisor defining the polarization $\widehat{\Xi}$. We first claim that in $\widehat{T}^{*}D =D$, and the eigenvalue of the corresponding action on the sections defining $D$ is 1, then $\widehat{T}$ induces the identity on the linear system $|D|$. For any $y\in K (\widehat{\Xi}) =\Fix(\widehat{T})$ we have $\widehat{T}^{*}t_{y}^{*}D = t_{y}^{*}D=t_{y}^{*}D$. The Stone-vonNeumann Theorem implies that translating $D$ by elements of $K(\widehat{\Xi})$ leads to a system of generators of the projective space $|D|$. So $\widehat{T}$ acts as the identity on the linear system $|D|$. This proves the claim.
+
+In order to show that $|E_{0} \times \{0\} + \{0\} \times E_{0} + A|$ is the only linear system defining $\widehat{\Xi}$ on which $\widehat{T}$ acts as the identity, note first that $\widehat{T}^{*}(E_{0} \times \{0\} + \{0\} \times E_{0} + A)=E_{0} \times \{0\} + \{0\} \times E_{0} + A$. Moreover the eigenvalue of the corresponding action the section defining $E_{0} \times \{0\} + \{0\} \times E_{0} + A$ is 1. Any linear system on $E_{0}\times E_{0}$ defining $\widehat{\Xi}$ contains a divisor of the form $t_{z}^{*}(E_{0} \times \{0\} + \{0\} \times E_{0} + A)$ for some $z \in E_{0} \times E_{0}$. Since no group of translations acts on the divisor $E_{0}\times \{0\} + \{0\} \times E_{0}+ A$ itself, the divisor $t_{z}^{*}(E_{0}\times\{0\} + \{0\} \times E_{0} + A)$ is invariant under $\widehat{T}$ if and only if $z \in \Fix\widehat{T}= K(\widehat{\Xi})$. This completes the proof of the lemma.
+
+\medskip
+\noindent
+{\bfseries \thnum{5.7} Lemma.\label{art11-lemma-5.7}}
+
+\begin{enumerate}[{\it a)}]
+
+\item \textit{For any $c \in C $ there exists a point $y =y(C) \in E_{0} \times E_{0}$ uniquely determined modulo $K(\widehat{\Xi})$ such that $t_{y}^{*}a_{c}(C) \in | E_{0} \times \{0\} +\{0\} \times E_{0} + A|$}.
+
+\item \textit{The set $\{t_{y+x}^{*}a_{c}(C) | x \in K (\widehat{\Xi})\}$ does not depend on the choice of c.}
+\end{enumerate}
+
+\medskip
+\noindent
+{\bfseries Proof.}
+
+\begin{enumerate}[a)]
+\item According to Lemma \ref{art11-lemma-5.5} the divisor $a_{c}(C)$ is algebraically equivalent to $E_{0} \times \{0\} + \{0\} \times E_{0} + A$. Hence there is a $y \in E_{0} \times E_{0}$ such that the divisors $t_{y}^{*}a_{c}(C)$ and $E_{0} \times \{0\} + \{0\} \times E_{0} +A$ are linearly equivalent. The uniqueness of $y$ modulo $K(\widehat{\Xi})$ follows from the definition of $K(\widehat{\Xi})$.
+
+\item Varying $c \in C$, the subset $\{t_{y}^{*}a_{c}(C) | c\in C\}$ of $|E_{0} \times \{0\} + \{0\} \times E_{0} +A|$
+depends continuously on $c$. On the other hand, the curves in $\{t_{y}^{*}a_{c}(C)| c \in C\}$ differ only by translations by elements of the finite group $K(\widehat{\Xi})$. Hence the set $\{t_{y+x}^{*}a_{c}(C) | x \in K(\widehat{\Xi})\}$ is independent of the point $c$.
+\end{enumerate}
+
+\section{The Moduli Space $\calA^{0}_{(1,3)}$}\label{art11-sec-6}
+
+In this section we use the results of \S\ref{art11-sec-5} in order to give an explicit description of the modulo space $\calA_{(1,3)}^{0}$. 
+
+Let $(X, L, \pi)$ be an element of $\calA_{(1,3)}^{0}$ with corresponding \'etale 3-fold covering $\{ C \rightarrow H \} \in \calC_{2}^{3}$. The hyperelliptic covering $H \rightarrow P_{1}$ lifts to an elliptic covering $C \rightarrow E$. The elliptic curve $E$ is uniquely determined by $C\rightarrow E$. The elliptic curve $E$ uniquely determined by $C\rightarrow H$. Let $\widehat{\Xi}$ denote the polarization on $E \times E$ defined by the divisor $E \times \{0\} |\{0\} \times E +A $. According to Lemma \ref{art11-lemma-5.5} and \ref{art11-lemma-5.7} there is an embedding $C \hookrightarrow e \times E$ uniquely determined module translations by element s of $K(\widehat{\Xi})$ whose image is contained in the linear system $|E \times \{0\}+ \{0\} \times E + A|$. On the other hand, consider the automorphism $\widehat{T}=\begin{pmatrix}
+0 & 1\\
+-1 & -1
+\end{pmatrix}$ of $E \times E$. According to Lemma \ref{art11-lemma-5.6} it restricts to an automorphism of $C$ which coincides with the covering transformation of $C\rightarrow H$. Since $\Fix\widehat{T} =K(\widehat{\Xi})$, this implies $C \cap K(\widehat{\Xi})=\emptyset$.
+
+Let $\calM$ denote the moduli space of pairs $(E, C)$ with $E$ an elliptic curve and $C$ a smooth curve in the linear system $|E \times \{0\} + \{0\} \times E + A|$ modulo translations by elements of $K(\widehat{\Xi})$ such that $C\cap K(\widehat{\Xi}) = \emptyset$. Using level structures it is easy to see that $\calM$ exists as a coarse mouli space for this moduli problem.
+
+Summing up we constructed a holomorphic map $\psi : \calA_{(1,3)}^{0} \rightarrow \calM$.
+
+\medskip
+\noindent
+{\bfseries \thnum{6.1} Theorem.\label{art11-thm-6.1}} $\psi : \calA_{(1,3)}^{0} \rightarrow \calM$ \textit{is an isomorphism of algrbraic varieties.}
+
+\medskip
+\noindent
+{\bfseries Proof.} It remains to construct an inverse map. Let $(E, C) \in \calM$. According to Lemma \ref{art11-lemma-5.6}
+the automorphism $\widehat{T}$ of $E \times E$ acts on every curve of the linear system. In particular $\widehat{T}$ restricts to an automorphism $\tau$ of $C$  which is of order 3, since $C$ generates $E \times $ as ga group. Moreover $\tau$ is fixed point free, since $C \cap \Fix \widehat{T}= \emptyset$. So $\tau$ induces an \'etale 3-fold covering $C \rightarrow H$ corresponding to an element $(X, L, \pi) \in \calA_{(1,3)}^{0}$. It is easy to see that the map $\calM \rightarrow \calA_{(1,3)}^{0}, (E, C)\mapsto (X, L, \pi)$ is holomorphic and inverse to $\psi$.
+
+\medskip
+\noindent
+{\bfseries \thnum{6.2} Corollary.\label{art11-thm-6.2}} $\calA_{(1,3)}$\textit{is a rational variety.}
+
+\medskip
+\noindent
+{\bfseries Proof.} It suffices to show that the open set $\calM^{0} =\{(E, C)\in \calM : E$ admits no nontrivial automorphisms$\}$ is rational.
+
+The opent set $U = C-\{0,1728\}$ parametrizing elliptic curves without nontrivial automorphisms admit a universal family $\calE \rightarrow U$. Consider the line bundle $\cal)_{\calE \times_{U} \calE}(\calE \times_{U}\{0\} + \{0\} \times_{U}\calE + \calA)$ on the fibre product $p: \calE \times_{U} \calE \rightarrow U$ where $\calA$ denotes the relative antidiagonal. According to Grauert's Theorem $p_{*}\calO_{\calE\times_{U}\calE}(\calE \times_{U}\{0\} + \{0\} \times_{U}\calE + \calA)$ is a vector bundle of rank 3 over $U$. The corresponding projective bundle $P_{U}:=P(p_{*}\calO_{\calE \times_{U}\calE}(\calE \times_{U}\{ 0\} + \{0\} \times_{U}\calE + \calA))$ parametrizes the linear systems $|E \times \{0\} + \{0\} \times E + A|$. By construction $\calM^{0}$ is an open subset of the quotient $P_{U}/K(\Xi)$, where $K(\Xi)$ acts as usual on the fibres of $P_{U}\rightarrow U$. Since every vector bundle on $U$ is trivial, $P_{U}\simeq P^{2} \times U$ and $P_{U}/K(\Xi)\simeq P^{2} /(X/3Z \times Z /3Z)\times U$, which is
+rational by L\"uroth's theorem (see \cite{art11-keyG-H} p. 541).
+
+\begin{thebibliography}{99}
+\bibitem[ACGA]{art11-keyACGA} Arbarello E., Cornalba M., Griffiths P.A., Harris J., \textit{Geometry of algebraic curves I}, Spinger Grundlehren {\bf 267} (1985).
+
+\bibitem[C-W]{art11-keyC-W} Chevalley C., Weil A.,\textit{\"Uber das Verhalten der Integrale erster Gattung bei Automorphismen des Funktionenk\"Orpers,} Hamb. Abh. {\bf 10}(1934) 358-361.
+
+\bibitem[EGAI]{art11-keyEGAI} Grothendieck A., Dieudonn\'e J., \textit{El'ements de G\'eometrie Alg\'ebrique I}, Springer Grundlehren {\bf 166} (1971).
+
+\bibitem[G]{art11-keyG} Grothendick A., \textit{Let Groupe de Brauer III. In: Dix Expos\'es sur la Cohomologie des Sch\'emas}, North Holland, Amsterdam, (1968) 88-188.
+
+\bibitem[G-H]{art11-keyG-H} Griffiths P., Harris J., \textit{Principles of Algebric Geometry}, John Wiley \& Sons, Now York (1978).
+\bibitem[H-W]{art11-keyH-W} Hulek K., Weintraub S.H., \textit{Bielliptic Abelian Surfaces}, Math. Ann. {\bf 283} (1989) 411-429.
+\bibitem[I]{art11-keyI} Ingrisch E., \textit{Automorphismengruppen und Moduln hyperelliptischer Kurven}, Dissertation Erlangen (1985).
+
+\bibitem[L-B]{art11-keyL-B} Lange H., Birkenhakel Ch., \textit{Complex Abelian Varieties}, Springer Grundlehren {\bf 302} (1992).
+\end{thebibliography}
+
+\begin{flushleft}
+Ch. Birkenhake
+
+H. Lange
+
+Mathematishes Institut
+
+Bismarckstra\ss e $1\frac{1}{2}$
+
+D-8520 Erlangen 
+
+\end{flushleft}
