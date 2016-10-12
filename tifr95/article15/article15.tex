@@ -1,9 +1,420 @@
-\title{Moduli of logarithmic connections}
-\markright{Moduli of logarithmic connections}
+\title{The Borel-Weil theorem and the Feynman path integral}
+\markright{The Borel-Weil theorem and the Feynman path integral}
 
-\author{By~Nitin Nitsure}
-\markboth{By~Nitin Nitsure}{Moduli of logarithmic connections}
+\author{By~Kiyosato Okamoto}
+\markboth{By~Kiyosato Okamoto}{The Borel-Weil theorem and the Feynman path integral}
 
 
 \date{}
 \maketitle
+
+\section*{Introduction}
+
+Let $p$ and $q$ be the canonical mometum and coordinate of a particle. In the operator method of quantization, corresponding ot $p$ and $q$ there are operators, $P, Q$ which in the coordinate representation have the form:
+$$
+A=q, \quad P=-\sqrt{-1}\dfrac{d}{dp}.
+$$
+
+The quantization means the correspondence between the Hamiltonian fucntion $h(p, q)$ and the Hamiltonian operator $\bH= h(P, Q)$, where a certain procedure for ordering noncommuting operator arguments $P$ and $Q$ is assmed. The path integral quantization is the method to compute the kernel function of the unitary operator $\exp(-\sqrt{-1}t \bH)$.
+
+any mathematically strict definition of the path integral has not yet given. In one tries to compute path integral in general one may encounter the difficulty of divergence of the path integral. Many examples, however, show that the path integral is a very poweful tool to compute the kernel function of the operator explicitly.
+
+The purpose of this lecture is to explain what kinds of divergence we have when we try to compute the path integral for complex polarizations of a connected semisimple Lie group which contains a compact Cartan subgroup and to show that we can regularize the path integral by the process of ``normal ordering" (cf. Chapter 13 in \cite{art15-key10}). The details and proofs of these results are given in the forthcoming paper \cite{art15-key7}.
+
+Since a few in the audience do not seem to know about the Feynman path integral I would like to start with explaining it form a point of view of the theory of unitary representations, using the Heisenberg group which is most deeply related with the quantum mechanics.
+
+The Feynman's idea of the path integral can be easily and clearly understood if one computes the path integral on the coadjoint orbits of the Heisenberg group:
+$$
+G= \left\{ \begin{pmatrix}
+1 & p & r\\
+  &  1 & q\\
+  &    & 1
+\end{pmatrix}
+; p,q,r \in \bR \right\}.
+$$
+The Lie algebra of $G$ is given by
+$$
+\fg = \left\{ \begin{pmatrix}
+0 & a & c\\
+  &  0 & b\\
+  &    & 0
+\end{pmatrix}
+; a,b,c \in \bR \right\}.
+$$
+The dual space of $\fg$ is identified with
+$$
+\fg^{*} = \left\{ \begin{pmatrix}
+0 &  & \\
+ \xi &  0 & \\
+ \sigma & \eta   & 0
+\end{pmatrix}
+; \xi,\eta, \sigma \in \bR \right\}.
+$$
+by the pairing
+$$
+\fg \times \fg^{*} \ni (X, \lambda) \longmapsto {\rm tr}(\lambda X) \in \bR.
+$$
+Any nontrivial coadjoint orbit is given by an element
+$$
+\lambda_{\sigma} = \begin{pmatrix}
+0 &  &  \\
+ 0 &  0 & \\
+ \sigma & 0  & 0
+\end{pmatrix}
+\quad \text{for some} \; \sigma \neq 0
+$$
+Then the isotropy subgroup at $\lambda_{\sigma}$ is given by
+$$
+G_{\lambda_{\sigma}} = \left\{ \begin{pmatrix}
+1 & 0 & r \\
+  &  1 & 0\\
+  &    & 1
+\end{pmatrix}
+; r \in \bR \right\},
+$$
+and the Lie algebra of $G_{\lambda_{\sigma}}$ is
+$$
+\fg_{\lambda_{\sigma}}= \left\{ \begin{pmatrix}
+1 & 0 & c \\
+  &  0 & 0\\
+  &    & 0
+\end{pmatrix}
+; c \in \bR \right\}.
+$$
+We consider the real polarization:
+$$
+\fp= \left\{ \begin{pmatrix}
+0 & a & c \\
+  &  0 & 0\\
+  &    & 0
+\end{pmatrix}
+; a, c \in \bR \right\}.
+$$
+Then the analytic subgroup of $G$ corresponding to $\fp$ is given by
+$$
+P= \left\{ \begin{pmatrix}
+1 & p & r \\
+  &  1 & 0\\
+  &    & 1
+\end{pmatrix}
+; p, r \in \bR \right\}.
+$$
+Clearly the Lie algebra homomorphism
+$$
+\fp \ni \begin{pmatrix}
+0 & a & c \\
+  &  0 & 0\\
+  &    & 0
+\end{pmatrix}
+\longmapsto - \sqrt{-1}\sigma c \in \sqrt{-1}\bR.
+$$
+lifts to the unitary character $\xi_{\lambda_{\sigma}}$:
+$$
+P \ni \begin{pmatrix}
+1 & p & r \\
+  &  1 & 0\\
+  &    & 1
+\end{pmatrix}
+\longmapsto e^{-\sqrt{-1}\sigma r} \in U(1).
+$$
+Let $L_{\xi_{\lambda_{\sigma}}}$ denote the line bundle associated with $\xi_{\lambda_{\sigma}}$ over the homogenous space $G /P$. Then the space $C^{\infty}(L_{\xi_{\lambda_{\sigma}}})$ of all complex valued $C^{\infty}$ -sections of $L_{\xi_{\lambda_{\sigma}}}$ can be identified with
+$$
+\left\{ f \in C^{\infty}(G); F(gp) = \xi_{\lambda_{\sigma}}(p)^{-1}f(g) \quad (g \in G, p \in P)\right\}.
+$$
+For any $g \in G$ we define an operator $\pi_{\lambda_{\sigma}}^{\fp}(g)$ on $C^{\infty}(L_{\xi_{\lambda_{\sigma}}}):$
+For $f \in \bC^{\infty}(L_{\xi_{\lambda_{\sigma}}})$
+$$
+(\pi_{\lambda_{\sigma}}^{\fp}(g)f)(x)=f(g^{-1}x) \quad (x \in G).
+$$
+
+Let $\calH_{\lambda_{\sigma}}^{\fp}$ be the Hilbert space of all square integrable sections of $L_{\xi_{\lambda}}$. Then
+$\pi_{\lambda_{\sigma}}^{\fp}$ is a unitary representation of $G$ on $\calH_{\lambda_{\sigma}}^{\fp}$.
+
+We put
+$$
+M =\left\{\begin{pmatrix}
+1 & 0 & 0 \\
+  &  1 & q\\
+  &    & 1
+\end{pmatrix}
+; q \in \bR \right\}.
+$$
+Then as is easily seen the product mapping $M \times P \longrightarrow G$ is a real analytic isomorphism which is surjective. Let $f \in C^{\infty}(L_{\xi_{\lambda_{\sigma}}})$. Then, since
+$$
+f(g\begin{pmatrix}
+1 & p & r \\
+  &  1 & 0\\
+  &    & 1
+\end{pmatrix}
+)= e^{\sqrt{-1}\sigma r} f(g) \quad\; \text{for}\; q \in G,  \begin{pmatrix}
+1 & p & r \\
+  &  1 & 0\\
+  &    & 1
+\end{pmatrix}
+\in P,
+$$
+$f$ can be uniquely determined by its values on $M$. From this we obtain the following onto-isometry:
+$$
+\calH_{\lambda_{\sigma}}^{\fp}\ni f \longmapsto F \in L^{2}(\bR)
+$$
+where
+$$
+F(q)=f(\begin{pmatrix}
+1 & 0 & 0 \\
+  &  1 & q\\
+  &    & 1
+\end{pmatrix}
+) \quad (q \in \bR).
+$$
+For any $g =\exp\begin{pmatrix}
+0 & a & c\\
+  & 0 & b\\
+  &   & 0
+\end{pmatrix}
+\in G$, we define a unitary operater $U_{\lambda_{\sigma}}^{\fp}(g)$ on $L^{2}(\bR)$ such that the diagram below is commutative:
+ $$
+ \xymatrix{
+\calH_{\lambda_{\sigma}}^{\fp}\ar[r]\ar [d]_-{\pi_{\lambda_{\sigma}}^{\fp}(g)} & L^{2}(\bR)\ar[d]^-{U_{\lambda_{\sigma}}^{\fp}(g)}\\
+\calH_{\lambda_{\sigma}}^{\fp} \ar[r] & L^{2}(\bR).
+} 
+$$
+Then we have
+\begin{align*}
+(U_{\lambda_{\sigma}}^{\fp}F)(q)&= f(g^{-1}\begin{pmatrix}
+1 & 0 & 0\\
+  & 1 & q\\
+  &   & 1
+\end{pmatrix})\\
+& =f(\begin{pmatrix}
+1 & -a & -c+\frac{ab}{2}\\
+  & 1 & -b\\
+  &   & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0\\
+  & 1 & q\\
+  &   & 1
+\end{pmatrix}
+)\\
+& =f(
+\begin{pmatrix}
+1 & 0 & 0\\
+  & 1 & q-b\\
+  &   & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & -a & -c+\frac{ab}{2}-aq\\
+  & 1 & 0\\
+  &   & 1
+\end{pmatrix}
+) \\
+&= e^{\sqrt{-1}\sigma(-c +\frac{ab}{2}-aq)}F(q-b).
+\end{align*}
+ Now we show that the above unitary operator is obtained by the path integral.
+
+ In the following, for the definition of the connection form $\theta_{\lambda_{\sigma}}$, the hamiltonian $H_{Y}$ and the action $\int_{0}^{T}\gamma^{*}\alpha-H_{Y}dt$ in the general case the audience may refer to the introduction of the paper \cite{art15-key5}.
+
+ We use the local coordinates $q, p,r $ of $g \in G$ as follows:
+ $$
+ G \ni g = \begin{pmatrix}
+1 & 0 & 0\\
+ & 1 & q\\
+  & & 1
+ \end{pmatrix}
+\begin{pmatrix}
+1 & p & r\\
+ & 1 & 0\\
+  & & 1
+ \end{pmatrix}.
+$$
+Since the canonical 1-form $\theta$ is given by $g^{-1}dg$, we have
+$$
+\theta_{\lambda_{\sigma}}= < \lambda_{\sigma}, \theta> ={\rm tr}(\lambda_{\sigma} g^{-1}dg)= \sigma(dr-pdq).
+$$
+We choose
+$$
+\alpha_{\fp}= -\sigma pdq.
+$$
+Then
+$$
+\dfrac{d\alpha_{fp}}{2 \pi} = \dfrac{-\sigma dp \wedge dq}{2\pi}.
+$$
+For $Y \in \fg$, the hamiltonian $H_{Y}$ is given by
+$$
+H_{Y} = {\rm tr}(\lambda_{\sigma} g^{-1} Y g)= \sigma(aq-bp + c)
+$$
+where $Y = \begin{pmatrix}
+0 & a & c\\
+  & 0 & b\\
+  &   & 0
+\end{pmatrix}.
+$ The action is given by
+$$
+\int_{0}^{T}\gamma^{*}\alpha-H_{Y}dt = \int_{0}^{T}\{-\sigma p(t)q(t)-\sigma(aq-bp + c)\}dt.
+$$
+We divide the time interval $[0,T]$ into $N$-equal small intervals $\left[\frac{k-1}{N}T,  \frac{k}{N}T\right]$
+$$
+\int_{0}^{T} \gamma^{*}\alpha-H_{Y}dt = \sum\limits_{k=1}^{N}\int_{\frac{k-1}{N}T}^{\frac{k}{n}T} \gamma^{*}\alpha-H_{Y}dt.
+$$
+The physicists' calculation rule asserts that one should take the ``ordering":
+$$
+\sum\limits_{k=1}^{N}\left\{-\sigma p_{k-1}(q_{k}-q_{k-1})-\sigma(a \frac{q_{k}+q_{k-1}}{2}-bp_{k-1} + c)\frac{T}{N} \right\}.
+$$
+
+This choice of the ordering can be mathematically formulated as follows.
+
+We take the paths: for $t \in \left[\frac{k-1}{N}T, \frac{k}{N}T\right]$
+\begin{align*}
+q(t)&=q_{k-1}+(t-\frac{k-1}{N}T)\dfrac{q_{k}-q_{k-1}}{T/N},\\
+p(t)&= p_{k-1},\\
+q(0)&= q, \; \text{and} \; q(T)=q'.
+\end{align*}
+Then the action for the above path becomes
+\begin{equation*}
+\begin{split}
+\sum\limits_{k=1}^{N}&\int_{\frac{k-1}{N}T}^{\frac{k}{N}T} \{-\sigma p(t)q(t)-\sigma(aq-bp +c)\}dt\\
+  &= \sum\limits_{k=1}^{N}\left\{-\sigma p_{k-1}(q_{k}-q_{k-1})-\sigma(a \frac{q_{k}+q_{k-1}}{2}-bp_{k-1}+c)\dfrac{T}{N} \right\}
+\end{split}
+\end{equation*}
+
+The Feynman path integral asserts that the transition amplitude between the point $q=q_{0}$ and the point $q'=q_{N}$ is given by the kernel function which is computed as follows:
+
+\noindent
+$K_{Y}^{\fp}(q',q; T)$
+\begin{flalign*}
+ &= \lim\limits_{N \rightarrow \infty} \int_{-\infty}^{\infty}\cdots \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \cdots
+ \int_{-\infty}^{\infty} |\sigma| \dfrac{dp_{0}}{2\pi} \cdots |\sigma|\dfrac{dp_{N-1}}{2\pi}dq_{1}\cdots dq_{N-1}\\
+ &\quad \times \exp \left\{\sqrt{-1}\sigma \sum\limits_{k=1}^{N}\left[-p_{k-1}(q_{k}-q_{k-1}) -(a\dfrac{q_{k}+q_{k-1}}{2}-bp_{k-1} + c)\dfrac{T}{N}\right] \right\}\\
+ &=\lim\limits_{N\rightarrow \infty} \int_{-\infty}^{\infty}\cdots \int_{-\infty}^{\infty} dq_{1}\cdots dq_{N-1}\prod\limits_{k=1}^{N}\delta(-q_{k} +q_{k-1}+ b \dfrac{T}{N}) \\
+ &\qquad \qquad \qquad \times \left\{-\sqrt{-1}\sigma \sum\limits_{k=1}^{N}(\dfrac{a(q_{k} +q_{k-1})}{2} + c)\dfrac{T}{N}\right\}\\
+ &=\lim\limits_{N \rightarrow \infty}\delta(-q_{N} + q_{0} bT) \exp \left\{-\sqrt{-1}\sigma(aT(q_{0} + \dfrac{bT}{2})+ cT) \right\}\\
+ &=\delta(-q' + q bT) \exp\left\{-\sqrt{-1}\sigma(aqT + \dfrac{abT^{2}}{2} + cT) \right\}.
+\end{flalign*}
+For $F \in C_{c}^{\infty}(\bR)$ we have
+
+\medskip
+$\int_{-\infty}^{\infty}K_{Y}^{\fp}(q',q;T)F(q)dq$
+\begin{flalign*}
+&= \exp \left\{-\sqrt{-1}\sigma\left(aq'T-\dfrac{abT^{2}}{2} + cT \right)\right\}F(q'-bT)\\
+&=(U_{\lambda_{\sigma}}^{\fp}(\exp TY)F)(q').
+\end{flalign*}
+Thus the path integral gives our unitary operator.
+
+In the above quantization, the hamiltonian function $H_{Y}(p,q)$ corresponds to
+$$
+\sqrt{-1}\dfrac{d}{dt}U_{\lambda_{\sigma}}^{\fp}(\exp tY)|_{t=0} = \sigma(aq+c) - \sqrt{-1}b\dfrac{d}{dq},
+$$
+which is slightly different form
+$$
+H_{Y}(-\sqrt{-1}\dfrac{d}{dq},q) = \sigma(aq + c +\sqrt{-1}b\dfrac{d}{dq}).
+$$
+This difference comes from the fact that we chose $\alpha_{\fp}= -\sigma pdq$ whereas physicists usually take $pdq$.
+
+\section{Coherent representation}\label{art15-sec-1}
+
+In this section, we compute the path integral for unitary representations realized by the Borel-Wiel theorem for the Heisenberg group. In other words, we compute the path integral for a complex polarization which is called by physicists the path integral for a complex polarization which is called by physicists the path integral for the coheretnt representation. We shall show that the path integral, also in this case, gives unitary operators of these representations.
+
+The complexification $G^{\bC}$ of $G$ and $\fg^{\bC}$ of $\fg$ are given by
+\begin{align*}
+G^{\bC} &=\left\{ \begin{pmatrix}
+1 & p & r\\
+  &  1 & q\\
+  &    & 1
+\end{pmatrix}
+; p,q,r \in \bC \right\},\\
+\fg^{\bC} &=\left\{ \begin{pmatrix}
+0 & a & c\\
+  &  0 & b\\
+  &    & 0
+\end{pmatrix}
+; a,b,c \in \bC \right\}.
+\end{align*}
+we consider the complex polarization defined by
+$$
+\fp =\left\{ \begin{pmatrix}
+0 & \sqrt{-1}b & c\\
+  &  0 & b\\
+  &    & 0
+\end{pmatrix}
+; a,b,c \in \bC \right\}.
+$$
+We denote by $P$ the complex analytic subgroup of $G^{\bC}$ corresponding to $\fp$. We put $W=GP=G^{\bC}$. Then it is easy to see that Lie algebra homomorphism
+$$
+\fp \ni \begin{pmatrix}
+0 & \sqrt{-1}b & c\\
+  &  0 & b\\
+  &    & 0
+\end{pmatrix}
+ \longmapsto -\sqrt{-1}\sigma c \in \bC
+$$
+lifts uniquely to the holomorphic character $\xi_{\lambda_{\lambda_{\sigma}}}$:
+$$
+P \ni \begin{pmatrix}
+1 & \sqrt{-1}b & c+\frac{\sqrt{-1}}{2}b^{2}\\
+  &  1 & b\\
+  &    & 1
+\end{pmatrix}
+ \longmapsto e^{-\sqrt{-1}\sigma c} \in \bC^{*}.
+$$
+
+We denote by $L_{\xi_{\lambda_{\sigma}}}$ the holomorphic line bundle on $G^{\bC}/P$ associated with the character $\xi_{\lambda_{\lambda_{\sigma}}}$.
+
+We denote by $\Gamma(L_{\xi_{\lambda_{\sigma}}})$ the space of all holomorphic sections of $L_{\xi_{\lambda_{\sigma}}}$ and by $\Gamma(\bC)$ the space of all holomorphic functions on $\bC$.
+
+We use the coordinates of $g \in G$:
+\begin{flalign*}
+g &= \exp \begin{pmatrix}
+0 & -\frac{\sqrt{-1}}{2}z & 0\\[0.3cm]
+  &  0 & \frac{1}{2}z\\[0.3cm]
+  &    & 0 
+\end{pmatrix}
+\exp
+\begin{pmatrix}
+0 & -\frac{\sqrt{-1}}{2}\overline{z} & r+\dfrac{\sqrt{-1}}{4}|z|^{2}\\[0.3cm]
+  &  0 & \frac{1}{2}\overline{z}\\[0.3cm]
+  &    & 0 
+\end{pmatrix}
+\\
+ & = \begin{pmatrix}
+   1 & -\frac{\sqrt{-1}}{2}\overline{z} & -\dfrac{\sqrt{-1}}{8}z^{2}\\[0.3cm]
+  &  1 & \frac{1}{2}z\\[0.3cm]
+  &    & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & -\frac{\sqrt{-1}}{2}\overline{z} & r+\dfrac{\sqrt{-1}}{4}|z|^{2} + \dfrac{\sqrt{-1}}{8}\overline{z}^{2} \\[0.3cm]
+  &  1 & \frac{1}{2}\overline{z}\\[0.3cm]
+  &    & 1
+\end{pmatrix}
+\end{flalign*}
+where $z \in \bC, r \in \bR$.
+
+We have the isomorphism
+$$
+\Gamma\left(L_{\xi_{\lambda_{\lambda_{\sigma}}}}\right) \ni f \longmapsto \in \Gamma (\bC)
+$$
+where
+$$
+F(Z)= f(\begin{pmatrix}
+   1 & -\frac{\sqrt{-1}}{2}\overline{z} & -\dfrac{\sqrt{-1}}{8}z^{2}\\[0.3cm]
+  &  1 & \frac{1}{2}z\\[0.3cm]
+  &    & 1
+\end{pmatrix}
+)
+$$
+
+ We denotes by $\Gamma^{2}(L_{\xi_{\lambda_{\sigma}}})$ the Hilbert space of all square integrable holomprphic sections of $L_{\xi_{\lambda_{\sigma}}}$ and by $\Gamma^{2}\left(\bC, \frac{|\sigma|}{2\pi}e^{-\frac{\sigma}{2}|z|^{2}}\right)$
+
+For any $g \in G$ we define an operator $\pi_{\lambda_{\sigma}}^{\fp}(g)$ on $\Gamma^{2}(L_{\xi_{\lambda_{\sigma}}}):$ For $f \in \Gamma^{2}(L_{\xi_{\lambda_{\sigma}}})$
+$$
+(\pi_{\lambda_{\sigma}}^{\fp}(g)f)(x)=f(g^{-1}x) \quad (x \in G).
+$$
+Then $ \pi_{\lambda_{\sigma}}^{\fp}$ is a unitary representation of $G$ on $\Gamma^{2}(L_{\xi_{\lambda_{\sigma}}})$.  Since
+\begin{align*}
+\int_{G/G_{\lambda_{\sigma}}}|f(g)|^{2}\omega_{\lambda_{\sigma}} &= \int_{\bC}\left| e^{-\frac{\sigma|z|^{2}}{4}}F(Z)\right|^{2} |\sigma| \dfrac{dzd\overline{z}}{2\pi}\\
+&= \int_{\bC}|F(z)|^{2} e^{-\frac{\sigma |z|^{2}}{2}}|\sigma| \dfrac{dzd\overline{z}}{2\pi},
+\end{align*}
+where we denote by $\omega_{\lambda_{\sigma}}$ the canonical symplectic form on the coadjoint orbit $\calO_{\lambda_{\sigma}}= G/G_{\lambda_{\sigma}}$ and we put
+$$
+dzd\overline{z}= \dfrac{\sqrt{-1}}{2}dz \wedge d\overline{z}.
+$$
+The above isomorphism gives an isometry of $\Gamma^{2}(L_{\xi_{\lambda_{\sigma}}})$ onto $\Gamma^{2}(\bC, \frac{|\sigma|}{2 \pi}e^{-\frac{\sigma}{2}|z|^{2}})$.
