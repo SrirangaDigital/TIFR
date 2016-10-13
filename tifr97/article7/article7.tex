@@ -1990,7 +1990,7 @@ $$
 \setcounter{section}{8}
 \setcounter{equation}{0}
 \begin{gather}
-\frac{4\pi}{c} \sum\limits_{n \geqslant 1} e \left(\frac{nd}{c} \right) \tau_v (n) \varphi \left(\frac{4\pi \sqrt{n}}{c} \right) = 2 \frac{\zeta (2v)}{(4 \pi)^{2v}} \hat{\varphi} (2v+1) + \\\label{art7-eq8.1}
+\frac{4\pi}{c} \sum\limits_{n \geqslant 1} e \left(\frac{nd}{c} \right) \tau_v (n) \varphi \left(\frac{4\pi \sqrt{n}}{c} \right) = 2 \frac{\zeta (2v)}{(4 \pi)^{2v}} \hat{\varphi} (2v+1) + \label{art7-eq8.1}\\
 + 2 \frac{\zeta (2 - 2 v)}{(4\pi)^{2-2v}} \hat{\varphi} (3 - 2 v) + \notag\\
 + \sum\limits_{n \geqslant 1} \tau_v (n) \int\limits^\infty_0 (e (-nd'/c) k_0 (x \sqrt{n}, v) + e(nd'/ c) k_1 (x \sqrt{n}, v) ) \varphi  (x) x d x\notag
 \end{gather}
@@ -2033,13 +2033,410 @@ If $\re s >1$, writing $v$ instead of $\frac{1}{2} + ir $ for brevity, we have, 
 \end{gather}
  
 Applying, to the second sum, the summation formula \eqref{art7-eq8.1} with $c = d =1$, we shall obtain the representation 
+\begin{gather}
+\zeta (s+ v -1/2) \zeta (s - v+ 1/2) = \sum\limits_{n \geqslant 1} n^{-s} \beta (\delta n) \tau_v (n)+\label{art7-eq8.7}\\
++(4\pi)^{2s-1} \sum\limits_{n \geqslant 1} \tau_v (n) \int\limits^\infty_0 (k_0 (x \sqrt{n}, v) + k_1 (x \sqrt{n}, v)) \beta \left(\frac{16 \pi^2}{\delta x^2} \right) x^{1-2s} dx -\notag\\
+-\frac{\delta^{s-v-(1/2) \zeta (2v)}}{s-v-\frac{1}{2}} \int\limits^\infty_0 \beta' (x) x^{s-v-(1/2)} dx - \notag\\
+- \frac{\delta^{s+v - (3/2)} \zeta (2 -2 v)}{s+v -\frac{3}{2}} \int\limits^\infty_0 \beta' (x) x^{s+v-(3/2)} dx \notag
+\end{gather}\pageoriginale 
+(using integration by parts in the terms with the Mellin transform of the function $\beta$).
 
-%%%%% 6 page 
+The series on the right side of \eqref{art7-eq8.7} are convergent absolutely for all values of $\re s$ (as will be obvious after some integrations by parts); so this identity gives the meromorphic continuation of the function on the left hand side in the critical strip $0< \re s < 1$.
 
-%{the bibliography}{99}
-%\bibitem{art6-key1}
-%\end{thebibliography}
+If we calculate the integrals in \eqref{art7-eq8.7} (using the asymptotic formulae for the Bessel functions of large order) then the so-called ``shortened functional equation'' will be the result. But there is no need for an explicit  asymptotic form, for the purpose of integration over $t$ in our case.
 
-%\medskip
-%\noindent
-%{\bfseries Proposition \thnum{5}.\label{art7-prop2}}
+We can do the first integration over $t$: in the case $2t- r \gg 1$, we have the inner integral
+\begin{equation}
+\frac{1}{\sqrt{r}} \int \omega_T (t) e^{i\psi (r,t) - 4 it \log (x/4\pi) + 2 it \log (t/2 \pi) -2 it} \sE (r, t) \frac{dt}{t} \label{art7-eq8.8}
+\end{equation}
+with $\psi$ and $\sE$ from \eqref{art7-eq7.40}. Here the point of the stationary phase is defined by the equation 
+\begin{equation}
+2t - r = \frac{x^2}{8\pi} . \label{art7-eq8.9}
+\end{equation}
+
+Note that $t \in (T, 2T)$ and $x^2 \geqslant 8 \delta^{-1} \pi^2$ in the integrand. So, for $\delta = \frac{\pi}{8 T}$, the derivative of the function in the exponent is $\ll - \log x \ll - \log T$. Hence we have the possibility of integrating by parts any number of times. Each integration by parts will give the additional factor $O(t^{-1})$n in the integrand. After multiple integration by parts over $t$, we shall do the integration by parts over $x$ (to obtain the absolutely convergent series summed over $n$) 
+
+As a consequence, we can reject the second series in the representation \eqref{art7-eq8.7} and this rejection does not affect any remainder terms in the integral \eqref{art7-eq8.4}
+
+There\pageoriginale are some differences in the case when the quantity $2t -r$ may be small, \ie when $2T\leqslant r \leqslant 4 T$ (note that $\omega_T (t) \equiv 0$ for $t \leqslant T$ and $t \geqslant 2T$). For this case, we have a slightly different expression \eqref{art7-eq7.53} instead of \eqref{art7-eq7.40}. Using the Stirling expansion for $\Gamma (\frac{1}{2} + 2 it + ir)$ and the Binet representation for log $\Gamma (\frac{1}{2} + 2 it - ir)$, we can rewrite this expression in the form 
+\begin{equation}
+h^{(0)} (r,t) e^{2 it \log (t /2 \pi) - 2 it} = \frac{1}{t \sqrt{r}}  e^{i\psi (r,t) } \sE_1 (r,t) , \label{art7-eq8.10}
+\end{equation}
+where $\sE_1$ has the same properties as $\sE$ and 
+\begin{gather}
+\psi_1(r,t) = (2t -r) (\log (\frac{1}{2} + i (2t -r)) - \frac{i\pi}{2}) - 2 t \log (4\pi) - \label{art7-eq8.11}\\
+- 2 t + r \log r -i \int\limits^\infty_0 \left( (e^v-1)^{-1} - \frac{1}{v} -\frac{1}{2} \right) e^{-v ((1/2) + i (2t -r)) \frac{dv}{v}} \notag
+\end{gather}
+
+The zero of the function
+$$
+\frac{\partial \psi_1}{\partial t} - 4 \log \frac{x}{4\pi}
+$$
+lies to the right of the interval of integration. So we can carry out integration by parts and this gives us
+\begin{equation}
+\int\limits^{2T}_T \omega_T (t) \sE_1 e^{iG(t)} \frac{dt}{t} = - \int\limits^{2t}_T  \left(\frac{\omega_T (t)}{t} \sE_1 \right)' \int\limits^t_1 e^{iG(\tau)} d \tau\; dt.  \label{art7-eq8.12}
+\end{equation}
+where $G(t) = \psi_1(r,t) - 4 t \log\dfrac{x}{4\pi}$. Now in the inner integral, we have analytic functions ans for this reason, we can use the saddle-point method. We shall integrate over the curve $\tau = \tau (y ; r, t)$, which is parametrized by the real positive new variable $y$; this curve is defined by the condition that imaginary part of the function in the exponent is constant:
+\begin{equation}
+iG (\tau) = i G (t) - y, \; y >0. \label{art7-eq8.13}
+\end{equation}
+Then the inner integral has the form 
+\begin{equation}
+e^{iG(t)} \left(\int\limits^r_0 e^{-y} (G'(\tau(y)) \tau' (y))^{-1} dy + O(e^{-r}) \right) \label{art7-eq8.14}
+\end{equation}
+(Note that $\re (i\psi_1 (r,\tau))< \frac{\pi}{2} (r- 2 \tau)$ if $\tau$ is small in comparison with $r /2$).
+
+It means that there is the possibility of repeating the integration by parts and so on.
+
+Hence,\pageoriginale the contribution of the second sum on the right side of \eqref{art7-eq8.7} in the integral over $t$ is negligible in any case.
+
+In the last terms on the right side of \eqref{art7-eq8.7}, the integrand is not zero for $\frac{1}{2} \leqslant x \leqslant 2$ only. For this reason, we have the same integral (with the replacement of $x/(4\pi)$ by $(x\delta)^{-(1/2)}$ and with the additional factor $(i(2t-r)-\frac{1}{2})^{-1}$); these terms contribute to the integral over $t$, the quantity $O((T \sqrt{r})^{-1} |\zeta (1+2 ir)|)$.
+
+Of course, the same considerations are applicable to the integral with $\sH_j(\frac{1}{2} + 2 it)$.
+
+Thus, to calculate the integrals \eqref{art7-eq8.3} and \eqref{art7-eq8.4}, we can replace the corresponding Hecke series by the finite sum with the weight function $\beta(\delta n)$ if we choose $\delta = \frac{\pi}{8 T}$.
+
+We have $O(T)$ members in these sums and its estimate gives us the following  main inequality.
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{15}.\label{art7-prop15}}
+\textit{The integrals $\sJ (T,r). \sJ_j(T)$ are exponentially small for $r - 4 T \gg \log T$, $\chi_j - 4 T \gg \log T$ and for $r, \chi_j \leq 4 (T + \log T)$, we have}
+\begin{gather}
+|\sJ (T, r)| \ll \frac{|\zeta (1+ 2 ir)| + \log T}{\sqrt{r}}, \; r \gg 1, \label{art7-eq8.15}\\
+|\sJ_j(T)| \ll 1/T \label{art7-eq8.16}
+\end{gather}
+
+First of all, we have the same integrals as in \eqref{art7-eq8.8} with $2t \log (4\pi n)$ instead of $4 t \log \frac{x}{4\pi}$ in the exponent.
+
+There is no large difference between the cases $r < 2 T$  and $r \in (2 T, 4 T)$ and the first case is typical.
+
+It is convenient to use transformation (of the variable of integration) $t = \frac{r}{2} + 4 \pi n y$ (with the obvious intention of fixing the position of the point of the stationary phase); then we have the integral
+\begin{equation}
+\frac{\beta (\delta n)}{\sqrt{r}} \cdot 4 \pi \sqrt{n}\cdot e^{-ir \log (4 \pi n) + ir \log r - ir - (i \pi /4)} \int\limits^\infty_0 g (n y, r) e^{4 \pi i n (y \log y - y)} dy \label{art7-eq8.17}
+\end{equation}
+with 
+\begin{equation}
+g (x, r) = \frac{\omega_T (2\pi x + r /2)}{2 \pi x+ r/2} \sE (r, 2 \pi x+ r /2) . \label{art7-eq8.18}
+\end{equation}
+
+This integral is the classic example of an exercise in the method of stationary phase. It is essential that the derivatives with the respect to $y$, of the\pageoriginale function $g (ny, r)$ are bounded by $O(T^{-1})$ here. Really, we have $n \ll T$ and for $l = 0, 1,\ldots$
+$$
+\left(\frac{\partial}{\partial t} \right)^l \sE (r,t) \ll T^{-1}, \left(\frac{\partial}{\partial t} \right)^l \omega_T \ll T^{-1}.
+$$
+Using the usual formulae, we shall obtain the expression
+\begin{gather}
+\frac{2 \pi \beta (\delta n)}{\sqrt{r}} (4 \pi n)^{-ir} e^{ir \log r - ir}  \times \label{art7-eq8.19}\\
+\left\{g(n,r) + \frac{1}{4 \pi n} \left(g'' + g'+ \frac{11}{12^g} \right) + O\left(\frac{1}{n^2} \right) \right\} \notag
+\end{gather}
+where $':=\dfrac{d}{dy}$ and $g, g', g''$ are taken at $y=1$; all these quantities are $O(T^{-1})$.
+
+The summation of the absolute values is not sufficient for our purposes but there is no problem in effecting this with the desired accuracy.
+
+Let us suppose that 
+\begin{equation}
+\tilde{g} (s,r) = \int\limits^\infty_0 \beta (\delta x) g (x,r) x^{s-1} dx.  \label{art7-eq8.20}
+\end{equation}
+
+It is an entire function of $s$, if $r < 2 T$ and meromorphic with simple poles at $s =0$, $-1, -2,\ldots,$ when $r \in (2 T, 4 T)$; if $r>4T$, then this function is identically zero.
+
+First of all, we can write 
+\begin{equation}
+\tilde{g} (s,r) = T^{s-1} \int\limits^\infty_0 g_0 (x,r) x^{s-1} dx \label{art7-eq8.21}
+\end{equation}
+with 
+\begin{equation}
+g_0(x,r) = \beta (8\pi x) \frac{\omega_1(2 \pi x+ r/ (2T))}{2 \pi x + r / (2T)} \sE (r, T x + r/2) \label{art7-eq8.22}
+\end{equation}
+
+If, in the beginning, $\re s> 0$, then
+\begin{align}
+\tilde{g} (s,r) & = -(1/s) T^{s-1} \int\limits^\infty_0 x^s g'_0 dx \label{art7-eq8.23}\\
+& = \frac{1}{s(s+1)} T^{s-1} \int\limits^\infty_0 x^{s+1} g''_0 dx \notag\\
+& = \ldots \notag
+\end{align}
+This\pageoriginale representation gives the meromorphic continuation on the whole $s$-plane at the same time, we see that, for any fixed $B \geqslant 1$,
+\begin{equation}
+\tilde{g} (s,r) = O (T^{\re s-1} |s|^{-B}) \label{art7-eq8.24}
+\end{equation}
+when $|s| \to \infty$ and $\re s$ is fixed.
+
+Now, with this function, we have, for $v = \frac{1}{2} + ir$,
+\begin{equation}
+\sum\limits_{n \geqslant 1} \frac{\tau_v (n)}{n^{ir}} g (n,r) = \frac{1}{2 \pi i} \int\limits_{(3/2)} \zeta (s) \zeta(s+ 2 ir) \tilde{g} (s,r) ds\label{art7-eq8.25}
+\end{equation}
+where $\int\limits_{(\sigma)}$ denotes the integral over the line $\re s = \sigma$.
+
+Let us move the path of the integration and integrate over the line $\re s = -\frac{1}{2}$. The poles at $s =1$, $s =1 -2ir$ and $s =0$ give the terms 
+\begin{equation}
+\ll |\zeta (1+ 2 ir )| + \frac{1}{T} |\zeta(2 ir)| \label{art7-eq8.26}
+\end{equation}
+and the integral over the line $\re s = - \frac{1}{2}$ contributes $O(T^{-3/2} r)$. Since $\zeta(2 ir) = O(r^{1/2}) \zeta (1-2 ir)$ and $r \ll T$, it proves the inequality \eqref{art7-eq8.15}. In the second case, we have the same representation.
+\begin{equation}
+\sum\limits_{n \geqslant 1}  \frac{t_j(n)}{n^{i \chi_j}} g(n, \chi_j) =\frac{1}{2 \pi i} \int\limits_{(3/2)} \sH_j (s+ i \chi_j) \tilde{g} (s,\chi_j) ds\label{art7-eq8.27}
+\end{equation}
+but without the poles on the line $\re s =1$. There is no pole at $s =0$ also; really, from the functional equation for the Hecke series, we have $\sH_j (\pm i \chi_j) =0$, if this series corresponds to the even eigenfunction  ($\epsilon_j =  +1$ in \eqref{art7-eq1.52}; note that $\sH_j(\frac{1}{2}) =0$ if $\epsilon_j =-1$, so the consideration of the case $\epsilon_j = + 1$ is sufficient for our purpose). On the line $\re s = - |\frac{1}{2}$, for the case $|s| = o (r)$, we have 
+\begin{align}
+|\sH_j(s+ i\chi_j)| & \ll e^{\pi \chi_j} | \Gamma (1-s) \Gamma (1-s-2 i \chi_j) \sH_j (1-s-i\chi_j) |\label{art7-eq8.28}\\
+& \ll \chi_j |s| e^{-(\pi/2)s} \notag
+\end{align}
+Together with \eqref{art7-eq8.24}, it gives the estimate $O(\chi_j T^{-3/2})$ for the sum \eqref{art7-eq8.27}.
+
+The other terms from the asymptotic formula \eqref{art7-eq8.19} contribute only smaller quantities and inequality \eqref{art7-eq8.16} is proved.
+
+\setcounter{section}{2}
+\subsection{The sum over cusps.}\label{art7-subsec2.8}
+
+\subsubsection{The explicit form.}\label{art7-subsubsec2.8.1}
+
+The next step will be to estimate the contribution of the sum $Z^{\text{cusp}} \left. \left(\begin{matrix}
+\frac{1}{2}, & \rho\\
+\rho, & \frac{1}{2}
+\end{matrix}\right| h^\ast \right)$ in the integral over $t$.
+
+Firstly,\pageoriginale we shall write the explicit form of the coefficients $h_{2k-1}$ in this sum; these coefficients $h_{2k-1} (t)$, $k = 6,7,\ldots,$ result from the analytic continuation of the integral
+\setcounter{section}{9}
+\setcounter{equation}{0}
+\begin{equation}
+2(2k -1) \int\limits^\infty_0 J_{2k -1} (x) \Phi_0 (x; s , v, \rho, \mu) \frac{dx}{x} \label{art7-eq9.1}
+\end{equation}
+at the point $s = \mu = \frac{1}{2}$, $\rho = v = \frac{1}{2} + it$; here $\Phi_0$ is the same function as in \eqref{art7-eq3.12} with $\varphi$ from \eqref{art7-eq4.4} (where $h$ means the function \eqref{art7-eq5.4}).
+
+Let us introduce some additional notation:
+\begin{gather}
+w_k(z) = z^{1/2} (1-z)^{1/2} F(k, 1-k; 1;z) ,\label{art7-eq9.2}\\
+\tilde{w}_k (z) = \frac{\partial}{\partial \epsilon} \left\{z^{1/2+\epsilon} (1-z)^{1/2} F (k+ \epsilon, 1+ \epsilon -k; 1+ 2 \epsilon ;z)
+ \right\}_{\epsilon =0}.
+\label{art7-eq9.3}
+\end{gather}
+Further, let, for real $z$ with $z < 1$, $v_k (z)$ and $y (z; t, u)$ be defined by 
+\begin{gather}
+v_k(z) = |z|^k (1-z)^{1/2} F(k, k; 2k; z), \label{art7-eq9.4}\\
+y (z; t, u) = |z|^{(1/2) + it} (1-z)^{1/2} F(\frac{1}{2} + it + iu, \frac{1}{2} + it - iu; 1+ 2 it; z) \label{art7-eq9.5}
+\end{gather}
+Finally, it is convenient to suppose
+\begin{equation}
+b(u,t) = \frac{\Gamma (\frac{1}{2} + it + iu) \Gamma (\frac{1}{2} - it + iu)}{\Gamma (1+ 2 iu)} \label{art7-eq9.6}
+\end{equation}
+
+With this notation, the coefficients $h_{2k-1} (t)$ in the sum $Z^{\text{cusp}}$ in the case of our specialization are defined by the following equality. 
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{16}.\label{art7-prop16}}
+\textit{We have}
+\begin{gather}
+h_{2k-1} (t) =2 (2k -1) \int\limits^\infty_{-\infty} (B^{(k)}_{00} (u,t) + B^{(k)}_{01} (u,t) + B^{(k)}_{11} (u,t)) \label{art7-eq9.7}\\
+u \text{th } (\pi u) h (u) du, \notag
+\end{gather}
+where the kernels are given by
+\begin{gather}
+B^{(k)}_{00} (u,t) = \label{art7-eq9.8}\\
+=\frac{1}{2\pi^2} \int\limits^1_0 (\tilde{w}_k(x) + 2 \left(\frac{\Gamma'}{\Gamma} (k) -\frac{\Gamma'}{\Gamma} (1) \right) w_k (x)) (b(u,t) y(x; u, t) +\notag\\
++ b (-u,t) y (x; -u, t) ) x^{-it} \frac{dx}{x^{3/2} (1-x)}, \notag\\
+B^{(k)}_{01} (u,t) = \frac{(-1)^k \Gamma^2 (k)}{2 \pi^2 \Gamma(2k)} \int\limits^1_0 v_k(x) (b(t,u)y (x;t,u) +\label{art7-eq9.9}\\
++ b(-t, u) y (x; -t, u)) x^{it} \frac{dx}{x^{3/2} (1-x)'} \notag\\
+B^{(k)}_{11} (u,t)  =\frac{i \text{cth} (\pi t) \Gamma^2 (k)}{2 \pi^2 \Gamma (2k)} \int\limits^{+ \infty}_0 v_k(-\frac{1}{x}) x^{-it} (b(u,t)y(-x; u,t) - \label{art7-eq9.10}\\
+-b (-u,t) y (-x; -u, t)) \frac{dx}{x^{1/2} (1+x)}.  \notag
+\end{gather}\pageoriginale
+
+\setcounter{section}{2}
+\subsubsection{The equations.}\label{art7-subsubsec2.8.2}
+To estimate the integrals \eqref{art7-eq9.8}-\eqref{art7-eq9.10}, we shall use again the same method of asymptotic integration of the differential equation with a large parameter. This large parameter will be the integer $k$  for the function $w_k$, $\tilde{w_k}$ and $v_k$ and $t$ for $y(x; u, t), y (x; t, u)$.
+
+It is convenient to write here all equations to clarify the nature (oscillatory or monotonic) of the corresponding functions. 
+
+The function $y(x; t, u)$ is a solution of the equation 
+\setcounter{section}{9}
+\begin{equation}
+y'' + \left(\frac{t^2}{x^2 (1-x)} + \frac{1-x+x^2}{4x^2 (1-x)^2} -\frac{u^2}{x(1-x)} \right) y =0, \label{art7-eq9.11}
+\end{equation}
+and so this function is oscillatory.
+
+When the parameters $t$ and $u$ are interchanged, we have for the function $y(x; u, t)$ the equation 
+\begin{equation}
+\tilde{y}'' + \left(-\frac{t^2}{x(1-x)} + \frac{1-x+x^2}{4x^2 (1-x)^2} + \frac{u^2}{x^2 (1-x)} \right) \tilde{y} = 0; \label{art7-eq9.12}
+\end{equation}
+it is obvious that, for large $t$, the solutions are non-oscillatory.
+
+Now both the functions $w_k(x)$ and $\tilde{w}_k(x)$ are solutions of the equation 
+\begin{equation}
+w'' + \left(\frac{(k-\frac{1}{2})^2}{x(1-x)} + \frac{1}{4x^2(1-x)^2 } \right) w = 0\label{art7-eq9.13}
+\end{equation}
+
+Finally, the function $v_k(x)$ is a solution of the equation
+\begin{equation}
+v'' + \left(- \frac{(k -\frac{1}{2})^2}{x^2 (1-x)} + \frac{1-x+x^2}{4x^2 (1-x)^2} \right) v = 0 \label{art7-eq9.14}
+\end{equation}
+
+
+\setcounter{section}{2}
+\subsubsection{The order of the integrals.}\label{art7-subusbsec2.8.3}
+From the Stirling expansion, it follows for a large positive $t$
+\setcounter{section}{9}
+\begin{equation}
+b(u,t)  =\frac{2\pi t^{2iu}}{\Gamma (1+ 2iu)} e^{-\pi t} \left(1+O \left(\frac{1+u^2}{t} \right)\right) \label{art7-eq9.15}
+\end{equation}
+(noting that, in all integrals, we can assume $|u| \ll \log t$) and at the same time,
+\begin{equation}
+b(t,u)  = \left(\frac{\pi}{t} \right)^{1/2} e^{-2it - i pi/4} \left(1+O\left(\frac{1+u^2}{t} \right) \right)\label{art7-eq9.16}
+\end{equation}
+
+So\pageoriginale the integrals \eqref{art7-eq9.8} and \eqref{art7-eq9.10} are negligible and it is sufficient to consider \eqref{art7-eq9.9}.
+
+For both the functions $v_k(x)$ and $y(x; t, u)$ the transformation
+\begin{equation}
+x = (\text{ch } (\xi/2))^{-2}, \; \xi \in (0,+ \infty) \label{art7-eq9.17}
+\end{equation}
+of the variable is suitable. Then, for the functions
+\begin{equation}
+V_k(\xi) = \dot{\xi}^{1/2} v_k(x (\xi)), \; Y (\xi; t, u) = \dot{\xi}^{1/2} y(x (\xi); t, u)\label{art7-eq9.18}
+\end{equation}
+We have the differential equations
+\begin{gather}
+\frac{d^2 V_k}{d\xi^2} + \left(-\left(k -\frac{1}{2} \right)^2 + \frac{1}{4 \text{sh}^2 \xi} \right) V_k = 0, \label{art7-eq9.19} \\
+\frac{d^2 Y}{d\xi^2} + \left(t^2 + \frac{1}{4 \text{sh}^2 \xi} - \frac{u^2}{\text{ch}^2 \xi/2} \right) Y =0\label{art7-eq9.20}
+\end{gather}
+
+If we take into account the initial conditions, then we can conclude that $V_k$ must be proportional to 
+\begin{equation}
+(k-\frac{1}{2})^{-1/2} \sqrt{\xi} K_0  ((k -\frac{1}{2}) \xi) \label{art7-eq9.21}
+\end{equation}
+with an absolute coefficient (not depending on $k$). At the same time, $Y$ must have the main term
+\begin{equation}
+(\text{constant}) \cdot t^{-1/2} \sqrt{\xi} H_0^{(2)} (t \xi).\label{art7-eq9.22}
+\end{equation}
+For this reason, the main term of the asymptotic formula for the integral in \eqref{art7-eq9.9} is defined by the integral 
+\begin{equation}
+(t(k -\frac{1}{2}))^{-1/2} \int\limits^{+\infty}_0  \xi g (\xi) K_0 ((k-\frac{1}{2}) \xi) H^{(2)}_0(t \xi) d \xi \label{art7-eq9.23}
+\end{equation}
+where $g(0) \neq 0$ and $g (\xi)$ in some neighbourhood of $\xi =0$ is a power series in $\xi^2$. All such integrals are $O(t^{-2})$ and because of the factor $(\Gamma (2k))^{-1} \Gamma^2 (k)$ we have the following estimate.
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{17}.\label{art7-prop17}}
+\textit{Let $h_{2k-1}$ be defined by the equality \eqref{art7-eq9.7}; then}
+\begin{equation}
+|h_{2k-1} (t)| \ll 2^{-k} t^{-5/2}. \label{art7-eq9.24}
+\end{equation}
+
+It means that the trivial estimate for the integral over $t$ is sufficient and we can omit the sum $Z^{\text{cusp}}$.
+
+\setcounter{section}{2}
+\subsection{The eighth moment.}\label{art7-subsec2.9}
+Let us for brevity, denote by $\tilde{M}(s,v; \rho, \mu)$ the sum of all ``main terms'' on the right side of \eqref{art7-eq5.1} (excepting the functions $Z^{\text{dis}}$, $\tilde{Z}^{\text{dis}}$, $Z^{\text{con}}$ and $Z^{\text{cusp}}$) for the case of the specialization \eqref{art7-eq5.4}. Further, let 
+\setcounter{section}{10}
+\setcounter{equation}{0}
+\begin{equation}
+M(t) = \lim\limits_{\substack{s, \mu \to 1/2\\ \rho, v \Rightarrow  (1/2) + it}} \zeta (2s) \zeta(2\rho) \tilde{M} (s, v; \rho, \mu). \label{art7-eq10.1}
+\end{equation}\pageoriginale
+
+Then a cumulative result of our preceding considerations is the inequality
+\begin{gather}
+\sum\limits_{j \geqslant 1} \alpha_j \int\limits_0 \omega_T (t) |\sH_j (\frac{1}{2} + it)|^4 dt \cdot  \left(1+ O\left(\frac{\chi^2_j}{T} \right) \right) h(\chi_j) + \label{art7-eq10.2}\\
++ (\log T)^{-6} \int\limits^\infty_0 \omega_T (t) |\zeta(\frac{1}{2} + it)|^8 dt \ll \frac{1}{T} \sum\limits_{\chi_j \leqslant 4 T} \alpha_j |\sH_j(\frac{1}{2})|^3 + \notag\\
++ \int\limits^{4T}_0 |\zeta(\frac{1}{2} +ir)|^6 \frac{dr}{\sqrt{r} |\zeta (1+ 2 ir)|} + \int\limits^\infty_0 \omega_T (t) \overline{\chi (t, 0)} M(t) dt.  \notag
+\end{gather}
+
+As $|\zeta (\frac{1}{2} + ir)| \ll (|r| + 1)^{1/6}$, the integral with the sixth power of zeta function is estimated by the quantity $O(T^{1-1/6+ \epsilon})$ for any $\epsilon >0$. The sum over the discrete spectrum on the right side is not larger than
+\begin{equation}
+\frac{1}{t} \left(\sum\limits_{\chi_j \leqslant 4 T} \alpha_j \sH^4_j \right)^{1/2} \left(\sum\limits_{\xi_j \leqslant 4 T} \alpha_j \sH^2_j  \left(\frac{1}{2} \right) \right)^{1/2} \label{art7-eq10.3}
+\end{equation}
+
+Here the second sum is $O(T^2 \log T)$. For the first sum, the estimate $O(T^{2+\epsilon})$ for any $\epsilon >0$ due to H. Iwaniec and J. M. Deshouillers is known. But this estimate may be elaborated; if, in the main functional equation, we choose the function $h$ so that $h$ is close to 1 for $-T \leqslant r \leqslant T$ and $s = \mu =\rho = v = \frac{1}{2} $, then we should get an asymptotic formula for this fourth spectral moment. A suitable $h(r)$ may be taken, for example,
+\begin{equation}
+h_\delta (r) = \left(\int\limits^\infty_{-\infty} (\text{ch} (\delta r))^{-1} dr \right)^{-1} \int\limits^T_{-T} (\text{ch} \delta (r -\eta))^{-1} d \eta\label{art7-eq10.4} 
+\end{equation}
+with a fixed small positive $\delta$. Then the main term will be
+\begin{equation}
+\sum\limits_{\chi_j \leqslant T} \alpha_j \sH^4_j \left(\frac{1}{2} \right) \gg T^2 \label{art7-eq10.5}
+\end{equation}
+and the contribution from the continuous spectrum is 
+\begin{equation}
+\ll(\log T)^2 \int\limits_0 |\zeta (\frac{1}{2} + it)|^8 dt \ll T^{5/3} . \label{art7-eq10.6}
+\end{equation}
+
+On the right side of the functional equation, we have the same quantities\pageoriginale $\sH^4_j (\frac{1}{2})$ but with another weight function $h_0 (\chi_j) + h_1 (\chi_j)$ (note again that $\sH_j(\frac{1}{2}) =0$ if $\epsilon_j = -1$). This function results from the integration of the initial $h$ with an oscillatory kernel and for this reason, its order must be smaller; hence, an asymptotic formula must exist for the fourth spectral moment with the main term $T^2 (\log T)^{n_0}$. So the product \eqref{art7-eq10.3} may be estimated as $O(T (\log T)^B)$ with some fixed $B$ (positive, of course). For this reason, the proof will be complete, if we estimate the integral with the ``main'' terms; simultaneously, the estimate for the integrals with fourth power of the Hecke series follows. 
+
+
+\setcounter{section}{2}
+\subsubsection{The integral with {\boldmath$h_0$}.}\label{art7-subsubsec2.9.1}
+First of all, we shall calculate the integral with $h_0$ in the first term on the right side of \eqref{art7-eq5.1}.
+
+The key to do this is the equality
+\setcounter{section}{10}
+\begin{equation}
+\int\limits^\infty_{-\infty} h(r) r \text{th} (\pi r) dr = -\frac{\pi}{2} \int\limits^\infty_0 J_0(x) \varphi (x) \; d x\label{art7-eq10.7} 
+\end{equation}
+if arbitrary ``good'' functions $h$ and $\varphi$ are connected by the transformation \eqref{art7-eq1.27} (compare the coefficients before $\delta_{n,m}$ in \eqref{art7-eq1.25} and \eqref{art7-eq1.31}; the proof of \eqref{art7-eq10.7} is contained in \cite{arr7-key1}). Now, for our function $h_0(r)$, we have the representation \eqref{arr7-eq4.7} and it is sufficient to calculate the integral
+\begin{equation}
+\int\limits^\infty_{-\infty} A_{00} (r;\xi; \rho, v) r \text{ th} (\pi r) d r. \label{art7-eq10.8}
+\end{equation}
+It may be interpreted as the main term in the summation formula for the sum of Kloosterman sums with weight function $\varphi (x) = \pi \xi (4 \pi)^{1-2\rho} k_0 (x \xi, v)$ ($\xi$ being considered as the parameter). It allows us to use \eqref{art7-eq10.7} and using the tabular integrals, we come to the relation 
+\begin{equation}
+\int\limits^\infty_{-\infty} h_0 (r) r \text{th} (\pi r) dr = \int\limits^\infty_{-\infty} h (u) u \text{th} (\pi u) b_0 (u; s, v; \rho, \mu) du \label{art7-eq10.9}
+\end{equation}
+where, with the additional notation,
+\begin{align}
+&\varphi_0 (\xi; \rho, v)  = \label{art7-eq10.10}\\
+& = \frac{2^{2\rho -1} \Gamma (v+ \rho - \frac{1}{2}) \xi^v}{\cos (\pi v) \Gamma (2v) \Gamma (3/2 - v-\rho)} F (v+ \rho - \frac{1}{2} \cdot v + \rho - \frac{1}{2} ; 2 v ; \xi),  \notag\\
+&\varphi_1 (\xi; \rho, v) = \label{art7-eq10.11}\\
+& =\frac{1}{\pi} \left(\frac{2}{|\xi|} \right)^{2\rho-1} \Gamma (\rho + v - \frac{1}{2}) \Gamma (\rho - v + \frac{1}{2}) F (\rho + v -\frac{1}{2}, \rho - v + \frac{1}{2}; 1 ; \frac{1}{\xi}) \notag
+\end{align}\pageoriginale 
+we have
+\begin{align}
+& b_0 (u; s, v; \rho, \mu) = - \frac{(4\pi)^{1-2 \rho}}{2 \pi }\times \label{art7-eq10.12}\\
+& \left\{\int\limits^1_0 (\varphi_0 (\xi^2; \rho, v) + \varphi_0 (\xi^2; \rho, 1-v)) A_{00} (u, \frac{1}{\xi}; 1 - \rho, \mu) \xi^{2\rho - 2 s -1} d \xi +  \right. \notag\\
+&+ 2 \int\limits^\infty_1 \varphi_1(\xi^2; \rho, v) A_{00} (u, \frac{1}{\xi}; 1 - \rho, \mu) \xi^{2 \rho - 2 s -1} d \xi + \notag \\
+&\left. + 2 \int\limits^\infty_0 \varphi_1 (-\xi^2 ; \rho, v) A_{01} (u, \frac{1}{\xi}; 1 - \rho, \mu)  \xi^{2\rho - 2 s -1} d \xi \right\}. \notag
+\end{align}
+
+\setcounter{section}{2}
+\subsubsection{The transition to the limit.}\label{subsubsec2.9.2}
+No problems arises from terms which contain the values of the initial function at points $\rho \pm (v - \frac{1}{2}) -1$ and $s\pm (\mu -\frac{1}{2}) -1$. Since $h (\pm \frac{i}{2}), h'(\pm \frac{i}{2})$ are zeros, only one term is non-zero when $s =\mu = \frac{1}{2}$. This term contains the value $h(i(2 it -\frac{1}{2}))$ which is exponentially small.
+
+Further, taking into account the representations \eqref{art7-eq4.15}, \eqref{art7-eq4.12} and \eqref{art7-eq10.9}, we can write the sum of all the other terms as 
+\setcounter{section}{10}
+\begin{equation}
+\int\limits^\infty_{-\infty} u \text{ th} (\pi u) h(u) \{\zeta (2s) \zeta(2 \rho) C_0 (u; s, v, \rho, \mu) \} du. \label{art7-eq10.13}
+\end{equation}
+
+We know definitely that the function in the brackets must be finite for our specialization, because the left side of the main identity is finite (in addition, for an arbitrary function $h$). Firstly, we can take $\rho = v$; then we come to the limit $\mu \to s$, and finally, take the limiting case $s \to \frac{1}{2}$. The requirement for the result to be finite in this limiting process will give us several identities for the integrals with some hypergeometric functions; after all, we shall come to a linear combination of some terms with the products of the derivatives $\zeta^{(k)} (1+ 2 it)$. The number of zeta-functions in each term does not exceed 6 and the order of the differentiation is not larger than $4$. The coefficients of this linear combination are some integrals with hypergeometric functions and their derivatives with respect to parameters.\pageoriginale So these coefficients may be investigated in the same manner as before; for this reason, the integral with the ``main'' terms (over $t$) does not exceed $O(T (\log T)^B)$ with some fixed $B$.
+
+This would be the end of the proof. Of course, someone can say that, indeed, some final steps are not there. It is true; but I believe that there are no pressing reasons to extend this sufficiently long paper and it would be better to publish the details somewhere else. 
+
+\begin{thebibliography}{99}
+\bibitem{art7-key1} \textsc{N. V. Kuznetsov} : Gipoteza Peterssona dlia form vesa nul i gipoteza Linnika I. Summa sum Kloostermana, Math. Sbornik, 111 (1980), 334-383.
+
+\bibitem{art7-key2} \textsc{N. V. Kuznetsov} : Formula svertki dlia coeffisentov Fourier riadov Eisensteina, Zap. Naucn. Sem. Leningrad, LOMI, 129 (1983), 43-84.
+
+\bibitem{art7-key3}  \textsc{J. M. Deshouillers} and H. Iwaniec : Kloosterman sums and Fourier coefficients of cusp forms, Invent. Math., 70 (1982), 219-288.
+
+\bibitem{art7-key4}  \textsc{M. N. Huxley} : Introduction to Kloostermania, Banach Centre Publ., Warsaw, 17 (1985), 217-306.
+
+\bibitem{art7-key5}  \textsc{N. V. Kuznetsov} : O sobstvennix functsnix odnogo integralnogo uravnenia, Zap. Naucn. Sem. Leningrad, LOMI, 17 (1970) 66-149.
+
+\bibitem{art7-key6}  \textsc{A. Erdelyi} : Asymptotic expansions, New York, 1956.
+
+\bibitem{art7-key7}  \textsc{N. V. Kuznetsov} : Asymptoticheskoi raspredelnie sobstvennix chastot ploskoi membrane, Differentialnie Uravnenia, 12, 1(1966).
+
+\bibitem{art7-key8}  \textsc{F. W. J. Olver} : The asymptotic expansions of Bessel functions of large order, Phil. Trans. Royal Soc. London A 247 (1954), 328-368.
+\end{thebibliography}
+
+\noindent
+{\small Computer Centre}
+
+\noindent
+{\small Far Eastern Department of }
+
+\noindent
+{\small Academy of Sciences of USSR}
+
+\noindent
+{\small Ul. Kim Yu Chena 65}
+
+\noindent
+{\small 680063 Khabarovsk}
+
+\noindent
+{\small U.S.S.R.}
