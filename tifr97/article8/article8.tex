@@ -80,6 +80,7 @@ E_{1}(z;\chi_{7})=1+2\sum\limits^{\infty}_{n+1}\chi_{7}(n)\dfrac{x^{n}}{1-x^{n}}
 $$
 
 Logarithmic differentiation of $\eta$ with respect to $x$ gives
+\setcounter{equation}{7}
 \begin{equation}
 \frac{24}{\eta}x\dfrac{d\eta}{dx}=\dfrac{24}{2\pi i\eta}\dfrac{d\eta}{dz}=E_{2}(z)\label{art8-eq8}
 \end{equation}
@@ -247,4 +248,185 @@ Let us being with the simplest example of elliptic integrals for which Ramanujan
 \int\limits^{x}_{e^{-2\pi}}\sqrt{Q}\dfrac{dx}{x}=\log \frac{Q^{3/2}-R}{Q^{3/2}+R}.\label{art8-eq13}
 \end{equation}
 Applying Ramanujan's ``very useful substitution'' $Z=R^{2}/Q^{3}$, we have $\dfrac{dZ}{Z}=2\dfrac{dR}{R}-3\dfrac{dQ}{Q}$ and hence \eqref{art8-eq1} leads to $\dfrac{1}{Z}x\dfrac{dZ}{dx}=\dfrac{R^{2}-Q^{3}}{QR}$. Now 
-%page 128
+$$
+x\dfrac{d}{dx}\log \dfrac{Q^{3/2}-R}{Q^{3/2}+R}=x\dfrac{dZ}{dx}\dfrac{d}{dZ}\log\left(\dfrac{1-\sqrt{Z}}{1+\sqrt{Z}}\right)=x\dfrac{dZ}{dx}\cdot \dfrac{1}{\sqrt{Z}(Z-1)}=\sqrt{Q}.
+$$\pageoriginale
+Since $R{\rm(i)}=0$, \eqref{art8-eq13} is proved.
+
+\subsection{}\label{art8-sec2.2}
+We take up next Ramanujan's formula on page \mycirc{70}/78 of \cite{art8-key11} explicitly evaluating an elliptic integral in elementary terms :
+\begin{equation}
+\frac{8}{5}\int \frac{\psi^{5}(x)}{\psi(x^{5})}\dfrac{dx}{x}=\log u^{2}u^{3}_{2}+\sqrt{5}\log \frac{1+\epsilon^{-3}uu^{2}_{2}}{1-\epsilon^{2}uu^{2}_{2}}\quad \left(\text{with~ } \epsilon =\dfrac{\sqrt{5+1}}{2}\right)
+\end{equation}
+
+From \eqref{art8-eq5}, $\log (u^{2}u^{3}_{2})=\dfrac{1}{5}\log\left(k^{8}\dfrac{(1-k)}{(1+k)}\right)$. Also $\dfrac{u}{u_{2}}=\dfrac{f(x^{2},x^{3})}{x^{1/5}f(x,x^{4})}$ by substituting the infinite product expansion for $f$. Using Ramanujan's identity (\cite{art8-key10} II, p. 234) proved by Berndt (\cite{art8-key1}, p. 57)
+$$
+\frac{\psi^{5}(x)}{\psi(x^{5})}-25x^{2}\psi(x)\psi^{3}(x^{5})=1-5x\dfrac{d}{dx}\log \frac{f(x^{2},x^{3})}{f(x,x^{4})}
+$$
+we may thus rewrite \eqref{art8-eq14} as
+\begin{align*}
+8\int\limits^{x}_{0}x\psi(x)\psi^{3}(x^{5})dx &= \log \frac{1-k}{1+k}+\dfrac{1}{\sqrt{5}}\log \frac{1+\epsilon^{-3}k}{1-\epsilon^{3}k}\\
+&= \int\limits^{x}_{0}\dfrac{d}{dx}\left(\log \frac{1-k}{1+k}+\dfrac{1}{\sqrt{5}}\log \frac{1+\epsilon^{-3}k}{1-\epsilon^{3}k}\right)dx\\
+&= \int\limits^{x}_{0}\frac{8kk'}{(1-k^{2})(1-4k-k^{2})}dx
+\end{align*}
+denoting differentiation with respect to $x$ by $'$. Therefore \eqref{art8-eq14} will be established, once we show that
+\begin{equation}
+\frac{k'}{1-k^{2}}=\left(\frac{1-k^{2}}{k}-4\right)x\psi(x)\psi^{3}(x^{5}).\label{art8-eq15}
+\end{equation}
+Now we obtain from \eqref{art8-eq4}, by logarithmic differentiation (with respect to $x$) that
+\begin{align*}
+k'(1-k^{2}) &= \frac{1}{2}u'_{2}/u_{2}-u'/u\\
+&= \frac{1}{x}(E_{2}(z;\chi_{5})-E_{2}(2z;\chi_{5})),\quad\text{by \eqref{art8-eq9}}\\
+&= \frac{1}{5x}(\eta^{5}_{2}/\eta_{10}-\eta^{5}/\eta_{5})\\
+&= \frac{\eta_{2}}{5x\eta^{2}_{5}\eta_{10}}\cdot 5\eta^{2}\eta^{4}_{10},\quad \text{by (i) of Proposition \ref{art8-prop1}.}
+\end{align*}\pageoriginale 
+Thus using \eqref{art8-eq11}, we see that \eqref{art8-eq15} will be proved, if we show that
+\begin{align}
+& \frac{\eta^{2}\eta_{2}\eta^{3}_{10}}{x\eta^{2}_{5}}=\dfrac{\eta_{2}\eta^{5}_{5}-4\eta\eta^{5}_{10}}{\eta\eta^{5}_{10}}\cdot x\dfrac{\eta^{2}_{2}\eta^{6}_{10}}{x^{2}\eta\eta^{3}_{5}}\notag\\
+\text{i.e.}\quad &\frac{\eta^{5}\eta_{5}\eta_{10}}{\eta_{2}}=\frac{\eta\eta_{2}\eta^{5}_{5}}{\eta_{10}}-4\eta^{2}\eta^{4}_{10}.\label{art8-eq16}
+\end{align}
+But the right hand side is just $\eta^{4}_{2}\eta^{2}_{5}-5\eta^{2}\eta^{4}_{10}$ by (ii) of proposition \ref{art8-prop1} and so \eqref{art8-eq16} is just identity (i) of the same proposition, proving Ramanujan's assertion \eqref{art8-eq14}.
+
+\section{Elliptic integrals arising from cusp forms}\label{art8-sec3}
+~
+
+\subsection{}\label{art8-sec3.1}
+On page \mycirc{67} $+1$ of \cite{art8-key11}, Ramanujan writes down the formula 
+$$
+\int\limits^{x}_{0}\eta\eta_{3}\eta_{5}\eta_{15}\dfrac{dx}{x}=\dfrac{1}{5}\quad \int\limits^{2\tan^{-1}(1/\sqrt{5})}_{2\tan^{-1}(1/\sqrt{5})\left(\sqrt{\frac{1-11v-v^{2}}{1+v-v^{2}}}\right)} \ \ \dfrac{d\phi}{\sqrt{1-\dfrac{9}{25}\sin^{2}\phi}}
+$$
+where $v:=\dfrac{\eta^{3}(z)\eta^{3}(15z)}{\eta^{3}(3z)\eta^{3}(5z)}$. The integrand on the left hand side is the `unique' holomorphic differential for $\Gamma_{0}(15)$.
+
+For the proof of \eqref{art8-eq17}, we need to note the following from Fricke (\cite{art8-key3}, pp. 438-439). If $\tau : = (\eta_{3}\eta_{5}/\eta\eta_{15})^{3}$ and $\sigma = \dfrac{2\pi i}{4\pi^{2}\eta\eta_{3}\eta_{5}\eta_{15}}\dfrac{d\tau}{dz}$, then $\sigma^{2}=\tau^{4}-10\tau^{3}-13\tau^{2}+10\tau+1$; the two modular functions $\tau$ and $\sigma$ generate the field of modular functions for $\Gamma_{0}(15)$. Note that $\tau=e^{-2\pi iz}+3+\cdots$ has a simple pole at $i\infty$. Now
+\setcounter{equation}{17}
+\begin{align}
+\int\limits^{x}_{0}\eta\eta_{3}\eta_{5}\eta_{15}\dfrac{dx}{x} &=2\pi i \int\limits^{z}_{i\infty}\eta\eta_{3}\eta_{5}\eta_{15} \ dz \quad (z=iy, y>0)\notag\\
+&= \int\limits^{\infty}_{\tau}\dfrac{d\tau}{\sqrt{\tau^{4}-10\tau^{3}-13\tau^{2}+10\tau+1}}\label{art8-eq18}
+\end{align}\pageoriginale
+Further $X^{4}-10X^{3}-13X^{2}+10X+1=(X^{2}-11X-1)(X^{2}+X-1)=(X+\epsilon^{-5})(X-\epsilon^{5})(X-\epsilon^{-1})(X+\epsilon)$ with $\epsilon=(\sqrt{5+1})/2$ and $\epsilon^{5}>\epsilon^{-1}>-\epsilon^{-5}>-\epsilon$. To evaluate the (real-valued) integral \eqref{art8-eq18}, it is enough to consider the range $\epsilon^{5}<\tau<\infty$, since for other values of $\tau$, say $\epsilon^{-1}<\tau<\epsilon^{5}$, the expression inside the radical sign viz. $(\tau+\epsilon^{-5})(\tau-\epsilon^{5})(\tau-\epsilon^{-1})\times (\tau+\epsilon)$ becomes negative and hence the integrand will be purely imaginary. Using formula (78) in \S66 of Greenhill \cite{art8-key4} (with $\alpha=\epsilon^{5}$, $\beta=\epsilon^{-1}$, $\gamma=-\epsilon^{-5}$, $\delta=-\epsilon$) we have, for $\epsilon^{5}<\tau<\infty$.
+\begin{align}
+& \int\limits^{\tau}_{\epsilon^{5}}\frac{d\tau}{\sqrt{\tau^{4}-10\tau^{3}-13\tau^{2}+10\tau+1}}\notag\\
+&= \frac{2}{\sqrt{(\epsilon^{5}+\epsilon^{-5})(\epsilon^{-1}+\epsilon)}}\sn^{-1}\sqrt{\dfrac{(\epsilon^{-1}+\epsilon)(\tau-\epsilon^{5})}{(\epsilon^{5}+\epsilon)(\tau-\epsilon^{-1})}}\notag\\
+&= \frac{2}{5}\sn^{-1}\sqrt{\frac{\sqrt{5}}{6+3\sqrt{5}}\dfrac{(\tau-\epsilon^{5})}{(\tau-\epsilon^{-1})}}\notag\\
+&= \frac{2}{5}\int\limits^{\phi}_{0}\dfrac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\label{art8-eq19}
+\end{align}
+since $\kappa^{2}=\dfrac{(\epsilon^{-1}+\epsilon^{-5})(\epsilon^{5}+\epsilon)}{(\epsilon^{5}+\epsilon^{-5})(\epsilon^{-1}+\epsilon)}=\dfrac{9}{25}$. The upper limit $\phi$ in \eqref{art8-eq19} is given by $\sin^{2}\phi = \dfrac{\sqrt{5}}{6+3\sqrt{5}}\dfrac{(\tau-\epsilon^{5})}{(\tau-\epsilon^{-1})}$ or $\cos^{2}\phi = \dfrac{6+2\sqrt{5}}{6+3\sqrt{5}}\dfrac{(\tau+\epsilon)}{(\tau-\epsilon^{-1})}$ so that $\phi =\tan^{-1}\left(\dfrac{5^{1/4}}{2\epsilon}\dfrac{\tau-\epsilon^{5}}{\tau+\epsilon}\right)$. From Ramanujan (\cite{art8-key10}, p. 208), we know that, for $\phi_{1}$, $\phi_{2}$ with $\cot \phi_{1}\cdot \tan (\frac{1}{2}\phi_{2})=\sqrt{1-\kappa^{2}\sin^{2}\empty_{1}}$.
+\begin{equation}
+2\int\limits^{\phi_{1}}_{0}\dfrac{d\phi}{\sqrt{1-\kappa^{2}\sin^{2}\phi}}=\int\limits^{\phi_{2}}_{0}\dfrac{d\phi}{\sqrt{1-\kappa^{2}\sin^{2}\phi}}\label{art8-eq20}
+\end{equation}
+However, from above, we have
+\begin{align*}
+(\tan \phi)\sqrt{1-\kappa^{2}\sin^{2}\phi} &=\left(\dfrac{5^{1/4}}{2\epsilon}\sqrt{\frac{\tau-\epsilon^{5}}{\tau+\epsilon}}\right)\sqrt{1-\frac{9}{25}\frac{\sqrt{5}}{3\epsilon^{3}}\frac{(\tau-\epsilon^{5})}{(\tau-\epsilon^{-1})}}\\
+&= \frac{5^{1/4}}{2\epsilon}\sqrt{\frac{\tau-\epsilon^{5}}{\tau+\epsilon}}\sqrt{\frac{4\epsilon^{2}}{5^{3/2}}\frac{(\tau+\epsilon^{-5})}{(\tau-\epsilon^{-1})}}\\
+&= \frac{1}{\sqrt{5}}\sqrt{\frac{(\tau-\epsilon^{5})(\tau+\epsilon^{-5})}{(\tau+\epsilon)(\tau-\epsilon^{-1})}}\\
+&= \frac{1}{\sqrt{5}}\sqrt{\frac{(\tau^{2}-11\tau-1)}{(\tau^{2}+\tau-1)}}
+\end{align*}\pageoriginale
+Thus from \eqref{art8-eq19} and \eqref{art8-eq20}, we obtain
+\begin{align*}
+\int\limits^{\tau}_{\epsilon^{5}}\dfrac{d\tau}{\sqrt{\tau^{4}-10\tau^{3}-13\tau^{2}+10\tau+1}} &= \frac{1}{5}\int\limits^{2\tan^{-1}\left(\frac{1}{\sqrt{5}}\sqrt{\frac{(\tau^{2}-11\tau-1)}{(\tau^{2}+\tau-1)}}\right)}\frac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\\
+&= \frac{1}{5}\int\limits^{2\tan^{-1}\left(\frac{1}{\sqrt{5}}\sqrt{\frac{1-11v-v^{2}}{1+v-v^{2}}}\right)}\dfrac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}
+\end{align*}
+where $v=\dfrac{1}{\tau}=\dfrac{\eta^{3}\eta^{3}_{15}}{\eta^{3}_{3}\eta^{3}_{5}}$. Hence
+\begin{align*}
+\int\limits^{\infty}_{\tau}\frac{d\tau}{\sqrt{\tau^{4}-\cdots+1}} &= \int\limits^{\infty}_{\epsilon^{5}}\dfrac{d\tau}{\sqrt{\tau^{4}-\cdots+1}}-\int\limits^{\tau}_{\epsilon^{5}}\dfrac{d\tau}{\sqrt{\tau^{4}-\cdots+1}}\\
+&= \frac{1}{5}\int\limits^{2\tan^{-1}(1/\sqrt{5})}_{0}\quad \dfrac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\\
+&\quad {}-\frac{1}{5}\int\limits^{2\tan^{-1}_{0}\left(\begin{smallmatrix} 1 & \surd 1-11v-v^{2}\\ \sqrt{5} & 1+v-v^{2}\end{smallmatrix}\right)}\quad \dfrac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\\
+&=\frac{1}{5}\int\limits^{2\tan^{-1}\left(\frac{1}{5}\begin{smallmatrix} \surd (1-11v-v^{2})\\ 1+v-v^{2}\end{smallmatrix}\right)}_{2\tan^{-1}(1/\sqrt{5})}\quad \frac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}
+\end{align*}
+which together with \eqref{art8-eq18} gives us Ramanujan's formula \eqref{art8-eq17}.
+
+The right hand side of \eqref{art8-eq17} admits of interesting reduction when one resorts\pageoriginale to well-known transformations available for elliptic integrals such as Landen's transformation or Gauss' transformation. On page \mycirc{67} + 1 of \cite{art8-key11}, Ramanujan also notes that
+\begin{align}
+&= \frac{1}{5}\int\limits^{2\tan^{-1}(1/\sqrt{5})}_{2\tan^{-1}\left(\frac{1}{\sqrt{5}}\sqrt{\frac{(1-11v-v^{2})}{1+v-v^{2}}}\right)}\dfrac{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\notag\\
+&= \frac{1}{9}\int\limits^{\pi/2}_{2\tan^{-1}\left(\frac{(1-v/\epsilon^{3})}{(1+v\epsilon^{3})}\sqrt{\frac{(1+v\epsilon)(1-v\epsilon^{5})}{(1-v/\epsilon)(1+v/\epsilon^{5})}}\right)}\quad \frac{d\psi}{\sqrt{1-\frac{1}{81}\sin^{2}\psi}}\label{art8-eq21}
+\end{align}
+also equal to
+\begin{equation}
+\frac{1}{4} \ \ \int\limits^{\tan^{-1}(3-\sqrt{5})}_{\tan^{-1}\left((3-\sqrt{5})\sqrt{\frac{(1-v/\epsilon)(1-v\epsilon^{5})}{(1-v\epsilon)(1+v/\epsilon^{5})}}\right)}\quad \dfrac{d\psi}{\sqrt{1-\frac{15}{16}\sin^{2}\psi}}\label{art8-eq22}
+\end{equation}
+with $v$ and $\epsilon$ as above.
+
+To prove \eqref{art8-eq21}, let us use Landen's transformation (\cite{art8-key12}, p. 496) :
+\begin{align}
+\int \frac{d\phi}{\sqrt{1-\kappa^{2}\sin^{2}\phi}} &=\dfrac{1}{1+\sqrt{1-\kappa^{2}}}\int
+\frac{d\psi}{\sqrt{1-\left(\frac{1-\sqrt{1-\kappa^{2}}}{1+\sqrt{1-\kappa^{2}}}\right)^{2}\sin^{2}\psi}}\notag\\
+&\quad \text{for } \tan (\psi-\phi)-(\sqrt{1-\kappa^{2}})\tan\phi\label{art8-eq23}
+\end{align}
+with $\kappa=3/5$ and determine the limits of integration on the right hand side corresponding to those on the left hand side of \eqref{art8-eq23}. We have only to verify that the relations 
+$$
+\tan(\psi-\phi)=\frac{4}{5}\tan\phi, \ 
+\tan(\phi/2)=\dfrac{1}{\sqrt{5}}\sqrt{\frac{1-11v-v^{2}}{1+v-v^{2}}}
+$$
+together imply that 
+$$
+\tan (\psi/2)=\dfrac{1-v/\epsilon^{3}}{1+v\epsilon^{3}}\sqrt{\frac{(1+v\epsilon)(1-v\epsilon^{5})}{(1-v/\epsilon)(1+v/\epsilon^{5})}},
+$$
+so that the upper limit $\pi/2$ for $\psi$ in \eqref{art8-eq21} will correspond to $2\tan^{-1}(1/\sqrt{5})$ arising for $v=0$. Setting $t_{1}=\tan(\phi/2)$, $t_{2}=\tan((\psi-\phi)/2)$, we have then
+$$
+\frac{2t_{2}}{1-t^{2}_{2}}=\tan (\psi-\phi)=\frac{4}{5}\frac{2t_{1}}{1-t^{2}_{1}}
+$$\pageoriginale
+and so
+$$
+t_{2}=\frac{5(1-t^{2}_{1})}{4t_{1}}\pm \frac{1}{2}\sqrt{\frac{25}{16}\frac{(1-t^{2}_{1})^{2}}{t^{2}_{1}}+4}.
+$$
+Since $1-t^{2}_{1}=1-(1-11v-v^{2})/[5(1+v-v^{2})]=(4/5)(1+4v-v^{2})/(1+v-v^{2})$ and $(25/16)(1-t^{2}_{1})^{2}/t^{2}_{1}+4=9(1+v^{2})^{2}/\{(1+v-v^{2})\times (1-11v-v^{2})\}$, we have
+$$
+t_{2}=\frac{-\sqrt{5}(1+4v-v^{2})+3(1+v^{2})}{2\sqrt{(1+v-v^{2})(1-11v-v^{2})}}
+$$
+noting that only the positive root has to be taken for $t_{2}$, in view of $t_{2}$ having to be positive for large $v$. Thus
+\begin{align*}
+t_{2} &= \frac{\epsilon^{2}(\epsilon-v)(\epsilon^{-5}-v)}{\sqrt{(1-v/\epsilon)(1+v\epsilon)(1-v\epsilon^{5})(1+v/\epsilon^{5})}}\\
+     &= \epsilon^{-2}\sqrt{\frac{(1-v/\epsilon)(1-v\epsilon^{5})}{(1+v\epsilon)(1+v/\epsilon^{5})}}.
+\end{align*}
+Finally
+\begin{align*}
+\tan(\psi/2) &= \frac{t_{1}+t_{2}}{1-t_{1}t_{2}}=\frac{\frac{1}{\sqrt{5}}\sqrt{\frac{1-11v-v^{2}}{1+v-v^{2}}}{1+v-v^{2}}+\epsilon^{-2}\sqrt{\frac{(1-v/\epsilon)(1-v\epsilon^{5})}{(1+v\epsilon)(1+v/\epsilon^{5})}}}{1-\frac{\epsilon^{-2}}{\sqrt{5}}\frac{(1-v\epsilon^{5})}{(1+v\epsilon)}}\\
+&= \frac{\sqrt{\frac{(1-v\epsilon^{5})}{(1-v/\epsilon)(1+v\epsilon)(1+v/\epsilon^{5})}}}{1/(1+v\epsilon)}\cdot \frac{(1+v/\epsilon^{5})+\sqrt{5}\epsilon^{-2}(1-v/\epsilon)}{\sqrt{5}(1+v\epsilon)-\epsilon^{-2}(1-v\epsilon^{5})}\\
+&= \sqrt{\frac{(1-v\epsilon^{5})(1+v\epsilon)}{(1-v/\epsilon)(1+v/\epsilon^{5})}}\cdot \frac{(1-v\epsilon^{-3})}{(1+v\epsilon^{3})}
+\end{align*}
+establishing the validity of \eqref{art8-eq21}.
+
+In order to prove \eqref{art8-eq22}, apply Gauss' transformation \cite{art8-key12} :
+\begin{align*}
+\int \frac{d\phi}{\sqrt{1-\kappa^{2}\sin^{2}\phi}} &=\dfrac{2}{1+\kappa}\int \dfrac{d\psi}{\sqrt{1-[4\kappa/(1+\kappa)^{2}]\sin^{2}\psi}}\\
+&\quad \text{for~ }\sin(2\psi-\phi)=\kappa\sin \phi
+\end{align*}
+with\pageoriginale $\kappa=3/5$ again and determine the limits of integration which correspond to each other on either side. From $\sin(2\psi-\phi)=(3/5)\sin \phi$, we get a quadratic equation for $t:=\tan\psi$, viz.
+$$
+\frac{5t}{4-t^{2}}=\tan\phi = \frac{2\tan\phi/2}{1-\tan^{2}(\phi/2)}=\frac{\sqrt{5}}{2}\dfrac{\sqrt{(1-11v-v^{2})(1+v-v^{2})}}{(1+4v-v^{2})}
+$$
+proceeding as in the earlier case. Since by the same calculations,
+$$
+\frac{20(1+4v-v^{2})^{2}}{(1-11v-v^{2})(1+v-v^{2})}+16=\dfrac{36(1+v^{2})^{2}}{(1-11v-v^{2})(1+v-v^{2})},
+$$
+we get
+$$
+\tan \psi=t=\dfrac{-\sqrt{5}(1+4v-v^{2})+3(1+v^{2})}{\sqrt{(1-11v-v^{2})(1+v-v^{2})}}
+$$
+taking the positive square root as before. Thus 
+$$
+t=\dfrac{2}{\epsilon^{2}}\sqrt{\dfrac{(1-v/\epsilon)(1-v\epsilon^{5})}{(1+v\epsilon)(1+v/\epsilon^{5})}}
+$$
+giving the lower limit for $\psi$ in \eqref{art8-eq22}; the upper limit $\tan^{-1}(3-\sqrt{5})$ clearly corresponds to the upper limit $2\tan^{-1}(1/\sqrt{5})$ arising when $v=0$. Consequently Ramanujan's formula \eqref{art8-eq22} is proved.
+
+Using a different `uniformiser' $v_{1}:=\dfrac{\eta^{2}(3z)\eta^{2}(15z)}{\eta^{2}(z)\eta^{2}(5z)}$ related to $\Gamma_{0}(15)$, Ramanujan (\cite{art8-key11}, p. 70/78) also records the formula :
+\begin{equation}
+\int\limits^{x}_{0}\eta\eta_{3}\eta_{5}\eta_{15}\dfrac{dx}{x}=\dfrac{1}{5} \ \ \int\limits^{2\tan^{-1}(1/\sqrt{5})}_{2\tan^{-1}\dfrac{(1-3v_{1})}{\sqrt{5}(1+3v_{1})}}\sqrt{d\phi}{\sqrt{1-\frac{9}{25}\sin^{2}\phi}}\label{art8-eq24}
+\end{equation}
+
+In view of formula \eqref{art8-eq17}, it suffices to show that
+\begin{equation}
+\sqrt{\frac{1-11v-v^{2}}{1+v-v^{2}}}=\frac{1-3v_{1}}{1+3v_{1}}\label{art8-eq25}
+\end{equation}
+in order to prove \eqref{art8-eq24}. Substituting for $v$ and $v_{1}$ on both sides of \eqref{art8-eq25} and simplifying further, \eqref{art8-eq25} will follow from
+\begin{equation}
+(\eta_{3}\eta_{5})^{6}-(\eta\eta_{5})^{5}\eta_{3}\eta_{15}-5(\eta\eta_{3}\eta_{5}\eta_{15})^{3}-9(\eta\eta_{5})(\eta_{3}\eta_{15})^{5}-(\eta\eta_{15})^{6}=0.\label{art8-eq26}
+\end{equation}
+Formula \eqref{art8-eq26}, however, is a consequence of the following
+
+\medskip
+\noindent
+{\bf Proposition \thnum{2}.\label{art8-prop27}}~\pageoriginale
+%page 135
+
+
