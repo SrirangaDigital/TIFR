@@ -1,0 +1,438 @@
+\part{Formal Power Series}\label{part1}
+
+\chapter{Lecture}\label{part1:lec1}
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+
+\heading{Introduction}
+
+In\pageoriginale\  additive number theory we make reference to facts about addition in
+contradistinction to multiplicative number theory, the foundations of
+which were laid by Euclid at about 300 B.C. Whereas one of the
+principal concerns of the latter theory is the decomposition of
+numbers into prime factors, additive number theory deals with the
+decomposition of numbers into summands. It asks such questions as: in
+how many ways can a given natural number be expressed as the sum of
+other natural numbers? Of course the decomposition into primary
+summands is trivial; it is therefore of interest to restrict in some
+way the nature of the summands (such as odd numbers or even numbers or
+perfect squares) or the number of summands allowed. These are
+questions typical of those which will arise in this course. We shall
+have occasion to study the properties of $\mathcal{V}$-functions and
+their numerous applications to number theory, in particular the theory
+of quadratic residues.
+
+\heading{Formal Power Series}
+
+Additive number theory starts with Euler (1742). His tool was power
+series. His starting point was the simple relation $x^m$. $x^n= x^{m+n}$
+by which multiplication of powers of $x$ is pictured in the addition
+of exponents. He therefore found it expedient to use power
+series. Compare the situation in multiplicative number theory; to deal
+with the product $n. m$, one uses the equation $n^s m^s= (nm)^s$,
+thus paving the way for utilising Dirichlet series.
+
+While\pageoriginale\  dealing with power series in modern mathematics one asks
+questions about the domain of convergence. Euler was intelligent
+enough not to ask this question. In the context of additive number
+theory power series are purely formal; thus the series $0!+ 1! ~x+2!~
+x^2 + \cdots$ is a perfectly good series in our theory. We have to
+introduce the algebra of formal power series in order to vindicate
+what Euler did with great tact and insight.
+
+A formal power series is an expression $a_0 + a_1 x+ a_2 x^2 +
+\cdots$. Where the symbol $x$ is an indeterminate symbol i.e., it is
+never assigned a numerical value. Consequently, all questions of
+convergence are irrelevant.
+
+Formal power series are manipulated in the same way as ordinary power
+series. We build an algebra with these by defining addition and
+multiplication in the following way. If 
+$$
+A= \sum\limits_{n=0}^\infty a_n  x^n, \qquad B=
+\sum\limits_{n=0}^\infty b_n x^n,
+$$
+we define $A+B= C$ where $C=\sum\limits_{n=0}^\infty c_n x^n$ and
+$AB=D$ where $D= \sum\limits_{n=0}^\infty d_n x^n$, with the
+stipulation that we perform these operations in such a way that these
+equations are true modulo $x^N$, whatever be $N$. (This requirement
+stems from the fact that we can assign a valuation in the set of power
+series by defining the order of $A= \sum\limits_{n=0}^\infty a_n x^n$
+to be $k$ where $a_k$ is the first non-zero coefficient). Therefore
+$c_n$ and $d_n$ may be computed as for finite polynomials; then
+\begin{align*}
+  c_n & = a_n + b_n,\\
+  d_n & = a_0 b_n + a_1 b_{n-1}+ \cdots + a_{n-1} b_1 + a_n b_0. 
+\end{align*}
+
+$A=B$ means that the two series are equal term by term, $A=0$ means
+that all the coefficients of $A$ are zero. It is easy to verify
+that\pageoriginale\  the following relations hold:
+\begin{alignat*}{4}
+  A+B &= B+a & \hspace{2cm}  AB& = BA\\
+  A+ (B+C) & = (A+B)+C & A(BC) & = (AB) C\\
+  A(B+C) & = AB+ AC
+\end{alignat*}
+
+We summarise these facts by saying that the formal power series form a
+commutative ring. This will be the case when the coefficients are
+taken from such a ring, eg. the integers, real numbers, complex
+numbers.
+
+The ring of power series has the additional property that there are no
+divisors of zero (in case the ring of coefficients is itself an
+integrity domain), ie. if $A,B =0$, either $A= 0$ or $B=
+0$. We see this as follows: Suppose $A= 0$, $B= 0$. Let
+$a_k$ be the first non-zero coefficient in $A$, and $b_j$ the first
+non-zero coefficient in $B$. Let $AB= \sum\limits_{n=0}^\infty d_n
+x^n$; then
+$$
+d_{k+j} = \left( a_\circ b_{k+j} + \cdots + a_{k-1} b_{j+1}\right) +
+a_k b_j + \left(a_{k+1} b_{j-1}+ \cdots + a_{k+j} b_0\right). 
+$$
+
+In this expression the middle term is not zero while all the other
+terms are zero. Therefore $d_{k+j} \neq 0$ and so $A.B \neq
+0$, which is a contradiction.
+
+From this property follows the cancellation law:
+
+If $A\neq \circ$ and $A.B=A.C$, then $B=C$. For, $AB-AC
+=A(B-C)$. Since $A\neq 0, B-C =\circ$ or $B=C$.
+
+If the ring of coefficients has a unit element so has the ring of
+power series.
+
+As an example of multiplication of formal power series,
+let,\pageoriginale\ 
+\begin{alignat*}{5}
+  A & = 1-x & &\text{and}& B &= 1+ x + x^2 + \cdots \\
+  A & = \sum\limits_{n=0}^\infty a_n x^n, &\quad  &\text{where}~~ &
+  a_0 & =1, a_1=-1, 
+  ~\text{and}~ a_n=0 ~\text{for}~ n \geq 2,\\ 
+  B & = \sum\limits_{n=0}^\infty b_n x^n, &  &\text{where}~~ & b_n &
+  =1, n=0,1,2, 3, \ldots\\
+  C & = \sum\limits_{n=0}^\infty c_n x^n, &  &\text{where}~~ & c_n &
+  =a_0 b_n + a_1 b_{n-1} + \cdots + a_n b_0;
+\end{alignat*}
+then
+$$
+\displaylines{\hfill 
+  c_0=a_0 b_0=1,  c_n= b_n-b_{n-1} = 1-1=0, n=1,2, 3, \ldots; \hfill\cr
+  \text{so} \hfill (1-x) (1+x+x^2 + \cdots )=1. \hfill }
+$$
+
+We can very well give a meaning to infinite sums and products in
+certain cases. Thus
+\begin{gather*}
+  A_1 + A_2 + \cdots = B,\\
+  C_1 C_2 \cdots = D,
+\end{gather*}
+both equations understood in the sense module $x^N$, so that only a
+finite number of $A's$ or $(C-1)'s$ can contribute as far as $x^N$.
+
+Let us apply our methods to prove the identity:
+$$
+1+x+x^2+ x^3 + \cdots = (1+x)(1+x^2)(1+x^4)(1+x^8) \cdots
+$$
+
+Let
+\begin{align*}
+  C & = (1+x)(1+x^2)(1+x^4)\ldots\\
+  (1-x) C& = (1-x)(1+x)(1+x^2)(1+x^4) \ldots\\
+  & = (1-x^2) (1+x^2) (1+x^4)\ldots\\
+  & = (1-x^4) (1+x^4) \ldots
+\end{align*}
+
+Continuing in this way, all powers of $x$ on the right eventually
+disappear, and we have $(1-x) C=1$. However we have shown that $(1-x)
+(1+x+x^2+ \cdots)=1$, therefore $(1-x)C=(1-x)(1+x+x^2+\cdots)$, and
+by the law of cancellation, $C=1+x+x^2+\cdots$ which we were to prove.
+
+This\pageoriginale\  identity easily lends itself to an interpretation which gives an
+example of the application of Euler's idea. Once again we stress the
+simple fact that $x^n\cdot x^m= x^{n+m}$. We have
+$$
+1+x+x^2+x^3+ \cdots = (1+x)(1+x^2) (1+x^4) (1+x^8) \cdots
+$$
+
+This is an equality between two formal power series (one represented
+as a product). The coefficients must then be identical. The
+coefficient of $x^n$ on the right hand side is the number of ways in
+which $n$ can be written as the sum of powers of 2. But the
+coefficient of $x^n$ on the left side is 1. We therefore conclude:
+every natural number can be expressed in one and only one way as the
+sum of powers of 2. 
+
+We have proved that
+$$
+1+x+x^2+x^3+ \cdots = (1+x)(1+x^2)(1+x^4) \cdots
+$$
+
+If we replace $x$ by $x^3$ and repeat the whole story, modulo
+$x^{3N}$, the coefficients of these formal power series will still be
+equal:
+$$
+1+x^3 + x^6 + x^9 + \cdots = (1+x^3)(1+x^{2.3}) (1+x^{4.3})\cdots
+$$
+
+Similarly
+$$
+1+x^5 + x^{2.5} + x^{3.5} + \cdots = (1+x^5)(1+x^{2.5}) (1+x^{4.5})\cdots
+$$
+
+We continue indefinitely, replacing $x$ by odd powers of $x$. It is
+permissible to multiply these infinitely many equations together,
+because any given power of $x$ comes from only a finite number of
+factors. On the left appears 
+$$
+\prod\limits_{k ~\text{odd}} (1+x^k + x^{2k}+x^{3k} + \cdots).
+$$ 
+
+On the right side will occur factors of the form
+$(1+x^N)$. But $N$ can be written uniquely as $x^\lambda. m$ where $m$
+is odd. That means for each $N$, $1+x^N$ will occur once and only once
+on the right side. We would like to rearrange the factors to obtain
+$(1+x)(1+x^2)(1+x^3)\cdots$
+
+This\pageoriginale\  may be done for the following reason. For any $N$, that part of
+the formal power series up to $x^N$ is a polynomial derived from a
+finite number of factors. Rearranging the factors will not change the
+polynomial. But since this is true for any $N$, the entire series will
+be unchanged by the rearrangement of factors. We have thus proved the
+identity
+\begin{equation*}
+  \prod\limits_{k ~\text{odd}} (1+x^k + x^{2k}+x^{3k} +
+  \cdots)=\prod\limits_{n=1}^\infty (1+x^n) \tag{1}\label{part1:lec1:eq1}
+\end{equation*}
+
+This is an equality of two formal power series and could be written
+$\sum\limits_{n=0}^\infty a_n x^n$ $=\sum\limits_{n=0}^\infty b_n
+x^n$. Let us find what $a_n$ and $b_n$ are. On the left we have
+\begin{multline*}
+  (1+x^{1.1} + x^{2.1}+ x^{3.1}+ \cdots)(1+x^{1.3}+ x^{2.3} + x^{3.3}+
+  \cdots)\\ 
+  \times (1+x^{1.5} + x^{2.5} + x^{3.5}+ \cdots) \cdots
+\end{multline*}
+$x^n$ will be obtained as many times as $n$ can be expressed as the
+sum of odd numbers, allowing repetitions. On the right side of
+(\ref{part1:lec1:eq1}), we
+have $(1+x)(1+x^2)(1+x^3)\cdots x^n$ will be obtained as many times as
+$n$ can be expressed as the sum of integers, no two of which are
+equal.
+
+$a_n$ and $b_n$ are the number of ways in which $n$ can be expressed
+respectively in the two manners just stated. But $a_n=b_n$. Therefore
+we have proved the following theorem of Euler:
+
+\begin{thm} \label{part1:lec1:thm1} 
+  The number of representations of an integer $n$ as the sum of
+  different parts is the same as the number of representations of $n$
+  as the sum of odd parts, repetitions permitted.
+\end{thm}
+
+We give now a different proof of the identity (\ref{part1:lec1:eq1}).
+$$
+\prod\limits_{n=1}^\infty (1+x^n) \prod\limits_{n=1}^\infty (1-x^n)=
+\prod\limits_{n=1}^\infty (1-x^n)(1+x^n)= \prod\limits_{n=1}^\infty (1-x^{2n}). 
+$$
+
+Again\pageoriginale\  this interchange of the order of the factors is
+permissible. For, up to any given power of $x$, the formal series is a
+polynomial which does not depend on the order of the factors.
+\begin{multline*}
+  \prod\limits_{n=1}^\infty (1+x^n) \prod\limits_{n=1}^\infty (1-x^n)
+   = \prod\limits_{n=1}^\infty (1-x^{2n}),\\
+  \prod\limits_{n=1}^\infty (1+x^n) \prod\limits_{n=1}^\infty (1-x^{2n-1})
+  \prod\limits_{n=1}^\infty (1-x^{2n})= \prod\limits_{n=1}^\infty (1-x^{2n}). 
+\end{multline*}
+
+Now $\prod\limits_{n=1}^\infty (1-x^{2n}) \neq 0$, and by the law of
+cancellation, we may cancel it from both sides of the equation
+obtaining,
+$$
+\prod\limits_{n=1}^\infty (1+x^{n}) \prod\limits_{n=1}^\infty (1-x^{2n-1})=1.
+$$
+
+Multiplying both sides by 
+\begin{multline*}
+  \prod\limits_{n=1}^\infty \left(1+x^{2n-1}+ x^{2(2n-1)} +
+  x^{3(2n-1)}+ \cdots\right)\\
+  \prod\limits_{n=1}^\infty \left(1+x^{n}\right) \prod\limits_{n=1}^\infty
+  \left(1+x^{2n-1}\right) \prod\limits_{n=1}^\infty \left(1+x^{2n-1}+ x^{2(2n-1)}+
+  \cdots\right)\\
+  = \prod\limits_{n=1}^\infty \left(1+x^{2n-1}+x^{2(2n-1)}+ \cdots\right).
+\end{multline*}
+
+For the same reason as before, we may rearrange the order of the
+factors on the left.
+\begin{multline*}
+  \prod\limits_{n=1}^\infty \left(1+x^{n}\right) \prod\limits_{n=1}^\infty
+  \left(1+x^{2n-1}\right) \left( 1+x^{2n-1} + x^{2(2n-1)} + \cdots \right)\\
+  = \prod\limits_{n=1}^\infty \left(1+x^{2n-1}+x^{2(2n-1)}+ \cdots\right).
+\end{multline*}
+
+However, 
+$$
+  \prod\limits_{n=1}^\infty \left(1+x^{2n-1}\right) 
+  \left(1+x^{2n-1}+x^{2(2n-1)}+\cdots \right)=1,
+$$
+because we have shown that $(1-x) (1+x+x^2+ \cdots) =1$, and this
+remains true when $x$ is replaced by $x^{2n-1}$. Therefore the above
+equation reduces to 
+$$
+  \prod\limits_{n=1}^\infty \left(1+x^{n}\right) \prod\limits_{n=1}^\infty
+5  \left(1+x^{2n-1}+x^{2(2n-1)} +\cdots \right)
+  = \prod\limits_{n~\text{odd}} \left(1+x^{n} + x^{2n}+x^{3n}+ \cdots\right)
+$$
+which is the identity (\ref{part1:lec1:eq1}). 
+
+Theorem\pageoriginale\  \ref{part1:lec1:thm1} is easily verified for 10 as follows:10, 1+9, 2+8, 3+7, 4+6,
+1+2+7, 1+3+6, 1+4+5, 2+3+5, 1+2+3+4 are the unrestricted
+partitions. Partitions into odd summands with repetitions are 
+
+1+9, 3+7, 5+5, 1+1+1+7, 1+1+3+5, 1+3+3+3, 1+1+1+1+1+5, \break 
+1+1+1+1+3+3, 1+1+1+1+1+1+1+3, 1+1+1+1+1+1+1+1+1+1.
+
+We have ten partitions in each category.
+
+It will be useful to extend the theory of formal power series to allow
+us to find the reciprocal of the series $a_0+a_1x+ a_2x^2+\cdots$
+where we assume that $a_0\neq 0$. (The coefficients are now assumed to
+form a field). If the series
+$$
+b_0 + b_1 x+ b_2x^2 + \cdots = \frac{1}{a_0 +a_1x+ a_2x^2+\cdots},
+$$
+we would have $(a_0 + a_1 x+ a_2 x^2+ \cdots) (b_0+b_1x+ b_2x^2 +
+\cdots)=1$. This means that $a_0b_0=1$ and since $a_0\neq 0$,
+$b_0=1/a_0$. All other coefficients on the left vanish:
+\begin{gather*}
+a_0 b_1 + a_1 b_0 =0,\\
+a_0 b_2+a_1b_1+ a_2b_0=0\\
+\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{gather*}
+
+We may now find $b_1$ from the first of these equations since all the
+$a$'s and $b_0$ are known. Then $b_2$ can be found from the next
+equation, since $b_1$ will then be known. Continuing in this, manner
+all the $b$'s can be computed by successively solving linear equations
+since the new unknown of any equation is always accompanied by $a_\nu
+\neq 0$. The uniquely determined formal series $b_0 + b_1x + b_2x^2 +
+\cdots$ is now\pageoriginale\  called the reciprocal of
+$a_0+a_1x+a_2x^2+\cdots$ (We can not invert if $a_0=0$ since in that
+case we shall have to introduce negative exponents and so shall be
+going out of our ring of power series). In view of this definition it
+is meaningful to write $\dfrac{1}{1-x} = 1 +x+ x^2 + \cdots$ since we
+have shown that $(1-x)(1+x+x^2+ \cdots)=1$. Replacing $x$ by $x^k,
+\dfrac{1}{1-x^k} =1 +x^k + x^{2k}+ \cdots$ Using this expression,
+identity (\ref{part1:lec1:eq1}) may be written
+$$
+  \prod\limits_{n=1}^\infty \left(1+x^{n}\right) \prod\limits_{k ~\text{odd}}
+  \left(1+x^{k}+x^{2k} +\cdots \right)= \prod\limits_{k~ \text{odd}}
+  \dfrac{1}{1-x^k}. 
+$$
+
+For any $N$,
+$$
+\prod_{\substack{k ~\text{odd}\\k \leq N}} \frac{1}{1-x^k} =
+\frac{1}{\prod\limits_{k ~\text{odd}, k \leq N} (1- x^k)}
+$$
+
+Since this is true for any $N$, we may interchange the order of
+factors in the entire product and get
+$$
+\prod\limits_{n~\text{odd}}^\infty \frac{1}{(1- x^k)}= \frac{1}{\prod\limits_{k
+    ~\text{odd}}(1- x^k)} 
+$$
+Therefore, in its revised form identity (l) becomes:
+$$
+\prod\limits_{n=1}^\infty (1- x^n)= \frac{1}{\prod\limits_{n
+    ~\text{odd}}(1- x^n)} 
+$$
+
+In order to determine in how many ways a number $n$ can be split into
+$k$ parts, Euler introduced a parameter $z$ into his formal power
+series. (The problem was proposed to Euler in St.Petersburgh: in how
+many ways can 50 be decomposed into the sum of 7 summands?). He
+considered such expression as $(1+ x\mathfrak{z})(1+ x^2\mathfrak{z})\cdots$ This is a
+formal power series in $x$. The coefficients of $x$ are now
+polynomials in $z$, and since these polynomials form a ring they
+provide an admissible set of coefficients. The product is not a formal
+power series\pageoriginale\  in $z$ however. The coefficient of $z$ for
+example, is an infinite sum which we do not allow.
+\begin{align*}
+  (1+ x\mathfrak{z})& (1+x^2\mathfrak{z}) (1+x^3\mathfrak{z})\cdots\\
+  & = 1+ \mathfrak{z}x+ \mathfrak{z}x^2+
+  (\mathfrak{z}+\mathfrak{z}^2)x^3 + (\mathfrak{z}+\mathfrak{z}^2)x^4
+  + (\mathfrak{z}+ 2\mathfrak{z}^2)x^5 + \cdots\\
+  & = 1+ \mathfrak{z}(x+x^2+x^3+\cdots)
+  +\mathfrak{z}^2(x^3+x^4+2x^5+\cdots ) + \cdots\\
+  & = 1+ \mathfrak{z} A_1 (x) + \mathfrak{z}^2 A_2 (x) +
+  \mathfrak{z}^3 A_3 (x) + \cdots \tag{2}\label{part1:lec1:eq2}
+\end{align*}
+
+The expressions $A_1(x),A_2(x), \cdots$ are themselves formal power
+series in $x$. They begin with higher and higher powers of $x$, for
+the lowest power of $x$ occurring in $A_m(x)$ is $x^{1+2+3+\cdots +m}=
+x^{m(m+1)/2}$. This term arises by multiplying
+$(x\mathfrak{z})(x^2\mathfrak{z})(x^3\mathfrak{z})\cdots (x^m
+\mathfrak{z})$. The advantage in the use of the parameter $z$ is that
+any power of $x$ multiplying $\mathfrak{z}^m$ is obtained by
+multiplying $m$ different powers of $x$. Thus each term in $A_m (x)$
+is the product of $m$ powers of $x$. The $\mathfrak{z}'$s therefore
+record the number of parts we have used in building up a number. 
+
+Now we consider the finite product $P_N (\mathfrak{z}, x)  \equiv
+\prod\limits_{n=1}^N (1+ \mathfrak{z}x^n)$.
+
+$P_N (\mathfrak{z}, x)$ is a polynomial in $z$: $P_N(\mathfrak{z}, x)=
+1+ \mathfrak{z} A_1^{(N)}(x) + \mathfrak{z}^2 A_2^{(N)} (x) + \cdots +
+\mathfrak{z}^N A_N^{(N)} (x)$, where $A_N^{(N)} (x) =
+x^{N(N+1)/2}$. Replacing $z$ by $Zx$, we have
+\begin{align*}
+  \prod\limits_{n=1}^N (1+ \mathfrak{z}x^{n+1})& = P_N (\mathfrak{z}x,
+  x)\\
+  & = 1+ \mathfrak{z}x A_1^{(N)} (x) + \mathfrak{z}^2 x^2 A_2^{(N)}(x)
+  + \cdots
+\end{align*}
+
+So 
+\begin{align*}
+  (1+ \mathfrak{z}x) P_N (\mathfrak{z}x, x)& = \left(1+
+  \mathfrak{z}x^{N+1}\right) P_N (\mathfrak{z}, x),\\
+  & \hspace{2cm} (1+ \mathfrak{z}x)\left(1+\mathfrak{z}x A_1^{(N)} (x)
+  + \cdots + (\mathfrak{z} x)^N  A_N^{(N)} (x)\right)\\
+  & = \left(1+ \mathfrak{z} x^{N+1}\right) \left(1+ A_1^{(N)} (x) + \mathfrak{z}^2
+  A_2^{(N)} (x) + \cdots \right)
+\end{align*} 
+
+We\pageoriginale\  may now compare powers of $z$ on both sides since these are
+polynomials. Taking $\mathfrak{z}^k$, $k \leq N$, we have 
+\begin{align*}
+  x^k A_k^{(N)} (x) + x^k A_{k-1}^{(N)} (x) & = A_k ^{(N)} (x) +
+  x^{N+1} A_{k-1}^{(N)} (x);\\
+  A_k^{(N)} (x) (1-x^k) & = a_{k-1}^{(N)} (x) x^k \left(1-x^{N+1-k}\right),\\
+  A_k^{(N)} (x) & = \frac{x^k}{1-x^k} \left(1-x^{N+1-k}\right) A_{k-1}^{(N)}
+  (x),\\
+  A_k^{(N)} (x) & \equiv \frac{x^k}{1-x^k} A_{k-1}^{(N)} (x) \pmod{x^N}.
+\end{align*}
+
+From this recurrence relation we immediately have
+\begin{align*}
+  A_1^{(N)} (x) & \equiv \frac{x}{1-x} \pmod{x^N},\\
+  A_2^{(N)} (x) & \equiv \frac{x\cdot x^2}{(1-x)(1-x^2)} \pmod{x^N}\\
+  & \equiv \frac{x^3}{(1-x)(1-x^2)} \pmod{x^N}\\
+  \dots&\dots\dots\dots\dots\dots\dots\\
+  \dots&\dots\dots\dots\dots\dots\dots\\
+  A_k^{(N)} & \equiv \frac{x^{k(k+1)/2}}{(1-x)(1-x^2)\cdots (1-x^k)}
+  \pmod{x^N} 
+\end{align*}
+
+Hence
+\begin{multline*}
+  \prod\limits_{n=1}^\infty (1+\mathfrak{z} x^n) \equiv 1+
+  \frac{\mathfrak{z}x}{1-x} + \frac{\mathfrak{z}^2x^3}{(1-x)(1-x^2)} +
+  \frac{\mathfrak{z}^3x^6}{(1-x)(1-x^2)(1-x^3)}\\
+  + \cdots \pmod{x^N}
+\end{multline*}
+

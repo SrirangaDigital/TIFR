@@ -1,0 +1,331 @@
+\chapter{Lecture 26}% lecture 26
+
+\section*{Singular chains}\pageoriginale
+
+\begin{defi*}% definition
+Let $T_p$ be the set of all singular $p$- simplexes in $X$. A
+{\em{singular $p$-chain}} with integer coefficients is a function $c :
+T_p  \rightarrow Z$ such that $c_t = c(t)$ is zero for all but a
+finite number of $t \in T_p$. It is usually written as a formal sum
+$\sum\limits_{t \in T}  c_t \cdot t$. The {\em{support}} of $c$ is the
+union of the supports $t(s_p)$ of those simplexes $t$ for which $c_t
+\neq 0$. The boundary of the $p$ - chain $c$ is the $(p-1)$-chain 
+$$
+\partial_{p-1} c = \sum_{t \in T_p} c_t \sum_{j=o}^{p} (-1)^j 
+\partial_j t. 
+$$
+\end{defi*}
+
+The singular $p$-chains of $X$ form a free abelian group $C_p (X,Z)$
+and $\partial_{p-1} : C_p(X,Z) \rightarrow C_{p-1}(X,Z)$ is a
+homomorphism with $\partial_{p-1} \partial_p = 0$; $\partial_{p-1}$
+decreases support, i.e., $\supp \partial_{p-1} c \subset \supp c$ . 
+
+If $\mathscr{W} = \{V_i \}_{i \in I}$ is a covering of $X$, let $C_p
+(X, Z,\mathscr{W})$ be the subgroup of $C_p(X, Z)$ consisting of
+chains $c$ such that $c_t = 0$ unless $\supp t \subset V_i$ for some
+$i \in I$. Let $j : C_p (X,Z,\mathscr{W}) \rightarrow C_p(X,Z)$ be the
+inclusion homomorphism. Since $\partial_{p-1}$ decreases supports,
+there is an induced homomorphism $\partial_{p-1}: C_p
+(X,Z,\mathscr{W}) \rightarrow C_{p-1}(X,Z,\mathscr{W})$ which commutes
+with $j$. 
+
+It is known (Cartan Seminar, 1948-49, Expos\'e 8, \S 3) that there is
+a \textit{subdivision} consisting of homomorphisms $r : C_p (X,Z)
+\rightarrow C_p(X,Z,\mathscr{W})$ such that 
+\begin{enumerate}[(i)]
+\item $r  c = c$\pageoriginale if $c \in C_p (X,Z,\mathscr{W})$,
+
+\item $\supp r  c  = \supp c$.
+
+\noindent
+Further, there is a \textit{homotopy} $h_{p+1} : C_p (X,Z)
+\rightarrow C_{p+1}(X,Z)$ such that  
+
+\item  $\partial_p h_{p+1} c + h_p \partial_{p-1}  c = j  r  
+  c -c$, 
+
+\item $h_{p+1} j c = 0$, 
+
+\item $\supp h_{p+1} c \subset \supp c$.
+\end{enumerate}
+
+Let $I$ be well-ordered, let $j_i(t) = t$ if $\supp t \subset V_i$ but
+$\supp t \not \subset V_k$ for all $k < i$ and let $j_i(t) = 0$
+otherwise. This defines a homomorphism 
+$$
+j_i : C_p (X,Z,\mathscr{W}) \rightarrow C_p (X,Z), 
+$$
+with $j = \sum\limits_{i \in I} j_i$ and $\supp u_i c \subset V_i
+\cap \supp c$. 
+
+Let $l_i = j_i r : C_p (X,Z) \rightarrow C_p(X,Z)$. Then $\supp l_i
+c \subset V_i\cap \supp c$. Let $1 =\sum\limits_{i \in I} l_i = \sum
+j_i r = j r$. Since $ r  j = 1 : C_p (X,Z, \mathscr{W})
+\rightarrow C_{p} (X,Z,\mathscr{W})$, $l^2 = j(rj)r = jr = l$. Further,
+since $jr = l$, we have 
+$$
+\partial_p  h_{p+1} + h_p ~\partial_{p-1} = l - 1, 
+$$
+and $\supp l c \subset \supp c $.
+
+If $U$ is open, let $C_p(X,Z)_U$ be the set of chains $c \in C_p(X,Z)$ 
+such that $U$ does not meet $\supp c$. Then $C_p(X,Z)_U$ is a subgroup
+of $C_p(X,Z)$; let $S_{pU} = C_p(X,Z)/C_p(X,Z)_U$. Since
+$\partial_{p-1}$, $h_{p+1}$, $l_i$ and l decrease supports, there are
+induced homomorphisms 
+\begin{gather*}
+\partial_{p-1} : S_{pU} \rightarrow S_{p-1,U'} \qquad h_{p+1} : S_{pU}
+\rightarrow S_{p+1,U'}\\ 
+l_i : S_{pU}, \quad \text{ and }  l : S_{pU} \rightarrow S_{pU}. 
+\end{gather*}\pageoriginale
+
+If $V \subset U$ then $C_p(X,Z)_U \subset C_p(X,Z)_V$ and there is an
+induced epimorphism $\rho_{_{VU}} : S_{pU} \rightarrow S_{pV}$ which
+commutes with $\partial_{p-1}$, $h_{p+1}$, $l_i$  and
+$l$. Then $\{S_{pU}, 
+\rho_{_{VU}} \}$ is a presheaf which determines a sheaf $\mathscr{S}_p$
+called the sheaf of singular $p$-chains. There are induced sheaf
+homomorphisms 
+\begin{gather*}
+\partial_{p-1} : \mathscr{S}_{p} \rightarrow \mathscr{S}_{p-1}, h_{p+1}
+: \mathscr{S}_{p} \rightarrow \mathscr{S}_{p+1},\\ 
+l_i : \mathscr{S}_{p} \rightarrow \mathscr{S}_{p}, \text{ and } l :
+\mathscr{S}_{p} \rightarrow \mathscr{S}_{p}, 
+\end{gather*}
+with
+$$
+1 + \partial_{p} h_{p+1} + h_p  \partial_{p-1} = l = \sum_{i \in I} 
+l_i. 
+$$
+
+If $c \in C_p (X,Z)$ and $U = X -\bar{V}_i$ then, since $\supp l_i (c)
+\subset V_i$, $l_i (c) \in C_p(X,Z)_U$. Therefore $l_i : S_{pW}
+\rightarrow S_{pW}$ is the zero homomorphism for each open $W \subset
+U$. Hence $l_i (S_{px}) = 0_x$ for all $x \in X - \bar{V}_i$. 
+
+\begin{defi*}% definition
+If $\mathscr{G}$ is a sheaf of $A-$ modules, the sheaf $\mathscr{S}_p
+\otimes_Z \mathscr{G}$ is a sheaf of $A$-modules called the {\em{sheaf
+    of singular $p$ - chains with coefficients in }} $\mathscr{G}$. 
+\end{defi*}
+
+Let $\mathscr{S}^p = \mathscr{S}_{k-p} \otimes_Z \mathscr{G}$ for some
+fixed integer $k$ and let $d^{p+1} : \mathscr{S}^p \rightarrow
+\mathscr{S}^{p+1}$, $h^{p-1} : \mathscr{S}^p \rightarrow
+\mathscr{S}^{p-1}$, $l_i : \mathscr{S}^p \rightarrow \mathscr{S}^p$ and
+$l : \mathscr{S}^p \rightarrow \mathscr{S}^p$ be the homomorphisms
+induced by $\partial_{k-p-1}$, $h_{k-p+1}, l_i$\pageoriginale and
+l. Then  
+$$
+1 + d^p h^{p-1} + h^p d^{p+1} = l = \sum l_i, 
+$$
+and $l_i (S^p_x) 0_x$ for all $x \in X - \bar{V}_i$. 
+
+\textit{The sequence} $\cdots \rightarrow \mathscr{S}^{p-1}
+\xrightarrow{d^p} \mathscr{S}^p \xrightarrow{d^{p+1}}
+\mathscr{S}^{p+1} \rightarrow \cdots$ \textit{is homotopically fine}. 
+
+\begin{proof}
+Let $\mathscr{U} = \{U_i \}_{i \in I}$ be a locally finite covering
+with $i_* \in I$ such that $\bar{U}_i$ is normal for $i \in I -
+(i_*)$. Shrink $\mathscr{U}$ to a covering $\mathscr{W} = \{V_i
+\}_{i\in I}$ with $\bar{V}_i \subset U_i$. Construct the homomorphisms
+$h^{p-1} : \mathscr{S}^p \rightarrow \mathscr{S}^{p-1}$, 
+$l_i :\mathscr{S}^p \rightarrow \mathscr{S}^p$ (as above) such that   
+$$
+1 + d^p h^{p-1} + h^p ~ d^{p+1} = \sum_{i \in I} l_i,
+$$
+and $l_i(S^p_x) = 0_x$ if $x \notin \bar{V}_i$. Thus we can take $E_i
+= \bar{V}_i$. 
+\end{proof}
+
+\begin{defi*}
+Let $C^{\Phi}_p (X, \mathscr{G}) = \Gamma_{\Phi} (X,\mathscr{S}_p
+\otimes_Z \mathscr{G})$; this $A-$ module is called the module of
+       {\em{singular $p$ - chains of $x$ with coefficients in}}
+       $\mathscr{G}$. Let $H^{\Phi}_p (X,\break\mathscr{G}) = \ker
+       \partial_{p-1}/ im ~ \partial_p$ in the sequence 
+$$
+\cdots \rightarrow C^{\Phi}_{p+1} (X,\mathscr{G})
+\xrightarrow{\partial_p} C^\Phi_{p} (X,\mathscr{G})
+\xrightarrow{\partial_{p-1}} C^{\Phi}_{p-1} (X,\mathscr{G})
+\rightarrow \cdots 
+$$
+where the homomorphism $\partial_p : C^{\Phi}_{p+1}(X,\mathscr{G})
+\rightarrow C^{\Phi}_{p}(X,\mathscr{G})$ is the one induced by the
+homomorphism $\partial_p : \mathscr{S}_{p+1} \rightarrow
+\mathscr{S}_p$. The $A-$ module $H^\Phi_p (X,\mathscr{G})$ is called
+\textit{the $p$-th singular homology module of the space $X$ with
+  coefficients in the sheaf $\mathscr{G}$, and supports in the family
+  $\Phi$}. 
+\end{defi*}
+
+An\pageoriginale element of a stalk $S_{px}$ can be written uniquely
+in the form $\sum\limits_{t \in T_p}  c_t \cdot t$  where $c_t \in Z$,
+$c_t = 0$ if $x$ 
+is not in the closure of the support of $t$, $\overline{\supp t}$, and
+$c_t = 0$ except for a finite number of $t$. 
+
+An element of a stalk $S_{qx} \otimes_Z G_x$ can be written uniquely
+in the form $\sum\limits_{x \in T_p}  g_t \cdot t$ where $g_t \in G_x$, $g_t
+= 0$ if $x \not\in \overline{\supp t}$ and $g_t = 0$ except for a
+finite number of $t$. 
+
+An element of $C^{\Phi}_p (X,\mathscr{G})$ can be written uniquely in
+the form $\sum\limits_{t \in T_p} \gamma_t \cdot t$ where $\gamma_t$ is a
+section of $\mathscr{G}$ over $\overline{\supp t}$, $\gamma_t = 0$
+except for a set of simplexes whose supports form a locally finite
+system and the set of points $x$ such that, for some $t$, $\gamma_t(x)$
+is defined and $\neq 0_x$ is contained in a set of $\Phi$. (A section
+over a closed set $E$ is a map $\gamma : E \rightarrow G$ such that
+$\pi \gamma : E \rightarrow E$ is the identity.) 
+
+\begin{defi*}
+An \textit{$n$ - manifold} is a Hausdorff space $X$ which is locally
+euclidean, i.e., each point $x \in X$ has a neighbourhood which is
+homeomorphic to an open set in $R^n$. 
+\end{defi*}
+
+\textit{If $X$ is an $n$-manifold, then $\Phi - \dim X = n$}. 
+
+\begin{proof}
+Since $X$ can be covered by open sets whose closures are homeomorphic
+to subsets of $R^n$, $X$ is locally $n$-dimensional. Then each closed
+set $E \in \Phi$ is locally of dimension $\leq n$ and $E$ is
+paracompact and normal, hence $\dim E \leq n$. Further, any non-empty
+set $E \in \Phi$ has a closed neighbourhood $\bar{V} \in \Phi$ and
+$\bar{V}$ contains a closed\pageoriginale set homeomorphic to the
+closure of an open set in $R^n$. Hence $\dim \bar{V} \geqq n$; thus
+$\Phi - \dim X = n$, and this completes the proof.  
+\end{proof}
+
+In the sequence $\cdots \rightarrow \mathscr{S}_{p+1}
+\xrightarrow{\partial_p} \mathscr{S}_p \xrightarrow{\partial_{p-1}}
+\mathscr{S}_{p-1} \rightarrow \cdots$ 
+
+ Let $\mathscr{H}_p = \ker \partial_{p-1}/\im \partial_p$;
+ $\mathscr{H}_p$ is called the \textit{$p$ - the singular homology
+   sheaf in} $X$. 
+
+ \textit{If $X$ is an $n$-manifold, the $p$-th singular homology sheaf 
+  in $X$ is locally isomorphic with the $p$-th singular homology sheaf
+  in $R^n$}. 
+
+\begin{proof}
+Let $x_0 \in U_1 \subset X$ where $U_1$ is open in $X$ and let $f :
+U_1 \rightarrow U_1'$ be a homeomorphism onto an open set $U_1'
+\subset R^n$. Choose an open set $V$ with $x_o \in V$, $\bar{V} \subset
+U_1$ and let $U_2 = X - \bar{V}$, $U'_2 = R^n - f(\bar{V})$. Then
+$\{U_1,U_2 \}$ is a covering of $X$, and there is the homotopy defined
+above,  
+$$
+\partial  h + h  \partial = l_1 + l_2 -t,
+$$
+with $l_2(S_{px}) = 0$ for $x \in V$. Hence
+$\mathscr{H}_{p}(\mathscr{S})$ is isomorphic with $\mathscr{H}_p
+(l_1\mathscr{S})$ in $V$. But $f : U_1 \rightarrow U'_1$ takes
+$l_1(\mathscr{S}_p)$ into $l'_1(\mathscr{S}'_p)$ where
+$\mathscr{S}'_p$ is the sheaf of singular $p-$ chains in $R^n$ and $l'_1$
+is the corresponding homomorphism for the covering $\{U'_1, U_2' \}$
+of $R^n$. In $f(V),\mathscr{H}_p(l_1' \mathscr{S}')$ is with
+$\mathscr{H}_p(\mathscr{S}')$. 
+\end{proof}
+
+Using triangulations of $R^n$, one can verify, for $R^n$, that
+$\mathscr{H}_p = o$ for $p \neq n $ and $\mathscr{H}_n$ is isomorphic
+with the constant sheaf $(R^n \times Z, \pi, R^n)$. One uses a
+homotopy which does not decrease supports\pageoriginale and which does
+not induce a sheaf homotopy. The isomorphism is not a natural one but
+depends on the choice of an orientation for $R^n$.  
+
+In an $n$-manifold $X, \mathscr{H}_p = 0$ for $p \neq n$ and
+$\mathscr{H}_n$ is locally isomorphic with $Z$. Let $\mathcal{J} =
+\mathscr{H}_n$; if $\mathcal{J}$ is isomorphic with $Z$ the manifold
+is called \textit{orientable}, otherwise the manifold is said to be
+\textit{non-orientable} and $\mathcal{J}$ is called the sheaf of
+twisted integers over $X$. Example \ref{chap1:exam2} is the restriction to the 
+M\"obius band of the sheaf of twisted integers over the projective
+plane. 
+
+\textit{If $\mathscr{S}^p = \mathscr{S}_{n-p}\otimes_Z \mathscr{G}$ on
+  an $n$-manifold $X$, then $\mathscr{H}^p (\mathscr{S})$ for $p \neq 0$
+  and $\mathscr{H}^o(\mathscr{S}) = \mathcal{J}\otimes_Z
+  \mathscr{G}$}. 
+
+\begin{proof}
+Since $S_{px}$ is a free abelian group, so are the subgroups $Z_{px}$
+and $B_{px}$. Also, $H_{px}$ being either 0 or $Z$, is free. It is
+known (Cartan Seminar, 1948-49, Expose 11) that if  
+$$
+0 \rightarrow F \rightarrow F \rightarrow F'' \rightarrow 0 
+$$
+is an exact sequence of abelian groups and $F''$ is without torsion and
+if $G$ is an abelian group, then the induced sequence 
+$$
+0 \rightarrow F' \otimes G \rightarrow F \otimes G \rightarrow F''
+\otimes  G \rightarrow 0 
+$$ 
+is exact. From the following commutative diagram of exact sequences,
+one can see that 
+$$
+\mathscr{H}_p (\mathscr{S} \otimes \mathscr{G}) = \ker
+\partial_{p-1}/\im \partial_p \approx \mathfrak{z}_p \otimes
+\mathscr{G} / \mathscr{B}_p \otimes \mathscr{G} \approx \mathscr{H}_p
+\otimes \mathscr{G}. 
+$$
+
+Thus\pageoriginale $\mathscr{H}^p (\mathscr{S})=\mathscr{H}_{n-p}\otimes
+\mathscr{G}=O$ for $p \neq O$ and
+$\mathscr{H}^p(\mathscr{S})=\mathcal{J} \otimes \mathscr{G}$ for
+$p=O$. 
+\end{proof}
+\[
+\xymatrix{
+& 0\ar[d] & & & \\
+0 & \mathbb{B}_p\otimes \mathscr{G} \ar[dd] \ar[l]& \mathscr{S}_{p+1} \otimes
+\mathscr{G} \ar[dd]_{\partial_p} \ar[l] & \mathfrak{z}_{p+1}\otimes
+\mathscr{G} \ar[l]& 0\ar[l]\\
+& & & 0 \ar[d]\ar@/_/[dl]&  \\
+& \mathfrak{z}_p\otimes \mathscr{G} \ar[r]\ar[dd] &
+\mathscr{S}_p\otimes \mathscr{G} \ar[r] \ar[ddd]_{\partial_{p-1}} &
+\mathbb{B}_{p-1} 
+\otimes \mathscr{G} \ar[r]\ar[dd] & 0 \\
+& & & & 0 \ar[dl]\\
+& \mathscr{H}_p \otimes \mathscr{G} \ar[d] & \ar@/^1pc/[dl] & \mathfrak{z}_{p-1}
+\otimes \mathscr{G}\ar[dd] \ar[dl] &  \\
+& 0 & \mathscr{S}_{p-1} \otimes \mathscr{G} \ar[dl] & & \\
+& \mathbb{B}_{p-2} \otimes \mathscr{G} \ar[dl] & & \mathscr{H}_{p-1}
+\otimes \mathscr{G} \ar[d]& \\
+0 & & & 0 & 
+}
+\]
+\hfill{Q.e.d.}
+
+\begin{proposition}%Prop 19
+If $X$ is an $n$- manifold, there is an isomorphism: 
+$$
+\eta^{-1} \quad : H^\Phi_{n-p}(X,\mathscr{G}) \to H^p_\Phi (X,
+\mathcal{J} \otimes_Z \mathscr{G}). 
+$$
+\end{proposition}
+
+\begin{proof}
+Since $C^\Phi_{n-p}(X, \mathscr{G})=\Gamma _\Phi
+(X,\mathscr{S}_{n-p} \otimes _z \mathscr{G})=\Gamma _{\bar{\Phi}}
+(X,\mathscr{S}^p)$, $H^{\bar{\Phi}}_{n-p}(X,\break\mathscr{G})=H^p \Gamma
+_{\bar{\Phi}}(X,\mathscr{S})$. And, since
+$\mathscr{H}^o(\mathscr{S})=\mathcal{J}\otimes _z \mathscr{G}$,
+$H^p_{\Phi}(X, \mathcal{J}\otimes _z \mathscr{G})=H^p_\Phi
+(X,\mathscr{H}^o)$. By proposition \ref{chap23:prop17} and
+\ref{chap25:prop18}, there are isomorphisms 
+\begin{align*}
+\eta &: H^p C_{\Phi} (\mathscr{S}) \to H^p_ \Phi (X, \mathscr{H}^o), \\
+\rho &: H^p C_{\Phi} (\mathscr{S}) \to H^p \Gamma_ \Phi (X,\mathscr{S}).
+\end{align*}
+
+Thus $\eta \rho^{-1}$ is the required isomorphism.
+\end{proof}
+
+This proposition is part of the Poincare duality theorem. 
+

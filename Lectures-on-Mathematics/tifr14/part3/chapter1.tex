@@ -1,0 +1,541 @@
+\chapter{Continuous sum of Hilbert Spaces-I}\label{partIII-chap1}
+
+\setcounter{section}{1}
+\setcounter{subsection}{0}
+\subsection{Introduction}\label{partIII-chap1-sec1.1}\pageoriginale% 1.1 
+
+In the general theory of unitary representations of a locally compact
+group, two main problems are (i) to determine all the irreducible
+unitary representations of a group, and (ii) to decompose a given
+unitary representation into irreducible ones. The first of these has
+been completely solved in certain cases (e.g. abelian groups, compact,
+certain semisimple Lie groups), but it is to the latter that we
+address ourselves in the following pages. We start by giving some
+Examples. 
+
+Let $U$ be the regular representation of the one dimensional torus
+$T^1$ in the space $L^2$ of square summable functions. If $f$ belongs
+to $L^2$, it can be expressed in Fourier series $\sum  a_n
+e^{inz}$. If  $x = e ^{it}$, then $\sigma_x f = \sum\limits_n
+\sigma_{x} a_{n} e^{inz} =   
+\sum\limits_n (a_{n} e^{\int}) e^{inz}$  and we have decomposed a
+unitary representation into a direct sum of irreducible
+representations. 
+
+If we take $R$ instead of $T^1$ and $F \in L^2$, then $\hat{f}(y) =
+\int f(x)e^{ixy}dx$ also belongs to $L^2$. By the inversion formula,
+when $f$ is sufficiently regular (we do not enter into these details)
+we have $f(x) = \dfrac{1}{2 \pi} \int\hat{f}(y)e^{-ixy}dy$. Hence
+\begin{align*}
+\sigma_z f &= \dfrac{1}{2\pi} \int \hat{f}(y)e^{-i(x+z)y}dy\\ 
+&=\dfrac{1}{2\pi}\int\hat{f}(y)e^{izy}e^{-ixy}dy\\
+&= \dfrac{1}{2\pi} \int(\hat{\sigma f})(y)e^{-ixy}dy.
+\end{align*}
+
+Therefore $(\hat{\sigma_z
+  f})(y) = e^{izy}\hat{f}(y)$. The regular representation has again
+been decomposed into one-dimensional representations but this is not a
+discrete sum but a `continuous sum' - a concept which we shall define
+presently. 
+ 
+Before proceeding with the formal definitions, we give one more
+example which is more akin to the theory we are to develop. Let $E$ be
+a locally\pageoriginale compact space with a positive measure $\mu$ and
+$\mathscr{H}$ a Hilbert space. In the space
+$\mathscr{C}(E,\mathscr{H})$ of continuous functions $f : E \to
+\mathscr{H}$ with compact support, we introduce a semi-norm 
+$$
+|| f ||=\left( \int\ || f(z) ||^{2} d \mu (z)\right)^{\frac{1}{2}} <
+\infty.
+$$  
+
+Let $\mathscr{L}^2 (\mathscr{H})$ be the completion of the
+Hausdorff space associated with $\mathscr{C}(E,\mathscr{H})$. We have
+also a scalar product in this space given by $\langle f,g \rangle =
+\int \langle f(z),g(z)\rangle  d\mu(z)$. 
+
+If $\mu$ is discrete (i.e. is a linear combination of Dirac measures
+at certain points), $\mathscr{L}^2 (\mathscr{H})$ becomes a discrete
+sum of Hilbert spaces associated to each of those points, all the
+Hilbert spaces being isomorphic to $\mathscr{H}$. 
+
+These considerations motivate some kind of a continuous sum of Hilbert
+spaces indexed by points of a locally compact space. We therefore
+assume the following data to start with: 
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\mathcal{Z}$, a locally compact space (which will be assumed
+  for simplicity to be countable at $\infty$) with a positive measure
+  $\mu$; 
+
+\item For every $z \in \mathcal{Z}$, a Hilbert space
+  $\mathscr{H}(z)$. In other words, we assume given at each point a
+  `tangent space' which is a Hilbert space. For instance, in a
+  Riemannian manifold, the metric assigns a scalar product to the
+  tangent space at each point of $\mathcal{Z}$. Of course in this case
+  the spaces are of finite dimension. Having in mind the example
+  above, we seek to find an analogue of the concept of functions on
+  $\mathcal{Z}$. This is served by the notion of a \textit{vector
+    field} (in exactly the same sense as in manifolds) which is an
+  assignment to each point, of an element of the associated Hilbert
+  space. We would like to have a notion analogous to that of
+  continuous functions in our example. To this end, we introduce a
+  \textit{fundamental family}\pageoriginale 
+   of vector fields with reference to which the continuity of an
+  arbitrary vector field will defined. Thus we 
+  suppose given 
+
+\item \textit{A fundamental family} $\wedge$ of vector fields which
+  satisfies the following conditions: 
+\begin{enumerate}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+\item $\wedge$ forms a vector space under the `usual' operations.
+
+\item For every vector field $X \in \wedge$, the real valued function
+  $|| X(z) ||$ is continuous. This in particular implies that the map
+  $z \to \langle X(z),Y(z) \rangle $ is continuous for every $X,Y \in
+  \wedge$. 
+
+\item For every $z$, the vectors $X(z)$ for $X\in \wedge$ are
+  everywhere dense in $\mathscr{H}(z)$. This only ensures that the
+  system $\wedge$ is sufficiently large. Sometimes the fundamental
+  family $\wedge$ will be supposed to satisfy the following stronger
+  condition: 
+
+\setcounter{enumii}{2}
+\renewcommand{\labelenumii}{(\theenumii$'$)}
+\item There exists a countable subset $\Lambda_0 = \{X_n \}$
+  of $\Lambda$ such that for every $z \in \mathcal{Z}$, $X_n (z)$ are
+  dense in $\mathscr{H}(z)$. In particular, this implies that all the
+  Hilbert spaces $\mathscr{H}(z)$ are separable. (We will always
+  assume that the stronger condition (c$'$) is valid though some of
+  the results remain true without this supposition). 
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Notion of continuity}\label{partIII-chap1-sec1.2}%1.2
+
+We proceed to construct the continuous sum of the spaces
+$\mathscr{H}(z)$. In our axioms relating to the fundamental family, we
+have not imposed any restrictions on its behaviour at
+$\infty$. Consequently it cannot be asserted that the $|| X(z) ||$ are
+square summable. Moreover, the class $\Lambda$ may be too small (as
+they will be if we take them to be constants in our example) to be
+dense in $\mathscr{L}^2(\mathscr{H})$. This necessitates the extension
+of this family to the class of \textit{continuous} vector fields by
+means of the  
+
+\begin{defi*}
+A\pageoriginale vector field $X$ is continuous at a point $\zeta_0$ if
+  given an $\epsilon > 0$ there exists $Y \in \Lambda$ and a
+  neighbourhood $V$ of 
+  $\zeta_0$ such that $|| X(\zeta) - Y(\zeta) || < \epsilon$ for every
+  $\zeta \in V$. 
+\end{defi*}
+
+\begin{remark*}
+When we take $\Lambda$ to be constants in the example, this
+corresponds to the usual continuity of functions. 
+\end{remark*} 
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{partIII-chap1-prop1}%prop 1
+ $A$ vector field $X$ is continuous if an only if $|| X ||$ is
+  continuous and $\langle X, X_n\rangle$ is continuous for every $X_n
+  \in \Lambda_0$. 
+\end{proposition}
+
+If $X$ is continuous, trivially $|| X ||$ is continuous. Also if $X$
+and $X'$ are continuous, then $\langle X,X'\rangle$ is continuous: in
+fact, for every $\epsilon > 0$ and every $\zeta \in \mathcal{Z}$, there
+exist a neighbourhood $V$ of $\zeta$ and $Y$, $Y' \in \Lambda$ such that
+$|| X - Y|| < \epsilon$, $|| X' - Y' || < \epsilon$ in $V$. 
+
+
+Hence  
+$$
+| \langle X,X' \rangle -  \langle Y,Y'\rangle |  \leq  |
+\langle X - Y, X' \rangle | + | \langle Y,Y' - X'\rangle | 
+$$ 
+$\leq M \epsilon$ in $V$, where $M$ is some constant. As $\langle Y,Y'
+\rangle$ is continuous, it follows that $\langle X,X'\rangle$ is also
+continuous. To prove the converse, it is enough to show that $||
+X(\zeta) - X_n (\zeta) ||$ is continuous. But $|| X(\zeta) -
+X_n(\zeta) ||^{2}  = || X ||^{2} - 2Rl \langle X,X_n\rangle + || X_n
+||^2 $, all continuous by our assumption. 
+
+A continuous vector field can be multiplied by a scalar continuous
+function without affecting its continuity. 
+
+\begin{proposition}\label{partIII-chap1-prop2}%prop 2 
+The vector fields $\sum \varphi_i(\zeta)Y_i(\zeta)$ with $\varphi_i \in
+\mathscr{C}(\mathcal{Z})$ and $Y_i \in \Lambda$ are dense in the space
+of continuous vector fields with the topology of uniform convergence
+on compact sets. 
+\end{proposition}
+
+At each point $x$ in a compact set $K$, there exists a neighbourhood
+$A_x$ in which $|| X - Y_x || < \epsilon $ for some $Y_x \in \Lambda$. We
+can extract a finite cover $\{A_{x_i}\}$ from $\{A_x\}$ and take
+the partition of unity with respect to\pageoriginale 
+this cover. Hence there exist
+continuous functions $\phi_i$ such that $|| X-\sum \phi_i Y_{x_i}||<
+\epsilon$ on $k$. 
+
+\subsection{The space $ L^2_\wedge$}\label{partIII-chap1-sec1.3} % sec 1.3
+
+Our next step is to construct the space $L^2_\wedge$ of square
+summable  vector fields. We shall say that $X$  belongs to
+$L^2_\wedge$ if given an $\epsilon >  0$ there exists a continuous vector
+field $Y$ 
+ with compact support such that 
+$$
+\int\limits^{*} || X (\zeta)-Y(\zeta)||^2 d\mu(\zeta)<\epsilon. 
+$$
+(We do not know  a priori whether $|| X(\zeta)-Y(\zeta)||^2$ is 
+ measurable or not and hence we can only consider the upper
+ integral). In this space, we can define 
+\begin{gather*}
+|| X ||^2 =\int || X(\zeta)||^2 d\mu(\zeta) \text{~ and}\\
+\langle X,X' \rangle = \int  \langle X(\zeta), X' (\zeta) \rangle
+d\mu(\zeta). 
+\end{gather*}
+
+By passing to the quotient space modulo vector fields of norm $0$, we
+get a Hilbert space (which again we denote by $L^2_\wedge$). As in the
+case of the  theory of integration, we have of course to prove the
+completeness of $L^2_\wedge$, but there is no trouble in imitating the
+proof of the Riesz-Fisher theorem in this case. 
+
+$L^2_\wedge$ is the \textit{continuous sum} of the
+$\mathscr{H}(\zeta)$ that we wished to construct. 
+
+\subsection{Measurablility of vector
+fields}\label{partIII-chap1-sec1.4} % sec 1.4  
+
+\begin{defi*}
+A vector field $X$ is said to be {\em measurable} if for every compact
+$K$ and positive $\epsilon$, there exists a set $K_1 \subset K$  such
+that $\mu(k-k_1)< \epsilon$ and $X$ is continuous on $K_1$. 
+\end{defi*} 
+
+\begin{proposition}\label{partIII-chap1-prop3}% pro 3
+A vector field $X$ is measurable if and only if $\langle X,X_n
+  \rangle$ is measurable for every $X_n\in\Lambda_0$. 
+\end{proposition}
+ 
+If\pageoriginale $X$ is measurable, $\langle X,X_n \rangle $ is
+ continuous on $K_1$ 
+ and hence $\langle X,X_n\rangle$ is measurable. Conversely, let
+ $\langle X,X_n\rangle $ be measurable. Then $|| X ||=\sup
+ \dfrac{\mid\langle X,X_n\rangle\mid}{||  X_n ||}$ is also
+ measurable. (Here we put $\dfrac{\langle X,X_n \rangle}{|| X_n ||}=0$
+ if $|| X_n(\zeta)||=0)$. But $\langle X,X_n\rangle$ are continuous
+ outside a set $\{K-K_n\} $  of measure $< \epsilon/2^n$. If $K_\infty=\cap
+ K_n$, it is obvious that  $\mu(K-K_\infty)<\epsilon$ and all the functions
+ $\langle X,X_n \rangle$ are continuous on $K_\infty$. Hence $||X||$
+ is continuous on $K_\infty$. By prop. \ref{partIII-chap1-prop1},
+ Ch. \ref{partIII-chap1-sec1.2}, prop. \ref{partIII-chap1-prop3}
+ follows.  
+
+In particular, this shows that strong measurablility and weak
+measurablility are the same in a separable Hilbert space. 
+
+\begin{proposition}\label{partIII-chap1-prop4} % pro 4
+A vector field $X$ belongs to $L^2_\wedge$ if and only if $X$ is
+  measurable and $\int || X(\zeta)||^2 d\mu(\zeta)<\infty$. 
+ \end{proposition} 
+ 
+The proof is exactly similar to that for ordinary integration of
+scalar functions. 
+
+\subsection{Orthogonal basis}\label{partIII-chap1-sec1.5} % sec 1.5
+
+We now find an orthogonal basis for the space of vector fields by
+Schmi\-dt's orthogonalisation process. We can of course define 
+$$
+e_1=\frac{X_1}{|| X_1 ||},\quad e_2=\frac{X_2-\langle X_2,e_1 \rangle
+  e_1}{|| X_2-\langle X_2,e_1\rangle e_1 ||},\ldots 
+$$
+where we put $e_1=0$ whenever the numerator is zero  \cite{key20}. However,
+the process is defective as the basic elements are not continuous, and
+the following orthogonalisation seems preferable:  
+
+Put 
+$$
+e_1=X_1;\quad e_2=X_2- \langle X_2, e_1\rangle e_1,
+$$
+$e_n = x_n$ - orthogonal projection of $X_n$ on the space generated by
+$$
+e_1,\ldots e_{n-1}
+$$
+
+
+These\pageoriginale are of course continuous vector fields. At each
+point $\zeta$, 
+the nonzero $e(\zeta)$ from an orthogonal basic for
+$\mathscr{H}(\zeta)$. 
+ 
+\subsection{Operator fields}\label{partIII-chap1-sec1.6}
+ 
+Let $X$ be a square summable vector field and  $A(\zeta)$ an operator
+on $\mathscr{H}(\zeta)$. Then we may
+define $(AX)(\zeta)=A(\zeta)X(\zeta)$ and get another vector field
+$AX$. The assignment to each $\zeta$ of an operator of
+$\mathscr{H}(\zeta)$  is called an \textit{operator field}. However,
+in order that $A$ may act as operator on $L^2_\wedge$, we have to make
+sure that $AX$ is also square summable. Obviously some restrictions an
+$A(\zeta)$ will be necessary to achieve this. In the particular case
+when all the spaces 
+$\mathscr{H}(\zeta)$ are the isomorphic, $A(\zeta)$ is a map of
+$\mathcal{Z}$ into the set of operators of the Hilbert space
+$\mathscr{H}$. Now, Hom $(\mathscr{H},\mathscr{H})$  can be provided
+with uniform, strong or weak topologies and we may restrict $A$ to be
+continuous for one of these topologies. However, the first topology is
+too strong and consequently the space `good operator fields' will
+become too restricted to be of any utility. Therefore, in this
+particular case, we may require the map $A$ to be continuous in the
+weak or strong topology as  
+ the case may  be. To transport this definition to the general case,
+ we have to reformulate this in a suitable way. Take for instance the
+ requirement of strong continuity. This is equivalent to requiring
+ that  
+(a) $A(\zeta)$ is locally bounded (i.e. bounded on compact sets) and
+(b) for every continuous function $f(\zeta)$ of $\mathcal{Z}$ with
+values in $\mathscr{H}$, $A(\zeta)f(\zeta)$ is continuous. 
+
+This motivates the following
+
+\begin{defi*} 
+An operator field $\zeta \to A(\zeta)$ is said to be {\em strongly
+  continuous}\pageoriginale 
+if (a) $A(\zeta)$ is locally bounded and (b) for every
+continuous vector field $X(\zeta)$, $A(\zeta) X (\zeta)$ is also
+continuous. 
+\end{defi*}
+
+Similar considerations for weak continuity give us the following 
+\begin{defi*}
+An operator field $A$ is said to be {\em weakly continuous} if (a) it
+is locally bounded, and (b) for any two continuous vector fields 
+ $X(\zeta),Y(\zeta)$, the map $\zeta \to \langle
+A(\zeta)X(\zeta),Y(\zeta) \rangle$ is continuous.  
+\end{defi*}
+  
+\begin{proposition}\label{partIII-chap1-prop5} % pro 5
+An operator field $A$ is {\em strongly continuous} if and only if $A$ is
+locally bounded and $\zeta \to A (\zeta)X_n(\zeta)$ is continuous for
+every  $X_n \in \wedge_0$. 
+\end{proposition}
+ 
+This follows straight from the definition.
+ 
+The strongly continuous operator fields form an algebra which is not
+however self adjoint, while the weakly continuous operator fields  do
+not even form an algebra. In order to ensure that our definitions are
+good  enough, we should know if there exist sufficiently many
+non-scalar continuous operator fields. This is answered by the
+following 
+ 
+\setcounter{thm}{0}
+\begin{thm}\label{partIII-chap1-thm1}%thm 1
+{Let} $K$ {be a compact subset of} $\mathcal{Z}$ {and}
+$Y_1,\ldots Y_n, Z_1,\ldots Z_n$,  $2n$  {continuous vector fields
+  such that} $Y_i(\zeta)$ {\rm are linearly independent for every}
+$\zeta \in K.$  {Then there exists a continuous operator field}
+$A$ {such that} $A (\zeta)Y_j(\zeta)=Z_j(\zeta)$ {for every}
+$\zeta \in K$ {and such that} $A(\zeta)^*$ {is also
+  continuous}. 
+\end{thm}
+
+We first remark that we can as well assume that $K=\mathcal{Z}$. For,
+$Y_i(\zeta)$ are linearly independent if and only if $\Delta= \det
+\langle Y_i(\zeta),Y_j(\zeta) \rangle \neq 0$. This being a continuous
+function of $K$, there exists a compact neighborhood $V$ of $K$ such
+that $| \Delta| \ge \alpha >0$ on $V$.  If the theorem were true
+for a compact space, there exists an operator $A_\circ$ on $V$
+satisfying the conditions above.\pageoriginale  
+Set $A=\varphi A_0$ where $\varphi$ is a
+continuous function 1 on $K$, $0$ outside $V$; then $A$ verifies all
+the conditions. 
+ 
+Now let $P(\zeta)$ be the space spanned by $Y_i(\zeta)$. We can then
+define $A(\zeta)=0$ on the orthogonal complement of $P(\zeta)$ and
+$A(\zeta)Y_i(\zeta)=Z_i(\zeta)$ and extend $A$ by linearity. If $\pi$
+is the projection of  $\mathscr{H}(\zeta)$ onto $P(\zeta)$, we have $
+\langle X,Y_j \rangle  =  \langle \pi X,Y_j \rangle $  and if $\pi
+X=\sum \xi_k Y_k$, then $\langle X,Y_j \rangle=\sum \xi_k \langle
+Y_k,Y_j \rangle$ with $| \det \langle Y_j,Y_k \rangle| = |
+\Delta | \ge \alpha>0$. On solving the linear equations for
+$\xi_k$, we get $\xi_k=\Delta_k/ \Delta$.  Since the functions
+occurring in the linear equations are continuous, $\xi_k$ are
+continuous functions and we have 
+$|\xi_k|=|\dfrac{\Delta_k}{\Delta}| \le M|| X ||$ where
+$M$ is a constant. Hence $A(\zeta)X(\zeta)=\sum\xi_k(\zeta)Z_k(\zeta)$
+is continuous for every continuous  vector field $X$. $A$ is locally
+bounded by virtue of the above remark and hence $A$ is a continuous
+operator field. 
+  
+It is obvious that $A^*$ is also locally bounded. Now, $A^*$ maps the
+whole of $\mathscr{H}(\zeta)$ onto $P(\zeta)$ and hence
+$A^*(\zeta)X(\zeta)=\sum\eta_k(\zeta)Y_k(\zeta)$ 
+where the $\eta(\zeta) $ are given by
+\begin{align*}
+\sum \eta_k(\zeta) \langle   Y_k,Y_j \rangle &= \langle \sum
+\eta_k(\zeta)Y_k,Y_j \rangle\\ 
+&=\langle A^*(\zeta)X(\zeta),Y_j(\zeta) \rangle\\
+&=\langle X(\zeta),A(\zeta)Y_j(\zeta) \rangle\\
+&=\langle X(\zeta),Z_j(\zeta) \rangle
+\end{align*}
+
+The Gram determinant in this case also is $\Delta$. Hence by the same
+argument as before, $A^*$ is a continuous operator field. 
+
+\subsection{Measurablility of operator
+fields}\label{partIII-chap1-sec1.7}\pageoriginale % sec 1.7 
+
+\begin{defi*}
+An operator field $A$ is said to be {\em measurable} if (a) it is
+almost everywhere locally bounded, and (b) for every compact $K$ and
+positive  $\epsilon$, there exists $K_1\subset K$ such that
+$\mu(K-K_1)<\epsilon$ and $A(\zeta)$ is continuous on $K_1$. 
+\end{defi*}
+
+If $(e_p)$  form an orthogonal basis (Ch. \ref{partIII-chap1-sec1.5}),
+then any operator 
+can be expressed by means of a matrix with respect to this base. The
+matrix coefficients are only  $\langle Ae_p, e_q \rangle$. We then
+have 
+
+\begin{proposition}\label{partIII-chap1-prop6}% prop 6 
+A locally bounded operator field $A$ is measurable if and only if
+  the matrix coefficients of $A(\zeta)$ are measurable functions on  
+$\mathcal{Z}$. 
+\end{proposition}
+
+That a measurable operator field satisfies the above condition is a
+trivial consequence of the definition. Conversely, if $ \langle
+Ae_p,e_q \rangle$ is measurable for every $q$, by
+prop. \ref{partIII-chap1-prop3}, ch. \ref{partIII-chap1-sec1.4}, 
+$Ae_p$ is measurable for every $p$. As in
+Prop. \ref{partIII-chap1-prop3}, Ch. \ref{partIII-chap1-sec1.4}, we
+can find 
+a compact set $K_1$ such that the  $Ae_p$ are continuous on $k_1$ and
+$\mu(K-K_1)<\epsilon$.    
+
+\subsection{Decomposed operators}\label{partIII-chap1-sec1.8}% sec 1.8
+
+Let $A(\zeta)$ be a measurable operator field bounded almost
+everywhere. For every $X (\zeta)\in L^2_\wedge$, $A(\zeta) X (\zeta)$
+is also a measurable vector field and $|| A (\zeta) X (\zeta) || \le||
+A(\zeta)||_ \infty|| X(\zeta)||$. Hence $\int || A (\zeta)X(\zeta)||^2
+d\mu$ exists and we have $|| AX ||_{L_\wedge^2} \le || A
+(\zeta)||_\infty|| X ||_{L^2_\wedge}$. 
+In other words, $A$ is a continuous operator on $L^2_\wedge$ and $||
+A || \le || A (\zeta)||_ \infty$. 
+
+If $A$ is an operator in $L^2_\wedge$ which arises from an operator
+field, we say that it is a {\em decomposed operator} and write $A\sim
+\int_{\mathcal{Z}}A(\zeta)$. In particular if we take
+$A(\zeta)=f(\zeta)$.  
+Identity where $f\in L^\infty(\mu)$ we obtain a decomposed operator
+$M_f \sim \int f(\zeta) \Id$. This is called a {\em scalar
+decomposed\pageoriginale 
+  operator} on $L^{2}_{\wedge}$. We denote the space of all such
+operators by $\mathscr{M}$. This is a self adjoint subalgebra of $\Hom
+(L^{2}_{\wedge}, L^{2}_{\wedge})$. For, 
+\begin{align*}
+\langle{M_f X, Y} \rangle &= \int \langle f(\zeta)
+X(\zeta),Y(\zeta)\rangle d \mu (\zeta) \\ 
+&=  \int 
+\langle X(\zeta), \overline{f(\zeta)}Y(\zeta)\rangle d\mu(\zeta)\\ 
+&= \langle X, M_{\bar{f}}Y\rangle 
+\end{align*}
+
+Hence $M^*_f=M_{\bar{f}}$.
+ 
+We now give a characterisation of decomposed operators in terms of this
+algebra $\mathscr{M}$ by means of 
+
+\begin{thm}\label{partIII-chap1-thm2}
+The set of decomposed operators is precisely the commutator of
+$\mathscr{M}$. If
+$A \sim \int A (\zeta)$, then $|| A || = ||
+A(\zeta)||_{\infty}$. 
+\end{thm}
+
+In fact, if $A$ is a decomposed operator, it commutes with all
+the elements of $\mathscr{M}$ and hence belongs to $\mathscr{M}'$.
+
+Conversely let $A$ be an operator in $L^{2}_{\wedge}$ which commutes
+with $M_f$ for every $f \in L^\infty(\mu)$. Let $K$ be a compact subset
+of $\mathcal{Z}$. Then $\chi_{_K}e_n(\zeta) \in L^{2}_{\wedge}$, $\{e_n\}$
+being the orthogonal basis (Ch. \ref{partIII-chap1-sec1.5}). Let $H$ be a compact
+nighbourhood of $K$. Then 
+\begin{align*}
+A(\chi_{_K}e_n) & = A (\chi_{_K}\chi_{_H}e_n)\\ 
+& = AM_{\chi_{_K}}(\chi_{_H}e_n)\\ 
+& = M_{\chi_{_K}}A(\chi_{_H}e_n) \text{~ by assumption}\\ 
+& =\chi_{_K}A(\chi_{_H}e_n) \text{~ almost everywhere}. 
+\end{align*}
+
+It is obvious that at the intersection of any two compact sets $K,K^1$,
+the vector fields $A (\chi_{_K} e_n)$ and $A (\chi_{_K^1} e_n)$ coincide
+almost everywhere.\break Hence there exists a vector field $A(e_n)$ such
+that $\chi_{_K}(e_n) A (e_n)(\zeta) =\break A(\chi_{_K}e_n)(\zeta)$ almost
+everywhere. Thus we have a countable family of relations and hence
+there exists a set $N$ of measure $0$ such that
+$\chi_{_K}A(e_n)(\zeta)= A(\chi_{_K}e_n)(\zeta)$\pageoriginale for every
+$\zeta \notin N$. Since the $X_n$ in the fundamental sequence $\wedge_0$ are finite
+linear combinations of the $e_n$ we have $\chi_{_K}A(X_n)(\zeta)= A
+(\chi_{_K}\break X_n)(\zeta)$ for every $\zeta\notin N$. Also $\int_{K} || A
+(X_n(\zeta))||^2 d\mu(\zeta)=|| A(\chi_{_K}X)||^2 \le ||A||^2 \int_K ||
+X_n ||^2\mu(\zeta)$ for every compact set $K$. Hence the set of
+elements $\zeta$ such that $|| A(X_n)(\zeta)||$ is strictly greater
+than $||A||~|| X_n(\zeta)||$ is of measure zero. 
+
+We have thus proved that the algebra of all decomposed operators 
+is $\mathscr{M}'$ and we know that
+$\mathscr{M} \subset \mathscr{M}''$. We can moreover assert 
+
+\begin{thm}\label{partIII-chap1-thm3}
+$\mathscr{M}$ is a weakly closed algebra.
+\end{thm}
+
+In fact, let $(e_n)$ be an orthogonal basis of $L^{2}_{\wedge}$. Then
+we define for any two integers $p$, $q$, a decomposed operator $H_{p,q}$
+by setting 
+\begin{align*}
+& H_{p,q}(\zeta)e_n(\zeta)=0 if n \neq p \text { or }  q\\
+& H_{p,q}(\zeta)e_p(\zeta)=|| e_p(\zeta) ||^{2}e_q(\zeta).\\
+\text{and~ } & H_{p_q}(\zeta) e_q(\zeta)= || e_q(\zeta)||^{2}e_p(\zeta).
+\end{align*}
+
+If $B$ commutes with every $A\in \mathscr{M}'$, in particular, it
+commutes with all 
+the $H_{p,q}$ therefore $B(\zeta)$ commutes with $H_{p,q}(\zeta)$ for
+every fixed $p$, $q$ and almost every $\zeta$. Since the $H_{p,q}$ are
+countable, $B(\zeta)$ commutes with $H_{p,q}(\zeta)$ for almost every
+$(\zeta)$ and for all $p$, $q$. Hence outside a set of measure zero, we
+have 
+\begin{align*}
+\langle B(\zeta)e_p, e_p \rangle &= \frac {\langle Be_p,H_{n,q},e_n
+  \rangle }{|| e_n ||^2}\quad \text{for every~ } p,q.\\ 
+&=\langle BH_{n,q} \; e_p, \; \frac{e_n}{|| e_n||^2}\rangle\quad \text{(since
+the~ } H_{n,q} \text{~ are Hermitian)}\\ 
+&=0 \text{~ if~ } p \neq q. 
+\end{align*}
+
+On\pageoriginale the other hand,
+\begin{align*}
+\langle B(\zeta)e_p,e_p\rangle &= \langle
+BH_{n,p}e_p,\frac{e_n}{|| e_n||^2}\rangle\\ 
+&=\frac{|| e_p||^2}{|| e_n ||^2}\langle Be_n,e_n\rangle 
+\end{align*}
+
+This shows that $B(\zeta)$ is a scalar operator for almost every
+$(\zeta)$. Hence $B=\int B(\zeta)d(\zeta)$ is a scalar decomposed
+operator and hence $\epsilon \mathscr{M}$. This shows that
+$\mathscr{M}=\mathscr{M}''$ and by Th. \ref{partII-chap5-thm2},
+Ch. \ref{partII-chap5-sec5.6}, Part \ref{partII}, is weakly closed.  

@@ -1,0 +1,886 @@
+
+\chapter{The three-body problem : simple collisions}\label{chap2}
+
+\section{The $n$-body problem}\label{chap2:sec1}
+
+We shall\pageoriginale intorduce the problem of $n$ bodies in three-dimensional Euclidean space and study its singularities in the case $n=3$.
+
+Let $n$ be an integer $\geq 2$. (The case $n=1$ will be seen to be trivial). Suppose that $P_1, \ldots, P_n$ are $n$ point-masses in three-dimensional Euclidean space, with the rectangular cartesian coordinates of $P_k$ denoted by $(x_k, y_k,z_k)$, $k=1, \ldots, n$. For simplicity we write $q_k$ for any one of the three coordinates $x_k, y_k , z_k$, $k=1,\ldots,n $, and $q$ for any one of the $3n$ coordinates $q_k$. The distance $r_{kl}$ between the points $P_k$ and $P_l$ is given by
+\begin{equation*}
+r^2_{kl} = (x_k - x_1)^2 + (y_k - y_1)^2 + (z_k - z_1)^2. \tag{2.1.1}\label{chap2:eq2.1.1} 
+\end{equation*}
+We shall suppose that $P_k$ has a mass $m_k > 0$, $k = 1, \ldots, n,$ and that $r_{kl} > 0$, $k \neq l$. Suppose that the $n$ point-masses attract each other according to Newton's law of gravitation. Then we can write down the equations of motion of the system of $n$ point-masses. For this we set
+\begin{equation*}
+U = \sum\limits_{1\leq k < l \leq n} \frac{m_k m_1}{r_{kl}} \tag{2.1.2}\label{chap2:eq2.1.2}  
+\end{equation*}
+with defines the Newtonian gravitational potential of the system of $n$ point-masses\pageoriginale $P_k$. The sum on the right in (\ref{chap2:eq2.1.2}) contains $n(n-1)/2$ terms. We have assumed that the gravitation constant is 1 and this can always be done by choosing the unit of mass properly. Then the differential equations of motion of the system of $n$ point-masses have the form
+\begin{equation*}
+m_k \ddot{q}_k = U_{\ddot{q}_k}, \; k = 1, \ldots, n , \tag{2.1.3}\label{chap2:eq2.1.3} 
+\end{equation*}
+where $q_k$ are considered as functions of the real (time) variable $t$ and $\ddot{q}_k$ denotes the second derivative $\dfrac{d^2}{dt^2} q_k(t)$, while $U_{q_k}$ denotes the partial derivative $\dfrac{\partial}{\partial q_k} U(x_1, \ldots, z_n)$. This is a system of $3n$ ordinary differential equations of the second order in the $3n$ unknown functions $q = q(t)$ of the variable $t$; we can write them symbolically in the form 
+\begin{equation*}
+m \ddot{q} = U_q, \tag{2.1.4}\label{chap2:eq2.1.4} 
+\end{equation*}
+where $m$ denotes the mass associated with $q$. We can also write this as a system of $6n$ ordinary differential equations of the first order by introducing the velocity components $v_k = \dot{q}_k = \dfrac{d}{dt} q_k(t)$:
+\begin{equation*}
+\dot{q} = v, \; m\dot{v} = U_q. 
+\tag{2.1.5}\label{chap2:eq2.1.5} 
+\end{equation*}
+These are $6n$ ordinary differential equations in $6n$ unknown functions $q_k(t)$, $v_k(t)$ of the variable $t$. We shall start from the initial time $t=\tau$, a real number, and we prescribe the initial values $q_k(\tau) \equiv q_{k\tau}$ for $q(t)$ at $t = \tau$ in such a way that $\rho_{kl} = r_{kl\tau} > 0$; the initial velocities\pageoriginale $v_k(\tau) \equiv v_{k\tau}$ may be $3n$ arbitrary real numbers.
+
+Since $\rho_{kl} > 0$ and the distance functions $r_{kl}$ are continuous functions of the $3n$ coordinates $q$, $r_{kl} \neq 0$ in a complex neighbourhood of the point $q = q_\tau$ and hence $U$ is a regular analytic function of the $3n$ variables $q_k$ in this neighbourhood. Consequently, $U_{q_k}$ are also regular analytic functions of the $q_k$ and $m_k >0$, so that we can apply Cauchy's existence theorem to the system of equations (\ref{chap2:eq2.1.5}), provided that the boundedness assumptions are verified; it would then follow that there is a regular analytic solution $q = q(t)$, $v = v(t)$ of the system in a neighbourhood of the point $t = \tau$, taking the initial values $q(\tau) = q_\tau$ and $v(\tau) = v_{\tau}$. The problem is to study the behaviour of the solutions for increasing time $t \geq \tau$. (We could also consider the past and study the solutions for decreasing time $t \leq \tau$, but this would not make any difference, since the differential equations (\ref{chap2:eq2.1.3}) remain invariant when $t$ is replaced by $-t$). We shall study, in particular, the possible singularities of the solutions. 
+
+Starting from the differential equations we first obtain some `integrals'. From (\ref{chap2:eq2.1.2}) we have, on differentiation,
+$$
+U_{q_k} = \sum\limits_{l \neq k} \frac{m_k m_1(q_1 - q_k)}{r^3_{kl}}, 
+$$
+which, on summation over $k$ from 1 to $n$, gives $\sum\limits^n_{k=1} U_{q_k} = 0$.
+The system of equations (\ref{chap2:eq2.1.3}) can then be written as 
+$$
+\sum\limits^n_{k=1} m_k \ddot{q}_k = \sum\limits^n_{k=1} m_k \dot{v}_k =0, \; v_k = \dot{q}_k, \; k =1, \ldots,n.
+$$\pageoriginale
+Integration with respect to $t$, with $q_k = x_k$, then yields
+\begin{equation*}
+\sum\limits^n_{k=1} m_k \dot{x}_k= \sum\limits^n_{k=1} m_k v_k = \alpha, \tag{2.1.6}\label{chap2:eq2.1.6} 
+\end{equation*}
+where $\alpha $ is a constant of integration; and similarly,
+\begin{equation*}
+\sum\limits^n_{k=1} m_k \dot{y}_k = \beta, \; \sum\limits^n_{k=1} m_k \dot{z}_k =\gamma, 
+\tag{2.1.7}\label{chap2:eq2.1.7} 
+\end{equation*}
+with constants of integration $\beta$ and $\gamma$. Integrating both sides of (\ref{chap2:eq2.1.6}) and (\ref{chap2:eq2.1.7}) once again with respect to $t$, we obtain, with new constants of integration $\alpha'$, $\beta'$, $\gamma'$,
+\begin{equation*}
+\sum\limits^n_{k=1} m_k x_k = \alpha t+ \alpha', \sum\limits^n_{k=1} m_k y_k = \beta t + \beta' , \; \sum\limits^n_{k=1} m_k z_k = \gamma t + \gamma'. \tag{2.1.8}\label{chap2:eq2.1.8} 
+\end{equation*}
+This means that the centre of gravity of the $n$ point-masses moves in a straight line in three-dimensional Euclidean space with constant velocity. We can eliminate the constants $\alpha, \beta, \gamma$ between (\ref{chap2:eq2.1.6}), (\ref{chap2:eq2.1.7}) and (\ref{chap2:eq2.1.8}) and obtain
+\begin{align*}
+\sum\limits^n_{k=1} m_k (x_k - t\dot{x}_k) & = \alpha', \sum\limits^n_{k=1} m_k (y_k - t\dot{y}_k)  = \beta', \\
+& \qquad \sum\limits^n_{k=1} m_k (z_k - t\dot{z}_k) = \gamma'. m \tag{2.1.9}\label{chap2:eq2.1.9} 
+\end{align*}
+
+Next, if $p_k$ is a coordinate of the ponit $P_k$ different form $q_k, k =1,\ldots,n$,  then we get from (\ref{chap2:eq2.1.2}),
+\begin{align*}
+p_k U_{q_k} - q_k U_{p_k} & = \sum\limits_{l\neq k} \frac{m_k m_l (q_l - q_k)p_k}{r^3_{kl}} - \sum_{l \neq k} \frac{m_k m_l(p_1 -p_k)q_k}{r^3_{kl}}\\
+& = \sum\limits_{l \neq k} \frac{m_k m_l}{r^3_{kl}} (q_1 p_k - p_l q_k),
+\end{align*}\pageoriginale
+and this gives, on summation over $k$ from 1 to $n$, 
+$$
+\sum\limits^n_{k=1} (p_k U_{q_k} - q_k U_{p_k}) = 0.
+$$
+In this taking the coordinate $x_k$ for $p_k$ and $y_k$ for $q_k$, we get, on using the equation (\ref{chap2:eq2.1.3}),
+$$
+\sum\limits^n_{k=1} m_k (x_k \ddot{y}_k - y_k \ddot{x}_k) = 0. 
+$$
+Integration with respect to $t$ yields, with a constant of integration $\lambda$,
+\begin{equation*}
+\sum\limits^n_{k=1} m_k (x_k \dot{y}_k - y_k \dot{x}_k) = \lambda. \tag{2.1.10}\label{chap2:eq2.1.10} 
+\end{equation*}
+Similarly, taking $(y_k, z_k)$ and $(z_k, x_k)$ in turn for $(p_k, q_k)$, we obtain
+\begin{equation*}
+\sum\limits^n_{k=1} m_k (y_k \dot{z}_k - z_k\dot{y}_k ) = \mu, \; \sum\limits^n_{k=1} m_k (z_k \dot{x}_k - x_k \dot{z}_k) = \nu, \tag{2.1.11}\label{chap2:eq2.1.11} 
+\end{equation*}
+where $\mu$ and $\nu$ are constants of integration. These integrals are called the `integrals of angular momentum'. Finally we obtain the `energy integral': multiplying the system of equations (\ref{chap2:eq2.1.3}) by $v_k = \dot{q}_k$ and adding up, we have
+\begin{align*}
+& \sum\limits^n_{k=1} (m_k v_k \ddot{q}_k - U_{q_k} v_k) = 0,\\
+\text{i.e. }  \qquad & \sum\limits^n_{k=1} (m_k v_k \dot{v}_k - U_{q_k} \dot{q}_k) = 0. 
+\end{align*}\pageoriginale
+This gives, on integration with respect to $t$,
+\begin{equation*}
+\frac{1}{2} \sum\limits^n_{k=1} m_k v^2_k - U = h, \tag{2.1.12}\label{chap2:eq2.1.12} 
+\end{equation*}
+$h$ being a constant of integration. We define the `kinetic energy' $T$ of the system of $n$ point-masses $P_k$ by $T = \dfrac{1}{2} \sum\limits^n_{k=1} m_k v^2_k$; $-U$ is the `potential energy' of the system and we have the total energy $= T- U = h$, a constant. Thus we have obtained 10 integrals and 10 constants of integration given by (\ref{chap2:eq2.1.6}), (\ref{chap2:eq2.1.7}), (\ref{chap2:eq2.1.8}), (\ref{chap2:eq2.1.10}), (\ref{chap2:eq2.1.11}) and (\ref{chap2:eq2.1.12}), starting from the equations of motion (\ref{chap2:eq2.1.5}) of the system. We can then eliminate 10 of the coordinates $q,v$ by means of these 10 integrals from the equations of motion and thus reduce the system to one of $6n - 10$ ordinary differential equations.
+
+We introduce the following definition. Given a system of $m$ ordinary differential equations of the first order $: \dot{x}_k = f_k (x_1, \ldots, x_m, t)$, in $m$ unknown functions $x_k = x_k(t)$, a continuously differentiable function $g = g(x_1, \ldots, x_m,t)$ of $m+1$ independent variables $(x_1, \ldots, x_m,t)$ is said to be an {\em integral} of the system if for every solution $x_k(t)$ of the system, $g(x_1(t), \ldots, x_m(t),t)$ is a constant (depending on the solution). This is equivalent to saying that
+$$
+\frac{d}{dt} g(x_1(t), \ldots, x_m(t),t) = g_{x_1} \dot{x}_1+ \ldots + g_{x_m} \dot{x}_m + g_t = 0
+$$
+which means that $g$ satisfies the partial differential equation of the first order in $m+1$ variables $(x,t)$;
+$$
+g_{x_1} f_1 + \ldots + g_{x_m} f_m = 0.
+$$\pageoriginale
+
+If $g_1 , \ldots, g_r$ are integrals of the system of differential equations $\dot{x}_k = f_k (x_1, \ldots, x_m,t)$, $k =1 , \ldots, m$, then they are said to be {\em independent} if their Jacobian matrix
+$$
+\left( \left(\frac{\partial g_k}{\partial x_l} \right), \left(\frac{\partial g_k}{\partial t} \right) \right) 
+$$
+has maximal rank $= r$.
+
+It is easy to verify that the integrals given by (\ref{chap2:eq2.1.6}) - (\ref{chap2:eq2.1.8}), (\ref{chap2:eq2.1.10}) - (\ref{chap2:eq2.1.12}) are independent integrals of the system (\ref{chap2:eq2.1.5}) in this sense. Moreover, these integrals are algebraic functions of the $3n+1$ variables $q_k$ and $t$. (They are not necessarily rational functions since the coordinates appear as squareroots in $r_{kl}$). Now there is a theorm of Bruns which states that these are the only independent integrals of the system of differential equations (\ref{chap2:eq2.1.5}) of the $n$-body problem which are algebraic functions of $(q,t)$ and any other algebraic integral can be expressed as an algebraic function of these 10 integrals. The proof of this theorem of Bruns is interesting in itself but very long, and since this does not have much bearing on the problem we shall be interested in, we shall not give it here.
+
+In order to apply the Cauchy existence theorem to the system of equations (\ref{chap2:eq2.1.5}), it is necessary first of all to determine the constants $r$ and $C$ (see Ch. \ref{chap1}, \S\ \ref{chap1:sec3}). For this we make use of the remarks\pageoriginale made at the end of Chapter \ref{chap1}, \S\ \ref{chap1:sec3} and use Cauchy's theorem in the form given there.
+
+We shall suppose that $\tau$ is a real number and that $q_\tau, v_\tau$ are the initial values of $q$, $v$ at $v = \tau$ and that $\rho_{kl} = r_{kl\tau} > 0$. Denote by $U_{\tau}$ the initial value of the potential function $U$ at $t=\tau$:
+$$
+U_\tau = \sum\limits_{1\leq k < l \leq n} \frac{m_k m_l}{\rho kl}. 
+$$
+Since $\rho_{kl} >0$ there exists a positive constant $A$ such that $U_\tau \leq A$. We shall express the constants $C$ and $r$ in Cauchy's existence theorem in terms of $A$. Let $m_o = \min\limits_{1\leq k \leq n} m_k$ and $\rho = \min\limits_{1 \leq k < l \leq n} \rho_{kl}$. Then it follows that $m^2_o/ \rho_{kl} \leq U_\tau \leq A$ and hence $m^2_o / \rho \leq A$, or $\rho \geq m^2_o/A$. Denoting the initial values of $q_k$ and $v_k$ by $q_{k\tau}$ and $v_{k\tau}$ respectively, we consider complex numbers $q$, $v$ arbitrarily near to $q_\tau$ and $v_\tau$. More precisely, we choose $q$ and $v$ as follows. For $k\neq 1$, denote $(q_k - q_{k\tau}) - (q_1 - q_{l\tau})$ for $q = x$, $y$, $z$ by $\varphi, \psi$ and $\chi$ respectively. Then we get $x_k - x_1 = \varphi + (x_{k\tau} - x_{l\tau})$, $y_k - y_l = \psi + (y_{k\tau} - y_{l\tau})$ and $z_k - z_1 = \chi + (z_{k\tau} - z_{l\tau})$, so that 
+\begin{gather*}
+r^2_{kl} = (x_k - x_l)^2 + (y_k - y_1)^2 + (z_k - z_l)^2\\
+= \rho^2_{kl} + (\varphi^2 + \psi^2 + \chi^2) + 2 ((x_{k\tau} - x_{l\tau}) \varphi + (y_{k\tau}  -y_{l\tau})\psi + (z_{k\tau} - z_{l\tau})\chi).
+\end{gather*}
+By the Schwarz inequality the last term on the right is majorized by $2\rho_{kl} (|\varphi^2| + |\psi|^2 + |\chi|^2)^{1/2}$ and hence we have 
+\begin{equation*}
+|r_{kl}|^2 \geq \rho^2_{kl} - (|\varphi|^2 + |\psi|^2 + |\chi|^2) -2 \rho_{kl} (|\varphi|^2 + |\psi|^2 + |\chi|^2)^{\frac{1}{2}} \tag{2.1.13}\label{chap2:eq2.1.13} 
+\end{equation*}\pageoriginale
+Now we assume that $|q_k - q_{k\tau}| < \rho/14$. Then we see that $|\varphi|$, $|\psi|$, $|\chi|$ are each $< \rho/7$ and consequently,
+$$
+|\varphi|^2 + |\psi|^2 + |\chi|^2 < 3 \rho^2 / 49 < 2/16, (|\varphi|^2  + |\psi|^2 + |\chi|^2 )^{\frac{1}{2}} < \rho/ 4. 
+$$
+Then we get from  (\ref{chap2:eq2.1.13})
+$$
+|r_{kl}|^2 > \rho^2_{kl} - \rho^2 / 16 - 2 \rho_{kl} \cdot \rho/ 4 > \rho^2_{kl} / 4, |r_{kl}| > \rho_{kl}/2.
+$$
+Thus the denominators in the system of differential equations (\ref{chap2:eq2.1.5}) do not vanish and hence the right hand sides are regular functions of $q_k$. If we assume that $|q_k - q_{k\tau}| < m^2_o / 14A \equiv r$, say, then since $\rho \geq m^2_o/A$, we have $|q_k - q_{k\tau}| < r \leq \rho/4$ and therefore we still have $|r_{kl}| >\frac{1}{2} \rho_{kl}$. To get an estimate for the derivatives $U_{q_k}$, it is enough to estimate $|q_k - q_1|r^{-3}_{kl}$, $k \neq 1$. For this, since $|\varphi|, |\psi|$ and $|\chi|$ are $\rho/7$ and $|q_{k\tau} - q_{l\tau}| \leq \rho_{kl}$, we observe that
+$$
+|q_k - q_l| r^{-3}_{kl} \geq (2/\rho_{kl})^3 \cdot 8/7 \cdot \rho_{kl} = \frac{64}{7} \rho^{-2}_{kl} \leq \frac{67}{7} A^2/m^4_o, \; k \neq 1, 
+$$
+and so,
+$$
+\left|\frac{1}{m_k} U_{qk} \right| \leq \sum\limits_{l\neq k} \frac{m_l}{|r_{kl}|^3}|q_1 - q_k| < C_1 A^2,
+$$
+where $C_1$ is a positive constant which depends only on the massess $m_k$, and this estimate holds in the region $|q_k  - q_{k\tau}| < m^2_o /14A = r$. We take the complex neighbourhood of the velocity vector $|v_k - v_{k\tau}|<r$; then\pageoriginale $|v_k| < r + |v_{k\tau}|$. Since $v_{k\tau} = \dot{q}_{k\tau}$, we have an estimate for the kinetic energy at $t = \tau: T_\tau = \dfrac{1}{2} \sum\limits_q m v^2_\tau = U_\tau + h$, given by
+$$
+\frac{1}{2} m_k v^2_{k\tau} \leq T_\tau = U_\tau + h \leq A + h,
+$$
+and hence 
+$$
+|v_{k\tau}| \leq C_2 (A + h)^{\frac{1}{2}} \leq C_2 \sqrt{A} + C_3, 
+$$
+where $C_2$ and $C_3$ are positive constants depending only on the masses $m_k$ and the energy constant $h$; consequently
+$$
+|v_k| <r + |v_{k\tau}| < C_o/A + C_2 \sqrt{A} + C_3,
+$$
+where $C_o = m^2_o/14$. If we put $C = C_o/A + C_1 A^2 + C_2 \sqrt{Q} + C_3$, then we have the estimates
+$$
+|v| \leq C, \; |\frac{1}{m} U_q| \leq C,
+$$
+in the region $|q-q_\tau| < m^2_o / 14A$, \; $|v-v_\tau| < m^2_o /14A$.
+
+Now applying Cauchy's theorem in the original form to the system of $6n$ ordinary differential equations of the first order:
+$$
+\dot{q}_k = v_k , \; \dot{v}_k =\frac{1}{m_k} U_{q_k}, \; k =1 , \ldots, n,
+$$
+we see that there exists a regular analytic solution $q_k(t)$, $v_k(t) = \dot{q}_k(t)$ in the complex variable $t$ in the region $|t-\tau|< r / (6n+1)C$, with initial conditions $q_k(\tau) = q_{k \tau}$, $v_k(\tau) = v_{k\tau}$ and with $|q_k(t) - q_{k\tau}| < r$, $|v_k(t) - v_{k\tau}|<r$ in this region.
+
+We are\pageoriginale interested in the case of a real variable $t$. If $\delta =r / (6n+1) C$, then $\tau \leq t < \tau + \delta$ is a region of existence and regularity of the solution. In this initerval all the point-masses remain distinct and there are no `collisions'. For, no $r_{kl}$ can be zero; if it were, then $U$ would be infinite and since $U-T$ is constant, $T$ would also be infinite. Then some $\dot{q}$ would be infinite, and this is impossible since $q$ is analytic.
+
+Now we may start a fresh with another initial point $\tau_1$ in the interval $\tau \leq t < \tau + \delta$ and seek to continue the solution. Then there are two possibilities. Either all the coordinates are regular for all $t \geq \tau$, which means there are no singularities, or there exists a least number $t_1 > \tau$ such that all the coordinates are regular for $t<t_1$ and at least one coordinate ceases to be regular as $t \to t_1$ through an increasing sequence of real values. We should like to investigate the nature of the singularity at $t=t_1$.
+
+We shall study in particular the case $n=3$. For $n=2$ the theory already goes back to Kepler and Newton. For $n>3$ the nature of the singularity has still not been discussed completely.
+
+\section{Collisions}\label{chap2:sec2}
+
+We have seen in \S\ \ref{chap2:sec1} that if $A$ is an upper bound for the initial value of the potential function $U(t)$ at $t = \tau$, $U_\tau \leq A$, and $h$ is the energy constant, then there is a positive number $\delta =\delta (A,m,h)$ such that $q(t)$ and $v(t)$ are regular analytic functions of $t$ in the complex neighbourhood $|t-\tau| < \delta $ of $\tau$. In particular, all the $q(t)$ and $v(t)$\pageoriginale are regular analytic functions for real $t$ in the interval $\tau \leq t < \tau + \delta$, and further all the $r_{kl} (t) >0$, $k \neq l$, in this interval. Starting from a new initial time in the interval $\tau\leq t < \tau + \delta$ we wish to continue $q(t)$ analytically along the real axis.
+
+Let us suppose that $t_1$ is the least upper bound of all real numbers $t \geq \tau$ such that all coordinates $q(t)$ admit analytic continuations as regular analytic functions of $t$ in the initerval $\tau \leq t < t_1$, but at least one of the coordinates $q(t)$ has a singularity at $t = t_1$. Then we have the following theorem.
+
+\begin{subtheorem}\label{chap2:thm2.2.1}
+The potential function $U(t)$ is finite in the interval $\tau \leq t < t_1$ and $U(t) \to \infty$ as $ t \to t_1$ through values of $t$ in $\tau \leq t < t_1$. 
+\end{subtheorem}
+
+\begin{proof}
+Since all the coordinates $q(t)$ are regular analytic functions in $\tau \leq t < t_1$, so are the derivatives $\dot{q}(t)$ and consequnetly the kinetic energy $T(t) = \dfrac{1}{2} \sum m \dot{q}^2$ is finite for $\tau \leq t < t_1$. But the energy constant $h$ is determined by the initial values : $h = T_\tau - U_\tau$, so that $U(t) = T(t) -h$ is also finite for $\tau \leq t < t_1$; this proves the first assertion. Next, suppose that $U(t)$ does not tend to infinity as $t \to t_1$; then we can find a sufficiently large number $A$ and an increasing sequence $\tau_s$ of points in the interval $[\tau, t_1)$ with $\tau_r \to t_1$ as $r \to \infty$, such that $U(\tau_r) \leq A$, $r = 1, 2, 3, \ldots$. Since $h$ is determined by the initial values, $\delta = \delta (A, m, h)$ is independent of $\tau_r$ and we choose a $\tau_r$ so near $t_1$ that $t_1 - \tau_r < \delta/2$. Then,\pageoriginale by the remark made on the analytic continuation of solutions in Chapter \ref{chap1}, \S\ \ref{chap1:sec3}, all the coordinates $q$ are regular analytic functions in the neighbourhood $|t-\tau_r| < \delta$ and hence, in particular, at $t = t_1$, which is a contradiction to the assumption that $t_1$ is a singularity for at least one $q$. Hence $U(t) - \infty$ as $t - t_1$ and this completes the proof of the theorem.
+\end{proof}
+
+By the definition of the potential function we see that $U(t) \to \infty$ as $t \to t_1$ implies that the smallest of the distances $r_{kl}(t) \to 0$ as $t \to t_1$ and hence there is a ``collision''. In order to analyse the nature of the collision we proceed as follows. First of all, we may assume that the centre of gravity of the point-masses $P_k$ remains fixed for all $t$ at the origin. In fact, it has been shown in \S\ \ref{chap2:sec1} that the centre of gravity moves in a straight line with constant velocity. Thus the coordinates of the centre of gravity are linear functions of $t$ and are proportional to
+$$
+\sum\limits^n_{k=1} m_k x_k = \alpha t + \alpha', \sum\limits^n_{k=1} m_k y_k = \beta t + \beta', \sum\limits^n_{k=1} m_k z_k = \gamma t + \gamma', 
+$$
+where $\alpha$, $\alpha'$, $\beta$, $\beta'$, $\gamma$, $\gamma'$ are constants. The transformation of coordinates defined by
+$$
+x^*_k = x_k - \frac{\alpha t + \alpha'}{\sum m_k}, \; y^*_k = y_k -\frac{\beta t + \beta'}{\sum m_k}, z^*_k = z_k - \frac{\gamma t + \gamma'}{\sum m_k}
+$$
+takes the centre of gravity at time $t$ to the origin. Moreover, under this transformation of coordinates the equations of motion continue to be 
+\begin{equation*}
+m \ddot{q} = U_q,\tag{2.2.1}\label{chap2:eq2.2.1} 
+\end{equation*}\pageoriginale
+because $U_q$ depends only on the difference $q_k - q_l$ of the corresponding coordinates of $P_k$ and $P_l$. Thus we may assume that $\sum\limits^n_{k=1} m_k q_k = 0$, $q_k = x_k$, $y_k$, $z_k$.
+
+Let $\rho_k(t)$ denote the distance of $P_k$ from the origin (which is the centre of gravity) at time $t : \rho^2_k = x^2_k + y^2_k + z^2_k$, $k=1, \ldots, n$. We define the ``moment of inertia'' of the system of $n$ point-masses:
+\begin{equation*}
+\sigma \equiv \sigma(t) \equiv \sum\limits^n_{k=1} m_k \rho^2_k = \sum_q mq^2. 
+\tag{2.2.2}\label{chap2:eq2.2.2} 
+\end{equation*}
+Then $\sigma (t) \geq 0$ and we have, from the equations of motion (\ref{chap2:eq2.2.1}),
+\begin{align*}
+& \qquad \frac{1}{2} \dot{\sigma}  = \sum_q mq \; \dot{q},\\
+\frac{1}{2} \ddot{\sigma} & = \sum_q m(\dot{q}^2 + q \dot{q}) = 2 T + \sum\limits_q q U_q. \tag{2.2.3}\label{chap2:eq2.2.3} 
+\end{align*}
+But $U$ is by definition a homogeneous function of degree $-1$ in all the coordinates $q_k(t)$ and therefore, by Euler's theorem, it follows that $\sum\limits_q qU_q = -U$, so that we get
+$$
+\frac{1}{2} \ddot{\sigma} = 2 T - U. 
+$$
+Since the total energy at any time $t$ is constant, $T(t) - U(t) = h$, we obtain the ``Lagrange formula'':
+\begin{equation*}
+\frac{1}{2} \ddot{\sigma} = T + h = U + 2h. \tag{2.2.4}\label{chap2:eq2.2.4} 
+\end{equation*}
+Now if\pageoriginale $t_1$ is the first singularity of at least one of the coordinates, by Theorem 2.1.1 $U(t) \to \infty$ as $t \to t_1$ through values in $\tau \leq t < t_1$ and there is a collision at $t=t_1$. Hence $U + 2h \to \infty$ and then there is a real number $t_o$ with $\tau \leq t_o < t_1$ such that $U(t) + 2h > 0$ for all $t_o\leq t < t_1$; in other words, $\ddot{\sigma}(t) >0$ for $t_o \leq t < t_1$. Moreover, $\sigma$ being regular in $[\tau, t_1)$, $\dot{\sigma}$ and $\ddot{\sigma}$ are regular in the interval $[t_o t_1)$. Then $\dot{\sigma}(t)$ is a monotone increasing function of $t$ in $[t_o, t_1)$. Since $t_1$ is the first singularity for some coordinate $q(t)$, there is no collision in the interval $t_o \leq t < t_1$ and so at least one distance $\rho_k(t) >0$, i.e. $\sigma (t)>0$ in $t_o \leq t < t_1$. There are now two possibilities. Either $\dot{\sigma}(t)$ is always negative, or it remains positive in some interval $t' \leq t < t_1$ where $t'\geq t_o$. Without loss of generality we may take $t'=t_o$. Hence, either $\sigma$ is monotone increasing, or it is monotone decreasing everywhere in the interval $t_o \leq t < t_1$ according as $\dot{\sigma} (t) >0$ or $\dot{\sigma} (t)<0$. In the case in which $\sigma(t)$ is monotone increasing it follows, in view of the fact that there is no collision in the interval $\tau \leq t < t_1$ and in particular at $t = t_o$ so that $\sigma (t_o) > 0$, that $\sigma (t) \geq \sigma (t_o) > 0$ everywhere in $t_o \leq t < t_1$.
+
+On the other hand, if $\sigma$ is monotone decreasing, then $\sigma (t) \geq 0$ everywhere in $t_o \leq t < t_1$. In either case $\sigma (t)$ admits a limit $\sigma_1$ as $t \to t_1$; this limits $\sigma_1$ is positive, possibly inifinite, if $\sigma$ is increasing, while it is finite and non-negative if $\sigma$ is decreasing. We consider\pageoriginale the case $\sigma_1 = 0$; this is the case in which all the $n$ point-masses collide at time $t =t_1$ and this situation can arise only when $\sigma$ is decreasing. In this case we have the following theorem due to Sundman. (The result had already been stated by Weierstrass but he did not give a proof).
+
+\begin{subtheorem}[Sundman]\label{chap2:thm2.2.2}
+If $\sigma_1 = 0$, i.e. if all the $n$ pointmasses $P_k$ collide at the origin at $t = t_1$, then all three constants of angular momenta, $\lambda, \mu, \nu$ vanish.
+\end{subtheorem}
+
+\begin{proof}
+We shall use the following simple algebraic identity due to Lagrange. If $\xi_1, \ldots, \xi_p$ and $\eta_1 , \ldots, \eta_p$ are $2p$ real numbers then 
+$$
+(\sum\limits^p_{k=1} \xi^2_k) \; (\sum\limits^p_{k=1} \eta^2_k) = (\sum\limits^p_{k=1} \xi_k \eta_k)^2  + \sum\limits_{1 \leq k < l \leq p} (\xi_k \eta_1 -\xi_1 \eta_k)^2.
+$$
+Taking $\xi_k = q \sqrt{m}$ and $\eta_k = \dot{q} \sqrt{m}$ in the sum $\dfrac{1}{2} \dot{\sigma} = \sum\limits_q m q \; \dot{q}$, we obtain, with $p = 3n$, 
+$$
+(\sum_q mq^2) \; (\sum_q m \dot{q}^2) = \dot{\sigma}^2 / 4 + \sum\limits_{1 \leq k <l \leq p} (\xi_k \eta_1 - \xi_1 \eta_k)^2,
+$$
+and so, since $T = \dfrac{1}{2} \sum\limits_q m \dot{q}^2$,
+$$
+2T\sigma =\dot{\sigma}^2/4 + \sum\limits_{1\leq k < l \leq p} (\xi_k \eta_1 - \xi_1 \eta_k)^2 
+$$
+It we take in the second term on the right only those terms in which $\xi_k, \eta_1$ correspond to the coordinates $(x_k , y_k)$, \; $(y_k , z_k)$, $(z_k, x_k)$ of the some point in turn, we can write
+$$
+ 2T \sigma \geq \dot{\sigma}^2/4 + \sum\limits^n_{k=1} m^2_k \left\{ (x_k \dot{y}_k - y_k \dot{x}_k)^2  (y_k \dot{z}_k - z_k \dot{y}_k)^2 + (z_k \dot{x}_k  - x_k \dot{z}_k)^2 \right\}  .  
+$$\pageoriginale
+From the equations (\ref{chap2:eq2.1.10}) and (\ref{chap2:eq2.1.11}) defining the constants of angular momentum $\lambda, \mu, \nu$, we have, by the Schwarz inequlity,
+\begin{gather*}
+\lambda^2 \leq n \sum\limits^n_{k=1} m^2_k (x_k \dot{y}_k - y_k \dot{x}_k)^2, \quad \mu^2 \leq n \sum\limits^n_{k=1} m^2_k(y_k \dot{z}_k - z_k\dot{y}_k)^2,\\
+\nu^2 \leq n \sum\limits^n_{k=1} m^2_k (z_k \dot{x}_k - x_k \dot{z}_k)^2.
+\end{gather*}
+(Recall that the constants $\lambda, \mu, \nu$ depend only on the initial values $q_\tau, v_\tau$ of $q$ and $v$ respectively). So, setting $\eta = (\lambda^2 + \mu^2+ \nu^2)/n$, we obtain
+$$
+2T\sigma \geq \dot{\sigma}^2/4 + \frac{1}{n} (\lambda^2 + \mu^2 + \nu^2) =\dot{\sigma}^2/4 + \eta. 
+$$
+Since $\dot{\sigma}^2 \geq 0$, $2T \sigma \geq \eta$, and substitution in the Lagrange formula (\ref{chap2:eq2.2.4}): $2T = \ddot{\sigma} - 2h$, yields the differential inequality
+$$ 
+\sigma (\ddot{\sigma} - 2h) \geq \eta, \quad \text{or}\quad \ddot{\sigma} \geq \frac{\eta}{\sigma} + 2h, \text{~ in ~} t_o \leq t < t_1. 
+$$
+Since $\sigma_1 = 0$, $\sigma$ is  monotone decreasing and $\dot{\sigma} < 0$, and on multiplying both sides of the preceding inequality by the positive quantity $-\dot{\sigma}$, we get
+$$
+-\dot{\sigma} \ddot{\sigma} \geq - (\eta \dot{\sigma}/ \sigma + 2h \dot{\sigma}), \text{~ in ~} t_o \leq t < t_1. 
+$$
+Integrating both sides from $t_o$ to $t$ and denoting the values of and $\dot{\sigma}$ at $t = t_o$ by $\sigma_o$ and $\dot{\sigma}_o$ respectively, we have the inequality
+$$
+\frac{1}{2} (\dot{\sigma}^2_o - \dot{\sigma}^2) \geq \log \left(\frac{\sigma_o}{\sigma} \right) + 2h (\sigma_o - \sigma), \text{~ in ~} t_o \leq t < t_1.
+$$
+Since $\sigma \geq 0$\pageoriginale and $\dot{\sigma} <0$, this implies that 
+$$
+\eta \log \sigma_o / \sigma \leq \frac{1}{2} \dot{\sigma}^2_o + 2 |h|\sigma_o.
+$$
+Hence
+\begin{equation*}
+\sigma \geq \sigma_o \exp \left(-\frac{\frac{1}{2} \dot{\sigma}^2_o + 2 |h| \sigma_o}{\eta} \right) . \tag{2.2.5}\label{chap2:eq2.2.5} 
+\end{equation*}
+This gives a positive lower bound for $\sigma$ if $\eta$ is positive and hence $\sigma_1 >0$ if $\eta >0$. Then if $\sigma_1 =0$ we necessarily have $\eta=0$, that is $\lambda = \mu = \nu=0$. This completes the proof.
+\end{proof}
+
+If $\sigma_1 = 0$, $\sum\limits_q m q^2 = 0 $ at $t = t_1$. In this case all the points (with limiting coordinates $q(t_1)$ at $t = t_1$) collide at the centre of gravity which is the origin. As a consequence we have the following
+
+\begin{coro*}
+If not all of $\lambda, \mu, \nu$ are zero, then there cannot be a collision of all the $n$ masses $P_k$.
+\end{coro*}
+
+We make a further remark. Let us denote by $R = R(t)$ the maximum of the distance functions $r_{kl}(t)$ at time $t: R = \max\limits_{k \neq l} r_{kl}$. If $\lambda^2 + \mu^2 + \nu^2 > 0$, then $R(t)$ is bounded below by a positive constant in $\tau \leq t < t_1$. In fact, since the centre of gravity remains fixed at the origin for all $t$, $\sum\limits^n_{k=1} m_k q_k =0$ and so $\sum\limits^n_{k=1} m_k (q_l - q_k) = M_{ql}$, where $M$ is the total mass $\sum\limits^n_{k=1} m_k$. By the Schwarz inequality applied to this relation $Mq_l = \sum\limits^n_{k=1} \sqrt{m_k} \cdot \sqrt{m_k} (q_l - q_k)$, we have
+$$
+Mq^2_l \leq \sum\limits^n_{k=1} m_k (q_l - q_k)^2. 
+$$
+Multiplying\pageoriginale both sides by $m_l$ and summing over all $l$, we get
+$$
+M \sigma \leq \sum^n_{k,l=1} m_k m_l (q_1 - q_k)^2 \leq M^2 R^2, 
+$$
+so that $R^2 \geq \sigma /M$, and this proves the assertion.
+
+\section{Simple collisions in the case $n=3$}\label{chap2:sec3}
+
+From now one we shall consider the case of only three point-masses $P_1, P_2, P_3 (n=3)$. In this case we shall prove the following theorem which corresponds to the situation in which $\sigma_1 >0$. Let $r(t) = \min (r_{12}(t), r_{23}(t), r_{31}(t))$.
+
+%\setcounter{subtheorem}{0}
+\begin{subtheorem}\label{chap2:thm2.3.1}
+If $\sigma_1 >0$, then exactly one of the three distance functions $r_{12}(t)$, $r_{23} (t)$, $r_{31} (t)$, tends to zero as $t \to t_1$ and the other two remain above a positive lower bound.
+\end{subtheorem}
+
+\begin{proof}
+Since $\sigma_1 >0$ and $R(t) = \max (r_{12}(t), r_{23}(t), r_{31}(t))$ is bounded below by $(\sigma/M)^{\frac{1}{2}}$ as $t \to t_1$, there is a positive number $\epsilon$ such that $R(t) > \epsilon > 0$ as $t \to t_1$. Since by assumption there is a collision, we can find a number $t_o$ such that $r(t) \leq \epsilon/2$ for $t_o \leq t < t_1$; this is possible since $r(t)$ is a continuous function of $t$ in $\tau \leq t <t_1$. Furthermore, let $R(t) > \epsilon$ in $t_o \leq t < t_1$. Suppose for the moment that $r(t) = r_{13}(t) (\leq \epsilon/2)$ for some $t$. Then necessarily $r_{12} > \epsilon/2$ and $r_{23} > \epsilon /2$. For, otherwise, if one of these, say $r_{23}$, is not greater than $\epsilon/2$, then we have by the triangle equality $R(t) = r_{12} (t) \leq r_{23} + r_{13} \leq \epsilon$, which contradicts the fact that $R(t) > \epsilon$ for $t_o \leq t <t_1$. It follows from the continuity of the\pageoriginale three distances that $r(t) = r_{13} (t)$ for $t_o \leq t < t_1$, and this proves the assertion.
+\end{proof}
+
+If all the point masses collide, we say there is a {\em general collision} and if only two of them collide we say there is a {\em simple collision}.
+
+Suppose that there is a simple collision at $t = t_1$, the masses $P_1$ and $P_3$ colliding. Then we shall prove that the collision takes place at a definite point.
+
+\begin{subtheorem}\label{chap2:thm2.3.2}
+If $\sigma_1>0$, the coordinate functions $q_k$ of $P_k,k = 1,2,3$, tend to finite limits as $t \to t_1$. Moreover, the velocity components $\dot{q}_2$ of $P_2$ tend to finite limits as $t \to t_1$.
+\end{subtheorem}
+
+\begin{proof}
+Consider $P_2$. From the equations of motion $m_2 \ddot{q}_2 = U_{q_2}$ we get
+$$
+ \ddot{q}_2 = \frac{m_1(q_1-q_2)}{r^3_{12}} + \frac{m_3(q_3 - q_2)}{r^3_{23}},
+$$
+where $q_2 = x_2$, $y_2$, $z_2$ in turn. Since $|q_1 - q_2| \leq r_{12}$ and $|q_3 - q_2| \leq r_{23}$, we get from this $|\ddot{q}_2| \leq m_1 r^{-2}_{12} + m_3 r^{-2}_{23}$. By Theorem \ref{chap2:thm2.3.1}, $r_{12}(t)$ and $r_{23} (t)$ are bounded below by a positive number for $\tau \leq t < t_1 : r_{12} (t) > \rho$, $r_{23} (t) > \rho$, $\tau \leq t < t_1$ where $\rho$ is a positive number, sufficiently small. Thus $\ddot{q}_2$ is a bounded (bounded, for instance, by $M \rho^{-2}$) regular analytic function of $t$ in $\tau \leq t < t_1$. Integrating from $\tau$ to $t<t_1$ we get
+\begin{equation*}
+\dot{q}_2(t) - \dot{q}_2 (\tau) = \int\limits^t_\tau \ddot{q}_2 (t) \; dt, \tag{2.3.1}\label{chap2:eq2.3.1} 
+\end{equation*}
+and hence $\dot{q}_2(t)$ is also a bounded regular analytic functions of $t$ in $t_o \leq t < t_1$.\pageoriginale Since $\int\limits^{t_1}_{\tau} \ddot{q}_2(t)dt$ converges, it follows that $\dot{q}_2(t)$ tends to a finite limit as $t \to t_1$. Integrating once more, since $\int\limits^{t_1}_\tau \dot{q}_2(d)dt$ converges, we see that $q_2(t)$ also tends to a finite limits as $t \to t_1$.
+
+We next show that $P_1$ and $P_3$ collide at a definite point, i.e. $q_1(t)$ tend to the same finite limit as $t \to t_1$. We observe that since the centre of gravity remains fixed at the origin, $m_1q_1 + m_2 q_2 + m_3 q_3 = 0$ and this may be rewritten as $(m_1 + m_3) q_1+ m_2 q_2 + m_2 (q_3 - q_1) = 0$. But $m_2 q_2$ tends to a finite limit as $t \to t_1$ and since $P_1$ and $P_3$ collide at $t = t_1$, $q_3 - q_1$ tends to zero, so that $q_1(t)$ tends to a limit, denoted $q_1(t_1)$:
+$$
+q_1(t_1) = - \frac{m_2}{m_1+m_3} q_2(t_1) = q_3 (t_1), 
+$$
+which is the assertion. This completes the proof of the theorem.
+\end{proof}
+
+In the case $\sigma_1 > 0$ when there is a simple collision between the masses $P_1$ and $P_3$ at time $t_1$, $r(t) = r_{13} (t) \to 0$ as $t \to t_1$ while $R(t) = \max (r_{12}(t), r_{23}(t), r_{31} (t))$ is bounded away from zero so that $P_2$ stays away from the colliding masses. We know that all the coordinates $q_k(t)$, $k = 1,2,3$, tend to finite limits, as also the velocity components $\dot{q}_2(t)$ of $P_2$. We shall now examine the behaviour of the velocity components of the colliding masses $P_1$ and $P_3$ near the singularity $t=t_1$. We observe, first of all, that the velocities of $P_1$ and $P_3$ become infinite as $t \to t_1$. For, let\pageoriginale $V_k$ denote the norm of the velocity of $P_k$, $k =1,2,3$;
+\begin{equation*}
+V^2_k = \dot{x}^2_k + \dot{y}^2_k + \dot{z}^2_k \tag{2.3.2}\label{chap2:eq2.3.2} 
+\end{equation*}
+By Theorem \ref{chap2:thm2.2.1}, $U(t) \to \infty$ as $t \to t_1$ and since $T-U = h$, $(m_1 V^2_1 + m_2 V^2_2 + m_3 V^2_3) = 2T = 2(U+h)$ also tends to infinity as $t \to t_1$. But by Theorem \ref{chap2:thm2.3.2}, $V_2$ has a finite limit as $t \to t_1$ and so $V_2$ is bounded in every neighbourhood of $t = t_1$. It follow that $m_1V^2_1 + m_3 V^2_3 \to \infty$ as $t \to t_1$. We obtain the following more precise estimates for $V_1$ and $V_3$. 
+
+\begin{subtheorem}\label{chap2:thm2.3.3}
+If $\sigma_1 >0$, then as $t \to t_1$,
+$$
+r(t) V_1 (t)^2  \to \frac{2m^2_3}{m_1 + m_3}, \; r(t) V_3 (t)^2 \to \frac{2m^2}{m_1+m+3}. 
+$$
+\end{subtheorem}
+
+\begin{proof}
+Since $r_{13} \equiv r(t) \to 0$ and $r_{12} (t)$ and $r_{23} (t)$ are bounded away from zero as $t \to t_1$, we have, from the definition of $U$, 
+$$
+r(t) U(t) = r(t) \left(\frac{m_1 m_2}{r_{12}} + \frac{m_2m_3}{r_{23}} \right)  + m_1 m_3 \to m_1 m_3. 
+$$
+Since $T - U = h$, we have
+$$
+\frac{r}{2} (m_1 V^2_1 + m_2 V^2_2 + m_3 V^2_3) = rT = r(U+h) \to m_1 m_3
+$$
+as $t \to t_1$. But $V_2$ is bounded by Theorem \ref{chap2:thm2.3.2} and $r(t) \to 0$, hence $rm_2 V^2_2 \to 0$ as $t \to t_1$. This implies that as $t \to t_1$, 
+$$
+\frac{r}{2} (m_1 V^2_1 + m_3 V^2_3)  \to m_1 m_3,
+$$
+and, in particular, $rV^2_1$ and $rV^2_3$ are bounded as $t \to t_1$ and $rV_3 \to 0$.\pageoriginale On the other hand, since the centre of gravity remains fixed at the origin, $m_1q_1 + m_2 q_2 + m_3 q_3 = 0$ and it follows that $m_1 \dot{q}_1 = - m_2 \dot{q}_2 - m_3 \dot{q}_3$. Taking the sums of the squares as $q_k$ runs throuh the coordinates $x_k,y_k, z_k$, we get
+$$
+m^2_1 V^2_1  = m^2_2 V^2_2 + m^2_3 V^2_3 + 2m_2 m_3 (\dot{x}_2 \dot{x}_3+ \dot{y}_2 \dot{y}_3 + \dot{z}_2 \dot{z}_3).
+$$
+The Schwarz inequality applied to the last term gives
+$$
+|\dot{x}_2 \dot{x}_3 + \dot{y}_2 \dot{y}_3 + \dot{z}_2 \dot{z}_3| \leq V_2 V_3. 
+$$
+Multiplying both sides of this inequality by $r(t)$ and using the facts that $r(t) \to 0$, $V_2$ is bounded and $rV_3 \to 0$, we see that, as $t \to t_1$, $r(m^2_1 V^2_1 - m^2_3 V^2_3) \to 0$. Hence we can write, for $t$ near $t_1$, 
+$$
+r m^2_3 V^2_3  = rm^2_1 V^2_1 + \epsilon (t),
+$$
+where $\epsilon (t) \to 0$ as $t \to t_1$; consequently, for $t$ near $t_1$,
+\begin{align*}
+\frac{1}{2} r(m_1 V^2_1 + m_3 V^2_3) & = \frac{1}{2} r(m_1 V^2_1 + m^2_3 V^2_3/ m_3)\\
+& = \frac{1}{2} r(m_1 V^2_1 + m^2_1 V^2_1 / m_3) + \frac{1}{2} \epsilon (t)/m_3\\
+& = \frac{1}{2} r m^2_1 V^2_1 \left(\frac{1}{m_1} + \frac{1}{m_3} \right) + \frac{1}{2} \epsilon(t) / m_3. 
+\end{align*}
+Now passing to the limit as $t\to t_1$,
+$$
+\frac{1}{2} m^2_1 \left(\frac{1}{m_1} + \frac{1}{m_3} \right) rV^2_1 \to m_1 m_3, \text{~ or ~} rV^2_1 \to \frac{2m^2_3}{m_1+m_3}, 
+$$
+and therefore\pageoriginale $rV^2_3 \to \dfrac{2m^2_1}{m_1+m_3}$. This proves the theorem. The theorem states that $V_1$ and $V_3$ are $0(r^{-\frac{1}{2}})$ as $t \to t_1$. 
+\end{proof}
+
+Since in a simple collision $P_2$ stays away from the colliding masses $P_1$ and $P_3$, one might conjecture that the nature of the collision could be studied more closely by supposing that the system behaves near the singularity $t = t_1$ almost in the same way as if $P_2$ were not present. Hence, near $t = t_1$ the problem may be considered as a two-body problem. In this case, according to Kepler's law, $P_1$ and $P_3$ describe conic sections around the centre of gravity which remains fixed at the origin. If the two masses collide at time $t = t_1$, the conic sections degenerate into straight lines through the origin. In this one-dimensional case we can easily write down the differential equations of motion and find out the (single) coordinate of $P_1$ and $P_3$ and $x_1(t)$ and $x_3(t)$ can be explicitly studied as $t \to t_1$. It is known in this case that the singularities of the coordinates $q = q(t)$ of $P_1$ and $P_3$ at $t= t_1$ are simple in nature; they are algebraic singularities and in fact $q(t)$ can be expanded in fractional powers of $(t - t_1)$:
+$$
+q(t) = c_1 (t_1 - t)^{2/3} + \ldots, c_1 >0.
+$$
+On differentiating this it is seen that the velocity behaves like $(t-t_1)^{-1/3}$ near $t = t_1$.
+
+In the case of the three-body problem we have been that all the coordinates $q(t)$ have finite limits as $t \to t_1$: hence the singularity\pageoriginale $t=t_1$ is not a pole. However, $t =t_1$ is not a point of regularity of the coordinate functions $q(t)$ because, otherwise, $\dot{q}_1$ and $\dot{q}_3$, and hence $V_1(t)$ and $V_3(t)$ would be bounded near $t = t_1$, which is not the case since we have shown that $V_1 (t)$, $V_3 (t) \to \infty$ as $t \to t_1$. One might conjecture that in this case also $t =t_1$ is an algebraic branch-point for the coordinates $q_1(t)$ and $q_3(t)$. Suppose that $t = t_1$ is an algebraic branch-point of order $\mu-1$ for all the coordinates; then we can develop $q_1(t)$, $q_3(t)$ as power-series in the fractional power $(t-t_1)^{1/\mu}$ and we can conjecture that $\mu=3$. Weierstrass claimed to have proved this result in a letter to Mittag-Leffler, but gave no indication of his proof. The result was proved explicitly for the first time by Sundman.
+
+We have already seen that $r(t) \to 0$ as $t \to t_1$. In the one-dimensional case $r(t)$ behaves near a collision like $(t_1-t)^{2/3}$ and so the integral $\int\limits^{t_1}_{\tau} \dfrac{dt}{r}$  exists. In our case we have the following 
+
+\begin{subtheorem}[Sundman]\label{chap2:thm2.3.4}
+If $\sigma_1 >0$, then the integral
+\begin{equation*}
+s = \int\limits^t_{\tau} \frac{dt}{r}\tag{2.3.3}\label{chap2:eq2.3.3} 
+\end{equation*}
+converges, as $t \to t_1$, to a finite limit $s_1 = \int\limits^{t_1}_{\tau} \dfrac{dt}{r}$. 
+\end{subtheorem}
+
+\begin{proof}
+Since, by definition, $U(t) = m_1 m_2 r^{-1}_{12} + m_2 m_3 r^{-1}_{23} + m_1 m_3 r^{-1}_{13}$, and the first two terms are bounded as $t \to t_1$, it is enough to prove that the integral $\int\limits^{t_1}_{\tau} U(t)dt$ converges. For this we use the Lagrange\pageoriginale formula $\dfrac{1}{2} \ddot{\sigma} = U + 2h$. Since $h$ is a constant determined by the initial conditions, it is enough to prove that
+$$
+\dot{\sigma} (t) = \int\limits^t_{\tau} \ddot{\sigma} (t) dt + \dot{\sigma} (\tau)
+$$
+has a finite limit as $t \to t_1$. We have 
+$$
+\frac{1}{2} \dot{\sigma} (t) = \sum\limits_q mq \; \dot{q} = \sum\limits^3_{k=1} m_k (x_k \dot{x}_k + y_k \dot{y}_k + z_k \dot{z}_k),
+$$
+and since the centre of gravity remains fixed at the origin,
+$$
+m_3 \dot{x}_3 = - m_1 \dot{x}_1 - m_2 \dot{x}_2, m_3 \dot{y}_3 = - m_1 \dot{y}_1 - m_2 \dot{y}_2, m_3 \dot{z}_3 = - m_1 \dot{z}_1 - m_2 \dot{z}_2.
+$$
+Multiplying these by $x_3, y_3, z_3$ respectively and substituting into the expression above for $\dot{\sigma} (t)$, we get
+\begin{align*}
+\frac{1}{2} \dot{\sigma} & = m_1(\dot{x}_1 (x_1 - x_3) + \dot{y}_1 (y_1 - y_3) + \dot{z}_1 (z_1 - z_3)) + \\
+& \qquad + m_2 (\dot{x}_2 (x_2 - x_3) + \dot{y}_2 (y_2 - y_3) + \dot{z}_2 (z_2 - z_3)). 
+\end{align*}
+By Theorem \ref{chap2:thm2.3.2}, $\dot{x}_2, \dot{y}_2, \dot{z}_2$ have finite limits as $t \to t_1$ and so have $x_2 - x_3$, $y_2 - y_3$, $z_2 - z_3$, so that the second term on the right has a finite limit as $t \to t_1$. By the Schwarz inequality the first term is majorized by $m_1 r V_1$. But by Theorem \ref{chap2:thm2.3.3}, $rV^2_1$ is bounded as $t \to t_1$, while $V_1 \to \infty$, and so $rV_1 = rV^2_1. \dfrac{1}{V_1} \to 0$ as $t \to t_1$. This proves that $\dfrac{1}{2} \dot{\sigma}$ has a finite limit as $t \to t_1$ and the theorem is proved.
+\end{proof}
+
+Using this theorem we shall try to construct a local uniformising variable at the branch-point. First of all, assuming that $t = t_1$\pageoriginale is an algebraic branch-point of the same order $\mu-1$ for all the coordinates $q_1$ and $q_3$ of the points $P_1$ and $P_3$, we shall determine $\mu$. Suppose, for instance, that $q_1(t)$ and $q_3(t)$ can be expanded into power-series in fractional powers of $t-t_1$ in a neighbourhood of $t = t_1$. Since $t_1 - t>0$ it would be more convenient to expand in powers of $t_1 - t$:
+$$
+q_k = q_k (t) = q_k(t_1) + c_{k1} (t_1 -t)^p + \ldots, \; k =1,3,
+$$
+where $c_{k1}$, evidently depending on the choice of the coordinate $x_k , y_k, z_k$ for $q_k$, is the first non-vanishing coefficient. Then $p$ is of the form $p=n/\mu$. Differentiating with respect to $t$ we have
+$$
+\dot{q}_k (t) = c_{k1} p(t_1 - t)^{p-1} + \ldots, \; k =1,3,
+$$
+so that
+$$
+V^2_k = c_{k2} (t_1 -t)^{2(p-1)} + \ldots, \; k = 1,3.
+$$
+Since $P_1$ and $P_3$ collide, $q_1(t)$ and $q_3 (t)$ have the same limit as $t \to t_1: q_1(t_1) = q_3 (t_1)$. Hence, if we form the difference $q_1(t) - q_3(t)$, its fractional power-series expansion contains no constant term and we have
+\begin{align*}
+r & = \left\{ (x_1 (t) - x_3 (t))^2 + (y_1(t) - y_3(t))^2 + (z_1 (t) - z_3 (t))^2 \right\}^{\frac{1}{2}}\\
+& = c_3 (t_1 - t)^p+ \ldots 
+\end{align*}
+Suppose that $c_{11}, c_3 \neq 0$. Then we get
+$$
+rV^2_1 = c_{12} c_3 (t_1 - t)^{3p-2} + \ldots, c_{12} c_3 \neq 0. 
+$$\pageoriginale
+Since $rV^2_1$ has a finite limit as $t \to t_1$, we see that necessarily $3p-2 =0$, which gives $p = 2/3$. Thus we see that if there are fractional power-series expansions for $q_1(t)$ and $q_3(t)$, then perhaps we can take $(t_1 -t)^{1/3}$ as a local uniformising variable. To obtain a uniformising variable we proceed as follows. We have shown that $\int\limits^{t_1}_{\tau} \dfrac{dt}{r} < \infty$. Then
+$$
+s_1 - s= \int\limits^{t_1}_t \frac{dt}{r}  = \int\limits^{t_1}_{t} \frac{1}{(c_3 (t_1 - t)^{2/3} + \ldots )} dt,
+$$
+which gives a fractional power-series expansion for $s_1-s$ of the form
+$$
+s_1 - s = c_o (t_1 - t)^{1/3} + \ldots
+$$
+Thus we see that the coordinates of $P_1$ and $P_3$ have power-series expansions in the uniformising variables $s_1 - s$; that is, $q_1$ and $q_3$ are regular analytic functions of $s_1 -s$ in a neighbourhood of $s=s_1$. Now one might further conjecture that the coordinates $q_2(t)$ of $P_2$ are also regular analytic functions of the variable $s_1 -s$ in some neighbourhood of $s = s_1$. These results were proved by Sundman and we proceed to describe these. 
+
+For this purpose we shall introduce new independent variables in place of $q$ and we take the variable $s$ in place of $t$. Then we transform the differential equations of motion into a system of differential\pageoriginale equations in the new variables $q$ and $s$. We remark that even if $q$ is regular in $s$, it is not necessarily true that $\dot{q}$ is regular. So we have to introduce, instead of $\dot{q}$, new variables in such a way that there will be no additional singularities. The introduction of the parameter $s$ already appears in the two-body problem; it is the `eccentric anomaly' of Kepler.
+
+\section{Reduction of the differential equations of motion}\label{chap2:sec4}
+We consider now the problem of uniformising the solution of the three-body problem in a neighbourhood of the singularity $t = t_1$ in the case $\sigma_1 > 0$, that is, the case of a simple collision. For this purpose we try to find a suitable transformation of the variables such that after the transformation the solution can be uniformised by means of the variable $s$ introduced earlier. We shall first write down the equations of motion in the Hamiltonian form and then carry out a canonical transformation. Let us denote the coordinates of the three mass-points $P_k$ by $(q_{3k-2}, q_{3k-1}, q_{3k})$, $k =1, 2,3$, and associate with each $q_k$ a mass $\mu_k$, $k = 1,\ldots, q$, such that $\mu_{3k-3} = \mu_{3k - 2} = \mu_{3k}$, $k = 1,2,3$. If we introduce now the `components of momenta'  $p_k$ defined by $p_k = \mu_k \dot{q}_k$, $k=1, \ldots, 9$, then the equations of motion can be written as a system of 18 ordinary differential equations of the first order:
+\begin{equation*}
+\dot{q}_k = \frac{1}{\mu_k} p_k, \; \dot{p}_k = U_{q_k}, \; k =1 , \ldots, 9\tag{2.4.1}\label{chap2:eq2.4.1} 
+\end{equation*}
+The total\pageoriginale energy $E = T - U$ is given by
+$$
+E(p,q)= T - U = \frac{1}{2} \sum\limits_q m \dot{q}^2 - U = \frac{1}{2} \sum\limits_p \frac{1}{\mu} p^2 - U.
+$$
+The right side does not contain $t$ explicitly and $E$ is thus a function of 18 independent variables $q$, $p$. The equations (\ref{chap2:eq2.4.1}) then take the form
+\begin{equation*}
+\dot{q}_k = E_{p_k}, \dot{p}_k = - E_{q_k}, \; k = 1, \ldots, 9.\tag{2.4.2}\label{chap2:eq2.4.2} 
+\end{equation*}
+We thus have a Hamiltonian system of 18 differential equations with 9 degrees of freedom. We now seek a canonical transformation of the variables $(q,p)$ into new variables $(x,y)$ so that the coordinate functions $(x_k, y_k)$, considered as functions of $s$, become regular analytic in some neighbourhood of $s = s_1$. We recall from Chapter \ref{chap1}, \S\ \ref{chap1:sec2}, that a canonical transformations of $(q,p)$ to $(x,y)$ can be obtained by means of a generating functions $W = W(q,y,t)$. We set $W_{q_k} = p_k$, $W_{y_k} = x_k$, $k = 1, \ldots, 9$, and if $|W_{y_k q_l}| = |W_{q_k y_l}| \neq 0$, we can solve the second equation locally for $q_k$ as a function $\varphi_k (x,y,t)$, which, on substitution in the first equation, expresses $p_k$ as a function $\psi_k(x,y,t)$. We have the following
+
+\setcounter{subtheorem}{0}
+\begin{subtheorem}\label{chap2:thm2.4.1}
+Suppose that the centre of gravity of the system remains fixed at the origin. Then there exists a canonical transformation of the variables $(q,p)$ to $(x,y)$ which reduces the Hamiltonian system (\ref{chap2:eq2.4.2}) to one with six degrees of freedom in the new variables $(x,y)$.
+\end{subtheorem}
+
+\begin{proof}
+We shall\pageoriginale denote the relative coordinates of $P_1$ and $P_2$ with respect to $P_3$ by $(x_1, x_2, x_3)$, $(x_4, x_5, x_6)$ respectively, and the coordinates of $P_3$ itself by $(x_7, x_8, x_9)$. Hence,
+\begin{equation*}
+x_k = q_k - q_{k+6}, x_{k+3} = q_{k+3} - q_{k+6} , x_{k+6} = q_{k+6}, \; k = 1,2,3.\tag{2.4.3}\label{chap2:eq2.4.3} 
+\end{equation*}
+This can be extended into a canonical transformation in the following way. Consider the function $W = W(q,y)$ defined by
+$$
+W = \sum\limits^3_{k=1} ((q_k - q_{k+6}) y_k + (q_{k+3} - q_{k+6}) y_{k+3} + q_{k+6} y_{k+6}).
+$$
+This is twice continuously differentiable in $(q,y)$ and it is clear that $W_{y_k} =  x_k$, $k =1, \ldots, 9$, because of (\ref{chap2:eq2.4.3}), and that $|W_{q_k y_l}| \neq 0$. (In fact, $W_{q_k y_k} =1$ and $W_{q_k y_l} = 0$ if $l>k$, so that $|W_{q_k y_l}| =1$). Hence $W$ is a generating function and determines a canonical transformation if we set $p_k = W_{q_k}$, $k = 1, \ldots, 9$. Then it follows immediately that
+$$
+p_k = y_k, p_{k+3} = y_{k+3}, p_{k+6} = - y_k -y_{k+3} + y_{k+6}, \; k = 1,2,3.
+$$
+Adding these we get $y_{k+6} = p_k + p_{k+3} + p_{k+6}$ and so we obtain the canonical transformation
+\begin{align*}
+x_k & = q_k - q_{k+6}, \; x_{k+3} = q_{k+3} - q_{k+6}, \; x_{k+6} = q_{k+6};\\
+y_k & = p_k, \; y_{k+3} = p_{k+3}, \; y_{k+6} = p_k + p_{k+3} + p_{k+6}, \; k = 1,2,3. \tag{2.4.4}\label{chap2:eq2.4.4} 
+\end{align*}
+Under this transformation the Hamiltonian system takes the form
+\begin{equation*}
+\dot{x}_k = E_{y_k},\; \dot{y}_k = - E_{x_k}, \; k =1 , \ldots, 9, \tag{2.4.5}\label{chap2:eq2.4.5} 
+\end{equation*}\pageoriginale
+where $E(x,y)$ is the total energy $T-U$ expressed in the new variables $(x,y)$. To obtain the expression for $E$ in terms of the new variables, we observe that, first of all, 
+$$
+T = \frac{1}{2} \sum\limits^q_{k=1} \frac{1}{\mu_k} p^2_k = \frac{1}{2} \sum\limits^3_{k=1}  (\frac{1}{\mu_k} y^2_k + \frac{1}{\mu_{k+3}} y^2_{k+3} + \frac{1}{\mu_{k+6}} (y_{k+6} - y_k -y_{k+3})^2 ),
+$$
+and this is a homogeneous function of degree 2 in the variables $y_k$. On the other hand,
+$$
+U = \frac{m_1 m_2}{r_{12}} + \frac{m_2 m_3}{r_{23}} + \frac{m_1 m_3}{r_{13}},
+$$
+where $r^2_{12} = (x_1 - x_4)^2 + (x_2 -x_5)^2 + (x_3 - x_6)^2$, $r^2_{23} = x^2_4 + x^2_5 + x^2_6 $  and $r^2_{13} = x^2_1 + x^2_2 + x^2_3$. Thus $U$ is independent of $x_7, x_8, x_9$ and therefore $E(x,y) = T - U$ is also independent of $x_7, x_8, x_9$. Then from the Hamiltonian system (\ref{chap2:eq2.4.5}) we see that
+$$
+\dot{y}_k = -E_{x_k} =0, \; k = 7,8,9,
+$$
+and hence $y_7, y_8, y_9$ are constants. Now if we solve the system  (\ref{chap2:eq2.4.5}) for $k = 1,\ldots ,6$, then we can substitute $x_1 , \ldots, x_6$; $y_1, \ldots, y_6$ and arbitrary constants $y_7, y_8,y_9$ in the expression for $E$ and solve $\dot{x}_k = E_{y_k}$, $k = 7,8,9$, to obtain the solution of the problem. We shall now use the assumption that the centre of gravity remains fixed at the origin. Then $p_k + p_{k+3} + p_{k+6} = 0$ for $k = 1,2,3$ and, in particular, $y_{k+6}=0$ for $k = 1,2,3$. Thus $E$ is independent of $x_7, x_8, x_9$ and $y_7, y_8, y_9$.\pageoriginale Hence it is sufficient to consider the Hamiltonian system (\ref{chap2:eq2.4.5}) with six degrees of freedom, and this completes of proof.
+\end{proof}
+
+Our assumption is that $\sigma_1 > 0$ and that the masses $P_1$ and $P_3$ collide at time $t = t_1$. Denote the distance $r_{13}$ by $x, x = (x^2_1 + x^2_2 + x^2_3)^{\frac{1}{2}}$. By Theorem \ref{chap2:thm2.3.4} the integral $s = \int\limits^t_\tau \dfrac{dt}{x}$ converges to a finite limit as $t \to t_1$, so that $s_1 = \int\limits^{t_1}_\tau \dfrac{dt}{x} < \infty$. The function $x = x(t) \neq 0$ in $\tau \leq t < t_1$ and is regular analytic there. Consequently $\dfrac{1}{x}$ is a regular analytic function of $t$ in $\tau \leq t < t_1$ and $s = s(t)$, being its integral, is also regular analytic function of $t$ in $\tau \leq t < t_1$. Moreover, $\dfrac{ds}{dt} = \dfrac{1}{x} > 0$ implies that $s$ is monotone increasing in $\tau \leq t < t_1$, so that we have $0 \leq s(t) < s_1$. By the inverse function theorem, we can solve the equation $s = s(t)$ locally and obtain the inverse function $t = \varphi(s)$, which is a regular analytic function of $s$ in some neighbourhood of each point of the interval $0 \leq s < s_1$. We see therefore that $t$ is a regular analytic function of $s$ in $0 \leq s < s_1$. Again, since $\dfrac{dt}{ds} = x>0$, $t$ is also a monotone increasing function of $s$ in $0 \leq s < s_1$.
+
+We shall denote the derivative with respect to $s$ of a function $f = f(s)$ by $f'$. Since $\dfrac{dt}{ds} = x$, we get from (\ref{chap2:eq2.4.5})
+\begin{equation*}
+x'_k = \dot{x}_k \frac{dt}{ds} = x E_{y_k}, y'_k = \dot{y}_k \frac{dt}{ds} = - xE_{x_k}, k = 1, \ldots, 6.\tag{2.4.6}\label{chap2:eq2.4.6} 
+\end{equation*}
+This system of equations is no longer in the Hamiltonian form. However,\pageoriginale it can be transformed into a Hamiltonian system in the following way. We recall that along each orbit, i.e. a solution of the system (\ref{chap2:eq2.4.5}), the total energy remains constant, equal to $h$, and therefore the system (\ref{chap2:eq2.4.5}) remains unchanged if $E$ is replaced by $E-h$. Now consider the function $F = x(E-h)$. Then for the particular solution of (\ref{chap2:eq2.4.5}) under consideration $E =h$ and $F=0$ and we see that
+$$
+x'_k = x E_{y_k} = F_{y_k}, y'_k = - x E_{x_k} = - F_{x_k} + (E-h) \frac{dx}{ds} = - F_{x_k}. 
+$$
+Conversely, suppose that $(x_k, y_k)$ satisfy the system of equations
+\begin{equation*}
+x'_k = F_{y_k}, y'_k = - F_{x_k}, \; k = 1, \ldots, 6. \tag{2.4.7}\label{chap2:eq2.4.7} 
+\end{equation*}
+Then the total derivative 
+$$
+\frac{dF}{ds} = \sum\limits^6_{k=1} (F_{x_k} x'_k + F_{y_k} y'_k) = 0,
+$$
+which implies that $F$ is a constant. If $F = 0$, we have either $x=0$ or $E=h$. Since up to the collision, i.e. for $\tau \leq t < t_1$, or, equivalently, $0\leq s < s_1$, we have $x \neq 0$, we see that $E = h$. It is now easy to check, by differentiating $E = h + \dfrac{1}{x}F$, that the system (\ref{chap2:eq2.4.6}), and hence (\ref{chap2:eq2.4.5}), is satisfied by $x_k$, $y_k$, $k = 1, \ldots, 6$ if $F=0$. However, when $F \neq 0$, the solutions of (\ref{chap2:eq2.4.7}) may not have any direct relation to the solutions of the original system (\ref{chap2:eq2.4.5}).
+
+We know that the potential function $U \to \infty$ as $t \to t_1$, that is, as $s \to s_1$. Also the velocity components, and therefore the components\pageoriginale of momenta $y_1, y_2, y_3$, become infinite. The kinetic energy $T$, being a homogeneous function of positive degree in $y_k$, is also unbounded near $t = t_1$. But since $\sigma_1 >0$, it follows from Theorem \ref{chap2:thm2.3.1} that $r_{12} (t)$ and $r_{23}(t)$ remain bounded away from zero, while $x \to 0$, as $t \to t_1$. Hence, as $t \to t_1$, 
+$$
+x \; U = \left(\frac{m_1 m_2}{r_{12}} + \frac{m_2 m_3}{r_{23}} \right) x+ m_1 m_3 \to m_1 m_3. 
+$$
+Also, by Theorem \ref{chap2:thm2.3.3}, $xV^2_1$ and $xV^2_3$ have finite limits as $t \to t_1$, and so have the velocity components of $P_2$. Thus the advantage of introducing the function $F$ is that it is bounded in the whole interval $\tau \leq t <t_1$. Moreover, all the derivatives $F_{y_k}$ are bounded since $T$ is a homogeneous function of degree 2 in $y_k$ and $xy_k \to 0$. On the other hand, we see that the derivative $F_{x_k}, k = 1,2,3$, contain $\dfrac{1}{x}$ as a factor which becomes unbounded as $t \to t_1$. In order to apply Cauchy's theorem on the analytic continuation of solutions we need the right-hand sides of the differential equations to be bounded in a closed bounded point set containing the curve $(x(t), y(t))$, $\tau \leq t <t_1$. Hence the introduction of the function $F$ is not quite enough to apply Cauchy's theorem. We shall show that by  yet another canonical transformation we can reduce our system of differential equations to one with bounded right-hand sides.
+
+In his proof of the uniformisation of the solutions near the singularity $t = t_1$, Sundman did not write the equation of motion in the canonical form, but found a transformation which made the right-hand sides of the system of ordinary differential equations
+$$
+\dot{q}_k = \frac{1}{\mu_k} p_k, \; \dot{p}_k = U_{q_k}, \; k =1, \ldots, 6,
+$$\pageoriginale
+regular analytic functions of the new variables. It was proved later by Levi-Civita that one can find the transformations of Sundman by writing the equations in the canonical form and by using canonical transformations. This simplifies the more complicated proof given by Sundman.
+
+\section[Approximate solution of the Hamilton-Jacobi...]{Approximate solution of the Hamilton-Jacobi\hfil\break equation}\label{chap2:sec5}
+We shall make use of the theory of the Hamilton-Jacobi partial differential equation. We wish to find a twice continuously differentiable function $W = W(x, \xi, s)$ of the independent variables $x, \xi, s$, with $|W_{x_k \xi_1}| \neq 0$, satisfying the Hamilton-Jacobi partial differential equation (Chapter \ref{chap1}, \S\ \ref{chap1:sec2})
+\begin{equation*}
+F(x, W_x) + W_s = 0.\tag{2.5.1}\label{chap2:eq2.5.1} 
+\end{equation*}
+If we find such a function $W$, then we set
+$$
+W_{x_k} = y_k, \; W_{\xi_k} = - \eta_k, k = 1, \ldots 6,
+$$
+solve the second set of equations locally, using the fact that $|W_{\xi_k x_l}| = |W_{x_k \xi_l}| \neq 0$, and find $x_k$ as a function $\varphi_k(\xi, \eta, s)$. We substitute this for $x_k$ in $W_{x_k} = y_k$ and get $y_k$ as a function $\psi_k (\xi, \eta, s)$ and thus obtain the canonical transformation. Moreover, since $W$ satisfies (\ref{chap2:eq2.5.1}), the Hamiltonian system (\ref{chap2:eq2.4.7}) will be transformed into the trivial system $\xi'_k = 0$, $\eta'_k = 0$, $k = 1, \ldots, 6$. Hence\pageoriginale $\xi_k = $ constant, $\eta_k = $ constant, will give, on substitution in $x_k = \varphi_k (\xi, \eta, s)$, $y_k = \psi_k(\xi, \eta, s)$, the solution of our problem.
+
+However, we cannot hope to obtain a complete solution of the problem of finding a $W$ with $|W_{x_k \xi_l}| \neq 0$ satisfying (\ref{chap2:eq2.5.1}) since, if we could, a solution of this would solve the three-body problem explicitly. But as we are interested in the analysis of the solution near $t = t_1$, equivalently, $s=s_1$, we shall find an approximate solution. For this purpose we shall use the fact that all the coordinates and velocity components of $P_2$ have finite limits as $t \to t_1$ and that $P_2$ remains at a distance bounded below by a positive number from the colliding masses. Hence, for $t$ near $t_1$, we ignore the pressence of $P_2$ so that the coordinates $x_4, x_5, x_6$ and the components of momenta $y_4, y_5, y_6$ do not enter into the discussion. (This amounts to supposing that the mass of $P_2$ is zero). Thus we are led to consider the two-body problem. In this case we have 
+$$
+U = \frac{m_1 m_3}{x} \text{~ and ~} T = \frac{1}{2} \sum \frac{1}{\mu_k} y^2_k = \left(\frac{1}{m_1} + \frac{1}{m_3} \right) \; (y^2_1 + y^2_2 +y^2_3),
+$$
+so that 
+$$
+F = x(T - U - h) = \frac{1}{2} \left(\frac{1}{m_1} + \frac{1}{m_3} \right) xy^2 - hx - m_1 m_3,
+$$
+where $y^2 = y^2_1 + y^2_2+ y^2_3$. Since the differential equations involve only the derivatives $F_{x_k}, F_{y_k}$, we may drop the constant $m_1 m_3$ in the expression for $F$. By suitably choosing the unit of mass we can also take\pageoriginale $\dfrac{1}{2} \left(\dfrac{1}{m_1} + \dfrac{1}{m_3} \right) =1$. We shall also assume that $h=0$ and then $F$ has the form 
+\begin{equation*}
+F = xy^2, \; y^2 = y^2_1 + y^2_2 + y^2_3. \tag{2.5.2}\label{chap2:eq2.5.2} 
+\end{equation*}
+Then we want to find a twice continuously differentiable function with real values, $W = W(x_1, x_2, x_3, \xi_1,\xi_2, \xi_3, s)$, with $|W_{x_k \xi_l}| \neq 0$ such that 
+\begin{equation*}
+(x^2_1 + x^2_2 + x^2_3)^{\frac{1}{2}} (W^2_{x_1} + W^2_{x_2} + W^2_{x_3}) + W_s = 0. \tag{2.5.3}\label{chap2:eq2.5.3} 
+\end{equation*}
+It would be simpler if we could take $W$ to be independent of $s$. But this is not possible, since $W_s = 0$ would imply that $x(W^2_{x_1} + W^2_{x_2} + W^2_{x_3}) = 0$. Since $x \neq 0$ for $0 \leq s < s_1$ then $W^2_{x_1} + W^2_{x_2}+ W^2_{x_3} = 0$. And $W$ is real so that $W_{x_1} = W_{x_2} = W_{x_3} = 0$ and hence $|W_{x_k \xi_l}| = 0$. Consequently $W$ does not determine a canonical transformation. So the simplest possible choice we can make for $W$ is that $W$ is linear in $S$. Hence we take
+\begin{equation*}
+W(x, \xi, s) = v(x, \xi) - \lambda (\xi) s. \tag{2.5.4}\label{chap2:eq2.5.4} 
+\end{equation*}
+Then $W_s = - \lambda (\xi_1, \xi_2, \xi_3)$. We need only a particular solution of the equation (\ref{chap2:eq2.5.3}) where $\xi_1, \xi_2, \xi_3$ are arbitrary constants with the only condition $|W_{x_k \xi_l}| \neq 0$.
+
+It is known that the orbits of the mass-points in the two-body problem are conic sections. Hence the two-body problem is a problem in the plane. This plane problem can be solved in the following\pageoriginale way using the theory of complex analytic functions.
+
+We shall find the function $v$ in (\ref{chap2:eq2.5.4}) by using (\ref{chap2:eq2.5.3}). Let $x_1, x_2$ denote the coordinates in the plane of the orbit. We introduce the complex variable $z = x_1 + ix_2$, $z = (x^2_1 + x^2_2)^{\frac{1}{2}}$. Let $f = u + iv$ be a regular analytic function of $z$ in some region of the complex plane. Since $f$ is regular analytic, we have the Cauchy-Riemann equations $u_{x_1} = v_{x_2}$, $u_{x_2} = -v_{x_1}$, so that 
+$$
+\left| \frac{df}{dz}\right|^2 = u^2_{x_1} + u^2_{x_2} = v^2_{x_1} + v^2_{x_2}. 
+$$
+If we take the function $v$ in (\ref{chap2:eq2.5.4}) for $W$, we see that $W_{x_1} = v_{x_1}$, $W_{x_2} = v_{x_2}$ and hence $\left|\dfrac{df}{dz} \right|^2 = W^2_{x_1} + W^2_{x_2}$. Thus the Hamilton-Jacobi equation (\ref{chap2:eq2.5.3}) takes the form 
+$$
+|z| \; \left|\frac{df}{dz} \right|^2 = \lambda.
+$$
+Thus the absolute value of the regular analytic function $z\left(\dfrac{df}{dz} \right)^2$ is a constant $\lambda$. It follows from the open-mapping theorem that $z\left(\dfrac{df}{dz} \right)^2$ is a constant, say $z \left(\dfrac{df}{dz} \right)^2 = \bar{\zeta}$, with $\zeta = \xi_1 + i \xi_2$, $|\zeta| = \lambda$. Integrating the equation $\dfrac{df}{dz} = \left(\dfrac{\zeta}{z} \right)^{\frac{1}{2}}$, we get $f(z) = 2(\bar{\zeta}z)^{\frac{1}{2}}$. Hence we have $v(x_1, x_2) = \Iim f(z) = i^{-1} (\bar{\zeta} z - \zeta \bar{z}) \cdot \xi_1$ and $\xi_2$ are two parameters such that $f(z) = 2 ((\xi_1 - i \xi_2)z)^{\frac{1}{2}}$. Inserting this $v$ and the two parameters $\xi_1, \xi_2$ in (\ref{chap2:eq2.5.4}) we get
+{\fontsize{10}{12}\selectfont
+$$
+W = \frac{1}{i} \left\{((\xi_1 - i \xi_2) (x_1 + ix_2))^{\frac{1}{2}} - ((\xi_1 + i \xi_2) \; (x_1 - ix_2))^{\frac{1}{2}} \right\}.  - s\sqrt{\xi^2_1 + \xi^2_2}. 
+$$}
+Moreover, we have $W_{x_k\xi_l} = v_{x_k\xi_l}$ and it can be easily verified that\pageoriginale $|W_{x_k \xi_l}| = \dfrac{1}{4 |\zeta z|}$
+
+We wish to extend this argument to the case of the three-body problem. But in this case we cannot use the theory of complex analytic functions. A possible solution of the Hamilton-Jacobi equation in three-dimensional space is suggested by the function $\sqrt{\overline{\zeta}z} - \sqrt{\zeta \overline{z}}$ defining $v = v(x, \xi)$ in two-dimensional space. In the following we show that a suitable generalization of this function to three-dimensional space does indeed satisfy the Hamilton-Jacobi equation and the condition $|v_{x_k \xi_1}| \neq 0$. Hence this provides a canonical transformation. We shall also see that this canonical transformation is the one found by Sundman, namely the inversion with respect to the  unit sphere in three-dimensional space.
+
+In the two-dimensional case we had $W(x, \xi, s) = v(x, \xi) - \lambda (\xi) s$  where
+$$
+iv = \sqrt{\bar{\zeta} z} - \sqrt{\zeta \bar{z}}, \; z = x_1 + ix_2, \zeta = \xi_1 + i \xi_2, |\zeta| = \lambda. 
+$$
+Squaring both sides we get $-v^2 = \bar{\zeta} z + \zeta \bar{z} - 2|\zeta z|$, that is 
+$$
+\frac{1}{2} v^2 = (x^2_1 + x^2_2)^{\frac{1}{2}} (\xi^2_1 + \xi^2_2)^{\frac{1}{2}} - (x_1 \xi_1 + x_2 \xi_2). 
+$$ 
+We try to generalize this to three-dimensional space and take 
+\begin{equation*}
+\frac{1}{2} v^2 = (x^2_1 + x^2_2 + x^2_3)^{\frac{1}{2}} (\xi^2_1 + \xi^2_2 + \xi^2_3 )^{\frac{1}{2}} - (x_1 \xi_1 + x_2 \xi_2 + x_3 \xi_3) \tag{2.5.5}\label{chap2:eq2.5.5} 
+\end{equation*}
+In order to  ensure that $W = W(x, \xi, s) = v(x, \xi) - \lambda(\xi)s$ satisfies the Hamilton-Jacobi equation, it is enough to find $\xi_1, \xi_2, \xi_3$ such that\pageoriginale $v$ given by (\ref{chap2:eq2.5.5}) with these $\xi_1, \xi_2,\xi_3$ satisfies the partial differential equations
+\begin{equation*}
+(x^2_1 + x^2_2 + x^2_3)^{\frac{1}{2}} \; (v^2_{x_1} + v^2_{x_2} + v^2_{x_3}) = \lambda, \; \lambda = \lambda (\xi)\tag{2.5.6}\label{chap2:eq2.5.6} 
+\end{equation*}
+If we find $\xi_1, \xi_2, \xi_3$ satisfying this condition together with the condition $|v_{x_k \xi_l}| \neq 0$, then we obtain a canonical transformation by setting $v_{x_k} = y_k$, $v_{\xi_k} =  - \eta_{k}$, $k = 1,2,3$. The latter set of equations can be solved locally to give $x_k$ as functions $\varphi_k(\xi, \eta)$ which, on substitution in $v_{x_k} = y_k$, give $y_k$ on a function $\psi_k(\xi, \eta)$. Thus we obtain the canonical transformation $x_k = \varphi_k(\xi, \eta), y_k = \psi_k (\xi, \eta)$, $k = 1,2,3$. Since the function $v$ is independent of the variable $s$, the functions $\varphi_k , \psi_k$ do not contain $s$ explicitly. Hence the Hamiltonian equations are unaltered and we have $\xi'_k = \mathbb{F}_{\eta_k}, \eta'_k = -\mathbb{F}_{\xi_k}$, $k = 1,2,3$, where $\mathbb{F} (\xi, \eta) = F(x,y) = F(\varphi (\xi, \eta), \psi(\xi, \eta))$.
+
+We proceed then to verify that $v$ defined by (\ref{chap2:eq2.5.5}) satisfies (\ref{chap2:eq2.5.6}) and the condition $|v_{x_k \xi_l}| \neq 0$ for a suitable choice of $\xi_1,\xi_2, \xi_3$. Denoting $(\xi^2_1 + \xi^2_2 + \xi^2_3)^{\frac{1}{2}}$ by $\xi$, we can write (\ref{chap2:eq2.5.5}) in the form 
+\begin{equation*}
+\frac{1}{2} v^2 = x\xi - \sum\limits^3_{k=1} x_k \xi_k. \tag{2.5.7}\label{chap2:eq2.5.7} 
+\end{equation*}
+Differentiating this with respect to $x_k$ and $\xi_k$ respectively, we obtain
+\begin{equation*}
+v \; v_{x_k} = \frac{x_k}{x} \xi - \xi_k, \; v \; v_{\xi_k} = x \frac{\xi_k}{\xi} - x_k, \; k = 1,2,3. \tag{2.5.8}\label{chap2:eq2.5.8} 
+\end{equation*}
+Multiplying the first of these by $x$, squaring and summing over $k=1,2,3$, we get,\pageoriginale on using (\ref{chap2:eq2.5.7}),
+\begin{align*}
+& x^2 v^2 (v^2_{x_1} + v^2_{x_2} + v^2_{x_3}) = \sum\limits^3_{k=1} (x_k \xi - \xi_k x)^2\\
+& \qquad = 2 \xi^2 x^2 - 2 \xi x \sum\limits^3 _{k=1} x_k \xi_k = 2 \xi x(\xi x - \sum\limits^3_{k=1} x_k \xi_k) = \xi x v^2. 
+\end{align*}
+If $x \neq 0$, $v \neq 0$, then dividing throughout by $xv$ we have
+$$
+x (v^2_{x_1} + v^2_{x_2} + v^2_{x_3})= \xi,
+$$
+which means that if we choose $\lambda(\xi) = \xi$, then $v(x,\xi)$ defined by (\ref{chap2:eq2.5.5}) satisfies (\ref{chap2:eq2.5.6}). Moreover, the condition that $|v_{x_k \xi_l}| \neq 0$ is also satisfied. In fact, it is easy to check by direct computation that $|v_{x_k \xi_l}| = - \dfrac{1}{4x \xi v}$. We now use the fact that $x \neq 0$, $\xi \neq 0$, $v \neq 0$. (Actually $v=0$ if and only if the two vectors $(x_1, x_2, x_3)$ and $(\xi_1, \xi_2, \xi_3)$ are in the same direction, that is, are linearly dependent. Since we assume that $v \neq 0$ and $x \neq 0$, we may suppose that $\xi \neq 0$). We have then found a generating function $v = v(x, \xi)$. The canonical transformation defined by means of $v$ is explicitly determined as follows. Let us set
+\begin{equation*}
+v_{x_k} = y_k, \; v_{\xi_k} = - \eta_k, \; k =1,2,3. \tag{2.5.9}\label{chap2:eq2.5.9} 
+\end{equation*}
+Multiplying these by $xv$ and $-\xi v$ respectively and using the expressions (\ref{chap2:eq2.5.8}) we find that 
+\begin{equation*}
+xvy_k = xvv_{x_k} = \xi x_k - x \xi_k = - \xi v v_{\xi k} = \xi v \eta_k \tag{2.5.10} \label{chap2:eq2.5.10} 
+\end{equation*}
+Since\pageoriginale $v \neq 0$, we can divide by $v$ and obtain
+\begin{equation*}
+xy_k = \xi \eta_k, \; k = 1,2,3.
+\tag{2.5.11}\label{chap2:eq2.5.11} 
+\end{equation*}
+Let $y = (y^2_1 + y^2_2 + y^2_3)^{1/2}$ and $\eta = (\eta^2_1 + \eta^2_2 + \eta^2_3)^{1/2}$. Squaring both sides of the relation $xvy_k = \xi x_k - x\xi_k$ and summing over $k =1,2,3,$ we obtain
+\begin{align*}
+x^2 v^2 y^2 & = \sum\limits^3_{k=1} (\xi x_k - x\xi_k)^2 = 2 \xi^2 x^2 - 2 x \xi \sum\limits^3_{k=1} x_k\xi_k\\
+& = 2x \xi (x \xi - \sum\limits^3_{k=1} x_k \xi_k) = x \xi v^2. 
+\end{align*}
+Once again, since $x \neq 0$ and $v \neq 0$, dividing by $x v^2$ we get 
+\begin{equation*}
+xy^2 = \xi\tag{2.5.12}\label{chap2:eq2.5.12} 
+\end{equation*}
+Similarly from the relation $\xi v \eta_k = \xi x_k - x \xi_k$ we obtain
+\begin{equation*}
+\xi \eta^2 = x\tag{2.5.13}\label{chap2:eq2.5.13} 
+\end{equation*}
+Since $x \neq 0$ and $\xi \neq 0$, it follows from (\ref{chap2:eq2.5.12}) and (\ref{chap2:eq2.5.13}) that $y \neq 0$ and $\eta \neq 0$. Substituting (\ref{chap2:eq2.5.12}) in (\ref{chap2:eq2.5.11}) we have
+\begin{align*}
+xy_k & = x y^2 \eta_k,\\
+\text{so that } \qquad \eta_k & = \frac{y_k}{y^2}, \; k =1 ,2,3;
+\end{align*}
+this implies that $\eta^2 = \dfrac{1}{y^2}$ and hence $y_k = y^2 \eta_k =\dfrac{\eta_k}{\eta^2}$, $k = 1,2,3$. Multiplying both sides of the relations
+$$
+xvy_k = \xi x_k - x\xi_k, \; \xi v \eta_k = \xi x_k - x \xi_k
+$$\pageoriginale
+by $x_k$ and $\xi_k$ respectively and summing over $k = 1,2,3$, we see that
+\begin{align*}
+& xv - \sum\limits^3_{k=1} x_k y_k = \xi x^2 - x \sum\limits^3_{k=1} x_k \xi_k =\frac{1}{2} x v^2, \\
+& \xi v -  \sum\limits^3_{k=1} \xi_k \eta_k = \xi \sum\limits^3_{k=1} x_k \xi_k - x \xi^2 = - \frac{1}{2} \xi v^2, 
+\end{align*}
+from which we get, since $x \neq 0$, $\xi \neq 0$, and $v \neq 0$,
+\begin{equation*}
+\sum\limits^3_{k=1} x_k y_k =\frac{1}{2} v, \; \sum\limits^3_{k=1} \xi_k \eta_k = - \frac{1}{2} v. \tag{2.5.14}\label{chap2:eq2.5.14} 
+\end{equation*}
+We can solve $\xi v \eta_k = \xi x_k - x \xi_k$ and express $x_k$ as a function of $\xi, \eta$ and obtain
+$$
+x_k = v \eta_k + x \frac{\xi_k}{\xi},
+$$
+which, under the substitution $x = \xi \eta^2$, $v = - 2 \sum\limits^2_{l=1} \xi_l \eta_l$ gives
+\begin{equation*}
+x_k = \eta^2 \xi_k - 2 \eta_k \sum\limits^3_{l=1} \xi_l \eta_l, \; k = 1,2,3.
+\tag{2.5.15}\label{chap2:eq2.5.15} 
+\end{equation*}
+Similarly we can show that 
+\begin{equation*}
+\xi_k = y^2 x_k - 2y_k \sum\limits^3_{l=1} x_l y_l, \; k =1,2,3. \tag{2.5.16}\label{chap2:eq2.5.16} 
+\end{equation*}
+Thus we have obtained the canonical transformation from $(x,y)$ to $(\xi, \eta)$; it is given by
+\begin{equation*}
+x_k = \eta^2 \xi_k - 2\eta_k \sum\limits^3_{l=1} \xi_l \eta_l, \; y_k = \frac{\eta_k}{\eta^2}, \; k=1,2,3. \tag{2.5.17}\label{chap2:eq2.5.17} 
+\end{equation*}
+and the\pageoriginale inverse transformation is given by
+\begin{equation*}
+\xi_k = y^2 x_k - 2 y_k \sum\limits^3_{l=1} x_l y_l, \; \eta_k = \frac{y_k}{y^2}, \; k = 1,2,3. \tag{2.5.18} \label{chap2:eq2.5.18} 
+\end{equation*}
+It follows from (\ref{chap2:eq2.5.17}) and (\ref{chap2:eq2.5.18}) that the canonical transformation from $(x,y)$ to $(\xi, \eta)$ is involutory and, moreover, that it is a birational transformation. The second equation in (\ref{chap2:eq2.5.17}) defines an inversion with respect to the unit sphere in three-dimensional $y$-space and is actually the transformation used by Sundman.
+
+It is clear that the equations $y_k = \dfrac{\eta_k}{\eta^2}$, $\eta_k=\dfrac{y_k}{y^2}, k = 1,2,3$, will be valid whenever $\eta \neq 0$ and $y \neq 0$. We shall now show that we can obtain the transformations (\ref{chap2:eq2.5.17}) directly from (\ref{chap2:eq2.5.18}) with the only assumption that $\eta \neq 0$ and that it is no longer necessary to assume that the vectors  $(x_1, x_2, x_3)$, $(\xi_1, \xi_2, \xi_3)$ are linearly independent. We have the following
+
+\begin{subtheorem}\label{chap2:thm2.5.1}
+If $\eta \neq 0$, then the relations (\ref{chap2:eq2.5.18}) define a canonical transformation of the variables $(x_k, y_k)$ to $(\xi_k , \eta_k), k =1,2,3$, with the inverse (\ref{chap2:eq2.5.17}).
+\end{subtheorem}
+
+\begin{proof}
+First we define $y_1, y_2, y_3$ by setting $y_k = \dfrac{\eta_k}{\eta^2}$, $k = 1,2,3$. Then $\eta \neq 0$ is equivalent to $y \neq 0$. From (\ref{chap2:eq2.5.16}) we get
+$$
+\sum\limits^3_{k=1} \xi_k y_k = y^2 \sum\limits^3_{k=1} x_k y_k - 2 \sum\limits^3_{k=1} y^2_k\sum\limits^3_{l=1} x_l y_l = - y^2 \sum\limits^3_{k=1} x_k y_k. 
+$$
+Dividing throughout by $y^2 (y \neq 0)$ and using $\eta_k = \dfrac{y_k}{y^2}$, we get 
+$$
+\sum\limits^3_{k=1} \xi_k \eta_k = - \sum\limits^3_{k=1} x_k y_k,
+$$
+which,\pageoriginale on substitution in the expression (\ref{chap2:eq2.5.16}) for $\xi_k$, gives
+$$
+\xi_k = \frac{1}{\eta^2} x_k + \frac{2\eta_k}{\eta^2} \sum\limits^3_{l=1} \xi_l \eta_l,
+$$
+that is, 
+$$
+x_k = \eta^2 \xi_k - 2 \eta_k \sum\limits^3_{l=1} \xi_l \eta_l, \; k =1,2,3. 
+$$
+This proves that we can solve the set of equations (\ref{chap2:eq2.5.18}) to obtain (\ref{chap2:eq2.5.17}) and the same method can be employed to obtain (\ref{chap2:eq2.5.18}) from (\ref{chap2:eq2.5.17}) on making use of the fact that $y \neq 0$. Thus (\ref{chap2:eq2.5.17}) is an involutory transformation of the variables $(x_k, y_k)$ to $(\xi_k , \eta_k)$. It now remains only to prove that the transformation thus obtained is canonical. For this purpose we recall that a transformation $x_k =  \varphi_k (\xi, \eta)$, $y_k = \psi_k(\xi, \eta)$ is canonical if and only if the Jacobian matrix of the transformation is symplectic. We shall show that the Jacobian matrix in our case is symplectic. On differentiating (\ref{chap2:eq2.5.17}) we have, for $k, l=1,2,3$,
+\begin{align*}
+x_{k \xi_l} & = \eta^2 \delta_{kl} - 2 \eta_k \eta_l, \; y_{k \xi_l} = 0,\\
+x_{k \eta_l} & = 2 \eta_l \xi_k - 2 \delta_{kl} - 2 \delta_{kl} \sum\limits^3_{r=1} \xi_r \eta_r - 2 \eta_k\xi_l, \; y_{k \eta_l} =\frac{\delta_{kl}}{\eta^3} - \frac{2\eta_k \eta_l}{\eta^4}.
+\end{align*}
+Hence the elements of the Jacobian matrix are rational functions of $\xi_k, \eta_k$ with non-vanishing denominators, and so continuous (regular) functions of $\xi_k, \eta_k$. On the other hand, we know that when the vectors $(x_1, x_2, x_3)$ and $(\xi_1, \xi_2, \xi_3)$ are linearly independent, the transformation\pageoriginale defined by (\ref{chap2:eq2.5.17}) is canonical and so the Jacobian matrix is symplectic. In the general case $(x_1, x_2, x_3)$ and $(\xi_1, \xi_2, \xi_3)$ can be considered as limits of linearly independent vectors $(x_{1n}, x_{2n}, x_{3n})$ and $(\xi_{1n}, \xi_{2n}, \xi_{3n})$ as $n \to \infty$. If $(x_{kn})$, $(\xi_{kn})$ satisfy (\ref{chap2:eq2.5.17}), then the limit vectors also satisfy (\ref{chap2:eq2.5.17}). In other words, in the general case, the canonical transformations corresponding to the linearly independent vectors $(x_{1n}, x_{2n}, x_{3n})$  and $(\xi_{1n}, \xi_{2n}, \xi_{3n})$ tend to a transformation defined by (\ref{chap2:eq2.5.17}). Since the elements of the Jacobian matrix are continuous functions of the variables $\xi_k, \eta_k$, the Jacobian matrix of the transformation corresponding to $(x_{1n}, x_{2n}, x_{3n})$ and $(\xi_{1n}, \xi_{2n}, \xi_{3n})$ tends to that corresponding to $(x_1, x_2, x_3)$ and $(\xi_1, \xi_2, \xi_3)$ in the topology of the group of all six-rowed invertible matrices. Since the symplectic matrices form a closed subgroup of this group, it follows that the Jacobian matrix of the transformation defined by  $(x_1, x_2, x_3)$ and $(\xi_1, \xi_2, \xi_3)$ is symplectic, so that the transformation (\ref{chap2:eq2.5.17}) is again canonical. This completes the proof.
+\end{proof}
+
+\section[Regularisation of the solution of the
+  three-body...]{Regularisation of the solution of the three-body
+  problem near a simple collision}\label{chap2:sec6} 
+
+We use the canonical transformation obtained in the previous section to uniformize the solution of three-body problem in the neigh bourhood of the singularity $t = t_1$ at which there is a simple collision. We recall that $(x_1, x_2, x_3)$ and $(x_4, x_5, x_6)$ are the relative coordinates of $P_1$ and $P_2$ with respect to $P_3$. We assume that the centre of gravity remains fixed at the origin. $(y_1, y_2, y_3)$ and $(y_4, y_5, y_6)$ denote the\pageoriginale components of momenta of $P_1$ and $P_2$ respectively. We have seen that $x_k, y_k, \; k = 1,\ldots, 6$, are obtained from the absolute coordinates $q_k$ and the corresponding components of moments $p_k$ by means of a canonical transformation. We now prove
+
+\setcounter{subtheorem}{0}
+\begin{subtheorem}\label{chap2:thm2.6.1}
+The canonical transformation of the variables $(x_k, y_k)$ to $(\xi_k, \eta_k)$, $k = 1,2,3$, defined by
+\begin{equation*}
+x_k = \eta^2 \xi_k - 2 \eta_k \sum\limits^3_{l=1} \xi_l \eta_l, \; y_k = \frac{\eta_k}{\eta^2}, \; k = 1,2,3, \tag{2.6.1}\label{chap2:eq2.6.1} 
+\end{equation*}
+where $\eta^2 = \eta^2_1 + \eta^2_2 + \eta^2_3 \neq 0$, can be extended to a canonical transformation of the twelve independent variables $(x_k, y_k)$ to $(\xi_k, \eta_k)$, $k =1 ,\ldots, 6$.
+\end{subtheorem}
+
+\begin{proof}
+By Theorem \ref{chap2:thm2.5.1}, (\ref{chap2:eq2.6.1}) is a canonical transformation in the six variables $x_k , y_k, k = 1,2,3$. Let
+$$
+A = (x_{k \xi_l}), B = (x_{k \eta_l}), C = (y_{k\xi_l}), D = (y_{k \eta_l}). 
+$$
+Then, $M = \left(\begin{matrix} 
+A & B \\ C & D\end{matrix}\right)$, the Jacobian matrix of the transformation (\ref{chap2:eq2.6.1}) is symplectic. We extend the transformation (\ref{chap2:eq2.6.1}) to a transformation of $(x_k,y_k)$ to $(\xi_k, \eta_k), k = 1, \ldots, 6$, by defining
+\begin{equation*}
+x_k = \xi_k, \; y_k = \eta_k, \; k = 4,5,6.\tag{2.6.2}\label{chap2:eq2.6.2} 
+\end{equation*}
+Then the Jacobian matrix of the extended transformation is 
+$$
+M_1 = 
+\begin{pmatrix}
+A & 0 & B & 0 \\
+0 & E_3 & 0 & 0\\
+0 & 0 & D & 0 \\
+0 & 0 & 0 & E_3
+\end{pmatrix}
+$$
+where $E_3$ is the three-rowed unit matrix. Denoting by $J$ the twelve-rowed\pageoriginale square matrix $J = \left(\begin{matrix}
+0 & E_6 \\ - E_6 & 0\end{matrix}\right)$ where $E_6 = \left(\begin{matrix}
+E_3 & 0 \\0 & E_3\end{matrix} \right)$, it is easy to verify that $M'_1 J M_1 = J$, using the fact that $M$ is symplectic. This proves the fact that (\ref{chap2:eq2.6.1}) and (\ref{chap2:eq2.6.2}) together define a canonical transformation which extends (\ref{chap2:eq2.6.1}).
+
+Now we recall that $s = \int\limits^t_{\tau} \dfrac{dt}{x}$ converges, as $t \to t_1$, to a finite limit $s_1 = \int\limits^{t_1}_{\tau} \dfrac{dt}{x}$. We consider the variables $\xi_k$, $\eta_k$ as functions of the real variable $s$ in the interval $0 \leq s < s_1$. We know that $x_k$, $y_k$ are regular analytic functions of $t$ in $\tau \leq t < t_1$ and hence, $\xi_k, \eta_k$, defined by (\ref{chap2:eq2.6.1}) and (\ref{chap2:eq2.6.2}), are regular analytic functions of $s$ in $0 \leq s <s_1$. Then we have the following
+\end{proof}
+
+\begin{subtheorem}\label{chap2:thm2.6.2}
+The functions $\xi_k = \xi_k(s)$ and $\eta_k = \eta_k (s)$, $k = 1, \ldots, 6$, can be continued analytically as regular analytic functions of $s$ to a neighbourhood of $s = s_1$. 
+\end{subtheorem}
+
+\begin{proof}
+Since the canonical transformation defined by (\ref{chap2:eq2.6.1}) and (\ref{chap2:eq2.6.2}) is independent of the variable $s$, the Hamiltonian equations keep their form and therefore the Hamiltonian system $x'_k = F_{y_k}$, $y'_{k} = - F_{x_k}$, $k = 1, \ldots 6$, where
+\begin{equation*}
+F = x(T - U - h)\tag{2.6.3}\label{chap2:eq2.6.3} 
+\end{equation*}
+goes over into the system
+\begin{equation*}
+\xi'_k = \mathbb{F}_{\eta_k}, \eta'_k =- \mathbb{F}_{\xi_k}, \; k = 1, \ldots,6,\tag{2.6.4} \label{chap2:eq2.6.4} 
+\end{equation*}
+where $\mathbb{F} (\xi, \eta) = F(x,y) = x(T - U - h)$. In order to prove the theorem\pageoriginale it is sufficient to prove that $\mathbb{F} \eta_k, \mathbb{F}_{\xi_k}$ are bounded regular analytic functions of the twelve variables $(\xi, \eta)$ in some bounded closed region of 12-dimensional $(\xi, \eta)$-space. For this purpose we express $\mathbb{F}$ as a function of the variables $(\xi_k, \eta_k)$. From the definition, we have 
+\begin{align*}
+T &= \frac{1}{2} \left(\frac{1}{m_1} + \frac{1}{m_3} \right)y^2 +
+\frac{1}{2} \left(\frac{1}{m_2} + \frac{1}{m_3} \right) \left(y^2_4 +
+y^2_5+ y^2_6 \right)\\ 
+&\qquad\qquad\qquad + \frac{1}{m_3} \left(y_1 y_4 + y_2 y_5 + y_3 y_6 \right),\\
+U&=\frac{m_1 m_2}{r_{12}} + \frac{m_2 m_3}{r_{23}} + \frac{m_1 m_3}{x},
+\end{align*}
+where $x^2 = x^2_1 + x^2_2 + x^2_3$, $y^2 = y^2_1 + y^2_2 + y^2_3$, $r^2_{23} = x^2_4 + x^2_5 + x^2_6$ and $r^2_{12} = (x_1 - x_4)^2 + (x_2 - x_5)^2 + (x_3-x_6)^2$. On the other hand, we have from \S\ \ref{chap2:sec5} $y^2 = \dfrac{1}{\eta^2}$, $x = \xi \eta^2$, $xy^2 = \xi$ with $\xi^2 = \xi^2_1 + \xi^2_2 + \xi^2_3$, $\eta^2 = \eta^2_1+ \eta^2_2 + \eta^2_3$. Then we can write, by (\ref{chap2:eq2.6.1}), 
+$$
+r^2_{12} = \sum\limits^3_{k=1} (x_k - \xi_{k+3})^2 , \; r^2_{23} = \sum\limits^3_{k-1} \xi^2_{k+3} \text{~ where ~} x_k = \eta^2 \xi_k - 2\eta_k \sum\limits^3_{l=1} \xi_l \eta_l. 
+$$
+Denoting by $b$ the positive constant $\dfrac{1}{2} (1/m_1 + 1/m_3) $, we have 
+\begin{gather*}
+\mathbb{F} = b \xi + \frac{1}{2} \left(\frac{1}{m_2} +\frac{1}{m_3} \right) \left(\eta^2_4 + \eta^2_5 + \eta^2_6 \right) \xi \eta^2 + \frac{\xi}{m_3} \left(\eta_1 \eta_4 + \eta_2 \eta_5 + \eta_4 \eta_6 \right) \\
+- h \xi \eta^2 - \left(\frac{m_1 m_2}{r_{12}} + \frac{m_2 m_3}{r_{23}} \right) \xi \eta^2 - m_1 m_3. \tag{2.6.5}\label{chap2:eq2.6.5} 
+\end{gather*}
+In order to apply Cauchy's theorem on analytic continuation we need to prove\pageoriginale that $\mathbb{F}_{\xi_k}, \mathbb{F}_{\eta_k}$ are bounded regular functions of the twelve independent variables $(\xi_k, \eta_k)$, $k = 1, \ldots, 6$. We have proved in \S\ \ref{chap2:sec5} that $xy^2 \to 2 (m_1 m_3)^2 (m_1+ m_3)^{-1} = c>0$. In other words,
+\begin{equation*}
+\xi \to c > 0 \text{~ as ~} s \to s_1. \tag{2.6.6}\label{chap2:eq2.6.6} 
+\end{equation*}
+Also $\eta_k = y_k y^{-2} \to 0$ as $t \to t_1 $, i.e. as $s \to s_1$. Since $y \to \infty$ as $t \to t_1$, it follows that in a sufficiently small neighbourhood of $t = t_1$ we have $y \neq 0$. Let $s_o$ be a number in $0 \leq s <s_1$ such that $y = y(s) \neq 0$ in $s_o \leq s < s_1$. 
+
+We know already that $\xi_k, \eta_k, k = 1, \ldots, 6$, are regular analytic functions of $s$ in $0 \leq s <s_1$. By Theorem \ref{chap2:thm2.3.2}, we know that $P_2$ stays away from the colliding points  $P_1, P_3$ and that its velocity components have finite limits as $t \to t_1$ and hence as $s \to s_1$. Then it follows that $\eta_4, \eta_5$ and $\eta_6$ have finite limits as $s \to s_1$. Moreover, all the absolute coordinates $q_k$ tend to finite limits as $t \to t_1$, and hence $\xi_{k+3} = x_{k+3} = q_{k+3} - q_{k+6}$, $k = 1,2,3$, tend to finite limits as $s \to s_1$. By (\ref{chap2:eq2.6.6}), $\xi \to c>0$ as $s \to s_1$, and it will appear later that $\xi_1, \xi_2, \xi_3$ themselves tend to finite limits.
+
+We choose the number $s_o$ in the interval $0 \leq s < s_1$ so close to $s_1$ that for $s$ in the interval $s_o \leq s < s_1 , \xi = \xi (s)$ lies in the interval $c/2 \leq \xi (s) \leq 2c$. We have also seen that $r_{12}$ and $r_{23}$ remain bounded below by positive constants in $s_o \leq s < s_1$.
+
+We now\pageoriginale consider $\xi_k, \eta_k, k =1, \ldots, 6$, as twelve independent variables. Let $D$ be a bounded closed region in the 12 dimensional $(\xi, \eta)$-space defined as follows. Let $(\xi_1, \xi_2, \xi_3)$ be restricted to the annular region $D_1 : c/2 \leq \xi \leq 2c$ in 3 - dimensional $\xi$-space. Since $\xi_4, \xi_5, \xi_6$, $\eta_4 , \eta_5, \eta_6$ have finite limits as $s \to s_1$, and $\eta_1, \eta_2, \eta_3 \to 0$ as $s \to s_1$, we can enclose the points $(\xi_4, \xi_5, \xi_6, \eta_1, \ldots, \eta_6)$, for $s$ sufficiently close to $s_1$, in a bounded closed region $D_2$ in 9-dimensional space such that $D_2$ contains all the limit values of $\xi_4, \xi_5, \xi_6,\eta_1, \ldots, \eta_6$ in its interior. Moreover we can choose $D_2$ so small that $r^{-1}_{12}$ and $r^{-1}_{23}$ are bounded. Then we take $D = D_1 \times D_2$. 
+
+Consider the function $\mathbb{F}$ in the region $D$. $\mathbb{F}$ contains $r_{12}$ and $r_{23}$ in the denominator. On  differentiation we observe that $\mathbb{F}_{\xi_k}$ is a function of $(\xi_k, \eta_k)$ with $\xi, r_{12}, r_{23}$ occuring in the denominator. Since $\xi$ is bounded away from zero for $(\xi_1, \xi_2, \xi_3) \in D_1$ and $r^{-1}_{12}, r^{-1}_{23}$ are bounded, it follows that the $\mathbb{F}_{\xi_k}$ are regular analytic functions of $\xi_k,\eta_k, k = 1,\ldots, 6$, in $D$. For the same reason the $\mathbb{F}_{\eta_k}$ are regular analytic in $D$. Consider the orbit $(\xi_k(s), \eta_k(s))$, $s_o \leq s < s_1 \cdot (\xi_k(s), \eta_k(s))$ is a curve in twelve-dimensional Euclidean space. If $s_o$ is so chosen that the interval $[s_o, s_1]$ is sufficiently small, then this curve lies completely in the region $D$. Thus the hypotheses ensuring the existence of analytic continuation of solutions (Chapter  \ref{chap1}, \S\ \ref{chap1:sec3}) are satisfied for the system of differential equations
+$$
+\xi'_k = \mathbb{F}_{\eta_k}, \eta'_k = - \mathbb{F}_{\zeta_k}, \; k = 1, \ldots 6.
+$$\pageoriginale
+It follows that the solution $\xi_k = \xi_k (s)$, $\eta_k = \eta_k (s)$ can be continued analytically on regular analytic functions of $s$ in a neighbourhood of $s = s_1$. (Acutally it is possible to continue analytically even to a complex neighbourhood of $s = s_1$). This neighbourhood can be determined explicitly by obtaining estimates for the derivatives $\mathbb{F}_{\xi_k}$  and $\mathbb{F}_{\eta_k}$; it is quite straight-forward to compute these estimates and we shall not do this. Thus it follows, in particular, that $\xi_k$ tend to finite limits $\xi_{kl}$ as $s \to s_1$ and the the $\eta_k$ are regular analytic at $s = s_1$ with $\eta_k \to 0$ as $s \to s_1$, $k = 1,2,3$. This completes the proof of the theorem.
+\end{proof}
+
+Theorem \ref{chap2:thm2.6.2} implies that we can expand $\xi_k, \eta_k$ as power-series in $s - s_1$ in a neighbourhood of $s = s_1$. Substituting the expansions in the differential equations we obtain the coefficients of the power-series for $\xi_k(s)$ and $\eta_k(s)$. We consider first $\eta_k, \; k =1,2,3$. Since $\xi_{\xi_k} = \dfrac{\xi k}{\xi}$, $k = 1,2,3$, we find on differentiating $\mathbb{F}$ with respect to $\xi$, that 
+$$
+\eta'_k = - \mathbb{F}_k = \frac{b \xi_k}{\xi} + \text{ terms vanishing for } s= s_1. 
+$$
+Since $\xi \to c$ and $\xi_k \to \xi_{k1} $ as $s \to s_1$, we can expand $\dfrac{\xi_k}{\xi}$ as a power series in $s -s_1$ in a neighbourhood of $s =s_1$ and obtain 
+$$
+\eta'_k = -\frac{b}{c} \xi_{k1} + \text{ terms of degree } \geq 1 \text{ in } s-s_1, \; k =1,2,3.
+$$
+Integrating\pageoriginale from $s$ to $s_1$, for $s$ in a neighbourhood of $s_1$, and using the fact that $\eta_k \to 0$ as $s \to s_1$, i.e. $\eta_k (s_1) = 0$, we see that 
+\begin{equation*}
+\eta_k = - \frac{b}{c} \xi_{kl} (s-s_1)+\text{ terms of degree } \geq 2 \text{ in } s - s_1, \; k = 1,2,3.\tag{2.6.7}\label{chap2:eq2.6.7} 
+\end{equation*}
+But $\left(\dfrac{\xi(s_1)}{c} \right)^2 = \left(\dfrac{\xi_{11}}{c}\right)^2 + \left( \dfrac{\xi_{21}}{c}\right)^2 + \left(\dfrac{\xi_{31}}{c} \right)^2  =1$. Squaring both sides of (\ref{chap2:eq2.6.7}) and adding up for $k = 1,2,3$, we have
+\begin{equation*}
+\eta^2 = b^2 (s-s_1)^2 + \text{ terms of higher order, } b\neq 0\tag{2.6.8}\label{chap2:eq2.6.8} 
+\end{equation*}
+which gives the following expansions for $y_k$, $k=1,2,3$:
+\begin{equation*}
+y_k =\frac{\eta_k}{\eta^2} = - \frac{1}{bc} \xi_{k1}  (s-s_1)^{-1} + \text{ terms of degree } \geq 0 \text{ in } s - s_1. \tag{2.6.9}\label{chap2:eq2.6.9} 
+\end{equation*}
+This shows that at least one of the velocity components of $P_1$ and $P_3$ has a simple pole at $s = s_1$ and hence becomes inifinite of the order of $(s-s_1)^{-1}$ as $s \to s_1$. On the other hand, we have 
+\begin{equation*}
+\xi_k (x) = \xi_{k1} + \text{ terms of degree } \geq 1 \text{ in } s - s_1, \; k = 1,2,3, \tag{2.6.10}\label{chap2:eq2.6.10} 
+\end{equation*}
+so that 
+\begin{equation*}
+\xi(s) = c + \text{ terms of degree } \geq 1 \text{ in } s - s_1, 
+\tag{2.6.11}\label{chap2:eq2.6.11} 
+\end{equation*}
+where $c^2 = \xi^2_{11} + \xi^2_{21} + \xi^2_{31}$. Substituting (\ref{chap2:eq2.6.7}), (\ref{chap2:eq2.6.8}) and (\ref{chap2:eq2.6.10}) in (\ref{chap2:eq2.6.11}) we obtain
+\begin{align*}
+x_k & = \eta^2 \xi_k - 2 \eta_k \sum\limits^3_{l=1} \xi_l \eta_l\\
+& = b^2 \xi_{k1}(s-s_1)^2 + \ldots -2 (-\frac{b}{c} \xi_{k1} (s-s_1) + \ldots) \; (-bc (s-s_1) + \ldots )
+\end{align*}
+or\pageoriginale
+\begin{equation*}
+x_k = - b^2\xi_{k1} (s-s_1)^2 + \text{ terms of degree } \geq 3 \text{ in } (s-s_1), \; k = 1,2,3. \tag{2.6.12}\label{chap2:eq2.6.12} 
+\end{equation*}
+Squaring and summing over $k=1,2,3$, we get 
+\begin{equation*}
+x = b^2 c (s-s_1)^2 + \text{ terms of degree } \geq 3 \text{ in } s - s_1. \tag{2.6.13}\label{chap2:eq2.6.13} 
+\end{equation*}
+By the definition of $s$ we have $t' =\dfrac{dt}{ds} = x$. Integrating this over a sufficiently small interval $(s, s_1)$ we get
+\begin{equation*}
+t - t_1 = \frac{b^2 c}{3}(s-s_1)^3 + \text{ terms of degree } > 3 \text{ in } (s-s_1). \tag{2.6.14}\label{chap2:eq2.6.14} 
+\end{equation*}
+Since $b \neq 0$, $c \neq 0$, we can invert this power-series in a neigh bourhood of $s = s_1$ and obtain
+\begin{equation*}
+s_1 - s= \left(\frac{3}{b^2c} (t_1 -t) \right)^{1/3} + \text{ terms of higher order in } (t_1 -t)^{\frac{1}{3}}.\tag{2.6.15}\label{chap2:eq2.6.15} 
+\end{equation*}
+As a consequence of (\ref{chap2:eq2.6.15}) and the expansions (\ref{chap2:eq2.6.7}) and (\ref{chap2:eq2.6.10}) for $\xi_k, \eta_k$, it follows that $\xi_k, \eta_k$ have power-series expansions in $(t-t_1)^{1/3}$ in some neighbourhood of $t = t_1$. Similarly the expansion (\ref{chap2:eq2.6.12}) for $x_k$ shows that $x_k$ also has a power-series expansion in $(t-t_1)^{1/3}$ in a neighbourhood of $t = t_1$, $k = 1,2,3$. But from (\ref{chap2:eq2.6.9}) we see that 
+\begin{align*}
+y_k = \frac{\eta_k}{\eta^2} & = - \frac{1}{bc} \xi_{k1} (s-s_1)^{-1} + \ldots \\
+& = \frac{1}{bc} \xi_{k1} (\frac{3}{b^2c} (t-t_1))^{-\frac{1}{3}} + \ldots, k = 1,2,3,
+\end{align*}
+contains also negative powers of $(t-t_1)^{1/3}$. This proves our conjecture\pageoriginale that $t =t_1$ is an algebraic branch-point for some coordinate function $x_k, k = 1,2,3 $, and that there are three sheets at the branch-point $t = t_1$.
+
+As we mentioned earlier, Weierstrass had already asserted the existence of power-series expansions for the solution of the three-body problem in cube-roots of $t - t_1$. However, a proof was given explicitly for the first time by Sundman. Sundman's method was different from the one we have described. He did not use canonical transformations. They were first used by Levi-Civita. Sundman also showed that if we introduce the variable $s$, then we can get analytic continuations of the solutions even beyond $s = s_1$. As we pass the singularity $s =s_1$, it follows from (\ref{chap2:eq2.6.14}), since the power-series starts with an odd power of $s -s_1$, that we can go beyond $t =t_1$ through real values. Because of (\ref{chap2:eq2.6.12}), the collision thus means only a reflection of the colliding masses. The same system of differeential equations continues to be satisfied after the collision and so we are led back to the old problem. We can therefore continue the orbit and there are only two possibilities. Either no further collision occurs, or there is a next singularity $t_2$ at which there is a collision which cannot be a general collision if $\lambda^2 + \mu^2 + \nu^2 >0$. This second collision may, however, not be between the same two masses as before. And this process may continue. Suppose that $t_1, t_2, \ldots$ are the times of the successive simple collisions. Then, either this sequence is finite, in which case all 
+the coordinates are regular\pageoriginale analytic functions beyond the last singularity, or there is an infinite sequence of simple collisions. In the latter case Sundman proved that $t_n \to \infty$ necessarily as $n \to \infty$. This is done in the following way. Suppose, if possible, that $t_n$ has a finite limit point $t_\infty$ as $n \to \infty$. We know that the potential function $U(t) \to \infty$ as $t \to t_n$ for each $n =1,2, \ldots ,$ and that $U(t)$ is finite between any two successive collision times $t_{n-1}, t_n, n=2,3, \ldots$. We now assert that $U(t) \to \infty$ as $t \to t_\infty$. For, if not, let $U(t) < A$ for $t$ arbitrarily near $t_\infty$. Then by the Cauchy existence theorem the coordinate functions $q(t)$ are regular analytic functions in a neighbourhood $|t-t_o| < B$ of $t_o$ where $B$ is a constant depending on $A$, the masses and the energy constant. Hence the $q(t)$ are regular at $t = t_\infty$ and so $U = T - h$ is regular at $t = t_\infty$. However, this is not possible since in any neighbourhood of $t_\infty$ there exists a $t_n$ at which $U$ becomes infinite. Thus $U(t) \to \infty$ as $t \to t_\infty$. Consequently, $r(t) = \min (r_{12}, r_{23}, r_{13})$ tends to zero as $t \to t_\infty$. Now, by the Lagrange formula, $\ddot{\sigma} > 0$ in a sufficiently small interval $t_o \leq t < t_\infty$. However, $\ddot{\sigma}$ is infinite at each $t = t_n$, $n =1,2,\ldots$. We have seen that $\dot{\sigma}$ is continuous from the left at $t = t_1$ and we see similarly this is so at each $t = t_n$, and we conclude from our earlier discussion that it is also continuous on the right at each $t =t_n$. Thus $\dot{\sigma}$ is continuous and monotone increasing in $t_o \leq t < t_\infty$. From this it follows as before that $\sigma$ has a positive lower bound in $t_o \leq t < t_\infty$ if $\lambda^2+ \mu^2 + \nu^2 > 0$. And now repeating\pageoriginale our earlier argument we see that as $t \to t_\infty$, exactly one side of the triangle $P_1, P_2, P_3$, say $r(t) = r_{13}$, tends to zero, and the other sides remain bounded away from zero. By the continuity of the distance functions we see that the collision is always between the same pair of points $P_1 , P_3$ for all large $n$ and hence we can take $r(t) = r_{13}$ for all large $n$. By our earlier arguments we can uniformize the coordinate functions $q(t)$ near $t = t_n$ for each $n =1,2, \ldots$ by means of the uniformising variable
+$$
+s_n = \int\limits^{t_n}_{t_o} \frac{dt}{r(t)},
+$$
+the integral converging for each $n$. Repeating our earlier argument we see that $\dot{\sigma}$ is bounded as $t \to t_\infty$ and the integral
+$$
+s_\infty = \int\limits^{t_\infty}_{t_o} \frac{dt}{r(t)}
+$$
+converges and so $s_n$ tends to a finite limit $s_\infty$ as $t \to t_\infty$. We can then prove that the coordinate functions $q(t)$ are regular analytic functions of $s$ in a neighbourhood of $s = s_\infty$. Moreover, $s$ and $t$ are regular functions of each other and $\dfrac{dt}{ds} = r(t)$. Therefore $r(t) = r(t(s))$ is regular in a neighbourhood of $s=s_\infty$. But $r(t) = 0$ for each $t_n$, so that the analytic function $r(t)$ has an infinity of zeros in a neighbourhood of $s = s_\infty$. Thus $r(t) \equiv 0$ in a neighbourhood of $s = s_\infty$ and this is impossible. This proves the assertion\pageoriginale that the times of successive simple collisions $t_n$ do not have a finite limit point.
+
+Hereafter we shall deal with the general collision at $t = t_1$, in which case the singularity terms out, in general, to be an essential singularity. 
+ 

@@ -1,0 +1,318 @@
+\chapter{Lecture 17}%lecut 17
+
+In\pageoriginale this and the next lecture, we shall give a proof of
+de Rham's theorem.  
+
+Let $X$ be an indefinitely differentiable $(C^\infty)$ manifold of
+dimension $n$, which is countable at infinity (i.e) a countable union
+of compact sets); we assume that $X$ is a Hausdorff space. Then $X$ is
+paracompact and normal. (Dieudonne, Jour. de Math. 23 (1944)). The set
+$\mathscr{E}^p (U)$ of all $\underline{C^\infty}$ (alternating)
+differential $p$-forms on an open set $U$ forms a vector space over the
+field of real numbers. Exterior differentiation gives a homomorphism
+$d^p$,    
+$$
+d^p : \mathscr{E}^{p-1} (U) \to \mathscr{E}^p (U)  
+$$
+with $d^{p+1} d^p = 0$. In particular, there is a sequence 
+$$
+0 \xrightarrow{d^o} \mathscr{E}^o (X)  \xrightarrow{d^1}
+\mathscr{E}^1(X) \to \cdots \xrightarrow{d^p}  \mathscr{E}^p (X) \to
+\cdots \xrightarrow{d^n}  \mathscr{E}^n (X)  \xrightarrow{d^{n+1}} 0 
+$$
+with  im $ d^p \subset \ker d^{p+1}$. Let 
+$$
+H^p ( \mathscr{E}(X)) = \ker d^{p+1} / \text{ im } d^p. 
+$$
+
+This vector space of the closed $p$-forms modulo the derived $p$-forms is
+called the $p$-th \textit{de Rham cohomology vector space} of the
+manifold $X$. 
+
+If $V\subset U$, the inclusion map $i : V \to U$ induces a
+homomorphism 
+$$
+\rho_{_{VU}} = i^{-1} :  \mathscr{E}^p (U) \to  \mathscr{E}^p (V)
+$$
+which\pageoriginale commutes with $d$. Thus the system $ \mathscr{E}^p = \{
+\mathscr{E}^p (U), \rho_{_{VU}} \}$ is a presheaf which determines a
+sheaf $\Omega p$, called the sheaf of germs of $p$-forms, and  
+$$
+d^p :  \mathscr{E}^{p-1} \to  \mathscr{E}^p
+$$
+is a homomorphism of presheaves which induces a homomorphism 
+$$
+d^p : \Omega^{p-1} \longrightarrow \Omega^p.
+$$
+
+There is a constant presheaf $\{ R, \rho_{_{VU}}\}$ where $R$ is the 
+filed of real numbers and $\rho_{_{VU}} : R \to R$ is the identity. This
+presheaf determines the constant sheaf $R$. There is a homomorphism $e
+: R \to  \mathscr{E}^o (U)$, ($\mathscr{E}^o(U)$ is the space of
+$C^\infty$ functions on $U$) where $e(r)$ is the function on $U$ with
+the constant value $r$, and further $e$ commutes with
+$\rho_{_{VU}}$. Thus, there is an induced sheaf homomorphism $e : R \to
+\Omega^o$. Hence, we have a sequence of homomorphisms of sheaves  
+$$
+0 \to R \xrightarrow{e} \Omega^o \xrightarrow{d^1} \cdots \to 
+\Omega^{p-1} \xrightarrow{d^p} \Omega^p \to \ldots, 
+$$
+with $d^{p+1} d^p=0$.
+
+There is a homomorphism
+$$
+\{f_U\} :\{\mathscr{E}^p (U), \rho_{_{VU}}\} \to \bar{\Omega^p}, 
+$$
+$(\bar{\Omega}^p$ denotes the presheaf of sections of $\Omega^p$),
+where the image of an element of $\mathscr{E}^p (U)$ is the section
+over $U$ which it determines in $\Omega^p$.\pageoriginale Then $d$ commutes with
+$f_U$ and, in particular, with $f_x $. Thus we have the commutative
+diagram: 
+\[
+\xymatrix{
+\mathscr{E}^{p-1}(X)\ar[r]^{d^p}\ar[d]_{f_X} &
+\mathscr{E}^p(X)\ar[d]^{f_X}\\
+\Gamma (X,\Omega^{p-1}) \ar[r]^{d^p} & \Gamma (X,\Omega^p).
+}
+\]
+
+If a $p$-form $\omega \in \mathscr{E}^p (X)$ is not zero, there
+is some point $x \in X$ at which it does not vanish, and hence
+$\rho_{x X} \omega \neq 0$. Thus $f_X \omega \neq 0$, i.e., $f_X$ is a
+monomorphism. (In the same way, $f_U$ is a monomorphism for each open
+set $U$.) $f_X$ is also onto, hence an isomorphism. For, if $g
+\in \Gamma (X, \Omega^p)$, then since $\Omega^p$ is the sheaf
+of germs of $p$-forms, for each $x \in X$ there is a
+neighbourhood $U_x$ of $x$ and a $p$-form $\omega_x$ defined on $U_x$
+such that section $g$ and the section determined by $\omega_x$
+coincide on $U_x$. Then $\{ U_x\}$ forms a covering for $X$, and since
+the section determined by $\omega_x$ and $\omega_y$ coincide on $U_x
+\cap U_y$, using the fact that $f_U$ is a monomorphism for each open
+set $U$, we see that the forms $\omega_x$ and $\omega_y$ themselves
+coincide on $U_x \cap U_y$; hence they define a global from $\omega$,
+such that $f_X(\omega) = g$. Thus $f_X$ gives an isomorphism of the
+sequences:  
+\[
+\xymatrix{
+0\ar[r] & \mathscr{E}^{o}(X) \ar[r]^{d^1} \ar[d]_{f_X} & \ldots
+\ar[r]& \mathscr{E}^{p-1}(X)\ar[r]^{d^p} \ar[d]_{f_X} &
+\mathscr{E}^p(X) \ar[r] \ar[d]_{f_X} & \ldots\\
+0 \ar[r] & \Gamma(X,\Omega^o) \ar[r]^{d^1} & \ldots \ar[r] &
+\Gamma(X,\Omega^{p-1}) \ar[r]^{d^p} & \Gamma (X,\Omega^p)\ar[r] & \ldots
+ }
+\]
+
+ Hence\pageoriginale there is an induced isomorphism of the cohomology
+ vector  spaces:  
+ $$
+ f^*_X : H^q (\mathscr{E} (X)) \to H^q \Gamma (X, \Omega) \qquad (q
+ \geqq 0). 
+ $$
+
+ \textit{Poincare's lemma. The sequence} 
+ $$
+ 0 \to R \to \Omega^o \xrightarrow {d^1} \cdots \to \Omega{^{p-1}}
+ \xrightarrow{d^p} \Omega^p \to \cdots 
+ $$
+ \textit{is exact}.
+
+ \begin{proof}
+We have to prove that for each point $a \in X$, the sequence 
+$$ 
+0 \to R_a \xrightarrow{e} \Omega{^o_a} \xrightarrow{^{d^1}} \cdots \to
+\Omega^{p-1}_a \xrightarrow{d^p} \Omega^p_a \cdots 
+$$
+is exact, where the subring $R_a$ of $\Omega^o_a$, consisting of the
+germs of constant functions at $\underbar{a}$, is identified with the
+filed $R$ of real number. Choose a coordinate neighbourhood $W$ of
+$\underbar{a}$ with coordinates $(x_1 ,\ldots,x_n)$ and suppose that $a
+=(0,\ldots,0)$. Then $\Omega^p_a$ is the direct limit of the system
+$\left\{\mathscr{E}^p (U), \rho_{_{VU}} \right\}_{a \varepsilon U'}$
+where $U$ belongs to the cofinal set of those spherical neighbourhoods
+$x^2_1 + \cdots + x^2_n < r^2$ which are contained in $W$.   
+ \end{proof} 
+ 
+For each such $U$, let
+ \begin{align*}
+h  & : \mathscr{E}^o (U) \to R  \\
+\text{and } \qquad  k^{p-1}  & : \mathscr{E}^p (U) \to
+\mathscr{E}^{p-1} (U) \qquad (p \geqq 1 )
+ \end{align*}
+   be the homomorphisms defined by
+ $$
+ h (f) = f (0, \ldots, 0), 
+  $$
+and
+\begin{align*}
+&k^{p-1} ( f (x_1, \ldots , x_n) dx_{_{i}} \cdots dx_{i_{p}} ) \\ 
+= &( \int^1_0 f ( tx_1, \ldots, tx_n) t^{p-1} dt ) \cdot\sum^P_{j=1} ( -1
+)^{j-1} x_{i_{j}} dx_{i_{1}} \dots \hat{dx}_{i_{j}} \dots dx_{i_{p}} 
+\end{align*}\pageoriginale
+respectively. (The formula on the right is an alternating function of
+$ i_1,\ldots, i_p $; $h$ and  $k^{p-1} $ are then extended by
+linearity to $\mathscr{E}^o (U) $ and  $ \mathscr{E}^p (U)$
+respectively.) One now verifies that 
+\begin{align*}
+e h + k^0 d^1 & =  1,\\
+d^p k^{p-1} + k^p d^{p+1} & = 1 \; ( p  \geqq 1 ),
+\end{align*}
+where 1 denotes the identity map.
+
+(The computation is carried out at the end of the lecture.)
+
+Thus $ f \in \ker d'$ implies that $ f \in \im e$
+and $ \omega \in  \ker d^{p+1}$ implies that $ \omega \in  \im
+d^p $. Hence $ \ker d^1 = \im e $ and  $ \ker d^{p+1}  = im d^p$,
+since already $ \im e \subset \ker d^1 $ and $ \im d^p \subset \ker
+d^{p+1}$. Hence the  sequence  
+$$
+0 \rightarrow R_U \xrightarrow{e} \mathscr{E}^o (U) \xrightarrow{d^1}
+\dots \mathscr{E}^{p-1} (U) \xrightarrow{d^p} \mathscr{E}^p (U)
+\rightarrow \dots  
+$$
+is exact, and since exactness is preserved under direct limits,
+therefore the limit sequence 
+$$
+0 \rightarrow R_a  \xrightarrow{e} \Omega^o_a \xrightarrow{d^1} \dots
+\rightarrow \Omega^{p-1}_a \xrightarrow{d^p} \Omega^p_a \rightarrow
+\dots 
+$$
+is exact, $q.e.d$.
+
+\textit{The sheaf $\Omega^p$ is fine.}
+
+\begin{proof}%proof 0
+Since the space $X$ is paracompact and normal, by Proposition
+\ref{chap16:prop13} 
+(Lecture \ref{chap16:lec16}), it is enough to prove that the sheaf $
+\Omega^p $ is  
+locally fine. Let $U$ be an open set of $X$, and let  $ a \in U $. 
+\end{proof} 
+
+We\pageoriginale may assume that $ \bar{U} $ is  compact and that it
+is contained in 
+some coordinate neighbourhood $N$ of $a$. Let $V$ be an open subset with
+$ a \in V $ and $ \bar{V} \subset U $. We will now prove that the
+restriction $ \Omega^p_{\bar{V}} $ of $ \Omega^p $ to  $ \bar{V} $ is
+fine. 
+ 
+Let $ E \subset G $ with $E$ closed and $G$ open in $\bar{V}
+$. Extend $G$ to an open set $ H \subset U $, so that $ G = \bar{V}
+\cap H $. Then $ \bar{U} $ is covered by a finite number of spherical
+neighbourhoods $S_i$ contained in $N$, such that $ \bar{S}_i $ either
+does not meet $E$ or is contained in $H$. 
+
+For each $i$, choose an indefinitely differentiable function $f_i$
+which is positive inside $S_i$ and vanishes  out side $S_i $. We
+construct one such function as follows: For the spherical
+neighbourhood $ \sum\limits^n_{j=1} ( x_j - b_{ij} )^2 < r^2_i$, let  
+\begin{align*}
+g_i (r) &= 0  \hspace{3cm } (r \geqq r_i),\\ 
+&= \int^{r_i}_r \exp \left\{ \frac{1}{(t - \frac{r_i}{2})
+  (t-r_i)}\right\} \,dt\; ( \frac{r_i}{2} \leqq r \leqq r_i), \\ 
+&= \int^{r_i}_{r_{i/2}} \exp \left\{ \frac{1}{(t - \frac{r_i}{2})
+  (t-r_i)}\right\} \, dt \; (0 \leqq r \leqq \frac{r_i}{2}) 
+\end{align*}
+and define $f_i$ by 
+$$
+f_i ( x_1, \ldots, x_n ) = g_i ( \sqrt{\sum^n_{j=1}  ( x_j -
+  b_{ij})^2. }  
+$$
+
+Let $\varphi_1 (x) = \sum f_i (x)$, summed  for all $i$ for which $
+\bar{S}_i $ meets $E$ and let $ \varphi_2 (x) = \sum f_i (x) $, summed
+for all the remaining $i$. Then $ \varphi_1 + \varphi_2 $ is
+positive in $ U $ and, if 
+$$
+\theta (x) = \varphi_1 (x) / ( \varphi_1 (x) + \varphi_2 (x) ), 
+$$
+$\theta$\pageoriginale is indefinitely differentiable in $U$, is zero
+outside $H$ and is constant, equal to 1, in a neighbourhood of $E$.  
+
+Let $ h :  \mathscr{E}^p (W) \rightarrow \mathscr{E}^p (W) $, for open
+$ W \subset U $ be defined by $ h (\omega ) = \theta \cdot \Omega $. Then
+$h$ is a homomorphism commuting with $ \rho_{_{YW}}$, $Y $ open in $ U$,  $Y
+\subset W $. Hence $h$ induces a homomorphism $ h : \Omega^p (U)
+\rightarrow \Omega^p (U) $ for which 
+\begin{align*}
+ h ( \omega_b ) &=  \omega_b \text{ if } b \in E, \\
+  h ( \omega_b ) &=  0_b \text{ if } b \in \bar{V} - \bar{G} \subset U
+  -H . 
+\end{align*}
+ ($\omega_b $ denotes the germ determined by $ \omega $ at $ b \in U$.) 
+
+\begin{proposition}%proposition 14
+There is an isomorphism
+$$
+\eta f^*_X : H^p ( \mathscr{E} (X) ) \rightarrow H^P  ( X, R ). 
+$$
+\end{proposition}
+
+\begin{proof}
+By the corollary to Proposition \ref{chap16:prop12}, the exact sequence
+$$
+0 \rightarrow R \xrightarrow{e} \Omega^o \xrightarrow{d^1} \dots
+\rightarrow \Omega^{p-1} \xrightarrow{d^p} \Omega^p \rightarrow \dots 
+$$
+is a resolution of the constant sheaf $R$ and hence, by Proposition
+\ref{chap14:prop10}, there is an isomorphism 
+$$
+\eta : H^p \Gamma ( x, \Omega )  \rightarrow H^p ( X,R ); 
+$$
+ but we already have (as proved in the earlier part of this lecture)
+ an isomorphism 
+ $$
+ f^*_X : H^p ( \mathscr{E} (X) ) \rightarrow H^p \Gamma ( X, \Omega
+ ). 
+ $$
+\end{proof}
+
+\noindent
+$ \underline{(1) eh + k^0 d^1 = 1 } $.  \quad $ \underline{(2) d^p
+  k^{p-1} + k^p d^{p+1} = 1 ~ ( p \geqq 1)} $.\pageoriginale 
+
+\begin{enumerate}[(1)]
+\item  If $ f (x) = f ( x_1, \ldots , x_n )  \in \mathscr{E}^0 (U ) $, 
+$$  
+eh f (x) = f( 0, \ldots , 0 ) \text{ and }  d^1 f(x) = \sum^n_{i =1}
+D_i f (x)  dx_i,  \hfill{(*)},  
+$$ 
+ hence $ k^o d^1 f(x) = \sum^n_{i=1}  \int^1_0 D_i f (tx) dt \cdot  x_i =
+ \int^1_0 \dfrac{d}{dt} f (tx) dt  = f (x) - f(0)$, thus $eh f (x) +
+ k^o d^1 f(x) = f (x) $. 
+
+\item If $ \omega = f ( x_1, \ldots , x_n ) dx_{i_1} \cdots dx_{i_{p}}$,
+\end{enumerate}
+\begin{align*}
+ & d^p k^{p-1} = d^p ( \bigg\{ \int^1_0  f (tx) t^{p-1} dt \bigg\}
+  \cdot \sum^p_{j=1} (-1)^{j-1} x_{i_{j}} dx_{i_{1}} \cdots d
+  \hat{x}_{i_{j}} \cdots dx_{i_{p}}\\ 
+ &  = \bigg\{ ( \sum^n_{i=1} ( \int^1_0 D_i f (tx) t^p dt ) ) \cdot
+  \sum^p_{j=1} (-1)^{j-1} x_{i_{j}} dx_{i_{1}} \cdots d
+  \hat{x}_{i_{j}} \dots dx_{i_{p}} \bigg\}\\ 
+ & \qquad + ( \int^1_0 f (tx) t^{p-1} dt ) \cdot  p dx_{i_{1}} \cdots
+  dx_{i_{p}}.\\ 
+ & k^p d^{p+1} \omega = k^p ( \sum^n_{i=1} Di f (x)  dx_i
+  dx_{i_{1}} \cdots dx_{i_{p}})\\  
+& \sum^n_{i=1}  ( \int^i_0 D_i f (tx) t^p \cdot dt ) \bigg\{ x_i dx_{i_{1}}
+  \cdots dx_{i_{p}}\\
+&\qquad\quad{} - \sum^p_{j=1} (-1)^{j-1} x_{i_{j}} dx_i
+  dx_{i_{1}} \cdots d \hat{x}_{i_{j}} \cdots dx_{i_{p}} \bigg\}. 
+\end{align*}
+$ (*) \; D_i $ denotes partial derivation with respect to the $i$ - th
+variable concerned.  
+
+Thus\pageoriginale $ d^p k^{p-1} \omega + k^p d^{p+1} \omega $ 
+\begin{align*}
+& = ( \int^1_0 f(tx) p \cdot t^{p-1} dt ) dx_{i_{1}} \dots dx_{i_{p}}\\
+& {} +  \sum^n_{i=1}  \int^1_0 D_i f (tx) t^p \cdot dt \cdot x_i dx_{i_{1}} \dots
+  dx_{i_{p}}\\ 
+& = \bigg\{ f (tx) t^p  \bigg]^1_0 - \int^1_0 \sum^{n}_{i = 1} D_i f
+    (tx)\cdot x_i t^p dt \bigg\} dx_{i_{1}} \dots dx_{i_{p}}\\ 
+& \qquad + \sum^n_{i=1} \int^1_0  D_i f (tx)\cdot t^p dt \cdot  x_i
+    dx_{i_{1}} \dots     dx_{i_{p}} \\ 
+&=  f(x) dx_{i_{1}} \dots dx_{i_{p}} \\
+&= \omega .
+ \end{align*} 
+ 
+

@@ -1,0 +1,384 @@
+\chapter{Lecture 5}\label{chap5}
+
+\section{Some examples of semi-groups}\label{chap5:sec1}\pageoriginale
+
+\begin{enumerate}[I]
+\item In $C[o, \infty]$ [ the space of bounded uniformly continuous
+ functions on the closed interval $[0, \infty]$] define $
+ \big\{T_t\big\}_{t \geq 0}$ by 
+ $$
+ (T_t x)(s) = x(t +s)~ (x \in C). 
+ $$
+ $\big\{ T_t \big\}$ is a semi-group. Condition (1) is trivially
+ verified. (2) follows from the uniform continuity of $x$, as 
+ $$
+ || T_t x - T_{t_o} x || = \sup_{s \geq 0} | x (t + s ) - x (t_o + s )|.
+ $$
+
+ Finally $|| T_t || = 1 $ and so $(3)$ is satisfied with $\beta = 0$. 
+ 
+ In this example, we could replace $C[ 0, \infty]$ by $C[ -\infty,
+  \infty] $. 
+\item On the space $C [ o, \infty]$ (or $C[ -\infty, \infty]$),
+ define $\big\{T_t \big\} t \geq 0$ 
+ $$
+ (T_t x ) (s) = e^{\beta t} x(s)
+ $$
+ where $\beta$ is a fixed non-negative number. Again (1) is
+ trivial; for (2) we have $|| T_t x - T_{t_\circ} x || = \big|
+ e^{\beta t } - e^{ \beta t_o}\big| \sup_s | x(s) | $. Trivially $||
+ T_t || = e^{ \beta t}$. 
+\item Consider the space $C[ -\infty, \infty]$. Let 
+ $$
+ N_t (u) = \frac{1}{\sqrt{ 2 \pi t}} e^{-u^{2}/2t}, =\infty < u <
+ \infty, t > 0, 
+ $$
+ (the normal probability density). Define $\big\{ T_t \big\}_{t\geq
+  0}$ on $C[ -\infty, \infty]$ by: 
+ $$
+ (T_t x )(s) = 
+ \begin{cases}
+  ~\int\limits_{-\infty}^{ \infty} N_t (s - u) x(u) du, &\text { for
+  } t > 0\\ 
+  ~x(s) & \text{ for } t = 0
+ \end{cases}
+ $$
+ 
+ Each\pageoriginale $T_t$ is continuous:
+ $$
+ || T_t x || \leq || x || \int\limits^\infty_{- \infty} N_t (s - u )
+ du = || x||, \text{ as } \int\limits^\infty_{- \infty} N_t (s - u )
+ du = 1. 
+ $$
+
+ Moreover it follows from this that condition $(3)$ is valid with
+ $\beta = 0$. By definition $T_o = I$ and the semi-group property
+ $T_t T_s = T_{ t+s}$ is a consequence of the well -known formula
+ concerning the Gaussian distribution. 
+ $$
+ \frac{1}{\sqrt{ 2 \pi (t +t ')}} e^{ -u^2 / 2 (t + t')} =
+ \frac{1}{\sqrt{ 2 \pi t}} \frac{1}{\sqrt{ 2 \pi t'}} \int\limits_{ -
+  \infty}^{ \infty} e^{\frac{-( u -v )^2}{2t} e^{ \frac{- v^2}{2t'}}}dv. 
+ $$
+ 
+ (Apply Fubini's theorem). To prove the strong continuity, consider
+ $t, t_o > 0$ with $t \neq t_0$. (The case $t_o = 0$) is treated in a
+ similar fashion). By definition 
+ $$
+ (T_t x )(s) - (T_{ t_o }x)(s) = \int\limits^{\infty}_{
+  -\infty}\bigg\{ N_t (s-u) x(u) - N_{t_o}(s-u) x(u) \bigg\} du. 
+ $$
+ 
+ The integral $\int\limits^{ \infty}_{-\infty} \dfrac{1}{\sqrt{2
+   \pi t}} e^ {-(s - u)^2 /2t} x(u) du$ becomes, by the change of
+ variable $\dfrac{s-u}{\sqrt{t}} = z$, $\dfrac{1}{\sqrt{2 \pi}}
+ \int\limits^{\infty}_{ - \infty} e^{- z^2 / 2} x ( s - \sqrt{t}z) dz$. Hence 
+ $$
+ (T_t x)(s) - (T_{t_0} x) ~
+ (s)) = \int\limits_{-\infty}^{\infty} N_1 (z)\left\{ x\left(-s
+ \sqrt{tz}\right)- x (s - \sqrt{t_o z} )\right\} dz~ x(s)
+ $$ 
+ being uniformly continuous
+ on $-\infty,\infty$, for any $\varepsilon > 0$ there exists a
+ number $\delta = \delta (\varepsilon) > 0$ such that $| x(s_1) -
+ x(s_2) | \leq \varepsilon $ whenever $|s_1 - s_2|\leq \delta$. Now,
+ splitting the last integral 
+ \begin{align*}
+  | (T_t x ) (s) & - (T_{t_\circ} x )(s)| \\
+  & \leq \int\limits_{|\sqrt{tz}- \sqrt{t_o} z| \leq \delta} N_1
+  (z) | x (s - \sqrt{tz}) - x (s - \sqrt{t_\circ z}dz\\ 
+  & \hspace{4cm} +
+  \int\limits_{|\sqrt{tz} - \sqrt{t_\circ}z |> \delta} N_1 (z)(\ldots)
+  dz\\ 
+  & \leq \mathcal{E} \int N_1 (z) dz + 2 ||x|| \int\limits_{ |
+   \sqrt{tz} - \sqrt{t_o}z> \delta} N_1 (z) dz\\ 
+  & = \mathcal{E} + 2 || x|| \int\limits_{|z| > |
+   \frac{\delta}{\sqrt{t}-{\sqrt{t_0}}|}} 
+ \end{align*}
+ 
+ The\pageoriginale second term on the right tends to $0$ as $|t -t_o| \to 0$,
+ because the integral $\int\limits_{ -\infty}^{ \infty} N_1 (z) dz$
+ converges. Thus 
+ $$
+ \varlimsup_{ t \to t_o} \sup_{ -\infty < s < \infty}| (T_t x)(s) -
+ (T_{t_0} x)(s)| \leq \mathcal{E}. 
+ $$
+
+ Since $\mathcal{E} > 0$ was arbitrary, we have proved the strong
+ continuity at $ t =t_o$ of $T_t$. 
+ 
+ In this example we can also replace $C[ o, \infty]$ by $L_p[ o,
+  \infty]\, 1 \leq p < \infty$. Consider, for example $L_1[ o,
+  \infty]$. In this case, $||T_t x|| \leq \int\limits^{\infty}_{ -
+  \infty} \bigg[ \int\limits^{\infty}_{-\infty} N_t\break (s-u) |x(u)|
+  ds\bigg] du \leq || x ||$, applying Fubini's theorem. 
+ 
+ As for the strong continuity, we have 
+ \begin{align*}
+  (T_t x)(s) & - (T_{t_o} x) (s)||\\ 
+  &= \int\limits^{ \infty}_{ -
+   \infty}\bigg| \int\limits^{ \infty}_{ - \infty} N_1 (z) \left\{ x
+  (s - \sqrt{tz}) - x (s - \sqrt{t_o z})\right\} dz | ds \\ 
+  & \leq \int\limits^\infty_{-\infty} N_1 (z) \left[
+   ~\int\limits^{ \infty}_{ - \infty} |x(s -\sqrt{t}z)-x( s -
+   \sqrt{t_o} z)| ds \right]dz 
+ \end{align*}
+ 
+ Since $N_1 (z) \int\limits^{ \infty}_{ -\infty} | x(s - \sqrt{t}z )
+ - x (s - \sqrt{t_o} z) | ds \leq 2 || x || N_1 (z)$, we may apply
+ Lebesgue's dominated convergence theorem. We then have 
+ \begin{multline*}
+ \varlimsup_{ t \to t_\circ} || (T_t x) (S) - (T_{t_0} x ) (S)||\\
+ \int\limits^{\infty }_{- \infty}N_1 (z) \left\{ \varlimsup_{ t \to
+  t_o} \int\limits_{-\infty}^{\infty} | x( - \sqrt{t}z )- x(s -
+ \sqrt{t_o} z)| ds \right\} dz = 0, 
+ \end{multline*}
+ by the continuity in mean of the Lebesgue integral. 
+\item Consider $C[ - \infty, \infty]$. Let $\lambda > 0, \mu >
+ 0$. Define $\big\{T_t \big\}_{t \geq 0}$ 
+ $$
+ (T_t x )(s) = e^{- \lambda t}\sum^\infty_{ k = 0} \frac{(\lambda
+  t)^k}{k!} x(s - k \mu ). 
+ $$
+ $\{ T_t \}$ is a semi-group. Strong continuity follows from: 
+ $$
+ \mid ( T_t X) (s) - T_{t_{0}} X) (s) \mid \leq \| x \|
+ |e^{-\lambda t} \sum^{\infty}_{k=0} \frac{(\lambda t)^k}{k!}
+ -e^{\lambda t_0} \sum^{\infty}_{k=0} \frac{(\lambda t_0)^k}{k !}
+ | = 0. 
+ $$
+ (3)~\pageoriginale is satisfied with $ \beta = 0 $. To verify $ (1) $
+ \begin{align*}
+  (T_w (t_t x) ) (s) & = e^{\lambda w} \sum^{\infty}_{l=0} \frac{(
+   \lambda w )^l}{l!} \left[ e^{- \lambda t} \sum^{\infty}_{k=0}
+   \frac{( \lambda t)^k}{k!} f ( s-k \mu -1 \mu ) \right]\\ 
+  &= e^{-\lambda ( w +t)} \sum^{\infty}_{p=0} \frac{1}{p!} \left[
+   p! \sum^{p}_{1=0} \frac{(\lambda w)^1 ( \lambda t )^{p-1}}{1! ~
+    p-1!} f (s-p \mu ) \right]\\ 
+  &= e^{- \lambda ( w + t )} \sum^{\infty}_{p=0} \frac{1}{p!} (
+  \lambda w + \lambda t)^p f ( \lambda + \lambda t)^p f ( s - p \mu
+  ) \\ 
+  &= ( T_{w+t} x) (s). \\
+ \end{align*}
+\end{enumerate}
+
+\section{The infinitesimal generator of a semi-group}\label{chap5:sec2}
+
+\begin{defi*}
+ The \em{infinitesimal generator } $A$ of a semi-group $ T_t $ is
+ defined by: 
+ $$
+ A x = s- \lim_{h \downarrow 0 } h^{-1} ( T_h - I) x, 
+ $$
+ i.e., as the additive operator $A$ whose domain is the set 
+ \begin{align*}
+ \mathscr{D} (A) &= \left\{ x \mid s- \lim \limits_{h \downarrow 0}
+ h^{-1} (T_h- I ) x ~\text{exists }\right\} ~\text{ and for }~ 
+ x \in \mathscr{D} (A),\\  
+ A x & = s - \lim_{h \downarrow o} h^{-1} ( T_h -I ) x. 
+ \end{align*}
+\end{defi*} 
+
+$ \mathscr{D} (A) $ is evidently non- empty; it contains at least
+zero. Actually $ \mathscr{D} (A) $ is larger. We prove the 
+
+\begin{prop*}
+ $ \mathscr{D} (A) $ is dense in $X$ ( in the norm topology ).
+\end{prop*}
+
+\begin{proof}
+ Let $ \varphi_n (s) = n e^{-ns} $. Introduce the linear operator $
+ C_{\varphi_{n}} $ defined by 
+ $$ 
+ C_{\varphi_{n}} x = \int\limits^{\infty}_{0} \varphi_n (s) T_s x
+ ds ~\text{ for } x \in X \text{ and } n > \beta, 
+ $$
+ the integral being taken in the sense of Riemann. (The ordinary
+ procedure of defining the Riemann integral of a real or complex
+ valued\pageoriginale func\-tions can be extended to a function with values in a
+ Banach space, using the norm instead of absolute value ). The
+ convergence of the integral is a consequence of the strong
+ continuity of $ T_s $ in $s$ and the inequality, 
+ $$
+ \mid\mid \varphi_n (s) T_s x \mid\mid \leq n e^{( -n + \beta) s} \mid x \mid\mid.
+ $$
+\end{proof}
+
+ The operator $ C_{\varphi_{n}} $ is a linear operator whose norm
+ satisfies the inequality 
+ $$
+ \mid\mid \varphi_n \mid\mid \leq n ~ \int \limits^{\infty}_{0} e^{(
+  -n + \beta) s} ds = 1/1 - \beta/n. 
+ $$
+
+We shall now show that $\mathfrak{W} ( C_{\varphi_{n}} ) \subseteq
+\mathscr{D} (A) $ $ (\mathfrak{W} ( C_{\varphi_{n}} ) $ denotes the
+range of $ C_{\varphi_{n}} ) $ for each $ n > \beta $ and that for
+each $ x \in X $, $ s - \lim \limits_{n \rightarrow \infty} $  $
+C_{\varphi_{n}} x = x $; then $ \bigcup \limits_{n >
+ \beta}\mathfrak{W} C_{\varphi_{n}} ) $ will be dense in $X$ and
+a-portion $\mathscr{D} (A)$ will be dense in $X$. We have 
+$$
+h^{-1} (T_h -I ) C_{\varphi_{n}} x = h^{-1} \int
+\limits^{\infty}_{0} \varphi_n (s) T_h T_s x ds- h^{-1} \int
+\limits^{\infty}_{0} \varphi_{n} (s) T_s x ds 
+$$ 
+(The change of the order $T_h \int \limits^{\infty}_{0} \cdot = \int
+\limits^{\infty}_{0} T_h \cdots $ is justified, using the additivity
+and the continuity of $ T_h $, by approximating the integral by
+Riemann sums). Then 
+\begin{align*}
+ h^{-1} ( T_h - I) C_{\varphi_{n}} x &= h^{-1} \int
+ \limits^{\infty}_{0} \varphi_n (s) T_{h+s} x ds -h^{-1} \int
+ \limits^{\infty}_{0} \varphi_n (s) T_s x ds \\ 
+ &= h^{-1} \int \limits^{\infty}_{0} \varphi_n (s-h) T_s x ds -
+ h^{-1} ~ \int \limits^{\infty}_{0} \varphi_n (s) T_s x ds\\ 
+ &\hspace{1.cm} \text{ ( by a change of variable in the first
+  integral ).} \\ 
+ &= h^{-1} \int\limits^{\infty}_{h} \{ \varphi_n (s -h) - \varphi_n
+ (s) \} T_s x ds\\ 
+ &= h^{-1} \int \limits^{h}_{0} \varphi_n (s) T_s x ds.
+\end{align*}
+
+By\pageoriginale the strong continuity of $ \varphi_n (s) T_s x $ in $s$, the
+second term on the right converges strongly to $ - \varphi_n (0) T_0 x
+= -nx $, as $ h \downarrow 0 $. 
+\begin{align*}
+ & h^{-1} \int \limits^{\infty}_{h} \{ \varphi_n (s-h) - \varphi_n
+ (s) \} T_s x ds \\ 
+ &= \int \limits^{\infty}_{h} - \varphi'_n ( s - \Theta h ) T_s x ds
+ ~ ( 0 < \Theta < 1 ) \text{ ( by the mean value theorem )} \\ 
+ &= \int \limits^{\infty}_{0} - \varphi'_n (s) T_s x ds +
+ \int\limits^{h}_{0} \varphi'_n (s) T_s x ds + ~ \int
+ \limits^{\infty}_{h} \{ \varphi'_n (s) - \varphi'_n ( s - \theta h )
+ \} T_s x ds. 
+\end{align*}
+
+But, $ \int \limits^{h}_{0} \varphi'_n (s) T_s x ds \rightarrow 0 $
+as $ h \downarrow 0 $ and 
+\begin{align*}
+ \mid\mid \int \limits^{\infty}_{h} & \left\{ \varphi'_n (s) - \varphi'_n
+ ( s - \Theta h )\right\} T_s x ds \mid\mid \\ 
+ &\leq n^2 ~ \int \limits^{\infty}_{h} \mid e^{-n ( s - \theta h )}
+ -e^{-ns} \mid e^{\beta s} \mid\mid x \mid\mid ds \\ 
+ &\leq n^2 ( e^{n \Theta h} -1 ) ~ \int \limits^{\infty}_{h} e^{(
+  \beta-n) s} \mid\mid x \mid\mid ds \rightarrow 0 \text{ as } h
+ \downarrow 0. ( \beta < n ). 
+\end{align*}
+
+Thus we have proved that $\mathfrak{W} ( C_{\varphi_{n}} ) \subseteq
+\mathscr{D} (A) $ and 
+ $$
+\begin{fbox}
+ { $A C_{\varphi_{n}} x = n ( C_{\varphi_{n}} - I ) x $}
+\end{fbox}
+$$
+as $ \varphi'_n = -n \varphi_n $. Next, we show that $ s-\lim
+\limits_{n \rightarrow \infty} C_{\varphi_{n}} (x) = x $ for each $
+x \in X $. We observe that 
+\begin{align*}
+ C_{\varphi_{n}} x - x &= \int\limits^{\infty}_{0} n e^{-ns} T_s x
+ ds - \int \limits^{\infty}_{0} n e^{-ns} x ds, ( \text{ as } \int
+ \limits^{\infty}_{0} ne^{-ns} ds =1 ) \\ 
+ &= n \int \limits^{\infty}_{0} e^{-ns} \big[ T_s x -x \big] ds.
+\end{align*}
+
+Approximating the integral by Riemann sums and using the triangle
+inequality we have 
+\begin{align*}
+ \mid\mid C_{\varphi_{n}} x - x \mid\mid &\leq n ~ \int
+ \limits^{\infty}_{0} e^{-ns} \mid\mid T_s x-x \mid\mid ds \\ 
+ &= n \int \limits^{\delta}_{0} \cdots + n \int
+ \limits^{\infty}_{\delta} \cdots, ~ \delta > 0 \\ 
+ &= I_1 + I_2 , \text{ say }.
+\end{align*}
+
+Given\pageoriginale $ \mathcal{E} > 0 $, by strong continuity, we can choose a $
+\delta > 0 $ such that $ \mid\mid T_s x - x \mid\mid < \mathcal{E} $
+for $ 0 \leq s \leq \delta $; then 
+$$
+I_1 \leq \mathcal{E} n \int \limits^{\delta}_{0} e^{-ns} ds \leq
+\mathcal{E} n ~ \int \limits^{\infty}_{0} e^{-ns} ds = \mathcal{E}.
+$$
+
+For a fixed $ \delta > 0 $, using the majorization condition in the
+definition of a semi-group, 
+\begin{gather*}
+ I_2 \leq n ~ \int \limits^{\infty}_{\delta} e^{-ns} ( e^{\beta s} +
+ 1 ) \mid\mid x \mid\mid ds 
+ = \mid\mid x \mid\mid \left[ n \frac{e^{( n + \beta )s}}{-n}
+  \right]^{\infty}_{\delta} - \mid\mid x \mid\mid \left[ n
+  \frac{e^{-ns}}{n} \right]^{\infty}_{\delta}
+\end{gather*}
+
+Each of the terms on the right tends to zero as $ n \rightarrow
+\infty$. So $ I_2 \leq \mathcal{E} $, for $ n > n_0 $. Thus $
+C_{\varphi_{n}} x \rightarrow x $ as $ n \rightarrow \infty $. 
+
+\begin{remark*}
+ That $ \mathscr{D} (A) $ is dense in $X$ can be proved more
+ easily. But we need the considerations given in the above proof for
+ later purpose. 
+\end{remark*}
+
+\begin{defi*}
+ For $ x \in X $ define $ D_t T_t x $ by
+ $$
+ D_t T_t x = s - \lim_{h \rightarrow 0} h^{-1} ( T_{t+h} - T_t ) x
+ $$
+ if the limit exists.
+\end{defi*}
+
+\begin{prop*}
+ If $ x \in \mathscr{D} (A) $ then $ x \in \mathscr{D} (D_t) $ and $
+ D_t T_t x = A T_t x = T_t A x $. 
+\end{prop*}
+
+\noindent\textit{Proof.}
+ If $ x \in \mathscr{D} (A) $, we have, since $T_t $ is a linear operator,
+ \begin{align*}
+  T_t A x &= T_t ~s-\lim_{h \downarrow 0} h^{-1} (T_h -I ) x \\
+  &= s-\lim_{h \downarrow 0} h^{-1} ( T_t T_h - T_t ) x\\
+  &= s-\lim_{h \downarrow 0} h^{-1} ( T_{t+h} - T_t ) x\\
+  &= s-\lim_{h \downarrow 0} h^{-1} ( T_h - I ) T_t x ~ = A T_t
+  x.\tag*{$\Box$}
+ \end{align*}
+
+Thus,\pageoriginale if $x \in \mathscr{D} (A) $, then $ T_t x \in \mathscr{D} (A)
+$, and $ T_t A x = A T_t x = s- \lim \limits_{h \downarrow 0} h^{-1}
+(T_{t+h} - T_t ) x $. We have now proved that the strong right
+derivative of $ T_t x $ exists for each $ x \in \mathscr{D} (A) $. We
+shall now show that the strong left derivative exists and is equal to
+the right derivative. For this, take any $f\in X^* $. For fixed $ x,
+f (T_t~ x ) $ is a continuous numerical function (real or complex -
+valued ) on $ t \ge 0 $. By the above. $f(T_t~ x)$ has right
+derivative $\dfrac{d^+ f(T_t~ x)}{dt}$ and 
+$$
+\frac{d^+ f (T_t~ x)}{dt} = f ( A T_t\, x ) = f ( T_t\, A \,x ).
+$$ 
+
+But $f(T_t \,A \,x )$ is a continuous function. It is well-known that
+if one of the Dini-derivatives of a numerical function is ( finite and
+) continuous, then the function is differentiable ( and the
+derivative, of course, is continuous ). So $ f( T_t x ) $ is
+differentiable in $t$ and 
+\begin{align*}
+ f (T_t x -x ) &= f (T_t x ) - f (T_0 x ) \\
+ &= \int \limits^{t}_{0} \frac{d^+ f (T_s x)}{ds} ~ ds = ~ \int
+ \limits^{t}_{0} f (T_s A x ) ds \\ 
+ &= f \left(\int \limits^{t}_{0} A~ x~ ds\right).
+\end{align*}
+
+However, if every linear functional vanishes on an element $ x \in X
+$, then $ x = 0 $ ( by Hahn - Banach theorem ). Consequently, 
+$$
+T_t ~ x -x = ~ \int \limits^{t}_{0} T_s ~ A x ds.
+$$
+for each $ x \in \mathscr{D} (A) $. Since $T_s$ is strongly
+continuous in $s$, it follows from this, that $T_t$ is strongly
+derivable: 
+\begin{align*}
+ D_t T_t x &= s- \lim_{h \rightarrow 0} h^{-1} ( T_{t+h} - T_t ) x\\
+ &= s- \lim_{h \rightarrow 0} h^{-1} \int^{t+h}_t T_s A x ds \\
+ &= T_t A x.
+\end{align*}

@@ -1,0 +1,641 @@
+\chapter[Application of the Comparison Theorem....]{Application of the Comparison Theorem an Exact Sequence for
+  Fundamental Groups}\label{chap6}
+
+
+\section{}\label{chap6-sec6.1}\pageoriginale
+As usual we make the convention that the preschemes considered are
+locally noetherian and the morphisms are of finite type (with the same
+remark as in the beginning of Ch. \ref{chap3}). 
+
+\begin{defin}\label{defin6.1.1}
+\begin{itemize}
+\item[(a)] A morphism $X\to \Spec k$, $k$ a field, is said to be {\em
+  separable} if, for any extension field $K/k$, the prescheme
+  $\foprod{X}{K}{k}$ is {\em reduced.}
+
+\item[(b)] A morphism $X\xrightarrow{f}Y$ is separable if $f$ is flat and
+  for any $y\in Y$, $\foprod{X}{\Spec k(y)}{Y}$ is separable over $k(y)$.
+\end{itemize}
+
+We shall now state a few results which we will need for our next main
+theorem. Proofs can be found in EGA.
+\end{defin}
+
+\setcounter{theorem}{1}
+\begin{theorem}\label{chap6-thm6.1.2}
+Let $f:X\to Y$ be a proper morphism and $\mathscr{F}$ a coherent
+$\mathscr{O}_{X}$-Module. If $Y_{1}\xrightarrow{q}Y$ is a flat
+base-change
+\[
+\xymatrix@=1.2cm{
+X\ar[d]^{f} & \ar[l]_-{q_{1}} X_{1}=\fprod{X}{Y_{1}}{Y}\ar[d]^{f_{1}}\\
+Y & \ar[l]_-{q} Y_{1} 
+}
+\]
+then we have the isomorphisms
+$$
+R^{n}f_{1\ast}(q^{\ast}_{1}(\mathscr{F}))\xleftarrow{\sim}\foprod{R^{n}f_{\ast}(\mathscr{F})}{\mathscr{O}_{Y_{1}}}{\mathscr{O}_{Y}} 
+$$
+for any $n\in \mathbb{Z}^{+}$. (Prop. (1.4.15), EGA, Ch. III).
+\end{theorem}
+
+\setcounter{subsection}{2}
+\subsection{}\label{chap6-sec6.1.3}
+Suppose\pageoriginale $Y$ {\em is a noetherian prescheme and $f:X\to
+  Y$ a proper morphism.} Let $Y'\hookrightarrow Y$ be a closed
+subscheme of $Y$, defined by a coherent Ideal $\mathscr{T}$ of
+$\mathscr{O}_{Y}$. The ``inverse image'' of $Y'$ by $f$, namely the
+fibre-product $\fprod{X}{Y'}{Y}=X'$ is then a closed subscheme of $X$,
+defined by the $\mathscr{O}_{X}$-Ideal
+$\mathscr{T}=f^{\ast}(\mathscr{T})\mathscr{O}_{X}$.
+
+Let $\mathscr{F}$ be any {\em coherent} $\mathscr{O}_{X}$-Module; for
+$n\in \mathbb{Z}^{+}$, consider
+$\mathscr{F}_{n}=\foprod{\mathscr{F}}{\mathscr{O}_{X}/\mathscr{T}^{n+1}}{\mathscr{O}_{X}}$
+(this is a coherent $\mathscr{O}_{X}$-Module, concentrated on the
+pre\-scheme $X_{n}=(X',\mathscr{O}_{X}/\mathscr{T}^{n+1})$ and may also
+be considered as an $\mathscr{O}_{X_{n}}$-Module). Consider
+$R^{q}f_{\ast}(\mathscr{F}_{n})$; this is a coherent
+$\mathscr{O}_{Y}$-Module (finiteness theorem), is concentrated on the
+prescheme $Y_{n}=(Y',\mathscr{O}_{Y}/\mathscr{T}^{n+1})$ and is in
+fact an $\mathscr{O}_{Y_{n}}$-Module. From the homomorphism
+$\mathscr{F}\to \mathscr{F}_{n}$ we obtain a homomorphism
+$R^{q}f_{\ast}(\mathscr{F})\to R^{q}f_{\ast}(\mathscr{F}_{n})$ and
+since the latter is an $\mathscr{O}_{Y_{n}}$-Module, we get a natural
+homomorphism: 
+\begin{equation*}
+\foprod{R^{q}f_{\ast}(\mathscr{F})}{\mathscr{O}_{Y}/\mathscr{T}^{n+1}}{\mathscr{O}_{Y}}\to
+R^{q}f_{\ast}(\mathscr{F}_{n}).\tag{*} 
+\end{equation*}
+
+As $n$ varies, we get a projective system of homomorphisms. With the
+assumptions we have made about $X$, $Y$, $f$, the {\em comparison
+  theorem} (EGA, Ch. III, Theorem (4.1.5)) states that in the limit,
+this gives an {\em isomorphism}:
+\begin{equation*}
+\foprod{\varprojlim_{n}R^{q}f_{\ast}(\mathscr{F})}{\mathscr{O}_{Y}/\mathscr{T}^{n+1}}{\mathscr{O}_{Y}}\xrightarrow{\sim}\varprojlim_{n}R^{q}f_{\ast}(\mathscr{F}_{n}). \tag{**}
+\end{equation*}
+({\bf Note:}\pageoriginale Both sides of (**) are concentrated on $Y'$
+and they are also equal to
+$R^{q}\widehat{f}_{\ast}(\varprojlim_{n}\foprod{\mathscr{F}}{\mathscr{O}_{X}/\mathscr{T}^{n+1}}{\mathscr{O}_{X}})$
+where $\widehat{f}$ is the morphism of the {\em ringed spaces}
+$\widehat{X}=(X',\varprojlim_{n}\mathscr{O}_{X}/\mathscr{T}^{n+1})\to
+\widehat{Y}=(Y',\varprojlim_{n}\mathscr{O}_{Y}/\mathscr{T}^{n+1})$
+obtained from the morphisms $f_{n}:X_{n}\to Y_{n}$, induced by $f$).
+
+We shall now ``specialise'' the above comparison theorem to the case
+$Y$ affine, say $Y=\Spec A$. Then $Y'$ is defined by an ideal $I$ of
+$A$. The first member of (**) corresponds to
+$\varprojlim_{n}H^{q}(X,\mathscr{F})\otimes_{A}\frac{A}{I^{n+1}}$
+which is precisely the completion of $H^{q}(X,\mathscr{F})$ under the
+$I$-adic topology, while the second member of (**) corresponds to
+$\varprojlim_{n}H^{q}(X,\mathscr{F}_{n})$ and thus: 
+\begin{equation*}
+H^{q}(X,\mathscr{F})\sphat
+\xrightarrow{\sim}\varprojlim_{n}H^{q}(X,\mathscr{F}_{n}). \tag{{*}{**}}
+\end{equation*}
+
+\section{The Stein-factorisation}\label{chap6-sec6.2}
+
+Let $X\xrightarrow{f}Y$ be a proper morphism. Then the coherent
+$\mathscr{O}_{Y}$-Algebra $f_{\ast}(\mathscr{O}_{X})$ (finiteness
+theorem) defines a $Y$-prescheme $Y'\xrightarrow{q}T$, {\em finite} on
+$Y$. To the identity $\mathscr{O}_{Y}$-morphism
+$q_{\ast}(\mathscr{O}_{Y'})=f_{\ast}(\mathscr{O}_{X})\to
+f_{\ast}(\mathscr{O}_{X})$ corresponds a $Y$-morphism $f':X\to Y'$,
+i.e., we have a commutative diagram
+\[
+\xymatrix@=1.2cm{
+X\ar[dr]_{f}\ar[rr]^{f'} & & Y'=\Spec f_{\ast}(\mathscr{O}_{X})\ar[dl]^{q}\\
+ & Y &
+}
+\]
+
+The\pageoriginale morphism $f'$ is again proper. This factorisation
+$f=q\circ f'$ is known as the {\em Stein-factorisation} of $f$. For
+details the reader is referred to EGA Ch. III.
+
+We shall now prove a theorem, which is of great importance to us.
+
+\begin{theorem}\label{chap6-thm6.2.1}
+Let $f:X\to Y$ be a separable, proper morphism. Let
+$X\xrightarrow{f'}Y'=\Spec f_{\ast}(\mathscr{O}_{X})\xrightarrow{q}Y$
+be the Stein-factorisation of $f$. Then $Y'\xrightarrow{q}Y$ is an
+\'etale covering.
+\end{theorem}
+
+\begin{proof}
+We have only to show that $q$ is \'etale; this is a purely local
+problem and we may thus assume that $Y$ is affine, say, $Y=\Spec A$.
+
+We shall make a few simplifications to start with. Suppose $X_{1}\to
+Y$ is a flat base-change; then from \ref{chap6-thm6.1.2} one gets:
+$$
+f_{(Y_{1})_{\ast}}(\foprod{\mathscr{O}_{X}}{\mathscr{O}_{Y_{1}}}{\mathscr{O}_{Y}})\simeq 
+f_{\ast}\foprod{(\mathscr{O}_{X})}{\mathscr{O}_{Y_{1}}}{\mathscr{O}_{Y}} 
+$$
+
+This means that in the commutative diagram
+\[
+\xymatrix{
+X\ar[d]^{f'} & X_{1}=\fprod{X}{Y_{1}}{Y}\ar[l]\ar[d]_{f'_{(Y_{1})}}\\
+\Spec f_{\ast}(\mathscr{O}_{X})=Y'\ar[d]^{q} &
+\ar[l]\ar[d]^{q_{(Y_{1})}} Y'_{1}=\fprod{Y'}{Y_{1}}{Y}=\Spec
+f_{(Y_{1})_{\ast}}(\foprod{\mathscr{O}_{X}}{\mathscr{O}_{Y_{1}}}{\mathscr{O}_{Y}})\\ 
+Y &\ar[l] Y_{1} 
+}
+\]
+the second vertical sequence is the Stein-factorisation of $f_{(Y_{1})}$.
+
+In\pageoriginale view of this and the fact that it is enough to look
+at $\Spec \mathscr{O}_{y,Y}$ for \'etaleness over $y\in Y$ we may make
+the base change $Y\leftarrow \Spec \mathscr{O}_{y,Y}$ and assume that
+$A$ is a local ring. Again, in view of the same remark and Lemma
+\ref{chap4-sec4.4.1} we may assume that $A$ is {\em complete}.
+
+Consider now the functor $T$ on the category of finite type
+$A$-modules $M$, defined by $M\mapsto
+T(M)=\Gamma(X,\mathscr{O}_{X}\otimes_{A}M)$. We shall show that {\em
+  the assumption} ``$T$ {\em is right-exact}'' implies the theorem.
+
+We remark that the {\em right-exactness of $T$ is equivalent to the
+  assumption that the natural map}
+\begin{equation*}
+\foprod{\Gamma(X,\mathscr{O}_{X})}{M}{A}\to
+\Gamma(X,\foprod{\mathscr{O}_{X}}{M}{A}) \tag{+}
+\end{equation*}
+{\em is an isomorphism}. Denote by $T'$ the right-exact functor
+$$
+M\mapsto \foprod{\Gamma(X,\mathscr{O}_{X})}{M}{A}.
+$$ 
+Suppose $T$ is
+right exact. Then for any exact sequence $A^{n}\to A^{m}\to M\to 0$ we
+have a commutative diagram of exact sequences:
+\[
+\xymatrix@=1.2cm{
+T'(A^{n})\ar[r]\ar[d]^{\wr} & T'(A^{m})\ar[r]\ar[d]^{\wr} &
+T'(M)\ar[r]\ar[d] & 0\\
+T(A^{n})\ar[r] & T(A^{m})\ar[r] & T(M)\ar[r] & 0
+}
+\]
+the\pageoriginale first two vertical maps are isomorphisms; hence the
+third is also an isomorphism. Conversely, if (+) is an isomorphism,
+clearly $T$ is right-exact.
+
+Now from the flatness of $f$ and the assumed right exactness of $T$ it
+follows that $\Gamma(X,\foprod{\mathscr{O}_{X}}{M}{A})$ is exact in
+$M$ and thus [from the above remark] $\Gamma(X,\mathscr{O}_{X})$ is
+$A$-flat. But $Y'=\Spec\Gamma(X,\mathscr{O}_{X})$ and therefore
+$q:Y'\to Y$ is flat. It remains to show that $q$ is unramified.
+
+Let $y\in Y$ be the unique closed point of $Y$; denote by $k$ the
+residue field $A/\mathscr{M}=k(y)$. Then
+$T(k)=\Gamma(X,\foprod{\mathscr{O}_{X}}{k}{A})=\Gamma(X_{y},\mathscr{O}_{X_{y}})$
+where $X_{y}$ is the fibre $\foprod{X}{k(y)}{Y}$. But as $X$ is
+$Y$-proper, $T(k)=\Gamma(X,\foprod{\mathscr{O}_{X}}{k}{A})$ is an
+artinian $k$-algebra which, by the separability of $X$ over $Y$, is
+radical-free for any base-change $K/k$, $K$ an extension field of
+$k$. Hence $T(k)=\bigoplus\limits^{r}_{i=1}K_{i}$ where the $K_{i}$
+are finite separable field extensions of $k$. Also, by our assumption,
+$T(k)=\foprod{\Gamma(X,\mathscr{O}_{X})}{k}{A}=\Gamma(X,\mathscr{O}_{X})/\mathscr{M}\Gamma(X,\mathscr{O}_{X})$. Let
+$y'\in Y'$ be a point above $y$. From the equality
+$\Gamma(X,\mathscr{O}_{X})/\mathscr{M}\Gamma(X,\mathscr{O}_{X})=\bigoplus\limits^{r}_{i=1}K_{i}$,
+($K_{i}/k$ are separable) it follows that the maximal ideal
+$\mathscr{M}$ of $\mathscr{O}_{y}$. generates the maximal ideal of
+$\mathscr{O}_{y'}$ and moreover that $\mathscr{O}_{y'}$ is unramified
+over $\mathscr{O}_{y}$. 
+\end{proof}
+
+The\pageoriginale proof of the theorem is thus complete modulo the
+assumption that $T$ is right-exact. Before proceeding to prove this we
+may make some more simplifications. First we may assume that
+$T(k)=\Gamma(X_{y},\mathscr{O}_{X_{y}})=\bigoplus\limits^{r}_{i=1}k$
+(this can be done as in Lemma \ref{chap4-lem4.1.2} by making a faithfully
+flat base-change which ``kills'' the extensions $K_{i/k}$). Then
+finally we may assume $\Gamma(X_{y},\mathscr{O}_{X_{y}})=k$, i.e.,
+$X_{y}$ connected, because the connected components of $X$ over $y$
+correspond bijectively with the connected components of $X_{y}$ and
+it is enough to prove the theorem separately for each component over
+$y$.
+
+\medskip
+{\bf Case (a).~Assume {\boldmath$A$} artinian.}
+\smallskip
+
+Our aim is to show that for any finite type $A$-module $M$,
+$T'(M)\xrightarrow{\sim}T(M)$. We shall first show that $T'(M)\to
+T(M)$ is surjective.
+
+For $n$ large, one has $\mathscr{M}^{n}M=0$ so that
+$T'(\mathscr{M}^{n}M)\to T(\mathscr{M}^{n}M)$ is onto. Assume now that
+$T'(\mathscr{M}^{i+1}M)\to T(\mathscr{M}^{i+1}M)$ is onto, and
+consider the exact sequence: $0\to \mathscr{M}^{i+1}M\to
+\mathscr{M}^{i}M\to \frac{\mathscr{M}^{i}M}{\mathscr{M}^{i+1}M}\to 0$
+of $A$-modules.
+
+We get a commutative diagram
+\[
+\xymatrix@=1.2cm{
+T'(\mathscr{M}^{i+1}M)\ar[r]\ar[d] & T'(\mathscr{M}^{i}M)\ar[d]\ar[r]
+&
+T'\left(\frac{\mathscr{M}^{i}M}{\mathscr{M}^{i+1}M}\right)\ar[d]\ar[r]
+&0 \\
+T(\mathscr{M}^{i+1}M)\ar[r] & T(\mathscr{M}^{i}M)\ar[r] &
+T\left(\frac{\mathscr{M}^{i}M}{\mathscr{M}^{i+1}M}\right) & 
+}
+\]
+of\pageoriginale exact sequences (the second row is exact at the spot
+$T(\mathscr{M}^{i}M)$ because $T$ is semi-exact, i.e., for $0\to M'\to
+M\to M''\to 0$ exact, the sequence $T(M')\to T(M)\to T(M'')$ is exact
+at the spot $T(M)$). The first vertical map is a surjection by
+assumption, the last is a surjection since
+$\dfrac{\mathscr{M}^{i}M}{\mathscr{M}^{i+1}M}$ is a finite direct sum
+of copies of $k$ and by our assumption
+$\Gamma(X_{y},\mathscr{O}_{X_{y}})\simeq k$, we have
+$T'(k)\xrightarrow{\sim}T(k)$. It follows that $T'(M)\to T(M)$ is
+onto, by a downward induction. Finally consider an exact sequence
+$0\to R\to A^{p}\to M\to 0$. We then obtain a commutative diagram 
+\[
+\xymatrix@=1.2cm{
+T'(R)\ar[r]\ar[d]^{\text{onto}} & T'(A^{p})\ar[d]^{\rotatebox{-90}{$\simeq$}}\ar[r] &
+T'(M)\ar[d]\ar[r] & 0\\
+T(R)\ar[r] & T(A^{p})\ar[r] & T(M) &
+}
+\]
+of exact sequences. If follows easily that $T'(M)\to T(M)$ is also
+injection. Thus, the theorem is completely proved in the case (a).
+
+\medskip
+{\bf Case (b).~The general case}
+\smallskip
+
+Let $A$ be a complete noetherian local ring. Denote by $Y'_{1}$ the
+closed subscheme of $Y$ defined by the maximal ideal $\mathscr{M}$. As
+in the comparison theorem we may define the functors
+\begin{align*}
+T_{n}(M_{n}) &=
+\Gamma(X_{n},\foprod{\mathscr{O}_{X}}{\foprod{M}{A/\mathscr{M}^{n+1}}{A}}{A})\\[5pt] 
+&= \Gamma(X,\foprod{\mathscr{O}_{X}}{\foprod{M}{A/\mathscr{M}^{n+1}}{A}}{A})
+\end{align*}
+where\pageoriginale $M_{n}=\foprod{M}{A/\mathscr{M}^{n+1}}{A}$. If $M$
+is an $A$-module of finite type, so is
+$\Gamma(X,\foprod{\mathscr{O}_{X}}{M}{A})$; as $A$ is complete under
+the $\mathscr{M}$-adic topology, so is
+$\Gamma(X,\foprod{\mathscr{O}_{X}}{M}{A})$ and from \ref{chap6-sec6.1.3} we
+obtain: 
+$$
+\Gamma(X,\foprod{\mathscr{O}_{X}}{M}{A})\xrightarrow{\sim}\varprojlim_{n}T_{n}(M_{n}). 
+$$
+
+To show that $T$ is right-exact it is enough to show that for any
+exact sequence $M\xrightarrow{u}N\to 0$ of finite type $A$-modules,
+$T(M)\xrightarrow{T(u)}T(N)\to 0$ is again exact. But as each
+$A/\mathscr{M}^{n+1}$ is a complete artinian local ring, it follows
+from case (a) that $T_{n}(M_{n})\xrightarrow{T_{n}(u)}T_{n}(N_{n})\to
+0$ is exact; also for each $n$, $\ker T_{n}(u)$ is a module of finite
+length over $A$. Thus, it is enough now to prove the
+
+\setcounter{lemma}{1}
+\begin{lemma}\label{chap6-lem6.2.2}
+Let $(K_{n},\varphi_{nm})$, $(M_{n},\psi_{nm})$,
+$(N_{n},\theta_{nm})$, $n\in \mathbb{Z}^{+}$, be projective systems of
+abelian groups and $u=(u_{n})$, $v=(v_{n})$ be morphisms such that,
+for every $n\in \mathbb{Z}^{+}$ $0\to
+K_{n}\xrightarrow{u_{n}}M_{n}\xrightarrow{v_{n}}N_{n}\to 0$ is
+exact. Assume, in addition, that for each $n$, $\exists
+m_{0}=m_{0}(n)$ such that
+$\varphi_{nm}(K_{m})=\varphi_{nm_{0}}(K_{m_{0}})\ \forall\ m\geq
+m_{0}(n)>n$ (this is the so-called Mittag-Leffler (ML) condition; it
+is certainly satisfied if the $\ker u_{n}=K_{n}$ are of finite
+length). Then the sequence of projective limits is also exact.
+\end{lemma}
+
+\begin{proof}
+The\pageoriginale only difficult point is to show that
+$\varprojlim_{n}v_{n}$ is onto. By hypothesis, for each $n$, $\exists
+m_{0}(n)>n$ with
+$\varphi_{nm}(K_{m})=\varphi_{nm_{0}}(K_{m_{0}})\ \forall\ m\geq
+m_{0}(n)$. By passing to a cofinal subsystem we may suppose, that, for
+any $n\in \mathbb{Z}^{+}$ 
+$$
+\varphi_{nm}(K_{m})=\varphi_{n,n+1}(K_{n+1})\ \forall\ m\geq n+1.
+$$
+
+Let now $(y_{n})\in\varprojlim_{n}N_{n}$. Choose $x'_{0}\in M_{0}$
+with $v_{0}(x'_{0})=y_{0}$. Assume inductively that we have chosen
+$(x_{0},x_{1},\ldots,x_{n-1},x'_{n})$ with (i)
+$\psi_{r,r+1}(x_{r+1})\break =x_{r}$ for $0\leq r\leq n-2$, and
+  $\psi_{n-1,n}(x'_{n})=x_{n-1}$. (ii) $v_{r}(x_{r})=y_{r}$ for $0\leq
+  r\leq n-1$, and $v_{n}(x'_{n})=y_{n}$.
+
+Our aim now is to find $(x_{0},x_{1},\ldots,x_{n-1},x_{n},x'_{n+1})$
+for which the above properties (i), (ii) hold when $n$ is replaced by
+$n+1$. Choose $x''_{n+1}\in M_{n+1}$ such that
+$v_{n+1}(x''_{n+1})=y_{n+1}$; then,
+$v_{n}(\psi_{n,n+1}(x''_{n+1})-x'_{n})=y_{n}-y_{n}=0$ i.e. to say,
+$\psi_{n,n+1}(x''_{n+1})-x'_{n}\in K_{n}$. By assumption, we can find
+$z_{n+1}\in K_{n+1}$ such that:
+\begin{align*}
+\psi_{n-1,n+1}(z_{n+1}) &= \varphi_{n-1,n+1}(z_{n+1})\\
+&= \varphi_{n-1,n}(\psi_{n,n+1}(x''_{n+1})-x'_{n})\\
+&= \psi_{n-1,n+1}(x''_{n+1})-\psi_{n-1,n}(x'_{n}).
+\end{align*}
+
+We now set $x'_{n+1}=(x''_{n+1}-z_{n+1})$ and
+$x_{n}=\psi_{n,n+1}(x'_{n+1})$. 
+
+We\pageoriginale then have:
+\begin{align*}
+\psi_{n-1,n}(x_{n}) &=
+\psi_{n-1,n+1}(x''_{n+1})-\psi_{n-1,n+1}(z_{n+1})\\
+&= \psi_{n-1,n}(x'_{n})=x_{n-1}.\\
+v_{n+1}(x'_{n+1}) &= v_{n+1}(x''_{n+1})=y_{n+1}
+\end{align*}
+and finally $v_{n}(x_{n})=v_{n}(\psi_{n,n+1}(x'_{n+1}))=y_{n}$.\hfill Q.E.D.
+\end{proof}
+
+
+\section{The first homotopy exact sequence}\label{chap6-sec6.3}
+
+\subsection{Some properties of the Stein-factorisation of a proper
+  morphism.}\label{chap6-sec6.3.1}
+
+Let $Y$ be locally noetherian and $f:X\to Y$ be {\em proper}. Suppose
+$X\xrightarrow{f'}Y'\xrightarrow{q}Y$ is the Stein factorisation of
+$f$. By using the comparison theorem one can prove the
+
+\subsubsection{}\label{chap6-sec6.3.1.1}
+({\em Zariski's connection theorem}).
+
+The morphism $f':X\to Y'$ is also proper. And for any $y'\in Y'$ the
+fibre ${f'}^{-1}(y')$ is {\em non-void and geometrically connected}
+(i.e., for any field $k'\supset k(y')$ the prescheme $\fprod{X}{\Spec
+  k'}{Y'}$ is connected).
+
+(For a proof see EGA Ch. III \S\ (4.3)).
+
+One can then easily draw the following corollaries.
+
+
+\setcounter{subcoro}{1}
+\begin{subcoro}\label{chap6-coro6.3.1.2}
+For any $y\in Y$, the connected components of the fibre $f^{-1}(y)$
+are in a $(1-1)$ correspondence with the set of points of the fibre
+$q^{-1}(y)$ (which is finite and discrete).
+\end{subcoro}
+
+\begin{subcoro}\label{chap6-coro6.3.1.3}
+For\pageoriginale any $y\in Y$, let $\overline{k(y)}$ be the algebraic
+closure of $k(y)$ and $\overline{X}_{y}$ be the prescheme
+$\fprod{X}{\overline{k(y)}}{Y}$. The connected components of
+$\overline{X}_{y}$ (known as the geometric components of the fibre
+over $y$) are in $(1-1)$ correspondence with the geometric points of
+$Y'$ over $y$. 
+\end{subcoro}
+
+\subsection{}\label{chap6-sec6.3.2}
+Now, in addition, suppose that
+\begin{itemize}
+\item[(i)] $Y$ is connected.
+
+\item[(ii)] $f$ is separable
+
+\item[(iii)] $f_{\ast}(\mathscr{O}_{X})\xleftarrow{\sim}\mathscr{O}_{Y}$.
+\end{itemize}
+
+Assumption (iii) implies that $X\xrightarrow{f}Y$ is its own
+Stein-factorisation. From \ref{chap5-sec5.5.1}, it follows that the fibres
+$f^{-1}(y)$ are (geometrically) connected. $f$ is a closed map and
+therefore $X$ is also connected. Similarly, for any $y\in Y$,
+$\overline{X}_{y}$ is also connected.
+
+Fix $y\in Y$. We have a commutative diagram:
+\[
+\xymatrix@=1.2cm{
+a\in X\ar[d]_{f} & \overline{X}_{y}\ni
+\overline{a}\ar[l]\ar[d]^{\overline{f}}\\
+y\in Y & \overline{k(y)}\ar[l] 
+}
+\]
+
+Let $\Omega$ be an algebraically closed field $\supset k(y)$ and let
+$\overline{a}\in\overline{X}_{y}$ be a geometric point over $\Omega$;
+let $a\in X$ be the image of $\overline{a}$ in $X$. We have the
+fundamental groups $\pi_{1}(\overline{X}_{y},\overline{a})$,
+$\pi_{1}(X,a)$,\pageoriginale $\pi_{1}(Y,y)$ and continuous homomorphisms:
+$\pi_{1}(\overline{X}_{y},\overline{a})\xrightarrow{\varphi}\pi_{1}(X,a)$,
+$\pi_{1}(X,a)\xrightarrow{\psi}\pi_{1}(Y,y)$ (See \ref{chap5-sec5.1}). We
+now have the following:
+
+\setcounter{subsection}{2}
+\begin{subtheorem}\label{chap6-thm6.3.2.1}
+The sequence
+$$
+\pi_{1}(\overline{X}_{y},\overline{a})\xrightarrow{\varphi}\pi_{1}(X,a)\xrightarrow{\psi}\pi_{1}(Y,y)\to
+0
+$$
+is {\em exact}.
+\end{subtheorem}
+
+\begin{proof}
+\begin{itemize}
+\item[{\bf (a)}] {\bf {\boldmath$\psi$} is surjective.}
+
+In view of \ref{chap5-sec5.2.1} it is enough to show that, if $Y'/Y$ is
+connected \'etale covering, then the \'etale covering
+$X'=\fprod{X}{Y'}{Y}$ over $X$ is connected.
+\[
+\xymatrix@=1.2cm{
+X\ar[d]_{f} & \fprod{X}{Y'}{Y}=X'\ar[l]\ar[d]^{f'\ \text{(proper)}}\\
+Y & Y'\ \text{(connected)}\ar[l]
+}
+\]
+
+But $\mathscr{O}_{Y}=f_{\ast}(\mathscr{O}_{X})$ and therefore, we have
+(from \ref{chap6-thm6.1.2})
+$$
+f'_{\ast}(\mathscr{O}_{X'})=f'_{\ast}(\foprod{\mathscr{O}_{X}}{\mathscr{O}_{Y'}}{\mathscr{O}_{Y}})=
+\foprod{f_{\ast}(\mathscr{O_X})}{\mathscr{O}_{Y'}}{\mathscr{O}_{Y}}=\mathscr{O}_{Y'}.
+$$
+
+It follows that the fibres of $f'$ are connected, and hence
+$X'=\fprod{X}{Y'}{Y}$ is also connected.
+
+\item[{\bf(b)}] {\bf {\boldmath$\psi\circ\varphi$} is trivial.}
+
+In view of \ref{chap5-sec5.2.3} it is enough to show that if $Y'/Y$ is any
+\'etale covering, the \'etale covering
+$(\fprod{Y'}{\overline{X}_{y}}{Y})/\overline{X}_{y}$ is completely
+decomposed.\pageoriginale But
+$\fprod{Y'}{\overline{k(y)}}{Y}=\coprod\limits_{\text{finite}}
+\overline{k(y)}$ and hence: $\fprod{Y'}{\overline{X}_{y}}{Y}\cong
+\fprod{X}{(\fprod{Y'}{\overline{k(y)}}{\gamma})}=\coprod\limits_{\text{finite}}\overline{X}_{y}$. 
+
+\item[{\bf(c)}] {\boldmath$\Iim\varphi\supset\ker \psi$.}
+
+In view of \ref{chap5-sec5.2.4} it is enough to prove that: Suppose
+$X'\xrightarrow{g}X$ is a connected \'etale covering of $X$ and
+$\overline{X}'_{y}\xrightarrow{\overline{g}}\overline{X}_{y}$ admits a section
+$\sigma$ (over $\overline{X}_{y}$). Then $\exists$ a connected \'etale
+covering $Y'/Y$ such that $X'\xrightarrow{\sim}\fprod{X}{Y'}{Y}$. We
+need, for proving this, the following
+\end{itemize}
+\end{proof}
+
+\setcounter{sublemma}{1}
+\begin{sublemma}\label{chap6-lem6.3.2.2}
+The composite $h:X'\xrightarrow{g}X\xrightarrow{f}Y$ is proper and
+separable. 
+\end{sublemma}
+
+
+\begin{proof}
+$h$ is obviously proper and flat. We have only to show that the fibres
+  of $h$ are reduced, and remain reduced after any base-change
+  $Y\leftarrow \Spec K$, $K$ a field. For this, it is enough to prove
+  that:
+$$
+X'/X\text{\ \'etale covering, $X$ reduced $\Rightarrow X'$ reduced.}
+$$
+
+We may assume $X=\Spec A$, $X'=\Spec A'$; we have $A=A_{\red}$ and we
+want to show that, $A'=A'_{\red}$. 
+
+Let $(\mathscr{P}_{i})^{n}_{i=1}$ be the minimal prime ideals of
+$A$. By assumption, the natural map $A\to
+\prod\limits^{n}_{i=1}(A/\mathscr{P}_{i})$ is an
+injection. So,\pageoriginale $A'\to
+\prod\limits^{n}_{i=1}(A'/\mathscr{P}_{i}A')$ is also injective and it
+is enough then to show that each $A'/\mathscr{P}_{i}A'$ is reduced. By
+making the base-change $A\to A/\mathscr{P}_{i}$, we may then assume
+that $A$ is an integralldomain. Let $a\in X=\Spec A$ be the generic
+point of $X$; then $k(a)=K$ the field of fractions of $A$. The fibre
+over $a$ is $=\Spec(\foprod{A'}{K}{A})$ and since this is non-ramified
+over $k(a)=K$, we have $\foprod{A'}{K}{A}=\sum\limits^{r}_{i=1}K_{i}$,
+$K_{i/K}$ finite separable field extensions. In particular,
+$\foprod{A'}{K}{A}$ is reduced and hence for each $x'\in X'$,
+$\foprod{\mathscr{O}_{x'}}{K}{\mathscr{O}_{g(x')}}$ is reduced and
+hence so is $\mathscr{O}_{x'}\subset
+\foprod{\mathscr{O}_{x'}}{K}{g(x')}$. It follows that $A'=A'_{\red}$.
+
+Coming back to the proof of the assertion, let now
+$X'\xrightarrow{h'}Y'\to Y$ be the Stein-factorisation of $h:X'\to
+Y$. From the above lemma \ref{chap6-lem6.3.2.2} and Theorem
+\ref{chap6-thm6.2.1} it 
+follows that $Y'\to Y$ is an \'etale covering. We have a commutative
+diagram 
+\[
+\xymatrix@=1.2cm{
+ & X'\ar[d]^{\alpha} \ar@/^2.5pc/[dd]^{h'}\ar[dl]\\
+X\ar[d]_{f} & X''=\fprod{X}{Y'}{Y}\ar[l]^-{p_{1}}\ar[d]_{f'}\\
+Y & Y'=\Spec h_{\ast}(\mathscr{O}_{X'})\ar[l]
+}
+\]
+
+Our\pageoriginale assertion will follow if we show that $\alpha:X'\to
+X''=\fprod{X}{Y'}{Y}$ is an isomorphism. We do this by showing that:
+\begin{itemize}
+\item[(i)] $\alpha$ is an \'etale covering.
+
+\item[(ii)] $X''$ is connected.
+
+\item[(iii)] rank of $\alpha$ is $1$ at {\em some} point of $X''$.
+\end{itemize}
+
+(see the remark at the end of Ch. \ref{chap3}).
+
+\begin{itemize}
+\item[(i)] $Y'\to Y$ is an \'etale covering and so $X''\to X$ is an
+  \'etale covering. The composite $X'\to X''\to X$ is the \'etale
+  covering $g$ and so $\alpha$ is an \'etale covering.
+
+\item[(ii)] We know that $h'$ is onto (\ref{chap6-sec6.3.1.1}) and $X'$ is
+  connected (hypothesis). Hence $Y'$ is connected and (ii) follows now
+  from (a).
+
+\item[(iii)] We make the base-change $Y\leftarrow \overline{k(y)}$ and
+  obtain: 
+\[
+\xymatrix@=1.2cm{
+ & &
+  \overline{X'}_{y}\ar[dl]_{\overline{\alpha}}\ar[ddl]^{\overline{h}'}\ar[dll]_{\overline{g}}\\ 
+\overline{X}_{y}\ar[d]^{\overline{f}}\ar@/^2pc/[urr]^{\sigma} &
+\overline{X}''_{y}\ar[l]^{\overline{p}_{1}}\ar[d]  &\\
+\overline{k(y)} & \overline{Y}'_{y}\ar[l] &
+}
+\]
+\end{itemize}
+
+It\pageoriginale is enough to show that rank $\overline{\alpha}=1$ at
+{\em some} point of $\overline{X}''_{y}$. Since $Y'/Y$ is an \'etale
+covering, $\overline{Y}'_{y}=\coprod\limits^{n}_{i=1}\overline{k}_{i}$
+each $\overline{k}_{i}=\overline{k(y)}$ and so
+$\overline{X}''_{y}=\fprod{\overline{X}_{y}}{\overline{Y}'_{y}}{\overline{k(y)}}=\coprod\limits^{n}_{i=1}\overline{X}_{y_{i}}$
+each $\overline{X}_{y_{i}}=\overline{X}_{y}$. The section
+$\sigma:\overline{X}_{y}\to \overline{X}'_{y}$ is an \'etale covering
+and $\overline{X}_{y}$ is connected and hence
+$\sigma(\overline{X}_{y})$ is a component $Z$ of $\overline{X}'_{y}$;
+$\overline{\alpha}(Z)$ must then be some $\overline{X}_{y_{i}}$. Also
+the projection $\overline{p}_{1}$ is an isomorphism from
+$\overline{X}_{y_{i}}$ to $\overline{X}_{y}$; it follows that 
+$\xymatrix{Z\ar@<.2em>[r]^{\overline{\alpha}} &
+  \overline{X}_{y_{i}}\ar@<.2em>[l]^{(\sigma\circ \overline{p}_{1})}}$
+are inverses of one another. Also we know that the number of
+components of $\overline{X}'_{y}$ is equal to the number of geometric
+points of $Y'$ over $y$, i.e., is $n$. It follows that the number of
+connected components of $\overline{X}'_{y}$ and $\overline{X}''_{y}$
+are the some. $\alpha$ is surjective because it is both open and
+closed and $X''$ is connected, therefore $\overline{\alpha}$ is
+surjective and \'etale and we get rank $\overline{\alpha}=1$ at every
+pt. of $\overline{X}''_{y}$.\hfill Q.E.D.
+\end{proof}
+
+\setcounter{subremark}{2}
+\begin{subremark}\label{chap6-rem6.3.2.3}
+One may drop the assumptions
+$f_{\ast}(\mathscr{O}_{X})=\mathscr{O}_{Y}$ and $Y$ connected, in the
+above theorem; the assertion of the theorem will then be:
+
+Denote by $\pi_{0}(\overline{X}_{y},\overline{a})$, $\pi_{0}(X,a)$,
+$\pi_{0}(Y,y)$ the (pointed) sets of (connected) components of the
+preschemes $\overline{X}_{y}$, $X$, $Y$. Then, if\pageoriginale $f$ is
+proper and separable, we have the following exact sequence:
+{\fontsize{10pt}{12pt}\selectfont
+\begin{equation*}
+\pi_{1}(\overline{X}_{y},\overline{a})\to \pi_{1}(X,a)\to
+\pi_{1}(Y,y)\to \pi_{0}(\overline{X}_{y},\overline{a})\to
+\pi_{0}(X,a)\to \pi_{0}(Y,y)\to (1)
+\end{equation*}}\relax
+\end{subremark}
+
+\begin{proof}
+Assume to start with that $X$, $Y$ are connected, dropping only the
+assumption
+$f_{\ast}(\mathscr{O}_{X})\xleftarrow{\sim}\mathscr{O}_{Y}$. We have
+then the Stein-factorisation:
+\[
+\xymatrix@=1.2cm{
+X\ar[rr]^{f}\ar[dr]_{f'} && Y\\
+  & Y'=\Spec f_{\ast}(\mathscr{O}_{X}).\ar[ur]_{q}
+}
+\]
+
+Applying the above theorem to $f'$ we obtain an exact sequence:
+$\pi_{1}(\overline{X}_{y},\overline{a})\to \pi_{1}(X,a)\to
+\pi_{1}(Y',y')\to (e)$ where $y'\in Y'$ is the image of $a\in X$. We
+know then that $\pi_{1}(Y',y')\to \pi_{1}(Y,y)$ is an injection
+(\ref{chap5-sec5.2.6}) and the quotient $\pi_{1}(Y,y)/\pi_{1}(Y',y')$ (set
+of left cosets mod $\pi_{1}(Y',y')$) is isomorphic to the set of
+geometric points of $Y'$ over $y$. By corollary \ref{chap6-coro6.3.1.3} this
+is isomorphic to $\pi_{0}(\overline{X}_{y},\overline{a})$. We thus
+obtain the exact sequence:
+$$
+\pi(\overline{X}_{y},\overline{a})\to \pi_{1}(X,a)\to \pi_{1}(Y,y)\to
+\pi_{0}(\overline{X}_{y},\overline{a})\to (1).
+$$
+
+Now the assumptions about the connectivity of $X$ and $Y$ are dropped
+in turn to get the general exact sequence.
+
+The procedure is obvious and the proof is omitted.
+\end{proof}

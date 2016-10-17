@@ -1,0 +1,278 @@
+\chapter{Approximation in Terms of Differences}\label{chap6}
+
+\setcounter{section}{14}
+\section{}\label{chap6:sec15}
+
+ This\pageoriginale is the only  chapter in the course, of which the results are not
+ classical. The point of view here might lead to a re-orientation
+ towards algebraic rather than trigonometric polynomials. 
+ 
+ In Theorem \ref{chap4:sec11:thm20} (and its known extensions) the approximation
+ attainable in $P_n$ or $T_n$ to a differentiable function $f(x)$ is
+ expressed in terms of its first higher derivative. We shall now give
+ simple examples which lead us to suppose that bounds of
+ \textit{differences} of $f(x)$ rather than derivatives may be more
+ directly related to the closeness of the approximation. 
+
+ \begin{example}\label{chap6:sec15:exp1}%example 1
+   If $f(x)$ attains its greatest value at $x_2$ and its least at
+   $x_1$, then the best approximation in $P_0$ is  
+   \begin{align*}
+     &\frac{1}{2} \left\{f(x_1) +f(x_2) \right\}\\
+     and  \hspace{3cm} d_o =  &\frac{1}{2} \left\{f(x_2) -f(x_1) \right\}=
+     \frac{1}{2} \sup |  \Delta f |\hspace{2cm} 
+   \end{align*}
+ \end{example} 
+ 
+ This depends solely on the first difference of $f(x)$; the derivative
+ of $f(x)$- if it exists-has no  bearing on it. 
+ 
+Now raise the degree by one.
+\begin{example}\label{chap6:sec15:exp2} %example 2
+  If $f(x)$ is $C(0,1)$, there is a linear function $p(x)$ for which 
+  $$
+  | f(x) - p(x) | \le \sup |f (x+2h) - 2f(x+h) +f(x) |,
+  $$
+  the  sup being taken over all $x,h$ such that 
+  $$
+  0 \le x \le x+ 2h \le 1.
+  $$
+\end{example} 
+
+\begin{proof}
+  Define\pageoriginale $p(x)$ to be equal to $f(x)$ at $x=0$ and $x=1$ Write
+  $$
+  g(x) = f(x) -p(x).
+  $$
+\end{proof} 
+ 
+Then $|g(x) | $ attains its maximum,  $M$, for $0 \le x \le 1$ at $x_1$, say. 
+
+If $0 \le x_1 \le \dfrac{1}{2}$, take $x=0, h=x_1$. Then 
+$$
+|g(x+ 2h) - 2g(x+h) +g(x) | = |g(2x_1)- 2g(x_1) + g(0) | \ge M.
+$$
+
+If $\dfrac{1}{2} < x_1 \le 1$ take $x=2x_1 -1$, $h=1- x_1$. Then 
+$$
+|g(x+ 2h) - 2g(x+h) +g(x) | = |g(1)- 2g(x_1) + g(1-x_1) | \ge M.
+$$
+
+But the second difference of $g(x)$ and $f(x)$ are equal.
+
+
+By a longer argument it is possible to prove the corresponding result
+for $P_2$ and the third difference. 
+
+The general result was conjectured in $1949$ by H. Burkill.
+
+\begin{theorem}\label{chap6:sec15:thm25} % thm 25
+  There is a number $K_n$ depending only on $n$ such that given $f(x)$
+  in $C(a,b)$, there is a  polynomial $p(x)$ in $P_{n-1}$ for which  
+  $$
+  | f(x)  - p(x) | \le K_n \sup | \Delta_n (f) |
+  $$
+  (where the supremum is taken for all sets of $n+1$ points $x, \ldots
+ ,  x + nh$ in $(a,b) $)  
+\end{theorem}
+
+The theorem looks innocent,  but attempts at it failed until Whitney it
+in  $1955$. He took for his $p(x)$ the Lagrange polynomial for the
+points of division   of $(a,b)$ into $n-1$ equal parts. His  work does
+not yield an estimate of $K_n$ for general $n$; in view  of Theorem
+$24$, we should hardly  expect good value of $K_n$. 
+
+Whitney's\pageoriginale elegant arguments are too long for reproduction  here, and
+the reader is referred to his paper in journal de Mathematiques
+36(1957), 67-95. 
+
+It is worth observing, however, that instead of the usual $n^{\text{th}}$
+difference with equal increments, we can take a more general $n^{\text{th}}$
+difference depending of the values of $f(x)$ at $n+1$ arbitrary
+points. The difficulty then disappears and the polynomial of best
+approximation can be used instead of the Lagrange polynomial. 
+
+\section{Definition and Properties of the \texorpdfstring{$n^{th}$}{nth}
+  Difference}\label{chap6:sec16} 
+
+If 
+$$
+\varphi(u) = (u- h_o) (u-h_1) \cdots (u-h_n),
+$$ 
+the $n^{\text{th}}$ divided difference of $f(x)$ for the values specified is
+commonly defined by  
+$$
+D_n = D_n (f; h_o,  \ldots,  h_n) = \sum_{i=0}^n \frac{f(h_i)}{\varphi'(h_i)}.
+$$
+
+In what follows it will be convenient to suppose that 
+$$
+h_o >  h_1 > \cdots  > h_n
+$$
+
+To define an $n^{\text{th}}$ difference $\Delta_n$, as distinct from a divided
+difference, we naturally take 
+$$
+\Delta_n = H_n D_n, 
+$$
+where $H_n$ is homogeneous of degree $n$ in the $h's$.
+
+The most suitable definition of $H_n$ appears to be
+$$
+\displaylines{\hfill H_n = 2^{n}/ T_n, \hfill \cr
+  ~\text{where}\hfill  
+  T_n = T_n (h_o, h_1, \dots,  h_n) = \sum_{i=0}^n | \varphi'
+  (h_i)|^{-1}. \hfill}
+$$
+
+In\pageoriginale the special case of equal increments  with $h_o - h_n = nh$, this
+gives $H_n = n! h^n$, which is right. 
+
+As a further check on the appropriateness of our $H_n$, we observe
+that if a function is numerically less than $A$, its $n^{\text{th}}$ difference
+$\Delta_n$ is numerically less than $2^n A$. 
+
+In  working with  $D_n, \Delta_n$, etc., we shall specify the function
+and the values of the variables only so far  as is necessary for
+clarity. 
+
+We are now in a position to restate and prove Theorem
+\ref{chap6:sec15:thm25}, taking 
+$\Delta_n (f)$ to be the  difference $H_n D_n (f)$ just defined. 
+
+\begin{theorem*}[{$\mathbf{25'}$}] %theorem 25
+  Theorem \ref{chap6:sec15:thm25} is true  with  $K_n = 2^{-n}$ and $\Delta_n(f)$ as just
+  defined and the supremum taken over all values of $h_o, \ldots, 
+  h_n$ in $(a,b)$. 
+\end{theorem*}
+
+\begin{proof}
+  Given $f(x)$, take $p(x)$ to be its polynomial of best approximation
+  of degree at most $n-1$. Then $f(x)- p(x)$ takes its greatest
+  numerical value at $n+1$ points, with signs alternately  $+$ and
+  $-$. These $n+1$ points  we takes as $h_o,  \ldots,  h_n$. 
+\end{proof}
+
+Since the $n^{\text{th}}$ difference of a polynomial of degree  $n-1$
+is 0, we have  
+$$
+\displaylines{\hfill 
+  \Delta_n (f; h_o,  \ldots,  h_n) = H_n \sum^{n}_{i=o} \frac{f(h_i)-
+    p(h_i)}{\varphi'(h_i)}\hfill \cr 
+  ~\text{So}\hfill  | \Delta_n |=  H_{n^d} \sum |  \varphi' (h_i) |^{-1}=
+  2^n d,\hfill}
+$$
+by definition of $H_n$.
+
+Therefore, for all $x$ in $(-1,1)$,
+$$
+|f(x) - p(x) |  \le d \le 2^{-n} \sup | \Delta_n (f) |.
+$$
+
+This proves Theorem $25'$.
+
+Alternatively\pageoriginale we can prove Theorem $25'$, starting from the upper
+bound of $|\Delta_n |$ instead of from  the polynomial of best
+approximation. 
+
+Suppose, then,  that $ \sup | \Delta_n| =L$ and that the bound $L$ is
+assumed for the values $h_o, h_1, \ldots,  h_n$ of the independent
+variable. Define points $(h_i,  y_i) $ for $i=0, 1, \ldots, $ by
+taking  
+$$
+y_i = f(h_i) -(-1)^k \frac{L}{2^n},
+$$
+where $k$ is $i$ or $i+1$ according as $\Delta_n (f,h_o,  \ldots, 
+h_n)$ is positive or negative. 
+
+Construct $a \,p(x)$ of $P_{n-1}$ through the $n$ points $(h_i, y_i)$
+for $i=0, 1, \dots,\break  n-1$. Write  
+$$
+g(x)= f(x)- p(x).
+$$
+
+Since $\Delta_n (p) \equiv 0$, $|  \Delta_n (g) | = | \Delta_n (f) |$
+attains its upper bound for $h_0, h_1$, $\ldots,  h_n$. From  the
+definition of $\Delta_n$, the value of $g(h_n)$ which makes $|
+\Delta_n (g, h_0, h_1, \ldots,  h_n) | = L$ is $(-1)^k L/2^n$, where
+$k$ is $n$ or $n+1$ according as $\Delta_n (f, h_o, \ldots,  h_n)$ is
+positive or negative. 
+
+We prove that $|g(x)| \le 2^{-n} L$ for all $x$. Suppose that $|g|$
+takes values greater than $L/2^n$, say $g(h'_i) > L/2^n$ for a value
+$h'_i$ between $h_{i-1}$ and $h_{i+1}$ where $g(h_i)= 2^{-n}L$. Then,
+from the definition of $T_n$, 
+\begin{multline*}
+  D_n(g, h_o, \ldots,  h_{i-1}, h'_i, h_{i+1}, \ldots,  h_n)\\ 
+  > 2^{-n} LT_n (h_o, \ldots,  h_{i-1}, h'_i, h_{i+1}, \ldots,  h_n) 
+\end{multline*}
+and so, by definition of $\Delta_n$,
+$$
+\Delta_n (g,h_o, \ldots,  h_{i-1}, h'_i, h_{i+1}, \ldots,  h_n) > L,
+$$
+which is a contradiction. We have therefore
+$$
+|f(x) - p(x) | =|g(x) | \le 2^{-n} \sup | \Delta_n (f) |, 
+$$
+which\pageoriginale is Theorem $25'$.
+
+For the next result let us call the $n+1$ values
+$$
+-1, - \cos \frac{\pi}{n}, \ldots,  \cos \frac{\pi}{n}, 1
+$$
+at which the Chebyshev polynomial $\cos (n$ arc $ \cos x$) assumes the
+values $\pm 1$ the Chebyshev points of the interval $(-1, 1)$. 
+
+\begin{theorem}\label{chap6:sec16:thm26}  %theorem 26
+  Suppose that $1 \ge >h_o > h_1 \ge \cdots \ge h_n \ge -1$. Then
+    $$
+    T_n(h_o, \ldots,  h_n) \ge 2^{n-1}
+    $$
+    and the sign = holds if and only if the $h_i$ are the Chebyshev points.
+\end{theorem}
+
+\begin{proof}
+  The polynomial $q_n(x)$ of degree $n$ which takes the value $(-1)^i$
+  at $h_i(i=0, \ldots , n)$ is  
+  $$
+  q_n(x) = \varphi (x) \sum_{i=0}^n
+  \frac{(-1)^i}{\varphi'(h_i)\,(x-h_i)}.  
+  $$
+\end{proof}
+
+Then $q_n(x) =a_n x^n + \cdots + a_o$, where 
+$$
+a_n = \sum_{i=o}^n \frac{1}{| \varphi' (h_i) |} = T_n (h_o, \ldots, 
+h_n). 
+$$
+
+Write $t_n(x)= 2^{-n+1}a_n \cos (n ~\text{arc}~ \cos x)$. 
+
+Then $q_n(x) - t_n (x)$ has degree $n-1$ at most.
+
+If $a_n < 2^{n-1}$, then $|t_n (x)| < 1$ and $q_n(x) - t_n(x)$ has the
+sign of $q_n(x)$ for the $n+1$ values $h_o,  \ldots ,  h_1$. If $a_n=
+2^{n-1}$ the same is true on the understanding that $q_n (x)- t_n(x)$
+may vanish for any of these values. So the polynomial $q_n (x)-
+t_n(x)$, of degree at most $n-1$, has $n$ zeros. This is a
+contradiction if $a_n < 2^{n-1}$, and is only possible for  $a_n =
+2^{n-1}$  when $q_n(x) \equiv t_n (x)$. This proves the theorem. 
+
+\begin{coro*}
+  For  $1 \ge h_o  \ge \cdots  \ge h_n \ge  -1, H_n \le 2 $.
+\end{coro*}
+
+\begin{thebibliography}{99}
+\bibitem{A1}{Achieser,N.I.}-\pageoriginale (English by Hyman), Theory of
+  Approximation, New Yor, 1956. 
+\bibitem{A2}{Bertstein,S.}- Lecons sur les properties extremales et
+  la meilleure approximation des fucntions analytiques $d'une$
+  variables reelle, paris, 1926 
+\bibitem{A3}{Jackson,D.}- The theory of approximation, (Ameriacan
+  Mathematical Society Colloquium, $XI$ New York, 1930. 
+\bibitem{A4}{Natanson,I,P}. - (German by Bogel), Konstruktive
+  Funktionentheorie, Berlin, 1955. 
+\bibitem{A5}{de la Vallee Poussin, G.J.}- Lecons sur 1' approximation
+  ses functions dune variable reelle, Paris, 1919. 
+\end{thebibliography}
+

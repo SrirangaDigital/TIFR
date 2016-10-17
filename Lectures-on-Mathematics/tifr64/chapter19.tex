@@ -1,0 +1,248 @@
+\chapter[An Application of the Feynman-Kac Formula....]{An Application of the Feynman-Kac Formula. The Arc Sine Law.}\label{chap19}
+
+
+LET\pageoriginale $\beta(t,\cdot)$ BE THE one-dimensional Brownian
+motion with $\beta(0,\cdot)=0$. Define
+$$
+\xi_{t}(w)=\frac{1}{t}\int\limits^{t}_{0}X_{[0,\infty)}(\beta(s,w))ds.
+$$
+$\xi_{t}(w)$ is a random variable and denotes the fraction of the time
+  that a Brownian particle stays above the $x$-axis during the time
+  interval $[0,t]$. We shall calculate
+$$
+P[w:\xi_{t}(w)\leq a]=F_{t}(a)
+$$
+
+\noindent
+{\bf Brownian Scaling.}~ Let
+$X_{t}(s)=\dfrac{1}{\sqrt{t}}\beta(ts)$. Then $X_{t}$ is also a
+Brownian motion with same distribution as that of $\beta(s)$. We can
+write 
+$$
+\xi_{t}(w)=\int\limits^{1}_{0}X_{[0,\infty)}(X_{t}(s,w))ds.
+$$
+
+The $\xi_{t}(w)=$ time spent above the $x$-axis by the Brownian motion
+$X_{t}(s)$ in $[0,1]$. Hence $F_{t}(a)$ is independent of $t$ and is
+therefore denoted by $F(a)$. Suppose we succeed in solving for $F(a)$;
+if, now,
+$$
+\xi^{*}_{t}(w)=\int\limits^{t}_{0}X_{[0,\infty)}(\beta(s))ds=t\xi_{t},
+$$
+then the amount of time $\beta(s,\cdot)>0$ in $[0,t]$ is $t$ (amount
+of time $X_{t}(s)>0$ in $[0,1]$). Hence we can solve for
+$P[\xi^{*}_{t}(w)\leq a]=G_{t}(a)$. Clearly the solution of $G_{t}$ is
+given by 
+$$
+G_{t}(a)=F(a/t).
+$$
+
+It\pageoriginale is clear that
+$$
+F(a)=
+\begin{cases}
+0 & \text{if}\q a\leq 0,\\
+1 & \text{if}\q a\geq 1.
+\end{cases}
+$$
+
+Hence it is enough to solve for $F(a)$ in $0\leq a\leq 1$. Let 
+$$
+u_{\lambda}(t,x)=E_{x}[e^{-(\lambda\int^{t}_{0}X_{[0,\infty)}(\beta(s,w))ds)}]
+$$
+
+Then 
+$$
+u_{1}(t,0)=E[e^{-\xi(w))}]=\int\limits^{1}_{0}e^{-tx}dF(x).
+$$
+
+Also note that $u_{\lambda}(t,x)$ is bounded by $1$, if $\lambda \geq
+0$. By the Feynman-Kac formula (appropriately modified in case
+$\dfrac{1}{2}\Delta$ is replaced by $-\dfrac{1}{2}\Delta$)
+$u_{1}(t,x)$ satisfies
+\begin{equation*}
+\begin{split}
+\frac{\p u}{\p t} &= \frac{1}{2}\frac{\p^{2}u}{\p x^{2}}-u,\q x>0,\\
+&= \frac{1}{2}\frac{\p^{2}u}{\p x^{2}},\qq x<0,
+\end{split}\tag{*}
+\end{equation*}
+and $u(0,x)=1$. Let
+\begin{align*}
+\phi_{\alpha}(x) &= \alpha\int\limits^{\infty}_{0}u(t,x)e^{-\alpha
+  t}dt,\q \alpha>0,\q\text{where}\q u=u_{1},\\
+&= \int\limits^{\infty}_{0}u(t,x)(-de^{-\alpha t}).
+\end{align*}
+
+A simple integration by parts together with (*) gives the following
+system of ordinary differential equations for $\phi_{\alpha}$:
+\begin{align*}
+& -\frac{1}{2}\phi''_{\alpha}+(\alpha+1)\phi_{\alpha}=\alpha,\q x>0,\\
+&-\frac{1}{2}\phi''_{\alpha}+\alpha\phi_{\alpha}=\alpha,\qq x<0.
+\end{align*}
+
+These have a solution 
+\begin{align*}
+\phi_{\alpha}(x)
+&=\frac{\alpha}{\alpha+1}+Ae^{x\surd(2(\alpha+1))}+Be^{-x\surd(2(\alpha+1))},\q
+x>0,\\
+&= 1+Ce^{x\surd(2\alpha)}+De^{-x\surd(2\alpha)},\q x<0.
+\end{align*}\pageoriginale
+
+However $u$ is bounded by $1$ (see definition of
+$u_{\lambda}(t,x)$). Therefore $\phi_{\alpha}$ is also bounded by
+$1$. This forces $A=D=0$. We demand that $\phi_{\alpha}$ and
+$\dfrac{d\phi_{\alpha}}{dx}$ should match at $x=0$. (Some
+justification for this will be given later on).
+$$
+\Lt\limits_{x\to 0+}\phi_{\alpha}(x)=\Lt\limits_{x\to
+  0-}\phi_{\alpha}(x)
+$$
+gives 
+$$
+\frac{\alpha}{1+\alpha}+B=C+1.
+$$
+
+Similarly we get $-B\surd (2(\alpha+1))=C\surd(2\alpha)$ by matching
+$\dfrac{d\phi_{\alpha}}{dx}$. Solving for $B$ and $C$ we get
+\begin{align*}
+B &=
+\frac{\surd\alpha}{(1+\alpha)(\surd\alpha+\surd(\alpha+1))},\\[4pt]
+C &= \frac{1}{\surd(1+\alpha)(\surd\alpha+\surd(\alpha+1))}.
+\end{align*}
+
+Therefore
+$$
+\phi_{\alpha}(0)=\frac{\alpha}{\alpha+1}+B=\frac{\surd\alpha}{\surd(\alpha+1)},
+$$
+i.e.
+$$
+\int\limits^{\infty}_{0}E[e^{-t\xi_{t}}\alpha e^{-\alpha
+    t}]dt=\frac{\surd\alpha}{\surd(\alpha+1)}. 
+$$
+
+Using Fubini's theorem this gives
+$$
+E[\frac{\alpha}{\alpha+\xi}]=\surd(\frac{\alpha}{\alpha+1}),
+$$
+or 
+$$
+E[\frac{1}{1+\xi/a}]=\surd(\frac{1}{1+(1/\alpha)}),\q\text{i.e.}\q
+\int\limits^{1}_{0}\frac{dF(x)}{1+\gamma x}=\frac{1}{\surd
+  (1+\gamma)}.
+$$\pageoriginale
+
+This can be inverted to get
+$$
+dF(x)=\frac{2}{\pi}\frac{dx}{\surd(x(1-x))}.
+$$
+(Refer tables on transforms or check directly that
+$$
+\frac{2}{\pi}\int\limits^{1}_{0}\frac{1}{1+\beta
+  x}\frac{dx}{\surd(x(1-x))}=\frac{1}{\surd(1+\beta)}
+$$
+by expanding the left side in powers of $(\beta)$. Therefore
+$$
+F(a)=\frac{2}{\pi}\q\text{arcsin}\q(\surd a),\q 0\leq a\leq 1.
+$$
+
+Hence $G_{t}(a)=\frac{2}{\pi}$ arcsin $(\surd(\frac{a}{t}))$, $0\leq
+a\leq t$, i.e.
+$$
+P[\xi_{t}\leq a]=\frac{2}{\pi}\q\text{arcsin}\q(\surd(\frac{a}{t})),\q
+0\leq a\leq t.
+$$
+
+This result goes by the name of {\em arc sine law} for obvious
+reasons.
+
+We now give some justification regarding the matching conditions used
+above.
+
+The equation we solved was
+$$
+\alpha\phi-\frac{1}{2}\phi''+V\phi=f
+$$
+where $\phi$ was bounded $V\geq 0$. Suppose we formally use It\^o's
+formula to calculate
+\begin{gather*}
+d\Big(\phi(\beta(t)e^{-\int^{t}_{0}(\alpha+V)(\beta(s)ds)})\\
+=e^{-\int^{t}_{0}(\alpha+V)(\beta(s,\cdot))ds}[-f(\beta(s,\cdot))dt+\frac{d\phi}{dX}(\beta(t))d\beta(t)]
+\end{gather*}
+(see Example 2 of It\^o's formula). Therefore
+$$
+(Z(t,\cdot)=\phi(\beta(t,\cdot))e^{-\int^{t}_{0}(\alpha+V)(\beta(s,\cdot))ds}+\int^{t}_{0}f\beta(s,\cdot)\exp(-\int\limits^{s}_{0}(\alpha+V)d\sigma)ds
+$$
+is\pageoriginale a martingale. Since $\phi$, $f$ are bounded and
+$V\geq 0$,
+$$
+|Z(t,\cdot)|\leq
+||\phi||_{\infty}+||f||_{\infty}\int\limits^{\infty}_{0}e^{-\alpha
+  s}ds\leq ||\phi||_{\infty}+C||f||_{\infty}.
+$$
+
+Therefore $Z(t,\cdot)$ is uniformly integrable. Equating the
+expectations at time $0$ and $\infty$ gives
+\begin{equation*}
+\phi(0)=E_{0}\int\limits^{\infty}_{0}[f(\beta(s,\cdot))e^{-\alpha s-\int^{s}_{0}V(\beta(\sigma)d\sigma)}]ds.\tag{*}
+\end{equation*}
+
+This is exactly the form obtained by solving the differential
+equa\-tions. In order to use It\^o's formula one has to justify it. If
+we show that It\^o's formula is valid for functions having a
+discontinuity in the second derivative, (*) will be a legitimate
+solution and in general there is no reason why the second derivatives
+(or higher derivatives) should be matched. This partially explains the
+need for matching $\phi$ and $\dfrac{d\phi}{dx}$ only.
+
+\begin{prop*}
+Let $\beta(t,\cdot)$ denote a one-dimensional Brownian motion. Suppose
+$\phi \in C^{1}_{b}$ and satisfied
+$$
+\alpha\phi-\frac{1}{2}\phi''+V\phi=f,
+$$
+
+Then 
+$$
+\phi(\beta(t))-\int\limits^{t}_{0}f(\beta(s))ds
+$$
+is a martingale.
+\end{prop*}
+
+\begin{proof}
+Let $(\phi_{\epsilon})\in C^{2}_{b}$ such that
+$\alpha\phi_{\epsilon}-\frac{1}{2}\phi''_{\epsilon}+V\phi_{\epsilon}+V\phi_{\epsilon}=f_{\epsilon}$
+and such that (i) $\phi_{\epsilon}$ converges to $\phi$ uniformly on
+compact sets, (ii) $\phi'_{\epsilon}$ converges to $\phi'$ uniformly
+on compact sets, (iii) $\phi''_{\epsilon}$ converges pointwise to
+$\phi''$ except at $0$. We may suppose that the convergence is bounded.
+\end{proof}
+
+\begin{claim*}
+$\int\limits^{t}_{0}f_{\epsilon}(\beta(s))ds$\pageoriginale {\em converges to}
+  $\int\limits^{t}_{0}f(\beta(s))ds$ {\em a.e.} As
+  $f_{\epsilon}(\beta(s))$ converges to $f(\beta(s))$ except when
+  $\beta(s)=0$, it is enough to prove that
+
+(*) $P$[$w$: Lebesgue measure $(s:\beta(s)=0)>0$]$=0$. Let $X_{\{0\}}$
+    denote the indicator function of $\{0\}$. Then
+$$
+E\int\limits^{t}_{0}X_{\{0\}}(\beta(s))ds=\int\limits^{t}_{0}EX_{\{0\}}(\beta(s))ds=0. 
+$$
+
+Thus (*) holds and establishes the claim. Now
+$$
+\phi_{\epsilon}(\beta(t))-\int\limits^{t}_{0}f_{\epsilon}(\beta(s))ds
+$$
+is a uniformly bounded martingale converging to 
+$$
+\phi(\beta(t))-\int\limits^{t}_{0}f(\beta(s))ds.
+$$
+
+Therefore
+$$
+\phi(\beta(t))-\int\limits^{t}_{0}f(\beta(s))ds
+$$
+is a martingale.
+\end{claim*}
+
+

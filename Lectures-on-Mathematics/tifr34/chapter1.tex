@@ -1,0 +1,2026 @@
+\chapter{Differentiable functions in $\mathbb{R}^n$}\label{chap1}%chap 
+
+\section{Taylor's formula}\label{chap1:sec1}
+
+Let\pageoriginale $\Omega$ be an open set in $\mathbb{R}^n$, and for $0 \leq k <
+\infty$ let $C^k(\Omega)$ denote the set of real valued functions on
+$\Omega$ whose partial derivatives of order $\leq k$ exist and are
+continuous; $C^{\infty}(\Omega)$ will stand for the set of functions
+which belong to $C^{k}(\Omega)$ for all $k > 0$. We write $C^k$,
+$C^{\infty}, \ldots$ for $C^k(\Omega)$, $C^{\infty}(\Omega), \ldots$
+when no confusion is likely. 
+
+We shall use the following notation:
+\begin{align*}
+  \alpha & = (\alpha_1, \ldots \alpha_n), \alpha_i \geq 0 \text{ being
+    integers, }\\ 
+  x &= (x_1, \ldots, x_1), x^{\alpha} = x^{\alpha_1}_1 \ldots x^{\alpha_n}_n,\\
+  D^{\alpha}& = \left(\frac{\partial}{\partial x_1}\right)^{\alpha_1} \ldots
+  \left(\frac{\partial}{\partial x_n}\right)^{\alpha_n},\alpha ! =
+  \alpha_1 ! \ldots 
+  \alpha_n !, |\alpha| = \alpha_1+ \cdots + \alpha_n\\ 
+  |x| &= \max \limits_i |x_i| , ||x|| = (|x_1|^2 + \cdots +
+  |x_n|^2)^{\frac{1}{2}}.  
+\end{align*}
+
+Similar notation will be used with $\mathbb{R}^n$ replaced by
+$\mathbb{C}^n$, and for complex valued functions. We shall write
+$C^k_0 (\Omega)$ for the space of $C^k$ functions on $\Omega$ which
+vanish outside a compact subset of $\Omega$ (which may depend on the
+function in question). 
+
+Similar notation will be used for q-tuples of functions; $C^{k,
+  q}(\Omega )[C^{k, q}_0 (\Omega)]$ is then the set of mappings $f =
+(f_1, \ldots, f_q)$: $\Omega \to \mathbb{R}^q$ for which $f_i \in
+C^k(\Omega) [C^k_0 (\Omega)]$ for $1 \leq i \leq q$. We\pageoriginale write simply
+$C^k$, or $C^k(\Omega)$ for $C^{k, p}(\Omega)$ when no confusion is
+likely; similarly, we sometimes write $C^k_0$ for $C^{k, q}_0
+(\Omega)$. 
+
+A real valued function $f$ defined on $\Omega$ is called (\textit{real})
+  \textit{analytic} (in $\Omega$) if for any $a= (a_1, \ldots , a_n) \in
+\Omega$, there exists a power series  
+$$
+P_a(x) \equiv \sum c_{\alpha}(x-a)^{\alpha} \equiv \sum c_{\alpha_1
+\cdots \alpha_n} (x_1 - a_1)^{\alpha_1} \cdots (x_n - a_n)^{\alpha_n} 
+$$
+which converges to $f(x)$ for $x$ in a neighbourhood of $a$.
+
+Remark that the power series is uniquely determined by $f$; in fact
+$c_{\alpha}= \dfrac{D^{\alpha} f(a)}{\alpha !}$ in particular, if $f
+=0$ in a neighbourhood of $a$, then $c_{\alpha} = 0$ for all $\alpha$;
+further $f \in c^{\infty}$, and, in fact, for any $\beta = (\beta_1,
+\ldots , \beta_n), D^{\beta} P_a(x) = \sum \limits_{\alpha} c_{\alpha}
+D^{\beta} (x-a)^{\alpha}$. 
+
+If $U$ is an open set in $\mathbb{C}^n$, and $f$ a complex valued
+function in $U$, then $f$ is called \textit{holomorphic}(in $U$) if
+for any $a \in U$, there exists a power series  
+$$
+\sum c_{\alpha} (z-a)^{\alpha}
+$$
+which converges to $f$ for all $z$ in a neighbourhood of $a$. We shall
+assume some elementary properties of holomorphic functions, among them
+the following. Proofs can be found in Herve' \cite{14}. 
+\begin{enumerate}[1]
+\item A function $f$ on $U$ is holomorphic if and only if it is
+  continuous and for any $\gamma$, $1\leq \gamma \leq n$, the partial
+  derivatives  
+  $$
+  \frac{\partial f} {\partial \bar{z}_{\nu}} \equiv \frac{1}{2}
+  (\frac{\partial f} {\partial x_{\nu}} + \frac{\partial f} {\partial
+    y_{\nu}}) 
+  $$
+  exist\pageoriginale and zero; here $z_{\nu} = x_{\nu} + i y_{\nu}$, $x_{\nu}$, $y_{\nu}$ being real.
+\item (Principle of analytic continuation.) If $f$ is holomorphic in a
+  connected open set $U$ in $\mathbb{C}^n$, and $D^{\alpha} f(a) = 0$
+  for all $\alpha =(\alpha_1 \ldots, \alpha_n)$, and some $a \in U$,
+  then $f \equiv 0$ in $U$; in particular, if $f$ vanishes on a
+  nonempty open subset of $U$, $f \equiv 0$. 
+\item \textit{Weierstrass' theorem.} If $\{f_n \}$ is a sequence of
+  holomorphic functions in $U$ converging uniformly on compact subsets
+  of $U$ to a function $f$, then $f$ is holomorphic in $U$; further,
+  for any $\alpha, D^{\alpha} f_{\nu}$ converges, uniformly on compact
+  sets, to $D^{\alpha} f$. 
+\item \textit{Cauchy's inequalities}. If $f$ is holomorphic in $U$,
+  and $|f(z)| \leq M$ for $z \in U$, $M > 0$, then for any compact set
+  $K \subset U$, we have, for any $\alpha$, 
+  $$
+  |D^{\alpha}f(z) | \leq M \delta^{-|\alpha|} \alpha ! \text{ for } z \in K,
+  $$
+  where $\delta$ is the distance of $K$ from the boundary of $U$.
+\end{enumerate} 
+
+\begin{lemma}\label{chap1:sec1:lem1} % lem 1
+  If $f$ is real analytic in $\Omega \subset \mathbb{R}^n$, then there
+  exists an open set $U \subset \mathbb{C}^n$, $U \cap \mathbb{R}^n =
+  \Omega$, in $U$ a holomorphic function $F$ such $F|_\Omega = f$. 
+\end{lemma}
+
+\begin{proof}
+  Suppose, for $a \in \Omega$, $P_a(x) = \sum
+  c_{\alpha}(x-a)^{\alpha}$ converges to $f(x)$ for $|x -a| < r_a$,
+  $r_a> 0$. Define 
+  $$
+  U_a = \{ z \in \mathbb{C}^n \big| |z-a | < r_a \};
+  $$
+  then, for $z \in U_a$,
+  $$
+  P_a(z) = \sum c_{\alpha}(z-a)^\alpha.
+  $$
+  converges\pageoriginale and is holomorphic in $U_a$.
+\end{proof}
+
+Let $U = \bigcup \limits_{a \in \Omega} U_a$. We assert that if $U_a
+\cap U_b = U_{a, b} \neq \phi$ then $P_a = P_b$ in $U_{a, b}$. In
+fact, $U_{a, b}$ is convex, hence connected, and $D^{\alpha} P_a (c) =
+D^{\alpha} P_b (c)= D^{\alpha} f(c)$ for any $\alpha$ and $c \in U_{a,
+  b} \cap \mathbb{R}^n$ (which is $\neq \phi$ if $U_{a, b} is
+)$. Hence we may define $F$ on $U$ by requiring that $F| U_a =
+P_a$. Clearly $F$ is holomorphic in $U$ and $F| \Omega = f$. 
+
+Let $N$ be a neighbourhood of the closed unit interval $0 \leq t \leq
+1$ in $\mathbb{R}$, and let $f \in C^k (N)$. Then, we prove the  
+
+\begin{lemma}\label{chap1:sec1:lem2}% lem 2
+  $f(1) = \sum \limits^{k-1}_{\nu = 0} \dfrac{f^{(\nu)} (0)}{\nu !} +
+  \dfrac{f^{(k)}(\xi)}{k !}$, where $0 \leq \xi \leq 1$. 
+\end{lemma}
+
+\begin{proof}
+  For continuous $g$, define
+  $$
+  I_0 (g, t) = g(t), I_r (g, t) = \int \limits^t_0 I_{r-1} (g, \tau) d
+  \tau, ~r \geq 1. 
+  $$
+  
+  Clearly, if $g \in C^k (N)$ and $g^{(\nu)} (0) = 0$ for $0 \leq r \leq k-1$, we have 
+  $$
+  g(t) = I_k (g^{(k)}, t).
+  $$
+  
+  If we apply this to $g(t) = f(t) - \sum \limits^{k-1}_{\nu = 0}
+  \dfrac{f^{(\nu)} (0)}{\nu !} t^{\nu}$, we obtain  
+  \begin{equation}
+    f(1) - \sum^{k-1}_{\nu = 0} \frac{f^{(\nu)} (0)}{\nu !} = I_k
+    (g^{(k)}, 1) = I_k (f^{(k)}, 1). \tag{1.1}\label{chap1:sec1:eq1.1} 
+  \end{equation}
+
+  Now, if $m$, $M$ denote the lower and upper bounds of $f^{(k)}$ in
+  [$0$, $1$], we obviously have  
+  $$
+  \frac{m}{k!} \leq I_k (f^{(k)}, 1) \leq \frac{M}{k!}
+  $$
+
+  Since\pageoriginale $f^{(k)}$, being continuous, assumes all values between $m$
+  and $M$, there is $\xi$, $0 \leq \xi \leq 1$ with  
+  $$
+  I_k (f^{(k)}, 1)= \frac{f^{(k)} (\xi)}{k!}.
+  $$
+  
+This proves lemma \ref{chap1:sec1:lem2}.
+\end{proof}
+
+It is easy to prove, by induction, that 
+$$
+I_k (g, t) = \frac{1}{(k-1)!} \int \limits^t_0 g(\tau) (t- \tau)^{k-1} d \tau.
+$$
+
+Hence (\ref{chap1:sec1:eq1.1}) can be written 
+\begin{equation}
+  f(1) -  \sum^{k-1}_{\nu = 0} \frac{f^{(\nu)} (0)}{\nu !} =
+  \frac{1}{(k-1) !} \int \limits^1_0 (1 -t)^{k-1} f^{(k)} (t)
+  dt. \tag{1.2}\label{chap1:sec1:eq1.2} 
+\end{equation}
+
+\begin{theorem}[Taylor's formula]\label{chap1:sec1:thm1} % them 1
+  Let $\Omega$ be open in $\mathbb{R}^n$, and $f \in C^k
+  (\Omega)$. Then, if $x$, $y \in \Omega$ and the closed line segment
+  $[x, y]$ joining $x$ to $y$ is also contained in $\Omega$, we have  
+  $$
+  f(x) = \sum_{| \alpha | \leq k-1} \frac{D^{\alpha} f(y)}{\alpha !}
+  (x - y)^{\alpha} + \sum_{| \alpha | = k} \frac{D^{\alpha}
+    f(\xi)}{\alpha !}(x-y)^{\alpha}, 
+  $$
+  where $\xi$ is a point of $[x, y]$.
+\end{theorem}
+
+This theorem follows at once from Lemma \ref{chap1:sec1:lem2} applied
+  to the function 
+$$
+g(t) = f(y + t(x-y))
+$$
+which belongs to $C^k (N)$, $N$ being a neighbourhood of $[0, 1]$.
+
+If\pageoriginale $f \in C^k (\Omega) (k$ being finite), $K$ is a compact set in
+$\Omega$ and $0 \leq m \leq k$, we set  
+$$
+|| f ||^K_m = \sum_{| \alpha |\leq m} \sup_{x \in K} |D^{\alpha} f(x) |.
+$$
+
+We define a topology on $C^k (\Omega )$ as follows: a fundamental
+system of neighbourhoods of $f_0 \in C^k (\Omega )$ is given by the
+sets  
+$$
+B(f_0, K, \varepsilon, k) = \{ f \in C^k \big| || f - f_0 ||^K_k < \varepsilon
+\}; 
+$$
+here $\varepsilon$ runs over the positive real numbers, and $K$ over
+all compact subsets of $\Omega$. The topology on $C^{\infty}(\Omega)$
+is obtained by taking for a fundamental system of neighbourhoods of
+$f_0$ the sets  
+$$
+B(f_0, K, \varepsilon, k) \cap C^\infty (\Omega)
+$$
+with $\varepsilon > 0$, $K$ compact in $\Omega$ and $k > 0$ an arbitrary integer.
+
+The space $C^k (\Omega)$ is metrisable; we may take, for example, as
+metric the function 
+$$
+d (f, g) = \sum^{\infty}_{\nu = 0} 2^{-\nu} \frac{|| f-g
+  ||^{K_{\nu}}_k}{1 + || f-g ||^{K_{\nu}}_k}; 
+$$
+here $\{ K_{\nu} \}$ is a sequence of compact sets with $K_{\nu}
+\subset \overset{\circ}{K}_{\nu+1}$, $\cup K_{\nu} = \Omega$. $[\text{On~}
+  C^{\infty} (\Omega)]$, a metric can be defined by replacing $|| f -
+g||^{K_{\nu}}_k$ by $|| f - g||^{K_{\nu}}_{\nu}$ in the function above
+$]$ 
+
+\begin{theorem}\label{chap1:sec1:thm2}% them 2
+  $C^k (\Omega)$ \em{is a complete metric space for $0 \leq k \leq \infty$.}
+\end{theorem}
+
+\begin{proof}
+  We have only to prove that if $\{ g_{\nu} \}$ is a sequence of
+  functions in $C^k$ and  
+  $|| g_{\nu} - g_{\mu}||^K_m \to $\pageoriginale as $\mu$, $\nu \to \infty$  for all
+  integers $m$, 
+  $0 \leq m \leq k$ and all compact $K \subset \Omega$, then there
+  exists $g \in C^k$ for which  
+  $|| g_{\nu} - g_{\mu}||^K_m \to 0$  as   $\nu \to \infty$, $0 \leq m
+  \leq k$, $k$ compact. 
+  
+  Since by assumption, for $|\alpha| \leq k$, $D^{\alpha} (g_{\nu} -
+  g_{\mu}) \to 0$, uniformly on any compact set, there exist continuous
+  functions $g_{\alpha}$, $| \alpha | \leq k$, for which $|| D^{\alpha}
+  g_{\nu} - g_{\alpha}||^K_0 \to 0$. If we prove that $g_0 \in C^k$ and
+  $D^{\alpha} g_0 = g_{\alpha}$ then clearly $|| g_{\alpha} - g ||^K_m
+  \to 0$, $0 \leq m \leq k$, where $g= g_0$. To prove this assertion. we
+  have only to show that if $| \alpha | \leq k-1$, and $\beta =
+  (\beta_1, \ldots , \beta_n)$ is such that $| \beta | =1$, then
+  $g_{\alpha} \in C^1$ and $D^{\beta} g_{\alpha} = g_{\alpha + \beta}$
+  in $\Omega$. 
+\end{proof}
+
+Now, if $a \in \Omega$ and $x$ is sufficiently near a we have 
+\begin{equation}
+  D^{\alpha} g_{\nu} (x) - D^{\alpha} g_{\nu} (a) = \sum_{|\beta| =1}
+  D^{\alpha + \beta} g_{\nu} (\xi_{\nu}) (x-a)^{\beta},
+  \tag{1.3}\label{chap1:sec1:eq1.3} 
+\end{equation}
+where $\xi_{\nu}$ is a point on the segment [$a, x$]. We may choose a
+subsequence $\{ \nu_p \}$ such that $\xi_{\nu_{p}} \to \xi \in [a,
+  x]$. Clearly, if we replace $\nu$ by $\nu_p$ in (\ref{chap1:sec1:eq1.3}) and let $p
+\to \infty$, we obtain 
+\begin{align*}
+  g_{\alpha} (x) - g_{\alpha} (a) & = \sum_{|\beta| =1} g_{\alpha +
+    \beta} (\xi) (x-a)^{\beta}\\ 
+  & = \sum_{|\beta| =1} g_{\alpha + \beta} (a) (x-a)^{\beta} + o(|x-a|).
+\end{align*}
+where $o\, (| x - a|)$ tends to zero faster than $| x -a |$ as $x
+\to a$. (The last equality is a consequence of the continuity of
+$g_{\alpha + \beta}.$) But this implies that $g_{\alpha} \in C^1$ and
+that for $| \beta | = 1$, $D^{\beta} g_{\alpha} (a) = g_{\alpha +
+  \beta }(a)$. 
+
+\begin{remark*}
+  If\pageoriginale we write
+  $$
+  || f ||^K_m = \sum_{| \alpha | \leq m} \sum^q_{i =1} \sup _{x \in
+    K}|D^{\alpha} t_1 (x) | 
+  $$
+  for $f = (f_1, \ldots, f_q) \in C^{k, q} (\Omega )$, $m \leq k$, we
+  may replace $C^k(\Omega)$ by $C^{k, q}(\Omega)$ in
+  Theorem \ref{chap1:sec1:thm2}. Another consequence of Taylor's
+  formula is the following:  
+\end{remark*}
+
+\begin{proposition}\label{chap1:sec1:prop1}% prop 1
+  If $f \in C^{\infty} (\Omega)$, then $f$ is analytic if and only if
+  for any compact $K \subset \Omega$, there exists $M_K > 0$ such
+  that 
+  $$
+  |D^{\alpha} f(x) | \leq M^{|\alpha| +1}_K \alpha ! for x \in \text{
+    and all } {\alpha}.  
+  $$
+\end{proposition}
+
+\begin{proof}
+  The necessity follows at once from Lemma \ref{chap1:sec1:lem1} and
+  Cauchy's inequalities 
+  (Property $4$. of holomorphic functions stated at the
+  beginning). For the sufficiency, we remark that if $x$ is in a
+  compact, convex neighbourhood $K$ of $a \in \Omega$, and $\xi \in
+  [a, x]$, then  
+  $$
+  \big| \sum_{|\alpha| = k+1} \frac{D^{\alpha} f(\xi)}{\alpha!} (x
+  -a)^{\alpha} \big| \leq (k+1)^n M^{K+2}_K |x -a |^{k+1}. 
+  $$
+\end{proof}
+
+If $|x-a| < M^{-2}_K$, Taylor's formula implies that 
+$$
+\sum \frac{D^{\alpha} f(\xi)}{\alpha!} (x -a)^{\alpha}
+$$
+converges to $f(x)$.
+
+\begin{remark*}
+  As is easily verified, the above condition is equivalent with the
+  existence of $M'_K > 0$ such that  
+  $$
+  |D^{\alpha} f(x) | \leq M'^{| \alpha | + 1}_K | \alpha| \text{ for }
+  x \in K \text{ and all } \alpha. 
+  $$
+\end{remark*}
+
+\section{Partitions of unity}\label{chap1:sec2} % sec 2.
+
+The support of a function $\varphi$ defined on the open set $\Omega
+\subset \mathbb{R}^n$, written $\supp. \varphi$, is the closure in
+$\Omega$ of the set of points a where $\varphi (a) \neq 0$. 
+
+A\pageoriginale family of sets $\{ E_i \}$ is called locally finite if any
+point $a \in \Omega$ has a neighbourhood which meets $E_i$ only for
+finitely many $i$. 
+
+A family of sets $\{ E'_j \}_{ j \in J}$ is called a \text{refinement}
+of the family $\{ E_j \}_{ j \in J}$ if there exists a map $\tau$: $J
+\to I$ for which $E'_j \subset E_{\tau (j)}$. 
+
+We shall use the following proposition due to $J$. Dieudonne \cite{9}.
+
+\begin{prop*}
+  If $X$ is a locally compact, hausdorff space which is a countable
+  union of compact sets, then $X$ is paracompact, i.e. any open
+  covering has a locally finite refinement. Further, for any locally
+  finite open covering $\{ U_i \}_{ i \in I}$ of $X$, there exists an
+  open covering $\{ V_i \}_{ i \in I}$ for which $\bar{V}_i \subset
+  U_i$. 
+\end{prop*} 
+ 
+\setcounter{theorem}{0}
+\begin{theorem}\label{chap1:sec2:thm1}%1
+  If $\Omega$ is an open subset of $\mathbb{R}^n$ and $\Omega =
+  \bigcup \limits_{i \in I} U_i$, where the $U_i$ are open, then there
+  exists a family of $C^{\infty}$ functions, say $\{ \varphi_i \}_{i
+    \in I}'$ such that 
+
+  (i) $0 \leq \varphi_i \leq 1$, supp. $\varphi_i \subset U_i$, (ii)
+  $\{ supp. \varphi_i \}$ is a locally finite family, and (ii) $\sum
+  \limits_{i \in I} \varphi_i (x) = 1$ for any $x \in \Omega$. 
+\end{theorem}
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap1:sec2:lem1} % lem 1
+  There exists a $C^{\infty}$ function $k$ in $\mathbb{R}^n$ with $k
+  \geq 0$, $k (0) > 0$, $\supp. k \subset \{ x \big| || x || < 1\}$. 
+\end{lemma}
+
+\begin{proof}
+  Let $s(r)$ be the $C^{\infty}$ function on $\mathbb{R}^1$ defined by 
+  $$ 
+  s(r) = 
+  \begin{cases} 
+    0^{-1 / (c-r)} & \quad \text{ if } r < c,\\ 
+    \quad 0 & \quad \text{ if } r \geq c, 
+  \end{cases}
+  $$ 
+  where $0 < c < 1$. We have only to take $k (x) = s(x^2_1 + \cdots +
+  x^2_n)$. 
+\end{proof}
+
+\begin{lemma}\label{chap1:sec2:lem2}% lem 2
+  If\pageoriginale $K$ is a compact set in $\mathbb{R}^n$, $U \supset
+  K$ is open,  
+  then there exists a $C^{\infty}$ function $\psi$ with $\psi (x) \geq
+  0$, $\psi (x) > 0$ if $x \in K$, supp. $\psi \subset U$. 
+\end{lemma}
+
+\begin{proof}
+  Let $\delta$ be the distance of $K$ from $\mathbb{R}^n - U$; for $a
+  \in K$, let $\psi_a (x) = k\left(\dfrac{x-a}{\delta}\right)$, where
+  $k$ is as 
+  in Lemma \ref{chap1:sec2:lem1}. Let $V_a = \{ x \in \mathbb{R}^n | \psi_a (x) > 0
+  \}$. Then $a \in V_a \subset U$. Since $K$ is compact, there exist
+  finitely many points $a_1, \ldots, a_p \in K$ for which $v_{a_i} \cap
+  \ldots \cap v_{a_p} \supset K$. Define $\psi (x) = \sum \limits^p_{i
+    = 1} \psi_{a_{i}} (x)$. 
+\end{proof}
+
+\begin{proof of theorem}\label{chap1:sec2:pot1}%1
+  Let $\{ V_j \}_{j \in J}$ be a locally finite refinement of$\{ U_i
+  \}_{i \in I}$ by relatively compact open subset of $\Omega$ (which
+  exists by Dieudonne's proposition). Let $\{ W_j \}_{j \in J}$ be an
+  open covering of $\Omega$ such that $\bar{W}_j \subset V_j$. By
+  Lemma \ref{chap1:sec2:lem2}, there exists $\psi_j \in C^{\infty}
+  (\Omega)$, $\psi_j 
+  (x) > 0$ for $x \in W_j$ and $\supp \psi_j \subset V_j$, $\psi_j \geq
+  0$. Let $\varphi'_j = \psi_j / \sum \limits_{k \in J}
+  \psi_k$. (Since $V_j$ is locally finite, $\sum \limits_{k \in J}
+  \psi _k$ is defined and $\in C^{\infty} (\Omega )$ and is everywhere
+  $> 0$ since $\psi_j > 0$ on $W_j$ and $\cup W_j = \Omega.)$ Clearly
+  $0 \leq \varphi'_j \leq 1, \supp. \varphi'_j \subset V_j$ and $\sum
+  \limits_{j \in J} \varphi'_j = 1$. Let $\tau$: $J \to I$ be a map so
+  that $V_j \subset U_{\tau (j)}$. Let $J_i \subset J$ be the set
+  $\tau^{-1} (i)$, $i \in I$. Define $\varphi_i = \sum \limits_{j \in
+    J_i} \varphi'_j$ (an empty sum stands for $0$). Since the sets $J_i$
+  are mutually disjoint and cover $J$, we have $\sum \varphi_i =1$. It
+  is clear that $\supp \varphi_i \subset U_i$ and that $\{
+  \supp. \varphi_i \}$ form a locally finite family. 
+\end{proof of theorem}
+
+\begin{coro*}
+  Let $\Omega$ be open in $\mathbb{R}^n$, $X$ a closed subset of
+  $\Omega$, $U$ an open subset of $\Omega$ containing $X$. Then there
+  exists a $C^{\infty}$ function $\psi$ on $\Omega$ such\pageoriginale that $\psi
+  (x) = 1$ for $x \in X$, $\psi (x) = 0$ for $x \in \Omega -U$, $0
+  \leq \psi \leq 1$ everywhere. 
+\end{coro*}
+
+\begin{proof}
+  By Theorem \ref{chap1:sec2:thm1}, there exist $C^{\infty}$ functions $\varphi_1$,
+  $\varphi_2 \geq 0, \supp. \varphi_1 \subset U$, $\supp \varphi_2
+  \subset \Omega - X$ with $\varphi_1 + \varphi_2 = 1$ on $\Omega$. We
+  have only to take $\psi = \varphi_1$. 
+\end{proof}
+
+\begin{lemma}\label{chap1:sec2:lem3}% lem 3
+  If $\{ U_i \}$ is an open covering of $\Omega$, then there exist
+  $C^{\infty}$ functions $\psi_i$ with $\supp \psi_i \subset U_i$, $0
+  \leq \psi_i \leq 1$, and $\sum \psi^2_i = 1$ on $\Omega$. 
+\end{lemma}
+
+In fact, if $\varphi_i$ is a partition of unity relative to $\{ U_i
+\}$, we may set $\psi_i = \varphi_i / (\sum \varphi^2_i
+)^{\dfrac{1}{2}}$. 
+
+\section{Inverse functions, implicit functions and the rank
+  theorem}\label{chap1:sec3} 
+% sec 3. 
+
+Let $\Omega$ be an open set in $\mathbb{R}^n$ and $f$: $\Omega \to
+\mathbb{R}^m$ a map which is in $C^1(\Omega )$ [i.e. its components
+  are in $C^1(\Omega)$]. Let $a \in \Omega$. 
+
+\begin{defi*}
+  $(df) (a)$ is defined to be the linear map of $\mathbb{R}^n$ in
+    $\mathbb{R}^m$ for which 
+  $$
+  \displaylines{\hfill 
+  (df) (a) (v_1, \ldots, v_n) = (w_1, \ldots, w_m),\hfill \cr
+    \text{with}\hfill 
+    w_j = \sum^n_{i = 1} ( \frac{\partial f_j}{\partial x_i })
+    v_i.\hfill}
+  $$
+  We shall call $(df) (a) $ the differential of $f$ at $a$. 
+\end{defi*}
+
+\setcounter{theorem}{0}
+\begin{theorem}\label{chap1:sec3:thm1}% them 1
+  If $f$ is a $C^1$ maps of $\Omega$ into $\mathbb{R}^n$ and for $a
+  \in \Omega$, $(df) (a)$ is nonsingular, then there exist
+  neighbourhoods $U$ of $a$ and $V$ of $f(a)$ such that $f| U$ maps
+  $U$ homeomorphically onto $V$.
+\end{theorem}
+
+\begin{proof}
+  Without loss of generality we may assume that $a = 0$, $f(a) =
+  0$. Since $(df) (a)$ is nonsingular we may assume, by composing $f$
+  with  a\pageoriginale non-singular linear map of $\mathbb{R}^n$ into itself, that
+  $(df) (a) = $ identity. Let $g$ be defined on $\Omega$ by 
+  $$
+  g(x) = f(x) - x. \text{ Then obviously } (dg) (a) = 0.
+  $$
+\end{proof}
+
+This implies that there exists a neighbourhood $W$ of $0$,
+$\overline{W}\subset \Omega$,
+$W= \{ x \big| | x_i | < r \}$ such that $x$, $y \in \bar{W}$
+implies $|g(x) - g(y) \big| \leq \dfrac{1}{2}| x - y|$. We remark that
+$|f(x) - f(y)| \geq \dfrac{1}{2} | x-y |$ if $x$, $y \in W$, so that
+$f$ is injective on $W$. Let $V= \{ x \big| |x_i| < \dfrac{1}{2} r
+\}$, $U = W \cap f^{-1} (V)$. Define $\varphi_0$: $V \to W$ to be
+$\varphi_0 (y) =0$ and by induction $\varphi_k (y) = y-g [
+  \varphi_{k-1} (y)]$. It is easily verified by induction that
+$\varphi_k (y) \in W$ for each $k$, and further that $| \varphi_k (y)
+- \varphi_{k-1} (y)| = | g( \varphi_{k-1} (y)) - g(\varphi_{k-2} (y))
+| \leq \dfrac{r}{2^k}$. Hence $\varphi_k$ is uniformly convergent to a
+function $\varphi$: $V \to \mathbb{R}^n$. Since $\varphi_k (y) \in W$
+for each $k$, $\varphi (y) \in \bar{W}$ and  
+\begin{equation*}
+\varphi (y) = y-g [ \varphi (y)]. \tag{3.1}\label{chap1:sec3:eq3.1}
+\end{equation*}
+
+Since $|y | < r/_2$ and $\big| g [\varphi (y)] \big| \leq r/_2$ we
+have $\varphi (y) \in W$. From (\ref{chap1:sec3:eq3.1}) it follows that $f[\varphi
+  (y)]= y$. Since $f \big| W$ is injective $\varphi$ is the inverse of
+$f$. The continuity of $\varphi$ follows from that of $\varphi_k$ and
+the uniform convergence. 
+
+\begin{remark*}
+  The theorem has an analogue for functions from $\mathbb{C}^n$ to
+  $\mathbb{C}^n$. If $\Omega$ is an open set in $\mathbb{C}^n$, $f$ a
+  holomorphic map of $\Omega$ into $\mathbb{C}^n$ and  if $(df) (a)$
+  is nonsingular at some $a \in \Omega$, then there exist
+  neighbourhood $U$, $V$ of a and $f(a)$ respectively such that (i) $f 
+  \big| U$ maps $U$ homeomorphically onto $V$ and (ii) the inverse
+  mapping of $f \big| U$ is holomorphic on $V$. The proof is identical
+  with that given above; since\pageoriginale each $\varphi_k$ is holomorphic and
+  $\varphi_k$ converges uniformly to $\varphi$, $\varphi$ is
+  holomorphic. 
+\end{remark*}
+
+\begin{defi*}
+  Let $f$ be a $C^1$ map of $\Omega_1 \times \Omega_2$ into
+  $\mathbb{R}^p$, and let $(a, b) \in \Omega_1 \times \Omega_2$. Let
+  $f(a, y) = g(y)$. Then $(d_2 f) (a, b)$ is defined by $(d_2 f) (a,
+  b)= (dg) (b)$; $(d_1 f) (a, b)$ is defined similarly. 
+\end{defi*}
+
+\begin{theorem}% them 2
+  Let $\Omega_1 \times \Omega_2$ be an open set in $\mathbb{R}^{m+n}$
+  and $f$: $\Omega_1 \times \Omega_2 \to \mathbb{R}^n$ a function in
+  $C^1$. Suppose that for some $(a, b) \in \Omega_1 \times \Omega_2$,
+  we have $f(a, b) = 0$ and $(d_2 f) (a, b)$ has rank $n$. Then there
+  exists a neighbourhood $U \times V$ of $(a, b)$ such that for any $x
+  \in U$ there is a unique $y = y(x) \in V$ for which $f(x, y) = 0$;
+  the map $x \to y(x)$ is continuous.
+\end{theorem}
+
+\begin{proof}
+  Consider $F$: $\Omega_1 \times \Omega_2 \to \mathbb{R}^{m+n}$
+  defined by $F(x, y) = (x, f(x, y ))$. Then the statement that $(d_2
+  f) (a, b)$ has rank $n$ is equivalent to saying that $(dF)(a, b)$ is
+  nonsingular. Therefore by Theorem $1$, there exists a neighbourhood
+  $U'\times V$ of $(a, b)$ and a neighbourhood $W$ of $(a, 0)$ such
+  that $F \big| U' \times V \to W$ is a homeomorphism. Let $\varphi$:
+  $W \to U' \times V$ be the continuous inverse of $F$. Then there
+  exists a neighbourhood $U$ of $a$ such that $x \in U$ implies $(x,0 \in
+  W$. Then for $x \in U$, let $y (x)$ be the projection of $\varphi
+  (x, 0)$ on $V$. Clearly if $y \in V$ is such that $f(x, y) = 0$ then
+  $y = y(x)$; moreover $y(x)$ is a continuous map with $f (x, y (x))
+  =0$. 
+\end{proof}
+
+\begin{remark*}
+  The above theorem can be extended to a holomorphic map $f:$
+  $\mathbb{C}^{m+ n} \to \mathbb{C}^n$; $y(x)$ it then a holomorphic
+  function of $x$. 
+\end{remark*}
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap1:sec3:lem1}% lem 1
+  With\pageoriginale the same notation as in Theorem \ref{chap1:sec1:thm2}, if $A(x) = (d_2 f)$ $(x, y
+  (x))$ and $B(x) = (d_1 f) (x, y (x))$ and if $U$ is so small that
+  $A(x)$ is  so small that $A(x)$ is invertible for $x \in U$ then $y
+  \in C^1 (U)$ and  
+\begin{equation*}
+(dy) (x) = - A(x)^{-1} \circ B(x) \tag{3.2}\label{chap1:sec3:eq3.2}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+  Let $x, x + \xi \in U$ and $\eta = y (x+ \xi) - y(x)$. Then $f(x +
+  \xi, y (x)+ \eta) = 0$ and by Taylor's formula 
+  $$
+  \displaylines{\hfill 
+  0 = f(x. y(x)) + B(x) \xi + A(x) \eta + \circ (|\xi| + | \eta |)\hfill \cr
+  \text{and}\hfill  
+  \eta \to 0 \text{ as } \xi \to 0.\hfill}
+  $$ 
+\end{proof}
+
+Hence $A (x) \eta = - B(x) \xi + \circ(|\xi| + | \eta |)$. If $x \in K$
+compact $\subset U$ then $A(x)^{-1}$ is bounded on $K$ and  
+$$
+\eta = - A (x)^{-1} \circ B(x) \xi + \circ(| \xi | + | \eta |).
+$$
+
+This implies that $|\eta| =\circ (|\xi|)$ and hence
+$$
+y(x + {\xi}) - y(x) = - A(x)^{-1} \circ B(x) \xi + \circ (|\xi|).
+$$
+
+Hence $y(x)$ is differentiable and (\ref{chap1:sec3:eq3.2}) holds.
+
+\begin{coro*}
+If in Theorem \ref{chap1:sec1:thm2}, $f \in C^k$ then $y \in C^k$.
+\end{coro*}
+
+\begin{proof}
+We proceed by induction. If $f \in C^k$ and $y \in C^r$, $r < k$
+then $A(x)$, $B(x) \in C^r$ and by (\ref{chap1:sec3:eq3.2}), $y \in C^{r+1}$. 
+\end{proof}
+
+From the remark about holomorphic mappings made after
+Theorem \ref{chap1:sec1:thm2} we
+deduce the following 
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap1:sec3:coro1} % cor 1
+  If $f$ is real analytic so is $y$.
+\end{corollary}
+
+\begin{corollary}\label{chap1:sec3:coro2}% 2
+In Theorem \ref{chap1:sec1:thm1}, if $f$ is $C^k$ (or analytic) then so is $f^{-1}$
+\end{corollary}
+
+In\pageoriginale fact we have only to apply the above corollaries to the map $F$:
+$\mathbb{R}^n \times \Omega \to \mathbb{R}^n$ defined by $F(x, y) = x-
+f(y)$. 
+
+The statement in Corollary \ref{chap1:sec3:coro2} above is known as
+the inverse function 
+theorem: those contained in the corollary to Lemma
+\ref{chap1:sec3:lem1} and Corollary \ref{chap1:sec3:coro1} above form
+the content of the implicit function theorem.
+
+\begin{defi*}
+A cube in $\mathbb{R}^n$ is a set of the form $\{ x \big| |x_i -
+a_i| < r_i \}$. A polycylinder in $\mathbb{C}^n$ is set of the form
+$\{z \big| |z_i - a_i| < r_i \}$. 
+\end{defi*}
+
+\begin{theorem}[The rank theorem]\label{chap1:sec3:thm3}% them 3.
+If $\Omega$ is an open set in $\mathbb{R}^n$ and $f$: $\Omega \to
+\mathbb{R}^m$, $f \in C^1$ and if rank $(df) (x) = r$ is an integer
+independent of $x$ then there exist  
+  \begin{enumerate}[\rm(i)]
+  \item an open neighbourhood $U$ of a,
+  \item an open neighbourhood $V$ of $b = f(a)$,
+  \item cubes $Q_1$, $Q_2$ in $\mathbb{R}^n$ and $\mathbb{R}^m$ respectively,
+  \item homomorphisms $u_1$: $Q_1 \to U~ u_2$: $V \to Q_2$ such that
+    $u_1$, $u_2$ and their inverses are $C^1$ 
+  \end{enumerate}
+  with the property that if $\varphi = u_2$. $f$. $u_1$, then
+  $$
+  \varphi (x_1, x_2 \ldots , x_n) = (x_1, x_2 \ldots x_r, 0 \cdots 0).
+  $$
+  Moreover if $f \in C^k$ or is analytic, $u_1$, $u_2$ may be chosen
+  to have the same property.
+\end{theorem}
+
+\begin{proof}
+  By affine automorphisms of $\mathbb{R}^n$ and $\mathbb{R}^m$ we may
+  suppose that $a = 0$, $b= 0$ and that $(df) (0)$ is the linear map  
+  $$
+  (v_1, \ldots, v_n) \to (v_1, \ldots, v_r, 0, \cdots, 0)
+  $$
+  Consider the map $u$: $\Omega \to \mathbb{R}^n$ defined by  
+  $$
+  u (x) = (f_1 (x) , \ldots , f_r (x), n_{ r +1}, \ldots , x_n).
+  $$
+\end{proof}
+
+Then\pageoriginale $(du)(0) = $ identity, hence by the inverse function theorem
+there exists a neighbourhood $U$ of $0$ and a cube $Q_1$ such that 
+$u|U \to Q_1$ is a $C^1$ homeomorphism and its inverse is in $C^1$. Let
+$u^{-1}| Q_1 = u_1$. Clearly $f(u_1)(y) = (y_1, \ldots, y_r,
+\varphi_{r+1}(y), \ldots \varphi _m
+(y))$. If $\psi (y) = f (u_1(y))$, obviously rank $(d \psi )(y) = r$
+and hence  
+$$
+\displaylines{\hfill 
+\frac{\partial \varphi _j}{\partial y_k} = 0,~ j , ~ k , > r, \hfill \cr
+\text{i.e.,} \hfill \varphi _j= \varphi _j (y_i , \ldots , y_r) j > r
+\hfill} 
+$$
+suppose that $Q_1 = I^r \times I^{ n - r} $, where $I^r$, $I^{ n- r}$
+are cubes in $\mathbb{R}^{r}$, $\mathbb{R}^{ n-r}$. Define $u'_2$:
+$I^r \times \mathbb{R}^{ m - r} \to \mathbb{R}^{m-r}$ by  
+$$
+u_2 (y_1, \ldots , y_r , \ldots , y_m) = (y_1, \ldots , y_r, y_{r +
+  1}- \varphi_{ r +1}(y), \ldots , y_m - y_m (y)). 
+$$
+
+Trivially $u_2$ is bijective and its inverse is $u^{-1}_2 (y_1,
+\ldots , y_r , \ldots , y_m) = (y_1, \ldots y_r, y_{ r  + 1} +
+\varphi_{ r + 1} (u), \ldots ,y_m+ \varphi_m (y) )$. Let $Q_2$ be a cube such that
+$u_2 \psi (Q_1) \subset Q_2$ and $V = u_2^{-1}(Q_2)$ and clearly we
+have  
+$$
+\varphi (x_1, \ldots , x_n) = (x_1, x_2, \ldots, x_r, 0, \ldots, 0) 
+$$
+
+\section{Sard's theorem and functional dependence}\label{chap1:sec4} % section 4
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap1:sec4:lem1}% lemma 1
+Let $\Omega$ be an open set $\mathbb{R}^n$ and $f :\Omega \to
+\mathbb{R}^n$, $a C^1$ map. Then $f$ carries sets of measure zero
+into sets of measure zero. 
+\end{lemma}
+
+\begin{remark*}% remark 0
+  If in Lemma \ref{chap1:sec4:lem1}, the condition that $f \in C'$ is replaced by the
+  condition that $f$ satisfies a Lipschitz condition on every compact
+  $K \subset \Omega$, i.e.,\pageoriginale $| f(x) - f (y) | \leq M_k |
+  x - y|$ for 
+  $x$, $y \in K$, then $f$ carriers sets of measure zero into sets of
+  measure zero. This fact is trivial.  
+\end{remark*}
+
+\begin{lemma}\label{chap1:sec4:lem2}% lemma 2
+  If $\Omega$ is an open set in $\mathbb{R}^n$, $f$: $\Omega
+  \to\mathbb{R}^m$ is a $C^1$ map and if  $m > n$, then $f (\Omega)$
+  has measure zero in $\mathbb{R}^m$.  
+\end{lemma}
+
+\begin{proof}% proof 
+  If we define $g$: $\Omega \times \mathbb{R}^{ m - n} \to \mathbb{R}$
+  by $ g (x_1, x_2, \ldots , x_m) = f (x_1, \ldots$, $x_n)$. Then by
+  Lemma \ref{chap1:sec4:lem1} $f (\Omega) = g (\Omega \times 0)$  has measure zero.  
+\end{proof}
+
+Let be an open set in $\mathbb{R}^n$ and $f: \omega \to \mathbb{R}^n, a C^1$ map
+\begin{defi*}% definition
+  A point $a \in \Omega$ is called a critical point of $f$ if rank
+  $(df)(a)< m$.  
+\end{defi*}
+
+\begin{remark*}
+  \begin{enumerate}[(1)]
+  \item If $m > n$, each point of $\Omega$ is clearly a critical point
+    of $f$.  
+  \item The set $A$ of critical points of $f$ is closed in $\Omega$. 
+  \item If $m > n$, $f(a)$ has measure zero in $\mathbb{R}^m$. 
+  \end{enumerate}
+  We shall prove the following 
+\end{remark*}
+
+\setcounter{theorem}{0}
+\begin{theorem}[Sard]\label{chap1:sec4:thm1} % theorem 1
+  If $\Omega$ is an open set in $\mathbb{R}^n$, $f: \Omega \to
+  \mathbb{R}^m$ is a $C^\infty$ map $n \geq m$, and if $A$ is the set
+  of critical points of $f$ then $f(A)$ has measure zero in
+  $\mathscr{R}^m$ 
+\end{theorem}
+
+In what follows $\Omega$ will denote an open set in $\mathbb{R}^n$, $f$, a
+map of $\Omega$ in some $\mathbb{R}^m$ and $A$, the set of critical
+points of $f$ in $\Omega$.  
+
+Actually the theorem of Sard states that if $f:\Omega \to
+\mathbb{R}^m$ and $f \in C^{ n - m +1}(\Omega)$, then $f(A)$ has
+measure zero. The proof of this, however, requires more delicate
+analysis; see $A$. Sard \cite{38} and A. P. Morse \cite{30}. We shall prove
+this stronger statement when $m = n$ before proving
+Theorem \ref{chap1:sec4:thm1}. 
+H. Whitney \cite{46}  has given an example of an $f \in C^{ n -m}
+(\Omega)$, $n > m$,\pageoriginale for which $f(A)$ has positive measure (even
+covers $\mathbb{R}^m$).  
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{chap1:sec4:prop1}% proposition 1
+  If $f ~ \Omega \to \mathbb{R}^n$ is a $C^1$ map then $f(A)$ has
+  measure zero in $\mathbb{R}^n$. 
+\end{proposition}
+
+\begin{proof}% proof 
+  Let $a$ be in $A$. 
+\end{proof}
+
+Since $(df)(a)$ has rank $< n $, $f(a) + (df)(a)(x- a)$ lies in an
+affine subspace $V_a$ of $\mathbb{R}^n$, the dimension of $V_a$ being
+$<n$. Choose an orthonormal\pageoriginale basis $(u_1, u_2, \ldots, u_n)$ for
+$\mathbb{R}^n$ with centre $f(a)$ such that $V_a$ lies in the subspace
+spanned by $u_1, \ldots , u_{ n - 1}$. Let $Q$ be a closed in cube in
+$\Omega$. It is enough to show that $f (A \cap Q)$ has measure zero in
+$\mathbb{R}^n$. For $x \in Q \cap A$, by Taylor's formula, we have 
+$$
+f(x) - f(a)= (df) (a) (x -a) + r (x, a)
+$$
+where $r (x, a) = 0 (|x -a|)$ uniformly on $Q \times Q$ as $| x- a |
+\to 0$. Hence there exists a map $\alpha: \mathbb{R}^+ \to \mathbb{R}^+
+$ such that $\alpha (t) \to 0$ as $t \to 0$ and  
+$$
+|| r (x , a) ||\leq \alpha (|x - a|). | x - a|. 
+$$
+
+Then for sufficiently small $\varepsilon > 0$, of $x$ lies in a cube
+$Q_\varepsilon $ of side $\varepsilon $ which contains $a$, $f(x)$
+lies in the region  between the hyperplanes $u_n = \alpha (\varepsilon)$. $\in
+$ and $u_n = - \alpha (\varepsilon)$. $\in$. Also since an orthonormal
+change of  basis preserves distance, by Taylor's formula, there exists
+a constant $M$ such that $f(x)$ lies in the cube of side $M \varepsilon$ with
+$f(a)$ as its centre. The volume of the intersection of the cube of
+side $M \varepsilon$ and the region between the hyperplanes $u_n = \pm \alpha
+(\varepsilon)$. $\varepsilon$ is $\leq 2 m^n \varepsilon^n \alpha (\varepsilon)$. Since an
+orthonormal change of basis leaves the measure in $\mathbb{R}^n$
+invariant, we conclude that $f(Q_\varepsilon)$ has measure $\leq 2M^n \varepsilon ^n
+\alpha (\varepsilon)$. We can assume without loss of generality that
+$Q$ has side $1$. Divide $Q$ into $\varepsilon^{-n}$ cubes $Q_i$ of side
+$\varepsilon$, $i = 1, 2, \ldots, \varepsilon^{-n}$. Then if $Q_i \cap A \neq \phi$,
+$f(Q_i)$ has measure $\leq 2 M^n \varepsilon ^n \alpha (\varepsilon)$.
+
+Hence measure of $[f (A \cap Q) ] \leq \sum\limits_{\substack{A\cap
+Q_i \neq \phi \\ \leq 2 M^n \alpha (\varepsilon).}} \left\{ \text{
+  measure } f(Q_i \cap A) \right\}$
+
+Since $\alpha (\varepsilon) \to 0$ as $\varepsilon \to 0$, $f (A \cap Q)$ has measure
+zero in $\mathbb{R}^n$.  
+
+\begin{proposition}\label{chap1:sec4:prop2}% proposition 2
+If $f$: $\Omega \to \mathbb{R}^1$ is a $C^\infty$ map, then $f(A)$
+has measure zero in $\mathbb{R}^1$.  
+\end{proposition}
+
+\begin{proof}% proof
+Define $A_k$ by 
+$$
+A_k = \left\{ a \in \Omega | D^\alpha f (a) = 0 \text{ for } 0 <
+|\alpha| \leq k\right\}. 
+$$
+Obviously, $\{A_k\}$ is monotone decreasing and we have 
+\begin{equation*}
+A = (A_1 - A_2) \cup (A_2 - A_3) \cup \cdots \cup (A_{ n - 1} \cup
+A_n). \tag{4.1}\label{chap1:sec4:eq4.1} 
+\end{equation*}
+
+If $a \in A_n$, by Taylor's formula there exists a constant $M$ such
+that for $x$ in a closed cube $Q$ about $a$, we have $|f(x) - f (a)|
+\leq M | x - a| ^{ n+1}$ so that image of the a cube of side
+$\varepsilon$ about a has measure $\leq \varepsilon^{ n +1} M $ in
+$\mathbb{R}^1$. Hence as in proposition \ref{chap1:sec4:prop1}, $f(A_n \cap Q)$ has
+measure $< M \varepsilon $; Whence,  
+\begin{equation*}
+  f (A_n) \text{ has measure zero in }
+  \mathbb{R}^1. \tag{4.2}\label{chap1:sec4:eq4.2} 
+\end{equation*}
+
+Note that if $n = 1$, $A = A_n$, so that (\ref{chap1:sec4:eq4.2}) is
+Prop. \ref{chap1:sec4:prop2} with $n 
+= 1$. We\pageoriginale now suppose, by indication, that if $\Omega'$ is an open set
+in $\mathbb{R}^{ n -1}$, $g$, a $C^\infty$ map $\Omega' \to \mathbb{R}$
+and if $A^1$ is the set of critical points of $g$, then $g(A^1)$ has
+measure zero.  
+
+For $k< n$ let $A_k - A_{k +1} = B_k$. Let $a \in B_k$; it is
+sufficient to show that $a$ has a neighbourhood which goes into a set of
+measure zero. There exists $\alpha = (\alpha _1, \ldots, \alpha _n)$,
+with $|\alpha| = k +1$, such that $D^\alpha f (a) \neq 0$. If
+$\alpha_i \neq 0$, define $\beta = \alpha - (0, \ldots, 1, \ldots,
+0)1$ in the $i^{th}$ place.  
+$$
+\displaylines{
+\text{Define} \hfill g : B_k \to \mathbb{R}^1 \text{ by }g (x) = D
+  ^\beta f(x).\hfill } 
+$$
+$(dg) (a)$ has maximal rank $=1$. Therefore there exists an open
+neighbourhood $U'$ of $a$ such that $(dg)(x)$ has rank $1$ for $x$ in
+$U'$. Applying the rank theorem to $U'$ there exist  
+\begin{enumerate}[(1)]
+\item a neighbourhood $U$ of $a$, $U \subset U'$, 
+\item a cube $Q_1$ in $\mathbb{R}^n$, 
+\item an invertible map $u : Q_1 \to  U$, $u$, $u^{-1}$ being $C^\infty$, 
+\item a neighbourhood $V$ of $g(a)$, such that $g \circ u$: $Q_1 \to V$ is
+  given by  
+  $$
+  g \circ u (x_1, \ldots, x_n) = x_1 (= p_1 (x)  \text{say}).
+  $$
+\end{enumerate}
+
+  Now, $B_k \cap U \subset B' = \big\{ x \in U \big| g (x) = 0 \big\}$
+  so that 
+  $$
+  u^{-1}(B_k \cap U) \subset B = \{ x \in Q_1 | p_1 (x) = 0  \}. 
+  $$
+
+  Let $\Omega'= \big\{ (x_2, \ldots , x_n) \in \mathbb{R}^{ n - 1} |
+  (0, x_2, \ldots, x_n) \in Q_1 \big\}$. Let $v : \Omega' \to U$ be the
+  map $v(x_2, \ldots, x_n) = u (0, x _2, \ldots , x_n)$ and let $\psi =f
+  \circ v$; $\psi $ is a $C^\infty$ map $\Omega' \to \mathbb{R}$.  
+\end{proof}
+
+Let\pageoriginale $A^1$= The set of critical points of $\psi $. Since $d (\psi )(x)
+= (df) (v(x))\circ$  $(dv) (x), u^{-1} (B_k \cap U) \subset A^1$. By induction
+hypothesis, $\psi (A^1)$ has measure zero in $\mathbb{R}^1$. Since
+$\psi (A^1) \supset f (B_k \cap U)$, $f (B_k \cap U)$ has measure zero
+in $\mathbb{R}^1$, for each $k$ which by
+(\ref{chap1:sec4:eq4.1}) and (\ref{chap1:sec4:eq4.2}) implies that $f(A)$ has measure zero in
+$\mathbb{R}^1$.  
+
+\begin{coro*}% corollary 
+  If $f : \Omega \to \mathbb{R}^m$ is a $C^\infty$ function, $B =
+  \big\{ x \big| (df) (x) = 0\big\}$. then $f (B)$  has measure zero
+  in $\mathbb{R}^m$.  
+\end{coro*}
+
+\begin{proof}% proof
+  Let $f = (f_1 , f_2 , \ldots , f_m)$ 
+  $$
+  B_1 = \left\{ x \big| (df_1) (x) = 0 \right\}.
+  $$
+  
+  By prop 2. $f_1 (B_1)$ has measure zero in $\mathbb{R}^1$ and
+  clearly $B \subset B_1$. Hence $f(B) \subset f (B_1) \times
+  \mathbb{R}^{ m - 1}$, so that $f(B)$ has measure zero in
+  $\mathbb{R}^m$. In the proof of Theorem \ref{chap1:sec4:thm1}, we
+  shall use the following 
+\end{proof}
+
+\begin{theorem*}[(Fubini)]% theorem
+  If $F$ is a measurable set in $\mathbb{R}^p$, a point in
+  $\mathbb{R}^p$ denoted by $(x, y)$, $x\in \mathbb{R}^r, y \in
+  \mathbb{R}^{p-r}$,  $o
+  <r < p$, then the set of $y \in \mathbb{R}^{ p - r}$ such that $(c,
+  y) \in F$ has measurable zero in $\mathbb{R}^{ p- r}$ for almost all
+  $c$ if and only if $F$ has measure zero i $\mathbb{R}^p$. 
+\end{theorem*}
+
+\setcounter{proof of theorem}{0}
+\begin{proof of theorem}\label{chap1:sec4:pot1}% proof of theorem 1
+  Let $E_k = \left\{ x | rank (df)(x) = k\right\}$. We have 
+  $$
+  A = \bigcup _{ k \leq m} E_k. 
+  $$
+  If $a \in E_k, k <\circ$, then by a permutation of $\{f_i\} _{ 1 \leq i \leq
+    m}$, we may suppose that $if u = ( f _1, \ldots, f_k)$, $(du) (a)$
+  has rank $k$. We can then find $v_{ k +1},\ldots , v_n , v_i$:
+  $\Omega \to \mathbb{R}^1$, $k +1 \leq i \leq n$, such that if $w$ is
+  defined by $w(x) = (f_1, (x) , \ldots , f_k (x)$, $v_{k +1} , \ldots
+  , v_n (x))$,\pageoriginale then $(dw) (a)$ is invertible. By the inverse function
+  theorem there exist neighbourhoods $U$ and $V$ of a and $w(a)$
+  respectively, such that $W | U \to V$ is a homeomorphism and $w | U$
+  and $w^{-1} | V $ are $C^\infty$. We may further suppose that $V$ is
+  a cube in $\mathbb{R}^n$. Define $g$ on $V$ by  
+  $$
+  g(x) = f \circ w ^{-1} (x).
+  $$
+  If $u = (x_1, \ldots , x_k) , v = (x_{k +1}, \ldots , x_n)$ we have
+  $g (u, v) = (u, h (u, v))$ where  
+  $$
+  h : \mathbb{R}^n \to \mathbb{R}^{ m- k} \text{ is a } C^\infty \text{map}. 
+  $$
+  Let $w (a) = (\alpha , \beta)$. $\alpha \in \mathbb{R}^k$, $\beta
+  \in \mathbb{R}^{ n -k}$. Then $(df)(a)$ has rank $k$ 
+  \begin{align*}
+    & \Leftrightarrow  \quad (dg) (w(a)) \text{ has rank }k \\
+    &\Leftrightarrow \quad (d_2 h ) (\alpha, \beta)\text{ has rank } 0.
+  \end{align*}
+  Let $F_k=g [ w (E_k \cap U)] = f (E_k \cap U)$. If suffices to
+  prove that $F_k$ has measure zero. If  $V'$ is the projection of $V$
+  on $\mathbb{R}^{ n-k}$, define the map $h_c$: $V' \to \mathbb{R}^{ m
+    -k}$ by $h_c (v) = h (c, v)$, when $(c, v) \in V$. Let $W = \{v
+  \in V^1 | (dh_c) (v) = 0\}$. We have  
+  $$
+  F_k \cap \{ u = c\} = \{ u = c\} \times \{ h_c (W )\}.
+  $$
+  $h_c$: $V' \to \mathbb{R}^{ m - k}$ is a $C^\infty$ function. Hence,
+  by the corollary to Prop. \ref{chap1:sec4:prop2}, $h_c (W)$ has measure zero
+  $\mathbb{R}^{ m - k}$, i.e. the set of points $y \in \mathbb{R}^{m
+    -k}$ such that $(c, y) \in F_k$, has measure in $\mathbb{R}^{ m -
+    k}$, for all $c$. Hence, by Fubini's theorem, $F_k$ has measure
+  zero in $\mathbb{R}^m$ for every $k < m$ and this proves\pageoriginale the
+  theorem.  
+\end{proof of theorem}
+
+\begin{defi*}% definition
+  If $f: \Omega\to \mathbb{R}^m$ is a $C^\infty$ map and $f = (f _1$,
+  $f_2 , \ldots, f_m)$, then $\{f_i\}_{ i \leq i \leq m}$ are said to
+  be functionally dependent if there exists an open set $\Omega'
+  \supset f (\Omega)$, and a $C^\infty$ map $g: \Omega'
+  \to\mathbb{R}^1$ such that 
+  \begin{enumerate}[(1)]
+  \item $g^{-1} (0)$ is nowhere dense in $\Omega'$. 
+  \item $g \circ f = 0$
+  \end{enumerate}
+  If $g$ can be chosen real analytic, we say that $\{ f_i \}$ are
+  analytically dependent. 
+\end{defi*}
+
+\begin{lemma}\label{chap1:sec4:lem3}% lemma 3
+  If $E$ is any closed set in $\mathbb{R}^n$ then there exists $a~
+  C^\infty$ function $\varphi: \mathbb{R}^n \to \mathbb{R}$ such
+  that  
+  $$
+  \{ x \in \mathbb{R}^n | \varphi (x) = 0\} = E. 
+  $$
+\end{lemma}
+
+\begin{proof}% proof
+  If $E$ is closed, there exists $\{U_p \}_{p \geq 1}$, open sets in
+  $\mathbb{R}^n$, such that $E = \bigcap\limits_{ p \geq 1}
+  U_p$. There exist compact sets $\{K_m\}_{m \geq 1}$ in
+  $\mathbb{R}^n$ such that  
+  $$
+  \bigcup ^\infty _{ m = 1} K_m = \mathbb{R}^n\text{ and } K_p \subset
+  K^0_{ p +1}.  
+  $$
+%%%%%%%%% doubt labels
+  By the corollary to Theorem \ref{chap1:sec4:thm1}, 
+  \ref{chap1:sec4:thm2}, there exist $\varphi_p$: 
+  $\mathbb{R}^n \to \mathbb{R}$, $C^\infty$ maps such that  
+  \begin{equation*}
+    \varphi_p (x) = 
+    \begin{cases}
+      0 & \text{ for } x \in E \\
+      1 & \text{ for } x \in \mathbb{R}^n - U_p   \tag{1}
+    \end{cases}
+  \end{equation*}
+  and 
+  \begin{equation}
+    0 \leq \varphi _p (x) \leq 1. \tag{2}
+  \end{equation}
+
+  Consider\pageoriginale $|| \varphi _p || ^{K_p}_p = \sum\limits_{ |\alpha | \leq p}
+  \sup\limits_{ x \in K_p} | D^\alpha \varphi _p (x) |$. Each $||
+  \varphi _p || ^{K_p}_p$ is finite. Hence there exists a sequence
+  $(\varepsilon_p)$ of +ve numbers such that  
+  \begin{equation*}
+    \sum^\infty_{ p = 1} \varepsilon_p || \varphi _p || ^{Kp}_p <
+    \infty.  \tag{4.3}\label{chap1:sec4:eq4.3} 
+  \end{equation*}
+  Let $f_m$ be defined by 
+  $$
+  f_m (x) = \sum^m _{p = 1} \varepsilon _p \varphi _p (x). 
+  $$
+  If $K$ is any compact set in $\mathbb{R}^n$, $K \subset K_r$ for some
+  $r$. (\ref{chap1:sec4:eq4.3}) implies in particular that for integer
+  $m > r$,   
+  $$
+  \sum_{ p > m} \varepsilon_p || \varphi_{p} ||^K_p \leq \sum^\infty _{ p > m}
+  \varepsilon _p || \varphi _p ||^{K_p}_p < \infty.  
+  $$
+  
+  Hence $\{f_m\}$ is a Cauchy sequence in $C^\infty$, and by the
+  completeness of $C^\infty$ [Theorem \ref{chap1:sec1:thm1},
+    \S\ \ref{chap1:sec1}], $f_m$ converges to
+  a function $\varphi$, in $C^\infty$. Clearly $\varphi$ has the
+  required properties.  
+\end{proof}
+
+\begin{theorem}\label{chap1:sec4:thm2}% theorem 2
+  If $f$: $\Omega \to \mathbb{R}^m$ is a $C^\infty$ map where $f  =
+  (f_1, f_2, \ldots, f_m)$, then $\{f_i\}_{ 1 \leq i \leq m}$, are
+  functionally dependent on every compact subset of $\Omega$ if and
+  only if rank $(df)(x) < m$ for $x \in \Omega$. 
+\end{theorem}
+
+\begin{proof}% proof
+  If $\{f_i\}$ are functionally dependent on the compact set $K$, let
+  $f =\mathbb{R}^m \to \mathbb{R}$ be a $C^\infty$ map such that $g \circ
+  f = 0$ and $g^{-1} (0)$ nowhere dense in $\mathbb{R}^m$. clearly
+  $f(K) \subset  g^{-1}(0)$is nowhere dense. If rank $(df)(x) = m$ for some
+    $x \in \overset{\circ}{K}$, then rank $(df) (x) = m$ in an open
+  neighbourhood $U 
+    \subset \overset{\circ}{K}$ of $x$ and by the rank theorem $f |U$
+    is open, so that $f(U)$ cannot be nowhere dense.  
+\end{proof}
+
+Conversely\pageoriginale if rank $(df) (x) < m$ for $x \in \Omega$,
+then by Theorem \ref{chap1:sec4:thm1}, for any subset $K$ of $\Omega$, $f(K)$ has measure zero in
+$\mathbb{R}^m$. Hence $f(K)$ is nowhere dense in $\mathbb{R}^m$. Also 
+$K$ being compact, 
+$f(K)$ is closed in $\mathbb{R}^m$. Hence by the above, lemma, there
+exists a $C^\infty$ function $g$: $\mathbb{R}^m \to \mathbb{R} $ such
+that $g^{-1} (0) = f (K)$, so that $g \circ f = 0 $ on $K$.  
+
+Only a somewhat weaker statement is true of analytic dependence.
+
+\begin{theorem*}[{\boldmath $2'$}]\label{chap1:sec4:thm2'}% theorem 2
+  If $f: \Omega \to \mathbb{R}^m$ is an analytic map, and if rank
+  $df (x) < m$ at every point of $\Omega$, then there exists a nowhere
+  dense closed set $E \subset \Omega$ such that for any $a \in \Omega
+  - E$, there  exists a neighbourhood
+  $U$ of a, $U \subset \Omega$, such that $f_i |U$ are analytically
+  dependent. 
+\end{theorem*}
+
+\begin{proof}
+  We may suppose that $\Omega$ is connected. Let $p= \max$. rank
+  $(df) (x)$, and let $b \in \Omega$ be such that $p = rank
+  (df)(b)$. This means that there exist $i_1, \ldots i_p, $ and $j_1$,
+  $j_2, \ldots, j_p$, such that if we set $h(x) = \det |
+  \dfrac{\partial f_{i_r}}{\partial x_{j_s}}|$, we have $h(b) \neq 0$. Let $E
+  = \{x \in \Omega | h (x) = 0\}$. Since $h$ is analytic in $\Omega$
+  and $\nequiv 0$, $E$ can contain no open set, and so is nowhere dense.  
+\end{proof}
+
+Now clearly rank $(df) ~ (x) = p $ for $x \in \Omega -E$. By the rank
+theorem, given $a \in \Omega - E$, there exist neighbourhoods $U$ of
+$a$, $V$ of $f(a)$,cubes $Q_1$, in $\mathbb{R}^n$, $Q_2$ in 
+$\mathbb{R}^m$ and analytic homeomorphisms $u_1$: $Q_1 \to U$, $u_2$: $V
+\to Q_2$ such that $u_2  \circ f \circ u_1$  is the map which sends $(y_1,
+y_2, \ldots , y_n)$ into the point $(y_1, \ldots , y_p , \ldots ,
+0)$. If $u_2 = (u^{(1)} , \ldots , u^{(m)})$, and we take  
+$$
+g = u ^{(r)}, r > p,
+$$
+then $ g \circ f = 0 $ on $U$.
+ 
+\begin{example*}% Example
+  If\pageoriginale $\varphi (z)$ is an entire function of the complex variable $z$,
+  not a polynomial, and real on the real axis, (e.g. $\varphi (z) =
+  e^z$), consider the map $f$: $\mathbb{R}^2 \to \mathbb{R}^3$ given
+  by  
+  $$
+  f (x_1, x_2) = (x_1, x_1 x_2, x_1 f (x_2))
+  $$
+
+  It can be shown that there does not exist any analytic function $g
+  \not \equiv 0$ in a neighbourhood  of $0 \in \mathbb{R}^3$ with $g \circ
+  f = 0$ in a neighbourhood of $0 \in \mathbb{R}^2$.  
+\end{example*}
+
+\section{E. Borel's theorem and approximation theorems}\label{chap1:sec5}% section 5
+ 
+\begin{notation}
+  If $f \in C^\infty$, $T(f)$ will denote the formal power series
+  $\sum\limits_{ | \alpha | < \infty}$ $\dfrac{f^\alpha (0)}{\alpha !}
+  x^\alpha$ and $T^m(f)$ will denote the polynomial $\sum\limits_{ |
+    \alpha | \leq m } \dfrac{f ^\alpha (0)}{\alpha !} x ^\alpha$.  
+\end{notation}
+
+\begin{defis*}% definitions
+  \begin{enumerate}[(1)]
+  \item If  $f \in C^k (\Omega )$ and if $E$ is a closed subset of
+    $\Omega$, then $f$ is said to be $m$-flat on $E$, $(m \leq k)$, if
+    $D^\alpha f(x) = 0$ for $x \in E$ and $|\alpha| \leq m$. 
+  \item If $f \in C^\infty(\omega)$, $E$  is a closed subset of $\Omega$ and
+    if $f$ is  $m$-flat on $E$ for every positive integer $m$, then
+    $f$ is said to be flat on $E$. 
+  \end{enumerate}
+\end{defis*}
+
+\setcounter{lemma}{0}
+\begin{lemma}% Lemma 1
+  If $f \varepsilon C^\infty(\mathbb{R}^n )$ and if $f $ is $m$-flat at $0$,
+  given $\varepsilon > 0$, there exists $g \varepsilon C^\infty (\mathbb{R}^n)$ such
+  that $g(x) = 0$ in a neighbourhood of $0$ and $|| g - f ||
+  ^{\mathbb{R}^n}_m < \varepsilon$.  
+\end{lemma}
+
+%%%%%%%%%%%%%%%%%% doubt labels
+\begin{proof}% Proof
+  By the corollary to Theorem 1, 2, there exists a $C^\infty$
+  function $k$: $\mathbb{R}^n \to \mathbb{R}$, such that  
+  $$
+  \displaylines{\hfill 
+  k(x)
+  \begin{cases}
+    = 0 & \text{ for } |x| \leq \dfrac{1}{2}\\
+    = 1 & \text{ for } |x| \geq 1
+  \end{cases}\hfill \cr
+  \text{and}\hfill k(x) \geq 0. \hfill } 
+  $$
+
+Let\pageoriginale $g_\delta (x) = k\left(\dfrac{x}{\delta}\right) f(x)$ for $\delta >
+0$. It is enough to prove that for each $\alpha$, $| \alpha | \leq m$,  
+$$
+|(D^\alpha f_\delta) (x) - D^\alpha f (x) | \to 0 \text{ uniformly
+  on } \mathbb{R}^n \text{ as } \delta \to 0. 
+$$
+
+Now we have  
+$$
+\sup_{ x \varepsilon \mathbb{R}} |(D^\alpha g_\delta) (x) - (D^\alpha f
+) (x) |=\sup\limits_{ | x| \leq \delta } | (D^\alpha g_\delta)(x) -
+(D^\alpha f )(x) |  
+$$
+and since $f$ is $m$-flat at $0$.
+$$
+\sup_{ |x | \leq \delta } | (D^\alpha f) (x) | \to 0, \text{ as } \delta
+\to 0 , \text{ for } |\alpha| \leq m. 
+$$
+
+By Leibniz' formula. 
+$$
+D^\alpha g_{\delta} (x) = \sum_{ \mu + \nu = \alpha}(^\alpha_{ \nu})
+\delta^{- |v|} (D ^\nu. k) (\frac{x}{\delta}) (D^\mu . f)(x).  
+$$
+
+For each $\nu$, there exists a constant $M_\nu$, such that $| (D^\nu
+k)(x) | \leq M_\nu$. Hence  
+$$
+\left|  (D^\alpha g _\delta) (x)\right | \leq \sum_{ \mu + \nu =
+  \alpha} M_\nu (^\alpha_\nu) \delta ^{- | v|} | (D^\mu f) (x)| 
+$$
+now $(D^\mu f )(x)$ is $(m - | \mu |)$ flat at $0$. Therefore, 
+$$
+| (D^\mu f) (x) | = \circ (|x|^{ m- |\mu |} ) \text{ as }x \to 0 
+$$
+so that $\sup_{ | x | \leq \delta } | (D^\mu I)(x) | = \circ (\delta ^{m -
+  | \mu |})$ and  
+\begin{align*}
+  \delta ^{-|\nu|} | D^\mu f (x) | &= \circ (\delta ^{ m - | \mu | - | \nu )}) \\
+  & = \circ (1). 
+\end{align*}
+
+Hence\pageoriginale for $| \alpha | \leq m$, $(D^\alpha g_\delta) (x) \to 0$
+uniformly as $\delta \to 0$ i.e., $|| g_\delta -f ||_M \mathbb{R}^n \to
+0$ as $\delta \to 0$ \hfill{Q.E.D.}  
+\end{proof}
+
+
+Note that the function $g$ in the above lemma is $m$ in particular,
+flat at $0$.  
+
+\setcounter{theorem}{0}
+\begin{theorem}[E. Borel]\label{chap1:sec5:thm1}% Theorem 1
+  Given an arbitrarily family $\{ C_\alpha\}$ of constants there
+  exists $f \varepsilon C^\infty (\mathbb{R}^n$)  such that $T(f)
+  =\sum\limits_{|\alpha | < \infty} C_\alpha x^\alpha$, i.e,
+  $\dfrac{D^\alpha f(0)}{\alpha !}= C_\alpha$ for all $\alpha$. 
+\end{theorem}
+
+\begin{proof}% Proof
+  Let $\sum\limits_{ | \alpha | \leq m} C_\alpha x^\alpha = P_m (x)$.
+
+  By the lemma above there, exists $g_m \varepsilon C^\infty$, flat at $0$,
+  such that  
+  $$
+  || P_{ m+1} - P_m - g_m || < 2^{-m}.
+  $$
+  Clearly because of the completeness of  $C^\infty$
+  $$
+  f = P_\circ + \sum^\infty _{ m = 0} (P_{ m +1} - P_m - g_m) \varepsilon C^\infty,
+  $$
+  and, for any $k$, $\sum\limits_{ m \geq k} (P_ { m+1} - P_m - g_m) $
+  is $k$-flat at $0$. Hence  
+  $$
+  T^k (f) = T^k \left( P_0 + \sum^{ k - 1}_0 ( P_{ m +1} - P_m -
+  g_m)\right) = P_k.   
+  $$  
+  
+  This theorem of Borel is a very special case important theorems of
+  $H$. Whitney \cite{45} on differentiable functions on closed sets. We
+  state, without proof, his main theorem in this direction. A
+  simplified version of his proof is container in the paper \cite{12} of
+  $G$. Glaeser. A systematic account\pageoriginale of this circle of ideas will be
+  found in a forthcoming book $B$. Malgrange \cite{26} on ideals of
+  differentiable functions.  
+\end{proof}
+
+\medskip
+\noindent
+\textbf{ Extension theorem of Whitney }
+
+\begin{enumerate}
+\item[Part 1.] Let  $k$ be an integer $> 0$, $\Omega$ open in
+  $\mathbb{R}^n$  and $E$ a closed subset of $\Omega$. To every
+  $n$-tuple $\alpha = (\alpha _1, \ldots, \alpha _n)$ of nonnegative
+  integers with $| \alpha | \leq k$, suppose given a continuous
+  function $f_\alpha$ on $E$. Then there exists $f \varepsilon C^k (\Omega)$
+  with $D^\alpha f | E = f_\alpha$ for $| \alpha | \leq k$ if and only
+  if for any $\alpha$, $| \alpha | \leq k$, we have  
+  $$
+  f_\alpha (x) = \sum_{ |\beta|\leq k - | \alpha | } \frac{f _\alpha +
+    \beta (y)}{ \beta !} (x - y)^\beta + \circ (| x - y | ^{ k -
+    |\alpha|}) 
+  $$
+  uniformly for $x, y$ in any compact subset of $E$, as $| x - y | \to 0$. 
+
+\item[Part 2.]  Given  a continuous function $f_\alpha$ on $E$ for
+  \text{all } $n$-tuples $\alpha$, there exists $f \varepsilon C^\infty
+  (\Omega)$ with  
+  $$
+  D^\alpha f \bigg| E = f_\alpha \text{ for  all} ~~\alpha, 
+  $$
+  if and only if we have for any integer $k > 0$ and any compact $K
+  \subset E$,  
+  $$
+  f_\alpha (x) = \sum_{ |\beta |\leq k} \frac{f_\alpha +\beta
+    (y)}{\beta!} (x - y)^\beta + \circ (| x - y | ^k)  
+  $$
+  uniformly as $|x - y| \to 0$, $x$, $y \varepsilon K$
+\end{enumerate}
+
+Borel's  theorem is the special case of this second part in which $E$
+reduces to a single point.  
+
+\begin{theorem}[Weierstrass]\label{chap1:sec5:thm2}% Theorem2
+  If $f \varepsilon C^k(\Omega)$, $0 \leq k < \infty$, given a compact subset
+  $K$ of $\Omega$ and $\varepsilon > 0$, there exists a polynomial $p(x_1,
+  \ldots, x_n)$ such that $|| f - p ||^k _k < \varepsilon $. 
+\end{theorem}
+
+\begin{proof}% Proof
+  Without\pageoriginale loss of generality we may assume that $f$ has compact support. 
+\end{proof}
+
+For $\lambda > 0$, define $g_\lambda (x)$ by 
+\begin{equation*}
+  g_\lambda (x) = c \lambda ^{n /2} \int\limits_{\mathbb{R}^n} f (y) e
+  ^{ - \lambda || x - y || ^2} dy, \tag{5.1}\label{chap1:sec5:eq5.1} 
+\end{equation*}
+where $c$ is the constant given by 
+$$
+c \int\limits_{\mathbb{R}^n} e^{- || x ||^2} dx = 1. 
+$$
+
+Then obviously $c\lambda ^{ n/2} \int\limits_{ \mathbb{R}^n} e^{ -
+  \lambda || x ||^2} dx = 1$. We shall show that $|| g _\lambda - f
+||^K_k \to 0$ as $\lambda \to \infty$. By uniform convergence of the
+integral in (\ref{chap1:sec5:eq5.1}) and by a suitable change of
+variable, we have,   
+$$
+\displaylines{\hfill 
+  D^\alpha g_\lambda (x) = c \lambda^{n/2} 
+  \int\limits_{\mathbb{R}^n} (D^\alpha f) (y)
+  e^{ - \lambda || x - y ||^2} dy.\hfill \cr  
+  \text{Hence}\hfill  
+  D^\alpha g_\lambda (x) - D^\alpha f (x) = c\lambda ^{ n / 2}
+  \int\limits_{\mathbb{R}^n} [ D^\alpha f(y) - D^\alpha f (x)] e^{ -
+    \lambda || x - y ||^2} \text{ dy}.\hfill}  
+$$
+
+Given $\varepsilon > 0$, there exists $\delta > 0$  such that 
+\begin{equation*}
+  | (D^\alpha f ) (y) - (D^\alpha f )(x) | < \varepsilon/2 \text{ for } || x -
+  y || \leq \delta.  \tag{5.2} \label{chap1:sec5:eq5.2}
+\end{equation*}
+
+Since $f$ has compact support and $f \varepsilon C^k$, there exists a constant
+$M$ such that for any $\alpha$, $|\alpha | \leq k$,  
+\begin{equation*}
+  | D^\alpha f (y) | < M. \tag{5.3}\label{chap1:sec5:eq5.3}
+\end{equation*}
+
+By\pageoriginale (\ref{chap1:sec5:eq5.2}) and (\ref{chap1:sec5:eq5.3})
+\begin{align*}
+  &\left| (D^\alpha g _\lambda) (x) - (D^\alpha f)(x)\right|\\ 
+  & = \left|  c \lambda^{ n / 2} 
+  \int\limits_{|| x - y || < \delta}  \left[ D^\alpha f (y)- D^\alpha
+    f (x) \right]  e^{- \lambda || x - y ||^2} {dy} + c\lambda^{ n
+      /2} \right.\\ 
+  & \hspace{4cm} \left.\int\limits_{|| x - y || \geq \delta} [D^\alpha f(y) - D
+    ^\alpha f(x)] e^{-\lambda || x - y||^2}{dy}\right| \\ 
+   & \leq  \varepsilon / 2 c\lambda^{ n/2}
+  \int\limits_{\mathbb{R}^n} e^{ - \lambda || x - y ||^2} dy +2 M
+    . C. \lambda ^{ n /2} \int\limits_{ || x - y || \geq \delta} e
+  ^{- \lambda || x - y ||^2} dy\\ 
+  & \leq \varepsilon / 2 + 2M c \lambda^{ n /2} e^{- \lambda
+    \frac{\delta ^2}{2}} \int\limits_{|| x - y || \geq \delta} e^{-
+    \frac{1}{2} \lambda || x - y ||^2} dy. 
+\end{align*}
+
+The product $c \lambda^{ n / 2} \int\limits_{\mathbb{R}^n} e^{ -
+  \dfrac{\lambda}{2} || x - y ||^2} dy = 2^n$ and
+$\lambda^{\dfrac{n}{2}} e^{- \lambda \dfrac{\delta^2}{2}} \to 0$ as
+$\lambda \to \infty$. Hence we have $| (D^\alpha g_\lambda) (x) -
+(D^\alpha f) (x) | \to 0$ 
+uniformly as $\lambda \to \infty$ for $| \alpha | \leq k$; i.e. 
+$$
+|| g_\lambda - f ||^K_k \to 0 \text{ as } \lambda \to \infty.  
+$$
+
+Choose $\lambda _0$ such that 
+$$
+\displaylines{\hfill 
+  || g_{\lambda_0} -f || ^K_k <  \varepsilon /2. \hfill \cr
+  \text{Now,}\hfill   
+  e^{ - \lambda _0 || x - y || ^2 } = \sum ^\infty _ {p = 0} \frac{(-
+    \lambda _0)^p}{p!}|| x - y || ^{2 p}.\hfill } 
+$$
+
+If we set $Q_N (x, y) = \sum\limits^N_{ p = 0} \dfrac{(- \lambda_0
+  )^p}{p!}|| x - y ||^{ 2 p}$, then $ 
+D^\alpha _x Q_N (x, y )\to D^\alpha _x$ $e^{ - \lambda _0 || x - y || ^2
+}$ as $N \to \infty$, uniformly for\pageoriginale $x$, $y$ in a compact set. Hence,
+if  
+$$
+P_N (x) = c \lambda_0 ^{ n / 2} \int f(y) Q_N (x, y) dy, 
+$$
+then $P_N$ is a polynomial and $|| f - P_N ||^K_k \to 0$ for any
+compact set $K$.  
+
+\setcounter{corollary}{0}
+\begin{corollary}\label{chap1:sec5:coro1}% Corollary 1
+  If $\Omega _i$ is open in $\mathbb{R}^{ n_i}$, $i = 1$, $2$ then the
+  finite linear combinations $\sum\limits_{\mu, \nu} \varphi (x_i)
+  \psi_\gamma (x_2) \bigg\{x_i $ denoting a general point in $\mathbb{R}^{n_i}
+  \bigg\}$ where $\varphi _\mu(x_1)$ is $C^\infty$ in $\Omega _1$, $\psi
+  _\gamma (x_2)$ in $\Omega_2$, are dense in the space $C^k (\Omega_1
+  \times \Omega_2)$.  
+\end{corollary}
+
+Since the topology on $C^k (\Omega_1 \times \Omega_2)$ involves only
+approximation on compact sets, by multiplying $\varphi _\mu$, $\psi
+_\nu$ by suitable functions with compact support we obtain  
+\begin{corollary}\label{chap1:sec5:coro2}% corollary 2
+  With  the notation as in Cor. $1$. the finite linear combinations
+  $\sum \varphi_\mu (x_1)\psi (x_2)$, where the $\varphi _\mu$,
+  $\psi _\nu$ are $C^\infty$ functions with compact support  in
+  $\Omega_1$, $\Omega_2$ respectively, are dense in $C^k (\Omega_1
+  \times \Omega_2)$.  
+\end{corollary}
+
+\begin{theorem}[Whitney]\label{chap1:sec5:thm3}% Theorem 3
+  If $\Omega$ is an open set in $\mathbb{R}^n $ and $f:\mathbb{R}^n \to
+  \mathbb{R}$ is a $C^k$ map $(0 \leq k \leq \infty)$ then for any
+  continuous function $\eta > 0$ on $\Omega$, there exists an analytic
+  function $g$ in $\Omega$ such that for any $x \varepsilon \Omega$, we have
+  $|D^\alpha f (x) - D^\alpha g(x)| < \eta (x)$ for $0 \leq |\alpha |
+  \leq \min \left(k, \dfrac{1}{\eta (x)}\right)$.  
+\end{theorem}
+
+If $ K_p$ is any sequence of compact subsets of $\Omega$, $K_p \subset
+K^\circ_{ p+1}, \cup K_p = \Omega$ and if $\varepsilon_p>0$, there exists a
+continuous function $\eta$ on $\Omega$ with $\eta (x) < \varepsilon
+_p$ \textit{on} $K_{ p +1} - K_p$. Consequently,
+Theorem \ref{chap1:sec5:thm3} is
+equivalent with the following  
+
+\begin{theorem*}[{\boldmath $3'$}]\label{chap1:sec5:thm3'}% theorem 3'
+  If\pageoriginale $\Omega$ is an open set in $\mathbb{R}^n$; $f: \Omega \to
+  \mathbb{R}^1$ is $C^k$, $0$, $\leq k \leq \infty$, and if $\{K_p\}$
+  are compact subsets of $\Omega$ such that $\bigcup\limits_{ p \geq
+    1} K_p = \Omega~ K_0 = \phi$  and $K_p \subset {K}^\circ_{p +1}$ then given a
+  sequence $\{\varepsilon _p\}$ of positive numbers $\varepsilon_p
+  \downarrow 0$, and a sequence $\{m_p\}$ of non-negative integers
+  with $0 \leq m_p \leq k$, there exists an analytic function $g$:
+  $\Omega \to \mathbb{R}$ such that $|| f - g || ^{ K_{ p +1} -
+    K_p}_{ m_p}> \varepsilon_p$ for every $p \geq 0$.  
+\end{theorem*}
+
+\begin{proof}
+  We may assume that $m_{ p +1} \geq m_p $ for $p \geq 1$. Using
+  Leibniz' formula we see at once that there is a sequence $\{C_p\}$
+  of numbers $C_p \geq 1$, such that for $\varphi, \psi  \varepsilon C^{m_p}
+  (\Omega)$ and say subset $E$ of $\Omega$, we have  
+  $$
+  || \varphi \psi ||^E _{ m_p} \leq C_p || \phi ||^E_{m_p} ||  \psi ||^E_{m_p}. 
+  $$
+  By Theorem \ref{chap1:sec2:thm1}, \S \ref{chap1:sec2}, there exist
+  functions $\varphi _p \varepsilon C^\infty (\Omega)$,  such that  
+  \begin{align*}
+      \varphi _p & \quad  \text{ has compact support in }\Omega,\\ 
+    \varphi _p(x) & = 0 \text{ for $x$ in a neighbourhood of} ~K_{p -1} \\
+    & = 1 \text{ for $x$ is a neighbourhood of }(\bar{ K_{p+1} - K_p}).
+  \end{align*}
+
+  Let $M_p = ||\varphi_p|| _{m_p} + 1$. Choose a sequence $\{\delta
+  _p\}$ of positive numbers $\delta _p \downarrow 0$ such that  
+  \begin{equation*}
+    \sum_{q \geq p} C_m M_{ q  + 1} \delta < \frac{1}{4} \varepsilon
+    _p \text{ for all } p \geq 0. \tag{5.4}\label{chap1:sec5:eq5.4}  
+  \end{equation*}
+
+  For a continuous function $f$, $I_\lambda (f)$ will  denote the
+  function with $I_\lambda (f) (x) = c\lambda^{n/2}
+  \int\limits_{\mathbb{R}^n} f(y) e^{ - || x - y ||^2}$ by where $c$ is chosen
+  so that $c \int\limits_{ \mathbb{R}^n} e^{ - || x ||^2}$ $dx = 1$.\pageoriginale By
+  theorem \ref{chap1:sec5:thm2}, we may choose $\lambda_0$ such that, if $g_0 = I
+  _{\lambda _0} (\varphi _0 f)$,  
+  $$
+  || g_0 - \varphi_0 f ||^{K_1}_{m_0} < \delta _0.
+  $$
+  For $p \geq 1$, let 
+  $$
+  g_p = I_{ \lambda _p} \left[ \varphi _p \left(f - \sum^{ p - 1}_0g_i
+    \right)\right]
+  $$
+  where $\lambda_p$ is so chosen that 
+  \begin{equation*}
+    || g_p -  \varphi _p \left( f - \sum^{ p - 1}_0 g_i\right) ||^{ K_{ p +1}}_{
+      m_p} < \delta _p. \tag{5.5}\label{chap1:sec5:eq5.5}  
+  \end{equation*}
+  
+  Note that, for $p \geq 1$, $\lambda _p$ can be chosen to be any number
+  $ > $ a constant $l_p$ depending only on $\lambda _0, \ldots,
+  \lambda_{p - 1}$. The inequality (\ref{chap1:sec5:eq5.5}) implies,
+  in particular, that   
+  \begin{equation*}
+    || g_p || ^{ K_{ p+1}}_{m_p} < \delta _p \tag{5.6}\label{chap1:sec5:eq5.6}
+  \end{equation*}
+  and
+  \begin{equation*}
+    || f - \sum^p_0  g_p || ^{ K_{ p +1}- K_p}_{ m_p} < \delta _p
+    \tag{5.7}\label{chap1:sec5:eq5.7}
+  \end{equation*}
+  
+  Consequently, (\ref{chap1:sec5:eq5.5}), with $p$ replaced by $p +
+  1$, implies that  
+  \begin{align*}
+    || g_{ p+1}||^{ K_{p+1} - K_p}_{ m_p} & \leq ||  \varphi_{ p +1} \left(f
+    - \sum^p_0 \right) g_q || ^{K_{ p +1}- K_p}_{ m_p} +  \delta _{p+1} \\ 
+    &  \leq C_p ||  \varphi_{ p +1} ||_{m_p} || \left(f - \sum^p_0
+    g_q\right) ||^{K_{ p +1}- K_p}_{ m_p} +  \delta _{p+1} \\ 
+    & \leq C_p M_{ p +1}\delta _p + \delta_{ p + 1} \leq 2 \delta _p
+    C_p M_{p+1};  
+  \end{align*}
+  also\pageoriginale $|| g_{ p+1}||^{K_p}_{m_p}\leq \delta +{ p+1}$.
+  
+  Hence 
+  $$
+  \displaylines{\hfill 
+    || g_{ p +1}|| ^{ K_{P+1}}_{m_p}\leq 2 \delta _p C_p M_{p +1}
+    \hfill \cr 
+    \text{i.e.,} \hfill  || \sum\limits^\infty_{ p +1} ||^{ K_{ 
+        p+1}}_{m_p}\leq 2 \sum\limits_{q > p} \delta _q C_p M_{ q + 1}<
+    \dfrac{1}{2}\varepsilon_p.\hfill}
+  $$ 
+  
+  Hence by the completeness of $C^k$, 
+  $$
+  \displaylines{\hfill  
+    g = \sum^\infty_0 g_q \varepsilon C^{m_p}\hfill \cr
+    \text{and}\hfill  
+    || f -g ||^{ k_{p+1}- K_p}_{m_p} \leq ||f - \sum^p _\circ g_1
+    ||^{K_{p+1}- K_p}_{m_p} + || \sum^\infty_{p+1} g_i ||^{K_{p+1}- K_p}_{m_p} 
+    < \delta_p + \frac{1}{2} \varepsilon_p < \varepsilon_p. \hfill} 
+  $$
+  
+  Now we shall prove that $g$ is analytic if the $\lambda_p$ are suitably
+  chosen. By definition,  
+  $$
+  g_q (x)= c \lambda_q^{ n / 2} \int\limits_{\Omega_q} (y) \left[f(y)- \sum^{q-1}_0
+  g_i (y)\right] e^{ - \lambda _q || x - y ||^2 } dy  
+  $$
+  and $\varphi_q$ has compact support. Hence $g_q$ is analytic for such
+  each $q$. Let $2 \mu_p = d (K_p , \Omega - K_{ p +1})$; clearly $\mu
+  _p > $.  There is an open set $U_p$ in $\mathbb{C}^m$, $U_p \supset
+  K_p$ such that if $z \varepsilon U_p$, $y \varepsilon \Omega - K_{ p
+    +1}$, then   
+  $$
+  Re \left[ (z_1 - y_1)^2 + \cdots + (z_n - y_n)^2\right] > \mu_p. 
+  $$
+\end{proof}
+
+For\pageoriginale any $q$, define
+$$
+g_q (z) = c \lambda^{n/2}_q \int\limits_{\Omega} \phi_q (y) \left [
+  f(y) - \sum\limits^{q-1}_{r = 0}  g_r (y) \right ] e^{- \lambda_q [
+    (z_1 - y_1)^2+ \cdots + (z_n - y_n )^2 ]_{dy}}  
+$$
+
+Since $\phi_q$ has compact support, $g_q$ is an entire function of
+$z_1 , \ldots , z_n$. Further, for $q > p +1$, the integral defining
+$g_q$ may be replaced by $\int\limits_{\Omega- {K}_{p +1}}$ since
+$\varphi _q = 0$ on $K_{p+1}$; hence  
+\begin{equation}
+  \big | g_q (z) \big | \le c \lambda^{n/2}_q H_q e^{- \lambda_q
+    \mu_p}, ~\text { for } q > p +1, z \varepsilon U_p ;
+  \tag{5.8}\label{chap1:sec5:eq5.8}  
+\end{equation}
+here $H_q $ is a constant depending only on $\lambda_o , \ldots ,
+\lambda_{q-1}$. We can choose, by induction, $\lambda_q$ such that
+$\lambda_q > l_q$ (the constant depending on $\lambda_o , \ldots ,
+\lambda_{q-1}$ which is involved in the validity of the inequality
+(\ref{chap1:sec5:eq5.5})) and such that the series. 
+$$
+\sum \lambda^{n/2}_q H_q e^{-\lambda_q \mu} < \infty \text { for any } \mu > 0.
+$$
+[It suffices, e.g. to choose $\lambda_q$ such that $\lambda^{n/2}_q
+  H_q (\lambda_0 , \ldots \lambda_{q-1}) e^{\frac{-\lambda_q}{q}} <
+  \dfrac{1}{q^2}$.] 
+
+For  this choice of the sequence $\lambda_q$, the inequality
+(\ref{chap1:sec5:eq5.8})
+implies that the series 
+$\sum g_q (z)$ converges uniformly for $z \varepsilon U_p $; hence the sum is
+holomorphic in $U_p$ for any $p$. Since $g$ is the restriction of this
+sum to $\Omega$, $g$ is real analytic in $\Omega$. 
+
+We shall now consider analogues of these theorems for approximation by
+polynomials in complex variables. Clearly, since a uniform\pageoriginale limit of
+holomorphic functions is holomorphic, we can at best hope to
+approximate \textit{holomorphic} functions by polynomials. But there
+are geometric and analytic conditions on an open set $U$ in the space
+$\mathbb{C}^n$ in order that any holomorphic function on $U$ be
+approximable by polynomials. 
+
+\begin{defi*} % def
+  An open set $U \subset \mathbb{C}^n$ is called a Runge domain if
+  every holomorphic function $f$ on $U$ can be approximated by
+  polynomials, uniformly on every compact subset of $U$. 
+\end{defi*}
+
+The following theorem is contained in a general approximation theorem
+which we shall prove in Chap. III. For a simple direct proof based
+on Cauchy's integral formula (the original proof of Runge) see e.g \cite{4}. 
+
+\begin{theorem*}[(Runge)] % theo
+  An open connected set $U$ in the complex plane is Runge domain if
+  and only if $U$ is simply connected. 
+\end{theorem*}
+
+Let $U$ be an open set in $\mathbb{C}^n$ and $\alpha: U \to
+\mathbb{R}$, a continuous function such that $\alpha (z) > 0$. Let
+$dv$ denote Lebesgue measure in $\mathbb{C}^n$, and let $A(\alpha)$
+denote the set of holomorphic functions $f$ on $U$ for which $\int |
+f(z)^2 \alpha (z) dv < \infty$. 
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap1:sec5:lem1} % lem 1
+  For  $f$, $g \varepsilon A (\alpha)$, set $(f, g) = \int f(z) \overline{g
+    (z)} \alpha (z) dv$. Then $A (\alpha)$ is a Hilbert space with the
+  inner product $(f, g)$.  
+\end{lemma}
+
+\begin{proof}
+  In view of the completeness of the space $L^2 (\alpha ; dv )$ it
+  suffices to prove that if  $f_p \varepsilon A (\alpha )$ and  
+  $$
+  \int\limits_{ U} | f_p (z) - f_q (z) |^2 \alpha (z) dv \to 0 \text {
+    as } p, q \to \infty, 
+  $$
+  then\pageoriginale $f_p$ converges uniformly on compact subsets of $U$. Since
+  $\alpha$ is bound\-ed below by a positive constant on any compact
+  subset of $U$, this assertion follows from the following 
+\end{proof}
+
+\begin{lemma}\label{chap1:sec5:lem2} % lem 2
+  If $\{f_p\}$ is a sequence of holomorphic functions such that
+  $\int\limits_{U} | f_p - f_q |^2 dv \to 0$ as $p$, $q \to \infty$,
+  then $f_p$ is uniformly convergent on every compact subset of $U$. 
+\end{lemma}
+
+\begin{proof}
+  If $g(z)$ is holomorphic in a neighbourhood of the closed disc $| z
+  - a | \le \rho$ in the plane it follows from Cauchy's integral
+  formula that  
+  $$
+  g(a) = \frac{1}{\pi \rho^2} \int\limits_{| z - a | \le \rho} g (a+z) dv.
+  $$
+\end{proof}
+
+Applying this $n$ times, we find that if $h(z_1, \ldots , z_n)$ is
+holomorphic in a neighbourhood of the set $| z_1 - a_1 | \le \rho,
+\ldots , | z_n - a_n | \le \rho$, then  
+$$
+h(a) = \frac{1}{(\pi \rho^2)^n} \int\limits_{| z - a | \le \rho} h (a+z) dv.
+$$
+
+Let $K$ be a compact subset of $U$ and let $\rho > 0$ be so small that
+the set $K_\rho = \{z \varepsilon \mathbb{C}^n \big | \exists a
+\varepsilon K $ with 
+$| z - a | \le \rho \}$ is compact in $U$. Then, for $a \varepsilon K$, if $f$
+is holomorphic in $U$, 
+$$
+\displaylines{\hfill 
+  \big | f(a) \big |^2 = \frac{1}{(\pi \rho^2)^n } \Big |
+  \int\limits_{|z - a | \le \rho} (f (a+z))^2 dv \Big | \hfill \cr
+  \text{so that}\hfill 
+  \sup_{a \varepsilon K} \big | f(a) |^2 \le \frac{1}{(\pi \rho^2)^n }
+  \int\limits_{K_\rho} | f(z) |^2 dv.\hfill } 
+$$
+
+Lemma\pageoriginale \ref{chap1:sec5:lem2} follows if we apply this
+inequality to the differences $f_p - f_q$. 
+
+Let $\varphi_\nu$ be a complete orthonormal system in $A(\alpha)$. Then
+we have, for any $f \varepsilon A (\alpha)$, $f = \sum C_\nu \varphi_\nu$
+where $C_\nu  = (f, \varphi_\nu)$ and the series converges in the
+Hilbert space $A(\alpha)$. From Lemma \ref{chap1:sec5:lem2} we deduce  
+\begin{lemma}\label{chap1:sec5:lem3} % lem 3
+  If $\{\varphi_\nu\}$ is a complete orthonormal system in
+  $A(\alpha)$, then any $f \varepsilon A (\alpha)$ can be approximated,
+  uniformly on compact subsets of $U$, by finite (complex) linear
+  combinations $\sum\limits_{\nu = 1}^p  C_\nu \rho_\nu$. 
+\end{lemma}
+
+\begin{prop*} % prop 
+  If $U$ is an open set in $\mathbb{C}^n$, $V$ an open set in
+  $\mathbb{C}^m$ and $\alpha$: $U \to \mathbb{R}$, $\beta$: $V \to
+  \mathbb{R}$ are positive continuous functions and if
+  $\{\varphi_\nu\}$, $\{\psi_\mu\}$ are complete orthonormal systems
+  in the Hilbert spaces $A(\alpha)$ and $A (\beta)$ respectively, then
+  $\{\varphi_\nu \psi_\mu \}$ is a complete orthonormal system in
+  $A(\alpha \times \beta )$ where $\alpha \times \beta$: $U \times V
+  \to \mathbb{R}$ is defined by 
+  $$
+  (\alpha \times \beta ) (z, w ) = \alpha (z) \beta (w).
+  $$
+\end{prop*}
+
+\begin{proof}
+  We have only to show that $\{\varphi_\nu \psi _\mu\}$ form a complete
+  system in $A(\alpha \times \beta )$. 
+\end{proof}
+
+Let $f(z, w) \varepsilon A (\alpha \time \beta)$ be such that
+$$
+\int f(z, w) \alpha (z) \beta (w ) \overline{\varphi_\nu (z)} ~
+\overline{\psi_\mu (w)} dv = 0 
+$$
+for each $\nu $ and $\mu$, $dv$, Lebesgue measure in $\mathbb{C}^{n+m}$.
+
+We have to show that $f(z, w) = 0$. Let $dv_z$, $dv_w$ be the Lebesgue
+measures in $\mathbb{C}^n$ and $\mathbb{C}^m$ respectively. If we show
+that for any $\mu$, the integral $g(z) = g^{(\mu)}(z) = \int f(z, w)
+\beta (w) \overline{\psi_\mu (w)} dv_w$, which exists for  almost\pageoriginale all
+$z$, defines a function in $A(\alpha)$, the proof follows immediately
+from the completeness of $\{ \varphi_\nu \}$ and $\{\psi _\mu\}$. Let
+$K_p$ be compact subsets of $V$ such that $\bigcup K_p = V$ and $K_p
+\subset K_{p+1}$. 
+
+Define $g_p (z) $ by
+$$
+g_p (z) = \int\limits_{K_p} f(z, w) \beta (w) \overline{\psi_\mu (w)} dv_w.
+$$
+
+Then $g_p$ is holomorphic in $U$. We have for $q > p$,
+$$
+g_q (z) - g_p (z) = \int\limits_{K_q - K_p} f(z, w) \beta (w)
+\overline{\psi_\mu (w)} dv_w. 
+$$
+ 
+By Schwarz's inequality,
+\begin{align*}
+  | g_q (z) - g_p (z) |^2 & \le \int\limits_{K_q - K_p} | f(z, w) |^2
+  \beta (w) dv \int\limits_{K_q - K_p} | \psi_\mu (w) |^2 \beta (w)
+  dv_w\\ 
+  & \le \int\limits_{K_q - K_p} | f(z, w) |^2 \beta (w) dv, \text {
+    since} || \psi_\mu || = 1 \text { in } A (\beta) 
+ \end{align*} 
+ 
+Hence
+$$
+\displaylines{\hfill 
+  \int\limits_{U} | g_q (z) - g_p (z) |^2 \alpha (z) dv_z \le
+  \int\limits_{U \times (K_q - K_p)} | f(z, w ) |^2 \alpha (z) \beta (w)
+  dv_w \hfill \cr 
+  \text{and}\hfill 
+  \int\limits_{U \times (K_q - K_p)} |f (z, w) |^2  \alpha (z) \beta (w)
+  dv_w \to 0 \text { as } p, q \to \infty \hfill } 
+$$
+since $f \varepsilon A (\alpha \times \beta)$.
+
+Hence\pageoriginale $\int\limits_K | g_q (z) - g_p (z) |^2 dv_z \to 0$
+as $p$, $q 
+\to \infty$ for any compact subset of $U$ and, by Lemma
+\ref{chap1:sec5:lem2}, $g_q$ 
+converges uniformly to a holomorphic function $g(z)$. Further we
+clearly have 
+
+$\int\limits_{U} | g_p (z) |^2 \alpha (z) dv_z \le \int\limits_{U
+  \times V} | f(z, w ) |^2 \alpha(z) \beta (w) dv$, so that  $g
+\varepsilon A(\alpha)$, and proposition is proved. 
+
+\begin{theorem}\label{chap1:sec5:thm4} % them 4
+  If $U$ is an open set in $\mathbb{C}^n$, $V$ an open set in
+  $\mathbb{C}^m$, the linear combinations $\sum \varphi_i (z) \psi_j
+  (w)$, where $\varphi_i$ and $\psi_j$ are holomorphic functions on
+  $U$ and $V$ respectively, are dense in the space of holomorphic
+  functions on $U \times V$ (with the topology of uniform convergence
+  on compact sets). 
+\end{theorem}
+
+\begin{proof}
+  Let $f(z, w)$ be a holomorphic function on $U \times V$. Since $f$
+  is continuous on $U \times V$ there exists a positive continuous
+  function $\eta$: $U \times V \to \mathbb{R}$ such that $f \varepsilon A
+  (\eta)$, i.e. $\int\limits_{U \times V} | f|^2 \eta dv$ is
+  finite. Let $K_p$, $L_q$ be compact subsets of $U$ and $V$
+  respectively such that $\bigcup_{p \ge 1} K_p = U$ and $\bigcup_{q
+    \ge 1} L_q = V$ and $K_p \subset \overset{\circ}{K}_{p+1}$, $L_q
+  \subset \overset{\circ}{L}_{q+1}$. Then  
+  $$
+  \bigcup_{p \ge 1} (K_p \times L_p) = U \times V.
+  $$
+\end{proof}
+
+There exist positive numbers $\varepsilon_p$ such that $\eta (z, w)
+\ge \varepsilon_p > 0$ on $K_p \times L_p$ and $\varepsilon_p \le
+1$. There exist positive continuous functions $\alpha$ and $\beta$ on
+$U$ and $V$ respectively such that  
+$$
+\displaylines{\hfill 
+  \alpha (z) \le \varepsilon_p \text { for } z  \text { in } (K_p -
+  K_{p-1})\hfill \cr
+  \text{and} \hfill  
+  \beta (w) \leq \varepsilon_p \text { for } w \text { in  } (L_p -
+  L_{p-1}).\hfill}
+$$
+
+This\pageoriginale is easily deduced from Theorem
+\ref{chap1:sec2:thm1}. \S\ 2. Now  
+$$
+\big \{K_p \times
+L_p \big \} - \big \{K_{p-1} \times L_{p-1} \big \}
+= \{K_p \times (L_p - L_{p-1} \} \bigcup \{K_p - K_{p-1}) \times L_p \}.
+$$
+
+It follows trivially that
+$\alpha (z) \beta (w) \le \varepsilon_p \le \eta (z, w )$ for $(z, w)
+\varepsilon (K_p \times L_p- K_{p-1} \times L_{p-1})$ for each $p$ i.e. $\eta
+(z, w) \ge \alpha (z) \beta (w)$ for $(z, w) \varepsilon U \times V$. Hence $f
+\varepsilon A (\alpha \times \beta)$. 
+
+If $\{\varphi_\nu\}$ and $\{\psi _\mu\}$ form complete orthonormal
+systems of $A(\alpha)$ and $A(\beta)$ respectively, then by the last
+proposition, $\{\varphi_\nu \psi_\mu \}$ form a complete orthonormal
+system of $A(\alpha \times \beta)$; by Lemma \ref{chap1:sec5:lem3} the finite linear
+combinations $\sum C_{\nu \mu} \varphi_\nu (z) \psi_\mu (w)$
+approximate $f$ uniformly on compact subsets of $U \times V$. \hfill q.e.d
+
+\begin{coro*} % coro
+  If $U$ is Runge in $\mathbb{C}^n$ and $V$ is Runge in
+  $\mathbb{C}^m$, then $U \times V$ is Runge in $\mathbb{C}^{n +m}$;
+  in particular, if $U_1, \ldots, U_n$ are simply connected plane
+  domains, then $U_1 \times \cdots \times U_n$ is Runge in $\mathbb{C}^n$. 
+\end{coro*}
+
+We shall deal with deeper properties of Runge domains in
+$\mathbb{C}^n$ later. 
+
+\section {Ordinary differential equations}\label{chap1:sec6} % sec 6.
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap1:sec6:lem1} % lem 1
+  If $I$ is an interval, containing $0$, in $\mathbb{R}$ and $w$: $I
+  \to \mathbb{R}$ is a continuous map such that $w(t) \ge 0$ and if
+  $w(t) \le M \int\limits_{0}^t w(s) ds + \eta$, then $w(t) \leq \eta
+  e^{Mt}$. 
+\end{lemma}
+
+\begin{proof}
+  We\pageoriginale have, for $t \geq 0$,
+  $$
+  \displaylines{\hfill 
+  e^{Mt} \frac{d}{dt} \left \{e^{-Mt} \int\limits_{0}^t w(s) ds \right \}
+  = w(t) - M \int\limits_0^t w(s) ds \le \eta. \hfill \cr
+  \text{hence}\hfill \frac{d}{dt} \left \{e^{- Mt} \int\limits_0^t
+  w(s) ds \right \} \le \eta e^{-Mt} \hfill \cr
+  \text{i.e.}\hfill   \int\limits^t_0 w(s) ds \le \eta \dfrac{\{1 -
+    e^{-Mt}\}}{M} e^{Mt}.\hfill }
+  $$
+\end{proof}
+
+\setcounter{theorem}{0}
+\begin{theorem}\label{chap1:sec6:thm1} % them 1
+  Let $\Omega$ and $\Omega'$ be open sets in $\mathbb{R}^n$ and
+  $\mathbb{R}^m$ respectively, I an open interval in $\mathbb{R}^1$
+  with $0 \varepsilon I$, $f: \Omega \times I \times \Omega' \to \mathbb{R}^n$ a
+  continuous map. We denote a point in $\Omega \times I \times
+  \Omega'$ by $(x, t, \alpha)$. If $f$ is uniformly Lipschitz with
+  respect to $x$ on every subset $K \times I \times K'$ of $\Omega
+  \times I \times \Omega'$, $K$, $K'$ being compact subsets of
+  $\Omega$ and $\Omega'$ respectively, then given $x_0 \varepsilon \Omega$,
+  there exists an interval $I_0 = \{t \big | |t| < \varepsilon \}$,
+  $\varepsilon > 0$ 
+  and a unique continuous map $x$: $I_\circ \times K' \to  \Omega$ such that 
+  \begin{equation*}
+    f(x(t, \alpha ), t, \alpha ) = \frac{\partial x}{\partial t} (t,
+    \alpha ) \tag{6.1}\label{chap1:sec6:eq6.1}
+  \end{equation*}
+and
+  \begin{equation*}
+    x(0, \alpha) = x_0. \tag{6.2}\label{chap1:sec6:eq6.2}
+  \end{equation*}
+  Further if the condition that $f$ is Lipschitz is replaced by the
+  (stronger) condition that $f \varepsilon C^k (\Omega \times I \times  \Omega')
+  ,1 \le k \le \infty$, then $x \varepsilon C^k (I_0 \times K')$. 
+\end{theorem}
+ 
+\begin{proof}
+  Let $M$ be the Lipschitz constant, i.e.
+  $$
+  || f(x, t, \alpha) - f(y, t, \alpha) || \le M || x - y || \text {
+    for } x, y \varepsilon K \text { and } \alpha \varepsilon K'. 
+  $$
+\end{proof}
+
+Consider\pageoriginale $\Omega_0 = \big \{x \big | || x - x_0 || \le r \big \}
+\subset \Omega$ and let $\Omega_0 \subset K$. Clearly $|f|$ is bounded
+on $\Omega_0 \times I \times K'$, say by $C$. Let $\varepsilon' > 0$
+be such that  
+$$
+\big \{t \big | | t | < \varepsilon'  \big \} \subset I
+$$
+
+Let $I _0 = \left \{ t \big | |t| < \varepsilon , \varepsilon = \min (
+\varepsilon' , 
+\dfrac{r}{c}\right \}$. For $n \ge 0$, define functions $x_n$: $I_0
+\times K' \to \Omega_0$ by $x_ 0(t, \alpha) = x_0$ 
+\begin{equation}
+  x_n (t, \alpha) = x_0 + \int\limits_{0}^t f(x_{n- 1} (\tau, \alpha),
+  \tau, \alpha ) d \tau. \tag{6.3}\label{chap1:sec6:eq6.3} 
+\end{equation}
+
+It is easily seen, by induction, that $x_n (t, \alpha) \varepsilon \Omega_0$
+and that $|| x_n - x_{n +1} || \le \dfrac{m^{n-1} |t^n| C}{n
+  !}$. Hence as $n \to \infty$, $x_n (t, \alpha)$ converges uniformly
+to a function $x (t, \alpha)$. clearly $x(t, \alpha)$ is continuous and
+from (\ref{chap1:sec6:eq6.3}), it follows that  
+$$
+x(t, \alpha ) = x_0 + \int\limits_0^t f(x(\tau, \alpha), \tau, \alpha
+) d \tau 
+$$
+so that $\dfrac{\partial x}{\partial t}(t, \alpha) = f(x(t, \alpha ),
+t, \alpha)$ and $x(0, \alpha) = x_0$. If $x$ and $y$ are two
+continuous functions satisfying the differential equation
+(\ref{chap1:sec6:eq6.1}) and 
+the initial condition (\ref{chap1:sec6:eq6.2}), let 
+
+$u (t, \alpha) = x(t, \alpha) - y (t, \alpha)$; then $u$ is continuous
+and $|| u (t, \alpha) || \le M$ $\int\limits_{0}^t || u (\tau, \alpha )
+|| d \tau$ for $t \ge 0$. By Lemma $1$ with $\eta = 0$, we conclude
+that $u (t, \alpha) = 0$ for $t \ge 0$. Similar arguments apply to the
+range\pageoriginale $t \le 0$. This proves the uniqueness of the solution. 
+
+To prove the last part of the theorem, we shall first show that if $f
+\varepsilon C^1$, then $x \varepsilon C^1$. If $\alpha = (\alpha_1, \alpha_2, \ldots ,
+\alpha_m)$, it is enough to prove that $\dfrac{\partial x}{\partial
+  \alpha_i}$ exists and is continuous for each $i$, since
+(\ref{chap1:sec6:eq6.1}) implies apply if $t < 0$. 
+
+Consider
+\begin{align*}
+  A (t, \alpha ) & = (d_1 f )(x (t, \alpha ), t, \alpha );\\
+  B (t, \alpha ) & = \frac{\partial f}{\partial \alpha_i} (x(t, \alpha
+  ), t, \alpha ). 
+\end{align*}
+
+$A$ is, for each $t$, $\alpha$, a linear map of $\mathbb{R}^n$ into
+itself. Since $f$ is $C^1, A (t, \alpha)$ is a continuous linear map
+and $B(t, \alpha)$ is continuous. Therefore the linear differential
+equation 
+\begin{equation}
+  \frac{dy}{dt} = A(t, \alpha) y + B(t, \alpha)
+  \tag{6.4}\label{chap1:sec6:eq6.4} 
+\end{equation}
+for $y \varepsilon \mathbb{R}^n$, has a solution $y (t, \alpha)$, which is
+continuous in $t$ and $\alpha$, and for which $y (0, \alpha) = 0$. If
+$(c_1, c_2, \ldots c_m ) \varepsilon K'$, hereafter $\alpha$ will denote
+$(c_1, c_2, \ldots ,\alpha_i,\ldots, c_m)$ and $\alpha^h$ the point, $(c_1 , c_2,
+\ldots , \alpha_i + h, \ldots , c_n)$. Consider $\dfrac{x(t, \alpha^h
+  ) - x (t, \alpha)}{h} = \beta_h (t)$. Then since $f \varepsilon C^1$, by
+Taylor's formula, 
+$$
+\beta _h (t) = \int\limits_0^t \left [ \big \{A (s, \alpha) +
+  \varepsilon_1 (h, \alpha, s) \big \} \beta _h (s) + \beta(s, \alpha) +
+  \varepsilon_2 (s, h ) \right ] ds 
+$$
+where,\pageoriginale for fixed $h$, $\alpha$ and $s$, $\epsilon_1$ is an endomorphism of
+$\mathbb{R}^n, \varepsilon _2 \varepsilon \mathbb{R}^n$ 
+ and both tend uniformly to zero as $h \to 0$. Hence 
+$$
+\big | \beta _h (t) \big | \le M_1 \int\limits_0^t | \beta_h | ds + M_2
+$$
+for some $M_1$ and $M_2$ independent of $h$. Hence, by
+Lemma \ref{chap1:sec6:lem1}, 
+
+$\big | \beta_h (t) \big | \le e^{M_1 t} M_2$ and $\beta_h$ is bounded
+as $h \to 0$.  
+
+Let $\beta_h (t) - y(t, \alpha) = z_h (t) $; then
+$$
+\big | z_h (t) \big | \le \int\limits_0^t \big | A (s, \alpha)  \big
+|. ~ \big | z_h (s) \big | ~ ds + \varepsilon_1^1 \int\limits_0^t \big
+| z_h (s) \big | ds + \varepsilon'_2 
+$$
+where $\varepsilon'_1$ and $\varepsilon^1_2 \to 0$ as $h \to 0$. Also
+$\int\limits_{0}^t \big | \beta _h (s) \big | ds $ is bounded.  
+
+Hence \quad 
+$\big | z_h (t) \big | \le \int\limits_0^t  | A (s, \alpha) | \big |
+z_h (s) \big | ds + \varepsilon$ where $\varepsilon \to 0$ as $h \to
+0$. By Lemma \ref{chap1:sec6:lem1}, this implies that  
+$$
+\displaylines{\hfill 
+  \big | z_h  (t) \big | \to 0 \text { as } h \to 0 \hfill \cr
+  \text{i.e.}\hfill  x \varepsilon C^1 ~\text{and}~ \frac{\partial
+    x}{\partial\alpha_i} = y (t, \alpha).\hfill } 
+$$
+
+If $f \varepsilon C^k$, assume, by induction, that the result is proved for
+functions in $C^{k-1}$. Then $x \varepsilon C^{k-1}$, so that $A(t, \alpha)$,
+$B (t, \alpha) \varepsilon C^{k-1}$; because of the differential equation 
+$$
+\frac{d y }{d t} = A(t, \alpha) y + B (t, \alpha),
+$$
+and\pageoriginale the induction hypothesis, $y \varepsilon C^{k
+  -1}$. Since $\dfrac{\partial 
+  x}{\partial \alpha_i} = y (t, \alpha)$ and $\dfrac{\partial x}
+{\partial t} = f(x, t, \alpha)$, if follows that $x \varepsilon C^k$. 
+
+\begin{coro*} % coro
+  If $f: \Omega \times I \times \Omega' \to \Omega'$ is in $C^k$,
+  then the function $x(t, \alpha , x_o)$ for which 
+  $$
+  \frac{dx}{dt} = f(x, t, \alpha) , x(0, \alpha, x_0) = x_0
+  $$
+  is $C^k$ in $I \times \Omega' \times \Omega$.
+\end{coro*}
+
+We have only to consider the equation
+\begin{equation}
+  \frac{dy}{dt} = g(y, t, \alpha , x_0), \tag{6.4}
+\end{equation}
+where $g(y, t, \alpha, x_0) = f(x_0 +  y, t, \alpha)$, on $\Omega
+\times I \times \Omega' \times \Omega$; we have 
+$$
+x (t, \alpha, x_0) = y(t, \alpha),
+$$
+if $y(t, \alpha)$ is the solution of (\ref{chap1:sec6:eq6.4}) with $y
+(0, \alpha) = x_0$. 
+
+\begin{remark*}% rem 
+  If the function $f$ in the above theorem is real analytic, then
+  there exists a neighbourhood $U \times D \times U'$ of $\Omega
+  \times I \times \Omega'$ in $\mathbb{C}^{n+1+m}$ such that $f$ has
+  holomorphic extension to $U \times D \times U'$. Then the equation 
+  $$
+  \frac{dx}{dt} = f(x, t, \alpha) \text { for } (x, t, \alpha) \epsilon U
+  \times D \times U' 
+  $$
+  has a holomorphic solution $x(t, \alpha)$ in $D_0 \times U'$. We set
+  $x_0 (t, \alpha) = x_0$, 
+  $$
+  x_k (t, \alpha) = x_0 + \int\limits_{0}^t f (x_{k -1} (\tau, \alpha),
+  \tau, \alpha)~ d \tau, 
+  $$
+  the integral being taken along the line joining $0$ to $t$. Each
+  $x_k$ is holomorphic\pageoriginale and hence so is $x(t, \alpha) = \lim\limits_{k
+    \to \infty} ~ x_k (t, \alpha)$. Since by induction, each $x_k$ is
+  real for real $t$, so is $x$, so that by the uniqueness assertion,
+  the restriction of $x$ to $I_0 \times \Omega'$ is the  solution of
+  the differential equation in $I _0 \times \Omega'$. Hence this
+  solution is real analytic. 
+\end{remark*}
+
+$\{$For all this material and further developments, see Coddington
+and Levinson \cite{8}.$\}$ 

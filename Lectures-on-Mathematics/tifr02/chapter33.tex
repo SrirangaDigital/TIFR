@@ -1,0 +1,262 @@
+\part{Representation by squares}\label{part4}
+
+\chapter{Lecture}\label{part4:lec33} %%%% 33
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+We\pageoriginale wish to begin the study of the representation of a
+number as the sum of squares:
+$$
+n= n^2_1+ n^2_2 + \cdots + n^2_r
+$$
+
+We shall develop in this connection the Hardy-Littlewood circle
+method. Historically it is an off shoot of the Hardly-Ramanujan method
+in partition-theory, though we did not develop the latter in its
+original form in our treatment. The circle method has been applied to
+very many cases, and the problem of squares is a very instructive one
+for finding out the general thread. We shall later replace the problem
+by that of the representation of $n$ by a positive quadratic
+form. This would involve only the general Poisson summation
+formula. In the case of  representation as the sum of squares there is
+some simplification, because the generating function is the $r^{th}$
+power of a simple $\mathscr{V}$ function. We shall deal with the asymptotic
+theory. Later we may go into Siegel's theory of quadratic forms. 
+
+Let us write
+$$
+\Theta (x) = \sum^\infty_{n=- \infty} x^{n^2} = 1 + 2
+\sum^\infty_{n=1} x^{n^2},
+$$
+$|x|<1$. For $r$ at least equal to 4, we consider
+\begin{align*}
+  \Theta^r (x) & = \left(\sum^\infty_{n=- \infty}x^{n^2} \right)^r =
+  \sum^\infty_{n_j=- \infty} x^{n_1^2+ n^2_2 + \cdot + n_r^2}\\
+  & = \sum^\infty_{n=0} A_r (n) x^n,
+\end{align*}
+on\pageoriginale collecting the terms with exponent $n$, where $A_r(n)$ is
+the number of times $n$ appears as the sum of $r$ square:
+$$
+A_r (n) = \sum_{n_1^2 + \cdots + n_r^2=n}1
+$$
+
+It is clear that $n_i$ can be positive or negative. The more serious
+thing is that we have to count the representations differently when
+the 
+summands are interchanged, in contradiction to the situation in the case
+of partitions. The problem of partition into squares would be a more
+complicated problem; the generating function would be more complicated,
+and what is worse, all the help one gets in partition theory from the
+theory of modular forms would break down here.
+
+$A_n(n)$ is the $n^{\text{th}}$ coefficient of a power-series;
+$$
+A_r(n) = \frac{1}{2 \pi i} \int_C \frac{\Theta^r (x)}{x^{n+1}} dx
+$$
+where $C$ is a suitable circle inside and close to the unit
+circle. The trick of Hardy and Littlewood was to break the circle
+$|x|=e^{- 2\pi \delta_N}$ where $N$ is the order of a certain Farey
+dissection, into Farey arcs and write
+$$
+A_r (n) = \frac{1}{2 \pi i} \sideset{}{'}\sum_{o \leq h < k \leq N} \int_{\xi_{hk}}
+\frac{\Theta^n(x)}{x^{n+1}} dx,
+$$
+where $\xi_{hk}$ are the arcs over which one integration piecemeal the
+prime denoting that $(h, k)=1$. Consider on each piece $\xi_{hk}$\pageoriginale the
+neighbourhood of a root of unity: 
+$$
+x= e^{2 \pi i \frac{h}{k}- 2 \pi \xi} 
+$$
+$\mathscr{R}_e \mathfrak{z}<0$, and set $\mathfrak{z}= \delta_N- i \varphi$,
+so chat we have a little freedom along both real and imaginary axes.
+$$
+x= e^{2 \pi i \frac{h}{k} - 2 \pi \delta_N + 2 \pi i \varphi}.
+$$
+
+The choice of the little arc $\varphi$ is also
+classical. $\frac{h}{k}$ is a certain Farey fraction, with adjacents
+$\frac{h_1}{k_1}$ and $\frac{h_2}{k_2}$, say. $\frac{h_1}{k_1} <
+\frac{h}{k} < \frac{h_2}{k_2}$. We limit $\varphi$ on the separate
+  arcs. Introduce the mediants:
+$$
+\frac{h_1}{k_1} < \frac{h_1+h}{k_1 +k} < \frac{h}{k} <
+\frac{h_2+h}{k_2+k} < \frac{h_2}{k_2},
+$$ 
+
+So that the interval $\left( \frac{h_1 +h}{k_1+k} , \frac{h_2+
+  h}{k_2+2}\right)$ gives the movement of $\frac{h}{k} + \varphi$. So $\varphi$
+runs between
+\begin{align*}
+  - \mathscr{V}'_{hk} & = \frac{h_1 +h}{k_1+ k} - \frac{h}{k} \leq
+  \varphi \leq \frac{h_2+ h}{h_2+k}- \frac{h}{k}= \mathscr{V}''_{hk}\\
+  - \mathscr{V}'_{hk} & = - \frac{1}{(k_1 + k)k}; \mathscr{V}''_{hk}=
+  \frac{1}{(k_2 +k)k} ;
+\end{align*}
+and since $2N > \begin{smallmatrix} k_1+ k\\ k_2+k \end{smallmatrix}>
+N$, we have necessarily
+$$
+\frac{1}{2 Nk} \leq |\mathscr{V}_{hk}| \leq \frac{1}{Nk}
+$$
+
+Now changing the variable of integration to $\varphi$, we can write
+$$
+A_r(n) = \sideset{}{'}\sum_{0 \leq h < k \leq N} e^{-2 \pi i \frac{h}{k} n}
+\int\limits^{\mathscr{V}''_{hk}}_{-\mathscr{V}'_{hk}} \Theta^r
+\left(e^{2 \pi i \frac{h}{k} - 2 \pi \mathfrak{z}} \right) e^{2 \pi n
+  \mathfrak{z}} d \varphi
+$$\pageoriginale
+
+The trick is to overcome the difficulty in the integral by replacing
+on each arc the highly transcendental function by a simpler
+function. Here we stop for a moment to see what we can do with the
+integrand.
+\begin{align*}
+  \Theta \cdot \left(e^{2 \pi i \frac{h}{k} - 2 \pi \mathfrak{z}}
+  \right) & = \sum^\infty_{n=- \infty} e^{\left(2 \pi i \frac{h}{k} -
+    2 \pi \mathfrak{z} \right)n^2}\\
+  & = \sum^{k-1}_{j=0} e^{2 \pi i \frac{h}{k} j^2} \sum_{n \equiv j
+    \pmod{k}} e^{- 2 \pi \mathfrak{z}n^2}\\
+  & = \sum^{k-1}_{j=0} e^{2 \pi i \frac{h}{k} j^2}
+  \sum^\infty_{q=-\infty} e^{2 \pi \mathfrak{z} k^2 (q + \frac{j}{k})^2},
+\end{align*}
+where we have written $n=k q + j$. We can now handle this from our
+$\mathscr{V}$-series formula. We proved (Lecture \ref{part2:lec12}) that
+$$
+\displaylines{\frac{C(\tau)}{i} \mathscr{V}_3(\mathscr{V}/-
+  \frac{1}{\tau}) = e^{\pi i \tau \mathscr{V}^2
+    \mathscr{V}_3(\mathscr{V} \tau/\tau)}\cr
+  \text{and} \hfill \frac{C(\tau)}{i} = \sqrt{\frac{i}{\tau}},
+  Im \tau> 0. \hfill }
+$$
+Since\pageoriginale 
+$$
+\mathscr{V}_3 (\mathscr{V}/ \tau) = \sum^\infty_{n=- \infty} e^{\pi i
+  n^2 \tau} e^{2 \pi i n \mathscr{V}},
+$$
+writing $\tau= i t$, $\mathscr{R}_e t> 0$, we have from the above,
+\begin{align*}
+  \frac{1}{\sqrt{t}} \sum^\infty_{n=- \infty} e^{- \pi \frac{n^2}{t}}
+  e^{2 \pi i n \mathscr{V}}& = e^{- \pi t \mathscr{V}^2}
+  \sum^\infty_{n=- \infty} e^{- \pi n^2 t} e^{- 2 \pi \mathscr{V}n
+    t}\\
+  & = \sum^\infty_{n=- \infty} e^{- \pi t (n+ \mathscr{V})^2}
+\end{align*}
+
+Replacing $n$ by $q$, $\mathscr{V}$ by $\frac{j}{k}$ and $t$ by $2
+\mathfrak{z} k^2$, we have
+\begin{align*}
+  \Theta \left( e^{2 \pi i \frac{h}{k}- 2 \pi \mathfrak{z}}\right) & =
+  \sum^{k-1}_{j=0} e^{2 \pi i \frac{h}{k} j^2} \frac{i}{\sqrt{2
+      \mathfrak{z} k^2}} \sum^\infty_{q=- \infty} e^{- \frac{\pi
+      q^2}{2 \mathfrak{z} k^2}} e^{2 \pi i q \frac{j}{k}}\hspace{2cm}\\
+  & = \frac{1}{k \sqrt{2 \mathfrak{z}}} \sum^\infty_{q=- \infty} e^{-
+    \frac{\pi q^2}{2 \mathfrak{z} k^2}} T_q (h, k)\\
+  \text{where} \hspace{1cm}T_q (h, k) & = \sum^{k-1}_{j=0} e^{2 \pi i
+    \frac{hj^2+ qj}{k}} 
+\end{align*}
+
+This is already a good reduction. $T_q (h, k)$ depends on $q$ modulo
+$k$, so it is periodic. We shall approximate to it in general. 
+
+One\pageoriginale special case, however, is of interest: for $q=0$,
+$$
+T_0(h, k)= \sum^{k-1}_{j=0} e^{2 \pi i \frac{h}{k} j^2}= G(h, k),
+$$
+where $G(h, k)$ are the so-called Gaussian sums which we shall study
+in detail. They are sums of roots of unity raised to a square power,
+$\Theta$ is actually a $\mathscr{V}_3$, and when we evaluate $T_q$ we
+get some other $\mathscr{V}$.
+
+We now write
+$$
+\displaylines{\Theta \left( e^{2 \pi i \frac{h}{k} - 2 \pi
+    \mathfrak{z}}\right) = \frac{1}{k\sqrt{2 \mathfrak{z}}} \left\{G
+  (h, k) + H(h, k; \mathfrak{z}) \right\}\cr
+  \text{where} \hfill H (h, k; \mathfrak{z}) =
+  \sum^\infty_{\substack{q=- \infty\\q\neq 0}} T_q (h, k) e^{-
+    \frac{\pi q^2}{2 k^2 \mathfrak{z}}}\hfill }
+$$
+
+We shall throw $H$ into the error term. Let us appraise $T_q(h, k)$,
+not explicitly: that will take us into Gaussian sums.
+\begin{align*}
+  T_q (h, k) & = \sum^{k-1}_{j=0} e^{2 \pi i \frac{h j^2 + qj}{k}}\\
+  |T_q (h, k)|^2 &= \sum^{k-1}_{j=0} \sum^{k-1}_{\ell=0} e^{\frac{2
+      \pi i}{k} (hj^2 + q j)} e^{- 2 \pi \frac{i}{k} (h\ell^2 + q
+    \ell)}\\
+  & = \sum_{j \mod k}~ \sum_{\ell \mod k} e^{2 \pi \frac{i}{k} (h
+    (\ell j^2- \ell^2) + q(j-\ell))}\\
+  & = \sum_{j \mod k}~\sum_{\ell \mod k} e^{2 \pi \frac{i}{k} (j-
+    \ell)(h(j+\ell) + q)},
+\end{align*}
+which,\pageoriginale an rearranging according to the difference
+$j-\ell$, becomes 
+\begin{align*}
+  & = \sum_{a \mod k} ~\sum_{j - \ell \equiv a \pmod{k}} e^{2 \pi i
+    \frac{a}{k} (h (j+ \ell)+ q)}\\
+  & = \sum_{a \mod k} ~\sum_{\ell \mod k} e^{ 2 \pi i \frac{a}{k} (h
+    (a+ 2 \ell) + q)}\\
+  & = \sum_{a \mod k} e^{2 \pi \frac{i}{k} (ha^2 + a q)} \sum_{\ell
+    \mod k} e^{4 \pi i a \frac{h}{k}\ell}
+\end{align*}
+
+The inner sum is a sum of the roots of unity. Two cases arises,
+according as $k\mid 2a$ or $k \nmid 2a$. $k$ odd implies that $a=0$ and $k$
+even implies that $a=0$ or $k\mid 2$. In case $k\mid 2a$, the sum is zero. We
+then have 
+\begin{align*}
+  |T_q (h, k)|^2 & = k, ~\text{if}~ k ~\text{is odd}; k\left( 1+ e^{2
+    \pi \frac{i}{k} \left( h \frac{k^2}{4} +
+    \frac{k}{2}q\right)}\right), ~\text{if}~ k ~\text{is even}\\
+  & = k \left(1+ e^{\pi i \left(\frac{hk}{2} + q \right)}
+  \right),\quad   ~\text{if}~ k ~\text{is even} \\
+  & = o ~\text{or}~ 2k \qquad \text{if}~ k ~\text{is even}
+\end{align*}
+
+It is of interest to notice that $T_q=0$ only if $k$ is even and
+$\frac{hk}{2}+ q$ is an odd integer. In any case,
+$$
+|T_q (h, k)| \leq \sqrt{2k},
+$$
+and this cannot be improved. We then have
+\begin{align*}
+  |H (h, k; k; \mathfrak{z})| & \leq 2 \sum^\infty_{q=1} \sqrt{2k} e^{-
+    \frac{\pi q^2}{2k^2} \mathscr{R} \frac{1}{\mathfrak{z}}} (q=0
+  ~\text{is not involved here}).\\
+  & = 2 \sqrt{2k} e^{- \frac{\pi}{2 k^2} \mathscr{R}
+    \frac{1}{\mathfrak{z}}} \sum^\infty_{q=1} e^{- \pi
+    \frac{(q^2-1)}{2k^2} \mathscr{R} \frac{1}{\mathfrak{z}}}\\
+    & = 2 \sqrt{2k} e^{- \frac{\pi}{2k^2} \mathscr{R}
+    \frac{1}{\mathfrak{z}}} \sum^\infty_{m=0} e^{- \frac{3 \pi m}{2
+      k^2} \mathscr{R} \frac{1}{\mathfrak{z}}}\\
+  & = 2 \sqrt{2k} e^{- \frac{\pi}{2k^2} \mathscr{R}
+    \frac{1}{\mathfrak{z}}} \frac{1}{1- e^{- \frac{3 \pi}{2k^2}
+      \mathscr{R} \frac{1}{\mathfrak{z}}}}
+\end{align*}
+
+Since\pageoriginale $\mathfrak{z} = \delta_N - i \varphi$,
+\begin{align*}
+  \frac{1}{k^2} \mathscr{R} \frac{1}{\mathfrak{z}} & = \mathscr{R}
+  \frac{1}{k^2 \mathfrak{z}} = \mathscr{R} \frac{1}{k^2 (\delta_N - i
+    \varphi)} = \frac{\delta_N}{k^2 (\delta^2_N + \varphi^2)}\\
+    \therefore \quad \frac{1}{k^2} \mathscr{R} \frac{1}{\mathfrak{z}}
+    & \geq \frac{\delta_N}{k^2 \delta^2_N + \frac{1}{N^2}}, \quad
+      \text{since}~ |\mathscr{V}_{hk}| \leq \frac{1}{kN},\\
+      & \geq \frac{\delta_N}{N^2 \delta^2_N + \frac{1}{N^2}}=
+      \frac{1}{N^2 \delta_N + \frac{1}{N^2 \delta_N}}
+\end{align*}
+
+We want to make this keep away from 0 as far as possible. This gives a
+desirable choice of $\delta_N$. Make the denominator as small as
+possible. Since $x+ \frac{1}{x}$ is minimised when $x=1$, we have 
+$$
+\frac{1}{k^2} \mathscr{R} \frac{1}{\mathfrak{z}} \geq \frac{1}{2}, 
+$$
+this minimum corresponding to $N^2 \delta_N =1$. So if we choose the
+radius of the circle in terms of the Farey order, we shall have
+secured the best that we can:
+$$
+|H (h, k; \mathfrak{z})| \leq 2 \sqrt{2k} e^{- \frac{\pi}{2k^2}
+  \mathscr{R} \frac{1}{\mathfrak{z}}} \times C
+$$
+
+It would be unwise to appraise the remaining exponential now. 

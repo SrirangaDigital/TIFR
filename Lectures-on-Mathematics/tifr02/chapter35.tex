@@ -1,0 +1,270 @@
+\chapter{Lecture}\label{part4:lec35}
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+After\pageoriginale we reduced our problem to the singular series in
+which the Gaussian sums appear conspicuously, we have to do something about
+them before we proceed further. The Gaussian sums are defined as 
+$$
+G(h, k)= \sum_{\ell \mod k} e^{2 \pi i \frac{h}{k} \ell^2}, (h, k)=1
+$$
+
+They obey a simple multiplication rule: if $k= k_1 k_2$, $(k_1,
+k_2)=1$, then 
+$$
+G(h, k_1 k_2)= G(hk_1, k_2) \cdot G(hk_2, k_1).
+$$
+
+For, put $\ell = rk_1 + sk_2$; when $r$ runs modulo $k_2$ and $s$
+modulo $k_1, \ell$ runs through a full residue system modulo $k_1
+k_2$. Hence
+\begin{align*}
+  G(h, k_1 k_2) & = \sum_{k \mod k_2}~ \sum_{s \mod k_1} e^{2 \pi i
+    \frac{h}{k_1 k_2} (k_1 r + k_2 s)^2}\\
+    & = \sum_{r \mod k_2}~ \sum_{s \mod k_1} e^{2 \pi i \frac{h}{k_1
+      k_2}(k_1^2 r^2 + k_2^2 s^2) }\\
+  & = \sum_{r \mod k_2} e^{2 \pi i \frac{hk_1}{k_2} r^2} \sum_{s \mod
+      k_1} e^{2 \pi i \frac{hk_2}{k_1}s^2}\\
+  & = G(hk_1,k_2) G(hk_2, k_1).
+\end{align*}
+
+Ultimately, therefore, only prime powers have to be considered to
+denominators. We have to distinguish the cases $p=2$ and $p> 2$, $p$
+prime.
+
+1) \pageoriginale Let $p \geq 3$, $k= p^\alpha$ with $\alpha>1$
+$$
+\displaylines{G(h, p^\alpha)= \sum_{l \mod p^r} e^{2 \pi i
+    \frac{h}{p^\alpha} \ell^2}\cr
+  \text{write} \hfill \ell = m p^{\alpha -1} + r;\hfill }
+$$
+$m=0, 1, \ldots, p-1$; $r=0, 1, \ldots p^{\alpha-1}-1$. Then this
+becomes
+$$
+\sum^{p-1}_{m=0} \sum^{p^{\alpha -1}-1}_{r=0} e^{2 \pi i
+  \frac{h}{p^\alpha} (m p^{\alpha-1}+ r)^2} = \sum^{p-1}_{m=0}
+  \sum^{p^{\alpha-1-1}}_{r=0} e^{2 \pi i \frac{h}{p^\alpha}
+    (m^2 p^{2 \alpha-1} + 2 mr p^{\alpha-1} + r^2)}
+$$
+
+Since $\alpha \geq 2$, $2 \alpha -2 \geq \alpha$ and so the first term
+in the exponent may be omitted. This gives
+$$
+\sum^{p^{\alpha-1}-1}_{r=0} e^{2 \pi i
+  \frac{h}{p^\alpha}r^2} \sum^{p-1}_{m=0} e^{2 \pi i \frac{h}{p} 2 m r}
+$$
+
+The inner sum is a sum of $p^{th}$ roots of unity; so it depends on
+whether $p$ divides $2 rh$ or not. But $(h, p)=1$ and $p \nmid 2$. So we
+need consider only the cases: $p\mid r$ and $p\nmid r$. However in the latter
+case this sum is $0$ while in the former it is $p$. We therefore get,
+when $p\mid r$, $r= ps$,
+\begin{align*}
+  p \sum^{p^{\alpha-1}-1}_{r=0, p\mid r} e^{2 \pi i
+    \frac{h}{p^\alpha} r^2} & = p\sum^{p^{\alpha-2}-1}_{s=0}
+    e^{2 \pi i \frac{h}{p^\alpha} p^2 s}\\
+    & = p \sum^{p^{\alpha-2}-1}_{s=0} e^{2 \pi i
+      \frac{h}{p^{\alpha-2}}s}\\
+    & = p G(h, p^{\alpha-2})
+\end{align*}
+
+We\pageoriginale have therefore reduced the never of the denominator
+by 2. We can 
+repeat the process and proceed as long as we end with either the
+$0^{th}$ or the $1^{st}$ power. So we have two chances. In the former
+case, evidently $G(h, 1)=1$. So for $\alpha$ even, 
+$$
+G(h, p^\alpha) = p^{\alpha/2}
+$$ 
+
+On the other hand, if $\alpha$ is odd, we have
+$$
+G(h, p^\alpha) = p^{\frac{\alpha-1}{2}} G(h, p).
+$$
+
+These may be combined into the single formula
+\begin{equation*}
+  G(h, p^\alpha)= p^{[\frac{\alpha}{2}]} G \left(h,
+  p^{\alpha-2[\frac{\alpha}{2}]}\right) \tag{1}\label{part4:lec35:eq1}
+\end{equation*}
+
+2) $p= 2^\lambda$, $\lambda \geq 2$. $h$ is now odd. Write 
+\begin{gather*}
+  \ell = m 2^{\lambda-1} + r; ~m =0 , 1; ~ r=0, 1, \ldots,
+  2^{\lambda-1}-1\\
+  G(h, 2^\lambda) = \sum^{2^{\lambda-1}-1}_{r=0} e^{2 \pi i
+    \frac{h}{2^\lambda} r^2} + \sum^{2^{\lambda-1}-1}_{r=0}
+  e^{2 \pi i \frac{h}{2^\lambda} (2^{\lambda-1}+r)^2}
+\end{gather*}
+since $\lambda \geq 2$, $2 \lambda -2 \geq \lambda$, in the second sum
+it is only the exponent $r^2$ that contributes a non-zero term; and
+this is\pageoriginale then the same the first. Altogether we have
+then
+\begin{equation*}
+  2 \sum^{2^{\lambda-1}-1}_{r=0} e^{\pi i
+    \frac{h}{2^\lambda-1} r^2} \tag{*}\label{part4:lec35:eq*}
+\end{equation*}
+
+This, however is not a Gaussian sum. The substitution for $\ell$ does
+not work; to be effective, then we take
+$$
+\ell = m 2^{\lambda-2} + r; m=0, 1, 2, 3; ~r=0, 1,\ldots, 2^{\lambda-2}-1. 
+$$
+
+Now take $\lambda \geq 4$ and start again all over.
+\begin{align*}
+  G(h, 2^\lambda)& = \sum^3_{m=0} \sum^{2^{\lambda-2}-1}_{r=0} e^{2
+    \pi i \frac{h}{2^\lambda} (m 2^{\lambda-2}+r)^2}\\
+  & = \sum^3_{m=0} \sum^{2^{\lambda-2}-1}_{r=0} e^{2 \pi i
+    \frac{h}{2^\lambda}(2^{\lambda-1}m r+ r^2)}, \quad (\text{for}~
+  \lambda \geq 4 ~\text{i.e.,}~ 2 \lambda   -4 \geq \lambda).\\
+  & = \sum^{2^{\lambda-2}-1}_{r=0} e^{2 \pi i \frac{h}{2^\lambda} r^2}
+    \sum^3_{m=0} e^{\pi i h m r}\\
+  & = \sum^{2^{\lambda-2}-1}_{r=0} e^{2 \pi i \frac{h}{2^\lambda} r^2}
+    \sum^3_{m=0} (-)^{mn}\\
+  & = 2 \sum^{2^{\lambda-2}-1}_{r=0} (-)^r e^{2 \pi i
+      \frac{h}{2^\lambda} r^2} + 2 \sum^{2^{\lambda-2}-1}_{r=0} e^{2
+      \pi i \frac{h}{2^\lambda} r^2}\\
+  & = 4 \sum^{2^{\lambda-3}-1}_{s=0} e^{\pi i \frac{h}{2^{\lambda-3}}s^2}
+\end{align*}
+
+This\pageoriginale is not Gaussian sum either. But is is of the form
+(\ref{part4:lec35:eq*}). We therefore have, for $\lambda \geq 4$,
+$G(h, 2^\lambda)= 2 G(h, 
+2^{\lambda -2})$. If $\lambda=4$, we need go down to only $2^2 =4$ and
+if $\lambda =5$ to $2^3=8$. So we need separately $G(h, 8)$ and $G(h,
+4)$; and of course $G(h, 2)$. These cases escape us, while formerly
+only $G(h, p)$ did. For $\lambda \geq 4$, we may write
+\begin{equation*}
+  G(h, 2^\lambda)= 2^{\left[\frac{\lambda}{2}\right]-1} G\left(h,
+  2^{\lambda-2 \left[\frac{\lambda}{2}+2 \right]}\right) \tag{2}\label{part4:lec35:eq2}
+\end{equation*}
+
+This supplements formula (\ref{part4:lec35:eq1}).
+
+We now consider the special cases, $k=2, 4,8$. Here $h$ is odd.
+\begin{align*}
+  G(h, 2) & = 1+ e^{2 \pi i \frac{h}{2}}=0\\
+  G(h, 4) & = 1+ e^{2 \pi i \frac{h}{4}\cdot 1} + e^{2 \pi i
+    \frac{h}{4} \cdot 4}+ e^{2 \pi i \frac{h}{4} \cdot 9}\\
+  & = 2 + 2 e^{\pi i \frac{h}{2}}\\
+  & = 2\left( 1+ i^h\right)\\
+  G(h, 8) & = 1+ 1+ 2 e^{\pi i h} + 4 e^{2 \pi i \frac{h}{8}}\\
+  & \qquad (\text{since}~ 1^2, 3^2, 5^2, 7^2 ~\text{are all}~ \equiv 1
+ ~\text{modulo}~ 8)\\
+  & = 4 e^{\pi i \frac{h}{4}}= 4\left(\frac{1+ i}{\surd 2} \right)^2
+\end{align*}
+
+Before\pageoriginale we return to $G(h, p)$, $p > 2$, we shall a
+digression an connect to the whole thing with the Legendre-Jacobi symbols
+\begin{align*}
+  G(h, p) & = \sum^{p-1}_{\ell=0} e^{2 \pi i \frac{h}{p} \ell^2}\\
+  & = 1+ 2 \sum_a e^{2 \pi i \frac{h}{p} a},
+\end{align*}
+the summation over all quadratic residues a modulo $p$, since along
+with $\ell$, $p- \ell$ is also a quadratic residue. We can write this
+in a compact form, so arranging it that the non-residues get cancelled
+and the residues appear twice:
+\begin{align*}
+  G(h, p) & = \sum_{r \mod p} \left\{ 1+ \left(
+  \frac{r}{p}\right)\right\} e^{ 2\pi i \frac{h}{p}r}\\
+  & = \sum_{r \mod p} \left( \frac{r}{p}\right) e^{2 \pi i \frac{h}{p}
+  r}
+\end{align*}
+
+This would appear in a completely new aspect if we utilised the fact
+that $hr$ runs through a full system of residues modulo $p$. Then 
+\begin{align*}
+  G(h, p) & = \sum_{k \mod p} \left(\frac{h}{p} \right)
+  \left(\frac{hr}{p} \right) e^{2 \pi i \frac{h}{p} r}\\
+  & = \left(\frac{h}{p} \right) \sum_{r \mod p} \left(\frac{r}{p}
+  \right) e^{2 \pi i \frac{r}{p}}\\
+  & = \left(\frac{h}{p} \right)  G(h, p).
+\end{align*}
+
+This\pageoriginale is very useful if we new go to the Jacobi symbol. For
+prime $p$, the Legendre symbol has the multiplicative property:
+$$
+\left(\frac{r_1}{p} \right) \left(\frac{r_2}{p} \right)=
+\left(\frac{r_1 r_2}{p} \right)    
+$$
+Jacobi has the following generalisation.
+
+Define $\left(\frac{r}{pq} \right) $ by
+$$
+\left(\frac{r}{pq} \right)= \left(\frac{r}{p} \right)
+\left(\frac{r}{q} \right).    
+$$
+
+Si it is $\pm 1$; if it is $+1$ it does not necessarily mean that $r$
+is a quadratic residue modulo $pq$. The Jacobi symbol no longer
+discriminates between residues and non residues. From the definition
+then 
+$$
+\left(\frac{a}{p^\alpha q^\beta \cdots} \right)  = \left(\frac{a}{p}
+\right)^\alpha \left(\frac{a}{q} \right)^\beta \cdots.   
+$$
+
+The Jacobi symbol has the properties of a character, as can be
+verified by using the Chinese remainder theorem.
+
+We can now write
+$$
+G(h, p^\alpha)= \left(\frac{h}{p} \right)^\alpha G(1, p^\alpha) 
+$$
+under all circumstances. How does this come about? Separate the cases:
+$\alpha$ even, $\alpha$ odd.
+\begin{alignat*}{4}
+  G(g, p^\alpha) & = G(1, p^\alpha), && \alpha ~\text{even};\\
+  & = p^{\frac{\alpha-1}{2}} G(h, p), && \alpha ~\text{odd},\\
+  & = \left(\frac{h}{p} \right)  p^{\frac{\alpha-1}{2}}& G(1, p) =
+  & \left(\frac{h}{p} \right)  G(1, p^\alpha)
+ \end{alignat*}
+
+We\pageoriginale can write both in one sweep as
+\begin{align*}
+  G(h, p^\alpha) & = \left(\frac{h}{p} \right)^\alpha G(1, p^\alpha)\\
+  & = \left(\frac{h}{p^\alpha} \right) G(1, p^\alpha) 
+\end{align*}
+
+Now use the multiplicative law. If $p$, $q$ are odd primes, then 
+\begin{align*}
+  G(h, p^\alpha q^\beta) & = G(hp^\alpha, q^{\beta}) G(hq^\beta,
+  p^\alpha)\\
+  & = \left(\frac{hp^\alpha}{q^\beta} \right) G(1, q^\beta)
+  \left(\frac{hq^\beta}{p^\alpha} \right) G(1, p^\alpha)   
+\end{align*}
+
+Since the Jacobi symbol is separately multiplicative in numerator and
+denominator, but not both, this is equal to 
+\begin{multline*}
+  \left(\frac{h}{q^\beta} \right)
+  \left(\frac{p^\alpha}{q^\beta}\right) G(1, q^\beta)
+  \left(\frac{h}{p^\alpha}\right) \left(\frac{q^\beta}{p^\alpha}
+  \right) G(1, p^\alpha)
+  = \left(\frac{h}{q^\beta} \right) \left(\frac{h}{p^\alpha}
+  \right)G(p^\alpha, q^\beta) G(q^\beta, p^\alpha),
+\end{multline*}
+taking the second and third factors together, and also the last
+two. And this is 
+$$
+\left(\frac{h}{p^\alpha q^\beta} \right)  G(1, p^\alpha q^\beta)
+$$
+according to the multiplication law.
+
+Suppose that we have
+$$
+G(h_1k_1)= \left(\frac{h}{k_1} \right)  G(1, k_1); G(h, k_2) =
+\left(\frac{h}{k_2} \right) G(1, k_2).  
+$$
+
+We\pageoriginale go through the above worker; literally and get 
+$$
+G(h, k_1 k_2) = \left(\frac{h}{1,h_2} \right) G(1, k_1, k_2). 
+$$
+
+So we have proved in general that for odd $k$,
+$$
+G(h, k)= \left(\frac{h}{k} \right) G(1, k) 
+$$
+
+We can now return to $G(h, p)$.

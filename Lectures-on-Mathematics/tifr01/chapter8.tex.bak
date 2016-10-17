@@ -1,0 +1,227 @@
+
+\chapter{The Zeta Function of Riemann}\label{chap8}
+
+\section[Elementary Properties of $\zeta(s)$]{Elementary Properties of $\zeta(s)$ \cite[pp.1-9]{key16}}\label{chap8:sec1}
+
+We\pageoriginale define $\zeta(s)$, for $s$ complex, by the relation
+\begin{equation*}
+\zeta(s) = \sum\limits^\infty_{n=1} \frac{1}{n^s}, \; s = \sigma + i
+t, \; \sigma >1. \tag{1.1}\label{c8:eq1.1}
+\end{equation*}
+We define $x^s$, for $x>0$, as $e^{s \log x}$, where $\log x$ has its
+real determination. Then $|n^s|=n^\sigma$, and the series converges
+for $\sigma > 1$, and uniformly in any finite region in which $\sigma
+\geq 1 + \delta >1$. Hence $\zeta(s)$ is regular for $\sigma \geq 1+
+\delta >1$. Its derivatives may be calculated by term wise
+differentiation of the series.
+
+We could express $\zeta(s)$ also as an infinite product called the
+\textit{Euler Product}:
+\begin{equation*}
+\zeta(s) = \prod\limits_p \left(1 - \frac{1}{p^s}\right)^{-1}, \sigma
+>1,  \tag{1.2}\label{c8:eq1.2}
+\end{equation*}
+where $p$ runs through all the primes (known to be infinite in
+number!). It is the Euler product which connects the properties of
+$\zeta$ with the properties of primes. \textit{The infinite product is
+absolutely convergent for $\sigma >1$}, since the corresponding series 
+$$
+\sum\limits_p \left| \frac{1}{p^s}\right| = \sum\limits_p
+\frac{1}{p^\sigma} < \infty, \; \sigma >1
+$$
+Expanding each factor of the product, we can write it as 
+$$
+\prod\limits_p \left(1+\frac{1}{p^s} + \frac{1}{p^{2s}} + \cdots
+\right) 
+$$\pageoriginale
+Multiplying out formally we get the expression (\ref{c8:eq1.1}) by the unique
+factorization theorem. This expansion can be justified as follows:
+$$
+\prod\limits_{p\leq p} \left(1+\frac{1}{p^s} + \frac{1}{p^{2s}} +
+\cdots \right)  = 1 + \frac{1}{n^s_1} + \frac{1}{n_2^s} + \cdots,
+$$
+where $n_1, n_2, \ldots$ are those integers none of whose prime
+factors exceed $P$. Since all integers $\leq P$ are of this form, we
+get
+\begin{align*}
+\left|\sum\limits^\infty_{n=1} \frac{1}{n^s} - \prod\limits_{p\leq P}
+\left(1 - \frac{1}{p^2} \right)^{-1} \right| & =
+\left|\sum\limits^\infty_{n=1} \frac{1}{n^s} -1 - \frac{1}{n^s_1} -
+\frac{1}{n^s_2} - \cdots\right| \\
+& \leq \frac{1}{(P+1)^{\sigma}} + \frac{1}{(P+2)^{\sigma}} + \cdots\\
+\end{align*}
+$\to 0$, as $P\to \infty$, if $\sigma >1 $.
+
+Hence (\ref{c8:eq1.2}) has been established for $\sigma >1$, on the basis of
+(\ref{c8:eq1.1}). As an immediate consequence of (\ref{c8:eq1.2}) we observe that
+\textit{$\zeta(s)$ has no zeros for $\sigma >1$}, since a convergent
+infinite product of non-zero factors is non-zero.
+
+We shall now obtain a few formulae involving $\zeta(s)$ which will be
+of use in the sequel. We first have 
+\begin{equation*}
+\log \zeta(s) = - \sum\limits_p \log \left(1-\frac{1}{p^2} \right),
+\; \sigma >1. \tag{1.3}\label{c8:eq1.3}
+\end{equation*}
+If we write $\pi (x) = \sum\limits_{p \leq x } 1$, then 
+\begin{align*}
+\log \zeta(s) & = -\sum\limits^\infty_{n=2} \{\pi(n) - \pi(n-1)\} \log
+\left(1-\frac{1}{n^s} \right)\\
+& = - \sum\limits^\infty_{n=2} \pi (n) \left[ \log \left(
+  1-\frac{1}{n^s}\right) - \log \left(1-\frac{1}{(n+1)^s}
+  \right)\right]  \\
+& = \sum\limits^\infty_{n=2} \pi (n) \int\limits^{n+1}_n
+\frac{s}{x(x^s-1)} \; dx
+\end{align*}\pageoriginale 
+
+Hence
+\begin{equation*}
+\log \zeta (s) = s \int\limits^\infty_2 \frac{\pi (x)}{x(x^s-1)} dx,
+\; \sigma > 1. \tag{1.4}\label{c8:eq1.4}
+\end{equation*}
+It should be noted that the rearrangement of the series preceding the
+above formula is permitted because
+$$
+\pi(n) \leq n \text{ and } \log \left(1-\frac{1}{n^s} \right) = O
+(n^{-\sigma}) .
+$$
+
+A slightly different version of (\ref{c8:eq1.3}) would be 
+\begin{equation*}
+\log \zeta(s) = \sum\limits_p \sum\limits_m \frac{1}{mp^{ms}} , \quad
+\sigma >1 \tag*{$(1.3)'$}\label{c8:eq1.3'}
+\end{equation*}
+where $p$ runs through all primes, and $m$ through all positive
+integers. Differentiating (\ref{c8:eq1.3}), we get
+$$
+-\frac{\zeta'(s)}{\zeta(s)} = \sum\limits_p \frac{p^{-s}\log
+  p}{1-p^{-s}} = \sum\limits_{p,m} \sum \frac{\log \rho}{p^{ms}},
+$$
+or
+\begin{equation*}
+\text{\fbox{$\dfrac{\zeta'(s)}{\zeta(s)} = \sum\limits^{\infty}_{n=1}
+  \dfrac{\wedge(n)}{n^s}$, \; $\sigma >1$} \;\; , }\tag{1.5}\label{c8:eq1.5}
+\end{equation*}\pageoriginale 
+where $\wedge(n) =
+\begin{cases}
+\log p, \text{ if $n$ is a $+$ve power of a prime $p$}\\
+0, \text{ otherwise}.
+\end{cases}$
+
+\noindent
+Again
+\begin{align*}
+\frac{1}{\zeta(s)} & = \prod\limits_p \left( 1-\frac{1}{p^s}\right)\\
+& = \sum\limits^\infty_{n=1} \frac{\mu(n)}{n^s}, \quad \sigma >1 \tag{1.6}\label{c8:eq1.6}
+\end{align*}
+(\ref{c8:eq1.6}) where $\mu(1) =1$, $\mu (n) = (-1)^k$ if $n$ is the product of
+$k$ different primes, $\mu(n) =0$ if $n$ contains a factor to a power
+higher than the first.
+
+We also have
+$$
+\zeta^2 (s) = \sum\limits^\infty_{n=1} \frac{d(n)}{n^s}, \quad \sigma >1
+$$
+where $d(n)$ denotes the number of divisors of $n$, including $1$ and
+$n$. For 
+$$
+\zeta^2 (s) = \sum\limits^\infty_{m=1} \frac{1}{m^s}  \cdot
+\sum\limits^\infty_{n=1} \frac{1}{n^s} = \sum\limits^\infty_{\mu=1}
+\frac{1}{\mu^s} \sum\limits_{mn=\mu} 1
+$$
+More generally 
+\begin{equation*}
+\text{\fbox{$\zeta^k(s) = \sum\limits^\infty_{n=1}
+    \dfrac{d_k(n)}{n^s}$, \quad $\sigma > 1$}} \tag{1.7}\label{c8:eq1.7}
+\end{equation*}
+where\pageoriginale $k=2,3,4,\ldots$, and $d_k(n)$ is the number of
+ways of expressing $n$ as a product of $k$ factors.
+
+Further 
+\begin{align*}
+\zeta(s) \cdot \zeta(s-a)& = \sum\limits^\infty_{m=1} \frac{1}{m^s}
+\sum\limits^\infty_{n=1} \frac{n^a}{n^s},\\
+& = \sum\limits^\infty_{\mu=1} \frac{1}{\mu^s} \cdot
+\sum\limits_{mn=\mu} n^a,
+\end{align*}
+so that 
+\begin{equation*}
+\zeta(s) \cdot \zeta (s-a) = \sum\limits^\infty_{\mu=1}
+\frac{\sigma_2(\mu)}{\mu^\delta} \tag{1.8}\label{c8:eq1.8}
+\end{equation*}
+where $\sigma_a (\mu)$ denotes the sum of the $a^{\rm th}$ powers of
+the divisors of $\mu$.
+
+If $a\neq 0$, we get, from expanding the respective terms of the Euler
+products,
+\begin{align*}
+\zeta(a) \zeta (s-a) & = \prod\limits_p \left(1+\frac{1}{p^s} +
+\frac{1}{p^{2s}}+ \cdots \right) \left(1+\frac{p^a}{p^s} +
+\frac{p^{2a}}{p^{2a}} + \cdots \right) \\
+& = \prod\limits_p \left(1+\frac{1+p^a}{p^s} +
+\frac{1+p^a+p^{2a}}{p^{2s}} + \cdots \right)\\
+& = \prod\limits_p  \left(1+\frac{1-p^{2a}}{1-p^a} \cdot \frac{1}{p^s}
++ \cdots\right)
+\end{align*}
+
+Using (\ref{c8:eq1.8}) we thus get
+\begin{equation*}
+\sigma_2(n) = \frac{1-p_1^{(m_1+1)a}}{1-p^a_1} \ldots
+\frac{1-p_r^{(m_r + 1)a}}{1-p^a_r}
+\tag{1.9}\label{c8:eq1.9}
+\end{equation*}
+if $n = p^{m_1}_1, p^{m_2}_2 \ldots p^{m_r}_r$\pageoriginale by
+comparison of the coefficients of $\dfrac{1}{n^s}$.
+
+More generally, we have
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+\frac{\zeta(s) \cdot \zeta(s-a) \cdot \zeta (s-b) \cdot
+  \zeta(s-a-b)}{\zeta(2s-a-b)}
+& = \prod\limits_p \frac{1 - p^{-2s + a + b}}{(1-p^{-s})
+  (1-p^{-s+a})(1-p^{-s+b})} \\
+& \hspace{2cm} (1-p^{-s+a+b})
+\end{align*}}
+for $\sigma > \max$ $\{1, \re  a+1, \; \re b + 1, \re
+(a+b)+1\}$. Putting $p^{-s} = z$, we get the general term in the right
+hand side equal to
+\begin{align*}
+& \frac{1-p^{a+b} z^2}{(1-z) \cdot (1-p^az) \cdot
+    (1-p^bz)(1-p^{a+b} z)}\\
+& = \frac{1}{(1-p^a)(1-p^b)} \left\{\frac{1}{1-z} - \frac{p^a}{1-p^az}
+  - \frac{p^b}{1-p^bz} + \frac{p^{a+b}}{1-p^{a+b}z}\right\}\\
+& = \frac{1}{(1-p^a) (1-p^b)} \sum\limits^\infty_{m=0}
+    \left\{1-p^{(m+1)a} - p^{(m+1)b} + p^{(m+1)(a+b)} \right\} z^m \\
+& = \frac{1}{(1-p^a) (1-p^b)} \sum\limits^\infty_{m=o} \left\{
+    1-p^{(m+1)a}\right\}  \left\{1-p^{(m+1)b} \right\} z^m
+\end{align*}
+Hence\pageoriginale
+\begin{align*}
+& \frac{\zeta(s) \cdot \zeta(s-a)\zeta(s-b) \cdot
+  \zeta(s-a-h)}{\zeta(2s-a-b)} \\
+& \qquad \qquad = \prod\limits_p \sum\limits^\infty_{m=0}
+\frac{1-p^{(m+1)a}}{1-p^a}  \cdot \frac{1-p^{(m+1)b}}{1-p^b} \cdot
+\frac{1}{p^{ms}}
+\end{align*}
+Now using (\ref{c8:eq1.9}) we get
+\begin{align*}
+\frac{\zeta(s) \cdot \zeta (s-a) \cdot \zeta (s-b)
+  \zeta(s-a-b)}{\zeta(2s-a-b)} = \sum\limits^\infty_{n=1}
+\frac{\sigma_a (n) \sigma_b(n)}{n^s} \tag{1.10}\label{c8:eq1.10}
+\end{align*}
+$$
+\sigma > \max \{1, \re a+1, \re b+1, \re (a+b) +1\}
+$$
+If $a=b=0$, then
+\begin{align*}
+\frac{\{\zeta(s)\}^4}{\zeta(2s)} = \sum\limits^\infty_{n=1}
+\frac{\{d(n)^2\}}{n^s} , \quad \sigma >1.\tag{1.11}\label{c8:eq1.11}
+\end{align*}
+
+If $\alpha$ is real, and $\alpha \neq 0$, we write $\alpha i$ for a
+and $-\alpha i$ for $b$ in (\ref{c8:eq1.10}), and get
+\begin{equation*}
+\frac{\zeta^2 (s) \zeta(s-\alpha i) \zeta(s + \alpha i)}{\zeta(2s)} =
+\sum\limits^\infty_{n=1} \frac{|\sigma_{\alpha i} (n)|^2}{n^s},\;  \sigma >1, \tag{1.12}\label{c8:eq1.12}
+\end{equation*}
+where $\sigma_{\alpha i}(n) = \sum\limits_{d/n} d^{\alpha i}$.

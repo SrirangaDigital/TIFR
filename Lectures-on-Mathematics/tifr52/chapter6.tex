@@ -1,0 +1,375 @@
+
+\chapter{Finite Difference Schemes, Stability}\label{chap6}
+
+\section{Introduction}\label{chap6:sec6.1}
+
+In\pageoriginale this section we define what we mean by the stability
+of difference schemes and view some conditions which are necessary
+and/or sufficient for stability. In the study of stability, the
+Fourier transform is a useful tool and so is it also in the study of
+well-posedness.
+
+\section{The Fourier Transform}\label{chap6:sec6.2}
+
+For a well-posed problem we have a correspondence between the initial
+data $\varphi_\circ(x)$ and the solution $\varphi(x,t)$. For a given
+$t$, define
+\begin{equation*}
+\varphi(t) : x \mapsto \varphi (x,t).
+\tag{6.1}\label{eq6.1}
+\end{equation*}
+If the problem is linear, then there exists a linear operator $G(t)$
+such that 
+\begin{equation*}
+\varphi(t) = G(t) \varphi (0). \tag{6.2}\label{eq6.2}
+\end{equation*}
+The operator $G(t)$ acts on the space where we seek the solution and
+where the initial data is also given. For instance we may have
+$\varphi(0) \in L^2 _x(\mathbb{R})$ and we may look for the solution
+in the same space. Then
+\begin{equation*}
+G(t): L^2_x (\mathbb{R}) \to L^2_x(\mathbb{R}). \tag{6.3}\label{eq6.3}
+\end{equation*}
+
+A fundamental question arising in the study of well-posedness is
+whether the induced norm $||G(t)||_{L(X,X)}$ (where $X$ is the space
+on which $G(t)$ operates) is bounded or not.
+
+One way to answer this question is via the energy inequality. A second
+method, which is essentially the same but more convenient (especially
+when working in $L^2 (\mathbb{R})$), is that of the Fourier transform.
+
+The Fourier transform, $\hat{\varphi}$, of a function $\varphi \in L^1
+\mathbb{R})$ is defined by 
+\begin{equation*}
+\hat{\varphi} (\xi) = \frac{1}{\sqrt{2\pi}}
+\int\limits^\infty_{-\infty} e^{{\rm ix }\xi} \varphi (x)
+dx. \tag{6.4}\label{eq6.4} 
+\end{equation*}\pageoriginale 
+That this can be extended to the space $L^2 (\mathbb{R})$ and that the
+map
+$$
+\mathscr{F} : L^2 (\mathbb{R}) \to L^2 (\mathbb{R})
+$$
+which maps $\varphi$ to $\hat{\varphi}$ is an isometry of $L^2
+(\mathbb{R})$ are all well-known results of functional analysis. (See,
+for instance, Rudin: {\em Functional Analysis}, McGraw-Hill). The
+invers. Fourier transform is given by 
+\begin{equation*}
+\varphi(x) = \frac{1}{\sqrt{2\pi}}  \int\limits^\infty_{-\infty}
+e^{-{\rm ix} \xi} \hat{\varphi} (\xi) d\xi. \tag{6.5}\label{eq6.5}
+\end{equation*}
+
+Now consider $\varphi (\cdot, t)$ and $\varphi (\cdot, 0)$ to be in
+$L^2_x(\mathbb{R})$. Then $\mathscr{F}$ maps them to $\hat{\varphi}
+(\cdot, t)$ and $\hat{\varphi} (\cdot, 0)$ respectively in
+$L^2_{\xi}(\mathbb{R})$. The correspondence defined by (\ref{eq6.2}) induces a
+relation between their Fourier transforms which we denote by 
+\begin{equation*}
+\hat{\varphi} (t) = \hat{G} (t) \hat{\varphi} (0).\tag{6.6}\label{eq6.6}
+\end{equation*}
+
+Since $\mathscr{F}$ is an isometry from $L^2_x(\mathbb{R})$ onto
+$L^2(\mathbb{R})$ we see that $||G(t)|| = ||\hat{G}(t)||$. Thus it is
+equivalent to checking either the boundedness of $||\hat{G}(t)||$ or
+that of $||G(t)||$. The former is often easier to apply when we are in
+the case of partial differential equations with constant
+coefficients. 
+
+\begin{exam}\label{chap6:exam6.1}
+Consider the advection equation with $u$ constant:
+\begin{equation*}
+\varphi_t + u \varphi_x =  0. \tag{6.7}\label{eq6.7}
+\end{equation*}
+Applying the Fourier transform w.r.t. $x$, we have, for fixec $\xi
+\in \mathbb{R}$,
+\begin{equation*}
+\frac{d}{dt} (\hat{\varphi} (\xi, t)) - \; {\rm iu } \xi \hat{\varphi}
+(\xi,t) = 0.\tag{6.8}\label{eq6.8}
+\end{equation*}
+Integrating this equation, we get
+\begin{equation*}
+\hat{\varphi} (\xi,t) = \hat{\varphi} (\xi, 0) \exp ({\rm iu } \xi
+t).\tag{6.9}\label{eq6.9}
+\end{equation*}\pageoriginale 
+Thus $G(t)$ is merely the multiplication by $\exp ({\rm iu} \; \xi
+t)$. 
+\end{exam}
+
+\begin{exam}\label{chap6:exam6.2}
+In the heat equation
+\begin{equation*}
+\varphi_t - \varphi_{xx} = 0,\tag{6.10}\label{eq6.10}
+\end{equation*}
+we get, on applying the Fourier transform,
+\begin{equation*}
+\frac{d}{dt} (\hat{\varphi} (\xi, t)) + \xi^2 \hat{\varphi} (\xi ,t) =
+0, \tag{6.11}\label{eq6.11}
+\end{equation*}
+which gives 
+\begin{equation*}
+\hat{\varphi} (\xi, t) = \hat{\varphi} (\xi, 0) \exp (-\xi^2 t). 
+\tag{6.12}\label{eq6.12}
+\end{equation*}
+Thus $\hat{G}(t)$ is just multiplication by $\exp (-\xi^2 t)$ . 
+\end{exam}
+
+\begin{exercise}\label{chap6:exer6.1}
+Find $\hat{G}(t)$ for the wave equation system
+$$
+\begin{cases}
+u_t + v_x & = 0\\
+v_t + u_x & = 0.
+\end{cases}
+$$
+\end{exercise}
+
+To compute the norms of these we need two simple results:
+
+\begin{lem}\label{chap6:lem6.1}
+Let $a(\xi)$ be a bounded function on $\mathbb{R}$ and let $A: L^2_\xi
+(\mathbb{R}) \to L^2_\xi (\mathbb{R})$ be multiplication by
+$a(\xi)$. Then
+\begin{equation*}
+||A||_{L(L^2_\xi, L^2_\xi )} = \sup \mid a (\xi)\mid.
+\tag{6.13}\label{eq6.13}
+\end{equation*}
+\end{lem}
+
+\begin{proof}
+Let $u(\xi) \in L^2_\xi (\mathbb{R})$. Then
+$$
+Au(\xi) = a(\xi) u(\xi). 
+$$
+One has 
+\begin{align*}
+||Au||^2_2 & = \int\limits^\infty_{-\infty} |a(\xi)|^2 \; |u(\xi)|^2 d
+\xi\\
+& \leq (\sup\limits_\xi |a(\xi)|)^2 \int\limits^\infty_{-\infty}
+|u(\xi)|^2 d \xi.
+\end{align*}
+Thus\pageoriginale $||Au||_2 \leq (\sup\limits_\xi |a(\xi)|)
+||u||_2$. Hence $A$ is bounded and its norm is 
+$$
+\leq \sup\limits_{\xi} |a(\xi)| = ||a||_\infty.
+$$
+
+To complete the proof, we show that for any $\varepsilon > 0$,
+$||A||>||a||_\infty - \varepsilon$. Consider the set
+$$
+E = \{ \xi \in \mathbb{R} \mid |a(\xi) | \geq ||a||_\infty -
+\varepsilon\}. 
+$$
+By definition of $||\cdot ||_\infty$, the above set has positive
+Lebesgue measure. By properties of the Lebesgue measure one can find a
+subset $F$ of $E$ which is measurable and such that 
+$$
+0< \mu (F) < \mu (E)
+$$
+where $\mu$ is the Lebesgue measure. Now take $u = \chi_{F} /
+\sqrt{\mu(F)}$ where $\chi_F$ is the characteristic function of
+$F$. This is clearly in $L^2 (\mathbb{R})$ and $||u||_2 =1$. Hence
+\begin{align*}
+||A||^2 \geq ||Au||^2_2 & = \int_\mathbb{R} |a(\xi)|^2
+\frac{(\chi_F(\xi))^2}{\mu(F)} d \xi,\\
+& = \frac{1}{\mu(F)} \int\limits_F |a(\xi)|^2 d \xi\\
+& \geq \frac{1}{\mu(F)} \int\limits_F (||a||_\infty - \varepsilon)^2 d
+\xi\\
+& \geq (||a||_\infty - \varepsilon)^2.
+\end{align*}
+Thus $||A|| \geq ||a||_\infty - \varepsilon$ for each $\varepsilon >
+0$ and this establishes (\ref{eq6.13}).
+\end{proof}
+
+We can extend this to the case of a finite product of $L^2_\xi
+(\mathbb{R})$ with itself. We omit the proof and merely state the
+result;
+
+\begin{lem}\label{chap6:lem6.2}
+If $U^T = (u_1 (\xi), \ldots , u_n (\xi))$ where $u_i (\xi) \in
+L^2_\xi (\mathbb{R})$ and $B$ is defined by 
+\begin{equation*}
+BU(\xi) = A (\xi) U(\xi), \tag{6.14}\label{eq6.14}
+\end{equation*}\pageoriginale 
+$A(\xi)$ being an $n \times n$ matrix, then the norm of $B$ induced by
+the vector norm 
+\begin{equation*}
+||U||^2 = \int\limits^\infty_{-\infty} |U(\xi)|^2 d \xi \tag{6.15}\label{eq6.15}
+\end{equation*}
+is given by
+\begin{equation*} 
+B = \sup\limits_\xi |A(\xi)|
+\tag{6.16}\label{eq6.16}
+\end{equation*}
+where $|A(\xi)|$ is the Euclidean norm of the matrix $A(\xi)$.
+\end{lem}
+
+By virtue of these lemmas it is easy to see that in examples
+\ref{chap6:exam6.1} and \ref{chap6:exam6.2}, $||\hat{G}(t)||
+=1$. The case of exercise \ref{chap6:exer6.1} for the wave equation
+is again left as an exercise. 
+
+\section{Stability of two-level schemes}\label{chap6:sec6.3}
+
+We now turn to finite difference schemes. Given a system of
+differential equations over a domain, we discretize the system by
+establishing a {\em mesh} of discrete points over the region and
+replacing the differential operators by difference operators involving
+these points.
+
+Let us consider a {\em uniform} mesh of step $\Delta \; x$ in the
+$x$-direction and step $\Delta$ $t$  in the $t$-direction. The nodes
+of this mesh are thus the points $(j \Delta x, \; k \Delta t)$ where
+$j$, $k \in \mathbb{Z}$, the set of integers with $k \geq 0$. The aim
+of a difference scheme would be to express the value of the solution
+at $u(x, n \Delta t)$ in terms of $u(y, \; k \Delta t)$ where
+$k<n$. Let us denote by ($u^n(x)$) the value $u(x, n \Delta t)$. Then
+a general {\em 2-level} finite difference scheme will take the form
+\begin{equation*}
+\sum\limits_{j\in\mathbb{Z}} b_j u^{n+1} (x+j \; \Delta x) =
+\sum\limits_{j\in\mathbb{Z}} c_j u^n (x + j \; \Delta x).\tag{6.17}\label{eq6.17}
+\end{equation*}
+
+\begin{remark}\label{chap6:rem6.1}
+Though these summations range over all $\mathbb{Z}$ in theory, we
+only have, in practice, $j$ ranging over a finite set of values.
+\end{remark}
+
+If\pageoriginale $b_j=0$ for all $j \neq 0$, then we can explicitly
+compute $u^{n+1}(x)$ in terms of $u^n$. Such a scheme is called
+explicit. Otherwise the scheme is implicit.
+
+\begin{remark}\label{chap6:rem6.2}
+Though, on the face of it, it looks as if an explicit scheme is more
+desirable compared to an implicit one, this is not always the case. As
+we shall see in later examples, explicit schemes are not always
+``unconditionally stable'' (i.e. stable for all values of $(\Delta x,
+\; \Delta t)$) while implicit schemes may have this important property.
+\end{remark}
+
+In general, starting with a 2-level scheme, we can write, at least in
+theory.
+\begin{equation*}
+u^{n+1} (x) = G(\Delta x, \Delta t) u^n (x), 
+\tag{6.18}\label{eq6.18}
+\end{equation*}
+where $G(\Delta x, \Delta t): X \to X$, $X$ being the space where the
+$u^n$,s belong. Recursively, one has 
+\begin{equation*}
+u^{n+1} (x) = G^{n+1} u^\circ(x). 
+\tag{6.19}\label{eq6.19}
+\end{equation*}
+Then we have 
+
+\begin{Definition}\label{chap6:def6.1}
+The scheme given by (\ref{eq6.17}) is stable w.r.t. a given norm $||\cdot
+||_X$ if and only if 
+\begin{equation*}
+|| G^n||_{L(X,X)} \leq \text{ a constant},
+\tag{6.20}\label{eq6.20}
+\end{equation*}
+the constant being independent of $n$ for all $n>0$.
+\end{Definition}
+
+The simplest case, because of the use of the Fourier transform, is the
+study of the $L^2$-stability of a scheme.
+
+Starting from equation (\ref{eq6.17}) and applying the Fourier transform, we
+get
+$$
+\sum\limits_j \int\limits^\infty_{-\infty} b_j u^{n+1} (x+j\Delta
+x)e^{i\xi x} dx = \sum\limits_j \int\limits^\infty_{-\infty} c_j u^n
+(x+ j\Delta x) e^{i\xi x} dx.
+$$\pageoriginale 
+Replacing $x + j \Delta x$  by $y_j$, we have
+$$
+\sum\limits_j b_j e^{-i \xi j \Delta x }  \hat{u}^{n+1} (\xi) =
+\sum\limits_j c_j e^{-i\xi j \Delta x} \hat{u}^n(\xi).
+$$
+Setting
+\begin{equation*}
+\left.
+\begin{aligned}
+b (\xi) & = \sum\limits_j b_j e^{-i \xi j \Delta x}\\
+c(\xi) & = \sum\limits_{j} c_j e^{-i \xi j \Delta x}
+\end{aligned}
+\right\}\tag{6.21}\label{eq6.21}
+\end{equation*}
+we have 
+\begin{equation*}
+b(\xi) \hat{u}^{n+1} (\xi) = c(\xi) \hat{u}^n (\xi). 
+\tag{6.22}\label{eq6.22}
+\end{equation*}
+
+Thus $\hat{G}$ is merely multiplication by $a(\xi) = c(\xi) / b(\xi)$,
+known as the {\em coefficient of amplification} of the scheme, and
+$\hat{G}^n$ is multiplication by $(a(\xi))^n$.
+
+Thus the scheme (\ref{eq6.17}) is stable if and only if there exists a
+constant $C$, independent of $n$, such that
+\begin{align*}
+\max\limits_\xi |(a(\xi))^n| &  \leq C\\
+\text{i.e. } \qquad (\max\limits_\xi |a (\xi)|)^n & \leq C. \qquad 
+\end{align*}
+or equivalently,
+\begin{equation*}
+\max\limits_{\xi} |a(\xi)| \leq 1.
+\tag{6.23}\label{eq6.23}
+\end{equation*}
+
+Thus (\ref{eq6.23}) is a {\em necessary and sufficient} condition for the
+$L^2$ - stability when we have a single {\em scalar equation}, and a
+scheme given by (\ref{eq6.17}).
+
+\section{Extension of systems}\label{chap6:sec6.4}
+In the case of a system of $n$ equations, the $U^k$  are all
+$n$-vectors. The quantities $b_j$ and $c_j$ of (\ref{eq6.17}) must now be
+replaced by matrices\pageoriginale and hence we will have, on applying
+the Fourier transform, matrices $B(\xi)$ and $C(\xi0$ playing the
+roles of $b(\xi)$ and $c(\xi)$ in (\ref{eq6.22}). Thus the condition for
+stability is 
+\begin{equation*}
+\max\limits_\xi |(B^{-1} (\xi) C(\xi))^n| \leq C,
+\tag{6.24}\label{eq6.24}
+\end{equation*}
+$C$ being a constant independent of $n$.
+
+One cannot reduce this to a neat condition which is necessary and
+sufficient as in the scalar case. However, using the fact that
+$|\cdot|$ is a matrix norm, a {\em sufficient} condition would be that
+\begin{equation*}
+\max\limits_\xi |B^{-1} C(\xi)| \leq 1.
+\tag{6.25}\label{eq6.25}
+\end{equation*}
+
+One can obtain a necessary condition by argueing with the spectral
+radius. Since, we have for any matrix $A$,
+$$
+(\rho (A))^n \leq |A^n|,
+$$
+where $\rho (A)$ is the spectral radius, a {\em necessary}
+condition would be 
+\begin{equation*}
+\max\limits_\xi \rho (B^{-1} C(\xi)) \leq 1. 
+\tag{6.26}\label{eq6.26}
+\end{equation*}
+
+Since for a normal matrix, the spectral radius is equal to the
+Euclidean norm, we see that, if $B^{-1}C(\xi)$ is {\em normal} then
+the condition (\ref{eq6.26}) is {\em necessary and sufficient}.
+
+A host of necessary and/or sufficient conditions under various
+hypotheses can be found in Richtmyer and Morton \cite{key32}.
+
+Thomee \cite{key36} has studied the $L^p$-stability for $2 \leq  p
+\leq + \infty$ using the Fourier transform.
+
+\begin{remark}\label{chap6:rem6.3}
+It must be observed that one can use Fourier transform only
+when\pageoriginale the coefficients of the partial differential
+equation are constants and when the mesh is uniform.
+\end{remark}
+
+Our subsequent study will be of numerical schemes for the heat and
+advection equations. We will then turn to the general equations of
+hydrodynamics in Section \ref{chap9}.

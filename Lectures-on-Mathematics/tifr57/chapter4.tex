@@ -1,0 +1,1143 @@
+
+\chapter{Applications of The Fundamental Theorem}\label{part1:chap4}
+
+\setcounter{section}{8}
+\section{Epimorphism Theorem}\label{part1:chap4:sec9}
+
+Let\pageoriginale $k$ be a field and let $X$, $Y$, $Z$, $\tau$ be indeterminates. 
+
+\begin{defi}\label{part1:chap4:sec9:def9.1}
+ Let $C$ be a finitely generated $k$-subalgebra of $k[Z]$ such that the quotient field of $C$ is $k(Z)$. We call $C$ (the coordinate ring of) an {\em affine polynomial curve} over $k$ and we call $k(Z)$ the {\em function field} of $C$. If, moreover, $C$ is generated as a $k$-algebra by two elements then we call $C$ an affine polynomial {\em plane} curve. A $k$-algebra epimorphism (i.e., surjective homomorphism) $\alpha: k[X, Y] \to C$ is called an {\em embedding} of $C$ in the affine plane over $k$.
+\end{defi}
+
+Note that if $C$ has an embedding in the affine plane then $C$ is a plane curve. Moreover, the mapping $\alpha \mapsto (\alpha (X), \alpha(Y))$  gives a bijective correspondence between the embeddings of $C$ in the affine plane and ordered pair $(x, y)$ of elements of $C$ such that $C= k[x, y]$.
+
+\begin{defi}\label{part1:chap4:sec9:def9.2}
+  An embedding $\alpha: k[X, Y] \to C$ is said to be {\em permissible} if $\alpha (X) \neq 0$ and char $k$ does not divide $\deg_Z \alpha (X)$.
+\end{defi}
+
+\setcounter{subsection}{2}
+\subsection{Equation of an Embedding}\label{part1:chap4:sec9:ss9.3}
+Let $\alpha: k [X, Y] \to C$ be a permissible embedding of an affine plane polynomial curve $C$. Let $\ob{x}= \alpha (X)$, $\ob{y}= \alpha(Y)$. Then $\alpha(F)= F(\ob{x}, \ob{y})$ for every $F= F(X, Y) \in k [X, Y]$. Let $n= \deg_{Z}\ob{x}$. Let $\ob{k}$ be the algebraic closure of $k$ and let $\theta: \ob{k} [Z] \to \ob{k} ((\tau))$ be the $\ob{k}$-algebra monomorphism defined by $\theta (Z)= \tau^{-1}$. Then it is clear that we have
+\begin{equation*}
+  \ord_\tau \theta (F (\ob{x}, \ob{y})) =- \deg_Z F(\ob{x}, \ob{y}) \tag{9.3.1} \label{part1:chap4:sec9:eq9.3.1}
+\end{equation*}
+for\pageoriginale every $F(X, Y) \in \ob{k} [X, Y]$. In particular, we
+have $\ord_\tau \theta (\ob{x})= - n$. Since char $k$ does not divide
+$n$, there exists, by Corollary \ref{part1:chap2:sec5:coro5.4}, an
+element $t \in \ob{k} ((\tau))$ such that $\ord_\tau t=1$ and $\theta
+(\ob{x})= t^{-n}$. Note then that we have $\ob{k} ((t))= \ob{k}
+((\tau))$ and $\ord_t a = \ord_\tau a$ for every $a \in \ob{k}
+((t))$. Write $x= x(t)= \theta (\ob{x})= t^{-n}$ and $y= y(t)=\theta
+(\ob{y})$. We call $y(t)$ a {\em Newton-Puiseux expansion} of $\ob{y}$
+in fractional powers of $\ob{x}^{-1}$. Let $f= f(x, Y) \in \ob{k}
+((X)) [Y]$ be the minimal monic polynomial of $y$ over $\ob{k}
+((t^n))$ (Definition \ref{part1:chap2:sec5:def5.8}). Recall that $f$
+is the unique irreducible element of $\ob{k}((X)) [Y]$ such that $f$
+is monic in $Y$ and $f(t^n, y)=0$. We call $f$ the {\em meromorphic
+  equation} of the embedding $\alpha$. 
+
+\setcounter{thm}{3}
+\begin{lemma}\label{part1:chap4:sec9:lem9.4}
+  With the notation of \ref{part1:chap4:sec9:ss9.3}, we have:
+\begin{enumerate}[(i)]
+\item $\deg_Y f=n$.
+\item $f \in k [X^{-1}, Y]$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (i) We have $\deg_Y f = [\ob{k} ((t^n)) (y) : \ob{k}((t^n))]$. Therefore, since $y \in \ob{k} ((t))$, we get
+$$
+\deg_Y f\leq [\ob{k}((t)): \ob{k} ((t^n))] =n.
+$$
+On the other hand, since $\alpha$ is surjective, we have $Z \in k (\ob{x}, \ob{y})$. Therefore $\tau^{-1} \in k(x, y) \subset \ob{k} ((t^n)) (y)$, so that $\tau \in \ob{k} ((t^n)) (y)$. Therefore
+$$
+\deg_Y f \geq [\ob{k} ((t^n)) (\tau): \ob{k} ((t^n))]=n
+$$
+by Lemma \ref{part1:chap2:sec5:lem5.10}, since $1 \in \Supp_t(\tau)$. This proves (i).
+
+(ii) Since $\deg_Z \ob{x} = n > 0$, $\ob{x}$ is transcendental over $k$ and $k(Z)$ is algebraic over $k(\ob{x})$ with $[k(Z): k(\ob{x})]=n$. Let $g(\ob{x}, Y) \in k (\ob{x}) [Y]$ be the minimal monic polynomial of $\ob{y}$ over $k (\ob{x})$. Since $\alpha$ is surjective, we have $k(\ob{x}) (\ob{y})= k(Z)$. Therefore $\deg_Y g(\ob{x}, Y)=n$. We claim that $g(\ob{x}, Y \in k [\ob{x}][Y])$. In order to prove the\pageoriginale claim, we have only to show that $\ob{y}$ is integral over $k[\ob{x}]$. Now, writing $\ob{x} = \displaystyle{\sum^n_{i=1}} a_i Z^i$, $a_i \in k$ for $0 \leq i \leq n$, $a_n \neq 0$, we have
+$$
+Z^n + \sum^{n-1}_{i=1} a_i a_n^{-1} Z^i + (a_0 - \ob{x}) a^{-1}_{n}=0,
+$$
+which shows that $Z$ is integral over $k[\ob{x}]$. Since $\ob{y} \in k [Z]$, $\ob{y}$ is also integral over $k[\ob{x}]$. Thus $g(\ob{x}, Y) \in k[\ob{x}][Y]$. Put $h(X, Y)= g(X^{-1}, Y)$. Then $h(X, Y) \in k[X^{-1}][Y] \subset \ob{k} ((X))[Y]$ and $h(X, Y)$ is monic in $Y$ with $\deg_Y h(X, Y)=n$. Now, $h(t^n, y)= g(t^{-n}, y)= g(\theta (\ob{x}), \theta (\ob{y}))= \theta (g (\ob{x}, \ob{y}))=0$. This shows that $f(X, Y)= h(X, Y)$ and (ii) is proved.
+\end{proof}
+
+\begin{remark}\label{part1:chap4:sec9:rem9.5}
+  Put $\varphi = \varphi (X, Y)= f(X^{-1}, Y)$. Then by Lemma \ref{part1:chap4:sec9:lem9.4} $\varphi \in k [X, Y]$. We claim that $\varphi$ generates $\ker \alpha$. To see this we note that $\ker \alpha$ is a principal prime ideal of $k[X, Y]$ and, since $f$ is irreducible in $k [X^{-1}, Y]$, $\varphi$ is irreducible in $k [X, Y]$. Therefore it is enough to show that $\varphi \in \ker \alpha$. Now, $\theta (\varphi(\ob{x}, \ob{y}))= \varphi (t^{-n}, y) = f(t^n, y)=0$. Since $\theta$ is a monomorphism, our claim is proved. Noting that $\varphi$ is the unique generator of $\ker \alpha$ which is monic in $Y$, we call $\varphi$ the {\em algebraic equation} of the  embedding $\alpha$. If $\psi$ is any generator of $\ker \alpha$ then, clearly, we have $\psi = \diameter \varphi$ for some $\diameter$.
+\end{remark}
+
+\begin{remark}\label{part1:chap4:sec9:rem9.6}
+  With the notation of \ref{part1:chap4:sec9:ss9.3}, suppose $S$ is a subring of $k$ such that $\ob{x}$ and $\ob{y}$ belong to $S[Z]$. Consider the pair $(X- \ob{x}, Y-\ob{y})$ of elements of $S[Z][X, Y]$ and let $g= g(X, Y) \in S [X, Y]$ be the $Z$-resultant of $X - \ob{x}$ and $Y- \ob{y}$. Then clearly $\diameter g$ is monic in $Y$ and, since $\deg_Z \ob{x}=n$, we have $\deg_Y g=n$. Moreover, we have $g (\ob{x}, \ob{y})=0$, so that $0 = \theta (g (\ob{x}, \ob{y}))= g(t^{-n}, y)$. therefore it follows from Lemma \ref{part1:chap4:sec9:lem9.4} (i) that $\diameter f (X, Y)= g(X^{-1}, Y) \in S [X^{-1}, Y]$. This gives an alternative proof of part (ii) of Lemma \ref{part1:chap4:sec9:lem9.4}.
+\end{remark}
+
+\setcounter{subsection}{6}
+\subsection{Characteristic Sequences of an  Embedding}\label{part1:chap4:sec9:ss9.7}
+Continuing\pageoriginale with the notation of
+\ref{part1:chap4:sec9:ss9.3}, let $R= k[X^{-1}]$. Then $f \in R [Y]$
+by Lemma \ref{part1:chap4:sec9:lem9.4}. Let $h= h(f)$ and let $m_i=
+m_i (-n, f)$, $q_i = q_i (-n, f)$, $s_i = s_i(-n, f)$, $r_i= r_i(-n ,
+f)$, $d_{i+1}= d_{i+1}(f)$ for $0 \leq i \leq h+1$. The sequence
+$(m_0, \ldots , m_{h+1})$, (\resp $(q_0 , \ldots , q_{h+1})$, \resp
+$(s_0, \ldots , s_{h+1})$, \resp $(r_0, \ldots , r_{h+1})$,
+\resp\break 
+$(d_1, \ldots , d_{h+2})$) is called the {\em characteristic} $m$
+(\resp $q$, \resp $s$, \resp $r$, \resp $d$)- {\em sequence} of the
+permissible embedding $\alpha$. Note that we have 
+\begin{equation*}
+  r_0 =- n= - \deg_Z \alpha (X). \tag{9.7.1} \label{part1:chap4:sec9:eq9.7.1}
+\end{equation*}
+
+Moreover, by (\ref{part1:chap4:sec9:eq9.3.1}) we have
+\begin{equation*}
+  r_1 = \ord_t y= \ord_\tau y =- \deg_Z \alpha (Y). \tag{9.7.2} \label{part1:chap4:sec9:eq9.7.2}
+\end{equation*}
+
+Let
+$$
+\mathbb{Z}^- = \{ a \in \mathbb{Z} \big| a \leq 0 \}.
+$$
+
+Recall that $\Gamma_R (f)$ is the subsemigroup of $\mathbb{Z}$ defined by 
+$$
+\Gamma_R (f)= \left\{ \ord_t F (t^n, y) \Big| F(X, Y) \in R [Y], F(t^n, y) \neq 0 \right\}.
+$$
+
+\setcounter{thm}{7}
+\begin{lemma}\label{part1:chap4:sec9:lem9.8}
+  With the notation of \ref{part1:chap4:sec9:ss9.7}, we have:
+\begin{enumerate}[(i)]
+\item $\Gamma_R (f) \subset \mathbb{Z}^-$.
+\item If $C= k[Z]$ then $\Gamma_R (f)=\mathbb{Z}^-$.
+\item $\Gamma_R(f)$ is strictly generated by $r= (r_0, r_1, \ldots, r_h)$.
+\item $r_0 < 0$, $r_1= \infty$ or $r_1\leq 0$, and $r_i < 0$ for $2 \leq i \leq h$.
+\item If $C= k[Z]$ and $h \geq 2$ then $r_h=-1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (i) Let $F(X, Y) \in R [Y]$ be any element such that $F(t^n, y) \neq 0$. Put $G(X, Y)= F(X^{-1}, Y)$.\pageoriginale Then $G(X, Y) \in k [X, Y]$ and, with the notation of \ref{part1:chap4:sec9:ss9.3}, we have
+\begin{equation*}
+\begin{aligned}
+  \ord_t F(t^n, y) & =\ord_t G(t^{-n}, y)\\
+  & =\ord_\tau G(t^{-n}, y)\\
+  & = \ord_\tau G(\theta (\ob{x}), \theta (\ob{y}))\\
+  & = \ord_\tau \theta (G (\ob{x}, \ob{y}))\\
+  & = - \deg_Z G(\ob{x}, \ob{y})
+\end{aligned}\tag{9.8.1}\label{part1:chap4:sec9:eq9.8.1}
+\end{equation*}
+by (\ref{part1:chap4:sec9:eq9.3.1}). Therefore $\ord_t F(t^n, y)\leq 0$. this proves (i)
+
+(ii) In view of (i), it is enough to prove that $-1 \in \Gamma_R (f)$. Since $\alpha$ is surjective, thee exists $G(X, Y) \in k [x, Y]$ such that $G(\ob{x}, \ob{y})= Z$. Put $F(X, Y)= G(X^{-1}, Y)$. Then $F(X, Y) \in R[Y]$ and $G(X, Y)= F(X^{-1}, Y)$. Therefore by the computation (\ref{part1:chap4:sec9:eq9.8.1}) we get $\ord_t F(t^n, y)=- \deg_Z Z=-1$. This shows that $-1 \in \Gamma_R (f)$.
+
+(iii) This is immediate from Theorem \ref{part1:chap3:sec8:ss8.7} (iii$'$).
+
+(iv) The assertion about $r_0$ and $r_1$ follows from (\ref{part1:chap4:sec9:eq9.7.1}) and (\ref{part1:chap4:sec9:eq9.7.2}). Now suppose $2 \leq i \leq h$. Then we have
+\begin{equation*}
+  d_i > d_{i+1}\tag{9.8.2} \label{part1:chap4:sec9:eq9.8.2}
+\end{equation*}
+by Proposition \ref{part1:chap2:sec6:prop6.13} (ii). Therefore $1< d_i/d_{i+1}$, so that $r_i$ is a strict linear combination of $r= (r_0, r_1, \ldots, r_h)$. Therefore $r_i \in \Gamma_R (f)$ by (iii), which shows by (i) that $r_i\leq 0$. Since $d_i$ does not divide $r_i$ by (\ref{part1:chap4:sec9:eq9.8.2}), we have $r_i \neq 0$. Therefore $r_i < 0$.
+
+(v) It follows from (ii) and (iii) that $r_i=-1$ for some $i$, $0 \leq i \leq h$. Since $h \geq 2$ and since $d_h$ divides $r_i$ for $i \leq h-1$ it follows from (\ref{part1:chap4:sec9:eq9.8.2})  that $r_i\neq -1$\pageoriginale for $0 \leq i \leq h-1$. Therefore $r_h=-1$.
+\end{proof}
+
+\begin{lemma}\label{part1:chap4:sec9:lem9.9}
+  With the notation of \ref{part1:chap4:sec9:ss9.7}, suppose $-d_2 \in \Gamma_R (f)$. Then $r_0$ divides $r_1$ or $r_1$ divides $r_0$.
+\end{lemma}
+
+\begin{proof}
+  Since $-d_2\in \mathbb{Z}$, we have $d_2 \neq - \infty$. This means that $h \geq 1$. Therefore $r_1 \neq \infty$ and it follows from Lemma \ref{part1:chap4:sec9:lem9.8} (iv) that $r_i \leq 0$ for $i =0,1$. since $-d_2 \in \Gamma_R (f)$, Lemma \ref{part1:chap4:sec9:lem9.8} (iii) shows that $-d_2$ is a strict linear combination of $r= (r_0, \ldots , r_h)$. Now, the assertion follows from Proposition \ref{part1:chap1:sec1:prop1.8}.
+\end{proof}
+
+\begin{defi}\label{part1:chap4:sec9:def9.10}
+  If $C= k[Z]$, we call $C$ the {\em affine line} over $k$. 
+\end{defi}
+
+In Theorem \ref{part1:chap4:sec9:ss9.11} and \ref{part1:chap4:sec9:ss9.19} below we study the embeddings of the affine line in the affine plane.
+
+\setcounter{subsection}{10}
+\subsection{Epimorphism Theorem (First Formulation)}
+\label{part1:chap4:sec9:ss9.11}
+
+Let $k$ be any field and let $\alpha : k[X, Y] \to k [Z]$ be a $k$-algebra epimorphism such that $\alpha (X) \neq 0$, $\alpha (Y)\neq 0$. Let $n = \deg_Z \alpha (X)$, $m= \deg_Z \alpha (Y)$. Suppose char $k$ does not divide \gcd $(m, n)$. Then $n$ divides $m$ or $m$ divides $n$.
+
+\begin{proof}
+  By the symmetry of the assertion, we may assume that char $k$ does not divide $n$. Then $\alpha$ is a permissible embedding. We now use the notation of \ref{part1:chap4:sec9:ss9.3} and \ref{part1:chap4:sec9:ss9.7} with $C= k[Z]$. By (\ref{part1:chap4:sec9:eq9.7.1}) and (\ref{part1:chap4:sec9:eq9.7.2}) we have $r_0 =- n$ and $r_1=-m \neq \infty$. Therefore $h \geq 1$. By Lemma \ref{part1:chap4:sec9:lem9.8} (ii) we have $\Gamma_R (f) = \mathbb{Z}^-$. Therefore $- d_2 \in \Gamma_R (f)$, so that $r_0$ divides $r_1$ or $r_1$ divides $r_0$ by Lemma \ref{part1:chap4:sec9:lem9.9}. This means that $n$ divides $m$ or $m$ divides $n$, and the theorem is proved.
+\end{proof}
+
+The following example shows that in Theorem \ref{part1:chap4:sec9:ss9.11} we cannot relax the condition ``char $k$ does divide \gcd $(m, n)$''.
+
+\setcounter{thm}{11}
+\begin{example}\label{part1:chap4:sec9:exp9.12}
+  Let $p = \text{char}~ k$. Let $e$, $s$ be positive integers and let
+\begin{align*}
+  x & = Z^{p^e}\\
+  y & = Z+ \sum^s_{i=0} a_i Z^{ip}
+\end{align*}
+with\pageoriginale $a_i \in k$ for $0 \leq i \leq s$ and $a_s \neq 0$. Let $\alpha : k [X, Y] \to k[Z]$ be the $k$-algebra homomorphism defined by $\alpha (X)= x$, $\alpha(Y)=y$. We claim that $\alpha$ is surjective. To prove our claim, it is enough to show that $Z \in k [x, y]$. In fact, we show by descending induction on $j$ that $Z^{p^j} \in k[x, y]$ for $0 \leq j \leq e$, this assertion being clear for $j=e$. Suppose now that $j \geq 0$ and $Z^{p^{j+1}} \in k [x, y]$. We have
+$$
+y^{p^j} = Z^{p^j}+ \sum^s_{i=0} a_i^{p^j} (Z^{p^{j+1}})^i.
+$$
+\end{example}
+
+This shows that $Z^{p^j} \in k[x, y]$, and our claim is proved. Now, let $n= \deg_Z x= p^e$, $m= \deg_Z y= sp$. It is clear that we can choose $e$, $s$ to be such that neither $n$ divides $m$ nor $m$ divides $n$. Specifically, take $e\geq 2$ and $s= qp^c$ where $q$, $c$ are integers such that $q \geq 2$, $q \not\equiv 0 \pmod{p}$ and $0 \leq c \leq e-2$.
+
+\begin{qun}\label{part1:chap4:sec9:qun9.13}
+  Let $\alpha : k[X, Y] \to k[Z]$ be a $k$-algebra epimorphism such that $\alpha(X) \neq 0$, $\alpha (Y)\neq 0$. Let $n= \deg_Z \alpha(X)$, $m= \deg_Z \alpha(Y)$. Let $p = \text{char}~ k$, and let $n= n' p^e$, $m=m' p^d$, whee $n'$, $m'$, $e$, $d$ are integers such that $n'\nequiv 0 \pmod{p}$, $m' \nequiv 0 \pmod{p}$, $e \geq 0$, $d \geq 0$. Is it then true that $n'$ divides $m'$ or $m'$ divides $n'$?
+\end{qun}
+
+\begin{defi}\label{part1:chap4:sec9:def9.14}
+  Let $A = k[X, Y]$ and let $\sigma$ be a $k$-algebra automorphism of $A$. We say $\sigma$ is {\em primitive} if there exists $P(Z) \in k[Z]$ such that 
+\begin{align*}
+  & \text{either} & \sigma (X) = X, \quad \sigma (Y) = Y + P(X);\\
+  & \text{or} & \sigma(X) = X+ P(Y), \quad \sigma(Y)=Y.
+\end{align*}
+
+We say $\sigma$ is {\em linear} if there exist $a_i$, $b_i$, $c_i \in k$, $i=1,2$, such that
+$$
+\sigma (X) = a_1 X + b_1 Y + c_1, \quad \sigma (Y) = a_2 X + b_2 Y + c_2.
+$$
+
+We\pageoriginale say $\sigma$ is {\em elementary} if $\sigma$ is primitive or linear. We say $\sigma$ is {\em tame} if $\sigma$ is a finite product of elementary automorphisms.
+\end{defi}
+
+\begin{remark}\label{part1:chap4:sec9:rem9.15}
+  It is easily checked that the set of all tame automorphisms of $A$
+  is a subgroup of the group of all $k$-algebra automorphisms of
+  $A$. In fact, it is true that all $k$-algebra automorphisms of $A$
+  are tame. In the next section we shall deduce this fact from the
+  Epimorphism Theorem in case char $k=0$ (Theorem
+  \ref{part1:chap4:sec10:ss10.1}) 
+\end{remark}
+
+\begin{defi}\label{part1:chap4:sec9:def9.16}
+Let $\alpha$, $\beta : k [X, Y] \to k [z]$ be $k$-algebra epimorphisms. We say $\alpha$ is  {\em equivalent} (\resp {\em tamely equivalent}) to $\beta$ if there exists a $k$-algebra automorphism (\resp  tame automorphism) $\sigma $ of $k[X, Y]$ such that the diagram
+\[
+\xymatrix{ k[x, Y] \ar[dd]_{\sigma} \ar[rd]^{\alpha} & \\
+& k[Z]\\
+k[X, Y]\ar[ru]_{\beta} & }
+\]
+is commutative, i.e., $\alpha=\beta \sigma$.
+\end{defi}
+
+\begin{remark}\label{part1:chap4:sec9:rem9.17}
+  It is clear that both equivalence and tame equivalence are equivalence relations and that tame equivalence implies equivalence.
+\end{remark}
+
+\begin{defi}\label{part1:chap4:sec9:def9.18}
+  Let $\alpha : k[X, Y] \to k [Z]$ be a $k$-algebra epimorphism. We say $\alpha$ is {\em wild} if $\alpha (X) \neq 0$, $\alpha (Y) \neq 0$ and char $k$ divides both $\deg_Z \alpha (X)$ and $\deg_Z \alpha (Y)$.
+\end{defi}
+
+\setcounter{subsection}{18}
+
+\subsection{\textbf{EPIMORPHISM THEOREM (SECOND FORMULATION).}}\label{part1:chap4:sec9:ss9.19}
+
+Let $\alpha, \beta: k[X, Y] \to k [Z]$ be $k$-algebra epimorphisms. Assume that neither $\alpha$ nor\pageoriginale $\beta$ is wild. Then $\alpha$ and $\beta$ are tamely equivalent. In particular, $\alpha$ and $\beta$ are equivalent.
+
+\begin{proof}
+  Let $\gamma: k [X, Y]\to k[Z]$ be the $k$-algebra  epimorphism defined by $\gamma(X)= Z$, $\gamma(Y)=0$. Then, since tame equivalence is an equivalence relation, it is enough to prove the following assertion:
+\end{proof}
+
+\setcounter{mysubsection}{19}
+
+\subsubsection{}\label{part1:chap4:sec9:sss9.19.1}
+
+{\em If $\alpha$ is not wild then $\alpha$ and $\gamma$ are tamely equivalent.}
+
+Given $\alpha$, we define the {\em transpose} $\alpha^t$ of $\alpha$ to be the $k$-algebra epimorphism $\alpha^t: k[X, Y] \to k[Z]$ given by $\alpha^t (X)= \alpha(Y)$, $\alpha^t(Y)=\alpha(X)$. Clearly, $\alpha$ and $\alpha^t$ are tamely equivalent and $\alpha$ is wild if and only if $\alpha^t$ is wild. Put $D(\alpha)= \deg_Z \alpha(X)+ \deg_Z \alpha(Y)$. Then $D(\alpha)= D(\alpha^t)$. We now prove \ref{part1:chap4:sec9:sss9.19.1} by induction on $D(\alpha)$. First, suppose $D(\alpha) \leq 1$. Replacing $\alpha$ by $\alpha^t$, if necessary, we may assume that $\deg_Z \alpha(X) \geq \deg_Z \alpha(Y)$. Then, since $\alpha$ is surjective, the assumption $D(\alpha) \leq 1$ implies that $\deg_Z \alpha (Y)\leq 0$ and $\deg_Z\alpha(X)=1$. This means that there exist $a, b, c, \in k$, $a \neq 0$, such that $\alpha(X) = aZ+b$ and $\alpha(Y)=c$. Let $\sigma$ be the $k$-algebra automorphism of $k[X, Y]$ defined by $\sigma(X)=a(X)+b$, $\sigma(Y)= Y+c$. Then $\sigma$ is tame and clearly we have $\alpha = \gamma \sigma$.  
+
+Now, suppose $D(\alpha)\geq 2$. Again, replacing $\alpha$ by $\alpha^t$, if necessary, we may assume that $\deg_Z \alpha(X) \geq \deg_Z\alpha (Y)$. This means, in particular, that $\alpha (X) \notin k$. If $\alpha(Y) \in k$ then $\deg_Z \alpha(X) \geq 2$. This is not possible, since $\alpha$ is  surjective. Therefore $\alpha(X) \notin k$ and $\alpha(Y) \notin k$. Let $n= \deg_Z \alpha(X)$, $m = \deg_X \alpha(Y)$. Since $\alpha$ is not wild and $n \geq m \geq 1$, it follows from Theorem \ref{part1:chap4:sec9:ss9.11} that $m$ divides $n$. Let $n=rm$, where $r$ is a positive integer. Write
+$$
+\alpha(X) = \sum_{i=0}^{rm} a_i Z^i, \quad \alpha(Y) = \sum^m_{j=0} b_j Z^j
+$$
+with\pageoriginale $a_i$, $b_j \in k$ for $0 \leq i \leq rm$, $0 \leq j \leq m$ and $b_m \neq 0$. Let $\sigma$ be the $k-$algebra
+ automorphism of $k[X, Y]$ defined by $\sigma (X)= X-a_{rm} b_m^{-r}Y^r$ and $\sigma(Y)= Y$. Then $\sigma$ is primitive, therefore tame. Let $\alpha' = \alpha\sigma$. Then $\alpha' : k [X, Y] \to k [Z]$ is a $k$-algebra epimorphism and $\alpha$ and $\alpha'$ are tamely equivalent. Now, we have
+\begin{align*}
+  \alpha' (X) & = \alpha (\sigma (X))\\
+  & = \alpha(X-a_{rm} b_{m}^{-r} Y^r)\\
+  & = \sum_{i=0}^{rm} a_i Z^i - a_{rm}b_m^{-r} \left(\sum^m_{j=0} b_jX^j\right)^r.
+\end{align*}
+
+This shows that $deg_X \alpha' (X) < rm =n$. Moreover, $\alpha' (Y)= \alpha(\sigma(Y))= \alpha(Y)$. Therefore $\deg_Z \alpha' (Y)=m$, and we get $D(\alpha')< D(\alpha)$. Now, since $\alpha$ is not wild, char $k$ does not divide \gcd $(n, m)=m= \deg_Z \alpha' (Y)$. This shows that $\alpha'$ is not wild, so that $\alpha'$ and $\gamma$ are tamely equivalent by induction hypothesis. Therefore $\alpha$ and $\gamma$ are tamely equivalent, and \ref{part1:chap4:sec9:sss9.19.1} is proved.  
+
+\setcounter{thm}{19}
+\begin{coro}\label{part1:chap4:sec9:coro9.20}
+  If char $k=0$ then any two $k$-algebra epimorphisms $k[X, Y] \to k [Z]$ are tamely equivalent.
+\end{coro}
+
+\begin{proof}
+  Immediate from Theorem \ref{part1:chap4:sec9:ss9.19}, sine if char $k=0$ then there are no wild $k$-algebra epimorphisms.
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec9:coro9.21}
+  Let char $k=0$. Let $\varphi$ be an element of $k[X, Y]$ such that $k[X, Y]/(\varphi)$ is isomorphic (as a $k$-algebra) to $k[Z]$. Then there exists an element $\psi$ of $k[X, Y]$ such that $k[\psi, \varphi]= k [X, Y]$.
+\end{coro}
+
+\begin{proof}
+  Let $\alpha: k[X, Y] \to k [Z]$ be the $k$-algebra epimorphism defined by $\alpha = vu$, where $u: k[X, Y] \to k [X, Y]/(\varphi)$ is the natural surjection and $v: k[X, Y]/(\varphi)\to k[Z]$ is a $k$-algebra isomorphism. Then $\ker \alpha = (\varphi)$. Let $\beta: k[X, Y] \to k [z]$ be the $k$-algebra epimorphism defined by $\beta(X)= Z$,\pageoriginale $\beta(Y)=0$. then $\ker \beta = (Y)$. By Corollary \ref{part1:chap4:sec9:coro9.20} there exists a $k$-algebra automorphism $\sigma$ of $k[X, Y]$ such that $\beta= \alpha \sigma$. This gives $(\varphi)= \ker \alpha = \sigma (\ker \beta) = (\sigma (Y))$. Therefore $\sigma (Y)= \diameter \varphi$. Let $\Psi = \sigma (X)$. Then $k[x, Y] = k [\sigma (X), \sigma(Y)]= k [\psi, \diameter \varphi] = k [\psi, \varphi]$. 
+\end{proof}
+
+\begin{lemma}\label{part1:chap4:sec9:lem9.22}
+  Let the assumptions be those of Corollary \ref{part1:chap4:sec9:coro9.21}. Assume, moreover, that $\deg_Y \varphi > 0$. Then:
+\begin{enumerate}[(i)]
+\item $\diameter \varphi$ is monic in $Y$ for some $\diameter$.
+\item $\varphi(X^{-1}, Y)$ is irreducible in $\ob{k} ((X))[Y]$, where $\ob{k}$ is the algebraic closure of $k$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Let $\alpha: k[X, Y]\to k[Z]$ be the $k$-algebra epimorphism defined at the beginning of the proof of Corollary \ref{part1:chap4:sec9:coro9.21}. Then $\ker \alpha = (\varphi)$. Since $\deg_Y \varphi > 0$, we have $X- a \nequiv 0 \pmod{\varphi}$ for every $a \in k$. This shows that $\deg_Z \alpha (X) > 0$. Therefore $\alpha$ is a permissible embedding. Let $f = f(X, Y) \in \ob{k} ((X)) [Y]$ be the meromorphic equation of $\alpha$. It follows from Remark \ref{part1:chap4:sec9:rem9.5} that $\ker \alpha = (f(X^{-1}, Y))$. Therefore $f(X^{-1}, Y)= \diameter \varphi$ for some $\diameter$, and the lemma is 
+proved. 
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec9:coro9.23}
+  Let the assumptions be those of Corollary \ref{part1:chap4:sec9:coro9.21}. Assume, moreover, that $\deg_Y \varphi > 0$. Then there exists an element $\psi$ of $k[X, Y]$ such that $\deg_Y \psi < \deg_Y \varphi$ and $k[\psi, \varphi]= k[X, Y]$.
+\end{coro}
+
+\begin{proof}
+  By Corollary \ref{part1:chap4:sec9:coro9.21} there exists $\psi \in k[X, Y]$ such that $k[\psi, \varphi]= k[X, Y]$. It is now enough to show that if $\deg_Y \psi \geq \deg_Y \varphi$ then there exists $\psi' \in k [X, Y]$ such that $\deg_Y \psi' < \deg_Y \psi$ and $k[\psi', \varphi]= k[X, Y]$. Let $n = \deg_Y \varphi$, $m= \deg_Y \psi$ and suppose $m \geq n$. In view of Lemma \ref{part1:chap4:sec9:lem9.22}, replacing $\varphi$ by $\diameter \varphi$, we may assume that $\varphi$ is monic in $Y$. Similarly, since
+$$
+k[X, Y]/(\psi)= k [\psi, \varphi]/(\psi)\approx k[\varphi] \approx k[Z].
+$$ 
+we\pageoriginale may replace $\psi$ by $\diameter \psi$ and assume
+that $\psi$ is monic in $Y$. Now, $k[\psi, \varphi]=k[X, Y]$ implies
+that $k' [\psi, \varphi] = k' [Y]$, where $k' = k(X)$. Therefore if
+$S$, $T$ are indeterminates then the $k'-$algebra homomorphism
+$\gamma: k' [S, T]\to k' [Y]$ defined by $\gamma (S)= \psi$,
+$\gamma(T) = \varphi$, is surjective. Therefore by Theorem
+\ref{part1:chap4:sec9:ss9.11} $n$ divides $m$ or $m$ divides
+$n$. Since $m \geq n$, we get $m= pn$ for some positive integer
+$p$. Let $\psi' = \psi - \varphi^p$. Then $k[\psi', \varphi]= k [\psi,
+  \varphi]= k[X, Y]$. Moreover, since both $\psi$ and $\varphi$ are
+monic in $Y$, we have $\deg_Y \psi' < m$.  
+\end{proof}
+
+\begin{thm}\label{part1:chap4:sec9:thm9.24}
+Let char $k=0$. Let $\varphi= \varphi(X, Y)$ be an element of $k[X, Y]$ such that $n= \deg_Y \varphi > 0$, $\varphi$ is monic in $Y$ and $k[X, Y]/(\varphi)$ is isomorphic (as a $k$-algebra) to $k[Z]$. Let $f= f(X, Y)= \varphi (X^{-1}, Y)$. Then $f$ is irreducible in $\ob{k} ((X))[Y]$. Let $h= h(f)$ and let $\psi= App_Y^d (\varphi)$, where $d= d_h (f)$. If $h \geq 2$ then $k[\psi, \varphi] = k [X, Y]$. (As usual, $\ob{k}$ denotes the algebraic closure of $k$.)
+\end{thm}
+
+\begin{proof}
+  Let $\alpha: k [X, Y] \to k [Z]$ be the $k$-algebra epimorphism defined by $\alpha = vu$, where $u: k [X, Y]\to k [x, Y]/ (\varphi)$ is the natural surjection and $v: k[X, Y]/(\varphi) \to k[z]$ is a $k$-algebra isomorphism. Then $\ker \alpha = (\varphi)$ and, since $n > 0$, $\alpha$ is a permissible embedding. Since $\varphi$ is monic in $Y$, it follows from Remark \ref{part1:chap4:sec9:rem9.5} that $f$ is the meromorphic equation of $\alpha$. We now use the notation of \ref{part1:chap4:sec9:ss9.3} and \ref{part1:chap4:sec9:ss9.7}. Let $g = g(X, Y)= App_Y^d (f)$. Then by Proposition \ref{part1:chap1:sec4:prop4.7} $g (X, Y)= \psi (X^{-1}, Y)$. Since $h \geq 2$, we have $\ord_t\psi (t^{-n}, y)= \ord_t g(t^n, y)=r_h$ by Theorem \ref{part1:chap3:sec8:ss8.2}. Since $\psi (t^{-n}, y)= \theta (\psi (\ob{x}, \ob{y}))$, it follows from (\ref{part1:chap4:sec9:eq9.3.1}) that $\deg_Z \psi (\ob{x}, \ob{y})=- r_h$. By Lemma \ref{part1:chap4:sec9:lem9.8} $(v)$ we have $r_h =-1$. Therefore we have
+\begin{equation*}
+  \deg_Z \alpha (\psi)=1. \tag{9.24.1} \label{part1:chap4:sec9:thm9.24.1}
+\end{equation*}
+\end{proof}
+
+Now, by Corollary \ref{part1:chap4:sec9:coro9.23} there exists an element $\psi'$ of $k [X, Y]$ such that $\deg_Y \psi' < n$\pageoriginale and $k [\psi', \varphi]= k [X, Y]$. It follows that $k[Z]= k[\alpha(\psi')]$. Therefore we have 
+\begin{equation*}
+  \deg_Z \alpha (\psi)=1. \tag{9.24.2} \label{part1:chap4:sec9:thm9.24.2}
+\end{equation*}
+
+It follows from (\ref{part1:chap4:sec9:thm9.24.1}) and (\ref{part1:chap4:sec9:thm9.24.2}) that we have $\alpha (\psi')= a \alpha (\psi)+b$ for some $a$, $b \in k$, $a \neq 0$. This means that
+$$
+\psi' = a \psi + b + \lambda \varphi
+$$
+for some $\lambda \in k [X, Y]$. Since $\deg_Y \psi' < n$ and $\deg_Y \psi= n/d< n$, we get $\lambda =0$ and $\psi' = a\psi + b$. This shows that $k[\psi' , \varphi]= k[\psi, \varphi]$, and the theorem is proved.
+
+With the notation and assumptions of Theorem \ref{part1:chap4:sec9:thm9.24} we have the following four corollaries:
+\begin{coro}\label{part1:chap4:sec9:coro9.25}
+  If $h \geq 2$ then $r_n (-n, f)=- 1$.
+\end{coro}
+
+\begin{proof}
+  This was noted in the proof of the theorem above.
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec9:coro9.26}
+  $\deg_Y \varphi$ divides $\deg_X \varphi$ or $\deg_X \varphi$ divides $\deg_Y \varphi$. 
+\end{coro}
+
+\begin{proof}
+  Let $\alpha: k [X, Y] \to k [Z]$ be the permissible embedding defined in the proof of Theorem \ref{part1:chap4:sec9:thm9.24}. Then, since $f(X, Y)= \varphi(X^{-1}, Y)$ is the meromorphic equation of $\alpha$ (Remark \ref{part1:chap4:sec9:rem9.5}), it follows from Lemma \ref{part1:chap4:sec9:lem9.4} that $\deg_Z \alpha (X)= \deg_Y \varphi =n$, Let $m = \deg_X \varphi$. If $m=0$ then $n$ divides $m$. If $m > 0$ then by the argument above, we get $\deg_Z \alpha(Y)=m$. Now, it follows from Theorem \ref{part1:chap4:sec9:ss9.11} that $n$ divides $m$ or $m$ divides $n$. 
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec9:coro9.27}
+  $d_2 (f) = d_1 (f)$ or $d_2 (f)=- q_1(-n, f)$.
+\end{coro}
+
+\begin{proof}
+  As\pageoriginale seen in the proof of Corollary
+  \ref{part1:chap4:sec9:coro9.26}, we have $n= \deg_Z
+  \alpha(X)$. Therefore $d_1 (f)= \deg_Z \alpha (X)$. Moreover, by
+  (\ref{part1:chap4:sec9:eq9.7.2}) we have $\deg_Z\break \alpha (Y)= - q_1
+  (-n, f)$. Now, the corollary follows from Theorem
+  \ref{part1:chap4:sec9:ss9.11}. 
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec9:coro9.28}
+  $k[X, Y]/(\psi)$ is isomorphic (as a $k$-algebra) to\break $k[Z]$. 
+\end{coro}
+
+\begin{proof}
+  This is clear, since $k[X, Y]= k [\psi, \varphi]$.
+\end{proof}
+
+\begin{remark}\label{part1:chap4:sec9:rem9.29}
+  The results proved in \ref{part1:chap4:sec9:coro9.21} - \ref{part1:chap4:sec9:coro9.28} above hold also for char $k > 0$ (and, infact, the same proof goes through), provided we make the assumption that $\deg_Y \varphi$ (or, by symmetry, $\deg_X \varphi$) is not divisible by char $k$. 
+\end{remark}
+
+\section{Automorphism Theorem}\label{part1:chap4:sec10}
+
+As in \S \ref{part1:chap4:sec9}, $k$ ia an arbitrary field and $X$, $Y$, $Z$ are indeterminates.
+
+\subsection{Automorphism Theorem.} \label{part1:chap4:sec10:ss10.1}
+Every $k$-algebra automorphism of $k[X, Y]$ is tame.
+
+(For the definition of a tame automorphism, see \ref{part1:chap4:sec9:def9.14}. In the proof below we deduce the Automorphism Theorem from the Epimorphism Theorem in case char $k=0$. For a proof in the general case the reader is referred to \cite{5}.)
+
+\medskip
+\noindent \textbf{Proof of \ref{part1:chap4:sec10:ss10.1} in char $k=0$}. Let $\varphi$ be a $k$-algebra automorphism of $k[X, Y]$. Let $\gamma : k[X, Y]\to k[Z]$ be the $k$-algebra epimorphism defined by $\gamma(X)= Z$, $\gamma(Y)=0$, and let $\alpha = \gamma \varphi$. Then $\alpha : k[X, Y] \to k[Z]$ is also an epimorphism. Therefore by Corollary \ref{part1:chap4:sec9:coro9.20} there exists a tame $k$-algebra automorphism $\sigma$ of $k[X, Y]$ such that $\alpha = \gamma \sigma$. Thus we get $\gamma \varphi = \gamma \sigma$. Put $\psi = \varphi \sigma^{-1}$. Then $\varphi= \psi \sigma$, and it is enough to prove that $\psi$ is tame. Now, $\gamma \psi= \gamma$. Therefore $\psi (\ker \gamma) = \ker \gamma$. Now, $\ker \gamma = (Y)$. Therefore we\pageoriginale have
+\begin{equation*}
+  \psi (Y) = a Y\tag{10.1.1}\label{part1:chap4:sec10:eq10.1.1}
+\end{equation*}
+for some $a \in k$, $a \neq 0$. Now,
+$$
+k[Y][X]= k[\psi (Y), \psi (X)]= k[aY , \psi (X)]= k[Y][\psi (X)].
+$$
+
+Therefore there exist $P(Y) \in k [Y]$ and $b \in k$, $b \neq 0$, such that 
+\begin{equation*}
+  \psi (X) = bX + P(Y).\tag{10.1.2}\label{part1:chap4:sec10:eq10.1.2}
+\end{equation*}
+
+It is clear from (\ref{part1:chap4:sec10:eq10.1.1}) and (\ref{part1:chap4:sec10:eq10.1.2}) that $\psi$ is tame.
+
+
+\setcounter{thm}{1}
+\begin{thm}\label{part1:chap4:sec10:thm10.2}
+  Let $f$, $g$ be elements of $k[X, Y]$ such that $k[f, g]= k[X, Y]$. Then $\deg f$ divides $\deg g$ or $\deg g$ divides $\deg f$.
+\end{thm}
+
+(Here $\deg$ denotes total degree with respect to $X$, $Y$. In the
+proof below we deduce Theorem \ref{part1:chap4:sec10:thm10.2} from the
+Epimorphism Theorem in case char $k=0$. For a proof in the general
+case the reader is referred to \cite{5}.) 
+
+\medskip
+\noindent \textbf{Proof of \ref{part1:chap4:sec10:thm10.2} in case
+  char $k=0$.} Let $n = \deg f$, $m = \deg g$. Let $f^+$ be the
+homogeneous component of $f$ of degree $n$, i.e., $f^+$ is a
+homogeneous polynomial in $X$, $Y$ of degree $n$ such that $f= f^+ + f'$
+with $f' \in k [X, Y]$ and $\deg f' < n$. It is then clear that
+$\deg_Y f< n$ if an only if $X$ divides $f^+$. Similarly, $\deg_Y g <
+m$ if and only if $X$ divides $g^+$, where $g^+$ is the homogeneous
+component of $g$ of degree $m$. Since $\left\{ X + aY\Big| a \in k
+\right\}$ is an infinite set of mutually coprime elements of $k[X,
+  Y]$, there exists $a \in k$, $a \neq 0$, such that $X'= X + aY$
+divides neither $f^+$ nor $g^+$. Therefore, replacing $X$ by $X'$ we
+may assume that $n= \deg_Y f$, $m=\deg_Y g$. Let $k' = k(X)$ and let
+$S$, $T$ be indeterminates. Let $\alpha: k' [S, T] \to k' [Y]$ be the
+$k'$-algebra homomorphism defined by $\alpha (S) =f$, $\alpha (T)
+=g$.\pageoriginale Then the assumption $k[f, g]= k[X, Y]$ implies that $\alpha$ is
+an epimorphism. Therefore it follows from Theorem
+\ref{part1:chap4:sec9:ss9.11} that $n$ divides $m$ or $m$ divides $n$.
+
+\section{Affine Curves with One Place at  Infinity}\label{part1:chap4:sec11}
+
+\subsection{}\label{part1:chap4:sec11:ss11.1}
+
+Throughout this section, by a {\em valuation} we shall mean a {\em
+  real discrete} valuation with value group $\mathbb{Z}$. Thus if $K$
+is a field then a valuation $v$ of $K$ is a map $v:K \to \mathbb{Z} \cup
+\{ \infty \}$ satisfying the following three conditions: 
+\begin{enumerate}[(i)]
+\item $v(a)= \infty$ if an only if $a=0$
+
+\item $v | K^*: K^* \to \mathbb{Z}$ is a surjective homomorphism of
+  groups, where $K^*$ is the group of units of $K$
+\item $v(a+b) \geq \min (v(a), v(b))$ for all $a$, $b \in K$.
+\end{enumerate}
+
+We denote by $R_v$ the ring of $v$ and by $m_v$ the maximal ideal of
+$R_v$. Recall that $R_v= \{ a \in k| v(a) \geq 0 \}$ and $m_v = \{ a
+\in K| v(a) > 0\}$. The ring $R_v$ is a discrete valuation ring with
+quotient field $K$. If $k$ is a subfield of $K$ such that $v(a)=0$ for
+every non-zero element $a$ of $k$ then we say, as usual, that $v$ is a
+valuation of $K/k$. Note that in this case the residue field $R_v/m_v$
+of $v$ is an overfield of $k$. We say $v$ is {\em residually rational
+  over} $k$ if $k= R_v/m_v$. Let $L/K$ be a field extension. Let $v$
+be a valuation of $K$ and let $w$ be a valuation of $L$. We say $w$
+{\em extends (or lies over)} $v$ if $R_w \cap K= R_v$.
+
+\setcounter{thm}{1}
+\begin{defi}\label{part1:chap4:sec11:def11.2}
+  Let $k$ be a field and let $A$ be a $k$-algebra. We say $A$ is an
+  {\em affine curve} over $k$ (more precisely, the {\em coordinate
+    ring} of an {\em integral affine curve} over $k$) if the following
+  three conditions are satisfied:
+\begin{enumerate}[(i)]
+\item $A$ is finitely generated as a $k$-algebra.
+\item $A$ is an integral domain.
+\item $A$\pageoriginale has Krull dimension one, i.e. if $K$ is the quotient field
+  of $A$ then $\tr \deg_k K=1$
+\end{enumerate}
+\end{defi}
+
+\begin{defi}\label{part1:chap4:sec11:def11.3}
+  Let $A$ be an affine curve over $k$. We say $A$ is a {\em plane}
+  affine curve (\resp {\em the affine line}) if $A$ is generated as a
+  $k$-algebra by two elements (\resp one element). Note that the
+  affine line is the polynomial ring in one variable over $k$.
+\end{defi}
+
+\begin{defi}\label{part1:chap4:sec11:def11.4}
+  Let $A$ be an affine curve over $k$. We say $A$ has only {\em one
+    place at infinity} if the following two conditions are satisfied:
+  \begin{enumerate}[(i)]
+  \item There exists exactly one valuation $v$ of $K/k$, where $K$ is
+    the quotient field of $A$, such that $A \nsubset R_v$.
+    \item The unique valuation $v$ of condition (i)
+      is residually rational over $k$. 
+
+      We call $v$ the {\em place} (or \em{valuation}) of $A$ {\em at
+        infinity}.
+  \end{enumerate}
+\end{defi}
+
+\begin{example}\label{part1:chap4:sec11:exp11.5}
+  An affine polynomial curve over $k$
+  (Definition \ref{part1:chap4:sec9:def9.1}) has only one place at
+  infinity. For, if $A$ is such a curve then $A \subset k[Z]$ and the
+  quotient field of $A$ is $k(Z)$, where $Z$ is an indeterminate. If
+  $v$ is the $Z^{-1}$-adic valuation of $k(Z)/k$ then it is clear that
+  $v$ is residually rational over $k$ and is the unique place of $A$
+  at infinity. In particular, the affine line has only one place at
+  infinity. 
+\end{example}
+
+\begin{lemma}\label{part1:chap4:sec11:lem11.6}
+  Let $v$ be a valuation of $K/k$. Let $x$ be a non-zero element of
+  $K$. If $x$ is algebraic over $k$ then $v(x)=0$.
+\end{lemma}
+
+\begin{proof}
+  Suppose $v(x) \neq 0$. Since $x$ is algebraic over $k$ if an only if
+  $x^{-1}$ is algebraic over $k$, we may assume that $v(x)> 0$. If
+  $x$is algebraic over $k$ then, since $x \neq 0$, there exist $n \geq
+  1$ and $a_i \in k$, $0 \leq i \leq n-1$, such that $a_0 \neq 0$ and 
+  $$
+  x^n + a_{n-1} x^{n-1} + \cdots + a_1 x= a_0.
+  $$
+  Since\pageoriginale $v(x)> 0$, we have $v (x^n + a_{n-1}+ \ldots +
+  a_1 x)>0$. But $v(a_0)=0$. This contradiction proves that $v(x)=0$.
+\end{proof}
+
+\begin{lemma}\label{part1:chap4:sec11:lem11.7}
+  Let $v$ be a valuation of $K/k$ such that $v$ is residually rational
+  over $k$. Then $k$ is algebraically closed in $K$.
+\end{lemma}
+
+\begin{proof}
+  Let $x \in K$ be algebraic over $k$. We want to show that $x \in
+  k$. We may assume that $x \neq 0$. Then $x^{-1}$ is also algebraic
+  over $k$. Since $x \in R_v$ or $x^{-1} \in R_v$, we may assume,
+  without loss of generality, that $x \in R_v$. Then since $v$ is
+  residually rational over $k$, there exists $a \in k$ such that $v
+  (x-a)> 0$. Now, since $x-a$ is algebraic over $k$, it follows from
+  Lemma \ref{part1:chap4:sec11:lem11.6} that $x-a=0$, which shows that
+  $x \in k$.
+\end{proof}
+
+\begin{lemma}\label{part1:chap4:sec11:lem11.8}
+  Let $A$ be an affine curve over $k$ with only one place $v$ at
+  infinity. Let $K$ be the quotient field of $A$. Let $x \in A$, $x
+  \notin k$. Then:
+  \begin{enumerate}[\rm (i)]
+    \item $x$ is transcendental over $k$ and $v$ is the unique
+      valuation of $K/k$ extending the $x^{-1}$-adic valuation of
+      $k(x)/k$.
+      \item $v(x) =- [K : k(x)]$. In particular, $v(x)<0$.
+        \item $A$ is integral over $k[x]$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  ~
+  \begin{enumerate}[(i)]
+    \item Since $v$ is residually rational over $k$ and since $x
+      \notin k$, $x$ is transcendental over $k$ by Lemma
+      \ref{part1:chap4:sec11:lem11.7}. Let $v'$be any valuation of
+      $K/k$ extending the $x^{-1}$-adic valuation of $k(x)/k$. Then
+      $x^{-1}$ is a non-unit in the ring $R_{v'}$ of $v'$. This means
+      that $x \notin R_{v'}$. Therefore $A \nsubset R_{v'}$, and the
+      hypothesis on $A$ implies that $v=v'$.
+
+      \item Since\pageoriginale $v$ is the only valuation of $K/k$
+        extending the $x^{-1}$-adic valuation of $k(x)/k$ and since
+        the residue field of $v$ is $k$, $[K: k(x)]$ equals the
+        ramification index of $v$ over the $x^{-1}$-adic valuation of
+        $k(x)/k$, i.e., $[K : k(x)] = v(x^{-1})=-v(x)$.
+
+        \item Let $y \in A$. To show that $y$ is integral over $k[x]$,
+          it is enough to show that $y$ is integral over each
+          valuation ring of $k(x)/k$ containing $k[x]$. Let then $R_w$
+          be such a valuation ring with valuation $w$, and let $w_1,
+          \ldots , w_r$ be all the extensions of $w$ to $K$. Then, if
+          $\ob{R}_w$  is the integral closure of $R_w$ in $K$, we have
+          $\displaystyle{\ob{R}_w = \bigcap\limits^r_{i=1} R_{w_i}}$. Therefore
+          it is enough to prove that $y \in R_{w_i}$ for every $i$, $1
+          \leq i \leq r$. Since $A \subset R_{v'}$ for every valuation
+          $v'$ of $K/k$ other than $v$, we have only to show that $w_i
+          \neq v$ for every $i$, $1 \leq i \leq r$. But this is clear,
+          since $x \in R_{w_i}$ for every $i$, $1 \leq i \leq r$, and
+          $x \notin R_v$ by (ii).
+  \end{enumerate}
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec11:coro11.9}
+  Let $A$ be an affine curve over $k$ with only one place $v$ at
+  infinity. Then $v (A - \{ 0\})= \left\{ v(a) \Big| a \in A, a \neq 0
+  \right\}$ is a subsemigroup of the semigroup of non-positive
+  integers. Moreover, the only units of $A$ are the non-zero elements
+  of $k$.
+\end{coro}
+
+\begin{proof}
+  The first assertion is immediate from
+  Lemma \ref{part1:chap4:sec11:lem11.8} (ii). To prove the second
+  assertion, let $x \notin k$. Then $x$ is transcendental over $k$,
+  hence a non unit in $k[x]$. Since $A$ is integral over $k[x]$, $x$
+  is a non-unit in $A$. 
+\end{proof}
+
+\begin{remark}\label{part1:chap4:sec11:rem11.10}
+  In view of Corollary \ref{part1:chap4:sec11:coro11.9}, we may omit
+  explicit mention of $k$ in Definition
+  \ref{part1:chap4:sec11:def11.4}. That is, we may say $A$ to have
+  only one place at infinity if {\em there exists} a subfield $k$ of
+  $A$ such that $A$ is an affine curve over $k$ with only one place at
+  infinity in the sense of Definition
+  \ref{part1:chap4:sec11:def11.4}. The subfield $k$ is then uniquely
+  determined by $A$. viz, it is the set of all units of $A$ together
+  with \pageoriginale zero. We call $k$ the {\em ground field} of $A$.
+\end{remark}
+
+\begin{defi}\label{part1:chap4:sec11:def11.11}
+  Let $R$ be a ring and let $R[Y]$ be the polynomial ring in one
+  variable $Y$ over $R$. An element $f$ of $R [Y]$ is said to be {\em
+    almost monic} in $Y$ if $f \neq 0$ and the leading coefficient of
+  $f$ is a unit in $R$, i.e. $f\neq 0$ and there exists a unit $a$ in
+  $R$ such that $\deg (f-aY^n)< n$, where $n =\deg_Y f$. 
+\end{defi}
+
+\begin{prop}\label{part1:chap4:sec11:prop11.12}
+  Let $k'$ be a field and let $k$ be its algebraic closure. Let
+  $\varphi= \varphi (X, Y)$ be an element of $k' [X, Y] \subset
+  k((X^{-1})) [Y]$ such that $\deg_Y \varphi > 0$. Let $A = k' [X,
+    Y]/(\varphi)$, where $(\varphi)= \varphi k' [x, Y]$. Assume that
+  $A$ is an affine curve over $k'$ with only one place $v$ at
+  infinity. Then:
+  \begin{enumerate}[(i)]
+    \item $\varphi$ is almost monic in $Y$.
+      \item $\deg_Y \varphi =- v(X + (\varphi))$.
+        \item $\varphi$ is irreducible in $k((X^{-1}))[Y]$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  Let $x= X + (\varphi)$. Since $\deg_Y \varphi > 0$, we have $x
+  \notin k'$. Therefore by Lemma \ref{part1:chap4:sec11:lem11.8} $x$
+  is transcendental over $k'$ and $A$ is integral over $k'[x]$. In
+  particular $y = Y + (\varphi)$ is integral over $k'[x]$, and (i) is
+  proved. Now, if $K$ is the quotient field of $A$ then we have
+  $\deg_Y \varphi= [K : k'(x)]$. By
+  Lemma \ref{part1:chap4:sec11:lem11.8} we have $[K: k'(x)]=-
+  v(x)$. This proves (ii). In order to prove (iii), we may, in view of
+  (i), replace $\varphi$ by $a \varphi$ for a suitable non-zero
+  element $a$ of $k'$ to assume that $\varphi$ is monic in $Y$. Then
+  $\varphi (x, Y) \in k' [x][Y]$ is the minimal monic polynomial of
+  $y$ over $k'(x)$. Let $L$ be an overfield of $k((x^{-1}))$ such that
+  we have a $k'(x)$-monomorphism $u :K \to L$ and $L$ is generated
+  over $k((x^{-1}))$ by $u(y)$. (Here we regard $k((x^{-1}))$ as an
+  overfield of $k'(x)$  via the natural inclusions $k'
+  \hookrightarrow k(x) \hookrightarrow k((x^{-1}))$.) Let $\psi (x, Y)
+  \in k((x^{-1})) [Y]$ be the minimal monic polynomial of $u(y)$ over
+  $k((x^{-1}))$. In order to prove (iii), it is enough\pageoriginale
+  to show that $\varphi (x, Y)= \psi (x, Y)$. Now, since
+  $\varphi (x, u(y))= u(\varphi (x, y))=0$, $\psi (x, Y)$
+  divides $\varphi (x, Y)$ in $k((x^{-1}))[Y]$. Therefore it is now enough to show that $\deg_Y \varphi (x, Y) \leq
+  \deg_Y \psi (x, Y)$. Let $n= \deg_Y \varphi(x, Y)$, $m= \deg_Y \psi
+  (x, Y)$. Then $n= v(x^{-1})$ by (ii), and $m= [L :
+    k((x^{-1}))]$. Let $w$ be a valuation of $L$ extending the
+  $x^{-1}$-adic valuation of $k((x^{-1}))/k$. We claim that there
+  exists a (unique) valuation $v'$ of $K$ such that $w$ is an
+  extension of $v'$. For, let $w' : K\to \mathbb{Z} \cup \{ \infty\}$
+  denote the restriction of $w$ to $K$. Then, writing $K^*$ for the
+  group of units of $K$, $w' (K^*)$ is a subgroup of
+  $\mathbb{Z}$. Since $w(x^{-1})>0$ and $x^{-1}\in K$, we have $w'
+  (K^*)\neq 0$. If $r$ is the positive generator of $w' (K^*)$, we put
+  $v' = r^{-1} w'$. Then $v' : K \to \mathbb{Z} \cup \{ \infty\}$ is
+  surjective and our claim is proved. Now, since $v' (x^{-1})> 0$,
+  $v'$ is an extension of the $x^{-1}$-adic valuation of $k'
+  (x)/k'$. Therefore $v'=v$ by Lemma
+  \ref{part1:chap4:sec11:lem11.8}. Now, we get $n= v(x^{-1})= v'
+  (x^{-1})= r^{-1} w(x^{-1})\leq w (x^{-1}) \leq [L : k
+    ((x^{-1}))]=m$, and (iii) is proved.
+
+  This completes the proof of the proposition.
+\end{proof}
+
+\begin{notn}\label{part1:chap4:sec11:notn11.13}
+  Let $k$ be an algebraically closed field and let $\varphi =
+  \varphi(X, Y)$ be an element of $k[X, Y]$ such that $\varphi$ is
+  monic in $Y$ and char $k$ does not divide $\deg_{Y} \varphi$. In
+  particular, this means that $\deg_{Y}\varphi> 0$. Let $n = \deg_Y
+  \varphi$. Assume that $\varphi$ is irreducible in $k((X^{-1}))
+  [Y]$. Put $f=f(X, Y)= \varphi(X^{-1}, Y)$. Then $f$ is a
+  irreducible element of $k((X)) [Y]$ and $f$ is monic in $Y$
+  with $\deg_Y f=n$. Therefore by Newton's Theorem
+  \ref{part1:chap2:sec5:ss5.14} there exists $y(t) \in k ((t))$
+  such that $f(t^n, y(t))=0$. Let $k'$ be a subfield of $k$
+  such that $\varphi \in k' [x, Y]$. Let $R= k' [X^{-1}]$. Then
+  $f \in R[Y]$. Let $\ob{R[Y]}= R[Y]/f R[Y]$ and let $A = k'
+  [X, Y]/\varphi k' [X, Y]$. It is then clear that the
+  $k'$-algebra isomorphism $\theta': k' [X, Y]\to R[Y]$ defined
+  by $\theta' (X) = X^{-1}$, $\theta' (Y) = Y$, induces a
+  $k'$-algebra isomorphism $\ob{\theta'} : A \to
+  \ob{R[Y]}$. Recall also that if $k' [t^{-n} , y(t)]$ denotes
+  the $k'$-subalgebra of $k((t))$ generated by\pageoriginale
+  $t^{-n}$ and $y(t)$ then by Lemma \ref{part1:chap3:sec8:lem8.4}
+  there exists $k'$-algebra isomorphism $\ob{u} : \ob{R[Y]} \to k'
+  [t^{-n}, y(t)]$ given by $\ob{u} (\ob{F(X, Y)})= F(t^n, y(t))$,
+  where $\ob{F(X, Y)}$ denotes the image of an element $F(X, Y)$ of
+  $R[Y]$ under the canonical homomorphism $R[Y] \to
+  \ob{R[Y]}$. Putting $\theta = \ob{u} \ob{\theta'}$, we get a
+  $k'$-algebra isomorphism
+  $$
+  \theta : A = k' [X, Y]/ \varphi k' [X, Y] \to k'[t^{-n}, y(t)]
+  $$
+  given by $\theta(F(x, Y))= F(t^{-n}, y(t))$ for $F(X, Y) \in k' [X,
+    Y]$, where $x$ (\resp\break $y$) is the canonical image of $X$ (\resp
+  $Y$) in $A$. In the sequel we shall 
+  \begin{equation*}
+   \text{ Identify } ~ A \text{ with } ~ k' [t^{-n} , y(t)] \text{ via }
+    \theta. \tag{11.13.1}\label{part1:chap4:sec11:eq11.13.1} 
+  \end{equation*}
+\end{notn}
+
+Note that under this identification we have $x= t^{-n}$ and $y=
+y(t)$.\break Let $K= k' (t^n, y(t))$ be the quotient field of $A$. Since $K$
+is a subfield of $k((t))$, we have a map
+$$
+\ord_t: K \to \mathbb{Z} \cup \{ \infty\}.
+$$
+
+Let $h= h(f)$ and let $r_i = r_i (-n, f)$, $d_{i+1}= d_{i+1}(f)$ for
+$0 \leq i \leq h+1$. Let $\Gamma_R(f)$ be the value semigroup of $f$
+with respect to $R$. Recall that
+$$
+\Gamma_r (f) = \left\{ \ord_t F(t^n, y(t))\Big| F(X, Y) \in R [Y],
+F(t^n, y(t))\neq 0 \right\}.
+$$
+
+\begin{lemma}\label{part1:chap4:sec11:lem11.14}
+  With the notation of \ref{part1:chap4:sec11:notn11.13}, we have:
+  \begin{enumerate}[\rm (i)]
+    \item $\ord_t (A - \{ 0 \} )= \Gamma_R (f)$.
+      \item $\ord_t$ is a valuation of $K/k'$.
+        \item $A$ is an affine curve over $k'$ with only one place
+          $ord_t$ at infinity.
+          \item $\ord_t (A-\{ 0\})$ is strictly generated by $r= (r_0
+            , \ldots , r_h)$
+            \item $r_0 <0$,\pageoriginale $r_1 = \infty$ or $r_1 \leq 0$, and $r_i <
+              0$ for $2 \leq i \leq h$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item In view of the identification of $A$ with $k' [t^{-n}, y(t)]$
+  via $\theta$, we have
+  \begin{align*}
+    \Gamma_R (f) & = \left\{ \ord_t F(t^n, y(t)) \Big| F(X, Y) \in
+    R[Y], F(t^n, y(t)) \neq 0 \right\}\\
+     & = \left\{ \ord_t F(t^n, y(t)) \Big| F(X, Y) \in
+    k' [X, Y], F(t^{-n}, y(t)) \neq 0 \right\}\\
+     & = \left\{ \ord_t F(x, y) \Big| F(X, Y) \in
+    k' [X, Y], F(x, y) \neq 0 \right\}\\
+     & = \left\{ \ord_t a \Big| a \in A, \neq 0 \right\}\\
+    & = \ord_t (A- \{ 0\}).
+  \end{align*}
+  \item We have only to show that $\ord_t: K \to \mathbb{Z} \cup \{
+    \infty \}$ is surjective or, equivalently, that $\ord_t (K^*)=
+    \mathbb{Z}$, where $K^* = K - \{ 0 \}$. Now $\ord_t (K^*)$ is
+    clearly the subgroup of $\mathbb{Z}$ generated by the semigroup
+    $\ord_t(A-\{ 0\})$, hence by $\Gamma_R (f)$ in view of (i). Since
+    $X^{-1}\in R$, the assertion now follows from
+    Corollary \ref{part1:chap3:sec8:coro8.8}.
+    \item Since $\varphi$ is monic in $Y$, $A$ is integral over
+      $k'[x]$. We have $\ord_t (x) = \ord_t (t^{-n})= -n$. Therefore
+      $$
+      \ord_t (x^{-1}) =n = \deg_Y \varphi = [K : k' (x)].
+      $$
+      This shows that $\ord_t$ is the only valuation of $K/k'$
+      extending the $x^{-1}$-adic valuation of $k'(x)/k$ and that
+      $\ord_t$ is residually rational over $k'$. Now, let $w$ be any
+      valuation of $K/k'$ such that $A \nsubset R_w$. Then, since $A$
+      is integral over $k'[x]$, we have $k' [x]\nsubset R_w$. This
+      means that $w(x)< 0$, so that $w(x^{-1})>0$. Therefore $w$
+      extends the $x^{-1}$-adic valuation of $k'(x)$, and we get $w =
+      \ord_t$.
+
+      \item This is immediate from Theorem
+        \ref{part1:chap3:sec8:ss8.7} (iii$'$), since we have $\ord_t (A
+        - \{ 0\}) = \Gamma_R(f)$ by (i) and we are in the pure
+        meromorphic case.
+        \item We have $r_0= -n < 0$. Next, $r_1= \ord_t (y)$. If $y
+          \in k'$ then\pageoriginale $\ord_t (y) =0$ or $\infty$. If
+          $y \notin k'$ then, since $y \in A$, we get $\ord_t (y) < 0$
+          by (iii) and lemma \ref{part1:chap4:sec11:lem11.8}
+          (ii). Now, let $g_i = g_i (X, Y)= App_Y^{d_i}(f)$, $2 \leq i
+          \leq h$. Then $g_i \in k' [X^{-1}][Y]$ for every $i$ by
+          Theorem \ref{part1:chap3:sec8:ss8.3}(i). Put $\psi_i =
+          \psi_i (X, Y)= g_i (X^{-1}, Y)$, $2 \leq i \leq h$. Then
+          $\psi_i \in k' [X, Y]$ for every $i$. Now, for $2 \leq i
+          \leq h$, we have 
+          \begin{align*}
+            r_ i & = \ord_t g_i (t^n, y(t)) & \text{(by
+              Theorem \ref{part1:chap3:sec8:ss8.2})}\\
+            & = \ord_t \psi_i (t^{-n}, y(t)) \\
+            & = \ord_t \psi_i (x, y) &
+            \text{(by (\ref{part1:chap4:sec11:eq11.13.1}))}.
+          \end{align*}
+\end{enumerate}
+Therefore by (iii) and Lemma \ref{part1:chap4:sec11:lem11.8} (ii) it
+is enough to prove that $\psi_i (x, y)$ $\notin k'$ for every $i$, $2
+\leq i \leq h$. Now, we have $\deg_Y \psi_i = n/d_i$. This shows that
+$1 \leq \deg_Y \psi_i < n= \deg_Y \varphi$ for every $i$, $2 \leq i
+\leq h$. Therefore, for every $a \in k'$, $\varphi$ does not divide
+$\psi_i-a$ in $k' [X, Y]$. This means that $\psi_i (x, y) \notin k'$.
+\end{proof}
+
+\begin{thm}\label{part1:chap4:sec11:thm11.15}
+  Let $k$ be an algebraically closed field and let $\varphi$ be an
+  element of $k [X, Y]$ such that $\deg_Y \varphi> 0$. Consider the
+  following four conditions.
+  \begin{enumerate}[\rm (i)]
+    \item For every subfield $k'$ of $k$ such that $\varphi \in k' [X,
+    Y]$, $k' [X, Y]/\varphi k' [X, Y]$ is an affine curve $k'$ with
+      only one place at infinity.
+      \item $k[X, Y]/\varphi k[x, Y]$ is an affine curve over $k$ with
+        only one place at infinity.
+        \item There exists a subfield $k'$ of $k$ such that $\varphi
+          \in k' [X, Y]$ and $k' [X, Y]/\varphi$ $k' [X, Y]$ is an
+          affine curve over $k'$ with only one place at infinity.
+          \item $\varphi$ is almost monic in $Y$ and $\varphi$ is
+            irreducible in $k((X^{-1}))[Y]$.
+  \end{enumerate}
+  We have (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$
+  (iv). Moreover, if char $k$ does not divide $\deg_Y \varphi$ then
+  (iv) $\Rightarrow$ (i). 
+\end{thm}
+
+\begin{proof}
+  (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii). Trivial.
+
+  (iii) $\Rightarrow$ (iv). Immediate from Proposition
+  \ref{part1:chap4:sec11:prop11.12}.
+
+  (iv) $\rightarrow$ (i).\pageoriginale Assume that char $k$ does not divide $\deg_Y
+  \varphi$. Let $k'$ be a subfield of $k$ such that $\varphi \in k'
+         [X, Y]$. Then, replacing $\varphi$ by $a \; \varphi$ for a
+         suitable $a \in k'$, we may assume that $\varphi$ is monic in
+         $Y$. Now, (i) follows from Lemma
+         \ref{part1:chap4:sec11:lem11.14} (iii).
+\end{proof}
+
+\begin{coro}\label{part1:chap4:sec11:coro11.16}
+  Let $k'$ be a field and let $k$ be its algebraic closure. Let
+  $\varphi= \varphi(X, Y)$ be a non-zero element of $k'[X, Y]$ such
+  that char $k$ does not divide $\deg_Y \varphi$ and $k'[X, Y]/\varphi
+  k'[X, Y]$ is an affine curve over $k'$ with only one place at
+  infinity. Then for every $\lambda \in k$, $k' (\lambda) [X, Y]$ is
+  an affine curve over $k' (\lambda)$ with only one place at infinity
+\end{coro}
+
+\begin{proof}
+  Since char $k$ does not divide $\deg_Y \varphi$, we have $\deg_Y
+  \varphi > 0$. Therefore by Theorem \ref{part1:chap4:sec11:thm11.15}
+  $\varphi$ is almost monic in $Y$, i.e. there exists $a \in k'$, $a
+  \neq 0$, such that $a \; \varphi$ is monic in $Y$. Since $k = \{
+  a\lambda \Big| \lambda \in k \}$, we may replace $\varphi$ by $a
+  \; \varphi$ and assume that $\varphi$ is monic in $Y$. By
+  Theorem \ref{part1:chap4:sec11:thm11.15} $\varphi$ is irreducible in
+  $k((X^{-1})) [Y]$. Since $\deg_{Y} (\varphi+ \lambda)= \deg_Y
+  \varphi$ is not divisible by char $k$ for every $\lambda \in k$, it
+  is enough, by Theorem \ref{part1:chap4:sec11:thm11.15}, to prove
+  that $\varphi+\lambda$ is irreducible in $k((x^{-1}))[Y]$ for every
+  $\lambda \in k$. Let $n = \deg_Y \varphi$. Put $f = f(X, Y)=
+  \varphi(X^{-1}, Y)$. Then $f$ is an irreducible element of $k((X))
+         [Y]$ and $f$ is monic in $Y$ with $\deg_Y f=n$. Clearly, it
+         is enough to prove that $f + \lambda$ is irreducible in
+         $k((X))[Y]$ for every $\lambda \in k$. By Newton's Theorem
+         \ref{part1:chap2:sec5:ss5.14} there exists an element $y(t)$
+         of $k((t))$ such that $f(t^n, y(t))=0$. Let $h= h(f)$, $s_h=
+         s_h (-n, f)$ and $r_i = r_i (-n, f)$ for $0 \leq i \leq
+         h$. Then by Lemma \ref{part1:chap4:sec11:lem11.14}(v) we have
+         $r_h \leq 0$. First, suppose that $r_h=0$. Then by Lemma
+         \ref{part1:chap4:sec11:lem11.14}(v) we have $h=1$. Therefore
+         we get $1= d_{h+1}(f)=d_2 (f)=$ \gcd $(r_0, r_1)=$ \gcd $(-n,
+         0)=n$. Thus in this case we have $\deg_Y (f+ \lambda)=1$,
+         which clearly implies that $f + \lambda$ is irreducible in
+         $k((X))[Y]$. Now, suppose that $r_h< 0$. Then $s_h < 0$.  Let $f_\lambda = f+ \lambda$. Then $f_\lambda (t^n,y(t))= \lambda \in k$. Therefore $\ord_t f_\lambda (t^n,
+         y(t))\geq 0 > s_h$.\pageoriginale Now, it follows from the
+         Irreducibility Criterion (Theorem \ref{part1:chap5:sec12:ss12.4}) proved in the next 
+         section that $f_\lambda$ is irreducible in $k((X))[Y]$.
+\end{proof}
+
+\begin{remark}\label{part1:chap4:sec11:rem11.17}
+  Let us justify the use of a result from \S\ \ref{part1:chap5:sec12}
+  in proving Corollary \ref{part1:chap4:sec11:coro11.16} by declaring
+  that the result of Corollary \ref{part1:chap4:sec11:coro11.16} will
+  not be used anywhere in the sequel.
+\end{remark}
+
+\begin{qun}\label{part1:chap4:sec11:qun11.18}
+  Is Corollary \ref{part1:chap4:sec11:coro11.16} true without the
+  assumption that char $k$ does not divide $\deg_Y \varphi$?
+\end{qun}
+
+\begin{prop}\label{part1:chap4:sec11:prop11.19}
+  Let $k$ be a field and let $n$ be a positive integer such that char
+  $k$ does not divide $n$. Let
+  $$
+  \varphi = \varphi (X, Y)= a_0 (X) Y^n + a_1 (X) Y^{n-1}+ \cdots +
+  a_n (X)
+  $$
+  with $a_i (X) \in k [X]$ for $0 \leq i \leq n$, $a_0 (X) \neq
+  0$. Let $m= \deg_X \varphi$. Assume that $k[X, Y]/ \varphi k [X, Y]$
+  is an affine curve over $k$ with only one place at infinity. Then
+  $a_0 (X) \in k$ and we have $n \deg_X a_i (X) \leq im$ for every $i,
+  0 \leq i \leq n$. Moreover, if $m \geq 1$ then we have $\deg_X a_n
+  (X)=m$ and $n \deg_X a_i(X) \leq i \deg_X a_n (X)$ for every $i$, $0
+  \leq i \leq n$.
+\end{prop}
+
+\begin{proof}
+  By Proposition \ref{part1:chap4:sec11:prop11.12} $\varphi$ is almost
+  monic in $Y$. This means that $a_0 (X) \in k$. Therefore, replacing
+  $\varphi$ by $a_0 (X)^{-1} \varphi$, we may assume that $a_0
+  (X)=1$. Now, if $m=0$ then the assertion is clear. Assume therefore
+  that $m \geq 1$. Then by Proposition
+  \ref{part1:chap4:sec11:prop11.12} $\varphi$ is almost monic in
+  $X$. This shows that $\deg_X a_n (X)= m$.
+\end{proof}
+
+Now, by Proposition \ref{part1:chap4:sec11:prop11.12} $\varphi$ is
+irreducible in $\ob{k} ((X^{-1})) [Y]$, where $\ob{k}$ is the
+algebraic closure of $k$. Therefore by Newton's Theorem
+\ref{part1:chap2:sec5:ss5.14} there exists $y(t) \in \ob{k} ((t))$
+such that 
+$$
+\varphi (t^{-n}, Y) = \prod_{w \in \mu_n (\ob{k})} (Y- y(wt)).
+$$
+
+Let\pageoriginale $q = \ord_t y(wt)$ for all $w \in \mu_n (\ob{k})$. Then, since
+$a_i(t^{-n})$ equals $(-1)^i$ times the $i^{\rm th}$ elementary symmetric
+function of $\{ y (wt) | w \in \mu_n (\ob{k})\}$, we have $\ord_t a_i
+(t^{-n}) \geq iq$ for $1 \leq i \leq n$. Moreover, since
+$$
+a_n (t^{-n})= (-1)^n \prod_{w \in \mu_n (\ob{k})} y (wt),
+$$ 
+we have $\ord_t a_n (t^{-n})= nq$, which gives $q = \ord_X a_n
+(X^{-1})=- \deg_X\break a_n (X)$. Therefore for every $i$, $1 \leq i \leq
+n$, we get
+\begin{align*}
+  n \deg_X a_i (X) & = -n \ord_X a_i (X^{-1})\\
+  & = - \ord_t a_i (t^{-n})\\
+  & \leq - iq\\
+  & = i \deg_X a_n (X)\\
+  & = im.
+\end{align*}
+
+\begin{coro}\label{part1:chap4:sec11:coro11.20}
+  Let $k$ be a field of characteristic zero and let $f$, $g$ be
+  elements of $k[X, Y]$ such that $k[f, g]= k[X, Y]$. Let $m= \deg_X
+  f$, $n = \deg_Y f$ and let 
+  $$
+  f= a_0 (X) Y^n + a_1 (X) Y^{n-1}+ \cdots + a_n (X)
+  $$
+  with $a_i (x) \in k [X]$ for $0 \leq i \leq n$. Then we have $n
+  \deg_X a_i (X) \leq im$ for $0 \leq i \leq n$. Moreover, if $m \geq
+  1$ (\resp $n \geq 1$) then $f$ is almost monic in $X$ (\resp $Y$).
+\end{coro}
+
+\begin{proof}
+  The inequality $n \deg_X a_i (X) \leq im$ is obvious for $n=0$. We
+  may therefore assume that $n >0$. Then, since $k[X, Y]/fk[X, Y]$ is
+  isomorphic to $k[g]$, which is an affine\pageoriginale curve over $k$ with only one place at infinity (Example \ref{part1:chap4:sec11:exp11.5}), the corollary follows from Propositions \ref{part1:chap4:sec11:prop11.19} and \ref{part1:chap4:sec11:prop11.12}. 
+\end{proof}
+
+\begin{defi}\label{part1:chap4:sec11:def11.21}
+Let $k$ be a field and let $f$ be a non-zero element of $k[X,Y]$. Write $f = \sum a_{ij} X^i Y^j$ with $a_{ij} \in k$. The {\em degree form} of $f$, denoted $f^+$, is defined by
+$$
+f^+ = \sum\limits_{i+j=n} a_{ij} X^i Y^j
+$$
+where $n = \deg f$. (Note that $\deg f$ and $f^+$ depend only on the $k$-vector subspace $kX \oplus kY $ of $k[X,Y]$ and do not depend upon a $k$-basis $X,Y$ of $kX \oplus kY$.)
+\end{defi}
+
+\begin{defi}\label{part1:chap4:sec11:def11.22}
+Let $f\in k [X,Y]$, $f \not\in k$. We say $f$ has {\em only one point at infinity} if $f^+$ is a power of a linear polynomial in $\bar{k}[x,Y]$, where $\bar{k}$ is the algebraic closure of $k$. (Note that this definition depends only on the $k$-vector subspace $kX \oplus k Y$ of $k[X,Y]$ and is independent of the choice of a $k$-basis $X,Y$ of $kX \oplus k Y$.)
+\end{defi}
+
+\begin{prop}\label{part1:chap4:sec11:prop11.23}
+Let $k$ be a field of characteristic zero and let $f$ be an element of $k[X,Y]$ such that $k[X,Y]/fk[X,Y]$ is an affine curve over $k$ with only one place at infinity. Then $f$ has only one point at infinity.
+\end{prop}
+
+\begin{proof}
+We may assume that $k$ is algebraically closed. For, by interchanging $X$ and $Y$, if necessary, we may assume that $\deg_Y f>0$ and then apply Theorem \ref{part1:chap4:sec11:thm11.15}.
+
+Now, suppose $f^+$ is not a power of a linear polynomial in $k[X,Y]$. Then, replacing $X$, $Y$ by a suitable $k$-basis of $kX \oplus k Y$, we may assume that $f^+$ is of the form
+  $$
+  f^+ = X^r \prod^q_{i=1} (X+ a_i Y),
+  $$
+  where\pageoriginale $r$, $q$ are positive integers and $a_i \in k$,
+  $a_i \neq 0$, for $1 \leq i \leq q$. Let $m= \deg_Xf$ and $n =\deg_Y f$. Then $m= r+q$
+  and $m> n \geq q \geq 1$. By Proposition
+  \ref{part1:chap4:sec11:prop11.12} $f$ is almost monic in
+  $Y$. Therefore  $n > q$ and we can write $f$ in the form
+  $$
+  f= f_1 + f_2 + f_3,
+  $$
+  where $f_1 = f^+ , f_2= b Y^n$ for some $b \in k$, $b \neq 0$, and 
+$$
+f_3 = \sum_{\substack{i+j < m\\j< n}} c_{ij} X^i Y^i
+$$
+with $c_{ij} \in k$. Let $A=k[X, Y]/fk[X, Y]$ and let $v$ be the
+valuation of $A$ at infinity. Let $\ob{F}$ denote the image of an
+element $F$ of $k[X, Y]$ under the canonical map $k[X, Y]\to A$. Then
+by Proposition \ref{part1:chap4:sec11:prop11.12} we have $v(\ob{X})=-
+n$, $v (\ob{Y})=- m$. Since $-m < -n$, we have $v (\ob{X}+ a_i
+\ob{Y})=-m$ for every $i$, $1 \leq i \leq q$, and we get
+$$
+v(\ob{f}_1)= -rn - qm < -rn -qn=-mn.
+$$
+
+Therefore, since $v(\ob{f}_2)=- mn$, we get
+\begin{equation*}
+  v(\ob{f}_1 + \ob{f}_2) <
+  -mn. \tag{11.23.1}\label{part1:chap4:sec11:eq11.23.1} 
+\end{equation*}
+
+Now, let $(i, j) \in \mathbb{Z}^+ \times \mathbb{Z}^+$ be such that
+$c_{ij} \neq 0$. Then by Proposition \ref{part1:chap4:sec11:prop11.19}
+we have $ni \leq (n-j)m$. This gives $-in -jm \geq -mn$. Therefore we
+get
+\begin{equation*}
+v(\ob{f}_3) \geq \inf \{ -in -jm | c_{ij} \neq 0\} \geq -
+mn.\tag{11.23.2}\label{part1:chap4:sec11:eq11.23.2}  
+\end{equation*}
+
+Since  $\ob{f}_1 + \ob{f}_2= -
+\ob{f}_3$, (\ref{part1:chap4:sec11:eq11.23.1})
+and (\ref{part1:chap4:sec11:eq11.23.2}) together give a contradiction.
+\end{proof}
+
+\setcounter{thm}{23}
+\begin{coro}\label{part1:chap4:sec11:coro11.24}
+  Let\pageoriginale $k$ be a field of characteristic zero and let $f$, $g$ be
+  elements of $k[X, Y]$ such that $k[f, g]= k[X, Y]$. Then $f$ has
+  only one point at infinity.
+\end{coro}
+
+\begin{proof}
+  Since $k[X, Y]/fk [X, Y] \approx k[g]$ is an affine curve over $k$
+  with only one place at infinity, the corollary follows from
+  Proposition \ref{part1:chap4:sec11:prop11.23}.
+\end{proof}
+
+\begin{remark}\label{part1:chap4:sec11:rem11.25}
+  Proposition \ref{part1:chap4:sec11:prop11.23} and
+  Corollary \ref{part1:chap4:sec11:coro11.24} are, in fact, true even
+  without the assumption that char $k=0$.
+\end{remark}
+
+\begin{remark}\label{part1:chap4:sec11:rem11.26}
+  Let us call $k[X, Y]$ the {\em affine plane} over $k$. Let $A$ be an
+  affine curve over $k$. By an {\em embedding} $\alpha$ of $A$ in the
+  affine plane we mean a $k$-algebra epimorphism (i.e. surjective
+  homomorphism) $\alpha : k[X, Y]\to A$. (See Definition
+  \ref{part1:chap4:sec9:def9.1}.) We say two such embedding $\alpha$,
+  $beta$ are {\em equivalent} if there exists a $k$-algebra
+  automorphism $\sigma$ of $k[X, Y]$ such that $\alpha= \beta
+  \sigma$. With this terminology, the Epimorphism Theorem
+  \ref{part1:chap4:sec9:ss9.19} says that if char $k=0$ (or, more
+  generally, if we restrict our attention to non-wild embeddings) then
+  all embeddings of the {\em affine line} in the affine plane are
+  equivalent to each other. This statement is not true for more
+  general affine curves. However, if $A$ is an affine curve with only
+  one place at infinity then to each embedding of $A$ in the affine
+  plane we can associate certain characteristic sequences and, using
+  the Fundamental Theorem of \S\ \ref{part1:chap3:sec8}, we can
+  classify the equivalence classes of the embeddings in terms of these
+  characteristic sequences. It can be deduced from this classification
+  that if char $k=0$ (or, more generally, if we restrict our attention
+  to certain ``non-wild'' embeddings) then the number of these
+  equivalence classes is finite. For precise statements and proofs of
+  these assertions, the reader is referred to \cite{3}. However, in
+  Theorems  (11.26.1) and
+  (11.26.2) below we state (without proof) a
+  simplified\pageoriginale version of these results.
+\end{remark}
+
+Suppose char $k=0$ and $A$ is an affine curve $k$ with only one place
+$v$ at infinity. Let $\alpha$ be an embedding of $A$ (in the affine
+plane) such that $\alpha (X)\notin k$. Let $x= \alpha (X)$, $y= \alpha
+(Y)$. Then by Lemma \ref{part1:chap4:sec11:lem11.8} $x$ is
+transcendental over $k$ and $A = k[x, y]$ is integral over
+$k[x]$. Therefore the minimal monic in polynomial $\varphi (x,Y) \in k (x)[Y]$ of $y$ over $k(x)$ belongs to $k[x,Y]$. Let $\varphi = \varphi (X,Y)$. Then $\varphi$ is monic in $Y$ and $\deg_Y \varphi=n$, where $n= - v(x)$ (Lemma \ref{part1:chap4:sec11:lem11.8}). Moreover,
+it is clear that $\ker  \alpha = \varphi k[X, Y]$. Therefore it
+follows from Proposition \ref{part1:chap4:sec11:prop11.12} that
+$\varphi$ is irreducible in $\ob{k} ((X^{-1})) [Y]$, where $\ob{k}$ is
+the algebraic closure of $k$. Let $f = \varphi(X^{-1}, Y)$. Put $h
+(\alpha)= h(f)$, $d_2 (\alpha)= d_2 (f)$, $q_i(-n, f)$ for $0 \leq i
+\leq h(\alpha)+1$, and $q(\alpha)=(q_0 (\alpha), q_1 (\alpha), \ldots
+, q_{h+1} (\alpha))= q(-n, f)$, where $h= h(\alpha)$.
+
+For an embedding $\alpha$ of $A$ we define its {\em transpose}
+$\alpha^t$ to be the embedding of $A$ given by $\alpha^t (X)=
+\alpha(Y)$, $\alpha^t (Y)= \alpha(X)$. Note that $\alpha$ and
+$\alpha^t$ are equivalent embeddings. If $\alpha(X) \in k$ then
+$\alpha^t (X) \notin k$, and in this case we define: $h(\alpha)=
+h(\alpha^t)$, $d_2 (\alpha) = d_2 (\alpha^t)$, $q_0(\alpha) = q_1
+(\alpha^t)$, $q_1(\alpha)= q_0 (\alpha^t)$, $q_i (\alpha)= q_i
+(\alpha^t)$ for $2 \leq i \leq h+1$ and 
+$$
+q(\alpha^t)= (q_0 (\alpha^t), q_1 (\alpha^t), \ldots , q_{h+1} (\alpha^t)),
+$$
+where $h= h(\alpha^t)$.
+
+Let $\alpha$ be an embedding of $A$. Then $v (\alpha(X))= q_0
+(\alpha(Y))= q_1 (\alpha)$. We call the pair $(-v (\alpha (X)), -v
+(\alpha(Y)))$ the {\em bidegree} of $\alpha$ and denote it by bideg
+$(\alpha)$. Let bideg $(\alpha)= (m, n)$. We say $\alpha$ is {\em
+  principal} if $m \neq - \infty$, $n \neq -\infty$ and $m$ divides
+$n$ or $n$ divides $m$. Otherwise, we say $\alpha$ is {\em
+  non-principal}. Note that $d_2 (\alpha) =$ \gcd $(m, n)$. We now
+state 
+
+\setcounter{mysubsection}{26}
+\subsubsection{THEOREM}\label{part1:chap4:sec11:sss11.26.1}
+
+Let\pageoriginale $k$ be a field of characteristic zero and let $A$ be
+an affine curve over $k$ with only one place at infinity. Then any
+embedding of $A$ (in the affine plane) is equivalent to a
+non-principal embedding. If $\alpha$, $\beta$ are non-principal
+embeddings of $A$ then the following four conditions are equivalent:
+\begin{enumerate}[(1)]
+\item $\alpha$ and $\beta$ are equivalent.
+\item $q (\alpha)= q (\beta)$ or $q(\alpha)= q(\beta^t)$.
+\item $\text{bideg}~(\alpha)= \text{bideg}~(\beta)$ or
+  $\text{bideg}~(\alpha)= \text{bideg}~(\beta^t)$. 
+\item $d_2 (\alpha)= d_2 (\beta)$.
+\end{enumerate}
+
+\subsubsection{THEOREM}\label{part1:chap4:sec11:sss11.26.2}
+
+Let $A$ be as in Theorem \ref{part1:chap4:sec11:sss11.26.1}. Then the
+number of equivalence classes of embeddings of $A$ in the affine plane
+is finite.
+
+

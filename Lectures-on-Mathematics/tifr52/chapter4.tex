@@ -1,0 +1,263 @@
+
+\chapter{Energy Inequalities}\label{chap4}
+
+\section{Introduction}\label{chap4:sec4.1}
+
+The\pageoriginale question of well-posedness of a system of partial
+differential equations with given initial or boundary conditions is
+fundamental. This question is often answered using what are called
+energy estimates or energy inequalities. From these estimates one
+obtains the existence, uniqueness and continuous dependence on the
+data of the solution of the problem, thus establishing well-posedness.
+
+In this section, we take up the threee types of equations of section
+1-the advection, wave and heat equations - and obtain energy estimates
+in the linear case. We do not talk about the existence of solutions as
+it entails some work in functional analysis. We only briefly sketch
+how existence is proved, at the end of this section. 
+
+Before we go forth, it is useful to put down our notations for the
+various norms that we will be using. We write $|| \cdot ||{}_p$ for
+the norm in $L^p (-\infty, \infty)$ where $1 \leq p \leq + \infty$. If
+$U$ is a vector with $n$ components, its Euclidean norm is denoted by 
+\begin{equation*}
+|U|^2  = \sum\limits^n_{i=1} u^2_i. \tag{4.1}\label{eq4.1}
+\end{equation*}
+We also define 
+\begin{equation*}
+||U||^2 = \int^\infty_{-\infty} |U|^2 dx  = \int^\infty_{-\infty}
+\sum\limits^n_{i=1} u^2_i dx, \tag{4.2}\label{eq4.2}
+\end{equation*}
+when each component $u_i$ is in $L^2 (-\infty, \infty)$. We also
+consider only those functions in $L^2(-\infty, \infty)$ which vanish
+at $\pm \infty$. 
+
+\section{The advection equation}\label{chap4:sec4.2}
+We consider\pageoriginale the simplest case where $u$ is a {\em constant}. Then we
+have
+\begin{equation*}
+\frac{\partial \varphi}{\partial t} + \frac{\partial \varphi}{\partial
+x} = 0 \tag{4.3}\label{eq4.3}
+\end{equation*}
+with $\varphi(x,0) = \varphi_0 (x)$, given,
+
+Multiplying (\ref{eq4.3}) by $\varphi$ and integrating w.r.t. $x$ over the
+entire real line, we get
+\begin{equation*}
+\int^\infty_{-\infty} \frac{\partial}{\partial t} \left(\frac{1}{2}
+\varphi^2\right) dx + u \int^\infty_{-\infty} \frac{\partial}{\partial x}
+\left(\frac{1}{2} \varphi^2\right) dx  =0. \tag{4.4}\label{eq4.4}
+\end{equation*}
+Since we look for a solution $\varphi$ such that $\varphi( \cdot, t)
+\in L^2_x(-\infty, \infty)$ for each $t>0$ and which vanishes at $x =
+\pm \infty$, the above equation gives 
+\begin{equation*}
+\frac{1}{2} \frac{d}{dt} (||\varphi (\cdot, t)||^2_2) = 0 \tag{4.5}\label{eq4.5}
+\end{equation*}
+which gives the {\em energy equality}
+\begin{equation*}
+||\varphi (\cdot , t) ||_2 = ||\varphi_\circ||_2.\tag{4.6}\label{eq4.6}
+\end{equation*}
+
+
+Observe that the uniqueness of the solution for given $\varphi_\circ$
+is immediate from (\ref{eq4.6}). Indeed if, $\varphi_1$, $\varphi_2$ are two
+solutions to (\ref{eq4.3}) then so is $\varphi_1 - \varphi_2$ with $(\varphi_1
+- \varphi_2) (x, \circ) = 0$ for all $x$. Then (\ref{eq4.6}) shows that
+$||(\varphi_1 - \varphi_2) (\cdot , t)||_2 = 0$ for all $t$ and hence
+the uniqueness follows. 
+
+\begin{exercise}\label{chap4:exer4.1}
+Consider the equation
+$$
+\frac{\partial \varphi}{\partial t}+ \frac{\partial}{\partial x}
+(\varphi u) = 0,
+$$
+where $u$ is not a constant. Assuming that $u$ and $\dfrac{\partial
+  u}{\partial x}$ are bounded and looking for a solution $\varphi
+(x,t)$ such that $\varphi (\cdot , t)$ is in $L^2_x(-\infty, \infty)$
+for each $t$, vanishing for\pageoriginale $x = \pm \infty$, derive the
+energy inequality
+$$
+||\varphi (\cdot, t) ||_2 \leq C ||\varphi (\cdot, 0)||_2, \; 0 <
+t< \bar{t}. 
+$$
+\end{exercise}
+
+\begin{remark}\label{chap4:rem4.1}
+We have derived the energy inequality in the homogeneous case. It
+can be shown that in case of linear equations, the estimate in the
+homogeneous case also implies the existence of such an energy estimate
+in the non-homogeneous case. For example, consider the equation 
+\begin{equation*}
+\frac{\partial \varphi}{\partial t} + u \frac{\partial
+  \varphi}{\partial x} =f, \quad u \text{ constant. } \tag{4.7}\label{eq4.7}
+\end{equation*}
+
+Multiplying by $\varphi$ and integrating w.r.t. $x$, we get
+$$
+\frac{1}{2} \frac{d}{dt} (||\varphi (\cdot, t) ||^2_2) =
+\int^\infty_{-\infty} f(x,t) \varphi(x,t) dx \leq ||f(\cdot, t)||_2
+||\varphi(\cdot, t)||_2. 
+$$
+Hence 
+\begin{equation*}
+\frac{d}{dt} (||\varphi (\cdot, t) ||_2) \leq ||f(\cdot,
+t)||_2. \tag{4.8} \label{eq4.8}
+\end{equation*}
+Integrating (\ref{eq4.8}) we get the energy inequality in the non-homogeneous
+case as
+\begin{equation*}
+||\varphi (\cdot, t) ||_2 \leq ||\varphi (\cdot, 0) ||_2 +
+\int^2_\circ ||f(\cdot, s) ||_2 ds.\tag{4.9}\label{eq4.9}
+\end{equation*}
+
+Again, this is a key-step in the proof of well-posedness of the
+problem. 
+\end{remark}
+
+\begin{remark}\label{chap4:rem4.2}
+One can also seek such `a priori' estimates in other spaces. For
+instance in case of equation (\ref{eq4.3}) we know from section 1.6 that the
+solution is given by
+\begin{equation*}
+\varphi (x,t) = \varphi_\circ (x-ut). 
+\tag{4.10}\label{eq4.10}
+\end{equation*}
+
+Thus we can get the estimate in the $L^\infty$-norm, assuming
+$\varphi_\circ \in L^\infty$ $(-\infty, \infty)$, as 
+\begin{equation*}
+||\varphi (\cdot , t)||_\infty = ||\varphi_\circ||_\infty. 
+\tag{4.11}\label{eq4.11}
+\end{equation*}\pageoriginale 
+\end{remark}
+
+\section{The wave equation}\label{chap4:sec4.3}
+
+We will follow Friedrichs' argument for symmetric systems. We will
+deal with the hyperbolic case. The system
+\begin{equation*}
+\frac{\partial U}{\partial t} + A \frac{\partial U}{\partial x} =0
+\tag{4.12}\label{eq4.12}
+\end{equation*}
+where $U$ is an $n$-vector, is said to be symmetric if the matrix $A$
+is symmetric. For  instance if
+ $A = \begin{bmatrix}
+0 & 1\\
+0 & 0
+\end{bmatrix}$, we get the wave equation. 
+
+First of all we observe that 
+\begin{equation*}
+\sum\limits^n_{i=1} u_i \frac{\partial u_i}{\partial t} = \frac{1}{2}
+\sum\limits^n_{i=1} \frac{\partial (u_i)^2}{\partial t} = \frac{1}{2}
+\frac{\partial}{\partial t} (|U|^2). \tag{4.13}\label{eq4.13}
+\end{equation*}
+
+One also has
+\begin{align*}
+\frac{\partial}{\partial x} \left(\sum\limits_{i,j} a_{ij} u_i u_j\right) &
+=\sum\limits_{i,j} \frac{\partial a_{ij}}{\partial x} u_i u_j +
+\sum\limits_{i,j} a_{ij} \frac{\partial u_i}{\partial x} u_j +
+\sum\limits_{i,j} a_{ij} u_i \frac{\partial u_j}{\partial x} = \\
+& = \sum\limits_{i,j} \frac{\partial a_{ij}}{\partial x} u_i u_j + 2
+\sum\limits_{i,j} u_i a_{ij} \frac{\partial u_j}{\partial x}
+\end{align*}
+by the symmetry of $A$. Hence one has 
+\begin{equation*}
+\sum\limits_{i,j} a_{ij} u_i \frac{\partial u_j}{\partial x} =
+\frac{1}{2} \left[\frac{\partial}{\partial x} \langle U, AU\rangle -
+  \langle U, \frac{\partial A}{\partial x} U \rangle \right] \tag{4.14}\label{eq4.14}
+\end{equation*}
+where $\langle \cdot, \cdot \rangle$ denotes the scalar product in
+$\mathbb{R}^n$.
+
+Using these, we get, by taking the scalar product with $U$ of the
+equation (\ref{eq4.12}). 
+\begin{equation*}
+\frac{1}{2} \frac{\partial}{\partial t} (|U|^2) + \frac{1}{2}
+\left[\frac{\partial}{\partial x} \langle U, A U\rangle  - \langle U,
+  \frac{\partial A}{\partial x} U\rangle\right] = 0. \tag{4.15}\label{eq4.15}
+\end{equation*}
+Integrating w.r.t. $x$, and using the notation of section \ref{chap4:sec4.1}, we get
+\begin{equation*}
+\frac{1}{2} \frac{d}{dt} (|| U (\cdot, t)||^2) = \frac{1}{2} \int
+\langle U, \frac{\partial A}{\partial x} U \rangle dx. \tag{4.16}\label{eq4.16}
+\end{equation*}
+Assume\pageoriginale that the $\dfrac{\partial a_{ij}}{\partial x}$
+are all bounded, we get the inequality
+\begin{equation*}
+\frac{d}{dt} (||U (\cdot, t)||^2) \leq C ||U(\cdot, t)||^2.
+\tag{4.17}\label{eq4.17}
+\end{equation*}
+
+It is a simple step to get the energy inequality from (\ref{eq4.17}). We leave
+it as an 
+
+\begin{exercise}\label{chap4:exer4.2}
+Starting from (\ref{eq4.17}) deduce the inequality
+$$
+||U (\cdot, t) || \leq || U(\cdot , 0)|| \exp (Ct). 
+$$
+\end{exercise}
+
+\section{The heat equation}\label{chap4:sec4.4}
+We take the simplet case:
+\begin{equation*}
+\frac{\partial u}{\partial t} - \frac{\partial^2 u}{\partial x^3} =
+0. \tag{4.18}\label{eq4.18}
+\end{equation*}
+Again, multiplying by $u$ and integrating w.r.t. $x$, we get
+\begin{equation*}
+\frac{1}{2} \frac{d}{dt} (|| u (\cdot, t) ||^2_2) -
+\int^\infty_{-\infty} u \frac{\partial^2u}{\partial x^2} dx =
+0. \tag{4.19}\label{eq4.19} 
+\end{equation*}
+Integrating the second term by parts, (\ref{eq4.19}) becomes 
+\begin{equation*}
+\frac{1}{2} \frac{d}{dt} (||u(\cdot , t)||^2_2) +
+\int^\infty_{-\infty} (\frac{\partial u}{\partial x})^2 dx =0
+\tag{4.20} \label{eq4.20}
+\end{equation*}
+Since the second term is non-negative, we can write 
+\begin{equation*}
+\frac{d}{dt} (|| u(\cdot ,t) ||^2_2) \leq 0\tag{4.21}\label{eq4.21}
+\end{equation*}
+which gives the energy inequality
+\begin{equation*}
+||u(\cdot, t) ||_2 \leq ||u(\cdot, 0)||_2. \tag{4.22}\label{eq4.22}
+\end{equation*}
+
+\section{Remarks on existence of solutions}\label{chap4:sec4.5}
+
+A word about the existence of solutions. As is readily seen, the
+uniqueness of the solution and its continuous dependence on the data
+follows easily from the energy estimates. However, for the
+existence\pageoriginale of solutions more work is necessary. In the
+linear case we have the Galerkin method. We take a basis $\{v_1,
+\ldots v_n, \ldots\}$ for $L^2 (-\infty, \infty)$ and then consider
+the finite dimensional spaces $S_n$, spanned by $\{v_1, \ldots,
+v_n\}$. We approximate the initial value function $u(x,0)$ by
+$u_n(x,0)$ in $S_n$ and in the space $S_n$, the partial
+differential equations give a system of ordinary differential
+equations. To this we apply we existence theory available and get an
+approximate solution $u_n(x,t)$. We then use the energy inequalities
+to show that $u_n(\cdot, t)$ are bounded and we can extract a
+subsequence converging (weakly) to a function $u$ which can be shown
+to be a solution of the equations.
+
+In the non-linear case,
+\begin{equation*}
+\frac{\partial u}{\partial t} + \frac{\partial}{\partial x} (F(u)) =
+0, \tag{4.23}\label{eq4.23}
+\end{equation*}
+one not only has to show that $u_n \to u$ but also that $F(u_n) \to
+F(u)$ for which a single `a priori' estimate is not enough. One does
+not have general techniques for non-linear systems. Work has been done
+only on a few specific examples.
+
+\medskip
+\noindent{\textbf{Reference:}}  Lions \cite{key26}.
+
+

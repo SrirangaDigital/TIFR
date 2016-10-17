@@ -1,0 +1,851 @@
+
+\chapter{The Fundamental Theorem}\label{part1:chap3}
+
+\setcounter{section}{6}
+\section{The Main Lemmas} \label{part1:chap3:sec7}
+
+Throughout\pageoriginale this section, we preserve the notation
+introduced in \ref{part1:chap3:sec7:notn7.1} and
+\ref{part1:chap3:sec7:notn7.2} below 
+
+\begin{notn}\label{part1:chap3:sec7:notn7.1}
+Let $k$ be an algebraically closed field and let $X$, $Y$, $t$ be indeterminates. Let $n$ be a positive integer such that char $k$ does not divide $n$. Let $f= f(X, Y)$ be an irreducible element of $k ((X))[Y]$ such that $f$ is monic in $Y$ and $\deg_Y f=n$. Let $\nu$ be an integer such that $|\nu|=n$. Let $h = h(f)$ and for every $i$, $0 \leq i \leq h+1$, let
+\begin{align*}
+  m_i & = m_i (\nu, f)\\
+  q_i & = q_i (\nu, f)\\
+  s_i & = s_i (\nu, f)\\
+  r_i & = r_i (\nu, f)\\
+d_{i+1} & = d_{i+1}(f).
+\end{align*}
+\end{notn}
+
+Also, let
+$$
+n_i= d_i/d_{i+1}
+$$
+for $1 \leq i \leq h$. (Note that by Proposition
+\ref{part1:chap2:sec6:prop6.13}) $n_i$ is a positive integer for every
+$i$ and $n_i \geq 2$ for $2 \leq i \leq h$. Finally, we fix a root
+$y(t)$ of $f(t^n, Y)=0$, i.e., we fix an element $y(t)$ of $k((t))$
+such that $f(t^n, y(t))=0$. Recall then that by Newton's Theorem
+\ref{part1:chap2:sec5:ss5.14} we have 
+$$
+f(t^n, Y) = \prod_{w \in \mu_n} (Y- y(wt)),
+$$
+where\pageoriginale for a positive integer $m$ we write $\mu_m$ for $\mu_m(k)$. Let
+$$
+y(t) = \sum_{j} y_j t^j
+$$
+with $y_j \in k$ for every $j$.
+
+\begin{notn}\label{part1:chap3:sec7:notn7.2}
+We shall use the symbol $\diameter$ to denote a generic (i.e. unspecified) non-zero element of $k$. Thus if $k'$ is an overfield of $k$ and $a \in k'$ then $a = \diameter$ means that $a \in k$ and $a \neq 0$. Similarly, $b= \diameter c$ means that $b= ac$ for some $a \in k$, $a \neq 0$. Note that $a= \diameter$ and $b= \diameter$ does not mean that $a=b$.
+\end{notn}
+
+\begin{defi}\label{part1:chap3:sec7:def7.3}
+  Let $k'$ be an overfield of $k$ and let $z$ be a non-zero element of $k'((t))$. If $m= \ord_t z$, we can write $z$ in the form
+$$
+z= a t^m + t^{m+1} z'
+$$
+with $a\in k$, $a \neq 0$ and $z' \in k'((t))$. We define the {\rm initial form (\resp initial co-efficient)} of $z$, denoted info $(z)$ (\resp inco $(z)$), by info $(z)= at^m$ (\resp inco $(z)=a$). We also define info $(0) =0$, inco $(0)=0$. 
+\end{defi}
+
+\begin{defi}\label{part1:chap3:sec7:def7.4}
+  Let $i$ be an integer with $1 \leq i \leq h+1$. We define
+\begin{align*}
+  A(i) & = \left\{ w \in \mu_n \Big| \ord_t (y(t)- y(wt)) < m_i \right\},\\
+  R(i) & = \left\{ w \in \mu_n \Big| \ord_t (y(t)- y(wt)) \geq m_i \right\},\\
+  S(i) & = \left\{ w \in \mu_n \Big| \ord_t (y(t)- y(wt)) = m_i \right\}.
+\end{align*}
+\end{defi}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.5}
+  Let $i$ be an integer, $1\leq i \leq h+1$. Then:
+\begin{enumerate}[\rm (i)]
+\item $R(i) = \mu_{d_i}$. In particular, card $(R(i))= d_i$.
+\item Let $i \leq h$. Then $S(i)= R(i)- R(i+1)= \mu_{d_i}- \mu_{d_{i+1}}$. In particular, card\pageoriginale $(S(i))=d_i- d_{i+1}$.
+\item $S(h+1)= \{ 1\}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item By Lemma \ref{part1:chap2:sec6:lem6.14} we have
+\begin{align*}
+  R(i) & = \left\{ w \in \mu_n \Big| \ord(w) ~\text{divides}~ d_i \right\}\\
+  & = \left\{ w \in \mu_n \Big| w^{d_i}=1\right\} = \mu_{d_i}.
+\end{align*}
+\item Since, for every $w \in \mu_n$, $\ord_t(y(t)- y(wt))$ belongs to
+  the set $\left\{ m_1, \ldots , m_{h+1}\right\}$ by Proposition
+  \ref{part1:chap2:sec6:prop6.15}, we see that $S(i) = R(i)- R(i+1)$,
+  for $1 \leq i \leq h$. Therefore (ii) follows from (i). 
+\item This is clear, since $m_{h+1}= \infty$ and the roots $y(wt)$, $w \in \mu_n$, are distinct. 
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.6}
+  Let $e$ be an integer, $1 \leq e \leq h$, and let $m = m_e$. Let $z$ be an element of an overfield of $k$. Then we have
+$$
+\prod_{w \in R(e)} (z- w^m y_m) = (z^{n_e} \cdot y^{n_e}_m)^{d_{e+1}}.
+$$
+\end{lemma}
+
+\begin{proof}
+  Let $u$ be a primitive $d_e$th root of unity in $k$ and let $v= u^m$. Then, since $d_{e+1}= \text{\gcd}~ (d_e, m)$, we see that $v$ is a primitive $n_e^{\rm th}$ root of unity. Therefore, since
+$$
+R(e) = \mu_{d_e} = \left\{ u^i \Big| 1 \leq i \leq d_e \right\}
+$$
+by Lemma \ref{part1:chap3:sec7:lem7.5}, we get
+\begin{align*}
+  \prod_{w \in R(e)} (z- w^m y_m) & = \prod^{d_e}_{i=1} (z- v^i y_m)\\
+  & = \prod^{d_{e+1}-1}_{i=0} \prod^{n_e}_{j=1} (z- v^{j+ in_e}y_m)\\
+  & = \left( \prod^{n_e}_{j=1} (z- v^i y_m)\right)^{d_{e+1}} \quad (\text{since}~ v^{n_e}=1)\\
+  & = \left(z^{n_e}- y^{n_e}_m \right)^{d_{e+1}},
+\end{align*}
+since\pageoriginale $v$ is a primitive $n_e^{\rm th}$ root of unity.
+\end{proof}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.7}
+  Let $i$ be an integer, $1 \leq i \leq h+1$. Then we have 
+$$
+\ord_t \left( \prod_{w \in Q (i)} (y (t)- y(wt))\right) = \begin{cases} s_{i-1} - m_{i-1} d_i, & \text{if}~ i \geq 2,\\
+  0, & \text{if}~ i=1.
+\end{cases}
+$$
+\end{lemma}
+
+\begin{proof}
+  Since, for every $w \in \mu_n$, $\ord_t(y(t)- y(wt))$ belongs to the set $\left\{ m_1, \ldots , m_{h+1} \right\}$ by Proposition \ref{part1:chap2:sec6:prop6.15}, we get
+\eqn{\prod_{w \in Q(i)} (y(t)- y(wt)) = \prod_{j=1}^{i-1} \prod_{w \in S(j)} (y(t)- y(wt)).\tag{7.7.1} \label{part1:chap3:sec7:eq7.7.1}}
+
+From this the assertion is clear for $i=1$. Assume now that $i \geq 2$. Since card $(S(j))= d_j - d_{j+1}$ by Lemma \ref{part1:chap3:sec7:lem7.5}, we have
+$$
+\ord_t \left( \prod_{w \in S(j)} (y(t) - y(wt))\right)= (d_j - d_{j+1}) m_j
+$$
+for $1 \leq j \leq h$. Therefore from (\ref{part1:chap3:sec7:eq7.7.1}) we get
+\begin{align*}
+  \ord_t \left( \prod_{w \in Q (i)} (y(t)- y(wt))\right) & = \sum^{i-1}_{j=1} \left( d_j - d_{j+1}\right) m_j\\
+  & = \sum_{j=1}^{i-1} q_j d_j - m_{i-1} d_i\\
+  & = s_{i-1} - m_{i-1}d_i.
+\end{align*}
+\end{proof}
+
+\begin{coro}\label{part1:chap3:sec7:coro7.8}
+  $$
+  \ord_t \left( \prod_{\substack{w \in \mu_n\\w \neq 1}} (y(t)- y(wt)) \right) = \sum^h_{j=1} q_j (d_j-1) = s_h - m_h.
+  $$
+\end{coro}
+
+\begin{proof}
+  The equality $\displaystyle{\sum^h_{j=1} q_j (d_j -1)=s_h - m_h}$ is clear. Now, if $h=0$ then $n= d_1 = d_{h+1}=1$,\pageoriginale so that the assertion is clear in this case, since in the middle we have an empty sum and on the left hand side the order of an empty product. Assume now that $h \geq 1$. Taking $i = h+1$ in Lemma \ref{part1:chap3:sec7:lem7.7}, we get $Q(i) =\mu_n - \{1\}$ and 
+$$
+s_{i-1} - m_{i-1} d_i = s_h - m_h d_{h+1}= s_h - m_h= \sum^h_{j=1}q_j (d_j-1).
+$$
+\end{proof}
+
+\begin{coro}\label{part1:chap3:sec7:coro7.9}
+  Let $f_Y (X, Y)$ denote the $Y$-derivative of $f(X, Y)$. Then we have
+  $$
+  \ord_t(f_Y(t^n, y(t))) = \sum^h_{j=1} q_j (d_j-1) = s_h - m_h. 
+  $$
+\end{coro}
+
+\begin{proof}
+  Since
+$$
+f(t^n, Y) = \prod_{w \in \mu_n} (Y- y(wt))
+$$
+we get
+$$
+f_Y (t^n, y(t)) = \prod_{\substack{w \in \mu_n\\w \neq 1}} (y(t) - y(wt))
+$$
+and the assertion follows from Corollary \ref{part1:chap3:sec7:coro7.8}.
+\end{proof}
+
+\begin{coro}\label{part1:chap3:sec7:coro7.10}
+  Let $u(t)$ be an element of $k((t))$ such that $\ord_t\break (u(t)- y(t))> m_h$. Then
+$$
+\ord_t (f(t^n, u(t)))= s_h - m_h+ \ord_t (u (t)- y(t)).
+$$
+\end{coro}
+
+\begin{proof}
+  Let $w \in \mu_n$, $w \neq 1$. Then $\ord_t(y(t)- y(wt))\leq m_h$ by Lemma \ref{part1:chap2:sec6:lem6.14}. Therefore, since
+$$
+u(t) - y(wt) = (u(t) - y(t)) + (y(t)- y(wt))
+$$
+and\pageoriginale since $\ord_t (u(t)- y(t))> m_h$, we get
+$$
+\ord_t (u(t) - y(wt))= \ord_t (y(t)- y(wt))
+$$
+for every $w \in \mu_n$, $w \neq 1$. Therefore
+\begin{align*}
+  \ord_t (f(t^n, u(t))) & = \ord_{t} \left(\prod_{w \in \mu_n} (u(t)- y(wt)) \right)\\
+  & = \ord_t (u (t)- y (t))+ \ord_t \left( \prod_{w \neq 1} (y(t)- y (wt))\right)\\
+& = \ord_t (u (t) - y(t)) + s_h - m_h
+\end{align*}
+by Corollary \ref{part1:chap3:sec7:coro7.8}.
+\end{proof}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.11}
+  Let $i$ be an integer, $1 \leq i \leq h+1$. Let $\ob{y}(t)= \sum\limits_{j< m_i} y_j t^j$. Let $G_i = G_i (X, Y) \in k ((X))[Y]$ be the minimal monic polynomial of $\ob{y} (t)$ over $k((t^n))$. (See Definition \ref{part1:chap2:sec5:def5.8}.) Then we have:
+\begin{enumerate}[(i)]
+\item $\deg_Y G_i =n/d_i$.
+\item $G_i$ is also the minimal monic polynomial of $\ob{y}(wt)$ over $k ((t^n))$ for every $w \in \mu_n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+~
+  \begin{enumerate}[(i)]
+  \item We have
+    $$
+    \Supp_t \ob{y} (t) = \left\{ j \in \Supp_t y(t) \Big| j < m_i \right\}.
+    $$
+    Therefore by Proposition \ref{part1:chap2:sec6:prop6.13} (ix) we have 
+    $$
+    d_i = \text{\gcd}~ (\{ n\} \cup \Supp_t \ob{y} (t)).
+    $$
+    Now, the assertion follows from Proposition \ref{part1:chap2:sec5:prop5.16}.
+    \item Substituting $wt$ for $t$ in the equality $G_i(t^n, \ob{y}
+      (t))=0$ we get \break $G_i(t^n, \ob{y} (wt))=0$.\pageoriginale This
+      proves (ii). 
+  \end{enumerate}
+\end{proof}
+
+\begin{defi}\label{part1:chap3:sec7:def7.12}
+  Let $i$ be an integer, $1 \leq i \leq h+1$. The element $G_i = G_i (X, Y)$ of Lemma \ref{part1:chap3:sec7:lem7.11} is called the {\em pseudo $f_i$th root} of $f$. By Lemma \ref{part1:chap3:sec7:lem7.11} we note that $G_i$ depends only on $f$ and $i$ and does not depend upon the root $y(t)$ of $f(t^n, Y)$ and that $G_i$ is an irreducible element of $k((X))[Y]$, monic in $Y$, and $\deg_Y G_i = n/d_i$.
+\end{defi}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.13}
+  Let $i$ be an integer, $1 \leq i \leq h$, and let $G_i (x, Y)$ be the pseudo $d_i$th root of $f$. Let $k'$ be an overfield of $k$ and let $y^*$ be an element of $k'((t))$ such that
+$$
+\text{info}~ (y^* - \sum_{j < m_i} y_j t^j) = zt^{m_i}
+$$
+with $z \in k'$, $z \neq 0$. Then info $(G_i (t^n, y^*)) = \diameter zt^{r_i}$.
+\end{lemma}
+
+\begin{proof}
+  Let $\ob{y}(t)= \displaystyle{\sum_{j < m_i} y_j t^j}$. Then by Proposition \ref{part1:chap2:sec6:prop6.13} (ix) we have
+$$
+d_i = \text{\gcd}~ (\{ n\} \cup \Supp_t \ob{y}(t)).
+$$
+
+Therefore by Proposition \ref{part1:chap2:sec5:prop5.16} we get
+\eqn{\prod_{w \in \mu_n} (Y- \ob{y} (wt))= G_i (t^n, Y)^{d_i}. \tag{7.13.1}\label{part1:chap3:sec7:eq7.13.1}}
+
+Now, $\ord_t (y(wt)- \ob{y} (wt))= m_i$ for every $w \in \mu_n$. Therefore, since
+$$
+y^* - \ob{y} (wt) = (y^* - y(t)) + (\ob{y}(t)- y(t))+ (y(t)- y(wt))+ (y(wt)- \ob{y}(wt))
+$$
+and since $\ord_t(y^*- \ob{y}(t))=m_i$ by assumption, we have
+\eqn{info (y^* - \ob{y} (wt))= info (y(t)- y(wt)) ~\text{for}~ w \in Q(i).\tag{7.13.2}\label{part1:chap3:sec7:eq7.13.2}}
+Next, if $w \in R(i)$ then $w^j=1$ for all $j$ in $\Supp_t y(t)$ such that $j< m_i$.
+
+Therefore\pageoriginale $\ob{y}(t)= \ob{y} (wt)$ for all $w \in R(i)$ and we get
+\eqn{info (y^* - \ob{y} (wt)) = info (y^* - \ob{y}(t)) = zt^{m_i} ~for~ w \in R(i). \tag{7.13.3}\label{part1:chap3:sec7:eq7.13.3}}
+
+From \ref{part1:chap3:sec7:eq7.13.1} we get
+\eqn{
+\begin{aligned}
+info (G_i (t^n, Y^*)^{d_i}) & = \left( \prod_{w \in \mu_n} (y^* - \ob{y} (wt))\right)\\
+& = info \left(\prod_{w \in Q(i)} (y^* - \ob{y} (wt)) \right) \prod_{w \in R(i)} info (y^* - \ob{y} (wt))\\
+& = info \left( \prod_{w \in Q(i)} (y(t) - y(wt))\right) z^{d_i} t^{m_i d_i}
+\end{aligned}\tag{7.13.4}\label{part1:chap3:sec7:eq7.13.4}}
+by \ref{part1:chap3:sec7:eq7.13.2} and \ref{part1:chap3:sec7:eq7.13.3}, since card $(R(i))=d_i$ by Lemma \ref{part1:chap3:sec7:lem7.5}. Since $y(t)$ and $y(wt)$ belong to $k((t))$, we have
+$$
+inco \left( \prod_{w \in Q(i)} (y(t)- y(wt))\right) \in k.
+$$
+
+
+Therefore by Lemma \ref{part1:chap3:sec7:lem7.7} we have
+$$
+info \left(\prod_{w \in Q(i)} (y(t)- y(wt))\right) = 
+\begin{cases}
+  \diameter t^{s_{i-1}-m_{i-1} d_i}, & \text{if}~ i \geq 2,\\
+  \diameter , & \text{if}~ i=1.
+\end{cases}
+$$
+
+Therefore from \ref{part1:chap3:sec7:eq7.13.4} we get
+$$
+info (G_i (t^n, y^*)^{d_i}) = \diameter z^{d_i} t^s, 
+$$
+where
+$$s=
+\begin{cases}
+  s_{i-1} - m_{i-1} d_i+ m_i d_i, & \text{if}~ i \geq 2,\\
+m_i d_i, & \text{if}~ i=1.
+\end{cases}
+$$
+
+We see that in either case we have $s= s_i = r_i d_i$. Thus we have
+$$
+(info (G_i (t^n, y^*)))^{d_i} = info (G_i (t^n, y^*)^{d_i})= \diameter z^{d_i} t^{r_i d_i}. 
+$$
+
+It\pageoriginale follows that we have
+$$
+info (G_i (t^n, y^*)) = \diameter z t^{r_i}.
+$$
+\end{proof}
+
+\begin{defi}\label{part1:chap3:sec7:def7.14}
+  Let $e$ be an integer, $1 \leq e \leq h$, and let $Z$ be an indeterminate. By an $(e, Z)$-{\em deformation} of $y(t)$ we mean an element $y^*$ of $k' (Z) ((t))$, where $k'$ is an overfield of $k$, such that
+$$
+info (y^* - \sum_{j < m_e} y_j t^j) = Z t^{m_e}.
+$$
+\end{defi}
+
+\begin{coro}\label{part1:chap3:sec7:coro7.15}
+  Let $i.e.$, be integers such that $1 \leq i \leq e \leq h$. Let $G_i (X, Y)$ be the pseudo $d_i$th root of $f$. Let $y^*$ be an $(e, Z)$- deformation of $y(t)$. then we have
+$$
+\text{info}~ (G_i (t^n, y^*)) = 
+\begin{cases}
+  \diameter t^{r_i}, & \text{if}~ i< e,\\
+  \diameter Z t^{r_i}, & \text{if}~ i=e.
+\end{cases}
+$$
+\end{coro}
+\begin{proof}
+  Let $k'$ be an overfield of $k$ such that $y^* \in k' (Z)((t))$. Let $\ob{y} (t)= \sum\limits_{j < m_i} y_j t^j$ and $y'(t)= \sum\limits_{m_i \leq j \leq m_e} y_j t^j$. Then, since $y^*$ is an $(e, Z)$-deformation of $y(t)$, we have
+$$
+y^* = \ob{y} (t) + y' (t) + Zt^{m_e} + u(t)
+$$
+for some $u(t) \in k' (Z) ((t))$ with $\ord_t u(t) > m_e \geq m_i$. It follows that if $i < e$ then
+$$
+\text{info}~ (y^* - \ob{y} (t)) = y_{m_i}t^{m_i} = \diameter t^{m_i},
+$$
+whereas if $i=e$ then 
+$$
+\text{info}~ (y^* - \ob{y} (t)) = Z t^{m_e} = Zt^{m_i}.
+$$
+
+Now, the corollary follows from Lemma \ref{part1:chap3:sec7:lem7.13}.
+\end{proof}
+
+\begin{lemma}\label{part1:chap3:sec7:lem7.16}
+  Let\pageoriginale $e$ be an integer, $1 \leq e \leq h$, and let $y^*$ be an $(e, Z)$-deformation of $y(t)$. Then we have 
+$$
+\text{info}~ (f (t^n, y^*)) = \diameter (Z^{n_e}- y_{m_e}^{n_e})^{d_{e+1}} t^{s_e}. 
+$$
+\end{lemma}
+
+\begin{proof}
+  The assumption on $y^*$ means that we can write $y^*$ in the form
+$$
+y^* = y(t) + (Z- y_{m_e})t^{m_e} + u(t)
+$$
+with $u(t) \in k' (Z) ((t))$ and $\ord_t u(t) > m_e$, where $k'$ is some overfield of $k$. Therefore for every $w \in \mu_n$ we have
+\eqn{y^* - y (wt) = (Z- y_{m_e})t^{m_e} + (y(t)- y(wt))+ u(t).\tag{7.16.1}
+\label{part1:chap3:sec7:eq7.16.1}}
+
+It follows that if $w \in Q(e)$ then 
+\eqn{\text{info}~ (y^* - y (w t)) = \text{info}~ (y (t)- y(wt)).\tag{7.16.2} 
+\label{part1:chap3:sec7:eq7.16.2}}
+
+Since $y(t)$ and $y (wt)$ belong to $k((t))$, we have
+$$
+\text{inco}~ \left(\prod_{w \in Q (e)} (y (t) - y(wt)) \right) \in k.
+$$
+Therefore it follows from (\ref{part1:chap3:sec7:eq7.16.2}) and Lemma \ref{part1:chap3:sec7:lem7.7} that we have
+\eqn{\text{info}~ \left(\prod_{w \in Q(e)} (y^* -y(wt)) \right) = 
+\begin{cases}
+\diameter t^{s_{e-1} -m_{e-1} d_e}, & \text{if}~ e \geq 2,\\
+\diameter, & \text{if}~ e=1.
+\end{cases}\tag{7.16.3} \label{part1:chap3:sec7:eq7.16.3}
+}
+Next, let $w \in R(e)$. Then it follows from \ref{part1:chap3:sec7:eq7.16.1} that $\ord_t (y^* - y (wt)) \geq m_e$ and that the coefficient of $t^{m_e}$ in $y^*- y(wt)$ is 
+$$
+(Z - y_{m_e}) + (y_{m_e}- w^{m_e} y_{m_e}) = Z- w^{m_e} y_{m_e}
+$$
+which is non-zero, since $Z$ is an indeterminate. This shows that
+$$
+\text{info}~ (y^* - y(wt))= (Z- w^{m_e} y_{m_e})t^{m_e}
+$$ 
+for\pageoriginale every $w \in R(e)$. Therefore by Lemma \ref{part1:chap3:sec7:lem7.6} we get
+\begin{align*}
+  \text{info}~ \left(\prod_{w \in R(e)} (y^* - y(wt))\right) & = \prod_{w \in R(e)} (Z - w^{m_e} y_{m_e}) t^{m_e}\\
+  & = (Z^{n_e} - y_{m_e}^{n_e})^{d_{e+1}} t^{m_e d_e},\tag{7.16.4}
+\label{part1:chap3:sec7:eq7.16.4}
+\end{align*}
+since card $(R(e))= d_e$ by Lemma \ref{part1:chap3:sec7:lem7.5}. Since
+\begin{align*}
+  f(t^n, y^*) & = \prod_{w \in \mu_n} (y^*- y(wt))\\
+  & = \prod_{w \in Q (e)} (y^* - y (wt)) \prod_{w \in R(e)} (y^* - y(wt))
+\end{align*}
+and since
+$$
+s_e =
+\begin{cases}
+  s_{e-1} -m_{e-1} d_e+ m_e d_e, & \text{if}~ e\geq 2,\\
+  m_e d_e, & \text{if}~ e=1,
+\end{cases}
+$$
+the lemma follows from (\ref{part1:chap3:sec7:eq7.16.3}) and 
+(\ref{part1:chap3:sec7:eq7.16.4}).
+\end{proof}
+
+\setcounter{subsection}{16}
+\subsection{\textbf{MAIN LEMMA 1.}}\label{part1:chap3:sec7:ss7.17}
+  
+Let $e$ be an integer, $1 \leq e \leq h$. Let $C= C(X, Y)$ be a non-zero element of $k((X))[Y]$ such that $\deg_Y C< n/d_e$. Let $y^*$ be an $(e, Z)$-deformation of $y(t)$. Then inco $(C(t^n, y^*))= \diameter$.
+
+\begin{proof}
+  Suppose $e=1$. Then $n/d_e= n/d_1=1$, so that $\deg_Y C=0$. This means that $C(X, Y)$ is a non-zero element of $k((X))$. Therefore $C (t^n, y^*)$ is a non-zero element of $k((t))$ and the assertion is clear in this case.
+\end{proof}
+
+Assume now that $e\geq 2$. Let $G_i = G_i (X, Y)$ be the pseudo $d_i$th root of $f$, $1 \leq i \leq e-1$, and let $G= (G_1, \ldots, G_{e-1})$. Since, by Lemma \ref{part1:chap3:sec7:lem7.11}, $G_i$ is monic in $Y$ with $\deg_Y G_i = n/d_i$, $1\leq i \leq e-1$, we see that the three conditions
+
+(i)-(iii)\pageoriginale of \ref{part1:chap1:sec2:ss2.2} are satisfied by $G$ with $R= k((X))$ and $p=e-1$. With the notation of \ref{part1:chap1:sec2:ss2.2}, we note that $n_{e-1}(G)= \infty$ and 
+\eqn{n_i (G) = (n/d_{i+1})/(n/d_i) = d_i / d_{i+1}\tag{7.17.1} 
+\label{part1:chap3:sec7:eq7.17.1}}
+for $1\leq i \leq e-2$. By Corollary \ref{part1:chap1:sec2:coro2.14}, let
+\begin{equation*}
+  C= \sum_{a \in A(G)} C_a (X) G^a, \quad C_a (X) \in k ((X)),\tag{7.17.2} 
+  \label{part1:chap3:sec7:eq7.17.2}
+\end{equation*}
+be the $G$-adic expansion of $C$. Since $\deg_Y C< n/d_e$ be hypothesis, we have, by Corollary \ref{part1:chap1:sec2:coro2.9}, $\deg_Y G^a< n/d_e$ for every $a \in \Supp_G(C)$. Since $\deg_Y (G^a) =\displaystyle{\sum^{e-1}_{i=1}} a_i \deg_Y G_i$, we get, in particular, $a_{e-1} \deg_Y G_{e-1}< n/d_e$ for every $a \in \Supp_G (C)$. Since $\deg_Y G_{e-1}= n/d_{e-1}$, we get $a_{e-1}n/d_{e-1}n/d_{e-1} < n/d_e < n/d_e$, which gives
+\begin{equation*}
+  a_{e-1} < d_{e-1}/d_e \tag{7.17.3} \label{part1:chap3:sec7:eq7.17.3}
+\end{equation*}
+for every $a\in \Supp_G (C)$. Now, substituting $X= t^n$, $Y=y^*$ in (\ref{part1:chap3:sec7:eq7.17.2}), we get 
+\begin{equation*}
+  C(t^n, y^*) = \sum_{a \in \Supp_G (C)} C_a (t^n) G(t^n,
+  y^*)^a.\tag{7.17.4} \label{part1:chap3:sec7:eq7.17.4} 
+\end{equation*}
+
+For $a \in \Supp_G (C)$, let $a_0 = (n/r_0) \ord_X C_a(X)$. Then we have
+\begin{equation*}
+  \ord_t C_a (t^n) = n \ord_X C_a (X) = a_0 r_0.\tag{7.17.5} 
+  \label{part1:chap3:sec7:eq7.17.5}
+\end{equation*}
+
+Moreover, for $1 \leq i \leq e-1$, we have
+\begin{equation*}
+  \text{info}~ (G_i (t^n, y^*))= \diameter t^{r_i} \tag{7.17.6}
+  \label{part1:chap3:sec7:eq7.17.6}
+\end{equation*}
+by Corollary \ref{part1:chap3:sec7:coro7.15}. From
+(\ref{part1:chap3:sec7:eq7.17.5}) and
+(\ref{part1:chap3:sec7:eq7.17.6}) we get 
+\begin{equation*}
+  \ord_t (C_a (t^n) G(t^n, y^*)^a)= \sum^{e-1}_{i=0} a_i r_i. \tag{7.17.7} 
+  \label{part1:chap3:sec7:eq7.17.7}
+\end{equation*}
+
+Now,\pageoriginale let $r= (r_0, \ldots , r_{e-1})$. Then, with the notation of \ref{part1:chap1:sec1:notn1.1}, we have $n_i (r) = d_i (r)/d_{i+1} (r)= d_i/d_{i+1}$ for $1 \leq i \leq e-1$. Let $a\in \Supp_G (C)$. Then for $1 \leq i \leq e-2$, we have 
+$$
+0 \leq a_i < n_i (G) = d_i /d_{i+1}
+$$
+by (\ref{part1:chap3:sec7:eq7.17.1}). Moreover, $a_{e-1} < d_{e-1}/d_e$ by (\ref{part1:chap3:sec7:eq7.17.3}). Thus (\ref{part1:chap3:sec7:eq7.17.7}) expresses $\ord_t(C_a (t^n)G(t^n, y^*)^a)$ as a strict linear combination of $r$. Therefore it follows from Proposition \ref{part1:chap1:sec1:prop1.5} that
+$$
+\ord_t (C_a (t^n) G(t^n, y^*)^a) \neq \ord_t (C_b(t^n)G(t^n, y^*)^b)
+$$
+if $a$, $b \in \Supp_G(C)$ and $a \neq b$. Therefore, in view of
+(\ref{part1:chap3:sec7:eq7.17.4}), we see that there exists $a \in
+\Supp_G(C)$ such that  
+$$
+\text{info}~ (C (t^n, y^*)) - \text{info}~ (C_a (t^n)G(t^n, y^*)^a)
+$$
+and, in particular,
+\begin{equation*}
+  \text{inco}~(C (t^n, y^*)) = \text{inco}~ (C_a (t^n) G(t^n, y^*)^a).\tag{7.17.8} \label{part1:chap3:sec7:eq7.17.8}
+\end{equation*}
+
+Now, inco $(C_a (t^n))= \diameter$, since $C_a (t^n) \in k ((t))$ and $C_a (X) \neq 0$. Also,
+\begin{align*}
+  \text{inco}~ (G(t^n, y^*)^a) & = \prod^{e-1}_{i=1} ~\text{inco}~ (G_i (t^n, y^*)^{a_i})& \\
+  & = \diameter & (\text{by (\ref{part1:chap3:sec7:eq7.17.6})}). 
+\end{align*}
+
+Therefore by (\ref{part1:chap3:sec7:eq7.17.8}) inco $(C(t^n, y^*))= \diameter$, and the lemma is proved.
+
+\subsection{\textbf{MAIN LEMMA 2.}}\label{part1:chap3:sec7:ss7.18}
+
+Let $R= k((X))$. Let $e$ be an integer, $2 \leq e \leq h$. Let $g=g(x, Y)$ be an element of $R[Y]$ such that $g$ is monic in $Y$ and $\deg_Y g= n/d_e$.
+
+Let\pageoriginale $y^*$ be an $(e. Z)$ deformation of $y(t)$ such that info $(g(t^n, y^*))= \diameter Zt^{r_e}$. Then info $(\tau_f(g) (t^n, y^*)= \diameter Z t^{r_e}$, where $\tau_f$ is the Tschirnhausen operator with respect to $f \in R[Y]$. (See \S\ 3 for definition of $\tau_f$.)
+
+\begin{proof}
+Let $d= d_e$ and let 
+\begin{equation*}
+  f =g^d + \sum^{d-1}_{i=0} C_i g^i \tag{7.18.1} \label{part1:chap3:sec7:eq7.18.1} 
+\end{equation*}
+be the $g$-adic expansion of $f$, where $C_i= C_f^{(i)}(g)$, $0 \leq i \leq d-1$. (See (\ref{part1:chap1:sec3:eq3.4.1}).) Then, by definition, $\tau_f(g)= g+ d^{-1} C_{d-1}$. Therefore, in order to prove the lemma, it is enough to prove that we have
+\begin{equation*}
+  \ord_t C_{d-1} (t^n , y^*)>r_e. \tag{7.18.2} \label{part1:chap3:sec7:eq7.18.2} 
+\end{equation*}
+\end{proof}
+
+Now, from (\ref{part1:chap3:sec7:eq7.18.1}) we get
+$$
+f(t^n, y^*) = \sum^d_{i=0} C_i (t^n, y^*) g(t^n, y^*)^i,
+$$
+where $C_d=1$. Let
+\begin{equation*}
+u \in f\left\{ \ord_t (C_i (t^n, y^*) g(t^n, y^*)^i)\Big| 0 \leq i \leq d\right\}.\tag{7.18.3} \label{part1:chap3:sec7:eq7.18.3} 
+\end{equation*}
+
+Since $C_d=1$ and $\ord_t g(t^n, y^*)^d= dr_e$, we see that $u < \infty$. Let
+\begin{equation*}
+  I = \left\{ i \Big| o \leq i \leq d, \ord_t (C_i (t^n, y^*) g(t^n, y^*)^i)=u \right\}.\tag{7.18.4} \label{part1:chap3:sec7:eq7.18.4} 
+\end{equation*}
+
+Then $C_i (t^n, y^*)\neq 0$ for every $i \in I$. Let $a_i = \text{inco}~ (C_i (t^n, y^*))$, $i \in I$. Then, since $\deg_Y c_i < \deg g = n/d_e$, it follows from Main Lemma \ref{part1:chap3:sec7:ss7.17} that $a_i \in k$ and $a_i \neq 0$ for every $i \in I$. Also, by hypothesis we have info $(g(t^n, y^*)^i)= b_i Z^i t^{ir_e}$ for some $b_i \in k$, $b_i \neq 0$. Therefore we get
+$$
+inco (C_i (t^n, y^*) g(t^n, y^*)^i) = a_i b_i Z^i
+$$
+for\pageoriginale every $i \in I$. It follows that the coefficient of
+$t^u$ in $f(t^n, y^*)$ is 
+$$\sum_{i \in I} a_i b_i Z^i$$, 
+which is non-zero, since $I \neq \phi$ and $Z$ is an indeterminate. Therefore we have
+$$
+info (f(t^n, y^*)) = \left( \sum_{i \in I} a_i b_i Z^i\right)t^u.
+$$
+
+On the other hand, by Lemma \ref{part1:chap3:sec7:lem7.16}  we have
+$$
+info (f(t^n, y^*)) = \diameter \left(Z^{n_e}- y^{n_e}_{m_e}\right)^{d_{e+1}} t^{s_e}. 
+$$
+
+Therefore we get $u= s_e = d_e r_e$ and 
+$$
+\sum_{i \in I} a_i b_i Z^i = \diameter \left(Z^{n_e}- y^{n_e}_{m_e} \right)^{d_{e+1}}.
+$$
+
+This last equality shows that we have
+\begin{equation*}
+  \sum_{i \in I } a_i b_i Z^i \in k [Z^{n_e}]. \tag{7.18.5} \label{part1:chap3:sec7:eq7.18.5} 
+\end{equation*}
+
+Now, we have $n_e = d_e / d_{e+1}\geq 2$ by Proposition \ref{part1:chap2:sec6:prop6.13} (ii), since $e \geq 2$. Therefore $n_e$ does not divide $d_e-1=d-1$, and it follows from (\ref{part1:chap3:sec7:eq7.18.5}) that $d- 1 \notin I$. This means that
+\begin{align*}
+  u & < \ord_t \left(C_{d-1} (t^n, y^*) g(t^n, y^*)^{d-1}\right)\\
+  & = \ord_t C_{d-1} (t^n , y^*) + (d-1) r_e.
+\end{align*}
+
+since $u= d_e r_e$, we get
+$$
+r_e < \ord_t C_{d-1} (t^n, y^*).
+$$
+which proves (\ref{part1:chap3:sec7:eq7.18.2}).
+
+\setcounter{thm}{18}
+\begin{thm}\label{part1:chap3:sec7:thm7.19} 
+  Let $e$ be an integer, $2 \leq e \leq h$, and let $g_e (X, Y)= App_Y^{d_e}(f)$. (See \ref{part1:chap1:sec4:notn4.5}.) Let $y^*$ be an $(e, Z)$-deformation of $y(t)$. Then
+$$
+\text{info} (g_e (t^n, y^*)) = \diameter Z t^{r_e}.
+$$
+\end{thm}
+
+\begin{proof}
+Let\pageoriginale $G_e(X, Y)$ be the pseudo $d_e^{\rm th}$ root of $f$. Then we have 
+\begin{equation*}
+  \text{info}~ (G_e (t^n, y^*)) = \diameter Z t^{r_e}\tag{7.19.1} \label{part1:chap3:sec7:eq7.19.1}
+\end{equation*}
+by Corollary \ref{part1:chap3:sec7:coro7.15}. Now, $G_e$ is monic in
+$Y$ with $\deg_{Y}G_e= n/d_e$ (Lemma
+\ref{part1:chap3:sec7:lem7.11}). Therefore by Corollary
+\ref{part1:chap1:sec4:coro4.6} we have $g_e (X, Y)= (\tau_f)^j$ $(G_e)$,
+where $j= n/d_e$. Now, the theorem follows from
+(\ref{part1:chap3:sec7:eq7.19.1}) by $n/d_e$ applications of Main
+Lemma \ref{part1:chap3:sec7:ss7.18}. 
+\end{proof}
+
+\begin{coro}\label{part1:chap3:sec7:coro7.20}
+  Let $e$ be an integer, $2 \leq e \leq h$, and let $g_e (X, Y)= App_Y^{d_e} (f)$. Let $k'$ be an overfield of $k$. Let $a \in k'$ and let $u$ be an element of $k'((t))$ such that $\ord_t u> m_e$. Let
+$$
+\ob{y} = \sum_{j < m_e} y_jt^i + at^{m_e} +u.
+$$
+Then there exist $c \in k$, $c \neq 0$, and an element $v$ of $k'((t))$ such that $\ord_t v> r_e$ and 
+$$
+g_e (t^n, \ob{y}) = cat^{r_e} +v.
+$$
+\end{coro}
+
+\begin{proof}
+  Let $Z$ be an indeterminate and let
+$$
+y^* = \sum_{j < m_e} y_j t^j + Z t^{m_e} + u.
+$$
+Then $y^*$ is an $(e, Z)$-deformation of $y(t)$. Note that $y^* \in k' ((t)) [Z] \subset k' (Z) ((t))$. Therefore $g_e (t^n, y^*) \in k' ((t)) [Z]$ and we can write
+\begin{equation*}
+  g_e (t^n, y^*) = \sum^p_{i=0} b_i (t) Z^i, \tag{7.20.1}\label{part1:chap3:sec7:eq7.20.1}
+\end{equation*}
+where $p$ is a non-negative integer and $b_i(t) \in k' ((t))$ for $0 \leq i \leq p$. Now, we have\pageoriginale info $(g_e (t^n, y^*)) = \diameter Z t^{r_e}$ by Theorem \ref{part1:chap3:sec7:thm7.19}. This means that we have 
+\begin{equation*}
+  \text{info}~ (b_1 (t)) = ct^{r_e} \tag{7.20.2} \label{part1:chap3:sec7:eq7.20.2}
+\end{equation*}
+for some $c \in k$, $c \neq 0$, and 
+\begin{equation*}
+  \ord_t b_i (t)> r_e \quad \text{for}~ i \neq 1.\tag{7.20.3} \label{part1:chap3:sec7:eq7.20.3}
+\end{equation*}
+
+Let $\varphi : k' ((t))[Z] \to k' ((t))$ be the $k' ((t))$-algebra homomorphism defined by $\varphi (Z)=a$. Then $\varphi (y^*)= \ob{y}$. Therefore we have
+\begin{align*}
+  g_e (t^n , \ob{y}) & = \varphi (g_e (t^n, y^*))&\\
+  & = \sum_{i=0}^p b_i (t) a^i & \text{(by \ref{part1:chap3:sec7:eq7.20.1}).}\tag{7.20.4} \label{part1:chap3:sec7:eq7.20.4}
+\end{align*}
+
+Let 
+$$
+v = b_0 (t) + (b_1 (t) - ct^{r_e}) a+ \sum^p_{i=2} b_i (t) a^i.
+$$
+
+Then by (\ref{part1:chap3:sec7:eq7.20.2}) and (\ref{part1:chap3:sec7:eq7.20.3}) we have $\ord_t v> r_e$, and from (\ref{part1:chap3:sec7:eq7.20.4}) we get $g_e (t^n, \ob{y})= cat^{r_e}+ v$.
+\end{proof}
+
+\section{The Fundamental Theorem}\label{part1:chap3:sec8}
+
+{\rm Throughout this section we preserve the notation of \ref{part1:chap3:sec7:notn7.1}. In addition, we also fix the following notation:}
+
+\begin{notn}\label{part1:chap3:sec8:notn8.1}
+  For an integer $e$, $1\leq e \leq h+1$, we get
+$$
+g_e = g_e (X, Y)= \begin{cases}
+  Y, & \text{if}~ e=1,\\
+  App_{Y}^{d_e} (f), & \text{if}~ e \geq 2.
+\end{cases}
+$$
+We note that $g_{h+1}=f$.
+\end{notn}
+
+\setcounter{subsection}{1}
+\subsection{Fundamental Theorem (Part One).} \label{part1:chap3:sec8:ss8.2}
+
+Let\pageoriginale $e$ be an integer, $1 \leq e \leq h+1$. Then we have $\ord_t g_e (t^n, y(t))= r_e$.
+
+\begin{proof}
+  Since $g_{h+1}=f$ and $r_{h+1}= \infty$, the assertion is clear for $e= h+1$. Next, we have $g_1 (t^n, y(t))= y(t)$, and $\ord_t y(t) =m_1= r_1$, which proves the assertion for $e=1$. Assume now that $2 \leq e \leq h$. Then the assertion is immediate from Corollary \ref{part1:chap3:sec7:coro7.20} by taking $a= y_{m_e}$ and $u= \displaystyle{\sum_{j > m_e}} y_j t^i$ and noting that $y_{m_e} \neq 0$.
+\end{proof}
+
+\subsection{Fundamental Theorem (Part Two)}\label{part1:chap3:sec8:ss8.3}
+
+Let $R$ be a subring of $k ((X))$ such that $n$ is a unit in $R$ and $f \in R [Y]$. Then:
+
+\begin{enumerate}[(i)]
+\item $g_i \in R [Y]$ for every $i$, $1 \leq i \leq h+1$.
+
+  Further, let $\ob{R[Y]}= R[Y]/fR[Y]$ and let $\ob{g_i}$ be the image of $g_i$ under the canonical map $R[Y] \to \ob{R[Y]}$. Then:
+
+\item $\ob{R[Y]}$ is a free $R$-module with the set $\left\{ \bar{g}^{b}\Big| b \in B\right\}$ as a free basis, where $\ob{g} = (\ob{g_1} , \ldots , \ob{g_h})$ and 
+$$
+B= \left\{ b = (b_1, \ldots , b_h) \in \mathbb{Z}^h \Big| 0 \leq b_i < d_i / d_{i+1}~ \text{for}~ 1 \leq i \leq h \right\}.
+$$
+(For $h=0$ interpret this notation as $B= \{ \phi \}$ and $\left\{\bar{g}^h \Big| b \in B \right\}= \{ 1\}$.)
+\end{enumerate}
+
+\begin{proof}
+  ~
+\begin{enumerate}
+\item For $i= 1$, $g_1= Y \in R[Y]$. For $i \geq 2$ the assertion follows from the uniqueness of $App^{d_i}_Y (f)$.
+\item We first note that since $\deg_Y f= n> 0$ and since $f$ is monic in $Y$, the restriction of the canonical map $\eta: R[Y] \to \ob{R[Y]}$ to $R$ is injective. We identify $R$ with its image in $\ob{R[Y]}$. Then, writing $\ob{F} = \eta (F)$ for $F \in R[Y]$, we have
+\begin{equation*}
+  \ob{F} = F ~\text{for every}~ F \in R.\tag{8.3.1}\label{part1:chap3:sec8:eq8.3.1}
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+Now, let $G_i = g_i$ for $1 \leq i \leq h+1$. Then the $(h+1)$-tuple $G= (G_1, \ldots , G_{h+1})$ satisfies conditions (i)-(iii) of \ref{part1:chap1:sec2:ss2.2} with $p= h+1$. Therefore by Corollary \ref{part1:chap1:sec2:coro2.14} every\pageoriginale element $F$ of $R[Y]$ has a unique expression of the form
+\begin{equation*}
+  F= \sum_{a \in A(G)} F_a G^a, \quad F_a \in R, \tag{8.3.2} \label{part1:chap3:sec8:eq8.3.2}
+\end{equation*}
+where
+$$
+A(G) = \left\{ a = (a_1, \ldots , a_{h+1}) \in \mathbb{Z}^{h+1}\Big| 0 \leq a_i < n_i (G)~ \text{for}~ 1 \leq i \leq h+1\right\}.
+$$
+
+Recall that with the notation of \ref{part1:chap1:sec2:ss2.2} we have $n_{h+1} (G)= \infty$ and 
+\begin{equation*}
+  n_i (G) = (n/d_{i+1}) / (n/d_i) = d_i /d_{i+1} \tag{8.3.3} \label{part1:chap3:sec8:eq8.3.3}
+\end{equation*}
+for $1 \leq i \leq h$. Now, let $\ob{F}$ be any element of $\ob{R[Y]}$ and let $F \in R[Y]$ be a lift of $\ob{F}$. Then from (\ref{part1:chap3:sec8:eq8.3.1}) and (\ref{part1:chap3:sec8:eq8.3.2}) we get
+\begin{equation*}
+  \ob{F} = \sum_{a \in A(G)} F_a \ob{G}^a. \tag{8.3.4}\label{part1:chap3:sec8:eq8.3.4}
+\end{equation*}
+
+Now $\ob{G}_{h+1}=0$. Therefore, if $a \in A (G)$ is such that $a_{h+1} \neq 0$ then $\ob{G}^a=0$. Therefore, in view of (\ref{part1:chap3:sec8:eq8.3.3}), the expression (\ref{part1:chap3:sec8:eq8.3.4}) reduces to the form
+$$
+\ob{F} = \sum_{b \in B} F'_b \ob{g}^b,
+$$
+where $F'_b = F_{(b_1, \ldots , b_{h}, 0)}$ for $b \in B$. This proves that $\ob{R[Y]}$ is generated as an $R$-module by the set $\left\{ \ob{g}^b \Big| b \in B \right\}$. Now, to prove that this set is a free basis, suppose
+\begin{equation*}
+  0 = \sum_{b \in B} F'_b \ob{g}^b \tag{8.3.5} \label{part1:chap3:sec8:eq8.3.5} 
+\end{equation*}
+with $F'_b \in R$ for every $b$ and $F'_b=0$ for almost all $b$. For $a \in A(G)$, define 
+\begin{equation*}
+  F_a = \begin{cases}
+    F'_{(a_1, \ldots , a_h)}, & \text{if}~ a_{h+1}=0,\\
+    0, & \text{if}~ a_{h+1} \neq 0.
+  \end{cases} \tag{8.3.6} \label{part1:chap3:sec8:eq8.3.6}
+\end{equation*}
+
+Let\pageoriginale
+$$
+F= \sum_{a \in A (G)} F_a G^a.
+$$
+
+It is enough to prove that $F=0$. For, this would imply by the uniqueness of the expression (\ref{part1:chap3:sec8:eq8.3.2}) that $F_a=0$ for every $a \in A(G)$, which would prove, in view of (\ref{part1:chap3:sec8:eq8.3.6}), that $F'_b=0$ for every $b \in B$. Now, suppose $F \neq 0$. Then, since $f$ divides $F$ in $F[Y]$ by (\ref{part1:chap3:sec8:eq8.3.5}), we have $F \notin R$ and $\deg F \geq \deg f= \deg G_{h+1}$. But this is a contradiction by (\ref{part1:chap3:sec8:eq8.3.6}) and Lemma \ref{part1:chap1:sec2:lem2.12}. Therefore $F=0$, and the proof of the theorem is complete.
+
+\setcounter{thm}{3}
+\begin{lemma}\label{part1:chap3:sec8:lem8.4}
+Let $k((X))$ be identified with the subfield $k((t^n))$ of $k((t))$ by putting $X=t^n$. Let $R$ be a subring of $k((X))$ such that $f \in R [Y]$. Let $R[y(t)]$ be the $R$-subalgebra of $k((t))$ generated by $y(t)$. Then:
+\begin{enumerate}[\rm (i)]
+\item $R[y(t)] = \left\{ F (t^n, y(t)) \Big| F(X, Y) \in R[Y] \right\}$.
+\item There exists an $R$-algebra isomorphism
+$$
+\ob{u} : R[Y]/fR[Y] \to R[y(t)]
+$$
+which fits in a commutative diagram
+\[
+\xymatrix{R[Y]\ar[rr]^\eta\ar[dr]_u & & R[Y]/fR[Y]\ar[dl]^{\bar{u}}\\
+ & R[y(t)] & 
+}\]
+\noindent where $\eta$ is the canonical homomorphism and $u$ is
+defined by\break  $u (F(x, Y))= F(t^n, y(t))$ for $F(X, Y) \in R[Y]$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item This is clear.
+\item It is clear that $u$ is an $R$-algebra homomorphism. Since $u(f) = f(t^n, y(t)=0$, $u$ factors via $\eta$ to give $\ob{u}$. Since $u$ is surjective by (i), so\pageoriginale is $\ob{u}$. To show that $\ob{u}$ is injective, it is enough to show that $\ker u = fR[Y]$. Let $F(X, Y) \in \ker u$. Then $F(t^n, y(t))=0$. Therefore, since $f$ is the minimal monic polynomial of $y(t)$ over $k((t^n))$, $f$ divides $F(X, Y)$ in $k((X)) [Y]$. Since $f$ is monic, it  that follows $f$ divides $F(x, Y)$ in $R[Y]$.
+\end{enumerate}
+\end{proof}
+
+\setcounter{subsection}{4}
+\subsection{Fundamental Theorem (Part Three)}\label{part1:chap3:sec8:ss8.5}
+
+Let $k((X))$ be identified with the subfield $k((t^n))$ of $k((t))$ by putting $X= t^n$. Let $R$ be a subring of $k((X))$ such that $n$ is a unit in $R$ and $f \in R [Y]$. Let
+$$
+R[y(t)] = \left\{ F(t^n, y(t)) \Big| F(X, Y) \in R[Y]\right\}.
+$$
+
+Let $\ob{g}_i= g_i (t^n, y(t))$, $1 \leq i \leq h$. Then:
+\begin{enumerate}[(i)]
+\item $R[y(t)]$ is a free $R$-module with the set $\{\ob{g}^b| b \in B\}$ as a free basis, where $\ob{g} = (\ob{g}_1, \ldots , \ob{g}_h)$ and 
+$$
+B= \left\{ b = (b_1 , \ldots , b_h) \in \mathbb{Z}^h \Big| 0 \leq b_i < d_i/d_{i+1} ~\text{for}~ 1\leq i \leq h \right\}.
+$$
+
+\item Let $F \in R[y(t)]$ and let
+$$
+F= \sum_{b \in B} F_b \ob{g}^b, \quad F_b \in R.
+$$
+If $b$, $b' \in B$, $b \neq b'$ and $F_b \neq 0$, $F_{b'}\neq 0$ then 
+$$
+\ord_t (F_b \ob{g}^b) \neq \ord_t (F_{b'} \ob{g}^{b'}).
+$$
+
+In particular, if $F \neq 0$ then there exists a unique $b \in B$ such that $\ord_t F= \ord_t (F_b \ob{g}^b)$.
+
+\item With the notation of (ii), let $b \in B$ be the unique element such that $\ord_t (F)= \ord_t (F_b \ob{g}^b)$. Then
+$$
+\ord_t F= \ord_t F_b+ \sum^h_{i=1} b_i r_i.
+$$
+\end{enumerate}
+
+\begin{proof}
+~
+\begin{enumerate}[(i)]
+\item We\pageoriginale first note that by Theorem
+  \ref{part1:chap3:sec8:ss8.3} we have $g_i \in R[Y]$ for $1 \leq i
+  \leq h$. Let us now identify $R[Y(t)]$ and $\ob{R[Y]}= R[Y]/fR[Y]$
+  as $R$-algebras via the isomorphism $\ob{u}$ of
+  Lemma \ref{part1:chap3:sec8:lem8.4}. With this identification,
+  $\ob{g}_i$ is the image of $g_i$ under the canonical map $R[Y]\to
+  \ob{R[Y]}$. Therefore (i) follows directly from Theorem
+  \ref{part1:chap3:sec8:ss8.3}. 
+\item Let $\Gamma_+ (R) = \left\{ (n/r_0) \ord_X G \Big| G \in R, G
+  \neq 0 \right\}$. Then, since $n= |r_0|$, it is clear that
+  $\Gamma_+(R)$ is a subsemigroup of $\mathbb{R}$ is a subsemigroup of
+  $\mathbb{Z}$. For $b= (b_1, \ldots, b_h) \in B$ such that $F_b \neq
+  0$, let us define $b_0= (n/r_0) \ord_X F_b$. Then $b_0 \in \Gamma_+
+  (R)$. Since $r_i= \ord_t\ob{g}_i$ by Theorem
+  \ref{part1:chap3:sec8:ss8.2}, we get 
+\begin{equation*}
+  \ord_t (F_b \ob{g}^b) = \ord_t F_b + \sum^h_{i=1} b_i r_i = \sum^h_{i=0} b_i r_i, \tag{8.5.1} \label{part1:chap3:sec8:eq8.5.1}
+\end{equation*}
+since $b_0 r_0 =n \ord_X F_b= \ord_t F_b$. Similarly, if $b' \in B$ and $F_{b'} \neq 0$ then
+\begin{equation*}
+  \ord_t (F_{b'} \ob{g}^{b'}) = \sum^h_{i=0} b'_i r_i, \quad b'_0 \in \Gamma_+ (R). \tag{8.5.2} \label{part1:chap3:sec8:eq8.5.2}
+\end{equation*}
+
+Now, since $b$, $b' \in B$, we have $0 \leq b_i < d_{i}/d_{i+1}$, $0 \leq b'_i < d_i /d_{i+1}$ for $1 \leq i \leq h$. Thus (\ref{part1:chap3:sec8:eq8.5.1}) and (\ref{part1:chap3:sec8:eq8.5.2}) are $\Gamma_+ (R)$-strict linear combinations of $r = (r_0, \ldots , r_h)$. Therefore (ii) follows from Proposition \ref{part1:chap1:sec1:prop1.5}. 
+\item This was proved in (\ref{part1:chap3:sec8:eq8.5.1}) above.
+\end{enumerate}
+\end{proof}
+
+\setcounter{thm}{5}
+\begin{defi}\label{part1:chap3:sec8:def8.6}
+  Let $R$ be a subring of $k((X))$ such that $f \in R[Y]$. Let $w \in \mu_n (k)$. The set
+$$
+\left\{ \ord_t F(t^n, y(wt)) \Big| F(X, Y) \in R[Y], F(t^n, y(wt))\neq 0 \right\}.
+$$
+which is clearly independent of $w \in \mu_n (k)$ and is a subsemigroup of $\mathbb{Z}$, is called\pageoriginale the {\em value semigroup} of $f$ {\em with respect to} $R$ and is denoted $\Gamma_R(f)$.
+\end{defi}
+
+\setcounter{subsection}{6}
+\subsection{Fundamental Theorem (Part Four).}\label{part1:chap3:sec8:ss8.7}
+
+Let $R$ be a subring of $k((X))$ such that $n$ is a unit in $R$ and $f \in R[Y]$. Let
+$$
+\Gamma_+ (R) = \left\{ (n/r_0) \ord_X F\Big| F \in R, F \neq 0 \right\}.
+$$
+
+Then we have:
+\begin{enumerate}[(i)]
+\item $\Gamma_| (R)$ is a subsemigroup of $\mathbb{Z}$.
+\item $\Gamma_+ (R) r_0 \subset \Gamma_R (f)$ and $r_i \in \Gamma_R (f)$ for every $i$, $1 \leq i \leq h$.
+\item $\Gamma_R (f)$ is $\Gamma (R)$-strictly generated by $r= (r_0 , \ldots , r_h)$.
+\end{enumerate}
+
+In particular, suppose we are in one of the following two cases:
+
+\begin{enumerate}[(1)]
+\item 
+The ALGEBROID CASE: $R= k'[[X]]$ for some subfield $k'$ of $k$, $f \in R [Y]$ and $r_0 =n$.
+\item The PURE MEROMORPHIC CASE: $R = k'[X^{-1}]$ for some subfield $k'$ of $k$, $f \in R [Y]$ and $r_0 =-n$.
+\end{enumerate}
+
+Then we have:
+\begin{itemize}
+\item[(i')] $\Gamma_+ (R)= \mathbb{Z}^+$.
+\item[(ii')] $r_i \in \Gamma_R (f)$ for every $i, 0 \leq i \leq h$.
+\item[(iii')] $\Gamma_R (f)$ is strictly generated by $r= (r_0, \ldots , r_h)$.
+\end{itemize}
+
+(For the definition of $\Gamma_+ (R)$-strict generation, see \ref{part1:chap1:sec1:def1.7})
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item This is clear, since $n= |r_0|$.
+\item Let $\gamma \in \Gamma_+ (R)$. Then there exists $F= F(X) \in R$ such that $F \neq 0$ and $\gamma = (n/r_0)\ord_X F$. This gives $\gamma r_0 = n \ord_X F = \ord_t f(t^n)$, which shows that $\gamma r_0 \in \Gamma_R (f)$. Next, since $g_i \in R [Y]$ by Theorem \ref{part1:chap3:sec8:ss8.3} and since $\ord_t g_i (t^n, y(t))=r_i$ by Theorem \ref{part1:chap3:sec8:ss8.2}, we get $r_i \in \Gamma_R (f)$ for $1 \leq i \leq h$.
+\item Let $\gamma \in \Gamma_R (f)$ and let $F (X, Y) \in R [Y]$ be
+  such that $\gamma = \ord_t$\break  $F(t^n, y(t))$. Put $F= F(t^n,
+  y(t))$. Then $F\neq 0$. Therefore by Theorem
+  \ref{part1:chap3:sec8:ss8.5} (iii) we have 
+$$
+\gamma = \ord_t F= \ord_t F_b (t^n)+ \sum^h_{i=1} b_i r_i,
+$$
+where\pageoriginale $F_b = F_b(X) \in R$, $F_b \neq 0$, and $b_i \in \mathbb{Z}$, $0 \leq b_i < d_i/d_{i+1}$ for $1 \leq i\leq h$. Let $b_0= (n/r_0) \ord_X F_b$. Then $b_0 \in \Gamma_+ (R)$ and we have $\ord_t F_b (t^n)= b_0 r_0$. Therefore $\gamma = \displaystyle{\sum^h_{i=0} b_i r_i}$, which shows that $\gamma$ is a $\Gamma_+ (R)$-strict linear combination of $r$. Conversely, if $\gamma = \displaystyle{\sum^h_{i=0} \gamma_i r_i}$ is a $\Gamma_+ (R)$-strict linear combination of $r$ then it follows (ii) that $\gamma \in \Gamma_R (f)$. This proves (iii).
+\end{enumerate}
+(i') is clear, and (ii'), (iii') follow from (i'), (ii) and (iii).
+\end{proof}
+
+\setcounter{thm}{7}
+\begin{coro}\label{part1:chap3:sec8:coro8.8}
+  With the notation of Theorem \ref{part1:chap3:sec8:ss8.7}, suppose $R$ contains an element of $X$-order 1 or $-1$. (This condition is satisfied, for example, if $X \in R$ or $X^{-1} \in R$). Them \gcd $(\Gamma_R (f))= 1$, i.e., the subgroup of $\mathbb{Z}$ generated by $\Gamma_R (f)$ coincides with $\mathbb{Z}$.  
+\end{coro}
+
+\begin{proof}
+  By assumption, we have $n/r_0 \in \Gamma_+ (R)$ or $-n/r_0 \in \Gamma_+ (R)$. Therefore by Theorem \ref{part1:chap3:sec8:ss8.7} (ii), $n \in \Gamma_R(f)$ or $-n \in \Gamma_R (f)$. Since $n = |r_o|$, we get $r_o \in \Gamma_R(f)$ or $-r_o \in \Gamma_R(f)$. Also $r_i \in \Gamma_R(f)$ for $1 \leq i \leq h$ by Theorem (8.7)(ii). Now, since
+$$
+\gcd (-r_0, r_1, \ldots r_h)= \gcd (r_0, r_1, \ldots , r_h) = d_{h+1}=1,
+$$ 
+the corollary follows.
+\end{proof}

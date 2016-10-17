@@ -1,0 +1,339 @@
+\chapter{Lecture 27}
+
+\textit{Given\pageoriginale any sheaf $\mathscr{G}$} of $A$-modules,
+there exists an exact sequences of sheaves  
+$$
+O \to \mathscr{G}\xrightarrow{e} \mathscr{S}^o \xrightarrow{d^1}
+\mathscr{S}^1 \to \cdots \to \mathscr{S}^{q-1} \xrightarrow{d^q}
+\mathscr{S}^q \to \cdots 
+$$
+\textit{where each $\mathscr{S}^q (q \geq O)$ is finite.}
+
+\begin{proof}
+For each open set $U$ of $X$, let $S^q_U(q=O,1, \ldots)$ be the
+abelian group of integer valued functions $f(x_0, \ldots ,x_q)$ of
+$q+1$ variables $x_0, \ldots\break x_q \in U$. If $V$ is an open set with $V
+\subset U$, the restriction of the functions $f$ gives a homomorphism
+$\rho_{_{VU}} : S^q_U \to S^q_V$. There is a homomorphism
+$d^{q+1}_{U}:S^q_U \to S^{q+1}_U$ defined by 
+$$
+d^{q+1}f(x_o, \ldots ,x_{q+1})= \sum ^{q+1}_{j=o}(-1)^j f(x_o, \ldots,
+\hat{x}_j,\ldots,x_{q+1}). 
+$$
+
+If $e:Z \to S^o_U$ is the inclusion homomorphism of the constant
+functions on $U$, the sequence 
+$$
+O \to Z \xrightarrow{e}  S^o_U \xrightarrow{d^1} \cdots \to S^{q-1}_U
+\xrightarrow{d^q}  S^q_U \to \cdots 
+$$
+is exact (Cartan Seminar 1948-49, Expose 7, \S 8). Clearly
+$\rho_{_{VU}}d^{q+1} f=d^{q+1} \rho_{_{VU}}f$ and $\rho_{_{VU}}$ commutes
+with $e$. The presheaves $\{ S^q_U, \rho_{_{VU}} \} (q = 0, 1, \ldots)$
+determine sheaves $\mathscr{S}^q$ and there is an induced exact
+sequence 
+$$
+O \to Z \xrightarrow{e}  S^o_U \xrightarrow{d^1} \cdots \to S^{q-1}_U 
+\xrightarrow{d^q} S^q \to \cdots 
+$$
+
+It is easily verified that each abelian group $S^p_U$ is without
+torsion, and\pageoriginale this property is preserved in the direct
+limit. Hence 
+each stalk $S^q_x=dir \lim \{ S^q_U, \rho_{_{VU}} \}_{x \in U}$ is
+without torsion, i.e., the sheaves $\mathscr{S}^q$ are without
+torsion. Therefore the sequences of sheaves of $A$-modules 
+$$
+O \to Z \otimes_Z \mathscr{G}\xrightarrow{e} \mathscr{S}^o \otimes_Z
+\mathscr{G} \xrightarrow{d^1} \cdots \to \mathscr{S}^{q-1} \otimes_Z \mathscr{G}
+\xrightarrow{d^q} \mathscr{S}^q  \otimes_Z \mathscr{G} \to \cdots 
+$$
+is exact, (this follows from the fact that if $O \to F' \to F \to F''
+\to O$ is an exact sequence of abelian group, $F''$ is without
+torsion, and $G$ is an abelian group, then the sequence 
+$$
+O \to F' \otimes G \to F \otimes G \to F'' \otimes G \to O  
+$$
+is exact), that is, the sequence
+\begin{equation*}
+0 \to \mathscr{G}\xrightarrow{e} \mathscr{S}^o
+  \otimes_Z \mathscr{G} \xrightarrow{d^1} \cdots \to \mathscr{S}^{q-1}
+  \otimes_Z \mathscr{G} \xrightarrow{d^q}  \mathscr{S}^q \otimes_Z
+  \mathscr{G} \to \cdots\tag{1}\label{chap27:eq1}
+\end{equation*}
+is exact.
+
+We now show that \textit{each of the sheaves} $\mathscr{S}^q
+\otimes_Z \mathscr{G}$ \textit{is a fine sheaf}. To do this, let $E
+\subset G$ with $E$ closed and $G$ open and let $h:S^q_U \to S^p_U$ be
+the homomorphism defined by  
+\begin{align*}
+h f(x_o, \ldots ,x_q) & = f(x_o, \ldots ,x_q) \text{ if } x_o, \ldots
+,x_q \in U \cap G,\\ 
+& = 0 \text{ otherwise.}
+\end{align*}
+
+Then $h$ commutes with $\rho_{_{VU}}$ and induces a homomorphism
+$h:\mathscr{S}^q \to \mathscr{S}^q $ for which $h_x:S^q_x \to S^q_x$
+is the identity if $x \in  \bar{G}$, and $h(S^q_x) = 0_x$ if $x \in X
+- \bar{G}$. There is then an induced homomorphism $h:\mathscr{S}^q
+\otimes_Z \mathscr{G}\to \mathscr{S}^q \otimes_Z$ which is the
+identity on the stalks $S^q_x 
+\otimes_Z G_x $ for $x \in G$ and zero on\pageoriginale $S^q_x
+\otimes_Z G_x$ for 
+$x \in X - \bar{G}$. Thus $\mathscr{S}^q \otimes_Z \mathscr{G}$ is
+fine, and the sequence (\ref{chap27:eq1}) is a fine resolution of
+$\mathscr{G}$.  
+
+We now give a definition of the cochains of a covering of a space $X$
+coefficients in a sheaf $\mathscr{G}$ and support in a $\Phi$-family
+and also give an alternative definition of the cohomology groups of
+$X$ with coefficients in $\mathscr{G}$ and supports in the family
+$\Phi$. We then prove Leray's theorem on acyclic coverings.  
+\end{proof}
+
+\begin{defi*}
+Let $C^p_\Phi(\mathscr{U},\mathscr{G})$, for an arbitrary covering
+$\mathscr{U}=\{ U_i \}_{i \in I}$ be the
+$C^p(\mathscr{U},\mathscr{G})$ consisting  of those cochains $f$ such
+that the closure of the set $supp f=\{ x:f(i_o, \ldots ,i_p)(x)$ is
+defined for some $\sigma=(i_o, \ldots ,i_p)$ and $\neq 0_x \}$,
+belongs to the family $\Phi$. (If $p=0$, this definition does not
+agree with the previous one even when $\mathscr{U}$ is a
+$\bar{\Phi}$-covering.) 
+\end{defi*}
+
+Then, since the homomorphisms
+\begin{align*}
+\delta^{p+1}&:C^p(\mathscr{U},\mathscr{G})\to
+C^{p+1}(\mathscr{U},\mathscr{G})\\ 
+\tau^+ &: C^p (\mathscr{U},\mathscr{G}) \to C^p
+(\mathscr{W},\mathscr{G}) 
+\end{align*}
+decrease supports, they induce homomorphisms
+$$
+\delta ^{p+1}:C^p_\phi(\mathscr{U},\mathscr{G})\to
+C^{p+1}_\Phi(\mathscr{U},\mathscr{G})\\ 
+$$
+and
+$$
+\tau ^+ : C^p_\Phi (\mathscr{U},\mathscr{G}) \to C^p_\phi
+(\mathscr{W},\mathscr{G}) 
+$$
+respectively. Hence there are cohomology module $H^p_ \Phi
+(\mathscr{U},\mathscr{G})$ and homomorphisms\pageoriginale
+$\tau_{\mathscr{W}\mathscr{U}}:H^p_\Phi (\mathscr{U},\mathscr{G})\to
+H^p_\Phi (\mathscr{W},\mathscr{G})$. For $p=0$, $H^o_ \Phi
+(\mathscr{U},\break\mathscr{G})=\Gamma_ \Phi(X, \mathscr{G})$ for every
+covering $\mathscr{G}$, and  
+$$
+\tau_{\mathscr{W}\mathscr{U}}:\Gamma_ \Phi(X, \mathscr{G}) \to \Gamma_
+\Phi(X, \mathscr{G}) 
+$$
+is the identity. Using the directed set $\Omega$ of all proper
+covering of \break $X, \{ H^p_ \Phi(\mathscr{U},\mathscr{G}),
+\tau_{\mathscr{W}\mathscr{U}} \}_{\mathscr{U},\mathscr{W} \in \Omega}$
+is a direct system. The direct limit of this system will be denoted by
+$ H^p_\Phi(X, \mathscr{G})$. This module also is called the $p$-\textit{th cohomology module of the space $X$ with coefficients in
+  the sheaf $\mathscr{G}$ and supports in the family $\Phi$}. (This
+cohomology module is isomorphic with that previously defined by means
+of $\Phi$-coverings, Lecture \ref{chap21:lec21}.) There are
+homomorphisms into the 
+direct limits, $\tau_ \mathscr{U}:H^p_ \Phi
+(\mathscr{U},\mathscr{G})\to H^p_ \Phi (X,\mathscr{G})$. 
+
+Let $X$ be a \textit{paracompact normal} space, $\mathscr{G}$ a sheaf
+of $A$-modules over $X$, and let $\mathscr{U}=\{ U\}$ be locally
+finite proper covering of $X$ where each $U \in \mathscr{U}$ is an $F_
+\sigma$ set. ($\mathscr{U}$ is indexed by itself.) Let $\Phi_\sigma$
+be the set of all intersection $E \cap U_ \sigma$ with $E \in
+\Phi$. Since $U_\sigma$ is an open $F_\sigma$ set in $X,U_\sigma$
+is paracompact and normal. Hence each $E \cap U_\sigma \in
+\Phi_\sigma$ is paracompact and normal. One easily verifies that
+$\Phi_\sigma$ is a $\Phi$-family in $U_\sigma$. We now assume the 
+following conditions on the family $\Phi$ and the covering
+$\mathscr{U}$. 
+\begin{enumerate}[(i)]
+\item For some infinite cardinal number $m$, the union of fewer than
+  $m$ elements of $\Phi$ is contained in a set belonging to
+  $\Phi$. (If $X \in \Phi$, choose $m$ greater than the number of
+  closed sets of $X; $ if $\Phi$ is family of compact sets, let
+  $m=\mathscr{N}_o$.) 
+
+\item Each\pageoriginale set in $\Phi$ meets fewer than $m$ sets of
+  the covering $\mathscr{U}$.  
+
+\item Each $U \in \mathscr{U}$ is an $F_\sigma$ sets, i.e., is a
+  countable union of closed subsets of $X$. 
+
+\item For each $U_ \sigma=U_o\cap \cdots U_p$,
+  $H^p_{\Phi_\sigma}(U_\sigma,\mathscr{G})=0$ for $q>0$; here
+  $\mathscr{G}$ denotes the restriction of $\mathscr{G}$ to $U_\sigma$  
+
+(A covering $\mathscr{U}$ is called \textit{acyclic} is conditions
+  (iv) is satisfied.) 
+\end{enumerate}
+
+\textit{Under the conditions {\em (i), (ii), (iii), (iv)} stated
+  above, the homomorphism $\tau _\mathscr{U}: H^p_ \Phi
+  (\mathscr{U},\mathscr{G}) \to H^p _ \Phi (X,\mathscr{G})$ is an
+  isomorphism.}  
+
+\begin{proof}
+Let
+$$
+O \to \mathscr{G} \xrightarrow{e} \mathscr{S}^o \xrightarrow{d^1}
+\cdots \to \mathscr{S}^{q-1} \rightarrow{d^q} \mathscr{S}^q \to \cdots 
+$$
+be any fine resolution of $\mathscr{G}$. Then there is a system $\{
+(C^p _ \Phi (\mathscr{U},\mathscr{S}^q)) \}_{\mathscr{U} \in \Omega'}$
+of double complexes, where $\Omega'$ is the cofinal directed set of all
+locally finite proper coverings of $X$. This system is bounded above
+by $p=0$ and on the left by $q=0$. 
+\end{proof}
+
+Since $X$ is normal, $\mathscr{S}^q$ is fine and $\mathscr{U}$ is
+locally finite, there is a homotopy (see Lecture \ref{chap16:lec16}) 
+$$
+k^{p-1}:C^p(\mathscr{U},\mathscr{S}^q) \to 
+C^{p-1}(\mathscr{U},\mathscr{S}^q) \qquad (p>0). 
+$$
+
+Since $k^{p-1}$ decreases supports, it induces a homomorphism
+$$
+k^{p-1} : C^p_{\Phi} (\mathscr{U}, \mathscr{S}^q) \to C^{p-1}
+(\mathscr{U}, \mathscr{S}^q) \quad (p > 0),
+$$
+with\pageoriginale $\delta^p k^{p-1} + k^p \delta^{p+1} = 1$. Hence $H^p_\Phi
+(\mathscr{U}, \mathscr{S}^q)=0$ for $p>0$, and for $p=0$, $H^o_ \Phi
+(\mathscr{U},\mathscr{S}^q)= \Gamma _\Phi (X, \mathscr{S}^q)$. Hence 
+$$
+H^{O,q}_{12}C_ \Phi (\mathscr{U},\mathscr{S})=H^q \Gamma _ \Phi
+(X,\mathscr{S}). 
+$$
+
+Thus we have the isomorphisms indicated below (see Lecture
+\ref{chap20:lec20}): 
+\[
+\xymatrix{
+H^q\Gamma_{\Phi} (X,\mathscr{S}) \ar[d]_{\approx} & H^{0,q}_{12}
+C_{\Phi} (\mathscr{U},\mathscr{S}) \ar[d] \ar[l]_{\approx} &
+H^qC_{\Phi} (\mathscr{U},\mathscr{S})\ar[d]\ar[l]_{\approx}\\
+H^q\Gamma_{\Phi} (X,\mathscr{S}) & H^{0,q}_{12} C_{\Phi} (\mathscr{S})
+\ar[l]_{\approx} & H^qC_{\Phi} (\mathscr{S}) \ar[l]_{\approx}.
+ }
+\]
+
+Since $\mathscr{S}^q$ is fine and $X$ is normal, $\mathscr{S}^q$ is
+locally fine, hence its restriction to $U_ \sigma$ is locally
+fine. But $U_\sigma$ is paracompact and normal, so that the
+restriction of $\mathscr{S}^q$ to $U_ \sigma$ is fine. Hence there is
+an isomorphism (see Proposition \ref{chap23:prop17} and
+\ref{chap25:prop18}, lectures \ref{chap23:lec23} and \ref{chap25:lec25} 
+respectively), 
+$$
+\eta \rho^{-1}: H^q\Gamma_{\Phi_ \sigma}(U_\sigma, \mathscr{S}) \to
+H^q_{\Phi_ \sigma}(U_\sigma,\mathscr{G}). 
+$$
+
+\noindent
+Hence by condition (iv), $H^q \Gamma_{\Phi_\sigma}(U_\sigma, \mathscr{S})=0$
+for $q>0$, $H^o\Gamma_\Phi(U_\sigma, \mathscr{S}) \approx H^o_{\Phi_
+  \sigma}(U_\sigma, \mathscr{G})= \Gamma_{\Phi_\sigma}(U_ \sigma,
+\mathscr{G})$. 
+
+If $f \in C^p_\Phi (\mathscr{U},\mathscr{S}^q) \; (q>O)$ and
+$d^{q+1}f=O$, then $(d^{q+1}f)(U_o , \ldots,\break U_p)=O$ in each $U_\sigma
+=U_o \cap \cdots \cap U_p$. Since $H^q \Gamma _{\Phi_\sigma}(U_
+\sigma, \mathscr{S})=0(q>0)$, there is a section $g(U_o 
+,\ldots ,U_p) \in \Gamma_{\Phi _\sigma}(U_ \sigma,
+\mathscr{S}^{q-1})$ with $dg(U_o ,\ldots,\break U_p)=f(U_o ,\ldots ,U_p)$
+(choose $g(U_o ,\ldots ,U_p)=0$ if $f(U_o ,\ldots ,U_p)=0$. There is
+then a cochain $g \in C^p(\mathscr{U},\mathscr{S}^{q-1})$) with
+$dg=f$, (see p.57). Since $f \in C^o_\Phi
+(\mathscr{U},\mathscr{S}^q)$, $\supp f$ is contained in a set belonging
+to $\Phi$ and\pageoriginale hence $f(\sigma)$ is different from zero
+on fewer than 
+$m$ sets $U_\sigma$. Then $g(\sigma)$ is different from zero on fewer
+than $m$ sets $U_\sigma$ and hence supp $g$ is the union of fewer than
+$m$ set $\{ x \in U_\sigma :g(\sigma)(x)\neq 0$, each of which is in
+$\Phi_\sigma$ and hence has its closure in $\Phi$. Hence $\supp g$ is
+contained in a set belonging to $\Phi$ and $g \in C^p_\Phi
+(\mathscr{U},\mathscr{S}^{q-1})$. Hence $H^{p,q}_2 C_\phi
+(\mathscr{U},\mathscr{S})=0 (q>0)$. 
+
+Since the sequences
+$$
+0 \to C^p(\mathscr{U},\mathscr{G}) \overset{e}\to
+C^p(\mathscr{U},\mathscr{S}^o) \overset{d^1}\to C^p
+(\mathscr{U},\mathscr{S}^1)
+$$ 
+is exact, if $f \in C^p_\Phi
+(\mathscr{U},\mathscr{S}^O)$ and $d^1 f=0$, then $f=e(g)$ for some $g
+\in C^p (\mathscr{U},\mathscr{G})$ and clearly $g \in C^p_\Phi
+(\mathscr{U},\mathscr{G})$. Thus  
+$$
+H^{p,o}_2 C_\Phi (\mathscr{U},\mathscr{S})\approx C^p_\Phi
+(\mathscr{U},\mathscr{G}) \text{ and  } H^{p,0}_{21}C_\Phi
+(\mathscr{U},\mathscr{S}) \approx H^p_\Phi (\mathscr{U},\mathscr{G}).
+$$  
+
+Thus we have the isomorphism indicated below: 
+\[
+\xymatrix{
+H^pC_{\Phi} (\mathscr{U},\mathscr{S}) \ar[r]^{\approx}\ar[d] &
+H^{p,0}_{21} C_{\Phi}(\mathscr{U},\mathscr{S}) \ar[d] \ar[r]^{\approx}
+& H^p_{\Phi} (\mathscr{U},\mathscr{G}) \ar[d]^{\tau_{\mathscr{U}}}\\
+H^pC_{\Phi} (\mathscr{S}) \ar[r]^{\approx} & H^{p,0}_{21} C_{\Phi}
+(\mathscr{S}) \ar[r]^{\approx} & H^p_{\Phi} (X,\mathscr{G}).
+}
+\]
+
+Combining this diagram with the previous one, we see that the
+homomorphism $\tau:{H^p_\Phi}(\mathscr{U},\mathscr{G}) \to H^p_ \Phi
+(X, \mathscr{G})$ is an isomorphism. 
+\hfill {Q.e.d}
+
+In particular, we have proved the following proposition (Cartan
+Seminar, 1953-54, Expose 17, p.7). 
+
+\begin{proposition}%Prop 20
+If $\mathscr{U}$\pageoriginale is a locally finite proper covering of a
+  paracompact normal space $X$ by open $F_\sigma$ sets, and if
+  $\mathscr{G}$ is a sheaf of $A$-modules such that $H^q(U_
+  \sigma,\mathscr{G})=O (q>O)$ for every $U_\sigma =U_o \cap \cdots
+  \cap U_k (k=O,1, \ldots)$, then 
+$$
+\tau _\mathscr{U}:H^p(\mathscr{U},\mathscr{G}) \to H^p (X,\mathscr{G})
+$$
+is an isomorphism.
+\end{proposition}
+
+In the case that $\Phi$ is the family of all compact sets of $X$, we
+write $H^p_*$ instead of $H^p_{\bar{\Phi}}$. 
+
+\setcounter{proposition}{19}
+\begin{proposition}[-a]%Prop 20 a
+If $\mathscr{U}$ is a locally finite proper covering of a locally
+  compact and paracompact Hausdorff space by open $F_\sigma$ sets
+  with compact closures, and if $\mathscr{G}$ is a sheaf of
+  $A$-modules such that $H^p(U_\sigma, \mathscr{G})=O(q>O)$ for
+ every 
+$$
+U_ \sigma=U_o \cap \cdots \cap U_k (k=0,1,\ldots) 
+$$
+then
+$$
+\tau _ \sigma:H^p_* (\mathscr{U},\mathscr{G})\to H^p_*(X,\mathscr{G}) 
+$$
+is an isomorphism.
+\end{proposition}
+
+\begin{note*}
+It is no restriction to assume that $\mathscr{U}$ is a proper
+covering. If $\mathscr{W}$ is any covering, there is an equivalent
+proper covering $\mathscr{U}$ with the open sets. Then
+$\tau_{\mathscr{W}\mathscr{U}}$ and $\tau _{\mathscr{U},\mathscr{W}}$
+are isomorphisms. 
+\end{note*}
+

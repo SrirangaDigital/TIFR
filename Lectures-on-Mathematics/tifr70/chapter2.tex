@@ -1,0 +1,1881 @@
+\chapter{Partial Differential Operators with Constant
+  Coefficients}\label{chap2} 
+
+\section{Local Solvability and Fundamental Solution}\label{chap2:sec1}
+%Section 1 
+
+For\pageoriginale the sake of convenience in taking the Fourier transforms, from now
+onwards, we will use the differential monomials  
+$$
+D^{\alpha}= (2 \pi i)^{|\alpha|}\partial^{\alpha}. ~\text{ Thus }
+(D^{\alpha})^{\hat{}}(\xi) = \xi^{\alpha} \hat{f}(\xi). 
+$$
+
+By a \textit{partial differential operator with constant
+  coefficients,}we mean a differential operator $L$ of the form  
+$$
+L= \sum_{|\alpha| \leq k} a_{\alpha}D^{\alpha}, a_{\alpha} \epsilon \varmathbb{C}
+$$
+Further, we assume that $\sum \limits_{|\alpha| \leq k} |a_{\alpha}|
+\neq 0$. In this case, we say that the operator $L$ is of order
+$k$. If we write $P(\xi)= \sum\limits_{|\alpha| \leq k} a_{\alpha}
+\xi^{\alpha}$, then we have $L = P(D)$. 
+
+For $u \epsilon S$, taking the Fourier transform, we see that 
+$$
+(P(D)u)^{\hat{}} (\xi) = \sum \limits_{|\alpha| \leq k} a_{\alpha}
+\xi^{\alpha} \hat{u}(\xi) = P(\xi) \hat{u}(\xi). 
+$$
+
+
+Let us now consider the following problem:
+
+Given $f$ in $C^{\infty}$, we want to find a distribution $u$ such
+that $P(D)u = f$. 
+
+We say that the differential operator $L$ is \textit{locally solvable
+  at } $x_\circ \epsilon \varmathbb{R}^n$, if there is a solution
+of the above problem in some neighbourhood of the point $x_\circ$ for
+any $f$ in $C^{\infty}$.  
+
+\begin{rem}\label{chap2:sec1:rem2.1} %Remark 2.1
+  We\pageoriginale can assume that $f$ has compact support. To see this, we can take
+  any $\phi$ in $C^{\infty}_{o}$ such that $\phi = 1$ in some
+  nighbourhood of the point $x_o$. If solve the problem $P(D) u = f \phi
+  $ near $x_\circ$, then $u$ is a solution of our original problem since
+  we have $f \phi = f$ in a neighbourhood of $x_o$. 
+\end{rem}
+
+In the following theorem we give an affirmative answer to the question
+of local solvability of $L =P(D)$. The simple proof exhibited here is
+due to $L$. Nirenberg. 
+
+\setcounter{thm}{1}
+\begin{thm}\label{chap2:sec1:thm2.2}% Theorem2.1
+  Let $L = \sum \limits_{|\alpha| \leq k} a_{\alpha} D^{\alpha}$
+  be a differential operator with constant coefficients. If $u
+  \epsilon C^{\infty}_o$, there is a $C^{\infty}$ function $u$
+  satisfying $Lu =f $ on $\varmathbb{R}^n$. 
+\end{thm}
+
+\begin{proof}
+  Taking the Fourier transform of the equation $Lu =P(D) u =f$, we see
+  that $P(\xi) \hat{u}(\xi) = \hat{f}(\xi)$. It is natural to try to
+  define $u$ by the formula 
+  $$
+  u(x) = \int e^{2 \pi i x\cdot \xi } \hat{f}(\xi)/P(\xi) \xi.
+  $$
+  In general, $P$ will have many zeros: so there will be a problem in
+  applying the inverse Fourier transform to $\hat{f}/P$. But things are
+  not so bad. Since $ f \epsilon C^{\infty}_\circ, \hat{f}$ is an
+  entire function of $\xi \epsilon \varmathbb{C}^n$ and $P$ is
+  obviously entire. Hence we can deform the contour of integration to
+  avoid the zeros of $P(\xi)$. 
+\end{proof}
+
+To make this precise, let us choose a unit vector $\eta$ so that $\sum
+\limits_{|\alpha| \leq k} a_{\alpha}\eta^{\alpha} \neq 0$. By a
+rotation of coordinates, we can assume that $\eta = (0,0, \ldots
+,0,1)$. Multiplying by a constant, we can also assume that
+$a_{\alpha 0}=1$\pageoriginale where $\alpha_o =(0,0, \ldots,0,k)$. Then we have
+$P(\xi)= \xi^k_n+$(lower order terms in $ \xi_n$). Denote $\xi =
+(\xi', \xi_n)$ with $\xi'= (\xi_1, \ldots, \xi_{n-1})$ in
+$\varmathbb{R}^{n-1}$. 
+
+Consider $P(\xi)= P(\xi', \xi_n)$ as a polynomial in the last variable
+$\xi_n$ in $\mathbb{C}$ for $\xi'$ in $\mathbb{R}^{n-1}$. Let
+$\lambda_1 (\xi'), \ldots, \lambda_k(\xi')$ be the roots of $P(\xi',
+\xi_n) = 0$ arranged so that if $i \leq j$. 
+
+$\Im \lambda_i (\xi') \leq  \Im \lambda_j (\xi')$ and Re $\lambda_i
+(\xi') \leq$ Re $\lambda_i (\xi')$ when $\Im \lambda_i (\xi') =
+\Im \lambda_j (\xi')$. 
+
+Since the roots of a polynomial depends continuously on the
+coefficients we see that $\lambda_j (\xi') $ are continuous in
+$\xi'$. To proceed further, we need the help of two Lemmas. 
+
+\setcounter{lem}{2}
+\begin{lem} \label{chap2:sec1:lem2.3}%Lemma 2.3
+ There is a measurable function $\phi : \varmathbb{R}^{n-1} \to [-k-1,
+   k+1]$ such that for all $\xi'$ in $\varmathbb{R}^{n-1}
+ \min\limits_{1 \leq j \leq k} \{ | \phi (\xi') - \text{Im} \lambda_j (\xi')
+ |\} \geq 1$.  
+\end{lem}
+
+\begin{proof}
+  Left as an exercise to the reader : (cf. G.B. Folland \cite{1}).
+
+  (The idea is that at least one of the $k+1$ intervals $[-k-1, k+1],
+  [-k-1, k+1]\ldots, [-k-1, k+1]$ must contain none of the $k$
+  points $\text{Im}\, \lambda_j(\xi'),  j = 1, 2, \ldots, k)$. 
+\end{proof}
+
+\setcounter{lem}{3}
+\begin{lem} \label{chap2:sec1:lem2.4}%Lemma 2.4
+  Let $P(\xi) = \xi^k_n+$( lower order terms) and let $N(P)$ be the set
+  $\{ \zeta \epsilon \varmathbb{C}^n : P(\zeta) = 0 \}$. Let $d (\xi
+  ,N(P))$. Then, we have  
+  $$
+  |P(\xi)| \geq (d ( \xi) /2)^k.
+  $$
+\end{lem}
+
+\begin{proof}
+  Take $\xi$ in $\mathbb{R}^n$ such that $P(\xi) \neq 0$. Let $\eta =
+  (0, 0, \ldots 0,1)$ and define $g(z) = P(\xi +z \eta)$ for $z$ in
+  $\mathbb{C}$. This $g$ is a polynomial in one complex variable
+  $z$. Let $\lambda_1, \lambda_2, \ldots, \lambda_k$ be the zeros of
+  the polynomial\pageoriginale $g$. Then  
+  $$
+  g(z) = c(z-\lambda_1) \cdots(z - \lambda_k)
+  $$
+  so that  
+  $$
+  |\frac{g(z)}{g(0)}| = \prod^k_{j=1} | 1- \frac{z}{\lambda_j}|.
+  $$
+  Since $\xi + \lambda_j \eta \,\epsilon\, N(P)\, |\lambda_j|\geq d(\xi)$
+  so that when $|z| \leq d(\xi), |\dfrac{g(z)}{g(0)}| \leq 2^k$. Also 
+  $$
+  |g^{(k)} (0)| = | \frac{k!}{2 \pi i} \int_{|\zeta|=d(\xi)} q (\zeta)
+  \zeta^{-k-1} d \zeta | \leq \frac{k!}{2}\frac{|g(0)|}{d(\xi)^{k+1}}
+  2^k 2 \pi d (\xi) 
+  $$
+  i.e. $|g^{(k)} (0)| \leq k! |g(0) | 2^k d(\xi)^{-k}. \text{ But } g(0)
+  = P(\xi) $ and  
+  $$
+  |g^{(k)} (0)| = \frac{\partial^k}{\partial \xi^k_n} P(\xi) = k!
+  $$
+  Therefore, 
+  $$
+  k! \leq k! |g (0)| 2^k d(\xi)^{-k}
+  $$
+  or  
+  $$
+  |P(\xi)| \geq (d(\xi)/2)^k
+  $$
+  Hence the lemma is proved. 
+\end{proof} 
+
+Returning to the proof of the theorem, consider the function 
+$$
+u(x) = \int\limits_{\mathbb{R}^{n-1}} \int\limits_{ IM \xi_n = \phi (\xi')}
+e^{2 \phi i x\cdot \xi }(\hat{f}(\xi) /P (\xi)) d \xi_n d \xi. 
+$$
+
+By Lemmas \ref{chap2:sec1:lem2.3} and \ref{chap2:sec1:lem2.4} we have 
+$$
+|P(\xi) | \geq (d(\xi)/2)^k \geq 2^{-k} \text{ along } Im \xi_n = \phi (\xi').
+$$
+
+Since\pageoriginale $f \epsilon C^{\infty}_\circ, \hat{f}(\xi)$ is rapidly
+decreasing as $|Re \xi|$ tends to $\infty$ as along as $|Im \xi|$
+stays bounded, so the integral converges absolutely and uniformly
+together with all derivatives defining a $C^{\infty}$ function $u$. 
+
+Finally, by Cauchy's theorem,
+\begin{align*}
+P(D) u(x) & = \int\limits_{\mathbb{R}^{n-1}} \int\limits_{ IM \xi_n = \phi
+  (\xi')} e^{2 \phi i x\cdot \xi }(\hat{f}(\xi) /P (\xi)) d \xi_n d
+\xi'\\ 
+& = \int_{\mathbb{R}^n} e^{2 \phi i x\cdot \xi }(\hat{f}(\xi) d \xi = f(x).
+\end{align*}
+
+This completes the proof of Theorem \ref{chap2:sec1:thm2.2}.
+
+Let us now consider the local solvability of $L=P(D)$ in the case when
+$f$ is a distribution. 
+
+As before, we remark that it suffices to take $f \epsilon
+E'$. Further, it is enough to consider the case where $f =
+\delta$. Indeed, if $K$ satisfies $P(D) K = \delta$, then we have for
+any $f \epsilon E', P(D) (K*f) = P(D)K*f = \delta * f =f $. 
+
+\setcounter{defi}{4}
+\begin{defi} \label{chap2:sec1:def2.5}%Definition 2.5
+  A distribution $K$ satisfying $P(D)K = \delta$ is called a \textit{
+    fundamental solution or elementary solution } of the differential
+  operator $L =P(D)$. 
+\end{defi}
+ 
+\textit{ A remarkable theorem due to MALGRANGE AND EHRENPREIS } states
+that every differential operator $P(D)$ with constant coefficients has
+a fundamental solution. In fact, we can prove this result by a simple
+extension of the preceding argument. 
+
+\setcounter{thm}{5}
+\begin{thm} \label{chap2:sec1:thm2.6}%Theorem 2.6
+\em{Every\pageoriginale partial differential operator $P(D)$ with constant
+  coefficients has a fundamental solution}. 
+\end{thm}
+\begin{proof}
+ Proceeding as in the previous theorem, we try to define
+ $$
+ K(x) = \int\limits_{\varmathbb{R}^{n-1}} \int\limits_{Im \xi _{n}=
+   \phi (\xi ')} e ^{2 \Pi i x \cdot \xi} (p(\xi))^{-1} d\xi_n d
+ \xi'. 
+ $$
+ 
+ Here, however, the integral may diverge at infinity. So, we consider
+ the polynomial 
+  $$
+ P_N ( \xi ) = P (\xi) (1 + 4 \Pi ^2 \sum_{j=1}^{n} \xi _j^2 ) N
+ $$
+ where $N$ is a large positive integer. Let 
+$$
+K_N (x) = \int\limits_{\varmathbb{R}^{n-1}} \int\limits_{ Im \xi _n =
+  \phi ( \xi ')} e^{2 \Pi i x \cdot \xi } (P_N (\xi ))^{-1} d \xi _n d
+\xi '	 
+$$
+where $\phi$ is chosen appropriately for the polynomial $P_N$.Then on
+the region of integration, we have 
+$$
+|P_N (\xi)|\geq c (1+ |\xi|^2)^N;
+$$
+so the integral will converge when $N > n/2$. We claim that $P_N (D)
+K_N = \delta$. 
+\end{proof}
+	
+To see this, take $\phi \epsilon C_o^ \infty$ and observe that the
+transpose of $P_N (D)$ is $P_N(-D)$. Thus 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+  <P_N (D) K_N, \phi > & =  < K_N, P_N (-D) \phi>\\
+  &= \int\limits_{\varmathbb{R}^{n}}\int\limits_{\varmathbb{R}^{n-1}}
+  \int\limits_{Im \xi _n = \phi (\xi')} e^{2 \Pi ix\cdot \xi
+  }\frac{(P_N(-D) \phi)(x)}{P_N(\xi)}d\xi_n d\xi ' dx\\ 
+  &=\int\limits_{\varmathbb{R}^{n-1}} \int\limits_{Im \xi _n = \phi (\xi
+    ')} (P_N (\xi))^{-1} d\xi_n d \xi
+  '\int\limits_{\varmathbb{R}^{n}}e ^{2 \Pi ix \cdot \xi}P_N(-D) \phi
+  (x) dx\\ 
+  &= \int\limits_{\varmathbb{R}^{n-1}} \int\limits_{Im \xi _n = \phi
+    (\xi ')} \hat{\phi} (-\xi) d \xi_n d \xi'\\ 
+  &= \int\limits_{\varmathbb{R}^{n}} \hat{\phi} (- \xi) d \xi = \phi
+  (0) = < \delta, \phi >. 
+\end{align*}}\relax\pageoriginale
+
+Thus,
+$$
+\delta = P_N (D) K_N = P(D)(1 - \Delta)^N K_N	
+$$
+so if we put $ K= (1 - \cdot \Delta)^N K_N $ we have $P(D) K=
+\delta$. Thus $K$ is a fundamental solution of $P(D)$. 
+
+\section{Regularity Properties of Differential
+  Operators}\label{chap2:sec2} %Section 2 
+
+\setcounter{defi}{6}
+\begin{defi} \label{chap2:sec2:def2.7}%Definition 2.7
+  The \textit{singular support} of a distribution $f \epsilon D'$ is
+  defined to be the complement of the largest open set on which $f$ is
+  a $C^ \infty$ function. The singular support of $f$ will be denoted by
+  sing $\supp f$. 
+\end{defi} 
+
+\begin{defi} \label{chap2:sec2:def2.8}%Definition 2.8
+Let $L= \sum \limits_{| \alpha | \leq K } a_{\alpha}(x) D^{\alpha}$
+where $a_{\alpha }\epsilon C^{\infty}$ be a differential
+operator. $L$ is said to be \textit{hypoelliptic}, if and only if, for
+any $u \epsilon \mathcal{D}'$, sing $\supp  u\subset $ sing supp
+$Lu$. In other words, $L$ is hypoelliptic if and only if for any open
+set $\Omega \subset \varmathbb{R}^n$ and any $u \epsilon \mathcal
+{D}' (\Omega), \quad ``Lu \epsilon C^{\infty}( \Omega)$ implies $u
+\epsilon C^{\infty}( \Omega)"$. 
+\end{defi}
+
+\setcounter{rem}{8}
+\begin{rem} \label{chap2:sec2:rem2.9}%Remark 2.9
+  The operator $L$ is said to be \textit{elliptic } at $x \epsilon
+  \varmathbb{R}^n$ if  
+  $$
+  \sum_{| \alpha | = k} a_{\alpha}(x) \xi^\alpha \neq 0 ~\text{ for every }~
+  \xi ~\text{in}~ \epsilon \varmathbb{R}^n \backslash \{0\}. 
+  $$
+  $L$ is said to be \textit{elliptic} if $L$ is elliptic at every $x
+  \epsilon \varmathbb{R}^n$. Elliptic operators are hypoelliptic, as
+  we shall prove later. This accounts for the\pageoriginale name hypoelliptic. 
+\end{rem}
+
+We know that an ordinary differential operator with $C^{\infty}$
+coefficients is hypoelliptic as long as the top order coefficient is
+non-zero. But this is not the case with partial differential operators
+as seen from the following  
+
+\setcounter{example}{9}
+\begin{example} \label{chap2:sec2:exp2.10}%Example 2.10
+  Take the operator $L= \dfrac{\partial^2}{\partial x \partial y} $ in
+  $\varmathbb{R}^2$. The general solution of the equation
+  $Lu = 0$ is given by $u(x,y)= f(x)+ g(y)$ where $f$ and $g$ are
+  arbitrary $C^1$ functions. This shows that $L$ is not hypoelliptic. 
+\end{example}
+
+We observe that if $L$ is hypoelliptic, then every fundamental
+solution of $L$ is a $C^{\infty}$ function in $\varmathbb{R}^n
+\backslash \{0\}$. 
+
+In the case of partial differential operators with constant
+coefficients, this is also sufficient for hypoellipticity. Indeed, we
+have the following  
+\setcounter{thm}{10}
+\begin{thm} \label{chap2:sec2:thm2.11}%Theorem 2.11
+ \em{Let $L$ be a partial differential operator with constant
+   coefficients. Then the following are equivalent:} 
+ \begin{enumerate}[\rm a)]
+ \item $L$ \textit{is hypoelliptic.}
+ \item \textit{Every fundamental solution of } $L$ \textit{is } $
+   C^{\infty}$ \textit{in}$ \varmathbb{R}^2 \backslash \{0\}$. 
+ \item \textit{At least one fundamental solution of }$L$ \textit{is }
+   $C^{\infty}$ \textit{in } $\varmathbb{R}^2 \backslash\{0\}$. 
+ \end{enumerate} 
+\end{thm}
+
+\begin{proof}
+  That (a)
+  simple (b) follows from the above observation and that
+  (b) implies (c) is completely trivial. The only nontrivial part we
+  need to prove is that (c) implies (a). To prove this implication,
+  we need 
+\end{proof}
+
+\setcounter{lem}{11}
+\begin{lem} \label{chap2:sec2:lem2.12}%Lemma 2.12
+  Suppose\pageoriginale $f \epsilon \mathcal{D}'$ is such that 
+  $f$ is  $C^{\infty}$ in  $\varmathbb{R}^n \backslash
+  \{0\}$ and  $ g \epsilon E'$. Then sing $\supp(f
+  * g$) $\subset \supp g$.  
+\end{lem}
+
+\begin{proof}
+  Suppose $x \notin  \supp g$. We will show that $f * g $ is
+  $C^{\infty}$ in a neighbourhood of $x$. 
+\end{proof}
+
+Since $x \notin \supp g$, there exists an $ \epsilon > 0$ such that
+$B(x, \epsilon ) \cap  \supp g = \phi$. Choose $\phi \epsilon
+C_0 ^{\infty} (B (0, \epsilon / 2))$ such that $\phi =1$ on $B(0,
+\epsilon /4)$. Now, $f *g = ( \phi f) * g + (1 - \phi)f * g$. Since
+$(1 - \phi ) f $ is a $C^{\infty}$ function, $(1- \phi) f * g$
+is $C^{\infty}$. Also 
+\begin{align*}
+  \Supp ( \phi f * g ) & \subset \Supp \phi f + \Supp g\\
+  & \subset\{ y : d(y,\supp g) \leq \epsilon / 2\}
+\end{align*}
+which does not intersect $B(x, \epsilon /2)$. Therefore, in $B(x,
+\epsilon /2), f*g = (1- \phi ) f*G$ which is $C^{\infty}$. 
+
+\setcounter{proof of theorem}{10}
+\begin{proof of theorem} %Proof of Theorem 2.11
+  Let $K$ be a fundamental solution of $L$ such that $K$ is
+  $C^{\infty}$ in $\varmathbb{R}^n \backslash\{0\}$. Suppose $u
+  \epsilon \mathcal{D}'$ and $Lu \epsilon C^{\infty}(\Omega)$
+  where $\Omega \subset \varmathbb{R}^n $ is open. 
+\end{proof of theorem}
+
+For $x \epsilon \Omega$, pick $\epsilon >0$ small enough so that
+$\bar{B}(x, \epsilon) \subset \Omega$. Choose $ \phi \epsilon
+C^{\infty}_{o} (B (x, \epsilon ))$ so that $\phi =1 $ on $B(x,
+\epsilon /2)$. Then $L( \phi u)=\phi Lu +v$ where $v=0$ on $B(x,
+\epsilon /2)$ and also outside $B(x, \epsilon )$. We write 
+$$
+K * L (\phi u) = K * \phi Lu + K * v.
+$$
+
+$\phi Lu$ is a $C^{\infty}_o$ function so that $K * Lu $ is a
+$C^{\infty}$ function. Also $K * v $ is a $C^{\infty}$ function on the
+ball $B(x, \epsilon /2) $ by Lemma \ref{chap2:sec2:lem2.12}. 
+
+Therefore\pageoriginale $K * L ( \phi u) $ is a $C^{\infty} $ function on $B(x,
+\epsilon /2)$. But $K* L(\phi u) = LK * \phi u = \delta * \phi u =
+\phi u$. Thus, $\phi u $ is a $C^{\infty}$ function on $B(x,
+\epsilon /2)$. Since $\phi = 1 $ on $ B(x, \epsilon /2), u $ is
+a $C^{\infty}$ function on $B(x, \epsilon /2 )$. Since $x$ is
+arbitrary, this completes the proof. 
+
+\section{Basic Operators in Mathematical Physics}\label{chap2:sec3}
+
+In this section, we introduce the three basic operators in
+Mathematical Physics. In the following sections, we shall compute
+fundamental solutions for these operators and show how they can be
+applied to solve boundary value problems and to yield other
+information. 
+\begin{enumerate}[(i)]
+\item \textit{LAPLACE OPERATOR}: $\Delta = \sum \limits_{j=1}^n
+  \dfrac{\partial ^2}{\partial x^2_j} ~\text{in}~ \varmathbb{R}^n$. If $u(x)$
+  represents electromagnetic potential (or gravitational potential )
+  and $\rho$ denotes the charge (resp. mass) density, then they are
+  connected by the equation $\Delta u = - 4 \pi \rho$. If the region
+  contains no charge, i.e., if $\rho = 0, \Delta u = 0$. This
+  equation is called the \textit{homogeneous Laplace equation}, and
+  its solutions are called \textit{harmonic functions}. 
+\item \textit{HEAT OPERATOR}: $L = \dfrac{\partial}{\partial t} -
+  \Delta $ in $\varmathbb{R}^{n+1}$. If $u(x, t)$ represents the
+  temperature of a homogeneous body at the position $x$ and time $t$,
+  then $u$ satisfies the heat equation $\dfrac{\partial u}{ \partial
+    t} - \Delta u = 0 $ in $\varmathbb{R}^{n+1}$. 
+\item \textit{WAVE OPERATOR}: $\oblong = \dfrac{\partial ^2}{\partial
+  t ^2}- \Delta $ in $\varmathbb{R}^{n+1}$. If $u (x, t) $ represents
+  the amplitude of an electromagnetic wave in vacuum at position $x$
+  and time $t$, then $u$ satisfies the \textit{wave equation}
+  $\oblong u = 0$ in\pageoriginale $\varmathbb{R}^{n+1}$. 
+\end{enumerate}
+The equation $\square u = 0$ can also be used to describe other types
+of wave phenomena although in most cases, it is only an approximation
+valid for small amplitudes. More generally, the equation $\square u =f
+$ describes waves subject to a driving force $f$. 
+
+The Laplace operator $\Delta$ is an ingredient in all the above
+examples. The reason for this is that the basic laws of Physics are
+invariant under translation and rotation of coordinates which severely
+restricts the differential operators which can occur in them. Indeed,
+we have 
+\setcounter{thm}{12}
+\begin{thm} \label{chap2:sec3:thm2.13}%Theorem 2.13
+ Let $L$ be a differential operator which is invariant under
+ rotations and translations. Then there exists a polynomial $Q$ in one
+ variable with constant coefficients such that  $L= Q(\Delta) $. 
+\end{thm} 
+
+ \begin{proof}
+ Let $L= P (D) = \sum \limits_{| \alpha | \leq K} 
+ a_{\alpha}D^{\alpha}$. Since $P(D)$ is invariant under translations, $
+ a_{\alpha}$ are constants. Let $T$ be any rotation. We have 
+  \begin{align*}
+    P(T \xi ) \hat{\phi}(T \xi ) &= (P(D) \phi ) \hat{~ } (T \xi)\\
+    &= (P(D) \phi \circ T ) \hat { ~} (\xi)\\
+    &= (P(D) \phi \circ T)) \hat {~} ( \xi)\\
+    &= P (\xi)\hat {\phi}(T \xi),\text{  for every }\phi.
+ \end{align*} 
+ Thus $P (T \xi)=P ( \xi)$ so that $P$ is rotation - invariant.
+ \end{proof} 
+ 
+ Write\pageoriginale $P (\xi ) = \sum \limits_{j=0}^k P_j ( \xi)$ where $P_j (\xi) $
+ is the part of $P$ which is homogeneous of degree $j$. We claim that
+ each $P_j$ is rotation - invariant. Indeed, if $t$ is any real
+ number,  
+ 
+ 
+ $P(t \xi) = \sum \limits_{j=0}^k t^j P_j (T\xi)$. For a rotation $T$,
+ since $P(\xi)= P(T \xi)$, we have 
+ $$
+\displaylines{\hfill 
+ P ( t \xi )= \sum _{j=0}^k t^j P_j (T \xi)\hfill \cr
+\text{so that}\hfill 
+ \sum_{j=0}^k t^j (P_j ( T \xi) - P_j (\xi )) =0.\hfill }
+ $$
+ 
+This being true for all $t$, it follows that $P_j \circ T = P_j$. But
+the only rotation-invariant functions which are homogeneous of degree
+$j$ are of the form $P_j (\xi) = c_j | \xi | ^j $ where $c_j$ are
+constants. 
+ 
+Indeed, since $P_j$ is rotation-invariant, $P_j (\xi)$ depends only
+on $| \xi |$ and thus, for $| \xi | \neq 0$, 
+$$
+ P_j (\xi ) = P_j \left( | \xi | \frac{\xi}{| \xi |}\right) = |\xi|^j
+ P_j \left(\frac{\xi}{| \xi |}\right)= c_j | \xi | ^j. 
+ $$
+
+ Since $| \xi |^j$ is not a polynomial when $j$ is odd, $c_j=0$ in
+ that case. Therefore, 
+ $$
+ P (\xi) =\sum {c_2j}| \xi |^{2j}. 
+ $$
+ 
+ Taking $Q(x) = \sum (c_{2j}/ (-4 \pi ^2 )^j ) x^j $, we get $ P(D) =
+ Q ( \Delta)$. 
+
+\setcounter{rem}{13}
+ \begin{rem} \label{chap2:sec3:rem13}%Remark 2.14 
+   This theorem applies to scalar differential operators. If one
+   considers operators on vector or tensor functions, there are first
+   order operators which are translation - and rotation - invariant,
+   namely, the\pageoriginale familiar operators grad, curl, div of 3-dimensional
+   vector analysis and their $n$-dimensional generalisations. 
+ \end{rem}  
+
+\setcounter{defi}{14}
+ \begin{defi} \label{chap2:sec3:def15}%Defintion 2.15
+   A function $F(x)$ is said to be \textbf{ radial }, if there is a
+   function $f$ of one variable such that $F(x) = f( |x|)= f(r), r =
+   |x|$. 
+ \end{defi} 
+
+ When $F$ is radial and $F \epsilon L^{1}(\varmathbb{R}^n )$, we have
+ $$
+ \int\limits_{\varmathbb{R}^n}F(x) dx = \int\limits_{0}^{\infty}
+ \int\limits_{| x | =1} f(r) r^{n-1}d \sigma(x) dr 
+ $$
+ where $d \sigma (x) $ is the surface measure on $S^{n-1}$, the unit
+ sphere in $\varmathbb{R}^n$. 
+ 
+ Thus
+ $$
+ \int\limits_{\varmathbb{R}^{n}} F(x) dx= \omega_n
+ \int\limits_{0}^{\infty} f(r) r^{n-1} dr 
+ $$
+where $\omega_n$ is the area of $S^{n-1}$.
+ 
+Let us now calculate $\omega_n $. We have
+$$
+\int\limits e^{- \pi |x|^2 } dx= 1.
+$$ 
+ 
+Now
+\begin{align*} 
+\int\limits e ^{- \pi |x|^2 } dx &= \omega_n \int\limits_{0}^{\infty}
+e^{- \pi r ^{2}}r^{n-1}dr\\ 
+&= \frac{\omega_{n}}{ 2 \pi} \int\limits_0 ^{\infty} e^{-s} (s/
+\pi)^{n/2-1}ds, s = \pi r^2\\ 
+&= \frac{\omega_{n}}{2 \pi ^{n/2}} \int\limits_0 ^{\infty} e^{-s} s^{n/2-1} ds\\
+&=\omega_n \Gamma (n/2) / (2 \pi ^{n/2}).
+\end{align*}
+
+Therefore
+$$
+\omega _n = 2 \pi ^{n/2} / \Gamma(n/2).	 
+$$
+
+\section{Laplace Operator}\label{chap2:sec4} %Section 4
+
+First,\pageoriginale let us find a fundamental solution of $ \Delta$,
+i.e., we want to find a distribution $K$ such that $\Delta 	K = \delta$. 
+
+Since $\Delta$ commute with rotations and $\delta$ has the same
+property, we observe that if $u$ is a fundamental solution of $\Delta$
+and $T$ is a rotation, then $u \circ T $ is also a fundamental
+solution. We therefore expect to find a fundamental solution $K$ which
+is radial. 
+
+Let us tarry a little to compute the Laplacian of a radial function
+$F$. Let$ F(x) = f(r), r = |x|$. Then,  
+\begin{align*}
+  \Delta F(x) &= \sum_{j=1}^n \frac{\partial}{\partial x _{j}} [f' (r) x_j /r]\\
+  &= \sum_{j=1}^n \left(f''(r) \frac{x^{2}_{j}}{r^{2}} + \frac{f' (r)}{r}-
+  \frac{f'(r)}{r^3} x^2_j\right)\\ 
+  &= f''(r) + ((n-1)/r)f'(r).
+\end{align*} 
+ 
+Now set $K(x) = f(r)$. If $K$ is to be a fundamental solution of
+ $\Delta$, we must have	
+  $$
+  f''(r) + ((n-1)/r) f'(r) =0 ~\text{on}~ (0, \infty).
+  $$
+ 
+ From this equation
+ $$
+ f''(r) /f'' (r) = - (n-1) /r. 
+ $$
+ 
+ Integrating, we get
+ $$
+ f'(r) = c_\circ r^{1-n}
+ $$
+with a constant $c_\circ$. One more integration yields
+\begin{align*}
+  f(r)& =c_1 r^{2-n} + c_2 \text{ when }n \neq 2\\
+  &= c_1 \log r + c_2 \text{ when } n=2.
+ \end{align*}\pageoriginale 
+
+Since constants are solutions of the homogeneous Laplace equation, we
+may assume that $ c_2=0$. Thus if we set $F(x) = | x|^{2-n} (n \neq
+2)$ or $F(x) = \log |x| (n=2)$, we expect to find that $\Delta F = c
+\delta $ for some $c \neq 0$, and then $K=c^{-1}F $ will be our
+fundamental solution. 
+ 
+ In fact, we have
+\setcounter{thm}{15}
+\begin{thm} \label{chap2:sec4:thm2.16}%Theorem 2.16
+  If $ F(x) = |x|^{2-n}$ on $ \varmathbb{R}^n (n \neq 2 )$, then $
+  \Delta F = ( 2 -n ) \omega _n \delta $, where $\omega_n$ is the area
+  of the unit sphere in $\varmathbb{R}^n$, 
+\end{thm} 
+\begin{proof}
+  For $ \epsilon > 0$, we define $F_{\epsilon} (x) = ( \epsilon
+  ^2 + |x|^2 ) ^{(2-n) /2}$. Then $F _{\epsilon} $ is a $C^{\infty}$
+  function on $ \varmathbb{R}^n$, and an application of Lebesgue's
+  Dominated Convergence Theorem reveals that $F_{\epsilon}$ converges
+  to $F$ as $\epsilon$ tends to 0, in the sense of distributions. 
+  Therefore $\Delta F _{\epsilon}$ converges to $\Delta
+  F$, in the same sense. Let us now compute $\Delta F_{\epsilon}$.  
+  \begin{align*}
+    \Delta F_{\epsilon} (x) & = \sum_{j=1}^ n \frac{\partial}{\partial
+      x_{j}} \left\{ (2 -n ) (|x|^2 + \epsilon ^2 ) ^{-n/2} x_j\right\}\\ 
+    &= \sum_{j=1}^n \left\{ (2-n )(|x|^2 + \epsilon ^2 ) ^{-n/2}+(2-n)(-n)
+    (|x|^2 + \epsilon ^2 ) ^{(-n/2)-1}x_j^2 \right\}\\ 
+    &=(2-n) ( |x|^2 + \epsilon ^2) ^{ (-n/2)-1}n \epsilon ^2.
+  \end{align*} 
+  
+  Thus we see that $\Delta F_\epsilon \epsilon L^1 (\varmathbb{R}^n)$. A
+  simple computation shows that $\Delta F _\epsilon (x) =
+  \epsilon ^{-n } \Delta F_1 (x / \epsilon)$; so, by Theorem
+  \ref{chap1:sec1:thm1.6}, $\Delta F _\epsilon$ tends to $(
+  \int\limits \Delta F_1) 
+  \delta$ as $\epsilon$ tends to $0$. Therefore $\Delta F= (
+  \int\limits \Delta F_1) \delta$, and we need only to compute
+  $\int\limits \Delta F_1$.
+ \begin{align*}
+ \int \Delta F_1 & = n(2-n) \int(1 + |x|^2 ) ^{(-n/2) -1}dx\\
+ &= n (2-n) \omega_n \int\limits_{0}^{\infty} (1+ r^2)^{(-n/2)-1}r^{n-1}dr.	
+ \end{align*} 
+  
+ Putting\pageoriginale $r^2 +1 =s$, we see that 
+ \begin{align*}
+   \int \Delta F_1 &= \frac{1}{2} n ( 2-n) \omega_n
+   \int\limits^{\infty}_1 s^{ (-n/2)-1} (s-1) ^{(n-1)/2}ds\\ 
+   &=  \frac{1}{2} n (2-n) \omega_n \int\limits_{1}^{\infty} s^{-2}(1 -
+   \frac{1}{s}) ^{(n/2)-1}ds\\ 
+   &= \frac{1}{2}n (2 -n) \omega_n \int\limits_{0}^{\infty} ( 1 - \sigma)
+   ^{(n/2)-1}d \sigma, \sigma= \frac{1}{s}\\
+   &= \frac{1}{2}n (2-n)\omega_n (2/n) = (2-n) \omega_n
+ \end{align*} 
+ which completes the proof.
+\end{proof}
+
+\begin{exercise}
+  Show that if $F(x) = \log |x| $ on $\varmathbb{R}^2$, then $\Delta F
+  = 2 \pi \delta$. 
+\end{exercise} 
+
+\setcounter{coro}{16}
+\begin{coro} \label{chap2:sec4:coro2.17}%Corollary 2.17
+  \textit{Let} $K(x)=
+  \begin{cases}
+    \dfrac{|x|^{2-n}}{(2 -n ) \omega_n}(n \neq 2)\\
+    \frac{1}{2 \pi} \log |x| (n= 2)
+  \end{cases}$ 
+  
+  \textit{Then $K$ is a fundamental solution of the Laplacian.}
+\end{coro} 
+
+\begin{coro} \label{chap2:sec4:coro2.18}%Corolloary 2.18
+   $\Delta $ \textit{is hypoelliptic}.
+ \end{coro} 
+
+ \begin{proof}
+   Follows from Theorem \ref{chap2:sec2:thm2.11}.
+\end{proof}
+
+It is also instructive to compute the fundamental solution of $\Delta$
+by the Fourier transform method.	 
+
+If $K$ is a fundamental solution of $\Delta $, we have $\Delta (k * f)
+= \Delta K * f =f$. Since $(\Delta g) \hat{~ } (\xi ) =- 4 \pi^2
+|\xi|^2 \hat{g}(\xi)$, we get 
+$$
+- 4 \pi^2 | \xi |^2 \hat {K} ( \xi) \hat{f} ( \xi) = \hat{f }(\xi),
+$$
+so\pageoriginale that, at least formally,
+$$
+\hat{K}(\xi) = -1/(4 \pi ^2 | \xi|^2 ). 
+$$
+
+We observe that when $n>2$, the function $-1/(4 \pi ^2 | \xi|^2)$ is
+locally integrable and so defines a tempered distribution. We want to
+show that its inverse Fourier transform is our fundamental solution 
+$K$. For that purpose, we will prove a more general theorem.
+
+\setcounter{thm}{18}
+\begin{thm} \label{chap2:sec4:thm2.19}%Theorem 2.19
+  For $0 < \alpha < n$, let  $F_{\alpha}$ be the locally integrable
+  function $F_ {\alpha }(\xi )= | \xi | ^{- \alpha}$. Then 
+  $$
+  F ^{\vee}_{\alpha}(x) = \left( \Gamma \left( \frac{1}{2} (n -
+  \alpha )\right) / \Gamma
+  \left(\frac{1}{2}\alpha \right) \right) \pi ^{ \alpha -n /2} |x| ^{\alpha -n}. 
+  $$
+  
+  Before proving this theorem, let us pause a minute to observe that
+  it implies  
+  \begin{align*}
+    F^\vee_2 (x) &=\Gamma ((n/2)-1) \pi ^{2-n/2}|x|^{2-n}= ( \Gamma
+    (n/2)/(n/2-1)) \pi ^{2-n/2}|x|^{2-n}\\ 
+    &= (-4 \pi ^2 / ((2 -n) \omega_n )) |x|^{2-n}, \text{ so that } (-F_2
+    / 4\pi ^2))^ \vee =K  
+  \end{align*}
+  as desired.
+\end{thm}
+ 
+\setcounter{proof of theorem}{18}
+\begin{proof of theorem} %Proof of Theorem 2.19
+   The idea of the proof is to express $F _ {\alpha}$ as a weighted
+   average of Gaussian functions, whose Fourier transforms we can
+   compute. 
+
+   To begin with,
+   $$
+   \int\limits_{0}^{\infty} e^{-rt} t^{\alpha-1} dt =
+   \int\limits_{0}^{\infty} e ^{-s}s^{\alpha -1} r^{-\alpha} ds= r^{-
+   \alpha}\Gamma( \alpha), (r > 0, \alpha > 0 ). 
+   $$
+\end{proof of theorem} 
+
+In\pageoriginale other words, for any $r > 0$ and $\alpha > 0$,
+$$
+r^{-\alpha} = \frac{1}{\Gamma(\alpha)} \int\limits^{\infty}_{0}
+e^{-rt} t^{\alpha -1} dt. 
+$$
+
+Taking $r = \pi \mid \xi \mid ^2$ and replacing $\alpha$ by $\alpha /2$, then
+$$
+\mid \xi \mid ^{-\alpha}= \frac{\pi^{\alpha/2}}{\Gamma (\alpha/2)}
+\int\limits^{\infty}_{0} e^{-\pi \mid \xi \mid ^{2_t}} t^{(\alpha
+  /2)-1} dt  
+$$
+which is the promised formula for $F_\alpha$ as a weighted average of
+Gaussians. Formally, we can write 
+\begin{align*}
+  \int\limits_{\mathbb{R}^n} e^{2\pi i x. \xi}\mid \xi \mid^{-\alpha} d
+      \xi  &= \frac{\pi^{\alpha/2}}{\Gamma (\alpha/2)}
+ \int\limits_{\mathbb{R}^n} \int\limits^{\infty}_{0} e^{2\pi ix. \xi_e
+  -\pi \mid \xi \mid^{2_t}} t^{\alpha/2-1} {dt} d \xi\\ 
+ &= \frac{\pi^{\alpha/2}}{\Gamma (\alpha/2)} \int\limits^{\infty}_{0}
+ (e^{\pi\mid \xi \mid^{2_t}})^v (x) t^{(\alpha/2)-1} dt\\ 
+ &= \frac{\pi^{\alpha/2}}{\Gamma (\alpha/2)} \int\limits^{\infty}_{0}
+ e^{-\pi (\mid x \mid^2) /t}~ t^{-n/2 } ~t^{\alpha / 2-1} dt\\ 
+ &=\frac{\pi^{\alpha/2}}{\Gamma (\alpha/2)} \int\limits^{\infty}_{0}
+ e^{-\pi \mid x \mid ^2 S_S (n-\alpha)/2-1} ds\\ 
+ &= \frac {\pi^{\alpha/2}}{\Gamma (\alpha/2)} ~ \frac{\Gamma
+   ((n-\alpha)/2)}{n^{(n-\alpha)/2}} \mid x \mid ^{\alpha-n}. 
+\end{align*}
+
+In this computation, the change of order of the integration is
+unfortunately not justified, because the double integral is not
+absolutely convergent. This is not surprising, since $F_\alpha$ is not
+an $L^1$ function; instead, we must use the definition of the Fourier
+transform for distributions. 
+
+For every $\phi \epsilon S$,
+\begin{align*}
+  < e^{-\pi \mid \xi \mid^{2_t}}, \hat{\phi} > & = < e^{-\pi \mid \xi \mid
+    ^{2_t}} )\hat, \phi >,\\ 
+  \text{i.e.,} \hspace{3cm} \int\limits_{\mathbb{R}^n} e^{-\pi \mid \xi \mid ^{2_t}}
+  \hat{\phi}(\xi)d\xi &= \int\limits_{\mathbb{R}^n} t^{-n/2} e^{-( \pi /
+    t )\mid x \mid ^2} \phi (x) dx.
+\end{align*}\pageoriginale
+
+Now multiply both sides by $t^{(\alpha/2)-1}$ dt and integrate from 0
+to $\infty$. 
+$$
+\int\limits^{\infty}_{0} \int\limits_{\mathbb{R}^n} e^{-\pi | \xi
+  |^{2_t}} t^{(\alpha/2)-1} \hat{\phi} (\xi) d\xi ~ dt
+=\int\limits^{\infty}_{0} \int\limits_{\mathbb{R}^n} e^{-\pi/t \mid x
+  \mid ^2} t^{(\alpha-n)/2-1} \phi (x) dx ~ dt. 
+$$
+
+The change of order in the integral is permitted now and integrating,
+we obtain, 
+\begin{align*}
+  \frac{\Gamma(\alpha/2)}{\pi^{\alpha/2}} \int\limits_{\mathbb{R}^n}
+  \hat{\phi}(\xi)\mid \xi \mid^{-\alpha} d \xi & =
+  \frac{\Gamma((n-\alpha)/2)}{\pi^{(n-\alpha)/2}}
+  \int\limits_{\mathbb{R}^n}\mid x \mid^{\alpha-n} \phi (x) ~ dx\\ 
+  \text{i.e.,} \hspace{2cm} < \mid \xi \mid^{-\alpha}, \hat{\phi} > 
+  & = < \dfrac{\Gamma ((n-\alpha)/2)}{(\Gamma (\alpha/2)} \pi^{\alpha-n/2}
+  \mid x \mid ^{\alpha-n}, \phi >. 
+\end{align*}
+
+This shows that 
+$$
+F^{\vee}_{\alpha}(x) = \frac{\Gamma ((n-\alpha)/2)}{\Gamma(\alpha/2)}
+\pi^{\alpha-n/2} \mid x \mid^{\alpha-n} 
+$$
+as desired.
+
+This analysis does not suffice to explain $-(4\pi^2\mid \xi \mid
+^2)^{-1}$ as (in some sense) the Fourier transform of $(2\pi)^{-1}
+\log \mid x \mid $ in the case $n=2$. One way to proceed is to define
+$G_\alpha(\xi) = (2\pi \mid \xi \mid)^{-\alpha} $ and to study the
+behaviour of $G_\alpha$ and $G^{\vee}_{\alpha}$ as $\alpha$  tends to
+2. This analysis can be carried out just as easily in $n$ dimensions
+where the problem is to study $G_\alpha$ and $G^v_\alpha$ as $\alpha$
+tends to $n$.
+
+Let $R_\alpha = G^{\vee}_{\alpha}$ for $0< \alpha < n$. ($R_\alpha$
+called the \textit{Riesz potential of order $\alpha$}). By the
+preceding theorem, we have 
+$$
+R_\alpha (x) = \frac{(\Gamma((n-\alpha)/2)}{2^{\alpha} \pi^{n/2}\Gamma
+  (\alpha/2)} \mid x \mid^{\alpha-n}. 
+$$\pageoriginale
+
+Moreover, if $f \epsilon S$,
+$$
+(-\Delta)^{\alpha/2} (f * R_\alpha)=f,
+$$
+in the sense that $(2\pi\mid \xi \mid)^\alpha (f * R_\alpha)^{\hat{~}}(\xi) =
+\hat{f}(\xi)$. 
+
+As $\alpha$ tends to $n$, the $\Gamma$-function in $R_\alpha$ blows
+up. However, since $(2\pi \mid \xi \mid)^{\alpha_\delta}=0$, we see
+that $(-\Delta)^{\alpha/2} 1=0;$ so we can replace $R_\alpha$ by
+$R_\alpha-c,c$ being a constant, still having 
+$$
+(-\Delta)^{\alpha/2} (f * (R_\alpha -c)) = f.
+$$
+
+If we choose $c=c_\alpha$ appropriately, we can arrange that $R_\alpha
+- c_\alpha$ will have a limit as $\alpha$ tends to $n$. In fact, let
+us take 
+$$
+c_\alpha =\frac{\Gamma((n-\alpha)/2)}{2^\alpha
+  \pi^{n/2}\Gamma(\alpha/2)} \text{ and define } R'_{\alpha} =
+R_\alpha - c_\alpha. 
+$$
+Then  
+\begin{align*}
+  R'_\alpha(x) & = \frac{\Gamma((n-\alpha)/2)}{2^\alpha n^{n/2}
+    \Gamma(a/2)} ~ (\mid x \mid^{\alpha-n}-1)\\ 
+  & = \frac{2\Gamma((n-\alpha)/2)+1}{2^\alpha \pi^{n/2}\Gamma(\alpha /
+    2)} ~ \frac{(\mid x \mid)^{\alpha-n}-1}{n-\alpha}. 
+\end{align*}
+
+Letting $\alpha$ tend to $n$, we get in the limiting case
+$$
+R'_n(x) = \frac{-2^{1-n}}{\pi^{n/2}\Gamma(n/2)} \log \mid x \mid.
+$$
+when $n=2, -R'_2(x) \dfrac{1}{2\pi} \log \mid x \mid$  and 
+$\Delta (f * (-R'_2)) = f$, so we recover our fundamental solution for
+the case $n=2$. 
+
+It\pageoriginale remains to relate the function $G_n(\xi)=(2\pi\mid \xi \mid)^{-n}$
+to the Fourier transform of the tempered distribution $F'_n$. One way
+to make $G_n$ into a distribution is the following. 
+
+Define a functional $F$ on $S$ by
+$$
+< F,\phi > = \int\limits_{\mid \xi \mid \le 1}
+\frac{\phi(\xi)-\phi(0)}{(2\pi\mid \xi \mid)^n} d\xi +
+\int\limits_{\mid \xi \mid > 1} \frac{ \phi (\xi) }{ (2\pi \mid \xi
+  \mid )^n} d\xi. 
+$$
+
+Note that the first integral converges, since, in view of the mean
+value theorem, $\mid \phi (\xi) - \phi (0) \mid \le c \mid \xi
+\mid$. It is easy to see that $F$ is indeed a tempered
+distribution. Further, we observe that when $\phi (0) = 0$, 
+$< F, \phi >= \int \phi (\xi) G_n (\xi) d\xi$, i.e., $F$  agrees with
+ $G_n$ on $\mathbb{R}^n\backslash \{0\}$. 
+
+Just as $R'_n$ was obtained from $R_n$ by subtracting off an infinite
+constant, $F$ is obtained from $G_n$ by subtracting off an infinite
+multiple of the $\delta$ function. This suggests that $F$ is
+essentially the Fourier transform of $R'_n$. In fact, one has the
+following  
+
+\begin{exercise}%exercise 0
+  Show that $F-(R'_n)\hat{} $ is a multiple of $\delta$.
+  
+  We now examine a few of the basic properties of harmonic functions,
+  i.e., functions satisfying $\Delta u=0$. We shall need the following
+  results from advanced calculus.  
+\end{exercise}
+
+\setcounter{thm}{19}
+\begin{thm}[DIVERGENCE THEOREM]\label{chap2:sec4:thm2.20} %% 2.20 
+  { \em Let} $\Omega$ {\em be a bounded open
+    set in} $\mathbb{R}^n$ {\em  with smooth boundary } $\partial \Omega
+  $. {\em Let} $v$ {\em  be the unit outward normal vector on }
+  $\partial \Omega$. {\em Let} $F:\mathbb{R}^n\to \mathbb{R}^n$ {\em
+    be a } $C^1$ 
+  {\em  function on} $\bar{\Omega}$, the closure of $\Omega$. {\em Then
+    we have} 
+  $$
+  \int\limits_{\partial\Omega}~ F. ~v~ d\sigma = \int\limits_{\Omega}
+  ~div ~F~ dx= \int\limits_{\Omega} \sum^{n}_{j=1} \frac{\partial
+    F_j}{\partial x_j} dx. 
+  $$\pageoriginale
+\end{thm}
+
+\noindent \textbf{CONSEQUENCES OF THEOREM 2.20}
+
+\noindent(2.21) \qquad 
+When we take $F=$ grad $u, F.v =$ grad $u.v = \dfrac{\partial
+  u}{\partial v}$, the normal derivative of $u$, and div $F$ = div
+grad $u=\Delta u$. Therefore 
+$$
+\int\limits_{\partial \Omega} \frac{\partial u}{\partial v} d\sigma =
+\int_{\Omega} \Delta u ~ dx. 
+$$
+
+\noindent (2.22) \quad 
+When we take $F = u$ grad $v-v$ grad $u$, div $F=u \Delta v-v \Delta
+u$. Therefore 
+$$
+\int\limits_{\partial \Omega} \left(u\frac{\partial v}{\partial v} - v
+\frac{\partial u}{\partial v}\right) d\sigma = \int\limits_{\Omega} (u
+\Delta v- v\Delta u)dx. 
+$$
+
+This formula is known as \textit{Green's formula.}
+
+For harmonic functions, we have the following \textit{ mean value theorem}. 
+
+\setcounter{thm}{22}
+\begin{thm} \label{chap2:sec4:thm2.23}%\theorem 2.23
+   {\em Let} $u$ {\em be harmonic in} $B(x_0, r)$. {\em Then},{\em for
+     any} $\rho < r$, {\em we have} 
+   $$
+   u(x_0)=\frac{1}{\omega_n \rho^{n-1}} \int\limits_{\mid x-x_0\mid
+     =\rho} u(x)d\sigma(x). 
+   $$
+   {\em That is}, $u(x_0)$ {\em is the mean value of $u$ on any sphere
+     centred at } $x_0$ 
+\end{thm} 
+
+\begin{proof}%proo 0
+   Without loss of generality, assume that $x_0=0$. Since $\Delta u =0
+\text { and } \Delta$ is hypoelliptic, $u$ is $a$ $C^\infty$
+function. Now formally, 
+ \begin{align*}
+   u(0) &= <\delta, u>\\
+   &= \int\limits_{\mid x \mid < \rho} \delta (x) u(x) dx\\
+   &= \int\limits_{\mid x \mid < \rho} \Delta K(x) u(x) dx\\
+   & = \int\limits_{\mid x \mid < \rho} (u \Delta K - K \Delta u) dx\\
+   &= \int\limits_{\mid x \mid = \rho} \left(u \frac{\partial K}{\partial
+     v}- K\frac{\partial u}{\partial v}\right)d \sigma, \text { by }
+   (2.22).
+\end{align*}\pageoriginale 
+ \end{proof} 
+
+Of course, we are cheating here by applying Green's formula to the
+non-smooth function $K$. Nonetheless the result is correct, and we
+leave it as an exercise for the reader to justify it rigorously
+(either approximate $K$ by $C^\infty$ functions as in the proof of
+Theorem \ref{chap2:sec4:thm2.16} or apply Green's formula to the
+region $\epsilon < \mid x \mid < \rho $ and let $\epsilon$ tend to 0.) 
+
+On the circle $\mid x \mid =\rho, K$ is a constant and so
+$\int\limits_{\mid x \mid = \rho} K\dfrac{\partial u}{\partial v}~
+d\sigma = \const~ \int\limits_{\mid x \mid =\rho
+}\dfrac{\partial u}{\partial v} d\sigma =\const. 
+\int\limits_{\mid x \mid \le \rho} \Delta ~u ~d\sigma =0$. 
+
+Further on $\mid x \mid = \rho. \dfrac{\partial}{\partial v}=
+\dfrac{\partial}{\partial r}$, the radial derivative. Therefore 
+$$
+\frac{\partial K}{\partial v} = 1/(\omega _n \rho^{n-1}) \text{ on
+}\mid x \mid = \rho. 
+$$
+
+Thus we have
+$$
+u(0)=\frac{1}{\omega _n \rho^{n-1}} \int\limits_{\mid x \mid =\rho} u
+(x) d \sigma \quad \text{ as desired}. 
+$$
+
+As a corollary to the mean value theorem, we can derive the
+\textit{maximum principle for harmonic functions.} 
+
+\setcounter{thm}{23}
+\begin{thm}\label{chap2:sec4:thm2.24}%theor 2.24
+  Suppose\pageoriginale $\Omega$ is a connected open set in
+  $\mathbb{R}^n$. Let u be a real- valued function harmonic in 
+  $\Omega$. If $A= \sup\limits_\Omega  u(x)$, then either
+  $u(x)< A$ for all  $x \epsilon \Omega$ or  $u(x)\equiv
+  A $  on  $\Omega$.   
+\end{thm}
+
+\begin{proof}%prof 0
+  Suppose that $u (x_0)=A$ for some $x_0 \epsilon \Omega$. From the
+  mean value theorem 
+  $$
+  u(x_0)=\frac{1}{\omega _n \rho^{n-1}} \int\limits_{\mid x - x_0 \mid
+    = \rho} u(x) d \sigma (x) 
+  $$
+  where $\rho$ is small enough so that $\{x: \mid x-x_o\mid \le \rho
+  \}\subset \Omega$. By our assumption, the integral does not exceed
+  $A$. If $u(x_1)< A$ for some point of $B(x_0, \rho)$ then $u(x)<A$ in
+  some neighbourhood of $x_1$ by continuity. Taking $r=\mid x_1-x_0 \mid
+  < \rho$, we have 
+  $$
+  u(x_0)=\frac{1}{\omega _n r^{n-1}} \int\limits_{\mid x - x_o \mid =
+    r} u(x) d \sigma (x) < A, 
+  $$
+  a contradiction. Therefore, if we set $\Omega_1 = \{x \epsilon \Omega
+  : u (x) = A\}$, then $\Omega _1$ is an open subset of $\Omega \text{
+    and } \Omega _1 \neq \phi$. Further $\Omega _2 = \{x \epsilon
+  \Omega : u (x) < A\}$ is also on open subset of $\Omega \text { and }
+  \Omega_1 \cup \Omega_2 =\Omega$. The connectedness of $\Omega$ and
+  the non-emptiness of $\Omega_1 \text { force } \Omega _2$ to be
+  empty. Thus $u(x)\equiv A $ on $\Omega$. 
+\end{proof}
+
+\setcounter{coro}{24}
+\begin{coro}\label{chap2:sec4:coro2.25}%coro 2.25
+  If $\Omega$ is a bounded open set in $\mathbb{R}^n, u
+  \epsilon C (\bar{\Omega})$ and $\Delta u=0 \textit{ in }
+  \Omega$, then   
+  $$
+  \sup\limits_{\Omega}\mid u(x) \mid = \sup\limits_{\partial \Omega} \mid u(x)\mid. 
+  $$
+\end{coro}
+
+\begin{proof}%pro 0
+  Since the function $u$ is continuous on the compact set
+  $\bar{\Omega}, \mid u(x)\mid$ attains its supremum on $\bar{\Omega}$ at
+  some point $x_0$. By multiplying $u$ by a constant, we may assume
+  that $u(x_0)=\mid u(x_0)\mid$.  
+\end{proof}
+
+If\pageoriginale $x_0 \epsilon \partial \Omega$, the corollary is
+proved. Otherwise $x_0\epsilon \Omega$ and by the previous theorem,
+on the connected component of containing $x_0$, Re $u(x)= u(x_0)$ and
+hence Im $u(x)=0$. Since $u$ is continuous on $\bar{\Omega},
+u(x)=u(x_0)$ for all $x\epsilon \partial \Omega$. Thus
+$\sup\limits_{\Omega}\mid u(x)\mid = \sup\limits_{\partial \Omega}
+\mid u(x)\mid $. 
+
+\setcounter{coro}{25}
+\begin{coro} \label{chap2:sec4:coro2.26}%coror 2.26
+  If $u$ and  $v$  are in $C (\bar{\Omega}), \Omega$ 
+  is bounded  $\Delta u= \Delta v= 0$ on  $\Omega$ and 
+  $u=v$  on  $\partial \Omega$, then  $u=v$ everywhere. 
+\end{coro}
+
+\begin{proof}
+  Apply the previous corollary to $u-v$.
+\end{proof}
+
+The following boundary value problem for Laplace's equation, \break known as
+the \textit{Dirichlet problem}, is of fundamental importance: 
+given a function $f$ on $\partial \Omega$, find a function $u$ such
+that $\Delta u=0 \text{ on }\Omega \text{ and } u=f \text { on }
+\partial \Omega$. 
+
+When $\Omega$ is bounded and $f \epsilon C(\partial \Omega)$ the
+uniqueness of the solution, if it exists at all, is assured by
+corollary \ref{chap2:sec4:coro2.26}. The problem of proving the
+existence of solution of 
+the Dirichlet problem is highly nontrivial. We shall solve a special
+case, namely, when $\Omega$ is a half-space and then indicate how
+similar ideas can be applied for other regions. 
+
+First of all a word about notation: we will replace $\mathbb{R}^n$ by
+$\mathbb{R}^{n+1}$ with coordinates $(x_1, x_2, \ldots, x_n,t)$. Our
+Laplacian in $\mathbb{R}^{n+1}$ will be denoted by $\partial^2_t +
+\Delta$  where $\partial_t= \dfrac{\partial}{\partial t}$ and $\Delta
+= \sum\limits^{n}_{j=1} \dfrac{\partial^2}{\partial x_j}$. Now our
+\textit{Dirichlet Problem} is the following :  
+
+given a function $f$ on $\mathbb{R}^n$, find a function $u$ such that
+\begin{align*}
+  (\partial^2_t + \Delta)\, u (x, t) & = 0, x \epsilon \mathbb{R}^n, t
+  > 0 \tag{2.27}\label{chap2:sec4:eq2.27} \\
+  u(x,o) & = f(x), x \epsilon \mathbb{R}^n.
+\end{align*}\pageoriginale
+
+Since the half space is unbounded, the uniqueness argument given above
+does not apply. Indeed, without some assumption on the behaviour of
+$u$ at $\infty$, uniqueness does not hold. For example, if $u(x,t)$ is
+a solution, so is $u(x,t)+t$. However, we have 
+
+\setcounter{thm}{27}
+\begin{thm}\label{chap2:sec4:thm2.28}%thoem 2.28
+  Let $u$ be a continuous function on $\mathbb{R}^n \times[0,\infty)$
+    satisfying  
+    \begin{enumerate}[i)]
+    \item $(\Delta + \partial^2_t) u=0$ on $\mathbb{R}^n \times (0, \infty)$,
+    \item $u(x,o)=0$ for $ x \epsilon \mathbb{R}^n$, and
+    \item $u$ vanishes at $\infty$.
+    \end{enumerate}
+     Then $U\equiv 0$ on $\mathbb{R}^n \times [0, \infty)$.
+ \end{thm} 
+
+\begin{proof}% proo 0
+Applying the maximum principle for $u$ on $B(0,R) \times (0,T)$, we see
+that maximum of $\mid u \mid $ on $B(0,R) \times (0, T)$ tends to zero as
+$R,T$ tend $\infty$. Hence $u\equiv 0$. 
+\end{proof} 
+\setcounter{rem}{28}
+\begin{rem} \label{chap2:sec4:rem2.29}%rema 2.29
+Hypothesis (iii) in Theorem \ref{chap2:sec4:thm2.28} can be replaced by (iii): $u$ is
+bounded on $\mathbb{R}^n \times [0, \infty)$. But this requires a deeper
+  argument (See Folland \cite{1}). 
+ \end{rem} 
+ 
+ To solve the Dirichelt problem, we apply the Fourier transform in the
+ variable $x$. We denote by $\tilde{u}(\xi, t)$ the Fourier transform  
+ $$
+ \tilde {u}(\xi, t)=\int e^{-2\pi ix.\xi} u(x,t)dx.
+ $$ 
+ 
+ If\pageoriginale we take Fourier transform of
+ (\ref{chap2:sec4:eq2.27}), we obtain 
+ \begin{align*}
+   (\partial^2_t - 4\pi ^2\mid \xi \mid ^2 ) \tilde {u}(\xi, t ) &= o
+   \text { on } \mathbb{R}^n \times (0, \infty)\\ 
+   \tilde {u} (\xi, o) &= \hat{ f } (\xi) \text { on } \mathbb{R}^n.
+ \end{align*} 
+ 
+ 
+ The general solution of the ordinary differential equation $(ODE)$
+ $(\partial ^2_t - 4\pi ^2 \mid \xi \mid ^2)\, \tilde {u} (\xi, t) =0$ is
+ given by $\tilde{u}(\xi, t)= a (\xi) e^{-2\pi \mid \xi \mid t}+ b(\xi)
+ e^{2\pi \mid \xi\mid t}$ and the initial condition is
+ $a(\xi)+b(\xi)=\hat{f}(\xi)$. 
+ 
+ This formula for $\tilde{u}$ will define a tempered distribution in
+ $\xi$, provided that as $\mid \xi \mid $ tends to $\infty, \mid a
+ (\xi) \mid$ grows at most polynomially and $\mid b(\xi)\mid$
+ decreases faster than exponentially. We remove the non- uniqueness by
+ requiring that $u$ should satisfy good estimates in terms of $f$
+ which are uniform in t-for example, that $u$ should be bounded if $f$
+ is bounded. This clearly forces $b(\xi)=0$, since $e^{2\pi \mid \xi
+   \mid t}$ blows up as $t$ tends to $\infty$. Thus we take $\tilde
+ {u}(\xi, t )= \hat{f}(\xi) e^{-2\pi \mid \xi \mid }t$. Taking the
+ inverse Fourier transform in the variable $\xi$, $u(x,t) = (f*P_t)(x)
+ \text { where } P_t(x) = [e^{2\pi t (\mid. \mid )}]^\vee (x)$ is the
+ \textit{Poisson Kernel } for $\mathbb{R}^n \times [0, \infty)$. 
+ 
+ We now compute $P_t$ explicitly. When $n=1$, this is easy:
+ \begin{align*}
+  P_t(x)&=\int\limits^{0}_{-\infty}e^{2\pi ix\xi } e^{2\pi \xi t} d\xi
+  + \int\limits^{\infty}_{0} e^{2\pi ix \xi } e^{-2\pi \xi t } d\xi\\ 
+  &= \frac{1}{2\pi} [(t+ix)^{-1}+ (t-ix )^{-1}] = \frac{t}{\pi} (x^2+t^2)^{-1}.
+  \end{align*}
+
+ To compute $P_t(x)$ for the case $n >1$, as in the proof of Theorem
+ \ref{chap2:sec4:thm2.19}, the idea is to express $e^{-2\pi \mid \xi \mid t}$ as a
+ weighted average of Gaussians. 
+ 
+  Here's\pageoriginale how!
+
+\setcounter{lem}{29}
+ \begin{lem}\label{chap2:sec4:lem2.30}%lemm 2.30
+ When $\beta >0, e^{-\beta} =
+\int\limits^{\infty}_{0}\dfrac{e^{-s}e^{-\beta^2/4s}}{\surd (\pi s)}ds$. 
+ \end{lem}
+  
+ \begin{proof}
+First, observe that 
+$$
+e^{-\beta} = \frac{1}{\pi}
+\int\limits^{\infty}_{-\infty}\frac{e^{i\beta \tau}}{\tau ^2+1}d\tau. 
+$$
+\end{proof} 
+  
+
+This can be proved by using the residue theorem or by applying the
+Fourier inversion theorem to $P_1(x)=\dfrac{1}{\pi}(1+x^2)^{-1}$ on
+$\mathbb{R}^1$. We also have 
+ $$
+ \frac{1}{\tau^2+1}=\int\limits^{\infty}_{0} e^{-(\tau^2+1)s}ds.
+ $$  
+ 
+Therefore, 
+$$
+e^{-\beta'} = \frac{1}{\pi} \int\limits^{\infty}_{-\infty}
+\int\limits^{\infty}_{0} e^{i2 \pi \tau} e^{-(\tau^2+1)s} ds ~ d\tau. 
+$$ 
+
+Putting $\tau = 2\pi \sigma $ and changing the order of integration,
+\begin{align*}
+  e^{=\beta} &= \frac{1}{\pi} \int\limits_{0}^{\infty}
+  \int\limits^{\infty}_{-\infty} e^{i2\pi \sigma \beta} e^{-s} e^{-4\pi
+    ^2 \sigma^2 s} d\sigma ~ ds\\ 
+  \text{i.e.,} \hspace{3cm} e^{-\beta}&= 2 \int\limits^{\infty}_{0} e^{-2} (4\pi
+  s )^{-1/2} e^{\beta^2/ 4s} ds\\ 
+  &= \int\limits^{\infty}_{0}\frac{e^{-s}e^{\beta^2/4s}}{ \surd (\pi s)} ds 
+\end{align*} 
+which is the required expression.
+
+Returning to the computation of $P_t(x)$, we have
+$$
+P_t(x)= \int e^{2\pi i x. \xi } e^{-2\pi \mid \xi \mid t} d \xi.
+$$ 
+
+Taking\pageoriginale $\beta = 2\pi \mid \xi \mid t$ in the lemma, we get
+\begin{align*}
+  P_t(x)&=\int\int\limits^{\infty}_{0} e^{2\pi ix. \xi}
+    \dfrac{e^{-s}}{\sqrt{\pi s}} e^{(4 \pi^2 \mid \xi \mid^2 t^2)/4s} ds
+  d\xi \\  
+  &= \int\limits^{\infty}_{0} \frac{e^{-s}}{\sqrt{\pi s}} \int e^{2\pi
+    ix \xi} e^{-(\pi ^2\mid \xi \mid ^2 t^2)/S} d\xi. ds\\  
+  &= \int\limits^{\infty}_{0}\frac{e^{-s}}{\sqrt{\pi s}} \left(\frac{\pi t
+    ^2}{s}\right)-n/2 e^{-(s \mid x \mid ^2)/t^2} ds\\ 
+  &= \pi^{-(n+1)/2} t^{-n} \int\limits^{\infty}_{0} e^{-s(1+(\mid x \mid
+    ^2/t^2))} s^{(n-1)/2} ~ ds \\ 
+  &= \frac{\pi^{-(n+1)/2} t^{-n} \Gamma (n+1)/2}{\left(1+\frac{\mid x
+      \mid^2}{t^2}\right)(n+1/2)}. 
+\end{align*}
+
+Thus we have
+\begin{equation*}
+  P_t(x) = \Gamma ((n + 1)/2)\pi^{(n+1)/2} t/(t^2+\mid x
+  \mid^2)^{(n+1)/2} \tag{2.31}\label{chap2:sec4:eq2.31} 
+\end{equation*}
+
+In particular, we see that $P_t\epsilon L^1 \cap L^\infty$, so that
+$f*P_t$ is well defined if, for example, $f \epsilon L^p, 1\le p
+\le \infty$. That $(\Delta + \partial^2_t)P_t=0$ follows by taking the
+Fourier transform, and hence  
+$$
+(\Delta + \partial^2_t)(f*P_t)= f *(\Delta + \partial^2_t) P_t=0
+\text{ for any } f. 
+$$
+
+Further note that 
+$$
+P_t(x)= t^{-n} P_1(x/t) \text{ and } \int P_1 (x) dx = \hat{P}_1 (0)=1.
+$$
+
+Therefore, by Theorem \ref{chap1:sec1:thm1.6}, when $f \epsilon L^p, 1\le p <
+\infty, f * P_t$ tends to $f$ in the $L^p$ norm  and when $f$ is
+bounded and continuous $ f * P_t$ tends to $f$ uniformly on compact
+sets as $t$ tends to 0.  
+ 
+If we take $f$ continuous and bounded, then for $u(x,t)= P_t * f$, we
+have $\lim\limits_{t \to 0} u(x,t) = u(x,0)= f(x)$. Thus the function
+$u(x,t) = (f * P_t)(x)$\pageoriginale is a solution of the Dirichlet Problem for
+the half space. 
+
+\setcounter{rem}{31}
+\begin{rem}\label{chap2:sec4:thm2.32} % remark 2.32
+  The Poisson Kernel $P_t$ is closely related to the fundamental
+  solution $K_{n+1}$ of the Laplacian in $\mathbb{R}^{n+1}$. Indeed  
+  $$
+  K_{n+1} (x,t) = \frac{1}{(1 - n) \omega_{n+1}}(|x|^2 + t^2)^{-((n-1)/2)}
+  $$ 
+  and hence
+  $$
+  P_t(x) = 2 \partial_t K_{n+1}(x,t).
+  $$
+\end{rem}
+
+\begin{exercise}%exterseis
+  Check the above equation using the Fourier transform. (Start with
+  ($\partial^2_t +\Delta) K_{n+1} = \delta(x)\delta(t)$ and take the
+  Fourier transform in the variable $x$ to obtain 
+  $$
+  (\partial^2_t - 4\pi^2 |\xi|^2) \tilde{K}_{n+1} = \delta(t).
+  $$
+  
+  Solve this equation to obtain
+  $$
+  \tilde{K}_{n+1}(\xi, t) = \frac{e^{2 \pi}|\xi||t|}{4 \pi |\xi|}.
+  $$
+  
+  Then 
+  $$
+  \partial_t \tilde{K}_{n+1} = \frac{1}{2} e^{-2\pi |\xi|t}, t > 0
+  ,\text {so  that }  \partial_t \tilde{K}_{n+1} = \frac{1}{2} \hat{P}_t).
+  $$
+\end{exercise}
+
+Our formula (\ref{chap2:sec4:eq2.31}) for $P_t$ makes sense even when
+$t < 0$ and we 
+have $P_{-t}(x) = - P_t(x)$, so that $\lim\limits_{t \rightarrow o
+  \pm} f * P_t = \pm f$. We further observe that  
+$$
+f *_{(x)} P_t = f (x) \delta (t) *_{(x,t)^2} \partial_t K_{n+1} (x,t)
+$$
+where $*_(x)$ and $*_{(x,t)}$ mean convolution on $\mathbb{R}^n$ and
+$\mathbb{R}^{n+1}$ respectively. 
+
+Therefore,\pageoriginale
+$$
+\displaylines{\hfill
+f *_{(x)} P_t= f(x) \delta'(t) *_{(x,t)} 2 K_{n+1}(x,t)\hfill\cr
+\text{i.e.,}\hfill  u(x,t) = 2 f (x) \delta'(t) *_(x,t) K_{n+1}
+(x,t).\hfill}
+$$
+
+Form this, we 
+$$
+(\delta^2_t + \Delta) u(x,t) = 2f(x) \delta' (t) * \delta (x) \delta(t) =
+2f(x) \delta'(t). 
+$$
+\begin{exercise}%exter 0
+  Show directly that if
+  \begin{enumerate}[\rm i)]
+  \item $(\Delta + \partial^2_t) u = 0 ~\text{ on }~ \mathbb{R}^{n+1} 
+    \backslash \mathbb{R}^n \times \{ 0 \}$ 
+  \item $u(x, -t) = -u (x,t)$
+  \item $\lim\limits_{t \rightarrow 0 \pm} u(x,t) = \pm f (x)$, then u
+    is a distribution solution of $(\partial^2_t + \Delta) u = 2 f(x)
+    \delta' (t)$. 
+  \end{enumerate}
+\end{exercise}
+
+[To avoid technicalities, assume $f$ is sufficiently smooth so that
+  $\lim\limits_{t \rightarrow 0 \pm} \dfrac {\partial u}{\partial t}$
+  exists; e.g. $f \epsilon C^2$ is sufficient ]. 
+
+We now indicate, without giving any proof, how these ideas can be used
+to solve the Dirichlet Problem in a bounded open set $\Omega$ in
+$\mathbb{R}^2$. We assume that the boundary $\partial \Omega$ of
+$\Omega$ is of class $C^2$. 
+
+We know that the solution of the Dirichlet Problem in the case when
+$\Omega = \mathbb{R}^{n-1} \times (0, \infty)$ is given by $u = f * 2
+\dfrac{\partial K}{\partial x_n}$ (the convolution is in
+$\mathbb{R}^{n-1}$). we note that $\dfrac{\partial K}{\partial x_n}$
+is the inward normal derivative of $K$. For bounded $\Omega$ with
+$C^2$ boundary let us consider 
+$$
+u (x) = 2 \int\limits_{\partial \Omega} f(y) \frac{\partial}{\partial
+  v_y} K (x - y) d \sigma(y). 
+$$
+
+Here\pageoriginale $\sigma(y)$ is the surface measure on the boundary, $\nu$ is the
+unit outward normal on $\partial \Omega$, and $\dfrac{\partial
+  \phi}{\partial \nu_y}(x,y) = \Sigma \nu_j \dfrac{\partial
+  \phi}{\partial y_j}$. The minus sign in $K (x -y)$ compensates the
+switch from inward to outward normal. 
+
+Since $\Delta K (x-y) = \delta(x-y)$ we see that $\Delta u = 0$ in
+$\Omega$. What about the behaviour of $u$ on $\partial \Omega ?$ It
+turns out that if $u$ is defined as above, then  
+$$
+u \epsilon C \bar{(\Omega)} ~\text{and}~ u |_{\partial \Omega} = f + Tf
+$$ 
+where $T$ is a compact integral operator on $L^2 (\partial \Omega)$ or
+$C (\partial \Omega)$. Hence if we can find $\phi$ in $C (\partial
+\Omega)$ such that $\phi + T \phi = f$, and we set 
+$$
+u(x) = 2 \int\limits_{\partial \Omega} \phi(y)
+\frac{\partial}{\partial \nu_y} K(x-y) d \sigma (y) 
+$$
+then $u$ satisfies $\Delta u = 0$ in $\Omega$ and further $u
+|_{\partial \Omega} = \phi + T\phi = f$. Hence the Dirichlet problem
+is reduced to solving the equation $\phi + T \phi = f$, and for this
+purpose, the classical \textit{Fredholm - Riesz theory} is
+available. The upshot is that a solution to the Dirichlet problem
+always exists (provided, as we have assumed, that $\partial \Omega$ is
+of class $C^2$). See Folland \cite{1} for a detailed treatment. 
+
+\section{The Heat Operator}\label{chap2:sec5} %sec 5
+
+The \textit{Heat operator} is given by $\partial_t - \Delta$. We want
+to find a distribution\pageoriginale $K$ such that $(\partial_t - \Delta) K =
+\delta(x) \delta(t)$. Taking the Fourier transform in both variables
+we have  
+\begin{equation}
+  \hat{K}(\xi, \tau) = (2 \pi i + 4 \pi^2
+  |\xi|^2)^{-1}. \tag{2.33}\label{chap2:sec5:eq2.33} 
+\end{equation}
+
+\begin{exercise}
+  Show that $\hat{K}$ is locally integrable near the origin, and hence
+  defines a tempered distribution. 
+\end{exercise}
+
+$\hat{K}$ is not globally integrable, however; so computing its
+inverse Fou\-rier transform directly is a bit tricky. Instead, if we
+take the Fourier transform in the variable $x$ only, 
+$$
+(\partial_t+ 4\pi^2 |\xi|^2)\, \tilde{K}(\xi,t) = \delta(t).
+$$
+we can solve this $ODE$ get
+$$
+\tilde{K}(\xi,t) =
+\begin{cases}
+a(\xi) e^{-4 \pi^2 |\xi|^2 t}, & t>0\\
+b(\xi) e^{-4 \pi^2 |\xi|^2 t}, & t<0
+\end{cases}
+$$
+with $a(\xi) - b(\xi) = 1$.
+
+As in the previous section, there is some latitude in the choice of
+$a$ and $b$, but the most natural choice is the one which makes
+$\tilde{K}$ tempered in $t$ as well as $\xi$, namely $a=1$, $b=0$. So, 
+$$
+\tilde{K}(\xi,t) =
+\begin{cases}
+e^{- 4 \pi^2 |\xi|^2 t}, t>0\\
+0 \text { otherwise }.
+\end{cases}
+$$
+
+Taking\pageoriginale the inverse Fourier transform, 
+$$
+K(x,t) =
+\begin{cases}
+(4 \pi t)^{-n/2} e^{(|x|^2 /4t)}, &t>0\\
+0, &t>0.
+\end{cases}
+$$
+
+This is a fundamental solution of the heat operator.
+
+\setcounter{rem}{33}
+\begin{rem}\label{chap2:sec5:rem2.34}%rema 2.34
+If we take the Fourier transform of $\tilde{K} (\xi, t)$ in the $t$
+variable, we obtain 
+\begin{align*}
+  \tilde{K} (\xi, \tau) & = \int^\infty_{- \infty} \tilde{K}(\xi, t )
+  e^{2 \pi \, \text{i t}\,  \tau} dt\\ 
+  & = \int^\infty_0 e^{-t (4 \pi^2 |\xi|^2 + \pi \,i \, \tau)}dt\\
+  & = (4 \pi^2 |\xi|^2 + 2 \pi i \tau)^{-1},
+\end{align*}
+thus recovering formula (\ref{chap2:sec5:eq2.33}).
+\end{rem}
+
+\begin{exercise}%exerise 0
+Show that this really works, i.e., the iterated Fourier transform of $K$
+first in $x$, then in $t$, is the distribution Fourier transform of $K$
+in all variables. 
+\end{exercise}
+
+\textbf{OBSERVATIONS:} From the formula for $K$, we get
+
+\begin{enumerate}[(1)]
+\item $K (x,t)$ vanishes to infinite order as $t$ tends to 0 when $x
+  \neq 0$ and hence is $C^\infty$ on $\mathbb{R}^{n+1}\backslash \{ (0, 0)
+  \}$. Therefore by Theorem 2.11, $\partial_t - \Delta $ is
+  hypoelliptic. 
+\item $K(x,t) = t^{-n/2} K \left(\dfrac{x}{t}, 1\right)$. Thus if we set $K(x,1)
+  = \phi(x)$, then $K(x, \epsilon^2)$ $= \epsilon^{-n} \phi (x /
+  \epsilon ) = \phi_\epsilon (x)$; so, as $t$ tends to
+  $0,K(x,t)$ tends to $\delta$, Theorem
+  \ref{chap1:sec1:thm1.6}. From\pageoriginale this, we infer  
+\item If $f \epsilon L^p$ and if we set $u(x,t) = f *_{(x)}
+  K(x,t)$, then  
+  \begin{align*}
+    (\partial - \Delta) u & = 0  \text { for } t > 0 \\
+    u (x,0) & = f(x).
+  \end{align*}
+   i.e., as $t$ tends to $0, || u(.,t) - f ||_P$ converges to
+   0. Thus we have solved the initial value problem for the
+   homogeneous heat equation, when $f \epsilon L^p$. Actually,
+   since $K(x,t)$ decreases so rapidly as $|x|$ tends to $\infty$,
+   this works for much wider classes of $f's$. The convolution $f
+   *_{(x)} K(., t)$ make sense, for example, if $|f(x)| < C
+   e^{|x|^{2-\epsilon}}$. If $f$ is also continuous, it is not hard
+   to see that $f *_{(x)} K(.,t)$ converges to $f$ uniformly on
+   compact sets as $t$ tends to $0$. 
+\end{enumerate}
+
+It is now a simple matter to solve the inhomogeneous initial value problem:
+\begin{align*}
+(\partial_t - \Delta) u & = F  ~\text { on}~ \mathbb{R}^n \times (0, \infty),\\
+u (x, 0) & = f(x) \text{ on } \mathbb{R}^n.
+\end{align*}
+
+
+If we take $u_1 = F *_{(x,t)} K$ and 
+$$
+u_2 = (f - u_1 (.,0)) *_{(x)} K,
+$$
+then we see that
+$$
+(\partial_t - \Delta) u_1 = F \text{ on } \mathbb{R}^n \times (0,
+\infty), (\partial_t-\Delta) u_2 = 0 
+$$
+on\pageoriginale $\mathbb{R}^n \times (0, \infty)$, and $(u_1+u_2) (x,0) =
+f(x)$. Thus $u = u_1 + u_2$ solves the problem. 
+
+As another application of the fundamental solution $K$, we can derive
+the \textit{Weierstrass approximation theorem}.  
+
+\setcounter{thm}{34}
+\begin{thm}\label{chap2:sec5:thm2.35}%theo 2.35
+    \textbf{\em{(WEIERSTRASS)}} {\em If $f$ is continuous with compact
+      support on } $\mathbb{R}^n$, {\em then, for any compact} $\Omega
+    \subset \mathbb{R}^n$, {\em there exists a sequence} $(P_m)$ {\em
+      of polynomials such that } $P_m$ {\em converges to f uniformly
+      on }$\Omega$		 
+\end{thm}
+
+\begin{proof}
+Let $u (x,t) = (f *_{(x)} K (., t)) (x)$. Then $u(x,t)$ converges to
+$f(x)$ uniformly as $t$ tends to 0. Moreover, for any $t > 0$, 
+ $$
+ u(x,t) = \int f(y) (4 \pi t)^{-n/2} e^{-\sum\limits^n_{j=1} (x_j -y_j)^2 /4t} dy
+ $$
+is an entire holomorphic function of $x  \in \varmathbb{C}^n$. So
+$u(.,t)$ can be uniformly approximated on any compact set by partial
+sums of its Taylor series. 
+\end{proof}
+
+\section{The Wave Operator}\label{chap2:sec6}%sec 6
+
+If we take the Fourier transform of the equation 
+$$
+(\partial^2_t - \Delta) K = \delta(x) \delta(t) 
+$$
+in both variables $x$ and $t$, we have, formally 
+\begin{equation}
+  \hat{K}(\xi, \tau) = (4 \pi^2 | \xi |^2 - 4 \pi^2
+  \tau^2)^{-1}. \tag{2.36}\label{chap2:sec6:eq2.36} 
+\end{equation} 
+
+This function $\hat{K}$ is not locally integrable, so it is not clear
+how to\pageoriginale interpret it as a distribution. Again, it is better to take the
+Fourier transform in the $x$ variable obtaining 
+$$
+(\partial^2_t + 4 \pi^2 |\xi|^2) \tilde{K}(\xi, t ) = \delta(t).
+$$ 
+Solving this $ODE$,
+$$
+\tilde{K}(\xi, t ) = a_\pm (\xi) e^{2 \pi i|\xi|t} + b_\pm (\xi)
+e^{-2 \pi i|\xi|t} \text{ for } t / |t|= \pm 1 
+$$
+and the coefficients $a_\pm$, $b_\pm$ must be determined so that
+$$
+\tilde{K}(\xi, 0 +) = \tilde{K}(\xi, 0 -), \partial_t \tilde{K}(\xi, 0
++) - \partial_t K(\xi, 0 = ) =1. 
+$$
+
+This gives two equations in four unknowns. In contrast to the situation
+with the Dirichlet problem and the heat operator, there is no way to
+narrow down the choices further by imposing growth restrictions on $K$
+as $|t|$ tends to $\infty$. Rather, it is a characteristic feature of
+the wave operator that one can adapt the choice of fundamental
+solution to the problem at hand. The two which we shall use, called
+$K_+$ and $K_, $are the ones supported in the half - space $t \ge 0$
+and $t \le 0$. $K_+$ and $K_-$ are thus determined by the requirements
+$a_- = b_- = 0$ and $a_+= b_+ = 0$ respectively, from which one easily
+sees that  
+\begin{align*}
+\tilde{K}_+ (\xi, t) & = H(t) \frac{\sin 2 \pi |\xi| t}{2 \pi |\xi|} \\
+\tilde{K}_- (\xi, t) & = -H(-t) \frac{\sin 2 \pi |\xi| t}{2 \pi |\xi|}
+= \tilde{K}_+ (\xi, -t)
+\end{align*}
+where $H$ is the  \textit {Heaviside function}, i.e., the
+characteristic function\pageoriginale of [$0, \infty$). Let us compute the Fourier
+transforms of $\tilde{K}_+$ and $\tilde{K}_-$ in t to see how to make
+sense out of (\ref{chap2:sec6:eq2.36}). $\tilde{K}_+$ and $\tilde{K}_-$ are not
+integrable on $t$, but it is easy to approximate them in the
+distribution topology by integrable functions whose Fourier transforms
+we can calculate.Indeed, if we set 
+$$
+\tilde{K}^\epsilon_+(\xi, t) = e^{-2 \pi \epsilon t} H(t)
+\frac{\sin 2 \pi |\xi| t}{2 \pi |\xi|}, \epsilon > 0,  
+$$
+then $\tilde{K}^\epsilon_+$ is an integrable function and
+$\tilde{K}^\epsilon_+$ converges to $\tilde{K}_+$ is $S'$ as
+$\epsilon $ tends to 0. Therefore $\tilde{K}_+ =
+\lim\limits_{\epsilon \rightarrow 0} \tilde{K}^\epsilon_+$ where 
+\begin{align*}
+  \hat{K}_+ (\xi, \tau) & = \int\limits^{\infty}_{0} e^{2 \pi
+    \epsilon t- 2 \pi ~\text{it}~ \tau } \frac{\sin 2 \pi|\xi|t}{2\pi
+    |\xi|} dt\\ 
+  & = \int\limits^{\infty}_{0} e^{2 \pi \epsilon t- 2 \pi ~\text{it}~ \tau }
+  \frac{(e^{\pi i |\xi |t}-e ^{\pi i |\xi |t})}{4\pi i |\xi|} dt\\ 
+  & = (4 \pi^{2})^{-1} (|\xi|^2-(\tau - i \epsilon )^2)^{-1}.
+\end{align*}
+
+\begin{exercise}%exer
+  Prove that $\hat{K}_-= \lim\limits_{\epsilon \rightarrow 0}
+  \hat{K}^\epsilon_-$ in $S'$ where 
+  $$
+  \hat{K}^\epsilon_- (\xi, \tau) = (4 \pi^2)^{-1} (|\xi|^2 - (\tau +
+  i\epsilon)^2 )^{-1}. 
+  $$
+\end{exercise}
+
+Thus we have two distinct ways of making the function $[4 \pi^2
+  (|\xi|^2 - \tau^2)]^{-1}$ into a tempered distribution. The
+difference $\tilde{K}_+ - \tilde{K}_-$ is of course a distribution
+supported on the cone $|\xi| = |\tau|$. 
+
+We\pageoriginale now propose to use the fundamental solutions $K_+$ and $K_-$ to
+solve the \textit{Initial Value Problem or Cauchy Problem}, for the
+operator: 
+\begin{equation*}
+\begin{aligned}
+  (\partial^2_t - \Delta ) u & = f  \text { on } \mathbb{R}^{n+1} \\
+  u(x,o) & = u_o(x), \\ 
+  \partial_t u(x,0) & = u_1(x),
+\end{aligned}\tag{2.37}\label{chap2:sec6:eq2.37}
+\end{equation*}
+where $u_0,  u_1, f$ are given functions.
+
+For the moment, we assume that $u_0, u_1 \epsilon S$ and $f
+\epsilon C^\infty (\mathbb{R}^n_x))$ ( That is,  
+$t \rightarrow f(.,t)$ is a $C^\infty$ function with values in
+$S(\mathbb{R}^n))$. 
+
+Taking the Fourier transform in the variable $x$ in
+(\ref{chap2:sec6:eq2.37}),  
+\begin{align*}
+  (\partial^2_t + 4 \pi^2 |\xi|^2)\, \tilde{u}(\xi, t) & = \tilde{f}
+  (\xi, t) \\ 
+  \tilde{u} (\xi, 0) & = \tilde{u}_0 (\xi) \\
+  \partial_t \tilde{u} (\xi, 0) & = \tilde{u}_0 (\xi).
+\end{align*}
+When $f= 0$, the general solution of the $ODE$ is
+\begin{gather*}
+  \tilde{u} (\xi, t) = A(\xi) \sin 2 \pi |\xi| t + B(\xi)\cos 2 \pi |\xi|t,\\ 
+  A(\xi) = \frac{\hat{u}_1 (\xi)}{2 \pi |\xi|} ~\text{ and  }~ B (\xi) =
+  \tilde{u}_0 (\xi). 
+\end{gather*}
+when $u_0 = u_1 =0$, the solution is 
+$$
+\tilde{u} (\xi, t) = \int\limits^t_0 \tilde{f}(\xi, s) 
+\frac{\sin (2 \pi |\xi|(t - s))}{2 \pi |\xi|} ds  
+$$
+
+(This\pageoriginale may be derived by variation of parameters; in any case it is
+easy to check that this $u$ is in fact the solution). Therefore, the
+solution for the general case is given by  
+\begin{gather*}
+  \tilde{u}(\xi, t) = \hat{u}_0 (\xi) \cos 2 \pi |\xi| t +
+  \frac{\hat{u}_1 (\xi)}{2 \pi |\xi |} \sin 2 \pi |\xi | t +\\ 
+  + \int \limits^t_0 \tilde{f} (\xi, s)\frac{\sin (2 \pi |\xi
+    |(t - s))}{2 \pi |\xi|} ds. 
+\end{gather*}
+
+For $t > 0$, we can rewrite this as 
+$$
+\tilde{u} (\xi, t) = \hat{u}_1 (\xi) \tilde{K}_+ (\xi, t ) +
+\hat{u}_0 (\xi) \partial_t \tilde{K}_+ (\xi, t) + \int \limits^t_0
+\tilde{f} (\xi, s) \tilde{f}(\xi, s ) K_+ (\xi, t-s) ds. 
+$$
+
+Since $K_+ (\xi, t -s) = 0 $ for $t < s$,
+$$
+\tilde{u} (\xi, t) = \hat{u}_1 (\xi) \tilde{K}_+ (\xi, t ) +
+\hat{u}_0 (\xi) \partial_t \tilde{K}_+ (\xi, t) + \int \limits^t_0
+\tilde{f} (\xi, s) \tilde{f}(\xi, s ) K_+ (\xi, t-s) ds. 
+$$
+
+Take the inverse Fourier transform:
+$$
+u(x,t) = (u_1 *_{(x)} K_+) + u_0 *_{(x)} \partial_t K_+) + (H(t)f *_{(x,t)} K_+).
+$$
+
+Likewise, for $t<0$
+$$
+u(x,t) = -(u_1 *_{(x)} K_-) - u_0 *_{(x)} \partial_t K_-) + ((H(-t)f)
+*_{(x,t)} K_-). 
+$$
+
+So, for arbitrary t, our solution u can be expressed as
+\begin{align*}
+  u(x,t) &= (u_1 *_{(x)} (K_+ - K_) + u_0 *_{(x)}
+    \partial_t (K_+ - K_-)\\
+&\qquad + (H(t) f *_{(x,t)} K_+ ) + (H(-t) f
+    *_{(x,t)} K_ )). \tag{2.38}\label{chap2:sec6:eq2.38}
+\end{align*}
+
+So\pageoriginale far, we have avoided the question of computing $K_+$ and $K_-$
+explicitly. Indeed, since $\tilde{K}_+$ and $\tilde{K}_-$ are not
+$L^1$ functions, it is not an easy matter to calculate their inverse
+Fourier transform, 
+
+However, for the case $n=1$, we can find $K_+$ and $K_-$ by solving
+the wave wave equation directly. We have  
+$$
+\partial^2_t - \Delta = \partial^2_t - \partial^2_x.
+$$
+
+ If we make the change of variables $\xi = x + t, n = x - t$, then the
+ wave operator becomes $\partial^2_t - \partial^2_x = -4
+ \dfrac{\partial^2}{\partial \xi \partial \eta}$. The general solution of
+ $\dfrac{\partial^2u}{\partial \xi \partial \eta} = 0$ is given by 
+ $$
+ u(\xi, n ) = f(\xi) + g(\eta)
+ $$
+ where $f$ and $g$ are arbitrary functions. Therefore
+ $$
+ u(x,t) = f(x + t) + g(x - t).
+ $$
+ 
+ 
+ To solve $(\partial^2_t - \partial^2_x) u = 0, u(x,0) = u_0(x),
+ \partial_t u (x,0) = u_1(x)$ we must have 
+ \begin{align*}
+   u_0(x) & = f(x) + g(x) \\
+   u_1(x) & = f'(x) - g'(x). 
+ \end{align*}  
+ 
+ From these equations, we have
+ \begin{align*}
+   f'(x) & = \frac{1}{2}(u_0'(x) + u_1(x)) \\
+   g'(x) & = \frac{1}{2}(u_0'(x) - u_1(x)). 
+ \end{align*} 
+
+Thus\pageoriginale $u(x, t)$ is given by 
+$$
+u(x, t) = \frac{1}{2} (u_0 (x + t) + u_0 (x - t)) + \frac{1}{2}
+\int\limits^{x+t}_{x-t} u_1 (s) ds. 
+$$
+
+Comparing with the previous formula (\ref{chap2:sec6:eq2.38}), we find that 
+$$
+K_+ (x, t) = \frac{1}{2} H(t - | x |), K_- (x, t) = \frac{1}{2} H (-t - | x |).
+$$
+
+\begin{exercise}
+  Compute $\tilde{K}_{\pm}$ directly from these formulas.
+\end{exercise}
+
+It turns out that, for $n = 2$,
+$$
+K_{\pm}(x, t) = \frac{1}{2\pi\sqrt{t^2 - x^2}} H (\pm t - |x|),
+$$
+and, for $n = 3$,
+$$
+K_\pm (x, t) = \frac{\pm 1}{4 \pi t} \delta (\pm t - |x|).
+$$
+
+For $n = 1, 2, K_+, K_-$ are functions; for $n = 3, K_+, K_-$ are not
+functions but they are measures. For $n > 3, K_+, K_-$ are neither
+functions nor measures; they are more singular distributions. The
+exact formula for $K_\pm$ is rather messy and we shall not write it
+out; it may be read off from Theorem \ref{chap5:thm5.13} and
+\ref{chap5:thm5.14} of Folland 
+\cite{1} in view of our formula (\ref{chap2:sec6:eq2.38}). \textit{The most important
+  qualitative feature of } $K_\pm$, however, \textit{is that it is
+  always supported in the light cone} $\{ (x, t) : \pm t > |x| \}$ and
+we shall now prove this as a consequence of the following result. 
+
+\setcounter{thm}{38}
+\begin{thm}\label{chap2:sec6:thm2.39}%them 2.39
+  Suppose $u$ is a $C^2$ function on $\{ (x, t) : t
+  \geq  o \}$ such\pageoriginale that $(\partial_t^2 - \triangle ) u = 0$ 
+  for $t > 0$ and $u = \partial_t u = 0$  on the set $B_0
+  = \{ (x, 0) : |x - x_0 | \leq t_0 \}$. Them $u$ vanishes on 
+  $\Omega = \{ (x, t) : 0 \leq t \leq t_0, |x - x_0 | \leq t_0 - t \}$. 
+\end{thm}
+
+\noindent
+\textit{Proof.}
+Assume $u$ is real valued; otherwise, we can consider the real and
+imaginary parts separately. Let  
+$$
+\displaylines{\hfill
+  B_t = \{ x: | x - x_0 | \leq t_0 - t \} \text{ and } E (t) =
+  \frac{1}{2} \int\limits_{B_t} | ~\text{grad}_{x, t} u |^2 dx \hfill \cr
+  \text{i.e.,}\hfill E(t) = \dfrac{1}{2} \int_{B_t} \left[ (\partial_t u)^2 +
+    \sum\limits_1^n \left(\dfrac{ \partial u}{ \partial x_j}\right)^2
+    \right] dx.\hfill \Box} 
+  $$ 
+
+Then
+\begin{multline*}
+\frac{dE}{dt} = \frac{1}{2}\int\limits_{B_t} 2 \left[ \frac{\partial
+    u}{\partial t}. \frac{\partial^2 u}{\partial_t^2} + \sum_1^n
+  \frac{\partial u}{\partial x_j} \frac{\partial^2 u}{\partial x_j
+    \partial t}\right] dx-\\  
+- \frac{1}{2} \int\limits_{\partial B_t} \left[ \left(\frac {\partial u}{\partial
+    t}\right)^2 + \sum^n_1 \left(\frac{\partial u}{\partial
+     x_j}\right)^2 \right] d \sigma (x).  
+\end{multline*}
+
+(The second term comes from the change in the region $B_t$. If this is
+not clear, write the derivative as a limit of difference quotients and
+work it our). 
+
+Since
+$$
+\sum \frac{\partial u}{\partial x_j} \frac{\partial^2 u}{\partial x_j
+  \partial t} + \sum \frac{\partial^2 u}{ \partial_{x_j^2}}\,
+\frac{\partial u}{\partial t} = div \left(\frac{\partial u}{\partial t}
+grad_x u\right), 
+$$
+applying the divergence theorem and using $(\partial^2_t - \triangle)
+u = 0$, we obtain  
+$$
+\frac{dE}{dt} = \int\limits_{\partial B_t} \left[ \frac{\partial
+    u}{\partial t} \frac{\partial u}{\partial \nu} - \frac{1}{2} |
+  ~\text{grad}_{x, t} u |^2 \right] d \sigma  
+$$
+where\pageoriginale $\nu$ is the unit normal to $B_t$ in $\mathbb{R}^n$. Now 
+\begin{align*}
+  | \frac{\partial u}{\partial t} \frac{\partial u}{\partial \nu} | &<
+  \frac{1}{2} \left[ | \frac{\partial u}{\partial t} |^2 + | \frac{\partial
+      u}{\partial \nu} |^2 \right]\\ 
+  & < \frac{1}{2} \left[ | \frac{\partial u}{\partial t} |^2 + |
+    ~\text{grad}_x u |^2  = \frac{1}{2} | ~\text{grad}_{x, t} u |^2\right]. 
+\end{align*}
+
+Thus we see that the integrand is non-positive, and hence
+$\dfrac{dE}{dt} \leq 0$. Also $E(0) = 0$ since $u = \partial_t u = 0$
+on $B_0$, so $E (t) \leq 0$. But $E (t) \geq 0$ by definition, so $E
+(t) = 0$. This implies that $\text{grad}_{x, t} \,u = 0$ on $\Omega =
+\bigcup\limits_{t \leq t_0} B_t$ and since $u = 0$ on $B_0$, we
+conclude that $u = 0$ on $\Omega$. 
+
+\setcounter{coro}{39}
+\begin{coro} \label{chap2:sec6:coro2.40} %%% coro2.40
+  Suppose $u \epsilon C^2$ on $\mathbb{R}^n \times [0, \infty),
+    (\partial^2_t - \triangle ) u = 0$ for $t > 0, u (x, 0) =
+  u_0 (x), \partial_t \,u (x, 0) = u_1 (x)$. If $\Omega_0 =
+  (\supp  u_0) \cup (\supp u_1)$, then $\supp u \subset \Omega
+  = \{(x, t) : d(x, \Omega_0) \leq t \}$. 
+\end{coro}
+
+(The set $\Omega$ is the union of the forward light cones with
+vertices in $\Omega_0$). 
+\begin{proof}
+  Suppose $(x, t_0) \notin \Omega$. Then for some $\epsilon
+  > 0$, the set  
+  $$
+  B_0 = \{ x: d (x, x_0) \leq t_0 + \epsilon \} \text{ is disjoint
+    from } \Omega_0. 
+  $$
+  
+  Therefore, by Theorem \ref{chap2:sec6:thm2.39}, $u = 0$ on the cone
+  $$
+  \{ (x, t) : | x - x_0 | \leq t_0 + \epsilon - t, 0 \leq t \leq t_0
+  + \epsilon \}. 
+  $$
+  In particular, $u = 0$ on a neighbourhood of $(x_0, t_0)$, i.e., $(x_0,
+  t_0)$ is not in the support of $u$. 
+\end{proof}
+
+\setcounter{coro}{40}
+\begin{coro}\label{chap2:sec6:coro2.41}%2.41
+  \begin{align*}
+    \Supp & K_+ \subset \{ (x, t) :  t \geq | x | \}\\
+    \Supp & K_+ \subset \{ (x, t) : -t \geq | x | \}.
+  \end{align*}\pageoriginale
+\end{coro}
+
+\begin{proof}
+Pick $a \phi \epsilon C^{\alpha}_0 (B(0, 1))$ such that $\int \phi = 1$. Put 
+$$
+\phi_\epsilon (x) = \epsilon^{-n} \phi (\epsilon^{-1}
+x). \text{ Let } u_\epsilon (x, t) = \phi_\epsilon *_{(x)} K_+,
+t >0. 
+$$
+\end{proof}
+
+Then $(\partial^2_t - \triangle ) u_\epsilon = 0, u (x, 0) = 0,
+\partial_t\, u(x, 0) = \phi_\epsilon (x)$ and $u_\epsilon$ is
+$C^\alpha$. 
+
+By the previous corollary
+$$
+\supp u_\epsilon \subset \{ (x, t) : | x | \leq t + \epsilon \}.
+$$
+
+
+Now $u_\epsilon$ converges to $K_+$ in $S'$, as $\epsilon$ tends
+to $0$. Therefore,  
+$$
+\supp K_+ \subset \{(x, t) : | x | \leq t \}.
+$$
+
+
+The result for $K_-$ follows then since $K_- (x, t) = K_+ (x, -t)$.
+
+\setcounter{remarks}{41}
+\begin{remarks}\label{chap2:sec6:rem2.42}%2.42
+\begin{enumerate}[\rm (i)]
+\item One could also deduce the above result from our formulas for
+  $\tilde{K}_{\pm}$ by using the {\em Paley-Wiener theorem}. 
+\item Actually for $n = 3, 5, 7, \ldots $, it turns out that $\supp
+  K_{\pm} = \{ (x, t) : | x | = \pm t \}$. This is known as the {\em
+    Huygens principle}. See Folland \cite{1}. 
+\item The distributions $K_\pm$ are smooth functions of $t$ (except at
+  $t = 0$) with values in $E' (\mathbb{R}^n)$. Therefore, we now see
+  that our formula (\ref{chap2:sec6:eq2.38}) for the solution of the
+  Cauchy problem 
+  makes sense even when $u_0, u_1, \epsilon D' (\mathbb{R}^n)$ and
+  $f \epsilon C (\mathbb{R}_t, D' (\mathbb{R}^n_x))$, and it is\pageoriginale
+  easily checked that $u$ thus defined still solves the Cauchy problem
+  in the sense of distributions. Corollary \ref{chap2:sec6:coro2.40}
+  remains valid in 
+  this more general setting, as can seen by an approximation argument
+  as in the proof of Corollary \ref{chap2:sec6:coro2.41}. 
+\end{enumerate}
+\end{remarks}
+
+\textbf{EXERCISE}~ If $(\partial^2_t - \triangle ) u = f$ on
+$\mathbb{R}^{n+1}$, $u (x, 0) = u_0 (x)$, and $\partial_t\, u (x, 0)\break = u_1
+(x)$, figure out how $\supp u$ is related to $\supp f, \supp u_0$ and
+$\supp u_1$. 

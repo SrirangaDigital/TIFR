@@ -1,0 +1,305 @@
+\chapter{Lecture}\label{part3:lec19} %%% 19
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+The\pageoriginale formula for $p(n)$ looked like this:
+$$
+p(n) = \frac{1}{i} \left( \frac{\pi}{12}\right)^{3/2}
+\sum^\infty_{k=1} A_k (n) k^{- 5/2} \int\limits^{(0+)}_{- \infty}
+s^{- 5/2} e^{s+ \frac{1}{s} (\frac{\pi}{12k})^2 (24n-1)} ds
+$$
+
+We discussed the loop integral
+$$
+L_v (\nu) = \frac{1}{2 \pi i} \int\limits^{(0+)}_{ -\infty} s^{-v -1}
+e^{s + \frac{v}{s}}ds, \mathscr{R} \nu > 0.
+$$
+
+We can differentiate under the integral sign and obtain
+$$
+L'_v (\nu) = \frac{1}{2 \pi i}\int\limits^{(0+)}_{ -\infty} s^{-v -2}
+e^{s + \frac{v}{s}}ds= L_{v+1} (\nu)
+$$
+
+This integral is again of the same sort as before; so we can repeat
+differentiation under the integral sign. Clearly then $L_v (\nu)$ is
+an entire function of $\nu \cdot L_v (\nu)$ has the expansion in a
+Taylor series:
+$$
+L_v (\nu) = \sum^\infty_{r=0} \frac{L_v^{(r)} (0)}{r!} \nu^r
+$$
+
+$L_v^{(r)} (\nu)$ can be foreseen and is clearly
+$$
+\frac{1}{2 \pi i} \int\limits^{(0+)}_{- \infty} s^{-v -1-r} e^{s +
+  \frac{v}{s}} ds
+$$
+
+So\pageoriginale  
+$$
+L_v (\nu) = \sum^\infty_{r=0} \frac{\nu^r}{r!} \frac{1}{2 \pi i}
+\int\limits^{(0+)}_{- \infty} s^{-v -1-r} e^s ds
+$$
+
+We now utilise a famous formula for the $\Gamma$-function - Hankel's
+formula, viz,
+$$
+\frac{1}{\Gamma (\mu)} = \frac{1}{2 \pi i} \int\limits^{(0+)}_{-
+  \infty} s^{- \mu} e^{s} ds.
+$$
+
+This is proved by means of the formula $\Gamma (s) \Gamma (1-s)=
+\dfrac{\pi}{\sin \pi s}$ and the Euler integral. Using the Hankel
+formula we get $L$ explicitly:
+$$
+L_v (\nu) = \sum^\infty_{r=0} \frac{\nu^r}{r! \Gamma (v +r+1)}
+$$
+
+What we have obtained is something which we could have guessed
+earlier. Expanding $e^{v/s}$ as a power series, we have
+\begin{align*}
+  L_v (\nu) & = \frac{1}{2 \pi i} \int\limits^{(0+)}_{- \infty} s^{-
+    v-1} e^s \sum^\infty_{r=0} \frac{(v/s)^r}{r!} ds\\
+  & = \frac{1}{2 \pi i} \int\limits^{(0+)}_{-\infty}
+  \sum^\infty_{r=0} \frac{v^r}{r!} e^s s^{-v-1-r} ds,
+\end{align*}
+and what we have proved therefore is that we can interchange the
+integration and summation. We have
+$$
+L'_v (\nu) = L_{v+1} (\nu).
+$$
+
+Having this under control we can put it back into our formula and get
+a final statement about $p(n)$.
+
+$$
+p(n) = 2 \pi \left( \frac{\pi}{12}\right)^{3/2} \sum^\infty_{k=1} A_k
+(n) k^{- 5/2} L_{3/2} \left( \left( \frac{\pi}{12k}\right)^2(24n-1) \right) 
+$$
+
+This\pageoriginale is not yet the classical formula of Hardy and
+Ramanujan. One trick one adopts is to replace the index. Remembering
+that $L'_v (\nu) = L_{v+1} (\nu)$, we have
+\begin{align*}
+  L_{3/2} \left(\left( \frac{\pi}{12k}\right)^2 (24n-1) \right) & =
+  L'_{1/2} \left( \left( \frac{\pi}{12k}\right)^2 (24n-1)\right)\\
+  & = \frac{6k^2}{\pi^2} \frac{d}{dn} L_{1/2} \left( \left(
+  \frac{\pi}{12k}\right)^2 (24n-1)\right)
+\end{align*}
+
+Let us write the formula for further preparation closer to the Hardy
+Ramanujan notation:
+$$
+p(n) = \left( \frac{\pi}{12}\right)^{1/2} \sum^\infty_{k=1} A_k (n)
+k^{-1/2} \frac{d}{dn} L_{1/2} \left( \left( \frac{\pi}{12k}\right)^2
+(24n-1)\right) 
+$$
+
+Now it turns out that the $L$-functions for the subscript
+$\frac{1}{2}$ are elementary functions. We introduce the classical
+Bessel function
+$$
+\mathcal{J}_v (\mathfrak{z}) = \sum^\infty_{r=0} \frac{(-)^r
+  (\mathfrak{z}/2)^{2r+v}}{r! \Gamma (v +r+1)}
+$$
+and the hyperbolic Bessel function (or the `Bessel function with
+imaginary argument')
+$$
+\mathcal{I}_v (\mathfrak{z}) = \sum^\infty_{r=0}
+\frac{(\mathfrak{z}/2)^{2r+v}}{r! \Gamma (v+r+1)}
+$$
+
+How\pageoriginale do they belong together? We have
+\begin{align*}
+  L_v \left( \frac{\mathfrak{z}^2}{4}\right) & = \mathcal{I}_v
+  (\mathfrak{z}) \left(\frac{\mathfrak{z}}{2} \right)^{-v},\\
+  L_v \left( -\frac{\mathfrak{z}^2}{4}\right) & = \mathcal{J}_v
+  (\mathfrak{z}) \left(\frac{\mathfrak{z}}{2} \right)^{-v},  
+\end{align*}
+connecting our function with the classical functions. In our case
+therefore we could write in particular
+$$
+L_{1/2} \left( \left(\frac{\pi}{12 k}\right)^2 (24n-1)\right)=
+\mathcal{I}_{1/2} \left(\frac{\pi}{6k}\sqrt{24n-1}\right) \left(
+\frac{\pi}{12k} \sqrt{24 n-1}\right)^{-1/2}
+$$
+
+This is always good, but we would come into trouble if we have
+$24n-1\leq 0$. It is better to make a case distinction; the above
+holds for $n \geq 1$, and for $n \leq 0$, $n=- m$, we have
+\begin{align*}
+  L_{1/2} \left( \left( \frac{\pi}{12k}\right)^2(24n-1)\right) & =
+  L_{1/2} \left(- \left(\frac{\pi}{12k} \right)^2(24m+1)\right)\\
+  & = J_{1/2} \left( \frac{\pi}{6k} \sqrt{24 m+1}\right)
+  \left( \frac{\pi}{12k} \sqrt{24m+1}\right)^{-1/2} 
+\end{align*}
+
+So we have: \qquad $n \geq 1$.
+$$
+p(n) = \left(\frac{\pi}{12} \right)^{1/2} \sum^\infty_{k=1} A_k (n)
+k^{-1/2} \frac{d}{dn} \left(\frac{\mathcal{I}_{1/2} \left(
+  \frac{\pi}{6k} \sqrt{24 n-1}\right)}{\left( \frac{\pi}{12k} \sqrt{24
+    n-1}\right)^{1/2}} \right)
+$$
+$n= -m \leq 0$\pageoriginale
+$$
+p(n) = p(-m)= - \left( \frac{\pi}{12}\right)^{1/2} \sum^\infty_{k=1}
+A_k (-m) k^{-1/2} \cdot \frac{d}{dm} \left( \frac{J_{1/2}
+  \left( \frac{\pi}{6k} \sqrt{24m+1}\right)}{\left( \frac{\pi}{12k}
+  \sqrt{24 m+1}\right)^{1/2}}\right) 
+$$
+
+We are not yet quite satisfied. It is interesting to note that the
+last expression is 1 for $n=0$ and 0 for $n< 0$. We shall pursue this
+later.
+
+We have now more or less standardised functions. We can even look up
+tables and compute the Bessel function. However $\mathcal{I}_{1/2}$
+and $J_{1/2}$ are more elementary functions.
+\begin{align*}
+  J_{1/2} (\mathfrak{z}) & = \sum^\infty_{r=0} \frac{(-)^r
+    (\mathfrak{z}/2)^{2r+ 1/2}}{r! \Gamma (r + \frac{3}{2})}\\
+  & = \sum^\infty_{r=0} \frac{(-)^r (\mathfrak{z}/2)^{2r +
+      \frac{1}{2}}}{r! \left( r + \frac{1}{2}\right) \left( r -
+    \frac{1}{2} \right) \cdots \frac{1}{2} \Gamma\left(
+    \frac{1}{2}\right)}\\
+    & = \left( \frac{2}{\pi \mathfrak{z}}\right)^{1/2}
+    \sum^\infty_{r=0} \frac{(-)^r \mathfrak{z}^{2r+1}}{(2r+1)!}\\
+    & = \left( \frac{2}{\pi \mathfrak{z}}\right)^{1/2} \sin \mathfrak{z}.
+\end{align*}
+
+Similarly\pageoriginale if we has abolished $(-)^r$ we should have
+\begin{align*}
+  I_{\frac{1}{2}} (\mathfrak{z})& = \left( \frac{2}{\pi
+    \mathfrak{z}}\right)^{1/2} \sinh \mathfrak{z}\\
+  \frac{I_{1/2} (\mathfrak{z})}{(\mathfrak{z}/2)^{1/2}} & = I_{1/2}
+  (\mathfrak{z}) \left( \frac{2}{\mathfrak{z}}\right)^{1/2} =
+  \frac{2}{\sqrt{2}} = \frac{\sinh \mathfrak{z}}{\mathfrak{z}}\\
+  \frac{J_{1/2} (\mathfrak{z})}{(\mathfrak{z}/2)^{1/2}} & =
+  \frac{2}{\sqrt{\pi}}  \frac{\sin \mathfrak{z}}{\mathfrak{z}}
+\end{align*}
+
+We are now at the final step in the deduction of our formula: 
+
+\heading{$n \geq1$}
+
+$$
+\displaylines{\hfill p(n) = \frac{1}{\sqrt{3}} \sum^\infty_{k=1} A_k
+  (n) k^{-1/2} \frac{d}{dn} \left( \frac{\sinh \frac{\pi}{6k}
+    \sqrt{24n-1}}{\frac{\pi}{6k} \sqrt{24 n-1}} \right) \hfill \cr
+  \text{or with} \hfill \frac{\pi}{6k} \sqrt{24 n-1} = \frac{\pi}{k}
+  \sqrt{\frac{2}{3} (n- \frac{1}{24})} = \frac{c}{k} \sqrt{n-
+    \frac{1}{24}}, C= \pi \sqrt{\frac{2}{3}}, \hfill \cr
+  \hfill p(n) = \frac{1}{\pi \sqrt{2}} \sum^\infty_{k=1} A_k (n) k^{1/2}
+  \frac{d}{dn} \left( \frac{\sinh \frac{c}{k} \sqrt{n-
+      \frac{1}{24}}}{\sqrt{n- \frac{1}{24}}}\right)\hfill }
+$$
+
+\heading{$n=- m\leq 0$}
+ 
+$$
+p(n) = p(-m) =- \frac{1}{\pi \sqrt{2}} \sum^\infty_{k=1} A_k (-m)
+k^{\frac{1}{2}} \frac{d}{dm} \left( \frac{\sin \frac{c}{k} \sqrt{m+
+    \frac{1}{24}}}{\sqrt{m+ \frac{1}{24}}}\right)
+$$
+
+This\pageoriginale is the final shape of our formula -$a$ convergent series for
+$p(n)$.
+
+The formula can be used for independent computation of $p(n)$. The
+terms become small. It is of interest to find what one gets if one
+breaks the series off, say at $k=N$
+$$
+p(n) = \frac{\pi^{5/2}}{12\sqrt{3}} \sum^N_{k=1} \cdots + R_N
+$$
+
+Let us appraise $R_N \cdot |A_k (n)| \leq k$, because there are only
+$\varphi(k)$ roots of unity. We want an estimate for $L_{3/2}$. For $n
+\geq 1$,
+\begin{align*}
+  L_{3/2} \left( \left( \frac{\pi}{12k}\right)^2(24n-1)\right) & \leq
+  \sum^\infty_{r=0} \frac{\left( \frac{\pi^2}{6k^2}n\right)^r}{r!
+    \Gamma \left( r+ \frac{5}{2}\right)}\\
+  & \leq \sum^\infty_{r=0} \frac{\left(
+    \frac{\pi^2}{6(N+1)^2}n\right)^r}{r! \Gamma \left(
+    \frac{1}{2}\right) \cdot \frac{1}{2} \cdot \left(r + \frac{3}{2}
+    \right)}\\ 
+  (\text{since} k > N ~\text{in}~ R_N) & = \frac{1}{\sqrt{\pi}} \sum^\infty_{r=0}
+  \frac{\left(\frac{\pi^2}{6(N+1)^2} n  \right)^r \cdot 2^{2r+1}}{(2
+    r+1)! (r+ \frac{3}{2})}\\
+  & \leq \frac{2}{\sqrt{\pi}} \sum^\infty_{r=0} \frac{\left(\frac{2
+      \pi^2}{3(N+1)^2}n  \right)^r}{(2 r+1)!}\\
+  & \leq \frac{2}{3} \cdot \frac{2}{\sqrt{\pi}} \sum^\infty_{r=0}
+  \frac{\left( \frac{2 \pi^2}{3(N+1)^2}n\right)^r}{(2r)!}\\
+  & < \frac{4}{3 \sqrt{\pi}} e^{\frac{\pi}{N+1} \sqrt{\frac{3n}{3}}}
+\end{align*}
+
+\begin{align*}
+  \therefore \qquad |R_N| &\leq \frac{\pi^2}{9 \sqrt{3}}
+  e^{\frac{\pi}{N+1} \sqrt{\frac{2n}{3}}} \sum^\infty_{k=N+1}
+  \frac{1}{k^{3/2}}\\
+  & \leq \frac{\pi^2}{9 \sqrt{3}} e^{\frac{\pi}{N+1}
+    \sqrt{\frac{2n}{3}}} \int\limits^{\infty}_{N} \frac{dk}{k^{3/2}}\\
+  \therefore \qquad |R_N| & < \frac{2\pi^2}{9 \sqrt{3}}
+  e^{\frac{\pi}{N+1}\sqrt{2n}{3}}\frac{1}{N^{1/2}} 
+\end{align*}
+
+This\pageoriginale tells us what we have in mind. Make $N$ suitably
+large. Then one gets something of interest. Put $N= [\alpha
+  \sqrt{n}]$, $\alpha$ constant. Then
+$$
+R_N = O (n^{-\frac{1}{4}})
+$$
+
+And this is what Hardy and Ramanujan did. Their work still looks
+different. They did not have infinite series. They had replaced the
+hyperbolic sine by the most important part of it, the exponential. The
+series converges in our case since $\sinh x \sim x$ as $x \to 0$, so
+that $\sinh \left( \frac{c}{k} \sqrt{n- \frac{1}{24}}\right)$ behaves
+roughly like $\frac{c}{k}$. On differentiation we have $\frac{1}{k^2}$
+so that along with $k^{1/2}$ in the numerator we get $k^{-3/2}$ and we
+have convergence. In the Hardy-Ramanujan paper they had
+$$
+p(n) = \frac{1}{2 \pi \sqrt{2}} \sum^{[\sqrt{n}]}_{k=1} A_k (n)
+k^{1/2} \frac{d}{dn} \left( \frac{e^{\frac{c}{k} \sqrt{n-
+      \frac{1}{24}}}}{\sqrt{n- \frac{1}{24}}}\right)+ O 
+(n^{-\frac{1}{4}})+ R^*_N 
+$$
+
+$\sinh$\pageoriginale was replaced by $\exp$.; so they neglected
+\begin{align*}
+  R^* & = \frac{1}{2 \pi \sqrt{2}} \sum^{[\sqrt{n}]}_{k=1} A_k (n)
+  k^{1/2} \frac{d}{dn} \left(\frac{e^{- \frac{c}{k} \sqrt{n-
+        \frac{1}{24}}}}{\sqrt{n- \frac{1}{24}}} \right)\\
+  |R^*| & = O  \left(\sum^{[\sqrt{n}]}_{k=1} k^{3/2} \left(
+  \frac{e^{- \frac{c}{k} \sqrt{n- \frac{1}{24}}}}{n- \frac{1}{24}}
+  \cdot \frac{c}{k} + \frac{e^{-\frac{c}{k} \sqrt{n-
+        \frac{1}{24}}}}{(n- \frac{1}{24})}\right) \right)
+\end{align*}
+
+The exponential is strongly negative if $k$ is small; so it is best
+for $k=1$. Hence 
+\begin{align*}
+  |R^*| & = O  \left( \frac{1}{n} \left( \sum^{[\sqrt{n}]}_{k=1}
+  k^{1/2} + \frac{1}{\sqrt{n}} \sum^{[\sqrt{n}]}_{k=1}
+  k^{3/2}\right)\right)\\ 
+  \sum^{N}_{k=1} k^{1/2} & = O  (N^{3/2})\\
+  \sum^{N}_{k=1} k^{3/2} & = O  (N^{5/2}) 
+\end{align*}
+
+So
+\begin{align*}
+  |R^*| & = O  \left( \frac{1}{n} \left( n^{3/4} +
+  \frac{1}{\sqrt{n}} n^{5/4}\right)\right)\\
+  & = O  \left(n^{-\frac{1}{4}} \right)
+\end{align*}
+
+The constants in the $O$-term were not known at that time so
+that numerical\pageoriginale computation was difficult. If the series
+was broken off at some other place the terms might have
+increased. Hardy and Ramanujan with good instinct broke off at the
+right place.
+
+We shall next resume our function-theoretic discussion and cast a
+glance at the generating function for $p(n)$ about which we know a
+good deal more now. 
+ 

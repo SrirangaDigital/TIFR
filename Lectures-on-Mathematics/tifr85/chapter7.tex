@@ -1,0 +1,1193 @@
+
+\chapter{Appendix}\label{c7}
+
+\section{Introduction}\label{c7:sec7.1}\pageoriginale
+
+In this chapter we prove some well-known results and usually
+references will not be given. We prove the functional equation of
+$\zeta(s)$, the asymptotics of $\Gamma(s)$ and that of
+$\sum\limits_{n\leq x}|d_{k}(n)|^{2}$ ($k$-complex constant) and make
+some remarks about some useful kernel functions.
+
+\section{A Fourier Expansion}\label{c7:sec7.2}
+
+Let $y>0$, $v$ a real variable in $(-\infty,\infty)$ and
+$f(v)=\sum\limits^{\infty}_{n=-\infty}\Exp(-\pi(v+n)^{2}y)$. Clearly
+$f(v)$ is a periodic function whose Fourier series represents the
+function since $f(v)$ is continuously differentiable. Let
+$f(v)=\sum\limits^{\infty}_{n=-\infty}a_{n}\Exp(2\pi inv)$. Then
+\begin{align*}
+a_{n} &= \int^{1}_{0}f(v)\Exp(-2\pi inv)dv\\
+&=
+\sum\limits^{\infty}_{m=-\infty}\int^{1}_{0}\Exp(-\pi(v+m)^{2}y-2\pi
+inv)dv\\
+&= \sum^{\infty}_{m=-\infty}\int^{m+1}_{m}\Exp(-\pi v^{2}y-2\pi
+inv)dv\\
+&= \int^{\infty}_{-\infty}\Exp(-\pi v^{2}y-2\pi inv)dv\\
+&= \int^{\infty}_{-\infty}\Exp\left(-\pi
+\left(v+\frac{in}{y}\right)^{2}y-\frac{\pi n^{2}}{y}\right)dv\\
+&= \Exp \left(-\frac{\pi n^{2}}{y}\right)\int^{\infty}_{-\infty}\Exp
+\left(-\pi y\left(v+\frac{in}{y}\right)^{2}\right)dv
+\end{align*}
+
+\begin{lemma*}
+We have,
+$$
+\int^{\infty}_{-\infty}\Exp\left(-\pi
+y\left(v+\frac{in}{y}\right)^{2}\right)dv=\int^{\infty}_{-\infty}\Exp(-\pi
+v^{2}y)dv.
+$$
+\end{lemma*}
+
+\begin{proof}
+Integrate $\Exp(-\pi z^{2}y)$ over the rectangle obtained by joining
+$-R$, $R$, $R+\frac{in}{y}$, $-R+\frac{in}{y}$, $-R$ by straight line
+segments in this order. We have trivially
+$$
+\int^{ny^{-1}}_{0}\Exp(-\pi(\pm R+iu)^{2}y)du\to 0
+$$
+as\pageoriginale $R\to \infty$, since the absolute value of the
+integrand is $\leq \Exp((-R^{2}y+\frac{n^{2}}{y})\pi)$. This proves
+the lemma.
+\end{proof}
+
+Thus we can state
+
+\begin{theorem}\label{c7:thm7.2.1}
+We have, for $y>0$ and real $v$,
+{\fontsize{10}{12}\selectfont
+$$
+\sum^{\infty}_{n=-\infty}\Exp(-\pi
+y(n+v)^{2})=\left(\int^{\infty}_{-\infty}\Exp(-\pi
+v^{2}y)dv\right)\sum^{\infty}_{n=-\infty}\Exp\left(-\frac{\pi
+  n^{2}}{y}+2\pi inv\right).
+$$}
+\end{theorem}
+
+As a corollary we state
+\begin{theorem}\label{c7:thm7.2.2}
+We have, for $y>0$,
+\begin{equation*}
+1+2\sum^{\infty}_{n=1}\Exp(-\pi
+n^{2}y)=y^{-\frac{1}{2}}\left(1+2\sum^{\infty}_{n=1}\Exp\left(-\frac{\pi n^{2}}{y}\right)\right),\tag{7.2.1}\label{c7:eq7.2.1}
+\end{equation*}
+and
+\begin{equation*}
+\int^{\infty}_{-\infty}\Exp(-\pi v^{2})dv=1.\tag{7.2.2}\label{c7:eq7.2.2}
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Putting $v=0$ and $y=1$ in Theorem \ref{c7:thm7.2.1} we obtain
+$$
+\int^{\infty}_{-\infty}\Exp (-\pi v^{2})dv=1
+$$
+and so
+$$
+\int^{\infty}_{-\infty}\Exp(-\pi
+v^{2}y)dv=y^{-\frac{1}{2}}\int^{\infty}_{-\infty}\Exp(-\pi
+v^{2})dv=y^{-\frac{1}{2}}. 
+$$
+
+Putting $v=0$ in Theorem \ref{c7:thm7.2.1} we obtain
+\eqref{c7:eq7.2.1}. 
+\end{proof}
+
+\section{Functional Equation}\label{c7:sec7.3}
+
+We first introduce as usual
+\begin{equation*}
+\Gamma(s)=\int^{\infty}_{0}\Exp(-v)v^{s-1}dv,
+(s=\sigma+it,\sigma>0).\tag{7.3.1}\label{c7:eq7.3.1}
+\end{equation*}
+
+The analytic continuation is provided by the functional equation
+\begin{equation*}
+\Gamma(s+1)=s\Gamma(s)\quad\text{and so}\quad
+\Gamma(n+1)=n!\tag{7.3.2}\label{c7:eq7.3.2} 
+\end{equation*}
+which\pageoriginale is obtained on integration of
+\eqref{c7:eq7.3.1} by parts. We now write (somewhat artificially)
+for $\sigma>1$
+\begin{align*}
+\pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})\zeta(s) &=
+\sum^{\infty}_{n=1}\int^{\infty}_{0}(n^{2}\pi)^{-\frac{s}{2}}\Exp(-v)v^{\frac{s}{2}}\frac{dv}{v}\\
+&= \sum^{\infty}_{n=1}\int^{\infty}_{0}\Exp(-n^{2}\pi
+v)v^{\frac{s}{2}}\frac{dv}{v}\\ 
+&= \int^{\infty}_{0}\phi(v)v^{\frac{s}{2}}\frac{dv}{v},
+\end{align*}
+where $\phi(v)=\sum\limits^{\infty}_{n=1}\Exp(-n^{2}\pi v)$. Now by
+Theorem \ref{c7:thm7.2.2}, we have,
+$$
+1+2\phi (v)=v^{-\frac{1}{2}} \left(1+2\phi \left(\frac{1}{v} \right) \right).
+$$
+
+Hence for $s=\sigma+it$, $\sigma>1$, we have
+\begin{align*}
+\pi^{-\frac{s}{2}}\Gamma \left(\frac{s}{2} \right)\zeta(s) &=
+\int^{\infty}_{1}\phi(v)v^{\frac{s}{2}}\frac{dv}{v}+\frac{1}{2}\int^{1}_{0}(v^{-\frac{1}{2}}-1)v^{\frac{s}{2}}\frac{dv}{v}\\
+&\quad
++\int^{1}_{0}v^{-\frac{1}{2}}\phi \left(\frac{1}{v} \right)v^{\frac{s}{2}}\frac{dv}{v}\\
+&=
+\int^{\infty}_{1}\phi(v)v^{\frac{s}{2}}\frac{dv}{v}+\frac{1}{2}\left(\frac{2}{s-1}-\frac{2}{s}\right)\\ 
+&\quad
++\int^{\infty}_{1}v^{\frac{1}{2}}\phi(v)v^{-\frac{s}{2}}\frac{dv}{v}\\
+&=
+-\frac{1}{s(1-s)}+\int^{\infty}_{1}\phi(v)\left(v^{\frac{s}{2}}+v^{\frac{1-s}{2}}\right)\frac{dv}{v}.  
+\end{align*}
+
+This proves the following theorem.
+
+\begin{theorem}\label{c7:thm7.3.1}
+For $v\geq 1$, let $\phi(v)=\sum\limits^{\infty}_{n=1}\Exp(-n^{2}\pi
+v)$. Then for $\sigma>1$, we have,
+\begin{equation*}
+\pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s) =
+-\frac{1}{s(1-s)}+\int^{\infty}_{1}\phi(v)
+\left(v^{\frac{s}{2}}+v^{\frac{1-s}{2}}\right)\frac{dv}{v}.\tag{7.3.3}\label{c7:eq7.3.3} 
+\end{equation*}
+
+Plainly the last equation is true for all complex $s$ by analytic
+continuation. Since the RHS is symmetric in $s$ and $1-s$, we have the
+functional equation namely that LHS is unchanged under the
+transformation $s\to 1-s$.
+\end{theorem}
+
+\section{Asymptotics of $\Gamma(s)$}\label{c7:sec7.4}
+
+For many\pageoriginale important purposes it is necessary to know the behaviour of
+$\Gamma(s)$ as $|s|\to \infty$. It is also important to know its poles
+(and zeros if any). For real $s>0$ we define
+$$ 
+\Gamma(s)=\lim\limits_{n\to \infty}\Gamma_{n}(s)\text{~ where~ }
+\Gamma_{n}(s)=\int^{n}_{0}\Exp(-v)v^{s-1}dv. 
+$$
+
+Now $\Exp(-v)=(\Exp(-\frac{v}{n}))^{n}\geq (1-\frac{v}{n})^{n}$ since
+for $0\leq v\leq n$ we have $\log(1-\frac{v}{n})\leq
+-\frac{v}{n}$. Hence
+$$
+\Gamma_{n}(s)\geq
+\int^{n}_{0}\left(1-\frac{v}{n}\right)^{n}v^{s-1}dv=I_{n}(s)\text{~ say.}
+$$
+
+Again
+\begin{align*}
+& 0\leq \Gamma_{n}(s)-I_{n}(s)\leq
+  \int\limits^{n}_{0} \left(\Exp(-v)- \left(1-\frac{v}{n} \right)^{n} \right)v^{s-1}dv\\
+& \leq \frac{e}{n}\int^{n}_{0}v^{s+2}\Exp(-v)\frac{dv}{v}\leq \frac{e}{n}\int^{\infty}_{0}v^{s+2}\Exp(-v)\frac{dv}{v}=\frac{e}{n}\Gamma(s+2),
+\end{align*}
+on using
+\begin{align*}
+&\Exp
+  (-v)- \left(1-\frac{v}{n} \right)^{n}= \left(\Exp \left(-\frac{v}{n} \right) \right)^{n}- \left(1-\frac{v}{n} \right)^{n}\\
+&=
+\left(\Exp \left(-\frac{v}{n} \right)- \left(1-\frac{v}{n} \right) \right)\sum^{n-1}_{\nu=0} \left(\Exp \left(\frac{v}{n} \right) \right)^{\nu} \left(1-\frac{v}{n} \right)^{n-\nu-1}\\
+&\leq \frac{v^{2}}{n^{2}}\cdot n\cdot \Exp \left(-\frac{v}{n}(n-1) \right)\\
+&= \frac{ev^{2}}{n}\Exp(-v).
+\end{align*}
+
+Hence, as $n\to \infty$,
+$$ 
+\Gamma(s)=\lim \Gamma_{n}(s)=\lim I_{n}(s)=\lim 
+\int^{n}_{0} \left(1-\frac{v}{n} \right)^{n}v^{s}\frac{dv}{v}
+$$
+provided $s>0$. We now determine the last limit. Plainly
+$$
+I_{n}(s)=n^{s}\int^{1}_{0}(1-v)^{n}v^{s-1}dv=n^{s}J_{n}(s)\text{~ say.}
+$$
+
+Integrating\pageoriginale by parts, we have (for $s>0$ and $n\geq 1$),
+\begin{align*}
+J_{n}(s) &=
+\frac{v^{s}}{s}(1-v)^{n}]^{1}_{0}+n\int^{1}_{0}\frac{v^{s}}{s}(1-v)^{n-1}dv\\
+&= \frac{n}{s}J_{n-1}(s+1)
+\end{align*}
+$$
+=\frac{n}{s}\cdot \frac{n-1}{s+1}J_{n-2}(s+2)=\frac{n}{2}\cdot
+\frac{n-1}{s+1}\ldots \frac{n-r}{s+r}J_{n-r-1}(s+r+1)
+$$
+for $n-r-1\geq 0$. Putting $r=n-1$ we obtain
+$$
+J_{n}(s)=\frac{n!}{s(s+1)\ldots (s+n-1)}\cdot \frac{1}{s+n}
+$$
+
+Hence
+\begin{align*}
+\frac{1}{s\Gamma(s)} &= \lim\limits_{n\to
+  \infty}\left(n^{-s}\prod^{n}_{\nu=1}\left(1+\frac{s}{\nu}\right)\right\}\\
+&= \lim\limits_{n\to
+  \infty}\left(\prod^{n}_{\nu=1}((\Exp(-\frac{s}{\nu}))(1+\frac{s}{\nu}))\right\}\times
+\lim\limits_{n\to
+  \infty}\Exp\left(s\sum^{n}_{\nu=1}\frac{1}{\nu}-s\log n\right)\\
+&=
+e^{\gamma^{s}}\prod^{\infty}_{\nu=1}\left\{(1+\frac{s}{\nu})\Exp(-\frac{s}{\nu})\right\} 
+\end{align*}
+since $\lim\limits_{n\to
+  \infty}\left(\sum\limits^{n}_{\nu=1}\frac{1}{\nu}-\log
+n\right)=\gamma$ the Euler's constant. This holds for real $s>0$ and
+by analytic continuation for all complex $s$. Hence we state 
+
+\begin{theorem}\label{c7:thm7.4.1}
+We have, for all complex $s$,
+\begin{equation*}
+\frac{1}{\Gamma(s)}=se^{\gamma^{s}}\prod^{\infty}_{\nu=1}\left(\left(1+\frac{s}{\nu}\right)\Exp
+\left(-\frac{s}{\nu}\right)\right\}\tag{7.4.1}\label{c7:eq7.4.1} 
+\end{equation*}
+where $\gamma$ is the well-known Euler's constant.
+\end{theorem}
+
+Since $\dfrac{\sin
+ \theta}{\theta}=\prod\limits^{\infty}_{n=1}\left(1-\dfrac{\theta^{2}}{n^{2}\pi^{2}}\right)$
+for all $\theta$ we have the following
+
+\begin{corollary}\label{c7:coro1}
+We have
+$$
+\frac{1}{\Gamma(1+s)\Gamma(1-s)}=\frac{\sin(s\pi)}{s\pi}\quad\text{and
+  so}\quad \Gamma(s)\Gamma(1-s)=\frac{\pi}{\sin(s\pi)}. 
+$$
+\end{corollary}
+
+\begin{corollary}\label{c7:coro2}
+The\pageoriginale function $(\Gamma(s))^{-1}$ is entire. It has simple
+zeros at $s=0$, $-1$, $-2,\ldots$ and no other zeros. The residue of
+$\Gamma(s)$ at $s=n-n$ is $(-1)^{n}(n!)^{-1}$ as is easily seen by
+$$
+\Gamma(s)=\int^{1}_{0}\Exp(-v)v^{s-1}dv+\int\limits^{\infty}_{1}\Exp(-v)v^{s-1}dv
+$$
+and $\Exp(-v)=\sum\limits^{\infty}_{n=0}\dfrac{(-v)^{n}}{n!}$.
+\end{corollary}
+
+\begin{corollary}\label{c7:coro3}
+The function $\zeta(s)$ has simple zeros at $s=-2$, $-4$,
+$-6,\ldots$. If has no other zeros in $\sigma>1$ and also in
+$\sigma<0$. The function $\zeta(s)-(s-1)^{-1}$ is entire. At $s=0$,
+$-1-3,\ldots,\zeta(s)$ can be expressed in terms of Bernoulli
+numbers. Hence, for $n=1,2,3,\ldots,\zeta(2n)=\pi^{2n}$ times a
+rational number.
+\end{corollary}
+
+\begin{remark*}
+It is easy to prove (though it took a long time in the history of
+mathematics to prove this) that $\zeta(it)\neq 0$ and $\zeta(1+it)\neq
+0$ for all $t$. But it is not known whether there exists a sequence of
+zeros with real parts tending to $1$. This is likely to remain
+unsolved for a long time to come.
+\end{remark*}
+
+\noindent
+{\bf Proof of Corollary \ref{c7:coro3}.} The proof follows by the
+functional equation and the Euler product. We may use the obvious
+formula
+$$
+\Gamma(s)\zeta(s)=\int^{\infty}_{0}\left(\frac{v}{e^{v}-1}\right)v^{s-2}dv
+$$
+and integrate it by parts (several times) to prove the statement of
+the corollary regarding the assertion about $s=0$, $-1$,
+$-2,\ldots$. In passing we remark that we can also consider
+$\zeta(s,a)=\sum\limits^{\infty}_{n=0}(n+a)^{-s}$ (where $a$ is a
+constant with $0<a\leq 1$) at $s=0$, $-1$, $-2,\ldots$. It may also be
+remarked that (using the functinal equation for $\zeta(s,a)$)
+$\dfrac{d}{ds}\zeta(s,a)]_{s=0}=\log\Gamma(a)-\frac{1}{2}\log (2\pi)$.
+
+We now resume the asymptotics of $\Gamma(s)$. We begin with the remark
+that $\log\Gamma(s)$ is analytic in the complex plane with the
+straight line $(-\infty,0]$ removed. So it suffices to study an
+  asymptotic expansion for real $s>0$, provided we arrive at an
+  expansion which is analytic in the complex plane with
+  the\pageoriginale straight line $(-\infty,0]$ removed. By Theorem
+    \ref{c7:thm7.4.1}, we have, for $s>0$,
+$$
+\log \Gamma(s)=-\log s-\gamma
+s-\sum^{\infty}_{\nu=1}\left(\log\left(1+\frac{s}{\nu}\right)-\frac{s}{\nu}\right). 
+$$
+
+Hence
+$$
+\frac{\Gamma'(s)}{\Gamma(s)}=-\frac{1}{s}-\gamma-\sum^{\infty}_{\nu=1}\left(\frac{1}{s+\nu}-\frac{1}{\nu}\right) 
+$$
+and
+\begin{equation*}
+\frac{d}{ds}\frac{\Gamma'(s)}{\Gamma(s)}=\sum^{\infty}_{\nu=0}\frac{1}{(s+\nu)^{2}}.\tag{7.4.2.}\label{c7:eq7.4.2}
+\end{equation*}
+
+Notice that
+\begin{align*}
+\sum^{\infty}_{\nu=0}\frac{1}{(s+\nu)^{2}} &=
+\int^{\infty}_{0}\frac{du}{(s+u)^{2}}+\sum^{\infty}_{\nu=0}\left(\frac{1}{(s+\nu)^{2}}-\int^{\nu+1}_{\nu}\frac{du}{(s+u)^{2}}\right)\\ 
+&=
+\frac{1}{s}+\int^{1}_{0}\sum^{\infty}_{\nu=0}\left(\frac{1}{(s+\nu)^{2}}-\frac{1}{(s+\nu+u)^{2}}\right)du 
+\end{align*}
+and that the integrand (in the last integral) is
+\begin{align*}
+O\left(\sum^{\infty}_{\nu=0}\frac{1}{(s+\nu)^{3}}\right) &=
+O\left(\sum_{\nu\leq
+  s}\frac{1}{(s+\nu)^{3}}+\sum_{\nu>s}\frac{1}{(s+\nu)^{3}}\right)\\ 
+&= O(s^{-2}).
+\end{align*}
+
+Continuing this process we are led to 
+\begin{equation*}
+\sum^{\infty}_{\nu=0}\frac{1}{(s+\nu)^{2}}=\frac{c_{1}}{s}+\frac{c_{2}}{s^{2}}+\frac{c_{3}}{s^{3}}+\cdots+\frac{c_{N}}{s^{N}}+A(N,s),\tag{7.4.3}\label{c7:eq7.4.3} 
+\end{equation*}
+where $c_{1},c_{2},\ldots,c_{N}$ are certain constants, $N\geq 1$
+arbitrary and $A(N,s)$ is analytic in the complex plane with the
+straight line $(-\infty,0]$ removed. Also it is easy to prove that for
+  complex $s$ in $|\arg s|\leq \pi-\delta(\delta >0$ being a fixed
+  constant) we have
+\begin{equation*}
+A(N,s)=O(|s|^{-N-1}),\tag{7.4.4}\label{c7:eq7.4.4} 
+\end{equation*}
+where\pageoriginale the $O$-constant depends only on $N$ and
+$\delta$. Integrating \eqref{c7:eq7.4.3} twice we obtain
+\begin{equation*}
+\frac{\Gamma'(s)}{\Gamma(s)}=c_{0}+c_{1}\log
+s+\frac{c_{2}}{s}+\frac{c_{3}}{s^{2}}+\cdots+\frac{c_{N}}{s^{N}}+A^{*}(N,s),\tag{7.4.5}\label{c7:eq7.4.5} 
+\end{equation*}
+where $A^{*}(N,s)$ has the same property as \eqref{c7:eq7.4.4} with
+$N$ replaced by $N-1$. Integrating \eqref{c7:eq7.4.5} again, we
+obtain
+\begin{equation*}
+\log \Gamma(s)=d_{1}s\log s+d_{2}s+d_{3}\log
+s+d_{4}+\sum^{N}_{\nu=1}\frac{d_{-\nu}}{s^{\nu}}+B(N,s),\tag{7.4.6}\label{c7:eq7.4.6} 
+\end{equation*}
+where $d_{1}$, $d_{2}$, $d_{3}$, $d_{4}$ and $d_{-\nu}(v=1\text{~ to~
+}N)$ are constants, and $B(N,s)$ satisfies the condition similar to
+\eqref{c7:eq7.4.4}. Now we use $\log\Gamma(n+1)-\log\Gamma(n)=\log
+n$ to determine $d_{1}$, $d_{2}$ and $d_{3}$ as follows. We have
+\begin{align*}
+\log n &= d_{1}((n+1)\log (n+1)-n\log n)+d_{2}+d_{3}\\
+&\qquad\quad (\log (n+1)-\log
+n) +O\left(\frac{1}{n^{2}}\right)\\
+&= d_{1}((n+1) \left(\log n+\frac{1}{n}-\frac{1}{2n^{2}} \right)-n\log
+n)+d_{2}+\frac{d_{3}}{n}+O\left(\frac{1}{n^{2}}\right)\\
+&= d_{1}\log n+d_{1}(n+1)\left(\frac{1}{n}-\frac{1}{2n^{2}}\right)+d_{2}+\frac{d_{3}}{n}+O\left(\frac{1}{n^{2}}\right)
+\end{align*}
+
+This gives on dividing by $\log n$ and letting $n\to \infty$, that
+$d_{1}=1$ and so
+$$
+(n+1)\left(\frac{1}{n}-\frac{1}{2n^{2}}\right)+d_{2}+\frac{d_{3}}{n}=O\left(\frac{1}{n^{2}}\right).
+$$
+
+Here
+$LHS=1+d_{2}+\frac{1}{n}-\frac{1}{2n}+\frac{d_{3}}{n}=O(\frac{1}{n^{2}})$
+and so $d_{2}=-1$, and $d_{3}=-\frac{1}{2}$. Thus
+\begin{equation*}
+\log \Gamma(s)=\left(s-\frac{1}{2}\right)\log
+s-s+d_{4}+\frac{d_{-1}}{s}+\frac{d_{-2}}{s^{2}}+\cdots+\frac{d_{-N}}{s^{N}}+B(N,s).\tag{7.4.7}\label{c7:eq7.4.7} 
+\end{equation*}
+
+To determine $d_{4}$ we use
+$$
+\Gamma\left(n+\frac{1}{2}\right)=\left(n-\frac{1}{2}\right)\ldots
+\frac{1}{2}\Gamma\left(\frac{1}{2}\right)=\frac{\Gamma(2n)\Gamma(\frac{1}{2})}{2^{n}(2n-2)(2n-4)\ldots
+  2}.
+$$
+i.e.
+$$
+\Gamma\left(n+\frac{1}{2}\right)=\frac{\Gamma(2n)\Gamma(\frac{1}{2})}{2^{2n-1}\Gamma(n)}. 
+$$
+
+Hence $d_{4}$ is determined by 
+\begin{align*}
+& n\log
+  \left(n+\frac{1}{2}\right)-\left(n+\frac{1}{2}\right)+d_{4}+O\left(\frac{1}{n}\right)\\
+&= \left(2n-\frac{1}{2}\right)\log(2n)-2n+\log
+  \Gamma\left(\frac{1}{2}\right)-(2n-1)\\
+&\qquad\log  2 -\left(n-\frac{1}{2}\right)\log n+n+O\left(\frac{1}{n}\right)
+\end{align*}\pageoriginale
+i.e.\@ by
+\begin{align*}
+& n\log n+n\log
+  \left(1+\frac{1}{2n}\right)-\left(n+\frac{1}{2}\right)+d_{4}\\
+&=\left(2n-\frac{1}{2}\right)(\log 2+\log n)-2n+\log
+  \Gamma\left(\frac{1}{2}\right)
+ -(2n-1)\\
+&\qquad\log 2-\left(n-\frac{1}{2}\right)\log n+n+O\left(\frac{1}{n}\right)
+\end{align*}
+i.e.\@ by
+\begin{align*}
+& n\log \left(1+\frac{1}{2n}\right)-n-\frac{1}{2}+d_{4}\\
+& =2n\log 2-\frac{1}{2}\log 2-2n+\log
+  \Gamma\left(\frac{1}{2}\right)-(2n-1)\log 2+n+O\left(\frac{1}{n}\right)
+\end{align*}
+i.e.\@ by
+$$
+n\left(\frac{1}{2n}\right)+O\left(\frac{1}{n}\right)-\frac{1}{2}+d_{4}=\frac{1}{2}\log
+2+\log \Gamma\left(\frac{1}{2}\right)+O\left(\frac{1}{n}\right),
+$$
+i.e.\@ by
+$$
+d_{4}=\frac{1}{2}\log 2+\frac{1}{2}\log \pi=\log (\sqrt{2\pi}).
+$$
+
+Thus we have,
+
+\begin{theorem}\label{c7:thm7.4.2}
+We have, in $|s|\geq 1$, $|\arg s|\leq \pi-\delta$, where $\delta(>0)$
+is a constant, the expansion
+\begin{equation*}
+\log \Gamma(s)=\frac{1}{2}\log (2\pi)+\left(s-\frac{1}{2}\right)\log
+s-s+\frac{d_{-1}}{s}+\frac{d_{-2}}{s^{2}}+\cdots+\frac{d_{-N}}{s^{N}}+B(N,s)\tag{7.4.8}\label{c7:eq7.4.8} 
+\end{equation*}
+where $N\geq 1$, and $d_{-\nu}(\nu=1\text{~ to~ }N)$ are constants,
+$B(N,s)$ is analytic in the said region and further as $|s|\to \infty$
+we have
+\eject
+\begin{equation*}
+B(N,s)=O(|s|^{-N-1}),\tag{7.4.9}\label{c7:eq7.4.9}
+\end{equation*}
+where the $O$-constant depends only on $\delta$ and $N$. 
+\end{theorem}
+
+\begin{remark*}
+The\pageoriginale constants $d_{-1}$, $d_{-2},\ldots,d_{-N}$ are
+rational and can be expressed in terms of Bernoulli numbers. We do not
+work out these relations.
+\end{remark*}
+
+\setcounter{corollary}{0}
+\begin{corollary}%1
+In the same region as mentioned in the theorem, we have,
+$$
+\Gamma(s)=\sqrt{2\pi}s^{s-\frac{1}{2}}e^{-s}\left(1+O\left(\frac{1}{|s|}\right)\right). 
+$$
+as $|s|\to \infty$.
+\end{corollary}
+
+\begin{corollary}%2
+If $a\leq \sigma\leq b$ and $t\geq 1$, we have,
+$$
+\Gamma(\sigma+it)=\sqrt{2\pi}t^{\sigma+it-\frac{1}{2}}e^{-\frac{1}{2}\pi
+  t-it+\frac{1}{2}i\pi(\sigma-\frac{1}{2})}\left(1+O\left(\frac{1}{t}\right)\right) 
+$$
+and hence if $\zeta(s)=\chi(s)\zeta(1-s)$, then we have,
+$$
+\chi(s)=\left(\frac{2\pi}{t}\right)^{\sigma+it-\frac{1}{2}}e^{i(t+\frac{\pi}{4})}\left(1+O\left(\frac{1}{t}\right)\right) 
+$$
+and
+$$
+\frac{\chi'(s)}{\chi(s)}=-\log\left(\frac{t}{2\pi}\right)+O\left(\frac{1}{t}\right). 
+$$
+\end{corollary}
+
+\begin{proof}
+From the functional equation for $\zeta(s)$ we obtain with slight work
+the formula
+$$
+\chi(s)=\frac{1}{2}(2\pi)^{s}\sec\left(\frac{1}{2}s\pi\right)(\Gamma(s))^{-1}
+$$
+using this and Theorem \ref{c7:thm7.4.2} the corollary follows.
+\end{proof}
+
+\section{Estimate for $\dfrac{\zeta'(s)}{\zeta(s)}$ on Certain Lines
+  in the Critical Strip}\label{c7:sec7.5}
+
+\begin{lem}\label{c7:lem1}
+Let $t_{0}\geq 1000$, $s_{0}=2+it_{0}$ and let $\rho$ run over the
+zeros of $\zeta(s)$ satisfying $|\rho-s_{0}|\leq 3$. Then in the disc
+$|s-s_{0}|\leq 3-\frac{1}{50}$, we have,
+$$
+|\frac{\zeta'(s)}{\zeta(s)}-\sum_{\rho}\frac{1}{s-\rho}|\leq
+10^{10}\log t_{0}.
+$$
+\end{lem}
+
+\begin{remark*}
+We have prefered here to write a big constant $10^{10}$ in place of
+$O(\cdot)$.\pageoriginale These constants are unimportant for our
+purposes. 
+\end{remark*}
+
+\begin{proof}
+Consider the function
+$$
+F(s)=\zeta(s)\prod_{|\rho-s_{0}|\leq
+  3}\left(1-\frac{s-s_{0}}{\rho-s_{0}}\right)^{-1}. 
+$$
+
+It is analytic in $|s-s_{0}|\leq 9$ and on its boundary $|F(s)|$ is
+clearly $\leq t^{10}_{0}$. By maximum modulus principle $|F(s)|\leq
+t^{10}_{0}$ in $|s-s_{0}|\leq 3$. Plainly it is analytic in this disc
+and is free from zeros. Hence in this disc $Re\ \log F(s)\leq 10\log
+t_{0}$. Hence by Borel-Caratheodory theorem (see Theorem
+\ref{c1:thm1.6.1}) we see that in $|s-s_{0}|\leq 3-\frac{1}{100}$,
+we have
+$$
+|\log F(s)|\leq 10^{6}\log t_{0},
+$$
+and so by Cauchy's theorem we have in $|s-s_{0}|\leq 3-\frac{1}{50}$,
+$$
+|\frac{F'(s)}{F(s)}|\leq 10^{10}\log t_{0}.
+$$
+
+This is precisely the statement of the lemma.
+\end{proof}
+
+\begin{lem}\label{c7:lem2}
+The number of zeros of $\zeta(s)$ in $\sigma\geq -\frac{1}{25}$,
+$|t-t_{0}|\leq \frac{1}{1000}$, is $O(\log t_{0})$.
+\end{lem}
+
+\eject
+
+\begin{proof}
+This lemma can be proved by maximum modulus principle. But this lemma
+is also a consequence of the following theorem which is useful in many
+investigations. 
+\end{proof}
+
+\begin{jtheorem}\label{c7:jthm7.5.1}
+Let $f(z)$ be analytic in $|z|\leq R$ and $f(0)\neq 0$. Let $n(r)$
+denote the number of zeros of $f(z)$ in $|z|\leq r(\leq R)$. Then 
+$$
+\int^{R}_{0}\frac{n(r)}{r}dr=\frac{1}{2\pi i}\int_{|z|=R}\log
+|f(z)|\frac{dz}{z}-\log |f(0)|.
+$$
+\end{jtheorem}
+
+\begin{remark*}
+Our proof shows that if $f(z)$ is meromorphic in $|z|\leq R$ and
+$f(0)\neq 0$ and $|f(0)|\neq \infty$, and if $n(r)$ is the number of
+zeros minus the number\pageoriginale of poles in $|z|\leq r(\leq R)$
+then the same result holds.
+\end{remark*}
+
+\begin{proof}
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item If $f(z)$ has no zeros in $|z|\leq R$ then $\log f(z)$ is
+  analytic and so
+$$
+\log f(0)=\frac{1}{2\pi i}\int_{|z|=R}\log f(z)\frac{dz}{z}.
+$$
+Taking real parts both sides the theorem follows.
+
+\item Now if there is a zero $z_{0}$ on $|z|=R$ then at a distance
+  $\delta$ from this zero $\log|f(z)|=O(\log\frac{1}{\delta})$ and
+  since $\delta\log \frac{1}{\delta}\to 0$ as $\delta\to 0$ we are
+  through in this case.
+
+\item Now suppose that $f(z)$ has zeros in $|z|\leq R$, but $f(0)\neq
+  0$. Put
+$$
+F(z)=f(z)\prod_{a}\frac{R^{2}-\overline{a}z}{R(z-a)}
+$$
+where the product is over all zeros $a$ of $f(z)$ in $|z|<R$. Then since
+$F(z)$ has no zeros in $0<|z|<R$ we, have,
+$$
+\log f(0)+\sum_{a}\log \frac{R}{|a|}=\frac{1}{2\pi i}\int_{|z|=R}\log
+|f(z)|\frac{dz}{z} 
+$$\eject
+since on $|z|=R$ we have 
+$$
+|\frac{R^{2}-\overline{a}z}{R(z-a)}|=|\frac{z\overline{z}-\overline{a}z}{z(z-a)}|=1 
+$$
+
+\item To prove the theorem it suffices to prove that 
+$$
+\sum_{a}\log \frac{R}{|a|}=\int^{R}_{0}\frac{n(r)}{r}dr.
+$$
+Here
+$$
+LHS=\int^{R}_{0}\log \frac{R}{r}dn(r)=n(r)\log
+\frac{R}{r}]^{R}_{0}+\int^{R}_{0}\frac{n(r)}{r}dr
+$$
+and so the theorem is proved.
+\end{enumerate}
+\end{proof}
+
+\setcounter{remark}{0}
+\begin{remark}%1
+The last principle used is this. If $\phi(u)$ is continuously
+differentiable, then 
+\begin{align*}
+&\sum_{A\leq n\leq
+    B}\phi(n)a_{n}\left(=\int^{B+0}_{A-0}\phi(u)d\sum_{n\leq
+    u}a_{n}\right)\\
+&= \phi(u)\sum_{n\leq
+    u}a_{n}]^{B+0}_{A-0}-\int^{B+0}_{A-0}\left(\sum_{n\leq
+      u}a_{n}\right)\phi'(u)du. 
+\end{align*}\pageoriginale 
+\end{remark}
+
+This useful result can be easily verified. 
+
+\begin{remark}%2
+By taking the disc with centre $s_{0}=2+it_{0}$ and radius $3$, we
+obtain
+\begin{align*}
+\int^{3}_{0}\frac{n(r)}{r}dr &= \frac{1}{2\pi i}\int_{|s-s_{0}|=3}\log
+|\zeta(s)|\frac{ds}{s-s_{0}}+O(1)\\
+&<10^{10}\log t_{0},
+\end{align*}
+where $n(r)$ is the number of zeros of $\zeta(s)$ in $|s-s_{0}|\leq
+r(\leq 3)$. Noting that LHS is $\geq
+N(\alpha)\int^{3}_{\alpha}\frac{dr}{r}$ we obtain Lemma
+\ref{c7:lem2} by choosing $\alpha=3-\frac{1}{100}$. 
+\end{remark}
+
+\begin{theorem}\label{c7:thm7.5.2}
+Given any $t_{0}\geq 1000$ there is a $t$ satisfying $|t-t_{0}|\leq
+\frac{1}{2}$ such that for $s=\sigma+it$ with $-2\leq \sigma\leq 2$,
+we have, uniformly
+$$
+\frac{\zeta'(s)}{\zeta(s)}=O((\log t_{0})^{2}).
+$$
+\end{theorem}
+
+\begin{proof}
+The number of zeros of $\zeta(s)$ in $(\sigma\geq
+-\frac{1}{25},|t-t_{0}|\leq \frac{1}{1000})$ is $O(\log
+t_{0})$. Divide this $t$-interval into abutting intervals all of equal
+length equal to a small constant times $(\log t_{0})^{-1}$ ignoring a
+bit at one end. It followis that at least one of these is free from
+zeros of $\zeta(s)$ and so by Lemma \ref{c7:lem1} the theorem
+follows for $-\frac{1}{25}\leq \sigma\leq 1+\frac{1}{25}$. The rest
+follows by the functional equation. 
+\end{proof}
+
+\section{Asymptotics of $|d_{k}(n)|^{2}$}\label{c7:sec7.6}
+
+We begin with the remark that $d_{k}(n)$ is defined by
+$\sum\limits^{\infty}_{n=1}d_{k}(n)n^{-s}=(\zeta(s))^{k}$. From the
+Euler product it is easy to verify that $|d_{k}(n)|^{2}\leq d_{k'}(n)$
+where $k'=(|k|+1)^{2}$. It is also easy to verify that for each $n\geq
+1$, $d_{\ell}(n)$ is an increasing function of $\ell\geq 0$. Thus if
+we are interested in an upper bound for $|d_{k}(n)|^{2}$ we see that
+it is majorised by $d_{\ell}(n)$ where $\ell\geq 0$ is a certain
+integer. Now the result $d_{\ell_{1}}(n)d_{\ell_{2}}(n)\leq
+d_{\ell_{1}\ell_{2}}(n)$ for any two integers $\ell_{1}\geq 0$,
+$\ell_{2}\geq 0$ can be verified when $n$ is a prime power
+and\pageoriginale the result for general $n$ follows since for all
+$n_{1}$, $n_{2}$ with $(n_{1},n_{2})=1$ and $\ell\geq 0$ we have
+$d_{\ell}(n_{1})d_{\ell}(n_{2})=d_{\ell}(n_{1}n_{2})$. Thus for any
+fixed $\ell$ and all integers $\nu\geq 1$ we have
+$(d_{\ell}(n))^{\nu}\leq d_{m}(n)$ where $m=\ell^{\nu}$. Hence
+$$
+(d_{\ell}(n))^{\nu}n^{-2}\leq
+\sum^{\infty}_{n=1}(d_{\ell}(n))^{\nu}n^{-2}\leq
+(\zeta(2))^{\ell^{\nu}}.
+$$
+
+Therefore for $n\geq 2$, we have
+$$
+d_{\ell}(n)\leq (n^{2}2^{\ell^{\nu}})^{\nu^{-1}}\leq n^{\epsilon}
+$$
+by choosing $\nu$ large enough.
+
+From now on we give a brief sketch of the fact that
+$$
+\sum_{n\leq x}|d_{k}(n)|^{2}=C^{(0)}_{k}x(\log
+x)^{|k^{2}|-1}(1+O((\log x)^{-1})),
+$$
+where 
+$$
+C^{(0)}_{k}=(\Gamma(|k^{2}|))^{-1}\prod_{p}\left(\left(1-\frac{1}{p}\right)^{|k^{2}|}\sum^{\infty}_{m=0}|d_{k}(p^{m})|^{2}p^{-m}\right\}.
+$$
+
+We begin with a well-known lemma.
+
+\setcounter{lem}{0}
+\begin{lem}\label{c7:addlem1}
+We have, for $c>0$, $y>0$, and $T\geq 10$,
+$$
+\frac{1}{2\pi i}\int^{c+iT}_{c-iT}y^{s}\frac{ds}{s}=(0\text{~ or~
+}1)+O\left(\frac{y^{c}}{T|\log y|}\right)
+$$
+according as $0<y<1$ or $y>1$.
+\end{lem}
+
+\begin{proof}
+Move the line of integration to $\sigma=R$ or $\sigma=-R$. This leads
+to the lemma.
+\end{proof}
+
+\begin{lem}\label{c7:addlem2}
+Let $1<c<2$ and let $x(>10)$ be half an odd integer. Then for $T\geq
+10$, we have,
+$$
+\frac{1}{2\pi i}\int^{c+iT}_{c-iT}f(s)x^{s}\frac{ds}{s}=\sum_{n\leq
+  x}|d_{k}(n)|^{2}+O\left(\frac{x^{c+\epsilon}}{T}\right), 
+$$
+where\pageoriginale
+$f(s)=\sum\limits^{\infty}_{n=1}|d_{k}(n)|^{2}n^{-s}$ and the
+$O$-constant depends only on $\epsilon$.
+\end{lem}
+
+\begin{proof}
+We have to use $|d_{k}(n)|\leq n^{\epsilon}$ for $n\geq
+n_{0}(\epsilon)$, and Lemma \ref{c7:addlem1} and the inequality
+$|\log \frac{x}{n}|\gg \frac{|n-x|}{|n+x|}$. From these the lemma
+follows in a fairly straight forward way.
+\end{proof}
+
+\begin{lem}\label{c7:lem3}
+We have,
+$$
+f(s)=(\zeta(s))^{|k^{2}|}\phi(s)
+$$
+where
+\begin{equation*}
+\phi(s)=\prod_{p}\left\{\left(1-\frac{1}{p^{s}}\right)^{|k^{2}|}\sum^{\infty}_{m=0}|d_{k}(p^{m})|^{2}p^{-ms}\right\}\tag{7.6.1}\label{c7:eq7.6.1}
+\end{equation*}
+is analytic in $\sigma\geq 1-\frac{1}{100}$.
+\end{lem}
+
+\begin{proof}
+Trivial.
+\end{proof}
+
+We have now to use one deep result due to I.M.\@ Vinogradov namely
+equation number (13) of introductory remarks. From this it follows
+(K.\@ Ramachandra \cite{Ramachandra2}) that $\zeta(s)\neq 0$ in $\sigma\geq
+1-\alpha(\log t)^{-\frac{2}{3}}(\log\log t)^{-\frac{1}{3}}$, $|t|\leq
+T$, where $\alpha>0$ is a certain constant. By using the result of
+I.M.\@ Vinogradov it follows that in $(\sigma\geq 1-(\log
+T)^{-\frac{2}{3}-\epsilon},|t|\leq T,|s-1|\geq (\log
+T)^{-\frac{2}{3}-\epsilon})$ we have $\zeta(s)\neq 0$ and
+$\zeta(s)=O((\log T)^{A})$ where $A=A_{k}$ is a constant provided
+$T\geq T_{0}(\epsilon)$. We will assume hereafter that $T\geq
+T_{0}(\epsilon)$. Moving the line of integration from $c=1+\epsilon$
+to $\sigma=1-(\log T)^{-\frac{2}{3}-\epsilon}$, we have by Lemma
+\ref{c7:addlem2} 
+\begin{equation*}
+\sum_{n\leq x}|d_{k}(n)|^{2}=\frac{1}{2\pi
+  i}\int_{\substack{\sigma=1-(\log
+    T)^{-\frac{2}{3}-\epsilon}\\ 0<|t|\leq
+    T}}f(s)\frac{x^{s}}{s}ds+I_{0}+O\left(\frac{x^{1+2\epsilon}}{T}\right),\tag{7.6.2}\label{c7:eq7.6.2} 
+\end{equation*}
+where
+\begin{equation*}
+I_{0}=\frac{1}{2\pi i}\int_{\substack{|s-1|=(\log
+    T)^{-\frac{2}{3}-\epsilon}\\ s\neq 1-(\log T)^{-\frac{2}{3}-\epsilon}}}f(s)\frac{x^{s}}{s}ds,\tag{7.6.3}\label{c7:eq7.6.3}
+\end{equation*}
+and the integration in $I_{0}$ is anti-clockwise. Here we choose
+$T=x^{\frac{1}{2}}$ and obtain 
+
+\begin{lem}\label{c7:addlem4}
+We\pageoriginale have, for any complex constant $k$,
+\begin{equation*}
+\sum_{n\leq x}|d_{k}(n)|^{2}=I_{0}+O(x(\log
+x)^{-B}),\tag{7.6.4}\label{c7:eq7.6.4} 
+\end{equation*}
+where $B(>0)$ is any arbitrary constant and $I_{0}$ is as in
+\eqref{c7:eq7.6.3} with $T=x^{\frac{1}{2}}$. 
+\end{lem}
+
+\begin{proof}
+Trivial.
+\end{proof}
+
+\begin{lem}\label{c7:addlem5}
+We have, for $|s-1|\leq r_{1}$ where $r_{1}$ is a small constant, with
+the straight line segment $[1-r_{1},1]$ removed,
+$$
+\frac{f(s)}{s}=C_{k}\left(\frac{1}{s-1}\right)^{|k^{2}|}(1+\lambda_{1}(s-1)+\cdots+\lambda_{r}(s-1)^{r}+O((s-1)^{r+1}))
+$$
+where
+$$
+C_{k}=\prod_{p}\left\{\left(1-\frac{1}{p}\right)^{|k^{2}|}\sum^{\infty}_{m=0}|d_{k}(p^{m})|^{2}p^{-m}\right\},
+$$
+and $\lambda_{1}$, $\lambda_{2},\ldots,\lambda_{r}$ are constants
+depending on $k$.
+\end{lem}
+
+\begin{proof}
+Trivial.
+\end{proof}
+
+\begin{lem}\label{c7:addlem6}
+By deforming the contour properly the contribution to $I_{0}$ from
+$O((s-1)^{r})$ is $O(x(\log x)^{|k^{2}|-3})$ for a sufficiently large
+constant $r$.
+\end{lem}
+
+\begin{proof}
+The lemma follows from the observation that for $r\geq |k|^{2}+40$, we
+have,
+$$
+\int^{\infty}_{0}v^{-|k^{2}|+r}x^{-v}dv=O\left((\log x)^{|k^{2}|-3}\right).
+$$
+\end{proof}
+
+\begin{lem}\label{c7:addlem7}
+We have, for $0\leq j\leq r$ and $T=x^{\frac{1}{2}}$,
+$$
+\int^{\infty}_{(\log
+  T)^{-\frac{2}{3}-\epsilon}}v^{-k^{2}+j}x^{-v}dv=O\left((\log x)^{k^{2}-j-1}\right)
+$$
+\end{lem}
+
+\begin{proof}
+Putting $v\log x=u$ we see that the LHS is equal to
+$$
+(\log x)^{k^{2}-j-1}\int_{(\log x)(\log
+  T)^{-\frac{2}{3}-\epsilon}}v^{-k^{2}+j}\Exp(-v)dv
+$$
+and\pageoriginale the required result follows since $(\log x)(\log
+T)^{-\frac{2}{3}-\epsilon}\gg (\log x)^{\frac{1}{3}-\epsilon}$ and
+$\Exp(-v)\ll v^{-k^{2}-j-30}$.
+
+With the substitution $v\log x=u$ we see now (in view of Lemma
+\ref{c7:addlem7}) that we are led (by $I_{0}$) to the integral in
+lemma below.
+\end{proof}
+
+\begin{lem}\label{c7:addlem8}
+With usual notation {\em (see the remark below)} we have, for any
+complex $z$,
+$$
+\frac{1}{2\pi i}\int^{0+}_{-\infty}v^{-z}\Exp(-v)dv=\frac{\sin(\pi
+  z)}{\pi}\Gamma(1-z)=\frac{1}{\Gamma(z)}. 
+$$
+\end{lem}
+
+\begin{remark*}
+We recall that the path is the limit as $\delta\to 0$ of the contour
+obtained by joining by straight line the points $\infty e^{-i\pi}$ to
+$\delta e^{-i\pi}$ and then continuing by the circular arc $\delta
+e^{i\theta}(\theta=-\pi\text{~ to~ }\pi)$ and then by the straight
+line $\delta e^{i\pi}$ to $\infty e^{i\pi}$.
+\end{remark*}
+
+\begin{proof}
+Trivial.
+\end{proof}
+
+From Lemmas \ref{c7:addlem4} to \ref{c7:addlem8} we get
+
+\begin{theorem}\label{c7:thm7.6.1}
+We have,
+$$
+\sum_{n\leq x}|d_{k}(n)|^{2}=C_{k}(\Gamma(|k^{2}|))^{-1}x(\log
+x)^{|k^{2}|^{-1}}(1+O((\log x)^{-1})).
+$$
+\end{theorem}
+
+As a corollary we obtain
+\begin{theorem}\label{c7:thm7.6.2}
+We have,
+$$
+\sum_{n\leq x}|d_{k}(n)|^{2}n^{-1}=C^{(1)}_{k}(\log
+x)^{|k^{2}|}(1+O((\log x)^{-1})),
+$$
+where
+$$
+C^{(1)}_{k}=(\Gamma(|k^{2}|+1))^{-1}\prod_{p}\left\{\left(1-\frac{1}{p}\right)^{|k^{2}|}\sum^{\infty}_{m=0}|d_{k}(p^{m})|^{2}p^{-m}\right\}.
+$$
+\end{theorem}
+
+\begin{proof}
+The proof follows by
+$$
+\sum_{n\leq
+  x}|d_{k}(n)|^{2}n^{-1}=\int^{x+0}_{1-0}u^{-1}d\left(\sum_{n\leq
+  u}|d_{k}(n)|^{2}\right) 
+$$
+and\pageoriginale integration by parts.
+\end{proof}
+
+\section[Some Useful Reciprocal Relations Involving...]{Some Useful
+  Reciprocal Relations Involving\hfil\break Certain 
+  Kernels}\label{c7:sec7.7}
+
+By the term kernel function we mean a function $\varphi(w)$ which
+tapers off. Examples of $\varphi(w)$ are $1$, $\Gamma(w+1)$,
+$\Exp(w^{4a+2})$, and $\Exp((\sin \frac{w}{8A})^{2})$. Here $w$ is a
+complex variable, $a>0$ an integer constant, and $A(\geq 10)$ any real
+constant. The last three kernels decay like $\Exp(-|Im\ w|)$,
+$\Exp(-|Im\ w|^{4a})$ and $\left(\Exp\Exp
+\frac{|Im\ w|}{80A}\right)^{-1}$ (the last mentioned decay is valid in
+$|Re\ w|\le A$). Let $\varphi(w)$ be any of these kernels. While
+applying the maximum modulus principle to an analytic function $f(z)$
+we may apply maximum modulus principle to $f(w)\varphi(w-z)$ as a
+function of $w$, in a rectangle with $z$ as an interior point. We may
+also apply the same to $f(z)\varphi(w-z)x^{w-z}$ where $x>0$ is a free
+parameter. This leads to convexity. It is well-known that
+\begin{equation*}
+\frac{1}{2\pi
+  i}\int^{2+i\infty}_{2-i\infty}x^{w}\frac{dw}{w}=0,\frac{1}{2}\text{~
+  or~ } 1\tag{7.7.1}\label{c7:eq7.7.1}
+\end{equation*}
+according as $0<x<1$, $x=1$ or $x>1$. The other helpful evaluations
+are
+\begin{equation*}
+\frac{1}{2\pi i}\int^{2+i\infty}_{2-i\infty} x^{w}\Gamma(w+1)\frac{dw}{w} =\Exp\left(-\frac{1}{x}\right),\tag{7.7.2}\label{c7:eq7.7.2} 
+\end{equation*}
+and
+\begin{equation*}
+\frac{1}{2\pi
+  i}\int^{2+i\infty}_{2-i\infty}x^{w}\Exp(w^{2})\frac{dw}{w}=1-\pi^{-\frac{1}{2}}\int^{\infty}_{\frac{1}{2}\log x}\Exp(-v^{2})dv,\tag{7.7.3}\label{c7:eq7.7.3}
+\end{equation*}
+both valid for $x>0$. Note that
+\begin{equation*}
+\int^{\infty}_{-\infty}\Exp(-v^{2})dv=\pi^{\frac{1}{2}}\tag{7.7.4}\label{c7:eq7.7.4} 
+\end{equation*}
+
+\begin{remarks*}
+I learnt of \eqref{c7:eq7.7.3} from Professor D.R.\@ Heath-Brown
+and of the kernel $\Exp(w^{4a+2})$ from Professor P.X.\@ Gallagher. I
+thought of the kernel $\Exp((\sin \frac{w}{8A})^{2})$ myself. I learnt
+of some convexity principles from Professor A.\@ Selbert. I learnt the
+proof of the functional equation of $\zeta(s)$ as presented in
+this\pageoriginale chapter from Professor K.\@ Chandrasekharan and
+K.G.\@ Ramanathan. The treatment of the asymptotics of $\Gamma(s)$ is
+my own while that of $\sum\limits_{n\leq x}|d_{k}(n)|^{2}$ is
+well-known. To prove \eqref{c7:eq7.7.3} denote the LHS by
+$\Delta(x)$ and consider $x\Delta'(x)$. Then since $\Delta(x)\to 0$ as
+$x\to 0$ we can come back to $\Delta(x)$ by using
+$\Delta(x)=\int^{x}_{0}(u\Delta'(u))\frac{du}{u}$.
+
+More generally we can write for $x>0$,
+\begin{equation*}
+\Delta(x)=\frac{1}{2\pi
+  i}\int^{2+i\infty}_{2-i\infty}x^{w}\varphi(w)\frac{dw}{w}\tag{7.7.5}\label{c7:eq7.7.5} 
+\end{equation*}
+where $\varphi(w)$ is any of the kernels mentioned above in the
+beginning of this section. In case $\varphi(w)=1$ the function
+$\Delta(x)$ is non-negative but discontinuous. In the cases
+\eqref{c7:eq7.7.2} and \eqref{c7:eq7.7.3}, $\Delta(x)$ is
+monotonic and continuous and $0<\Delta(x)<1$. In the case
+$\varphi(w)=\Exp(w^{4a+2})$ we can move the line of integration any
+where and so we get
+\begin{equation*}
+\Delta(x)=O_{B}(x^{B})\quad\text{and}\quad
+\Delta(x)=1+O_{B}(x^{-B})\tag{7.7.6}\label{c7:eq7.7.6} 
+\end{equation*}
+for any constant $B>0$. In the case
+$\varphi(w)=\Exp((\sin\frac{w}{8A})^{2})$ we can move the line of
+integration (but not too far). Thus
+\begin{equation*}
+\Delta(x)=O_{A}(x^{A})\quad\text{and}\quad
+\Delta(x)=1+O_{A}(x^{-A}),\tag{7.7.7}\label{c7:eq7.7.7} 
+\end{equation*}
+where $A$ is the constant occuring in the definition of $\varphi(w)$.
+
+An interesting formula is
+\begin{equation*}
+\frac{\varphi(w)}{w}=\int^{\infty}_{0}\Delta\left(\frac{1}{x}\right)x^{w-1}dx, \quad (Re\ w>0).\tag{7.7.8}\label{c7:eq7.7.8}
+\end{equation*}
+
+These are special cases of more general reciprocal transforms (see
+E.C.\@ Titchmarsh, \cite{Titchmarsh3}). See also \S\ 2 of (K.\@ Ramachandra
+\cite{Ramachandra18}). 
+\end{remarks*}
+
+\begin{thebibliography}{99}
+\bibitem{Ahlfors1} L. Ahlfors,\pageoriginale Complex Analysis, McGraw-Hill Book Company Inc., (1953).
+
+\bibitem{Balasubramanian1} R. Balasubramanian, On the frequency of Titchmarsh's phenomenon for  $\zeta(s)$-IV, Hardy-Ramanujan J., 9 (1986), 1-10.
+
+\bibitem{Balasubramanian2} R. Balasubramanian, An improvement of a theorem of Titchmarsh on the mean square of $|\zeta(\frac{1}{2} + it)|$, Proc. London Math. Soc., (3) 36 (1978), 540-576.
+
+\bibitem{Balasubramanian Ivic and  Ramachandra1} R. Balasubramanian, A. Ivi\'c and K. Ramachandra, The mean square of the Riemann zeta-function on the line $\sigma =1$, L'Ensign. Math., tome 38 (1992), 13-25.
+
+\bibitem{Balasubramanian Ivic and  Ramachandra2} R. Balasubramanian, A. Ivi\'c and K. Ramachandra, An application of the Hooley-Huxley contour, Acta Arith. LXV, 1(1993), 45-51.
+
+\bibitem{Balasubramanian and  Ramachandra1} R. Balasubramanian and K. Ramachandra, Some local convexity theorems for the zeta-function-like analytic functions, Hardy-Ramanujan J., 11 (1988), 1-12.
+
+\bibitem{Balasubramanian and  Ramachandra2} R. Balasubramanian and K. Ramachandra, A Lemma in complex function theory-I, Hardy-Ramanujan J., 12 (1989), 1-5.
+
+\bibitem{Balasubramanian and  Ramachandra3} R. Balasubramanian and K. Ramachandra, A Lemma in complex function theory-II, Hardy-Ramanujan J., 12 (1989), 6-13. 
+
+\bibitem{Balasubramanian and  Ramachandra4} R. Balasubramanian and K. Ramachandra, Proof of some conjectures on the mean-value of Titchmarsh series-II, Hardy-Ramanujan J., 14 (1991), 1-20.
+
+\bibitem{Balasubramanian and  Ramachandra5} R. Balasubramanian and K. Ramachandra,\pageoriginale Proof of some conjectures on the mean-value of Titchmarsh series-I, Hardy-Ramanujan J., 13 (1990), 1-20.
+
+\bibitem{Balasubramanian and  Ramachandra6} R. Balasubramanian and K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-III, Proc. Indian Acad. Sci., Section A, 86 (1977), 341-351.
+
+\bibitem{Balasubramanian and  Ramachandra7} R. Balasubramanian and K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-V, Arkiv f\"or Matematick, 26(1) (1988), 13-20.
+
+\bibitem{Balasubramanian and  Ramachandra8} R. Balasubramanian and K. Ramachandra, Progress towards a conjecture on the mean-value of Titchmarsh series-III, Acta Arith., 45 (1986), 309-318.
+
+\bibitem{Balasubramanian and  Ramachandra9} R. Balasubramanian and K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-VI, Acta Arith., 53 (1989), 325-331. 
+
+\bibitem{Balasubramanian and  Ramachandra10} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-III, J. Indian Math. Soc., 41 (1977), 301-315.
+
+\bibitem{Balasubramanian and  Ramachandra11} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-X, Indag. Math., N.S., 3(4), (1992), 377-384.
+
+\bibitem{Balasubramanian and  Ramachandra12} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-XI, Proc. Indian Acad. Sci., (Math. Sci.) 102 (1992), 225-233.
+
+\bibitem{Balasubramanian and  Ramachandra13} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-IV, J. Indian Math. Soc., 42 (1978), 135-142.
+
+\bibitem{Balasubramanian and  Ramachandra14} R. Balasubramanian and K. Ramachandra,\pageoriginale On the zeros of a class of generalised Dirichlet series-VI, Arkiv f\"or Matematik, 19 (1981), 239-250.
+
+
+\bibitem{Balasubramanian and  Ramachandra15} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-VIII, Hardy-Ramanujan J., 14  (1991), 21-33. 
+
+\bibitem{Balasubramanian and  Ramachandra16} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-IX, Hardy-Ramanujan J., 14 (1991), 34-43. 
+
+\bibitem{Balasubramanian and  Ramachandra17} R. Balasubramanian and K. Ramachandra, On the zeros of $\zeta'(s) - a$, (zeros XII), Acta Arith., LXIII. 2, (1993), 183-191.
+
+\bibitem{Balasubramanian and  Ramachandra18} R. Balasubramanian and K. Ramachandra, On the zeros of $\zeta(s) - a$, (zeros XIII), Acta Arith., LXIII. 4, (1993), 359-366.
+
+\bibitem{Balasubramanian and  Ramachandra19} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-XIV, Proc. Indian Acad. Sci., (Math. Sci.) vol. 104 (1994), 167-176.
+
+\bibitem{Balasubramanian and  Ramachandra20} R. Balasubramanian and K. Ramachandra, On the zeros of a class of generalised Dirichlet series-XV, Indag. Math., NS 5(2) (1994), 129-144.
+
+\bibitem{Balasubramanian Ramachandra and  Sankaranarayanan1} R. Balasubramanian, K. Ramachandra and A. Sankaranarayanan, On the frequency of Titchmarsh's phenomenon for $\zeta(s)-VIII$, Proc. Indian Acad. Sci., (Math. Sci.), 102 (1992), 1-12.
+
+\bibitem{Chandrasekharan1} K. Chandrasekharan, The Riemann zeta-function, LN1, Tata Institute of Fundamental Research, Bombay (1953), Reissued (1962). 
+
+\bibitem{Chandrasekharan2} K. Chandrasekharan, Arithmetical functions, Springer-Verlag, Berlin-New York (1970).
+
+\bibitem{Conrey1} J.B. Conrey,\pageoriginale More than two fifths of the zeros of the Riemann zeta function are on the critical line, J. Reine angew. Math., 399 (1989), 1-26.
+
+\bibitem{Conrey2} J.B. Conrey, At least two fifths of the zeros of the Riemann zeta function are on the critical line, Bull. Amer. Math. Soc., 20 (1989), 79-81.
+
+\bibitem{Conrey Ghosh and Gonek1} J.B. Conrey, A. Ghosh and S.M. Gonek, Simple zeros of zeta functions, Colloq. de Th\'eorie analytique des nombres, University of Paris Sud (1985), 77-83.
+
+\bibitem{Fujii1} A. Fujii, \textit{On a conjecture of Shanks}, paper No. 26, Proc. Japan Acad. Sci., (Math. Sci.) Vol. LXX (1994), 109-114.
+
+\bibitem{Gabriel1} R.M. Gabriel, Some results concerning the integrals of the modulii of regular functions along certain curves, J. London Math. Soc., 11 (1927), 112-117.
+
+\bibitem{Gonek1} S.M. Gonek, Mean value of the Riemann zeta-function and its derivatives, Invent. Math., 75 (1984), 123-141.
+
+\bibitem{Graham1} S.W. Graham, Large values of the Riemann zeta-function, Topics in analytic number theory, Proc. Conf. Austin/Texas (1982), (1985), 98-126.
+
+\bibitem{Hafner and Ivic1} J.L. Hafner and A. Ivi\'c, On the mean square of the Riemann zeta function on the critical line, J. Number Theory, 32 (1989), 151-191.
+
+\bibitem{Heath-Brown1} D.R. Heath-Brown, Fractional moments of the Riemann zeta-function, J. London Math. Soc. (2) 24 (1981), 65-78.
+
+\bibitem{Heath-Brown2} D.R. Heath-Brown, The twelfth power moment of the Riemann zeta-function, Quart. J. Math., Oxford (2) 29 (1978), 443-462.
+
+\bibitem{Heath-Brown3} D.R. Heath-Brown,\pageoriginale The fourth power moment of the Riemann zeta-function, Proc. London Math. Soc., (3) 38 (1979), 385-422.
+
+\bibitem{Heath-Brown and Huxley1} D.R. Heath-Brown and M.N. Huxley, Exponential sums with a difference, Proc. London Math. Soc., (3) 61 (1990), 227-250.
+
+\bibitem{Ingham1} A.E. Ingham, On the estimation of $N(\sigma,T)$, Quart. J. Oxford, 11 (1940), 291-292.
+
+\bibitem{Ivic1} A. Ivi\'c, The Riemann zeta-function, John Wiley and Sons, New York (1985). 
+
+\bibitem{Ivic2} A. Ivi\'c, Mean values of the Riemann zeta-function, LN82, Tata Institute of Fundamental Research, Bombay (1991), (Published by Springer-Verlag, Berlin-New York).
+
+\bibitem{Ivic and Motohashi1} A. Ivi\'c and Y. Motohashi, On the fourth power moment of the Riemann zeta-function, (to appear).
+
+\bibitem{Ivic and  Perelli1} A. Ivi\'c and A. Perelli, Mean values of certain zeta-functions on the critical line, Litovskij Mat. Sbornik, 29 (1989), 701-714.
+
+\bibitem{Iwaniec1} H. Iwaniec, Fourier coefficients of cusp forms and the Riemann zeta-function, Expose No. 18, Semin. Th\'eor. Nombres, Universite Bordeaux (1979/80).
+
+\bibitem{Jutila1} M. Jutila, A method in the theory of exponential sums, LN80, Tata Institute of Fundamental Research, Bombay (1987), (Published by Springer-Verlag, Berlin-New York).
+
+\bibitem{Jutila2} M. Jutila, On the value distribution of the zeta-function on the critical line, Bull. London Math. Soc., 15 (1983), 513-518.
+
+\bibitem{Jutila3} M. Jutila, The fourth power moment of the Riemann zeta-function over a short interval in ``Coll. Math. Soc. J. Bolyai 54, Number Theory, Budapest 1987'', North-Holland, Amsterdam 1989, 221-244.
+
+\bibitem{Jutila4} M. Jutila,\pageoriginale Mean value estimates for exponential sums with applications to $L$-functions, Acta Arith., 57 (1990), 93-114.
+
+\bibitem{Karatsuba1} A.A. Karatsuba, The distribution of prime numbers, Uspekhi Mat. Nauk., 45: 5 (1990) 81-140.
+
+\bibitem{Kuznetsov1} N.V. Kuznetsov, Sums of Kloosterman sums and the eighth power moment of the Riemann zeta-function, Number Theory and related topics, Ramanujan Cent. Colloq. TIFR, Bombay (1988), Oxford University Press (1989),  57-117.
+
+\bibitem{Levinson1} N. Levinson, $\Omega$-Theorems for the Riemann zeta-function, Acta Arith., 20 (1972), 319-332.
+
+\bibitem{Levinson2} N. Levinson, More than one third of the zeros of the Riemann's zeta-function are on $\sigma =\frac{1}{2}$, Advances in Math., 13 (1974), 383-436.
+
+\bibitem{Matsumoto1} K. Matsumoto, The mean square of the Riemann zeta-function in the critical strip, Japanese J. Math., New series, 15 (1989), 1-13.
+
+\bibitem{Montgomery1} H.L. Montgomery, Topics in multiplicative number theory, Lecture notes in Mathematics, 227, Springer-Verlag, Berlin-New York (1971), IX + 178 pp.
+
+\bibitem{Montgomery2} H.L. Montgomery, Extreme values of the Riemann zeta-function, Comment. Math. Helv., 52 (1977), 511-518.
+
+\bibitem{Montgomery3} H.L. Montgomery, On a question of Ramachandra, Hardy-Ramanujan J., 5 (1982), 31-36.
+
+\bibitem{Montgomery4} H.L. Montgomery, The pair correlation of the zeros of zeta function, Analytic number theory, Proc. Sympos. Pure Math., Vol. XXIV, St. Louis, M.O., (1972), p. 181-193, Amer. Math. Soc., Providence R.I., (1973).
+
+\bibitem{Motohashi1} Y. Motohashi,\pageoriginale On Sieve methods and prime number theory, LN72, Tata Institute of Fundamental Research, Bombay (1983) (Published by Springer-Verlag, Berlin-New York).
+
+\bibitem{Motohashi2} Y. Motohashi, An explicit formula for the fourth power mean of the Riemann zeta-function, Acta Math., 170 (1993), 180-220.
+
+\bibitem{Mueller1} J.H. Mueller, On the Riemann zeta-function $\zeta(s)$-gaps between sign changes of $S(t)$, Mathematika, 29 (1983), 264-269.
+
+\bibitem{Prachar1} K. Prachar, Primzahlverteilung, Springer-Verlag, Berlin-G\"ottingen-Heidelberg, (1957).
+
+\bibitem{Ramachandra1} K. Ramachandra, Some problems of analytic number theory, Acta Arith., 31 (1976), 313-324.
+
+\bibitem{Ramachandra2} K. Ramachandra, Riemann zeta-function, Ramanujan Institute, Madras University, Madras (1979), 16 pp.
+
+\bibitem{Ramachandra3} K. Ramachandra, A brief summary of some results in the analytic theory of numbers-II, Lecture note in Mathematics No. 938, ed. K. Alladi, Springer-Verlag (1981), 106-122.
+
+\bibitem{Ramachandra4} K. Ramachandra, Some remarks on a theorem of Montgomery and Vaughan, J. Number Theory, 11 (1979), 465-471.
+
+\bibitem{Ramachandra5} K. Ramachandra, Application of a theorem of Montgomery and Vaughan to the zeta-function, J. London Math. Soc., 10 (1975), 482-486.
+
+\bibitem{Ramachandra6} K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-I, J. London Math. Soc., 8 (1974), 683-690.
+
+\bibitem{Ramachandra7} K. Ramachandra, Progress towards a conjecture on the mean-value of Titchmarsh series-I, Durham Sympos. (1979), Recent progress in analytic\pageoriginale number theory, vol. 1, ed. H. Halberstam and C. Hooley, FRS, Academic Press, London, New York, Toronto, Sydney, San Franscisco, (1981), 303-318.
+
+\bibitem{Ramachandra8} K. Ramachandra, Progress towards a conjecture on the mean-value of Titchmarsh series-II, Hardy-Ramanujan J., 4 (1981), 1-12.
+
+\bibitem{Ramachandra9} K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-II, Acta Math. Acad. Sci. Hungarica, vol. 30/1-2 (1977), 7-13.
+
+\bibitem{Ramachandra10} K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-VII, Annales Acad. Sci. Fenn., Ser. AI Math., 14 (1989), 27-40.
+
+\bibitem{Ramachandra11} K. Ramachandra, On the frequency of Titchmarsh's phenomenon for $\zeta(s)$-IX, Hardy-Ramanujan J., 13 (1990), 28-33.
+
+\bibitem{Ramachandra12} K. Ramachandra, Proof of some conjectures on the mean-value of Titchmarsh series with applications to Titchmarsh's phenomenon, Hardy-Ramanujan J., 13 (1990), 21-27.
+
+\bibitem{Ramachandra13} K. Ramachandra, Some remarks on the mean-value of the Riemann zeta-function and other Dirichlet series-I, Hardy-Ramanujan J., 1 (1978), 1-15.
+
+\bibitem{Ramachandra14} K. Ramachandra, Some remarks on the mean-value of the Riemann zeta-function and other Dirichlet series-II, Hardy-Ramanujan J., 3 (1980), 1-24.
+
+\bibitem{Ramachandra15} K. Ramachandra, Some remarks on the mena-value of the Riemann zeta-function and other Dirichlet series-IV, J. Indian Math. Soc., vol. 60 (1994), 107-122. 
+
+\bibitem{Ramachandra16} K. Ramachandra, Mean-value of the Riemann zeta-function and other remarks-III, Hardy-Ramanujan J., 6 (1983) , 1-21.
+
+\bibitem{Ramachandra17} K. Ramachandra,\pageoriginale Some remarks on the mean-value of the Riemann zeta-function and other Dirichlet series-III, Annales Acad. Sci. Fenn., Ser AI, 5 (1980), 145-158.
+
+\bibitem{Ramachandra18} K. Ramachandra, Mean-value of the Riemann zeta-function and other remarks-I, Colloq. Math. Soc. Janos Bolyai, 34 Topics in classical number theory, Budapest (Hungary), (1981), 1317-1347.
+
+\bibitem{Ramachandra19} K. Ramachandra, A new approach to the zeros of $\zeta(s)$, Math. Student, India, (to appear),
+
+\bibitem{Ramachandra20} K. Ramachandra, Application of a theorem of Montgomery and Vaughan-II, J. Indian Math. Soc., 59 (1993), 1-11.
+
+\bibitem{Ramachandra21} K. Ramachandra, On the zeros of a class of generalised Dirichlet series-I, J. Reine u. Angew. Math., 273 (1975), 31-40; Addendum 60.
+
+\bibitem{Ramachandra22} K. Ramachandra, On the zeros of a class of generalised Dirichlet series-II, J. Reine u. Angew. Math., 289 (1977), 174-180.
+
+\bibitem{Ramachandra23} K. Ramachandra, On the zeros of a class of generalised Dirichlet series-V, J. Reine u. Angew. Math., 303/304, (1978), 295-313.
+
+\bibitem{Ramachandra24} K. Ramachandra, On the zeros of a class of generalised Dirichlet series-VII, Annales Acad. Sci. Fenn., Ser AI. Math., 16 (1991), 391-397.
+
+\bibitem{Ramachandra25} K. Ramachandra, A remark on $\zeta(1+ it)$, Hardy-Ramanujan J., 10 (1987), 2-8.
+
+\bibitem{Ramachandra26} K. Ramachandra, The simplest quickest and self-contained proof that $\frac{1}{2} \leq \theta \leq 1$, J. Indian Math. Soc., vol. 61 Nos. 1-2 (1995), 7-12. 
+
+\bibitem{Ramachandra and Sankaranarayanan1} K. Ramachandra and A. Sankaranarayanan, Note on a paper by H.L. Montgomery-I, Publ. de L'Institut Math., Novelle Ser. tome 50 (64), Beograd (1991), 51-59.
+
+\bibitem{Ramachandra and Sankaranarayanan2} K. Ramachandra and A. Sankaranarayanan,\pageoriginale Note on a paper by H.L. Montgomery-II, Acta Arith., 58 (1991), 299-308.
+
+\bibitem{Ramachandra and Sankaranarayanan3} K. Ramachandra and A. Sankaranarayanan, On some theorems of Littlewood and Selberg-II, Annales Acad. Sci. Fenn., Ser. AI Math., 16 (1991), 131-137.
+
+\bibitem{Ramachandra and Sankaranarayanan4} K. Ramachandra and A. Sankaranarayanan, On some theorems of Littlewood and Selberg-III, Annales Acad. Sci. Fenn., Ser. AI Math., 16 (1991), 139-149.
+
+\bibitem{Ramachandra and Sankaranarayanan5} K. Ramachandra and A. Sankaranarayanan, On some theorems of Littlewood and Selberg-I, J. Number Theory, 44 (1993), 281-291.
+
+\bibitem{Ramachandra and Sankaranarayanan6} K. Ramachandra and A. Sankaranarayanan, On the zeros of a class of generalised Dirichlet series-XVI, Math. Scand., (to appear).
+
+\bibitem{Ramachandra and Sankaranarayanan7} K. Ramachandra and A. Sankaranarayanan, A remark on Vinogradov's mean-value theorem, The J. of Analysis, 3 (1995) (to appear).
+
+\bibitem{Ramanujan1} S. Ramanujan, A proof of Bertrand's Postulate, J. Indian Math. Soc., 11 (1919), 181-182.
+
+\bibitem{Ramanujan2} S. Ramanujan, Collected papers, ed. G.H. Hardy, P.V. Seshu Iyer and B.M. Wilson, Chelsea (1962).
+
+\bibitem{Richert1} H.-E. Richert, Sieve methods LN55, Tata Institute of Fundamental 
+Research, Bombay (1976).
+
+\bibitem{Titchmarsh1} E.C. Titchmarsh, The theory of the Riemann zeta-function, Second edition, Revised and edited by D.R. Heath-Brown, Clarendon Press, Oxford (1986).
+
+\bibitem{Titchmarsh2} E.C. Titchmarsh,\pageoriginale Theory of functions, Oxford University Press (1952).
+
+\bibitem{Titchmarsh3} E.C. Titchmarsh, Introduction to the theory of Fourier integrals, Oxford (1937).
+
+\bibitem{Titchmarsh4} E.C. Titchmarsh, On an inequality satisfied by the zeta-function of Riemann, Proc. London Math. Soc., (2) 28 (1928),  70-80.
+
+\bibitem{Weil1} A. Weil, Number Theory, Birkhauser, Boston-Basel-Stuttgart, (1983).
+
+\bibitem{Zavorotnyi1} N. Zavorotnyi, On the fourth moment of the Riemann zeta-function (Russian), Preprint, Vladivostok, Far Eastern Research Centre of the Academy of Sciences U.S.S.R., (1986), 36 pp.
+
+\end{thebibliography}

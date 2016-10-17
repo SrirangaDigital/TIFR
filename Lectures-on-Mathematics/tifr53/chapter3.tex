@@ -1,0 +1,1360 @@
+ 
+
+\chapter{Minimisation Without Constraints - Algorithms}\label{chap3}
+We\pageoriginale have considered in the previous chapter results of theoretical nature on the existence and uniqueness of solutions to minimisation problems and the solutions were characterized with the aid of the convexity and differ entiability properties of the given functional. Here we shall be concerned with the constructive aspects of the minimisation problem, namely the description of algorithms for the construction of sequences approximating the solution. We give in this chapter some algorithms for the minimisation problem in the absence of constraints and we shall discuss the convergence of the sequences thus constructed.
+
+The algorithms (i.e. the methods for constructing the minimizing sequences) described below will make use of the differential calculus of functionals on Banach spaces developed in Chapter \ref{chap1}. We shall be mainly concerned with the following classes of algorithms:
+\begin{enumerate}
+\item[(1)] the method of descent and
+
+\item[(2)] generalized Newton's method.
+\end{enumerate}
+
+We shall mention the conjugate gradient method only briefly. The first class of methods mainly make use of the calculus of first order derivatives while the generalized Newton's method relies heavily on the calculus involving second order derivatives in Banach spaces.
+
+Suppose $V$ is a Banach space and $J : V \to \mathbb{R}$ is a functional on it. The algorithms consist in giving an interative procedure to solve the minimisation problem:
+$$
+\text{ to find } u \epsilon V, J(u) = \inf_{v \epsilon V} J(v).
+$$\pageoriginale
+
+Suppose $J$ has unique global minimum $u$ in $V$. We are interested in constructing a sequence $u_{k}$, starting from an arbitrary $u_{\circ} \epsilon V$, such that under suitable hypothesis on the functional $J$, $u_{k}$ converges to $u$ in $V$. First of all, since $u$ is the unique global minimum the sequence $J(u_{k})$ is bounded below by $J(u)$. It is therefore natural to construct $u_{k}$ such that
+\begin{enumerate}
+\item[(i)] $J(u_{k})$ is monotone decreasing
+
+This will imply that $J(u_{k})$ converge to $J(u)$. Further, if $J$ admits a gradient $G$ then we necessarily have $G(u) = 0$ so much so that the sequence $u_{k}$ constructed should satisfy also the natural requirement that
+
+\item[(ii)] $G(u_{k}) \to 0$ in $V$ as $k \to \infty$
+
+Our method can roughly be described as follows: If, for some $k$, $u_{k}$ is already known then the next iterate $u_{k+1}$ is determined by choosing suitably a parameter $\rho_{k} > 0$ and a direction $w_{k}(w_{k} \epsilon V,\break w_{k} \neq 0)$ and then taking
+$$
+u_{k+1} = u_{k} - \rho_{k} w_{k}.
+$$
+\end{enumerate}
+
+We shall describe, in the sequel, certain choices of $\rho_{k}$ and $w_{k}$ which will imply (i), (ii) which in turn to convergence of $u_{k}$ to $u$. We shall call such choices of $\rho_{k}, w_{k}$ convergent choices.
+
+To simplify our discussion we shall restrict ourselves to the case of a Hilbert space $V$. However, all our considerations of this chapter remain valid\pageoriginale for any reflexive Banach space with very minor changes and we shall not go into the details of this. As there will be no possibility of confusion we shall write $(\cdot , \cdot)$ and $||\cdot||$ for the inner product $(\cdot , \cdot)_{V}$ and $||\cdot||_{V}$ respectively.
+
+\section{Method of Descent}\label{chap3-sec1}
+This method includes a class of algorithms for the construction of minimising sequences $u_{k}$. We shall begin with the following generalities in order to motivate and explain the principle involved in this method.
+
+Let $J : V \to \mathbb{R}$ be a functional on a Hilbert space $V$.
+
+\subsection{Generalities}\label{chap3-subsec1.1}
+
+Starting from an initial value $u_{\circ} \epsilon V$ we construct $u_{k}$ iteratively with the properties described in the introduction. Suppose $u_{k}$ is constructed then to construct $u_{k+1}$ we make two choices:
+\begin{enumerate}
+\item[(1)] a direction $w_{k}$ in $V$ called the ``direction of descent''
+
+\item[(2)] a real parameter $\rho = \rho_{k}$, and set $u_{k+1} = u_{k}-\rho_{k} w_{k}$ so that the sequence thus constructed has the required properties. The main idea in the choices of $w_{k}$ and $\rho_{k}$ can be motivated as follows: 
+\end{enumerate}
+
+{\em Choice of} $w_{k}$. We find $w_{k} \epsilon V$ with $||w_{k}|| = 1$ such that the restriction of $J$ to the line in $V$ passing through $u_{k}$ and parallel to the direction $w_{k}$ is decreasing in a neighbourhood of $u_{k}$: i.e. the function $\mathbb{R} \ni \rho \to J(u_{k} + \rho w_{k}) \epsilon \mathbb{R}$ is decreasing for\pageoriginale $|\rho|$ sufficiently small.
+
+
+If $J$ is $G$-differentiable then we have by Taylor's formula
+\begin{align*}
+J(u_{k} + \rho w_{k}) & = J(u_{k}) + J'(u_{k}, \rho w_{k}) + \ldots\\
+& = J(u_{k}) + \rho J'(u_{k}, w_{k}) + \ldots
+\end{align*}
+(by homogeneity of $\varphi \mapsto J' (u, \varphi)$). For $|\rho|$ small since the dominant term in this expansion is $\rho J'(u_{k}, w_{k})$ and since we want $J(u_{k} + \rho w_{k}) \leq J(u_{k})$ the best choice of $w_{k}$ (at least locally) should be such that
+$$
+\rho J'(u_{k}, w_{k}) \leq 0 \text{ and is largest in magnitude.}
+$$
+
+If $J$ has a gradient $G$ then
+$$
+\rho J'(u_{k}, w_{k}) = \rho (G(u_{k}), w_{k}) \leq 0
+$$
+and our requirement will be satisfied if $w_{k}$ is chosen proportional to $G(u_{k})$ and opposite in direction. We note that, this may not be the best choice of $w_{k}$ from global point of view. We shall therefore write
+$$
+J(u_{k} - \rho w_{k}) \text{ with } \rho > 0
+$$
+so that $J(u_{k} - \rho w_{k})\searrow$ as $k$ increases for $\rho > 0$ small enough.
+
+\medskip
+\noindent
+{\bf Choice of $\rho (= \rho_{k})$.} Once the direction of descent $w_{k}$ is chosen then the iterative procedure can be done with a constant $\rho > 0$. It is however more suitable to do this with a variable $\rho$. We shall therefore choose $\rho = \rho_{k} > 0$ in a small interval with the property $J(u_{k} - \rho_{k} w_{k}) < J(u_{k})$ and set
+$$
+u_{k+1} = u_{k} - \rho_{k} w_{k}.
+$$
+
+We do this in several steps. Since,
+$$
+j = \inf\limits_{v \in V} J(v) \leq J(u_{k+1}) \leq J(u_{k})
+$$
+we\pageoriginale have
+$$
+J(u_{k}) - J(u_{k+1}) \geq 0 \text{ and } \lim_{k \to +\infty} (J(u_{k}) - J(u_{k+1})) = 0
+$$
+because $J(u_{k})$ is decreasing and bounded below. If $J$ is differentiable then Taylor's formula implies that
+$$
+J(u_{k}) - J(u_{k+1}) \text{ behaves like } J'(u_{k}, u_{k+1} - u_{k}) = \rho_{k} J'(u_{k}, w_{k})
+$$
+so that it is natural to require that
+$$
+\rho_{k} > 0, \rho_{k} J'(u_{k}, w_{k}) \to 0 \text{ as } k \to + \infty.
+$$
+
+Roughly speaking, we shall say that the choice of $\rho_{k}$ is a ``convergent choice'' if this condition implies $J'(u_{k}, w_{k}) \to 0$ as $k \to + \infty$. If, moreover, $J$ has a gradient $G$ then choice of the direction of descent $w_{k}$ is a ``convergent choice'' if $J'(u_{k}, w_{k}) = (G(u_{k}), w_{k}) \to 0$ implies that $||G(u_{k})|| \to 0$ as $k \to + \infty$.
+
+The above considerations lead us to the following definitions which we shall use in all our algorithms and all our proofs of convergence. 
+
+\begin{definition}\label{chap3-def1.1}
+The choice of $\rho_{k}$ is said to be convergent if the conditions
+\begin{equation*}
+\begin{cases}
+& \rho_{k} > 0, u_{k+1} = u_{k}-\rho_{k} w_{k}\\
+& J(u_{k}) - J(u_{k+1}) > 0, \lim_{k \to +\infty} (J(u_{k}) - J(u_{k+1})) = 0
+\end{cases}
+\end{equation*}
+imply that
+$$
+\lim_{k \to +\infty} J'(u_{k}, w_{k}) = 0.
+$$
+
+Suppose $J$ has a gradient $G$ in $V$.
+\end{definition}
+
+\begin{definition}\label{chap3-def1.2}
+The choice of the direction $w_{k}$ is said to be convergent if the conditions
+$$
+w_{k} \epsilon V, J'(u_{k}, w_{k}) > 0. \lim_{k \to + \infty} J'(u_{k}, w_{k}) = 0
+$$\pageoriginale
+imply that
+$$
+\lim_{k \to + \infty} ||G(u_{k})|| = 0.
+$$
+\end{definition}
+
+\subsection{Convergent choice of the direction of descent $w_{k}$}\label{chap3-subsec1.2}
+
+This section is devoted to some algorithms for convergent choices of $w_{k}$. In each case  we show that the choice of $w_{k}$ described is convergent in the sense of Definition \ref{chap3-def1.2}
+
+{\em w-Algorithm 1.} We assume that $J$ has a gradient $G$ in $V$. Let a real number $\alpha$ be given with $0 < \alpha \leq 1$. We choose $w_{k} \epsilon V$ such that
+\begin{equation*}
+\begin{cases}
+& (G(u_{k})/||G(u_{k})||, w_{k}) \geq \alpha > 0.\\
+& ||w_{k}|| = 1.\tag{1.1}\label{chap3-eq1.1}
+\end{cases}
+\end{equation*}
+
+\begin{proposition}\label{chap3-prop1.1}
+w-Algorithm 1 gives a convergent choice of $w_{k}$.
+\end{proposition}
+
+\begin{proof}
+We can write
+$$
+J'(u_{k}, w_{k}) = (G(u_{k}), w_{k})
+$$
+so that by (\ref{chap3-eq1.1})
+$$
+J'(u_{k}, w_{k}) \geq \alpha ||G(u_{k})|| > 0
+$$
+and hence
+$$
+J'(u_{k}, w_{k}) \to 0 \text{ implies that } ||G(u_{k})|| \to 0 \text{ as } k \to + \infty.
+$$
+\end{proof}
+
+We note that (\ref{chap3-eq1.1}) means that the angle between $w_{k}$ and $G(u_{k})$ lies in $]-\pi/2, \pi/2[$ and the cosine of this angle is bounded away from 0 by $\alpha$.
+
+{\em w-Algorithm 2 - Auxiliary operatoe method.}
+
+This algorithm is a particular case of w-algorithm 1 but very much more used in practice.
+
+Assume\pageoriginale that $J$ has a gradient $G$ in $V$.
+
+Let, for each $k$, $B_{k} \epsilon \mathscr{L} (V, V)$ be an such that
+\begin{equation*}
+\begin{cases}
+ B_{k} \text{ are uniformly bounded: there exists a constant } \gamma > 0\\ 
+\text{ such that }\quad||B_{k} \psi|| \leq \gamma ||\psi|| : \psi \epsilon V.\\
+B_{k} \text{ are uniformly $V$-coercive: there exists a constant }
+\alpha > 0\\ 
+\text{ such thaat } \quad 
+(B_{k} \psi, \psi) \geq \alpha ||\psi||^{2}, \psi \epsilon V.\tag{1.2}\label{chap3-eq1.2}
+\end{cases}
+\end{equation*}
+
+Let us choose
+\begin{equation*}
+w_{k} = B_{k} G(u_{k})/||B_{k} G(u_{k})\tag{1.3}\label{chap3-eq1.3}
+\end{equation*}
+
+\begin{proposition}\label{chap3-prop1.2}
+The choice (\ref{chap3-eq1.3}) of $w_{k}$ is convergent. 
+\end{proposition}
+
+\begin{proof}
+As before we calculate
+$$
+J'(u_{k}, w_{k}) = (G(u_{k}), w_{k}) = (G(u_{k}), B_{k}G(u_{k})/||B_{k} G(u_{k})||)
+$$
+which, by uniform coercivity of $B_{k}$, is
+\begin{align*}
+& \geq \alpha||G(u_{k})||^{2} / ||B_{k}G(u_{k})||\\
+& \geq \alpha \gamma^{-1} G(u_{k}) \text{ by uniform boundedness of } B_{k}.
+\end{align*}
+\end{proof}
+
+This immediatly implies that
+$$
+J'(u_{k}, w_{k}) > 0 \text{ and if } J'(u_{k}, w_{k}) \to 0 \text{ then } ||G(u_{k})|| \to 0
+$$
+and hence the choice of $w_{k}$ is convergent.
+
+Moreover, again by (\ref{chap3-eq1.3}), we get
+{\fontsize{10}{12}\selectfont
+$$
+(G(u_{k}) / ||G(u_{k})||, w_{k}) = (G(u_{k})/ ||G(u_{k})||, B_{k} G(u_{k})/ ||B_{k} G(u_{k})||) \geq \alpha \gamma^{-1} > 0,
+$$}
+which means that this algorithm is a particular case of $w$-Algorithm 1.
+
+\begin{remark}\label{chap3-rem1.1}
+In\pageoriginale certain (for example, when $B_{k}$ are symmetric operators satisfying (\ref{chap3-eq1.2})) this method is equivalent to making a change of variables and taking as the direction of descent the direction of the gradient of $J$  in the new variables and then choosing $w_{k}$ as the inverse image of this direction in the original coordinates.
+
+Consider the functional $J : V = \mathbb{R}^{2} \to \mathbb{R}$ of our model problem of Chapter \ref{chap1}, \S \ref{chap1-sec7}:
+$$
+\mathbb{R}^{2} \ni v \mapsto J(v) = \frac{1}{2} a(v, v) - L(v) = \frac{1}{2} (Av, v)_{\mathbb{R}^{2}} - (f, v)_{\mathbb{R}^{2}} \epsilon \mathbb{R}.
+$$
+\end{remark}
+
+Since $a(\cdot , \cdot)$ is a positive definite quadratic form, $\{v
+\epsilon \mathbb{R}^{2}, J(v) =\break \text{ constant } \}$ represents an ellipse. $B_{k}$ can be chosen such that the change of variable effected by $B_{k}$ transforms such an ellipse into a circle where the gradient direction is well-known i.e. the direction of the radial vector through $u_{k}$ (in the new coordinates).
+
+{\em w-Algorithm 3 - Conjugate gradient method}
+
+There are several algorithms known in the literature under the name of conjugate gradient method. We shall, however, describe only one of the algorithms which generalizes the conjugate gradient method in the finite dimensional spaces. (See \cite{key20} \cite{key22} and \cite{key24}).
+
+Suppose the functional $J$ admits a gradient $G(u)$ and a Hessian $H(u)$ everywhere in $V$. Let $u_{\circ} \epsilon V$ be arbitrary. We choose $w_{\circ} = G(u_{\circ})/ ||G(u_{\circ})||$ (We observe that we may assume $G(u_{\circ}) \neq 0$ unless $u_{\circ}$ itself happens to be the required minimum). If $u_{k-1}, w_{k-1}$ are already known then we choose $\rho_{k-1} > 0$ to be a points of minimum of the real valued function
+$$
+\mathbb{R}_{+} \ni \rho \mapsto J(u_{k-1} - \rho w_{k-1}) \epsilon \mathbb{R}
+$$
+$$
+\text{ i.e. } \rho_{k-1} > 0 \text{ and } J(u_{k-1} - \rho_{k-1} w_{k-1}) = \inf\limits_{\rho > 0} J(u_{k-1} - \rho w_{k-1}).
+$$
+
+Since\pageoriginale $J$ is $G$-differentiable this real valued function of $\rho$ is differentiable everywhere in $\mathbb{R}_{+}$ and
+$$
+\dfrac{d}{d\rho} J(u_{k-1} -\rho w_{k-1}) |_{\rho=\rho_{k-1}} = 0,
+$$
+which means that, if we set
+\begin{equation*}
+u_{k} = u_{k-1} - \rho_{k-1} w_{k-1}\tag*{$(1.4)_1$}\label{chap3-eq1.4_1}
+\end{equation*}
+then we have
+\begin{equation*}
+(G(u_{k}), w_{k-1}) = 0.\tag{1.5}\label{chap3-eq1.5}
+\end{equation*}
+
+Now we define a vector $\widetilde{w}_{k} \epsilon V$ by
+$$
+\widetilde{w}_{k} = G(u_{k}) + \lambda_{k} w_{k-1}
+$$
+where $\lambda_{k} \epsilon \mathbb{R}$ is chosen such that
+$$
+(H(u_{k}) \widetilde{w}_{k}, w_{k-1}) = 0
+$$
+
+Hence $w_{k}$ is given by
+\begin{equation*}
+\lambda_{k} = -\dfrac{(H(u_{k})G(u_{k}), w_{k-1})}{(H(u_{k})w_{k-1}, w_{k-1})}.\tag*{$(1.4)_2$}\label{chap3-eq1.4_2}
+\end{equation*}
+
+We remark that in applications we usually assume that $H(u)$ (for any $u \epsilon V$) defines a positive operator and hence the denominator in \ref{chap3-eq1.4_2} above $i$ non-zero (see Remark \ref{chap3-rem1.2} below). Then the vector
+\begin{equation*}
+w_{k} = \widetilde{w}_{k} / ||\widetilde{w}_{k}||\tag*{$(1.4)_3$}\label{chap3-eq1.4_3}
+\end{equation*}
+defines the direction of descent at the $k$-th stage of the algorithm.
+
+This algorithm is called conjugate gradient method because of the following remark.
+
+\begin{remark}\label{chap3-rem1.2}
+Two\pageoriginale directions $\varphi$ and $\psi$ are said to be conjugate with respect to a positive definite quadratic form $a(\cdot , \cdot)$ on $V$ if $a(\varphi, \psi) = 0$. In this sense, if $H(u_{k})$ defines positive definite quadratic form (i.e. $H(u_{k})$ is a symmetric positive operator on $V$) two consecutive  choices of directions of descent $w_{k-1}, w_{k}$ are conjugate with respect to the quadric $(H(u_{k})w, w) = 1$. We recall that in the plane $\mathbb{R}^{2}$ such a quadric represents an ellipse and two directions $\varphi, \psi$ in the plane are said to be conjugate with respect to such an ellipse if $(H(u_{k})\varphi, \psi) = 0$.
+\end{remark}
+
+Now we have the following
+
+\begin{proposition}\label{chap3-prop1.3}
+Suppose that the functional $H$ admits a gradient $G(u)$ and a Hessian $H(u)$ everywhere in $V$ and suppose further that there exist two constants $C_{\circ} > 0, C_{1} > 0$ such that
+\begin{enumerate}
+\item[(i)] $(H(u) \varphi, \varphi) \geq C_{\circ} ||\varphi||^{2}$ for all $u, \varphi \epsilon V$ and
+\item[(ii)] $|(H(u)\varphi, \psi)| \leq C_{1} ||\varphi|| ||\psi||$ for all $u, \varphi, \psi \epsilon V$.
+\end{enumerate}
+Then the $w$-Algorithm 3 defines a convergent choice of the $w_{k}$.
+\end{proposition}
+
+\begin{proof}
+It is enough to verify that $w_{k}$ satisfies the condition (\ref{chap3-eq1.1}). First of all, in view of the definition of $\widetilde{w}_{k}$ and (\ref{chap3-eq1.5}) we have
+$$
+(G(u), \widetilde{w}_{k}) = ||G(u_{k})||^{2}
+$$
+so that
+$$
+(G(u_{k})/||G(u_{k})||, w_{k}) = ||G(u_{k})|| ||\widetilde{w}_{k}||^{-1}.
+$$
+\end{proof}
+
+We shall show that this is bounded below by a constant $\alpha > 0$ (independent of $k$).
+
+For this, we get, again using the definition of $\widetilde{w}_{k}$, \ref{chap3-eq1.4_2} and (\ref{chap3-eq1.5})
+$$
+||\widetilde{w}_{k}||^{2} = ||G(u_{k})||^{2} + \lambda_{k}^{2} ||w_{k-1}||^{2}.
+$$
+
+Here, in view of the assumptions (i) and (ii) we find that
+\begin{align*}
+\lambda_{k}^{2} ||w_{k-1}||^{2} & = \dfrac{(H(u_{k})G(u_{k}), w_{k-1})^{2}}{(H(u_{k})w_{k-1}, w_{k-1})^{2}} ||w_{k-1}||^{2}\\
+& \leq (C_{\circ}^{-1} C_{1} ||G(u_{k})||)^{2}
+\end{align*}
+so\pageoriginale that
+$$
+||\widetilde{w}_{k}||^{2} \leq ||G(u_{k})||^{2} (1 + C_{\circ}^{-2} C_{1}^{2}).
+$$
+
+Hence, taking the constant $\alpha > 0$ to be $(1 + C_{\circ}^{-2} C_{1}^{2})^{-\frac{1}{2}}$ we get
+$$
+||G(u_{k})|| ||\widetilde{w}_{k}||^{-1}  > \alpha > 0
+$$
+which proves the assertion.
+
+\subsection{Convergent Choices of $\rho_{k}$}\label{chap3-subsec1.3}
+We shall describe in this section some algorithms for the choice of the parameter $\rho_{k}$ and we shall prove that these choices are convergent in the sense of our Definition \ref{chap3-def1.1}.
+
+Given the idrection $w_{k}$ of descent at the $k^{th}$ stage we are interested in points of the type
+$$
+u_{k} - \rho w_{k}, \rho > 0,
+$$
+and therefore all out discussions of this section are as if we have functions of a single real variable $\rho$ defined in $\mathbb{R}_{+}$.
+
+We shall use the following notation throughout this and the next sections in order to simplify our writing:
+
+{\em Notation}
+\begin{equation*}
+\begin{cases}
+J(u_{k} - \rho w_{k}) & = J_{\rho}^{k} \text{ for } \rho > 0,\\
+J(u_{k}) & = J_{\circ}^{k},
+\end{cases}
+\end{equation*}
+$$
+J(u_{k}) - J(u_{k} - \rho w_{k}) = J_{\circ}^{k} - J_{\rho}^{k} = \triangle J_{\rho}^{k}, \rho > 0.
+$$
+\begin{equation*}
+\begin{cases}
+ J'(u_{k} - \rho w_{k}, w_{k}) & = {J'}_{\rho}^{k} \text{ for } \rho > 0.\\
+J'(u_{k}, w_{k}) & = {J'}_{\circ}^{k}.
+\end{cases}
+\end{equation*}
+
+Smilarly, when $J$ has gradient $G(u)$ and a hessian $H(u)$ at every points $u$ in $V$, we write
+\begin{equation*}
+\begin{cases}
+ G(u_{k} - \rho w_{k}) & = G_{\rho}^{k} \text{ for } \rho > 0.\\
+ G(u_{k}) & = G_{\circ}^{k}
+\end{cases}
+\end{equation*}
+and\pageoriginale
+\begin{equation*}
+\begin{cases}
+H(u_{k} - \rho w_{k}) & = H_{\rho}^{k} \text{ for } \rho > 0,\\
+H(u_{k}) & H_{\circ}^{k}
+\end{cases}
+\end{equation*}
+
+We shall make the following two hypothesis throughout this section.
+
+Hypothesis $(H1)$ : $\lim\limits_{||v|| \to \infty} J(v) = +\infty$.
+
+Hypothesis $(H2)$ : $J$ has a gradient $G(u)$ everywhere in $V$ and satisfies a (uniform) Lipschitz condition on every bounded subset of $V$: for every bounded set $K$ of $V$ there exists a constant $M_{K} > 0$ such that
+$$
+||G(u) - G(v)|| \leq M_{K} ||u-v|| \text{ for all } u, v \epsilon K.
+$$
+
+In particular, if $J$ has a Hessian $H(u)$ everywhere in $V$ and if $H(u)$ is bounded on bounded sets of $V$ then an application of Tayler's formula to the mapping $V \ni u \mapsto G(u) \epsilon V' = V$ shows that $J$ satisfies the hypothesis $(H2)$. In fact, if $u, v \epsilon V$ then 
+\begin{align*}
+||G(u) - G(v)|| &= \sup_{\varphi} |(G(u) - G(v), \varphi)| /
+||\varphi||\\
+& = \sup_{\varphi} |(H(u+\theta(u-v))(u-v), \varphi)| / ||\varphi|| \leq const. ||u-v||, 
+\end{align*}
+since $u, v \epsilon K$ and $\theta \epsilon ]0, 1[$ imply that $v+\theta(u-v)$ is also bounded and hence $H(v+\theta(u-v))$ is bounded uniformly for all $\theta \epsilon ]0,1[$.
+
+Now suppose given a $u_{\circ} \epsilon V$ at the beginning of the algorithm. Starting from $u_{\circ}$ we shall construct a sequence $u_{k}$ such that $J(u_{k})$ is decreasing and so we have $J(u_{k}) \leq J(u_{\circ})$. We are interested in points of the type $u_{k} - \rho w_{k}$ such that $J(u_{k} - \rho w_{k}) \leq J(u_{k})$.
+
+We shall now deduce some immediate consequences of the hypothesis H1 and H2, which will be constantly used to prove the convergence of the choice of $\rho_{k}$ given by the algorithms of this section.
+
+Let us denote by $U$ the subset of $V$:
+$$
+U = \{v |v \epsilon V ; J(v) \leq J(u_{\circ})\}.
+$$
+
+The set $U$ is bounded in $V$. In fact, if $U$ is not bounded then we can find\pageoriginale a sequence $v_{j} \epsilon U$ such that $||v_{j}|| \to + \infty$. Then $J(v_{j}) \to + \infty$ by Hupothesis H1 and this is impossible since $v_{j} \epsilon U$.
+
+We are thus interested in constructing a sequence $u_{k}$ such that
+$$
+u_{k} \epsilon U \text{ and } J(u_{k})\searrow.
+$$
+
+Also since by requirement $J(u_{k} - \rho w_{k}) \leq J(u_{k})$ it follows that $u_{k} - \rho w_{k} \epsilon U$ and then $\rho$ will be bounded by diam U; for, we find using triangle inequality:
+$$
+0 < \rho = ||\rho w_{k}|| = ||u_{k} - (u_{k} - \rho w_{k})|| \leq diam U.
+$$
+
+Let us denote the constant $M_{U} > 0$ given by Hypothesis H2 for the bounded set $U$ by $M$.
+
+Now the points $u_{k} - \rho w_{k}, u_{k} - \mu w_{k}$ belongs to $U$ if $\rho, \mu \geq 0$ are chosen sufficiently small. Then
+\begin{align*}
+|| G_{\rho}^{k} - G_{\mu}^{k}|| & = ||G(u_{k}-\rho w_{k}) - G(u_{k}-\mu w_{k})||\\
+& \leq M |\rho-u| ||w_{k}|| = M|\rho-\mu|;
+\end{align*}
+i.e. we have,
+\begin{equation*}
+\begin{cases}
+|| G_{\rho}^{k} - G_{\mu}^{k} || & \leq M|\rho-\mu|\\
+|| G_{\rho}^{k} - G_{\circ}^{k}|| & \leq M \rho\tag{1.6}\label{chap3-eq1.6}
+\end{cases}
+\end{equation*}
+
+Since ${J'}_{\rho}^{k} = J'(u_{k}-\rho w_{k}, w_{k}) = (G(u_{k}-\rho w_{k}), w_{k}) = (G_{\rho}^{k}, w_{k})$ we also find from (\ref{chap3-eq1.6}) that
+\begin{equation*}
+\begin{cases}
+|{J'}_{\rho}^{k} - {J'}_{\mu}^{k}| & \leq M |\rho - \mu|\\
+|{J'}_{\rho}^{k} - {J'}_{\circ}^{k}| & \leq M \rho.\tag{1.7}\label{chap3-eq1.7}
+\end{cases}
+\end{equation*}
+
+We shall suppress the index $K$ when there is no possibility of confusion and simply write $G_{\rho}, J_{\rho}, {J'}_{\rho}$ etc. respectively for $G_{\rho}^{k}, J_{\rho}^{k}, {J'}_{\rho}^{k}$ etc.
+
+By\pageoriginale Taylor's expansion we can write
+$$
+J_{\rho} = J(u - \rho w) = J(u) - \rho J'(u - \overline{\rho} w, w)
+$$
+for some $\overline{\rho}$ such that $0 < \overline{\rho} < \rho$. i.e. we can write
+\begin{equation*}
+J_{\rho} = J_{\circ} - \rho {J'}_{\overline{\rho}}.\tag{1.8}\label{chap3-eq1.8}
+\end{equation*}
+
+We can rewrite (\ref{chap3-eq1.8}) also as
+$$
+J_{\rho} = J_{\circ} - \rho{J'}_{\circ} + \rho({J'}_{\circ} - {J'}_{\overline{\rho}}),
+$$
+which together with (\ref{chap3-eq1.7}) gives
+$$
+J_{\rho} \leq J_{\circ} - \rho {J'}_{\circ} + M \rho \overline{\rho},
+$$
+that is, since $0 < \overline{\rho} < \rho$
+\begin{equation*}
+J_{\rho} \leq J_{\circ} - \rho{J'}_{\circ} + M\rho^{2}.\tag{1.9}\label{chap3-eq1.9}
+\end{equation*}
+
+We shall use (\ref{chap3-eq1.8}) and (\ref{chap3-eq1.9}) in the following form
+\begin{align*}
+\triangle J_{\rho} & = \rho{J'}_{\overline{\rho}},\tag*{$(1.8)'$}\label{chap3-eq1.8'}\\
+\rho {J'}_{\circ} & - M \rho^{2} \leq \triangle J_{\rho}.\tag*{$(1.9)'$}\label{chap3-eq1.9'}
+\end{align*}
+
+We are now in a position to describe the algorithms for convergent choices of the parameter $\rho_{k}$.
+
+{\em $\rho$- Algorithm 1.} Consider the two functions of $\rho > 0$ given by
+$$
+J_{\rho} = J(u_{k} - \rho w_{k}) \text{ and } T(\rho) = J_{\circ} - \rho{J'}_{\circ} + M \rho^{2}.
+$$
+
+Then $J_{\circ} = T(0)$ and (\ref{chap3-eq1.9}) says that $J_{\rho} \leq T(\rho)$ for all $\rho > 0$. Geometrically the curve $y = J_{\rho}$ lies below the parabola $y = T(\rho)$ for $\rho > 0$ in the $(\rho, y)$ -plane. Let $\hat{\rho} > 0$ be the points at which the function $T(\rho)$ has a minimum. Then $\dfrac{dT}{d\rho}|_{\rho = \hat{\rho}} = 0$ implies $-{J'}_{\circ} + 2M\hat{\rho} = 0$ so that we have
+\begin{equation*}
+\hat{\rho} = {J'}_{\circ} / 2M, T(\hat{\rho}) = \inf\limits_{\rho > 0} T(\rho).\tag{1.10}\label{chap3-eq1.10}
+\end{equation*}\pageoriginale
+
+Let $C$ be a real number such that
+\begin{equation*}
+0 < C \leq 1.\tag{1.11}\label{chap3-eq1.11}
+\end{equation*}
+
+We choose $\rho = \rho_{k}$ in the interval $[C\hat{\rho}, (2-C)\hat{\rho}]$, i.e. 
+\begin{equation*}
+C \leq \rho / \hat{\rho} \leq (2-C).\tag{1.12}\label{chap3-eq1.12}
+\end{equation*}
+
+Then we have the
+\begin{proposition}\label{chap3-prop1.4}
+Under the hypothesis $(H1)$, $(H2)$ the choice (\ref{chap3-eq1.12}) of $\rho = \rho_{k}$ is a convergent choice.
+\end{proposition}
+
+\begin{proof}
+Since $T$ has its minimum at the points $\rho = \hat{\rho}$ we have by (\ref{chap3-eq1.11}) $C\hat{\rho} \leq \hat{\rho} \leq (2-C) \hat{\rho}$. Moreover $T(\rho)$ decreases in the interval $[0,\hat{\rho}]$ while it increases in the interval $[\hat{\rho}, (2-C)\hat{\rho}]$ as can easily be checked. Hence, if $\rho$ satisfies (\ref{chap3-eq1.12}) then we have two cases:
+\begin{equation*}
+\begin{cases}
+T_{\rho} \leq T_{C\hat{\rho}} \text{ if } C\hat{\rho} \leq \rho \leq \hat{\rho} \text{ and }\\
+T_{\rho} \leq T_{(2-C)\hat{\rho}} \text{ if } \hat{\rho} \leq \rho \leq (2-C)\hat{\rho}.
+\end{cases}
+\end{equation*}
+\end{proof}
+
+Since $T_{C\hat{\rho}} = J_{\circ} - C{J'}_{\circ} / 2M. {J'}_{\circ}
++ M(C {J'}_{\circ}/ 2M)^{2} = J_{\circ}
+-(2-C)\break C({J'}_{\circ})^{2}/4M,)$ 
+{\fontsize{10}{12}\selectfont
+$$
+T_{(2-C)\hat{\rho}} = J_{\circ}-(2-C) {J'}_{\circ}/2M {J'}_{\circ} +
+M((2-C){J'}_{\circ} / 2M)^{2} = J_{\circ}-(2-C)C({J'}_{\circ})^{2}/4M 
+$$}
+using the value of $\hat{\rho}$ given by (\ref{chap3-eq1.10}) and since $J_p \leq T_p$ for all $\rho > 0$ we find that (in either of the above cases)
+$$
+J_{\rho} \leq T_{\rho} \leq J_{\circ} - (2-C)C({J'}_{\circ}^{2})/4M.
+$$
+
+This immediately implies that
+\begin{equation*}
+C(2-C)({J'}_{\circ})^{2} / 4M \leq \triangle J_{\rho.}\tag{1.13}\label{chap3-eq1.13}
+\end{equation*}
+
+In\pageoriginale order to show that the choice (\ref{chap3-eq1.12}) is convergent we see that (\ref{chap3-eq1.13}) is nothing but
+$$
+C(2-C)/4M (J'(u_{k}, w_{k}))^{2} \leq J(u_{k}) - J(u_{k} - \rho w_{k}) \leq J(u_{k}) - J(u_{k+1})
+$$
+since $J(u_{k+1}) = J(u_{k} - \rho_{k} w_{k}) = \inf_{\rho > 0} J(u_{k} - \rho w_{k})$ i.e. $J(u_{k+1}) \leq J_{\rho}^{k}$. Hence if $J(u_{k}) - J(u_{k+1}) \to 0$ then $J'(u_{k}, w_{k}) \to 0$ as $k \to + \infty$, which proves that the choice of $\rho_{k}$ such that
+$$
+C \leq \rho_{k} \hat{\rho}_{k}^{-1} \leq 2-C \text{ where } \hat{\rho}_{k} = J'(u_{k}, w_{k})/2M
+$$
+is a convergent choice.
+
+{\em $\rho$-Algorithm 2.} The constant $M$ in the $\rho$-Alogorithm 1 is not in general known a priori. This fact may cause difficulties in the sense that if we start with an arbitrarily large $M > 0$ then by (\ref{chap3-eq1.12}) $\rho_{k}$ will be very small and so the scheme may not converge sufficiently fast. We can get over this difficulty as described in the following algorithm, which does not directly involve the constant $M$ and which can be considered as a special case of $\rho$-Algorithm 1. But for this algorithm we need the additional assumption that $J$ is convex.
+
+{\em Hypothesis H3}. The functional $J$ is convex.
+
+We suppose that, for some fixed $h > 0$, we have
+\begin{equation*}
+\begin{cases}
+& J_{\circ} > J_{h} > J_{2h} > J_{2h} > \cdots > J_{mh},\\
+& J_{mh} < J_{(m+1)h}, \text{ for some integer } m \geq 2.\tag{1.14}\label{chap3-eq1.14}
+\end{cases}
+\end{equation*}
+
+Since $J$ is convex and has its minimum in $\rho > 0$ such an $m \geq 2$ always exists.
+
+\begin{proposition}\label{chap3-prop1.5}
+If $J$ satisfies the hypothesis H1, H2, H3 then any choice of $\rho(= \rho_{k})$ such that
+\begin{equation*}
+(m-1)h \leq \rho \leq mh\tag{1.15}\label{chap3-eq1.15}
+\end{equation*}\pageoriginale
+is a convergent choice.
+\end{proposition}
+
+\begin{proof}
+Let $\widetilde{\rho} > 0$ be a point where $J_{\rho}$ attains its minimum. Then ${J'}_{\widetilde{\rho}} = 0, J_{\widetilde{\rho}} \leq J_{\rho}$ for all $\rho > 0$ and by (\ref{chap3-eq1.14}) we should have
+\begin{equation*}
+(m-1)h \leq \widetilde{\rho} \leq (m+1)h.\tag{1.16}\label{chap3-eq1.16}
+\end{equation*}
+
+Then (\ref{chap3-eq1.7}) will imply
+$$
+0 < {J'}_{\circ} = |{J'}_{\widetilde{\rho}} - {J'}_{\circ}| \leq M
+$$
+and thus we find
+\begin{equation*}
+2\hat{\rho} = {J'}_{\circ} / M \leq \widetilde{\rho}\tag{1.17}\label{chap3-eq1.17}
+\end{equation*}
+and
+\begin{equation*}
+2\hat{\rho} / (m+1) \leq h.\tag{1.18}\label{chap3-eq1.18}
+\end{equation*}
+\end{proof}
+
+This, together with the fact that $m \geq 2$, will in turn imply
+$$
+2\hat{\rho} / 3 \leq (m-1)h.
+$$
+
+As $J_{\rho}$ decreasesd in $0 \leq \rho < mh$ we get
+$$
+\triangle J_{(m-1)h} = J_{\circ} - J_{(m-1)h} \geq J_{\circ} - J_{2\hat{\rho}/3} = \triangle J_{(2 \hat{\rho}/3)}.
+$$
+
+If we now apply the $\rho$-Algorithm 1 with $C = 2/3$ in (\ref{chap3-eq1.12}) and in (\ref{chap3-eq1.13}) then we obtain, from the above inequality,
+\begin{equation*}
+\triangle J_{(m-1)h} \geq 2/ 9M ({J'}_{\circ})^{2},\tag{1.19}\label{chap3-eq1.19}
+\end{equation*}
+which proves that $\rho = (m-1)h$ is a convergent choice. Similarly, if $\rho \epsilon [(m-1)h, mh]$ (i.e. (\ref{chap3-eq1.15})) then the same argument shows that
+\begin{equation*}
+\triangle J_{\rho} \geq \triangle J_{(m-1)h} \geq 2/9M ({J'}_{\circ})^{2},\tag{1.20}\label{chap3-eq1.20}
+\end{equation*}
+and\pageoriginale hence any $\rho_{k} = \rho$ satisfying (\ref{chap3-eq1.15}) is again a convergent choice.
+
+\medskip
+\noindent{\textbf{Some Generalizations of $\rho$-Algorithm 2.}}
+
+In the above algorithm a suitable initial choice of $h > 0$ has to be made. But such an $h$ can be either too large or too small and if for example $h$ is too small then the procedure may become very long to use numerically. In order to over come such diffeculties we can generalize $\rho$-Algorithm 2 as follows.
+
+If the initial value of $h > 0$ is too small we can repeat our arguments above with (\ref{chap3-eq1.14}) replaced by
+\begin{equation*}
+\begin{cases}
+& J_{\circ} > J_{ph} > J_{p^{2} h} > J_{p^{3} h} > \cdots > J_{p^{m} h},\\
+& J_{p^{m} h} < J_{p^{(m+1)} h}, \text{ for some integer } m \geq 2\tag*{$(1.14)'$}\label{chap3-eq1.14'}
+\end{cases}
+\end{equation*}
+and if the initial value of $h$ is too large we can compute $J$ at the points $\dfrac{h}{\rho}, \dfrac{h}{\rho^{2}}, \dfrac{h}{\rho^{3}}, \cdots$ where $p$ is an integer $\geq 2$. Every such procedure gives a new algorithm for a convergent choice of $\rho_{k} = \rho$.
+
+{\em $\rho$-Algorithm 3.} We have the following
+\begin{proposition}\label{chap3-prop1.6}
+Assume that $J$ satisfies the hypothesis H1 - H3. If $h > 0$ is such that
+\begin{equation*}
+\begin{cases}
+& \triangle J_{h}/h \geq (1-C) {J'}_{\circ},\\
+& \triangle J_{2h} / 2h < (1- C) {J'}_{\circ}\tag{1.21}\label{chap3-eq1.21}
+\end{cases}
+\end{equation*}
+with some constant $C$, $0 < C < 1$ then $(\rho_{k}=)\rho = h$ is a convergent choice.
+\end{proposition}
+
+\begin{proof}
+From the inequality (\ref{chap3-eq1.9'} and the second inequality in (\ref{chap3-eq1.21}) we get
+$$
+2h{J'}_{\circ} - (2h)^{2} M \leq \triangle J_{2h} < (1-C) 2h {J'}_{\circ}
+$$
+and hence
+$$
+C \hat{\rho} = C{J'}_{\circ} / 2M \leq h.
+$$\pageoriginale
+\end{proof}
+
+Now the first inequality in (\ref{chap3-eq1.21}) implies
+\begin{equation*}
+\triangle J_{h} \geq h(1-C) {J'}_{\circ} \geq C(1-C)({J'}_{\circ})^{2}/2M,\tag{1.22}\label{chap3-eq1.22}
+\end{equation*}
+which proves that $\rho = h$ is a convergent choice since $\triangle J_{h} = J(u_{k}) - J(u_{k} - hw_{k}) \to 0$ implies that ${J'}_{\circ} = {J'}(u_{k}, w_{k}) \to 0$ as $k \to \infty$.
+
+We shall now show that there exists an $h > 0$ satisfying (\ref{chap3-eq1.21}). We consider the real valued function
+$$
+\psi(\rho) = \triangle J_{\rho} / \rho - (1-C){J'}_{\circ}
+$$
+of $\rho$ on $\mathbb{R}_{+}$ and observe the following two facts:
+
+\begin{enumerate}
+\item[(1)] $\psi (\rho) \geq 0$ for $\rho > 0$ sufficiently small. In fact, since $\triangle J_{\rho} / \rho \to {J'}_{\circ} > 0$ we have $|\triangle J_{\rho} / \rho - {J'}_{\circ}| < C {J'}_{\circ}$ for $\rho > 0$ sufficiently small, which, in particular, implies the assertion.
+
+\item[(2)] $\psi (\rho) < 0$ for $\rho > 0$ sufficiently large. For this, since $u_{k}, w_{k}$ are already determined (at the $(k+1)$th stage of the algorithm) we see that $||\rho w_k|| \to + \infty$ and hence $||u_{k} - \rho w_{k}|| \to + \infty$. Then, by hypothesis $(H1)$,
+$$
+J(u_{k} - \rho w_{k}) \to + \infty \text{ as } \rho \to + \infty
+$$
+so much so that
+$$
+\triangle J_{\rho} \leq 0 < \rho(1-C) {J'}_{\circ} \text{ for } \rho > 0
+$$
+sufficiently large, which implies the assertion.
+\end{enumerate}
+
+Thus the sign of $\psi$ changes from positive to negative, say at some $\rho = h_{\circ} > 0$. Then, for instance, $h = 3h_{\circ}/4$ will satifsy our requirement (\ref{chap3-eq1.21}).
+
+More precisely, we can find $h$ satisfying (\ref{chap3-eq1.21}) in the following iterative manner. Assume that $0 < C < 1$ is given.
+
+First of all we shall choose a $\tau$ arbitrarily $(> 0)$ and we compute the difference quotient $\triangle J_{\tau}/ \tau$. This is possible since all the quantities are known. Then there are two possible cases that can arise namely, either 
+\begin{enumerate}
+\item[(a)] \qquad\qquad $\triangle J_{\tau}/\tau \geq (1-C) {J'}_{\circ}$
+\item[or(b)] \qquad\qquad $\triangle J_{\tau}/\tau < (1-C) {J'}_{\circ}$.
+\end{enumerate}
+
+Suppose\pageoriginale (a) holds. Then we compute $\triangle J_{2\tau /2\tau}$ and we will have to consider again two possibilities:
+\begin{align*}
+& \text{either} (a)_{1}   & \triangle J_{2\tau/ 2\tau} < (1-C){J'}_{\circ},\\
+& \text{or} (a)_{2}  & \triangle J_{2\tau / 2\tau} \geq (1-C){J'}_{\circ}.
+\end{align*}
+
+If we have the first possibility $(a)_{1}$ then we are through we can choose $h = \tau$ itself. If on the order hand $(a)_{2}$ holds then we repeat this argument with $\tau$ replaced by $2\tau$.
+
+Next suppose (b) holds. We can consider two possible cases:
+\begin{align*}
+ & \text{either}  (b)_{1}   & \triangle J_{\tau /2} | \tau / 2 \geq (1-C){J'}_{\circ},\\
+& \text{or}   (b)_{2}  & \triangle J_{\tau / 2} | \tau / 2 < (1-C){J'}_{\circ}.
+\end{align*}
+
+Once again, in case $(b)_{1}$ holds we are through and we can choose $h = \tau/2$. In case $(b)_{2}$ holds we repeat this argument with $\tau$ replaced by $\tau/2$.
+
+\setcounter{remark}{1}
+\begin{remark}%%%% 1.2
+It was proposed by Goldstein (see \cite{key21}) that the initial value of $\tau$ can be taken to be taken to be $\tau = {J'}_{\circ}$.
+\end{remark}
+
+\medskip
+\noindent{\textbf{$\rho$-Algorithm 4.}} We have the following
+
+\begin{proposition}\label{chap3-prop1.7}
+If there is a $\widetilde{\rho}$ such that
+\begin{equation*}
+\begin{cases}
+\widetilde{\rho} & > 0,\\
+J\widetilde{\rho} & \leq J_{\rho} \quad \rho \epsilon [0, \widetilde{\rho}]\\
+{J'}_{\widetilde{\rho}} & = 0\tag{1.23}\label{chap3-eq1.23}
+\end{cases}
+\end{equation*}
+then $\rho = \widetilde{\rho}$ is a convergent choice.
+\end{proposition}
+
+\begin{proof}
+We have, by the last condition in (\ref{chap3-eq1.23}) together with the estimate (\ref{chap3-eq1.7}).
+$$
+{J'}_{\circ} = |{J'}_{\widetilde{\rho}} - {J'}_{\circ}| \leq M \widetilde{\rho}
+$$
+and hence $\hat{\rho} \leq 2\hat{\rho} = {J'}_{\circ} / M \leq \widetilde{\rho}$ using the value of $\hat{\rho}$ given by (\ref{chap3-eq1.10}). The condition (\ref{chap3-eq1.23}) that $J_{\widetilde{\rho}}$ is a minimum in $[0, \widetilde{\rho}]$ implies $J_{\widetilde{\rho}} \leq J_{\hat{\rho}}$ and therefore
+$$
+\triangle J_{\hat{\rho}} = J_{\circ} - J_{\hat{\rho}} \leq J_{\circ} - J_{\widetilde{\rho}} = \triangle J_{\widetilde{\rho}}.
+$$
+\end{proof}
+
+On the other hand, taking $C = 1$ in (\ref{chap3-eq1.22}) we find that
+\begin{equation*}
+{J'}_{\circ}^{2} / 2M \leq \triangle J_{\hat{\rho}} \leq \triangle J_{\widetilde{\rho}}\tag{1.24}\label{chap3-eq1.24}
+\end{equation*}
+which proves that $\rho = \widetilde{\rho}$ is a convergent choice.
+
+We\pageoriginale shall conclude the discussion of convergent choices of $\rho_{k}$ for $\rho$ by observing that other algorithms for convergent choices of $\rho$ can be obtained making use of the following remarks.
+
+\begin{remark}\label{chap3-rem1.3}
+We recall that in $\rho$-Algorithm 1 we obtained convergent choices of $\rho$ to be close to $\hat{\rho}$ (i.e. $C \leq \rho/\hat{\rho} \leq 2 - C$) where $\hat{\rho}$ is the points of minimum of the curve $y = T(\rho)$, which is a polynomial of degree 2. This method can be generalised to get other algorithms as follows:
+\end{remark}
+
+Starting from $u_{0}$ if we have found $u_{k}$ and the direction of descent $w_{k}$ then $J_{\circ} = J(u_{k})$, ${J'}_{\circ} = J'(u_{k}$,$ w_{k}) = (G(u_{k}), w_{k})$ are known. Now if we are given two more points (say $h$ and $2h$) we know the values of $J$ at these points also. Thus we know values at 3 points and the initial slope (i.e. ${J'}_{\circ}$). By interpolation we can find a polynomial of degree 3 from these. To get an algorithm for a convergent choice of $\rho$ we can choose $\rho$ to be close to the point where such a polynomial has a minimum. Similar method works also polynomial of higher degress if we are given more number of points by using interpolation.
+
+\begin{remark}\label{chap3-rem1.4}
+In all our proofs for convergent choices of $\rho$ we obtained an estimate of the type: 
+$$
+\gamma ({J'}_{\circ})^{2} \leq \triangle J_{\rho}
+$$
+where $\gamma$ is a constant $> 0$. For instance $\gamma = 2/9M$ in (\ref{chap3-eq1.20}).
+\end{remark}
+
+\subsection{Convergence of Algorithms}\label{chap3-subsec1.4}
+
+In the previous we have given some algorithms to construct a minimising sequence for the solution of the minimisation problem:
+
+\medskip
+\noindent{\textbf{Problem $P$.}}
+ to find $u \epsilon V$, $J(u) \leq J(v)$, $\forall v \epsilon V$.
+
+In this section we shall prove that under some reasonable assumptions
+on the functional $J$ any combination of $w$-algorithms and
+$\rho$ - algorithms yield a convergent\pageoriginale algorithm for the
+construction of the minimising sequence $u_{k}$ and such a sequence
+converges to a solution of the problem $P$. 
+
+Let $J : V \to \mathbb{R}$ be a functional on a Banach space $V$. The following will be the assumptions that we shall make on $J$:
+
+\begin{enumerate}
+\item[(H0)] $J$ is bounded below: there exists a real number $j$ such that $-\infty < j \leq J(v), \forall v \epsilon V$.
+
+\item[(H1)] $J(v) \to + \infty$ as $||v|| \to + \infty$.
+
+\item[(H2)] $J$ has a gradient $G(u)$ everywhere in $V$ and $G(u)$ is bounded on  every bounded subset of $V$: if $K$ is a bounded set in $V$ then there exists a constant $M_{K} > 0$ such that $||G(u)|| \leq M_{K}$ for all $u \epsilon K$.
+
+\item[(H3)] $J$ is convex.
+
+\item[(H4)] $V$ is a reflexive Banach space
+
+\item[(H5)] $J$ is strictly convex
+
+\item[(H6)] $J$ admits a hessian $H(u)$ everywhere in $V$ which is $V$-coercive: there exists a constant $\alpha > 0$ such that
+$$
+<H(u) \varphi, \varphi>_{V' \times V} \geq \alpha||\varphi||_{V}^{2}, \forall u \epsilon V \text{ and } \forall \varphi \epsilon V.
+$$
+\end{enumerate}
+
+As in the previous sections we shall restrict ourselves to the case of a Hilbert space $V$ and all our arguments remain valid with almost no changes. We have the following result.
+
+\begin{theorem}\label{chap3-thm1.1}
+\begin{enumerate}
+\item[(1)] If the hypothesis H0, H1, H2 are satisfied and if $u_{k}$ isa sequence constructed using any of the algorithms:
+\begin{align*}
+ w-\text{Algorithm } i, i & = 1, 2\\
+ \rho-\text{Algorithm } j, j & = 1, 3, 4 
+\end{align*}
+then 
+$$
+||G(u_{k})|\ \to 0 \text{ as } k \to + \infty.
+$$
+
+\item[(2)] If\pageoriginale the hypothesis H0 - H4 hold and if $u_{k}$ are constructed using the algorithm $i = 1, 2$,  $j = 1, 2, 3, 4$ then all algorithm have the following property:
+\begin{enumerate}
+\item[(a)] the sequence $u_{k}$ has a weak cluster point;
+
+\item[(b)] any weak cluster point is a solution of the problem $P$.
+\end{enumerate}
+
+\item[(3)] If the hypothesis H0 - H5 are satisfied then
+\begin{enumerate}
+\item[(a)] the Problem $P$ has a unique solution $u \epsilon V$,
+
+\item[(b)] If $u_{k}$ is constructed using any of the algorithms $i = 1, 2, j = 1, 2, 3, 4$ then
+$$
+u_{k} \rightharpoonup u \text{ as } k \to + \infty.
+$$
+\end{enumerate}
+\item[(4)] Under the hypothesis H0 - H6 we have
+\begin{enumerate}
+\item[(a)] the Problem $P$ has a unique solution $u \in V$,
+
+\item[(b)] if the sequence $u_{k}$ is constructed using any of the algorithms $i = 1, 2, 3$, $j = 1, 2, 3, 4$ then
+$$
+u_{k} \to u \text{ and moreover } ||u_{k} - u|| \leq 2 / \alpha ||G(u_{k})|| \; \forall k.
+$$
+\end{enumerate}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item[(1)] Since by $(H0)$, $J(u_{k})$ is a decreasing sequence bounded below: $j \leq J(u_{k+1}) \leq J(u_{k}) \leq J(u_{\circ}),  \forall k$ it follows that
+$$
+\lim_{k \to + \infty} (J(u_{k}) - J(u_{k+1})) = 0.
+$$
+
+Since by the $\rho$-Algorithms $j(j = 1, 3, 4)$ the choice of $\rho = \rho_{k}$ in $u_{k+1} = u_{k} - \rho w_{k}$ is a convergent choice we see that
+$$
+J'(u_{k}, w_{k}) \to 0, \text{ as } k \to + \infty.
+$$
+
+Now since the choine (i) $w_{k}$ is convergent $(i = 1, 2)$ this implies that
+$$
+||G(u_{k})|| \to 0 \text{ as } k \to + \infty.
+$$
+
+\item[(2)] As we have seen in the previous section, if $u_{\circ} \epsilon V$ then the set $U = \{v | v \epsilon V, J(v) \leq J(u_{\circ})\}$ is bounded by $(H1)$ and since
+$$
+J(u_{k+1}) \leq J(u_{k}) \leq \cdots \leq J(u_{\circ}) \; \forall k
+$$
+all\pageoriginale the $u_{k} \epsilon U$ and thus $u_{k}$ is a bounded sequence. Then $(H4)$ implies that $u_{k}$ has a weak cluster points which proves (a) i.e. $\exists a$ subsequence $u_{k'}$ such that $u_{k'} \to u$ in $V$ as $k' \to + \infty$. Now by $(H3)$ and by Proposition \ref{chap1}. \ref{chap1-prop3.1}  on convex functionals
+\begin{equation*}
+J(v) \geq J(u_{k'}) + J'(u_{k'}, v-u_{k'}) \text{ for any } v \epsilon V
+ \text{ and any } k'.\tag{1.25}\label{chap3-eq1.25}
+\end{equation*}
+
+Then, by $(H2)$, $J'(u_{k'}, v-u_{k'}) = (G(u_{k'}), v-u_{k'})$. But here $v-u_{k'}$ is a bounded sequence and since all the assumptions of Part 1 of the theorem are satisfies $||G(u_{k'})|| \to 0$ i.e. $G(u_{k'}) \to 0$ strongly in $V$. Hence
+$$
+|(G(u_{k'}), v-u_{k'})| \leq const. ||G(u_{k'})|| \to 0 \text{ as } k' \to + \infty
+$$
+and so we find from (\ref{chap3-eq1.25}) that
+$$
+J(v) \geq \mathop{\lim \inf}_{k' \to + \infty} J(u_{k'})
+$$
+or what is the same as saying $J(v) \geq J(u) \; \forall v \epsilon V$. Thus $u$ is a solution of the Problem $P$ which proves (b).
+
+\item[(3)] The strong convexity of $J$ implies the convexity of $J$ (i.e. H5 implies H3) and hence by (b) of Part 2 of the theorem the Problem $P$ has a solution $u \epsilon V$. Moreover, by Proposition \ref{chap1}. \ref{chap1-prop3.1} this solution is unique since $J$ is strictly convex.
+
+Again by (2)(a) of the theorem $u_{k}$ is bounded sequence and has a weak cluster points $u$ which is unique and hence $u_{k} \rightharpoonup u$ as $k \to + \infty$.
+
+\item[(4)] Since coercivity of $H(u)$ implies that $J$ is strictly convex (a) is just the same as (3)(a). To prove (b) we expand $J(u)$ by Taylor's formula: there is a $\theta$ in $0 < \theta < 1$ such that
+\begin{align*}
+J(u) & = J(u_{k}) + J'(u_{k}, u-u_{k}) + \frac{1}{2} J''(u_{k} + \theta (u- u_{k}); u -u_{k}, u-u_{k})\\
+& = J(u_{k}) + (G(u_{k}), u-u_{k}) + \frac{1}{2} (H(u_{k} + \theta(u-u_{k}))(u-u_{k}), u-u_{k}).
+\end{align*}\pageoriginale
+
+Here
+$$
+|(G(u_{k}), u-u_{k})| \leq ||G(u_{k})|| ||u-u_{k}|| \; \forall k
+$$
+and
+$$
+(H(u_{k} + \theta(u-u_{k}))(u-u_{k}), u-u_{k}) \geq \alpha ||u-u_{k}||^{2} \; \forall k.
+$$
+
+These two together with the fact that $u$ is a solution of the Problem $P$ imply that
+$$
+J(u) \geq J(u) - ||G(u_{k})|| ||u-u_{k}|| + \alpha/2 ||u-u_{k}|| \; \forall k
+$$
+which gives
+$$
+||u-u_{k}|| \leq 2/\alpha ||G(u_{k})|| \; \forall k.
+$$
+
+But, by Part 1 of the theorem the right hand side here $\to 0$ as $k \to 0$ and this proves that $u_{k} \to u$ as $k \to + \infty$.
+\end{enumerate}
+\end{proof}
+
+\section{Generalized Newton's Method}\label{chap3-sec2}
+
+In this section we give another algorithm for the construction of approximating sequences for the minimisation problem for functionals $J$ on a Banach space $V$ using first and second order $G$-derivatives of $J$. This algorithm generalizes the method of Newton-Rophson which consists in giving approximations to determine points of $V$ where a given operator vanishes. The method we describe is a refinement of a method by $R$. Fages \cite{key54}.
+
+We can describe our approach to the algorithm as follows:
+Suppose $J : V \to \mathbb{R}$ is a very regular functional on a Banach space $V$; for instance, $J$ has a gradient $G(u)$ and a Hessian $H(u)$ everywhere in $V$. Let $u \epsilon V$\pageoriginale be a point where $J$ attains its minimum i.e. $J(u) \leq J(v) \; \forall v \epsilon V$. We have seen in Chapter \ref{chap2}. \ref{chap2-sec1} (Theorem \ref{chap2}. \ref{chap2-thm1.3}) that $G(u) = 0$ is a necessary condition and we have also discussed the question of when this condition is also sufficient in Chapter \ref{chap2}, \S \ref{chap2-sec2}. Thus finding a minimising sequence for $J$ at $u$ is reduced to the equivalent problem of finding an algorithm to construct a sequence $u_{k}$ approximating a solution of the equation:
+$$
+(*)\qquad u \epsilon V, G(u) = 0.
+$$
+
+In this sense this is an extension of the classical Newton method fot the determination of zeros of a real valued function on the real line.
+
+As in the previous section we shall restrict ourselves to the case of a Hilbert space $V$.
+
+Starting from an initial point $u_{\circ} \epsilon V$ suppose we have constructed $u_{k}$, If $u_{k}$ is sufficiently near the solution $u$ of the equation $G(u) = 0$ then by expanding $G(u)$ using Taylor's formula we find:
+$$
+0 = (G(u), \varphi) = (G(u_{k})) + H(u_{k} + \theta(u-u_{k})) (u-u_{k}), \varphi).
+$$
+
+The Newton-Raphson method consists in taking $u_{k+1}$ as a solution of the equation 
+$$
+G(u_{k})+ H(u_{k})(u_{k+1} - u_{k}) = 0 \text{ for } k \geq 0.
+$$
+ 
+Roughly speaking, if the operator $H(u_{k}) \epsilon \mathscr{L} (V, V') \equiv \mathscr{L}(V, V)$ is invertible and if $H(u_{k})^{-1} \epsilon \mathscr{L} (V, V)$ then the equation is equivalent to
+$$
+u_{k+1} = u_{k} - H(u_{k})^{-1} G(u_{k}).
+$$
+
+Then one can show that under suitable assumptions on $G$ and $H$ that this is a convergent algorithm provided that the initial points $u_{\circ}$ is sufficiently close to the required solution $u$ of the problem $( * )$. However, in practice, $u$ and then a\pageoriginale good neighbourhood of $u$ where $u_{\circ}$ is to be taken is not known a priori and difficult to find.
+
+The algorithm we give in the following avoids such a difficulty for the choice of the initial point $u_{\circ}$ in the algorithm.
+
+Let $V$ be a Hilbert space and $J : V \to \mathbb{R}$ be a functional on $V$. Throughout this section we make the following hypothesis on $J$:
+\begin{enumerate}
+\item[(H1)] $J(v) \to + \infty$ as $||v|| \to + \infty$.
+
+\item[(H2)] $J$ is regular: $J$ is twice $G$-differentiable and has a gradient $G(u)$ and a hessian $H(u)$ everywhere in $V$.
+
+\item[(H3)] $H$ is uniformly $V$-coercive on bounded sets of $F$: for every\break bounded set $K$ of $V$ there exists a constant $\alpha_{K} > 0$ such that
+$$
+(H(v) \varphi, \varphi) \geq \alpha_{k} ||\varphi||^{2}, \forall v \epsilon K \text{ and } \forall \varphi \epsilon V.
+$$
+
+\item[(H4)] $H$ satisfies a uniform Lipschitz condition on bounded sets of $V$: for every bounded subset $K$ of $V$ there exists a constant $\beta_{K} > 0$ such that
+$$
+||H(u) - H(v)|| \leq \beta_{K} ||u-v||, \forall u, v \epsilon K.
+$$
+
+We are interested in finding an algorithm starting from a $u_{\circ} \epsilon V$ to find $u_{k}$ iteratively. Suppose we have determined $u_{k}$ for some $k \geq 0$. In order to determine $u_{k+1}$ we introduce a bi-linear bicontinuous form $b_{k} : V \times V \ni (\varphi, \psi) \mapsto b_{k} (\varphi, \psi) \epsilon \mathbb{R}$ satisfying either one of the following two hypothesis:
+
+\item[(H5)] There exist two constants $\lambda_{\circ} > 0, \mu_{\circ} > 0$ independent of $k, \lambda_{\circ}$ large enough (see (\ref{chap3-eq2.12})), such that
+$$
+b_{k} (\varphi, \varphi) \geq \lambda_{\circ} (G(u_{k}), \varphi)^{2}, \; \forall \varphi \in V,
+$$
+and
+$$
+|b_{k} (\varphi, \psi)| \leq \mu_{\circ} ||G(u_{k})|| ||\varphi|| ||\psi||,\; \forall \varphi, \psi \in V.
+$$\pageoriginale
+
+\item[(H6)] There exist two constant $\lambda_{1} > 0, \mu_{1} > 0$ independent of $k$, $\lambda_{1}$ large enough see (\ref{chap3-eq2.14}), such that
+$$
+b_{k} (\varphi, \varphi) \geq \lambda_{1} ||G(u_{k})||^{1+\in} ||\varphi||^{2}, \forall \varphi \in V
+$$
+and
+$$
+|b_{k} (\varphi, \psi)| \leq \mu_{1} ||G(u_{k})||^{1+\in} ||\varphi|| ||\psi||, \forall \varphi, \psi \in V,
+$$
+where $\epsilon \geq 0$.
+\end{enumerate}
+
+It is easy to see that there does always exist such a bilinear form as can be seen from the following example.
+
+\begin{example}\label{chap3-exam2.1}
+$b_{k}(\varphi, \psi) = \lambda^{k} (G_{k}, \varphi) (G_{k}, \psi), 0 < \lambda_{\circ} \leq \lambda^{k} \leq \mu_{0} < + \infty, \lambda_{\circ}$ large enough.
+\end{example}
+
+\begin{example}\label{chap3-exam2.2}
+$b_{k} (\varphi, \psi) = \lambda^{k} ||G_{k}||^{2} (\varphi, \psi), 0 < \lambda_{\circ} \leq \lambda^{k} \leq \mu_{\circ} < + \infty$. Cauchy-Schwarz inequality shows that $(H5)$ is satisfied by this and $(H6)$ is satisfied with $\in = 1$.
+\end{example}
+
+\begin{example}\label{chap3-exam2.3}
+Let $\lambda_{k} > 0$ be a number in a fixed interval $0 < \lambda_{1} \leq \lambda^{k} \leq \mu_{1} < + \infty$ then the bi-linear form
+$$
+b_{k} (\varphi, \psi) = \lambda^{k} ||G(u_{k})||^{1+c} (\varphi, \psi)
+$$
+satisfies $(H6)$.
+\end{example}
+
+We are now in a position to describe our algorithm.
+
+\medskip
+\noindent{\textbf{Algorithm.}} Suppose we choose an initial point $u_{\circ}$ in the algorithm arbitrarily and that we have determined $u_{k}$ for some $k \geq 0$. Consider the linear problem:
+\begin{equation*}
+\begin{cases}
+& \text{ to find } \triangle_{k} \epsilon V \text{ satisfying the linear equation }\\
+& (H(u_{k})\triangle_{k}, \varphi) + b_{k}(\triangle_{k}, \varphi) = -(G(u_{k}), \varphi) = - (G(u_{k}), \varphi), \forall \varphi \epsilon V
+\end{cases}\tag{2.1}\label{chap3-eq2.1}
+\end{equation*}
+
+Here since $H(u_{k})$ is $V$-coercive and $b_{k}$ is positive semi-definite on $V$:
+\begin{equation*}
+\text{i.e. }\qquad (H(u_{k})\varphi, \varphi) \geq \alpha ||\varphi||^{2}, \forall \varphi \epsilon V \quad \text{(by $(H3)$)}
+\end{equation*}\pageoriginale
+(with $\alpha = \alpha (u_{k}) > 0$, a constant) and
+\begin{equation*}
+b_{k} (\varphi, \varphi) \geq 0 \quad \text{(by $(H5)$ or $(H6)$)}
+\end{equation*}
+the linear problem (\ref{chap3-eq2.1}) has a unique solution $\triangle_{k} \epsilon V$.
+
+Now we set 
+$$
+u_{k+1} = u_{k} + \triangle_{k}
+$$
+where $\triangle_{k}$ is the unique solution of the problem (\ref{chap3-eq2.1}). Clearly, our algorithm depends on the choice of the bilinear form $b_{k} (\varphi, \psi)$. We also see that if $b_{k} \equiv 0$ our algorithm is nothing but the classical Newton method as we have described in the introduction to this section.
+
+We have now the main result of this section.
+
+\begin{theorem}\label{chap3-thm2.1}
+Suppose $J$ satisfies the hypothesis $(H1)$ - $(H4)$ and $b_{k}$ satisfy either the hypothesis $(H5)$ or $(H6)$ for each $k \geq 0$. Then we have:
+\begin{enumerate}
+\item[(1)] The minimization problem:
+
+to find $u \epsilon V , J(u) \leq J(v) , \forall v \epsilon V$ has a unique solution.
+
+\item[(2)] The sequence $u_{k}$ is well defined by the algorithm.
+
+\item[(3)] The sequence $u_{k}$ converges to the solution $u$ of the minimization problem: $||u_{k} - u|| \to 0$ as $k \to + \infty$.
+
+\item[(4)] There exist constants $\gamma_{1} > 0, \gamma_{2} > 0$ such that
+$$
+\gamma_{1} ||u_{k+1} - u_{k}|| \leq ||u_{k}-u|| \leq \gamma_{2} ||u_{k+1}-u_{k}||, \forall k.
+$$
+
+\item[(5)] The convergence of $u_{k}$ to $u$ is quadratic: there exists a constant $\gamma_{3} > 0$ such that
+$$
+||u_{k+1}-u|| \leq \gamma_{3} ||u_{k}-u||^{2}, \forall k.
+$$
+\end{enumerate}
+\end{theorem}
+
+In\pageoriginale the course of the proof we shall use the notation introduced in the previous section: $J_{k}, G_{k}, H_{k}, \triangle J_{k}, \cdots$ respectively denote $J(u_{k}), G(u_{k}),\break H(u_{k}), J(u_{k}) - J(u_{k+1}), \cdots$
+
+\begin{proof}
+We shall carry out the proof in several steps.
+\begin{step}%%% 1
+Let $U$ be the subset of $V$:
+$$
+U = \{v | v \epsilon V; J(v) \leq J(u_{\circ})\}.
+$$
+
+If there exists a solution $u$ of the minimization problem then $u$ necessarily belongs to this set $U$ (irrespective of the choice of $u_{\circ}$). The set $U$ is bounded in $V$. In fact, if it is not bounded then there exists a sequence $u_{j}$ such that $u_{j} \epsilon U$, $||u_{j}|| \to + \infty$ and hence by $(H2)$ and $(H3)$ $J$ has a Hessian which is positive definite everywhere. Hence $J$ is strictly convex.
+
+The set $U$ is also weakly closed. In fact, if $v_{j} \epsilon U$ and $v_{j} \to v$ in $V$ then (strict) convexity of $J$ implies by Proposition (\ref{chap1}.\ref{chap1-prop3.1}) that we have
+$$
+J(u_{\circ}) \geq J(v_{j}) \geq J(v) + (G(v), v_{j}-v)
+$$
+and hence passing to the limit (since $G(v)$ is bounded for all $j$) it follows that $J(v) \leq J(u_{\circ})$ proving that $v \epsilon U$, i.e. $U$ is closed (and hence also weakly).
+
+Now $J$ and $U$ satisfy all the hypothesis of Theorem \ref{chap2}. \ref{chap2-thm2.1} with $\chi(t) = \alpha_{U} t$ and hence it follows that there exists a unique $u \epsilon U$ solution of the minimizing problem for $J$. We have already remarked that $u$ is unique in $V$. This proves assertion (1) of the statement.
+
+We have also remarked before the statement of the theorem that the linear problem (\ref{chap3-eq2.1}) has a unique solution $\triangle_{k}$ which implies that $u_{k+1}$ is well defined and hence we have the assertion (2) of the statement.
+\end{step}
+
+\begin{step}%%% 2
+$J(v), G(v)$ and $H(v)$ are bounded on any bounded subset $K$ of $V$: There exists\pageoriginale a constant $\gamma_{k} > 0$ such that
+$$
+|J(v)| + ||G(v)|| + ||H(v)|| \leq \gamma_{K}, \forall v \epsilon K.
+$$
+
+In fact let $d_{k} = diam K$ and let $w \epsilon K$ be any fixed point. By $(H4)$ we have
+$$
+H(v) \leq ||H(v) - H(u)|| + ||H(u)|| \leq \beta_{K} d_{K} + ||H(u)||
+$$  
+which proves that $H$ is bounded on $K$. Then by Taylor's formula applies to $G$ gives
+$$
+||G(v) - G(u)|| \leq ||H(u+\theta (v-u))|| ||v-u||.
+$$
+for some $0 < \theta < 1$. Now if $u, v \epsilon K$ then $u+\theta(v-u)$ is also in a bounded set $K_{1} = \{w | w \epsilon V, d(w, K) \leq 2d_{K}\}$ (for, if $w = u + \theta(v-u)$ and $u \epsilon K$ then $||w-a|| = ||u-a+\theta(v-u)|| \leq ||u-a|| + ||v-u|| \leq 2d_{K}$). Since $H$ is bounded on $K_{1}$ it follows that $G$ is uniformly Lipschitz on $K$ and as above $G$ is also bounded on $K$. A similar argument proves $J$ is also bounded on $K$.
+
+For the sake of simplicity we shall write
+$$
+\alpha = \alpha_{U}, \gamma = \gamma_{U}.
+$$
+\end{step}
+
+\begin{step}%%% 3
+ Suppose $u_{k} \epsilon U$ for some $k \geq 0$. (This is trivial for $k = 0$ by the definition of the set $U$). Then $u_{k+1}$ is also bounded.
+
+For this, taking $\varphi = \triangle_{k}$ in (\ref{chap3-eq2.1}) we get
+\begin{equation*}
+(H_{k} \triangle_{k}, \triangle_{k}) + b_{k} (\triangle_{k}, \triangle_{k}) = -(G_{k}, \triangle_{k}).\tag{2.3}\label{chap3-eq2.3}
+\end{equation*}
+By using the coercivity of $H_{k} = H(u_{k})$ (hypothesis $(H3)$) and the fact that $b_{k} (\triangle_{k}, \triangle_{k}) \geq 0$ we get
+\begin{equation*}
+\alpha ||\triangle_{k}||^{2} \leq -(G_{k}, \triangle_{k}).\tag{2.4}\label{chap3-eq2.4}
+\end{equation*}
+Then the Cauchy-Schwarz inequality applied to the right hand side of (\ref{chap3-eq2.4}) gives
+
+Suppose\pageoriginale $0 < \ell < + \infty$ be such that $\sup_{u \epsilon U} ||G(u)|| / \alpha \leq \ell$ (for example we can take $\ell = \gamma / \alpha$) and suppose $U_{1}$ is the set
+\begin{equation*}
+U_{1} = \{v | v\epsilon V; \exists w \epsilon U \text{ such that }
+||v-w|| \leq \ell\}. \tag{2.5}\label{chap3-eq2.5}
+\end{equation*}
+Then $U_{1}$ is bounded and $u_{k+1} = u_{k} + \triangle_{k} \epsilon U_{1}$.
+\begin{equation*}
+u_{k+1} \epsilon U_{1}.\tag{2.6}\label{chap3-eq2.6}
+\end{equation*}
+We shall in fact show later that $u_{k+1} \epsilon U$ itself.
+\end{step}
+
+\begin{step}%%% 4
+ Estimate for $\triangle J_{k}$ from below. By Taylor's formula we have
+\begin{equation*}
+\begin{cases}
+& J_{k+1} = J_{k} + (G_{k}, \triangle_{k}) + \frac{1}{2} (\overline{H} \triangle_{k}, \triangle_{k}),\\
+& \text{ where }\\
+& \overline{H}_{k} = H(u_{k} + \theta \triangle_{k}) \text{ for some } \theta \text{ in } 0 < \theta < 1.\tag{2.7}\label{chap3-eq2.7}
+\end{cases}
+\end{equation*}
+Replacing $(G_{k}, \triangle_{k})$ in (\ref{chap3-eq2.7}) by (\ref{chap3-eq2.3}) we have
+\begin{align*}
+J_{k+1} & = J_{k} - (H_{k} \triangle_{k}, \triangle_{k}) - b_{k} (\triangle_{k}, \triangle_{k}) + \frac{1}{2} (\overline{H} \triangle_{k}, \triangle_{k})\\
+& = J_{k} - \frac{1}{2} (H_{k} \triangle_{k}, \triangle_{k}) - b_{k} (\triangle_{k}, \triangle_{k}) + \frac{1}{2} ((\overline{H}_{k}-H_{k}) \triangle_{k}, \triangle_{k}).
+\end{align*}
+Now using $V$-coercivity of $H_{k}$ (hypothesis $(H3)$) and the Lipschitz continuity (hypothesis $(H4)$) of $H$ on the bounded set $U_{1}$ we find (since $u_{k} + \theta \triangle_{k} \epsilon U_{1}$):
+$$
+J_{k+1} \leq J_{k} - \alpha / 2 ||\triangle_{k}||^{2} - b_{k} (\triangle_{k}, \triangle_{k}) + \frac{1}{2} \beta_{U_{1}} ||\triangle_{k}||^{3}.
+$$
+Thus setting
+\begin{equation*}
+\beta = \beta_{U_{1}}\tag{2.8}\label{chap3-eq2.8}
+\end{equation*}
+we obtain
+\begin{equation*}
+\alpha / 2 ||\triangle_{k}||^{2} + b_{k} (\triangle_{k}, \triangle_{k}) - \frac{1}{2} \beta ||\triangle_{k}||^{3} \leq \triangle J_{k} (= J_{k} - J_{k+1}).\tag{2.9}\label{chap3-eq2.9}
+\end{equation*}
+In particular, since $b_{k}$ is positive (semi -) definite,
+\begin{equation*}
+\alpha / 2 ||\triangle_{k}||^{2} (1 - \beta / \alpha ||\triangle_{k}||) \leq \triangle J_{k}\tag{2.10}\label{chap3-eq2.10}
+\end{equation*}\pageoriginale
+In the methos of Newton-Rophson we have only (\ref{chap3-eq2.10}).
+\end{step}
+
+\begin{step}%%% 5
+ $\triangle J_{k}$ is bounded below by a positive number: if $0 < C < 1$ is any number then we have
+\begin{equation*}
+\alpha C / 2 ||\triangle_{k}||^{2} \leq \triangle J_{k}.\tag{2.11}\label{chap3-eq2.11}
+\end{equation*}
+To prove this we consider two cases:
+\begin{enumerate}
+\item[(i)] $||\triangle_{k}||$ is sufficiently small, i.e. $||\triangle_{k}|| \leq (1-C) \alpha/\beta$, and
+\item[(ii)] $||\triangle_{k}||$ large, i.e. $||\triangle_{k}|| > (1-C) \alpha/\beta$.
+\end{enumerate}
+If (i) holds then (\ref{chap3-eq2.11}) is immediate from
+(\ref{chap3-eq2.10}). Suppose that (ii) holds. By hypothesis $(H5)$
+and by (\ref{chap3-eq2.5}): 
+$$
+b_{k}(\triangle_{k}, \triangle_{k}) \geq \lambda_{\circ} (G_{k},
+\triangle_{k})^{2} \geq \lambda_{\circ} \alpha^{2}
+||\triangle_{k}||^{4} 
+$$
+Then from (\ref{chap3-eq2.9}) we can get
+\begin{align*}
+& \alpha / 2 ||\triangle_{k}||^{2} + \lambda_{\circ} \alpha^{2} ||\triangle_{k}||^{4} - \beta / 2 ||\triangle_{k}||^{3} \leq \triangle J_{k}\\ 
+\text{ i.e.}\quad & \alpha / 2 ||\triangle_{k}||^{2} + \lambda_{\circ} \alpha^{2} ||\triangle_{k}||^{3} (||\triangle_{k}|| - \beta / (2\lambda_{\circ}) \alpha^{2}) \leq \triangle J_{k}.
+\end{align*}
+If we take
+\begin{equation*}
+\lambda_{\circ} \geq \beta^{2} / (2\alpha^{3} (1 - C))\tag{2.12}\label{chap3-eq2.12}
+\end{equation*}
+then we find that $||\triangle_{k}|| > (1-C) \alpha/ \beta > \beta / (2\lambda_{\circ} \alpha^{2})$ and hence
+\begin{equation*}
+\alpha / 2 ||\triangle_{k}||^{2} \leq \triangle J_{k}.\tag{2.13}\label{chap3-eq2.13}
+\end{equation*}
+Since $0 < C < 1$ we again get (\ref{chap3-eq2.11}) from (\ref{chap3-eq2.13}). Suppose on the other hand (ii) holds and $b_{k}$ satisfies $(H6)$ with a $\lambda_{1}$ to be determined. Again from (\ref{chap3-eq2.9}), (\ref{chap3-eq2.5}) and hypothesis $(H6)$ we have
+\begin{align*}
+& \alpha / 2 ||\triangle_{k}||^{2} + \lambda_{1} ||G_{k}||^{1+\epsilon} ||\triangle_{k}||^{2} - \beta / (2\alpha) ||\triangle_{k}||^{2} ||G_{k}|| \leq \triangle J_{k}\\
+\text{ i.e. }\quad & \alpha / 2 ||\triangle_{k}||^{2} + \lambda_{1} ||G_{k}|| ||\triangle_{k}||^{2} (||G_{k}||^{\epsilon} - \beta/ (2\alpha \lambda)) \leq \triangle J_{k}
+\end{align*}\pageoriginale
+Using (ii) together with (\ref{chap3-eq2.5}) we get
+$$
+\dfrac{\alpha^{\in}(1-C)^{\epsilon}}{\beta^{\epsilon}} \alpha^{3} \leq \alpha^{\epsilon} ||\triangle_{k}||^{\epsilon} \leq ||G_{k}||^{\epsilon}
+$$
+so that if $\alpha^{2\epsilon} (1-C)^{\epsilon} / \beta^{\epsilon} > \beta / 2\alpha \lambda_{1}$ then we can conclude that
+$$
+\alpha / 2 ||\triangle_{k}||^{2} \leq \triangle J_{k}.
+$$
+This is possible if $\lambda_{1}$ is large enough: i.e. if
+\begin{equation*}
+\lambda_{1} = \beta^{1+\epsilon} / 2\alpha^{1+2 \epsilon} (1-C)^{\epsilon}.\tag{2.14}\label{chap3-eq2.14}
+\end{equation*}
+As before since $0 < C < 1$ we find the estimate (\ref{chap3-eq2.11}) also in this case.
+\end{step}
+
+\begin{step}%%% 6
+ $J_{k} = J(u_{k})$ is decreasing, $u_{k+1} \epsilon U$ and $|| \triangle_{k} || \to 0$ as $k \to + \infty$. The estimate (\ref{chap3-eq2.11}) shows that
+$$
+J_{k} - J_{k+1} = \triangle J_{k} \geq 0,
+$$
+which implies that $J_{k}$ is decreasing. On the other hand, since $u$ is the solution of the minimization problem we have
+$$
+J(u) \leq J_{k+1} \leq J_{k},
+$$
+which shows that $u_{k+1} \epsilon U$ since $J(u_{k+1}) \leq J(u_{k}) \leq J(u_{\circ})$ since $u_{k} \epsilon U$. Thus $J_{k}$ is a decreasing sequence bounded below (by $J(u))$ and hence converges as $k \to + \infty$.
+
+In particular
+$$
+\triangle J_{k} = J_{k} - J_{k+1} \geq 0 \text{ and } \triangle J_{k} \to 0 \text{ as } k \to + \infty.
+$$
+Then, by (\ref{chap3-eq2.11})
+\begin{equation*}
+|| \triangle_{k} || \to 0 \text{ as } k \to + \infty\tag{2.15}\label{chap3-eq2.15}
+\end{equation*}\pageoriginale
+\end{step}
+
+\begin{step}%%% 7
+The sequence $u_{k}$ converges (strongly) to u, the solution of the minimization problem. In fact, we can write by applying Taylor's formula to $(G, \varphi)$, for $\varphi \epsilon V$,
+$$
+(G_{k}, \varphi) = (G(u), \varphi) + (\hat{H}_{k} (u_{k}-u), \varphi)
+$$
+where
+$$
+H_{k} = H(u+\theta(u_{k}-u)) \text{ for some } \theta_{\varphi} \text{ in }  0 <  \theta < 1.
+$$
+But here $G(u) = 0$. Now replacing $(G_{k}, \varphi)$ by using (\ref{chap3-eq2.1}) defining $\triangle_{k}$ we obtain
+\begin{equation*}
+(H_{k} \triangle_{k}, \varphi) + b_{k} (\triangle_{k}, \varphi) = -(\hat{H}_{k} (u_{k}-u), \varphi), \; \forall \varphi \epsilon V.\tag{2.16}\label{chap3-eq2.16}
+\end{equation*}
+We take $\varphi = u_{k}-u$ in (\ref{chap3-eq2.16}). Since $U$ is convex and since $u, u_{k} \epsilon U$ it follows that $u + \theta(u_{k}-u) \epsilon U$. By the uniform $V$-coercivity of $H$ we know that
+$$
+(\hat{H}_{k} (u_{k}-u), u_{k}-u) \geq \alpha ||u_{k}-u||^{2}, \alpha = \alpha_{u}.
+$$
+Applying Cauchy-Schwarz inequality to the term $-(H_{k} \triangle_{k}, u_{k}-u)$ and using the fact that $H_{k}$ is bounded we get
+$$
+|(H_{k} \triangle_{k}, u_{k}-u)| \leq \gamma_{u} ||\triangle_{k}|| ||u_{k}-u||.
+$$
+Then (\ref{chap3-eq2.16}) will give
+$$
+\alpha ||u_{k}-u||^{2} \leq \gamma ||\triangle_{k}|| ||u_{k}-u|| + |b_{k}(\triangle_{k}, u_{k}-u)|.
+$$
+On the other hand, $||G(u_{k})||$ is bounded since $u_{k} \epsilon
+U$. Let $d = \max (\mu_{\circ}\break ||G(u_{k})||^{2},
+\mu_{1}||G(u_{k})||^{1+\epsilon}) < + \infty$. The hypothesis $(H5)$
+or $(H6)$ together with the last inequality imply 
+$$
+\alpha ||u_{k}-u||^{2} \leq (\gamma+d)|| \triangle_{k} || ||u_{k}-u||,
+$$
+i.e. 
+\begin{equation*}
+||u_{k}-u|| \leq (\gamma+d) / \alpha ||\triangle_{k}||\tag{2.17}\label{chap3-eq2.17}
+\end{equation*}\pageoriginale
+Since $||\triangle_{k}|| \to 0$ as $k \to + \infty$ by (\ref{chap3-eq2.15}) we conclude from (\ref{chap3-eq2.17}) that $u_{k} \to u$ as $k \to + \infty$. Next if we take $\varphi = \triangle_{k}$ in (\ref{chap3-eq2.16}) we get
+$$
+(H_{k} \triangle_{k}, \triangle_{k}) + b_{k} (\triangle_{k}, \triangle_{k}) = -(\hat{H}_{k}(u_{k}-u), \triangle_{k}).
+$$ 
+Once again using the facts that $b_{k}$ is positive semi-definite by $(H5)$ or $(H6)$ and that $H_{k}$ is $V$-coercive by $(H_{3})$ we see that
+$$
+\alpha ||\triangle_{k}||^{2} \leq ||u_{k}-u|| ||\triangle_{k}||
+$$
+since $\hat{H}_{k}$ is bounded because $u+\theta(u_{k}-u) \epsilon U$ for any $\theta$ in $0 < \theta < 1$ i.e. we have
+\begin{equation*}
+\alpha / \gamma ||\triangle_{k}|| \leq ||u_{k}-u||.\tag{2.18}\label{chap3-eq2.18}
+\end{equation*}
+(\ref{chap3-eq2.17}) and (\ref{chap3-eq2.18}) together give the inequalities in the assertion (4) of the statement with $\gamma_{1} = \alpha/\gamma, \gamma_{2} = (\gamma + d)/ \alpha.$
+\end{step}
+
+\begin{step}%%% 8
+Finally we prove that the convergence $u_{k} \to u$ is quadratic. If we set $\delta_{k} = u_{k}-u$ then $\triangle_{k} = \delta_{k+1} - \delta_{k}$ and (\ref{chap3-eq2.16}) can now be written as
+\begin{align*}
+(H_{k} \delta_{k+1}, \varphi) + b_{k} (\delta_{k+1}, \varphi) & = (H_{k} \delta_{k}, \varphi) + b_{k} (\delta_{k}, \varphi) - (\hat{H}_{k} \delta_{k}, \varphi)\\
+& = ((H_{k} - \hat{H}_{k}) \delta_{k}, \varphi) + b_{k} (\delta_{k}, \varphi).
+\end{align*}
+Here we take $\varphi = \delta_{k+1}$. Applying $V$-coercivity of
+$H_{k}$ (hypothesis H3), using positive semi-definiteness of $b_{k}$
+on the left side and applying\break Cauchy-Schwarz inequality to the two terms on the right side together with the hypothesis $(H4)$ to estimate $||H_{k} - \hat{H}_{k}||$ we obtain
+\begin{align*}
+\alpha||\delta_{k+1}||^{2} & \leq ||H_{k}-H_{k}|| ||\delta_{k+1}|| + |b_{k}(\delta_{k}, \delta_{k+1})|\tag{2.19}\label{chap3-eq2.19}\\
+& \leq \beta ||\delta_{k}||^{2} ||\delta_{k+1}|| + |b_{k}(\delta_{k}, \delta_{k+1})|.
+\end{align*}\pageoriginale
+But, by $(H5)$.
+\begin{equation*}
+|b_{k} (\delta_{k}, \delta_{k+1})| \leq \mu_{\circ} ||G_{k}||^{2} ||\delta_{k}|| ||\delta_{k+1}||.\tag{2.20}\label{chap3-eq2.20}
+\end{equation*}
+On the other hand, by mean-value property applied $G$ we have
+$$
+||G_{k}-G(u)|| \leq \gamma ||u_{k}-u||
+$$
+since for any $w \epsilon U, ||U(w)|| \leq \gamma$. As $G(u) = 0$ this implies that
+\begin{equation*}
+||G_{k}|| \leq \gamma ||u_{k}-u|| = \gamma ||\delta_{k}||.\tag{2.21}\label{chap3-eq2.21}
+\end{equation*}
+Substituting this in the above inequality (\ref{chap3-eq2.19})
+$$
+\alpha ||\delta_{k+1}||^{2} \leq \beta ||\delta_{k}|| ||\delta_{k+1}|| + \mu_{\circ} \gamma^{2} ||\delta_{k}||^{3} ||\delta_{k+1}||.
+$$
+Now dividing by $||\delta_{k+1}||$ and using the fact that $||\delta_{k}|| = ||u_{k}-u|| \leq diam U$ we get
+\begin{align*}
+||\delta_{k+1}||  & \leq \alpha^{-1} (\beta + \mu_{\circ} \gamma^{2} ||\delta_{k}||) ||\delta_{k}||^{2}\\
+& \leq \alpha^{-1} (\beta + \mu_{\circ} \gamma^{2} diam U) ||\delta_{k}||^{2}
+\end{align*}
+which is the required assertion (5) of the statement with $\gamma_{3} = \alpha^{-1} (\beta + \mu_{\circ} \gamma^{2} diam U)$.
+
+If we had used hypothesis $(H6)$ instead of $(H5)$ to estimate $|b_{k} (\delta_{k},\break \delta_{k+1})|$ we would get
+\begin{equation*}
+|b_{k} (\delta_{k}, \delta_{k+1})| \leq \mu_{1} ||G_{k}||^{1+\epsilon} ||\delta_{k}|| ||\delta_{k+1}||\tag*{$(2.20)'$}\label{chap3-eq2.20'}
+\end{equation*}
+in place of (\ref{chap3-eq2.20}). Now by (\ref{chap3-eq2.19}) together with (\ref{chap3-eq2.21}) gives (exactly by the same arguments as in the earlier case)
+$$
+||\delta_{k+1}|| \leq \alpha^{-1} (\beta + \mu_{1} \gamma^{1+\epsilon} (diam U)^{\epsilon}) ||\delta_{k}||^{2}.
+$$
+In this case, we can take $\gamma_{3} = \alpha^{-1} (\beta + \mu_{1} \gamma^{1+\epsilon} (diam U)^{\epsilon}).$
+\end{step}
+
+This completely proves the theorem.
+\end{proof}
+
+We\pageoriginale shall conclude this section with remarks.
+
+\begin{remark}\label{chap3-rem2.1}
+In the course of our proof all the hypothesis $(H1)$ - $(H5)$ or $(H6)$ except $(H4)$ have been used only for elements $v$ in the bigger bounded set $U$ while the hypothesis $(H4)$ has been used also for elements in the bigger bounded set $U_{1}$.
+\end{remark}
+
+\begin{remark}\label{chap3-rem2.2}
+As we have mentioned earlier the proof of Theorem \ref{chap3-thm2.1} given above includes the proof of the classical Newton-Rophson method if we make the additional hypothesis that $u_{\circ}$ is close enough to $u$ such that $\forall v \epsilon U$ we have
+$$
+\dfrac{1}{\alpha} ||G(u)|| \leq \dfrac{\alpha}{\beta} d,
+$$
+d given in $]0, 1[$. Then using (\ref{chap3-eq2.5}), (\ref{chap3-eq2.10}) becomes
+$$
+(1-d) \dfrac{\alpha}{3} ||\triangle_{k}||^{2} \leq \triangle J_{k}.
+$$
+\end{remark}
+
+\begin{remark}\label{chap3-rem2.3}
+\begin{example}\label{chap3-exam2.4}
+Let $V = \mathbb{R}^{n}$. Then $G_{k} \epsilon (\mathbb{R}^{n})' = \mathbb{R}^{n}$. If we represent an element $\varphi \epsilon \mathbb{R}^{n}$ as a column matrix
+\begin{equation*}
+\varphi = 
+\begin{pmatrix}
+\varphi_{1}\\
+\vdots\\
+\varphi_{n}
+\end{pmatrix}
+\epsilon \mathbb{R}^{n}
+\end{equation*}
+trhen $\varphi \varphi^{t}$ (with matrix multiplication) is a square matrix of order n. In particular $G_{k} G_{k}^{t}$ is an $(n \times n)$ square matrix. Moreover under the hypothesis we have made $H_{k} + \lambda G_{k} G_{k}^{t}$ is a positive definite matrix for $\lambda > 0$. This corresponds to $b_{k}(\varphi, \psi) = \lambda(G_{k}^{t} \varphi, G_{k}^{t} \psi)' = \lambda(G_{k} G_{k}^{t} \varphi,\psi)$ and our linear problem (\ref{chap3-eq2.1}) is nothing but the system of $n$-linear equations 
+$$
+(H_{k} + \lambda G_{k} G_{k}^{t}) \triangle_{k} = -G_{k}
+$$
+in $n$-unknowns $\triangle_{k}$.
+\end{example}
+\end{remark}
+
+\begin{example}\label{chap3-exam2.5}
+Simiarly we can take $b_{k} (\varphi, \psi) = \lambda ||G_{k}||^{2} (\varphi, \psi)$, and we get
+$$
+(H_{k} + \lambda ||G_{k}||^{2} I) \triangle_{k} = -G_{k}.
+$$
+\end{example}
+
+\begin{example}\label{chap3-exam2.6}
+We can take $b_{k} (\varphi, \psi) = \lambda ||G_{k}||^{1+\epsilon} (\varphi, \psi)$ and we get
+$$
+(H_{k} + \lambda ||G_{k}||^{1+\epsilon} I) \triangle_{k} = -G_{k}
+$$
+as the corresponding system of linear equations.
+\end{example}\pageoriginale
+
+\begin{remark}\label{chap3-rem2.4}
+The other algorithms given in this chapter do make use only of the calculation of the first $G$-derivative of $J$ while the Newton method uses the calculation of the second order derivatives (Hessian) of $J$. Hence Newton's method is longer, more expensive economically than the methods based on algorithms given earlier.
+\end{remark}
+
+\section{Other Methods}\label{chap3-sec3}
+The following are some of the other interesting methods known in the literature to construct algorithms to approximate solutions of the minimization problems. We shall only mention these.
+
+\begin{enumerate}
+\item[(a)]{\textit{Conjugate gradient method:}} One of the algorithms in the class of these methods is known as Devidon-Fletcher-Powell method. Here we need to compute the $G$-derivatives of first order of the functional to be minimized. This is a very good and very much used method for any problems. (See \cite{key11} and \cite{key15}).
+
+\item[(b)]{\textit{Relaxation method:}} In this method it is not necessary to compute the derivatives of the functionals. Later on in the next chapter we shall give relaxation method also when there are constraints. (See Chapter \ref{chap4}. \S \ref{chap4-subsec4.5}).
+
+\item[(c)] Rosenbrock method. (See, for instantce, \cite{key30}).
+
+\item[(d)] Hooke and Jeeves method. (See for instance \cite{key30})
+\end{enumerate}
+Also for these two methods we need not compute the derivatives of functionals. They use suitable local variations.
+
+
+

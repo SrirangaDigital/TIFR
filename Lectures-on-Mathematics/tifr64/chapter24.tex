@@ -1,0 +1,232 @@
+\chapter{Explosions}\label{chap24}
+
+\begin{exer*}
+Let\pageoriginale $R>0$ be given. Put $b_{R}=b\phi_{R}$ where
+$\phi_{R}=1$ on $|x|\geq R$, $\phi_{R}=0$ if $|x|\geq R+1$; $\phi_{R}$
+is $C^{\infty}$. Show that $b_{R}=b$ on $|x|\leq R$, $b_{R}$ is
+bounded on $\mathbb{R}^{d}$ and $b_{R}$ is globally Lipschitz.
+\end{exer*}
+
+Let $\Omega_{T}=\{w\in \Omega :B(w)>T\}$. Let $S^{T}=\Omega_{T}\to
+C[0,T]$ be the map $S^{T}w=y(\cdot)$ where
+$y(t)=w(t)+\int\limits^{t}_{0}b(y(s))ds$ on $[0,T]$. Unless otherwise
+specifie $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ is assumed to be locally
+Lipschitz. Define the measure $Q^{T}_{x}$ on $(\Omega,T)$ by
+$$
+Q^{T}_{x}(A)=P_{x}\{w:S^{T}w\in A,B(w)>T\},
+$$
+where $P_{x}$ is the probability measure corresponding to Brownian motion.
+
+\begin{theorem*}
+$$
+Q^{T}_{x}(A)=\int\limits_{A}Z(T,\cdot)dP_{x},\q \forall A\in
+\mathscr{F}_{T}, 
+$$
+where
+$$
+Z(T,\cdot)=\exp\left[\int\limits^{T}_{0}\langle b,dX\rangle
+  -\frac{1}{2}\int\limits^{T}_{0}|b(X(s,\cdot))|^{2}ds\right].
+$$
+\end{theorem*}
+
+\begin{remark*}
+If $b$ is bounded or if $b$ satisfies a global Lipschitz condition
+then $B(w)=\infty$, so that $\Omega_{T}=\Omega$ and $Q^{T}_{x}$ are
+probability measures.
+\end{remark*}
+
+\begin{proof}
+Let $0\leq R<\infty$. For any $w$ in $\Omega$, let $y$ be given by
+$$
+y(t)=w(t)+\int\limits^{t}_{0}b(y(\sigma))d\sigma.
+$$
+
+Define $\sigma_{R}(w)=\inf\{t:|y(t)|\geq R$ and let $b_{R}$ be as in
+the Exercise. Then the equation
+$$
+y_{R}(t)=w(t)+\int\limits^{t}_{0}b_{R}(y_{R}(\sigma))d\sigma
+$$\pageoriginale
+has a global solution. Denote by $S_{R}:\Omega\to \Omega$ the map
+$w\to y_{R}$. If $Q_{R,x}$ is the measure induced by $S_{R}$, then
+$$
+\frac{dQ_{R,x}}{dP_{x}}\Big|\mathscr{F}_{t}=Z_{r}(t)=\exp
+\left(\int\limits^{t}_{0}\langle b_{R},dX\rangle
+-\frac{1}{2}\int\limits^{t}_{0}|b_{R}|^{2}ds\right). 
+$$
+
+Let $\tau_{R}(w)=\inf\{t:|w(t)|>R\}$. $\tau_{R}$ is a stopping time
+satisfying $\tau_{R}S_{R}=\sigma_{R}$. By the optional stopping
+theorem.
+\begin{equation*}
+\frac{dQ_{R,x}}{dP_{x}}\Big|\mathscr{F}_{\tau_{R}\wedge
+  T}=Z_{R}(\tau_{R}\wedge T)=Z(\tau_{R}\wedge T).\tag{1}
+\end{equation*}
+\end{proof}
+
+\begin{claim*}
+$Q_{R,x}((\tau_{R}>T)\cap A)=Q^{T}_{x}((\tau_{R}>T)\cap A),\ \forall
+  A\text{~ in~ }\mathscr{F}_{T}$. 
+\end{claim*}
+
+\begin{proof}
+\begin{align*}
+\text{Right side~ } &= P_{x}\{w:B(w)>T,S^{T}(w)\in A\cap
+(\tau_{R}>T)\}\\
+&= P_{x}\{w:B(w)>T, y\in A, \sup\limits_{0\leq t\leq T}|y(t)|<R\}\\
+&= P_{x}\{w:y\text{~ is defined at least upto time~ } T,\\
+&\qq y\in A, \sup\limits_{0\leq t\leq T}|y(t)|>R\}\\
+&= P_{x}\{w:y_{R}\in A,\sup\limits_{0\leq t\leq T}|y_{R}(t)|<R\}\\
+&= P_{x}\{w:S_{R}(w)\in A, \tau_{R}S_{R}(w)>T\}\\
+&= Q_{R,x}\{(\tau_{R}>T)\cap A\}
+\end{align*}
+(by definition). As $\Omega$ is an increasing union of
+$\{\tau_{R}>T\}$ for $R$ increasing,
+\begin{align*}
+Q^{T}_{x}(A) &= \lt\limits_{R\to +\infty}Q^{T}_{x}((\tau_{R}>T)\cap
+A),\ \forall A\text{~ in~ }\mathscr{F}_{T},\\
+&= \lt\limits_{R\to \infty}Q_{R,x}((\tau_{R}>T)\cap A)\q \text{(by
+  claim)}\\
+&= \lt\limits_{R\to \infty}\int\limits_{(\tau_{R}\wedge T)\cap A}\exp
+\left(\int\limits^{\tau_{R}\wedge T}_{0}\langle b, dX\rangle
+-\frac{1}{2}\int\limits^{\tau_{R}\wedge T}_{0}|b|^{2}ds\right)dP_{x}\q
+\text{(by (1))}\\
+&= \int\limits_{A}\exp \left(\int\limits^{T}_{0}\langle b,dX\rangle
+-\frac{1}{2}\int\limits^{T}_{0}|b|^{2}ds\right)dP_{x}\\
+&= \int\limits_{A}Z(T)dP_{x}.
+\end{align*}\pageoriginale
+\end{proof}
+
+\begin{theorem*}
+Suppose $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ is locally Lipschitz; let
+$L=\dfrac{\Delta}{2}+b.\nabla$.
+\begin{itemize}
+\item[\rm(i)] If there exists a smooth function $u:\mathbb{R}^{d}\to
+  (0,\infty)$ such that $u(x)\to \infty$ as $|x|\to \infty$ and
+  $Lu\leq cu$ for some $c>0$ then $P_{x}\{w:B(w)<\infty\}=0$, i.e.\@ for
+  almost all $w$ there is no explosion. 
+
+\item[\rm(ii)] If there exists a smooth bounded function
+  $u:\mathbb{R}^{d}\to (0,\infty)$ such that $Lu\geq cu$ for some
+  $c>0$, then $P_{x}\{w:B(w)<\infty\}>0$, i.e.\@ there is explosion.
+\end{itemize}
+\end{theorem*}
+
+\begin{coro*}
+Suppose, in particular, $b$ satisfies $|\langle b(x),x\rangle|\leq
+A+B|x|^{2}$ for some constants $A$ and $B$; then $P_{x}(w:B(w)<\infty)=0$.
+\end{coro*}
+
+\begin{proof}
+Take $u(x)=1+|x|^{2}$ and use part (1) of the theorem.
+\end{proof}
+
+\noindent
+{\bf Proof of theorem.}~ Let $b_{R}$ be as in the Exercise and let
+$L_{R}=\dfrac{\Delta}{2}+b_{R}\cdot \nabla$; then $L_{R}u(x)\leq
+cu(x)$ if $|x|\leq R$.
+
+\begin{claim*}
+$u(X(t))e^{-ct}$ is a supermartingale upto time $\tau_{R}$ relative to
+  $Q^{R}_{x}$, 
+\begin{gather*}
+d\left(u(X(t))e^{-ct}\exp\left(\int\limits^{t}_{0}\langle
+b_{R},dX\rangle
+-\frac{1}{2}\int\limits^{t}_{0}|b_{R}|^{2}ds\right)\right)\\
+e^{-ct\int\limits^{t}_{0}\langle b_{R},dX\rangle
+-\frac{1}{2}\int\limits^{t}_{0}|b_{R}|^{2}ds}\times\\
+\times\{-cudt+\langle \nabla u, dX\rangle +u(x)[\langle b_{R},dX\rangle
+  -\frac{|b_{R}|^{2}}{2}dt]+b_{R}udt+\frac{1}{2}|b_{R}|^{2}udt\}\\
+=\exp (-ct+\int\limits^{t}_{0}\langle b_{R},dX\rangle
+-\frac{1}{2}\int\limits^{t}_{0}|b_{R}|^{2}ds)\\
+\cdot [L_{R}-c)u+\langle
+  \nabla u, dX\rangle +u\langle b_{R},dX\rangle].
+\end{gather*}\pageoriginale
+
+Therefore
+\begin{align*}
+& u(X(t))e^{-ct}E^{\int\limits^{t}_{e^{0}}\langle b_{R},dX\rangle
+-\frac{1}{2}\int\limits^{t}_{0}|b_{R}|^{2}ds}\\
+& -{}\int\limits^{t}_{0}\exp\left(-cs+\int\limits^{s}_{0}\langle
+b_{R},dX\rangle -\int\limits^{s}_{0}|b_{R}|^{2}ds\right)\cdot
+(L_{R}-c)u(X(s))ds 
+\end{align*}
+is a Brownian stochastic integral. Therefore
+\begin{align*}
+& u(X(\tau_{R}\wedge t))\exp \left(-c(\tau_{R}\wedge
+  t)+\int\limits^{\tau_{R}\wedge t}_{0}\langle b_{R},dX\rangle
+  -\frac{1}{2}\int\limits^{\tau_{R}\wedge t}_{0}|b_{R}|^{2}ds\right)-\\
+& {}- \int\limits^{\tau_{R}\wedge t}_{0}\exp
+  \left(-cs+\int\limits^{s}_{0}\langle b_{R},dX\rangle
+  -\frac{1}{2}\int\limits^{s}_{0}|b_{R}|^{2}ds\right)(L_{R}-c)u(X(s))ds 
+\end{align*}
+is a martingale relative to $P_{x}$, $\mathscr{F}_{\tau_{R}\wedge
+  t}$. But $b_{R}(x)=b(x)$ if $|x|\leq R$. Therefore
+\begin{align*}
+& u(X(\tau_{R}\wedge t))\exp \left(-c(\tau_{R}\wedge
+t)+\int\limits^{\tau_{R}\wedge t}_{0}\langle b,dX\rangle
+-\frac{1}{2}\int\limits^{\tau_{R}\wedge t}_{0}|b|^{2}ds\right)-\\
+& {}-\int\limits^{\tau_{R}\wedge
+  t}_{0}\exp\left(-cs+\int\limits^{s}\langle b,dX\rangle -\int\limits^{s}_{0}|b|^{2}ds\right)(L_{R}-c)u(X(s))ds
+\end{align*}
+is a martingale relative to $\mathscr{F}_{\tau_{R}\wedge t}$. But
+$(L_{R}-c)u\leq 0$ in $[0,\tau_{R}]$. 
+
+Therefore\pageoriginale
+$$
+u(X(\tau_{R}\wedge t))\exp (-c(\tau_{R}\wedge
+t)+\int\limits^{\tau_{R}\wedge t}_{0}\langle b,dX\rangle
+-\frac{1}{2}\int\limits^{\tau_{R}\wedge t}_{0}|b|^{2}ds)
+$$
+is a supermartingale relative to $\mathscr{F}_{\tau_{R}\wedge
+  t},P_{x}$. Therefore $u(X(\tau_{R}\wedge t)e^{-c(\tau_{R}\wedge t)}$
+is a supermartingale relative to $Q^{R}_{x}$ (optional sampling
+theorem). Therefore
+$$
+E^{Q^{R}_{x}}(u(X(t_{R}\wedge t))e^{-c(\tau_{R}\wedge t)}\leq u(x);
+$$
+letting $t\to \infty$, we get, using Fatou's lemma,
+$$
+E^{Q^{R}}_{x}(u(X(\tau_{R})e^{-c\tau_R})\leq u(x).
+$$
+
+Therefore
+$$
+E^{Q^{R}_{x}}(e^{-c\tau_{R}})\leq \frac{u(x)}{\inf\limits_{|y|=R}|u(y)|}.
+$$
+
+Thus
+$$
+E^{P_{x}}(e^{-c\sigma_{R}})\leq \frac{u(x)}{\inf\limits_{|y|=R}|u(y)|}
+$$
+(by change of variable). Let $R\to \infty$ to get $\Lt\limits_{R\to
+  \infty}\int e^{-c\sigma_{R}}dP_{x}=0$, i.e.\@
+$P_{x}\{w:B(w)<\infty\}=0$. 
+\end{claim*}
+
+\noindent
+{\bf Sketch of proof for Part (ii).}~
+\smallskip
+
+By using the same technique as for Part (i), show that
+$u(X(t))e^{-ct}$ is a submartingale upto time $\tau_{R}$ relative to
+$Q^{R}_{x}$, so that
+$$
+E^{P_{x}}(e^{-c\sigma_{R}})\geq
+\frac{u(x)}{\sup\limits_{|y|=R}|u(y)|}\geq
+\frac{u(x)}{||u||_{\infty}}>0; 
+$$\pageoriginale
+let $R\to \infty$ to get the result.
+
+\begin{exer*}
+Show that if $L=\dfrac{1}{2}\dfrac{\p^{2}}{\p x}+x^{3}\dfrac{\p}{\p
+  x}$, there is explosion. (Hint: take $u=e^{\tan^{-1}(x^{2})}$ and
+show that $Lu\geq u$).
+\end{exer*}
+
+
+
+
+
+
+
+

@@ -1,0 +1,204 @@
+
+\chapter{Weak boundary value problems}\label{chap11}
+
+\noindent We\pageoriginale first formulate the generalized weak
+``boundary value problem''.
+\noindent {\bf Problem 11.1.} $Q$ is a Banach space and $Q'$ is its
+strong dual. $V$ is a Hilbert space satisfying $V\subset Q, V \subset
+Q'$ with continuous injections and $a(u, v)$ is a continuous
+sesquilinear form on $V$. Let $V$ be dense in $Q$. Then we can find a
+subspace $N$ of $V$ and a continuous linear map $A : N \to Q'$ such
+that $\langle Au, \bar{v}\rangle = a(u, v)$. (See Lions: {\bf``On
+  Elliptic Partial Differential Equations''}, Tata Institute of
+Fundamental Research, Lecture~5). Let $\overrightarrow{g} \in
+\mathscr{D}_+'(t, Q')$. We look for $\overrightarrow{u} \in
+\mathscr{D}_+'(t, N)$ such that $\frac{d\overrightarrow{u}}{dt}+
+A\overrightarrow{u} = \overrightarrow{g}$. 
+\setcounter{section}{11}
+\setcounter{theorem}{0}
+\begin{theorem}\label{chap11:thm11.1}
+We follow the above notations. Assume that 
+\begin{itemize}
+\item [1)] $\overrightarrow{g}$ has a Laplace transform:
+  $\overrightarrow{g}\sqsupset \overrightarrow{G} (p)$ for $Rl 
+  p>a$.
+\item [2)] $\langle u, \bar{u}\rangle V \geq 0$ for $u \in V$, where
+  $\langle , \rangle_V$ denote the scalar product in $V$. 
+\item [3)] There exists an $\alpha > 0$ and a real $\mathscr{E}_1$
+  such that 
+$$ 
+a_1(u, u)+\mathscr{E} \langle u, \bar{u}\rangle \geq \alpha \parallel
+u \parallel_v^2 \quad for \quad \mathscr{E} \geq \mathscr{E}_1
+$$
+where $a_1(u, v)$ is the real part of $a(u, v)$ and $\parallel \quad
+\parallel_V$ denotes the norm in $V$. 
+\end{itemize}
+
+Then there exists a unique $\overrightarrow{u} \in \mathscr{D}_+'(t,
+N)$ such that $\overrightarrow{u}$ has a Laplace transform and
+satisfies $\frac{d\overrightarrow{u}}{dt}+ A
+\overrightarrow{u} = \overrightarrow{g}$.
+\end{theorem}
+
+\begin{proof}
+$\overrightarrow{G}(p)$ is a holomorphic function with values in
+$Q'$. For every fixed $p$ such that $Rl p> \gamma = Max
+(\mathscr{E}_1, a)$ consider the equation 
+\begin{align*}
+(p + A)\overrightarrow{U}(p) = \overrightarrow{G}(p)\tag{1}\label{c11:eq1}
+\end{align*}
+Since\pageoriginale $a_1(u, v)+\mathscr{E} \langle u, \bar{u}\rangle
+\geq \parallel u \parallel_v^2$ for $\mathscr{E} \geq \mathscr{E}_1$
+with $\alpha > 0$, it follows (See Lions: {\bf ``On Elliptic Partial
+ Differential Equations''}, Tata Institute of Fundamental Research,
+Lecture 5) that the operator $(p + A) : N \to Q'$ is an isomorphism
+for $Rl p > \gamma$. Hence there exists a unique
+$\overrightarrow{U}(p) \in N$ such that \eqref{c11:eq1} is valid. In fact,
+$\overrightarrow{U}(p) = (p + A)^{-1} \overrightarrow{G}(p)$ for every
+fixed $p$ with $Rl p > \gamma$.
+\end{proof}
+
+We shall next show that $\overrightarrow{U}(P)$ is a holomorphic
+function with values in $N$. For this we need the following general
+
+\begin{lemma*}
+Suppose $N$ and $Q'$ are two Banach spaces and $L(P)$ a holomorphic
+function in a domain $\Omega$ (in $C$) with values in $\mathscr{L}
+(N,Q')$. Assume $L(P)$ has a continuous inverse $L^{-1}(P)$ at every
+point $p$ of $\Omega$. Then the function $p \to L^{-1}(p)$ is a
+holomorphic function in $\Omega$ with values in $\mathscr{L}(Q', N)$.  
+\end{lemma*}
+
+\begin{proof}
+For $p, p+h \in \Omega$ we have
+$$
+L^{-1}(p+h)-L^{-1}(p) = L^{-1}(p+h) \left\{ L(P) - 
+L(P+h)\right\} L^{-1}(P).
+$$
+The norm of $L^{-1}(p+h)$ remains bounded as $h \to 0$. For if not, 
+we can find a sequence $\{h_n\} n = 1, 2, \ldots$ of complex numbers
+tending to zero, and a sequence $X_n$ of element in $Q'$ such that 
+$$
+L^{-1}(p+h_n) X_n = \lambda_n \geq n \quad \text{and} \quad \parallel
+X_n\parallel = 1\quad \text{in}\quad Q'.
+$$
+Let $Y_n = \frac{X_n}{\lambda_n}$. Then $\parallel Y_n \parallel_{Q'} \to
+0$ and $\parallel L^{-1}(p+h_n)Y_n\parallel_V=1$. Let $Z_n =
+L^{-1}(p+h_n)Y_n$. Then $\parallel Z_n\parallel = 1$. Now $\parallel
+L(p+h_n)Z_n\parallel_{Q'}= \parallel Y_n\parallel_{Q'}$ and this tends
+to $0$ as $n \to \infty$. Due to the continuity of $p \to L(p)$ we
+have $\lim\limits_{n \to \infty}\parallel L(p+h_n) - L(p)\parallel =
+0$. Hence $\lim\limits_{n \to \infty} \parallel L(p) Z_n \parallel_{Q'} =
+0$. But $L(p)$ is invertible and $\parallel Z_n \parallel = 1$. This
+cannot happen. Hence $\parallel L^{-1}(p+h) \parallel$ is bounded as
+$h \to 0$. Hence $\lim\limits_{h \to \circ} \parallel L^{-1}(p+h) -
+L^{-1}(p)\parallel = 0$. This\pageoriginale proves the continuity of
+$p \to L^{-1}(p)$ for $p$ in $Rl p > \gamma$.
+\end{proof}
+
+We now prove the differentiability of the function $p \to L^{-1}(p)$
+in $\Omega$. For $p$ and $(p+h) \in \Omega$, we have
+$$
+\frac{L^{-1}(p+h)-L^{-1}(p)}{h}= L^{-1}(p+h) 
+\frac{L(p)-L(p+h)}{h}L^{-1}(p).
+$$
+Now, $\quad \lim\limits_{h \to 0} L^{-1}(p+h) = L^{-1}(p)$. Hence
+$$
+\lim\limits_{h \to 0}\frac{L^{-1}(p+h)-L^{-1}(p)}{h}=L^{-1}(p)L'(p)
+L^{-1}(p),
+$$
+where $L'(p)$ is the derivative of $L(p)$. 
+
+Continuing with proof of theorem~\ref{chap11:thm11.1}, we first remark that the
+function $p \to p+A$ is a holomorphic function in $Rl p > \gamma$ with
+values in $\mathscr{L}(N, Q')$. From
+$\overrightarrow{U}(p)=(p+A)^{-1}\overrightarrow{G}(p)$ and the
+holomorphic nature of $\overrightarrow{G}(p)$ and $(p+A)^{-1}$ in $Rl
+p > \gamma$, it follows that $\overrightarrow{U}(p)$ is a holomorphic
+function of $p$ with values in $N$ for $Rl p > \gamma$. 
+
+The next step in proving our theorem is to show that
+$\overrightarrow{U}(p)$ is the Laplace transform of a well determined
+distribution $\overrightarrow{u} \in \mathscr{D}_+'(t, N)$ and that
+this $\overrightarrow{u}$ satisfies the equation
+$(\frac{d}{dt}+A)\overrightarrow{u}=\overrightarrow{g}$. For any $f
+\in Q'$ we have $v \to \langle f, \bar{v}\rangle_{Q', Q}$ to be a
+continuous linear functional on $V$. Hence
+$$
+\langle f, \bar{v}\rangle = \langle \tilde{J} f, v\rangle_V \quad
+\text {where} \quad \tilde{J} : Q' \to V
+$$
+is some fixed continuous linear map. Let
+$$
+\alpha_p (u, v)= a (u, v) + p \langle u, \bar{v}\rangle.
+$$
+The map $v \to a (u, v)$ is also a continuous linear map of $V$ in
+$V$. Hence there exists a fixed continuous linear map $\tilde{K} : V
+\to V$ such  that 
+$$
+\hfill a(u, v) = \langle \tilde{K}u, v\rangle_V.  
+$$
+\begin{align*}
+\text{Then} \quad \alpha_p(u, v) &= \langle \tilde{K}u, v\rangle_V + p
+\langle u, \bar{v}\rangle\\
+&= \langle \tilde{K}u, v\rangle_V + p \langle \tilde{J} u, v\rangle_V
+\quad (\text{since} \quad V\subset Q')\\
+&= \langle (\tilde{K} + p\tilde{J}) u, v \rangle_V.
+\end{align*}\pageoriginale
+For each fixed $p$ in $Rl p > \gamma$ the element
+$\overrightarrow{U}(p)$ of $N$ is nothing but that element of $N$
+satisfying
+$$
+\alpha_p (\overrightarrow{U}(p), v) = \langle \overrightarrow{G}(p),
+\bar{v}\rangle_{Q', Q}.
+$$
+Hence $\overrightarrow{U}(p)$ is that element of $N$ satisfying 
+\begin{align*}
+\langle (\tilde{K} + p\tilde{J}) \overrightarrow{U} (p), v \rangle_V
+&= \langle \tilde{J} \overrightarrow{G}(p), v \rangle_V.\\
+\text{Hence}\qquad  (\tilde{K} + p\tilde{J}) \overrightarrow{U}(p) &=
+\tilde{J} \overrightarrow{G} (p).
+\end{align*}
+If we show that for $Rl p > \gamma$ the operator $\tilde{K} + p
+\tilde{J}$ is invertible, we will get 
+$$
+\overrightarrow{U}(p) = (\tilde{K} + p \tilde{J})^{-1} \tilde{J}
+\overrightarrow{G}(p).
+$$
+Now $\qquad \left| \langle (\tilde{K} + p\tilde{J})u, u
+\rangle_V\right| = \left| a(u, u) + p \langle u, \bar{u}\rangle
+\right|$.
+
+\noindent We have $Rl \left\{ a(u, u)+ p \langle u, \bar{u} \rangle
+\right\}= a_1 (u, u) + \mathscr{E} \langle u, \bar{u} \rangle$ where
+$\mathscr{E}= Rl p$. (This follows from the assumption that $\langle
+u, \bar{u} \rangle$ is real). Hence
+\begin{align*}
+\left|a(u, u) + p \langle u, \bar{u}\rangle \right| &\geq a_1 (u, u)
++ \mathscr{E} \langle u, \bar{u}\rangle\\
+&\geq \alpha \parallel u \parallel_V^2 \quad \text{for} \quad
+\mathscr{E} > \nu.  (\text{ with } \alpha > 0).\\
+\text{Hence } \parallel (\tilde{K}+p\tilde{J})
+u\parallel_V \parallel u \parallel_V &\geq \alpha \parallel u
+\parallel_V^2. \quad \text{Hence} \\
+\parallel (\tilde{K} + p \tilde{J}) u \parallel_V &\geq \alpha
+\parallel u \parallel_V \text{ with }  \alpha > 0.  
+\end{align*}
+This implies, since we are in a Hilbert space, that the operator
+$\tilde{K}+p\tilde{J}$ is invertible and that $\parallel (\tilde{K} +
+p\tilde{J})^{-1} \parallel \leq \frac{1}{\alpha}$ for $Rl p >
+\nu$. Hence we have $\overrightarrow{U} (p) = (\tilde{K} +
+p\tilde{J})^{-1} \tilde{J} \overrightarrow{G} (p)$.
+\begin{align*}
+\parallel \overrightarrow{U} (p) \parallel &\leq \parallel (\tilde{K}
++ p\tilde{J})^{-1} \parallel \parallel \tilde{J}\parallel
+\parallel\overrightarrow{G} (p)\parallel\\
+&\leq \frac{1}{\alpha} \beta 
+\parallel \overrightarrow{G} (p)\parallel
+\end{align*}
+where\pageoriginale $\beta$ is some constant. Since
+$\overrightarrow{G} (p)$ has a uniform polynomial majorisation in any
+half plane $Rl p \geq \nu + \varepsilon, \varepsilon > 0$, the same is
+true of $\overrightarrow{U} (p)$. Hence $\overrightarrow{U}(p)$ is the
+Laplace transform of a certain distribution $\overrightarrow{u} \in
+\mathscr{D}_+' (t, N)$, which is unique.

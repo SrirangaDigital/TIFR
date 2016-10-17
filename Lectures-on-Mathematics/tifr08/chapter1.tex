@@ -1,0 +1,429 @@
+\chapter{Lecture 1}\label{chap1}
+
+\section{Introduction}\label{chap1:sec1}
+
+The\pageoriginale analytical theory of one-parameter semi-groups deals with the
+exponential function in infinite dimensional function spaces. It is a
+natural generalization of the theorem of Stone on one-parameter groups
+of unitary operators in a Hilbert space. 
+
+In these lectures, we shall be concerned with the differentiability
+and the representation of one-parameter semi-groups of bounded linear
+operators on a Banach space and with some of their applications to the
+initial value problem (Cauchy's problem) for differential equations,
+especially for the diffusion equation (heat equation) and the wave
+equation. 
+
+The ordinary exponential function solves the initial value problem:
+$$ 
+\frac{dy}{dt} = \alpha y, \quad y (0) = C.
+$$
+
+We consider the diffusion equation
+$$
+\frac{\partial u}{\partial t} = \Delta u,
+$$
+where $\Delta = \sum\limits_{i = 1}^m \dfrac{\partial^2}{\partial
+ x^2_i}$ is the Laplacian in the Euclidean m-space $E^m$; we wish to
+find a solution $u = u(x, t), t \ge 0$, of this equation satisfying
+the initial condition $u(x, 0) = f(x)$, where $f(x) = f(x_1, \ldots,
+x_n)$ is a given function of $x$. We shall also study the wave
+equation 
+$$
+\frac{\partial^2 u}{\partial t^2} = \Delta u, - \infty \le t \le \infty
+$$
+with the initial data 
+$$
+u (x, 0) = f(x) \text { and } \big( \frac{\partial u}{\partial t}
+\big)_{t = o} = g (x), 
+$$
+$f$\pageoriginale and $g$ being given functions. This may be written in the vector
+form as follows: 
+$$
+\frac{\partial}{\partial t} \binom{u}{v} = 
+\binom{0 \quad I}{\Delta \quad 0} 
+\binom{u}{v}, v = \frac{\partial u}{\partial t} 
+$$
+with the initial condition 
+$$
+\binom {u(0)}{v(0)} \quad = \quad \binom{f(x)}{g(x)}. 
+$$
+
+So in a suitable function space the wave equation is of the same form
+as the heat equation - differentiation with respect to the time
+parameter on the left and another operator on the right - or again
+similar to the equation $\dfrac{d y}{d t} = \alpha y$. Since the
+solution in the last case is the exponential function, it is suggested
+that the heat equation and the wave equation may be solved by properly
+defining the exponential functions of the operators $\Delta$ and
+$\begin{pmatrix} 0 & I \\ \Delta & 0 \end{pmatrix}$ in suitable
+function spaces. This is the motivation for the application of the
+semi-group theory to Cauchy's problem. 
+
+Our method will give an explanation why in the case of the heat
+equation the time parameter is restricted to non-negative values,
+while in the case of the wave equation it may extend between $-
+\infty$ and $\infty$. 
+
+Before going into the details, we give a survey of some of the basic
+concepts and results from the theory of Banach spaces and Hilbert
+spaces. 
+
+\part[Survey of some basic concepts and ...]{Survey of some basic concepts and results from the
+ theory of Banach spaces}\label{chap1:p1} 
+
+\begin{defi*}%def
+ A\pageoriginale set $X$ is called a {\em linear space} over a field $K$ if the
+ following conditions are satisfied: 
+ \begin{enumerate}[1)]
+ \item $X$ is an abelian group (written additively).
+ \item There is defined a scalar multiplication: to every element $x$
+  of $X$ and each $\alpha \in K$ there is associated an element of
+  $X$, denoted by $\alpha x$, such that 
+ \begin{align*}
+  (\alpha + \beta)x & = \alpha x + \beta x, \quad \alpha, \beta \in
+  K, \quad x \in X\\ 
+  \alpha (x + y) & = \alpha x + \alpha y, \qquad \alpha \in K, x, y
+  \in X\\ 
+  (\alpha \beta)x & = \alpha (\beta x)\\
+  1x & = x, \qquad 1 \in K \text{is the unit element of K.}
+ \end{align*}
+ \end{enumerate}
+\end{defi*}
+
+We shall denote by Greek letters the elements of $K$ and by Roman
+letters the elements of $X$. The zero of $X$ and the zero of $K$ will
+both be denoted by $0$. We have $0.x = 0$. 
+
+In the sequel we consider linear spaces only over the real number
+field or the complex number field. A linear space will be said to be
+real or complex according as the field is the real number field or the
+complex number field. In what follows, by a linear space we always mean
+a real or a complex linear space. 
+
+\begin{defi*}%def
+ A subset $M$ of a linear space $X$ is called a {\em linear subspace}
+ (or a {\em subspace}) if whenever $x, y \in M$ and $\alpha, \beta
+ \in K_2$ then $\alpha x+ \beta y \in M$. 
+\end{defi*}
+
+\section{Normed linear spaces:}\label{chap1:sec2}
+\pageoriginale
+
+\begin{defi*}%def
+ A linear space $X$ (real or complex) is called a {\em normed linear
+  space} if, for every $x \in X$ there is associated a real number,
+ denoted by $|| x ||$, such that 
+ \begin{enumerate}[\rm i)]
+ \item $|| x|| \ge 0$ and $|| x || = 0$ if and only if $x = 0$.
+ \item $|| \alpha x|| = |\alpha| || x||$, ($\alpha$ is a scalar and
+  $|\alpha|$ is the modulus of $\alpha$). 
+ \item $|| x + y|| \le || x|| + || y||, x, y \in X$ (triangle
+  inequality). $|| x||$ is called the norm of $x$. 
+ \end{enumerate}
+\end{defi*}
+
+A normed linear space becomes a metric space if the distance $d(x, y)$
+between two elements $x$ and $y$ is defined by $d(x, y) = || x -
+y||$. We say that a sequence of elements $\{x_n\}$ of $X$
+\textit{converges strongly} to $x \in X$, and write $s-\lim\limits_{n
+ \to \infty} x_n = x$ (or simply $\lim\limits_{n \to \infty} x_n =
+x$), if $ \lim\limits_{n \to \infty} ||x_n - x || = 0$. (This limit,
+if it exists, is unique by the triangle inequality). 
+
+\begin{prop*}%proposition
+ If $\lim\limits_{n \to \infty} \alpha_n = \alpha (\alpha_n, \alpha
+ \in K), s- \lim\limits_{n \to \infty} x_n = x$ and $s-\lim\limits_{n
+  \to \infty} y_n = y$, then $s-\lim\limits_{n \to \infty} \alpha_n
+ x_n = \alpha x$ and $s- \lim\limits_{n \to \infty} (x_n + y_n) = x +
+ y$. 
+\end{prop*}
+
+\noindent \textit{Proof.}
+ \begin{align*}
+  ||(x_n + y_n) - (x+y)|| & = || (x_n - x) + (y_n - y)||\\ 
+  & \le || (x_n -
+  x) || + || (y_n - y)|| \text{ (Triangle inequality) }\\ 
+  & \to 0.\\
+  || \alpha_n x_n - \alpha x|| & \le || \alpha x - \alpha_n x|| + ||
+  \alpha_n x - \alpha_n x_n||\\ 
+  & = |\alpha -\alpha_n| || x || + |
+  \alpha_n | ||x -x_n||\\ 
+  & \to 0. \tag*{$\Box$}
+ \end{align*}
+
+\begin{prop*}%prop
+ If\pageoriginale $s-\lim\limits_{n \to \infty} x_n = x$ then $\lim\limits_{n \to
+  \infty} || x_n || = || x ||$, i.e., norm is a continuous
+ function. 
+\end{prop*}
+
+\begin{proof}
+ We have, from the triangle inequality,
+ $$
+ \big| || x || - || y || \le || x-y || ;
+ $$
+ now take $y = x_n$ and let $n \to \infty$.
+\end{proof}
+
+\section{Pre-Hilbert spaces}\label{chap1:sec3}
+
+A special class of normed linear spaces - pre-Hilbert spaces-will be
+of fundamental importance in our later discussion of differential
+equations. These normed linear spaces in which the norm is defined by
+scalar product. 
+
+\begin{defi*}%def
+ A linear space $X$ is called a {\em pre-Hilbert space} if for every
+ ordered pair of elements $(x, y) (x, y \in X)$ there is associated a
+ number (real number if $X$ is a real linear space and complex number
+ if $X$ is a complex linear space) such that 
+ \begin{enumerate}[\rm i)]
+ \item $(x, x) \ge 0$ and $(x,x) = 0$ if and only if $x = 0$.
+ \item $(\alpha x, y) = \alpha(x, y)$, for every number $\alpha$.
+ \item $(x, y) = (\overline{y, x}) [(\overline{y, x})$ denotes the
+  complex conjugate of $(y, x).]$ 
+ \item $(x + y, z) = (x, z) + (y, z) \quad x, y, z \in X$.
+ \end{enumerate}
+ 
+ $(x, y)$ is called the \textit{scalar product} between $x$ and $y$.
+ 
+ If we define $|| x || = \sqrt{(x, x)}$, a pre-Hilbert space becomes
+ a normed linear space, as is verified easily using Schwarz's
+ inequality proved below 
+\end{defi*}
+
+\begin{prop*}%prop
+ \begin{enumerate}[\rm i)]
+ \item $ | (x, y) | \le || x || || y ||$ \hfill(Schwarz's inequality)
+ \item $|| x+ y ||^2 + || x-y ||^2 = 2(||x||^2 + ||y ||^2)$ \hfill 
+    {(Euclidean property)}
+ \end{enumerate}
+\end{prop*}
+
+\begin{proof}
+ (ii)\pageoriginale is easily verified. To prove (i), we observe that, for every
+ real number $\alpha$, 
+ \begin{align*}
+  0 & \le (x + \alpha (x, y)y, x + \alpha (x, y)y)\\
+  & = (x, x) + 2 \alpha | (x, y) |^2 + \alpha^2 |(x, y)|^2 (y, y).
+ \end{align*}
+ 
+ This quadratic form in $\alpha$, being always non-negative should
+ have non-positive discriminant so that 
+ $$
+ | (x, y)|^4 - || x||^2 ||y||^2 | (x, y) |^2 \le 0.
+ $$
+
+ If $(x, y) = 0, (i)$ is obviously satisfied; if $(x, y) \ne 0$,
+ Schwarz's inequality follows from the above inequality. 
+\end{proof}
+
+\section{Example of a pre-Hilbert space}\label{chap1:sec4}
+
+Let $R$ be a domain in Euclidean $m$-space $E^m$. Let $\mathscr{D}^k
+(R)$ denote the set of all complex valued functions $f(x) = f(x_1,
+\ldots, x_n)$ which are of class $C^k$ in $R$(i.e., $k$ times
+continuously differentiable) and which have compact support. These
+functions form a linear space with the ordinary function sum and
+scalar multiplication. Define the scalar product between two functions
+$f$ and $g$ by 
+$$
+(f, g)_k = \sum_{|n|\le k} \int_R D^{(n)} f(x) \overline{D^{(n)} g(x)}
+dx \quad, \quad 0 \le k < \infty, 
+$$
+where $n = (n_1, \ldots, n_m)$ is a system of non-negative integers,
+$|n| = n_1 + \qquad + n_m$ and 
+$$
+D^{(n)} = \frac{\partial^{|n|}} {\partial x_1^{n_1} \partial x_2^{n_2}
+ \cdots \partial x_m^{n_m}} 
+$$
+
+\section{Banach spaces}\label{chap1:sec5}
+
+\begin{defi*}%def
+ A normed linear space is called a {\em Banach spaces} if it is
+ complete in the sense of the metric given by the norm. 
+
+ (Completeness\pageoriginale means that every Cauchy sequence is convergent: if
+ $\{x_n\} \subset X$ is any Cauchy sequence, i.e., a sequence
+ $\{x_n\}$ for which $|| x_m - x_n|| \to 0$ as $m, n \to \infty$
+ independently, then there exists an element $x \in X$ such that
+ $\lim \limits_{n \to \infty} || x_n - x|| = 0. x$ is unique). 
+\end{defi*}
+
+\section{Hilbert space}\label{chap1:sec6}
+
+\begin{defi*}%def
+ A pre-Hilbert space which is complete (considered as a normed linear
+ space) is called a \textit{Hilbert space}. 
+\end{defi*}
+
+The pre-Hilbert space $\mathscr{D}^K (R)$ defined in the last example
+is not complete 
+
+\section{Example of Banach spaces}\label{chap1:sec7}
+
+\begin{enumerate}[1)]
+\item $C \underline{[\alpha, \beta]}$: Let $[\alpha, \beta]$ be
+ a closed interval $- \infty \le \alpha < \beta \le \infty$. Let
+ $C[\alpha, \beta]$ denote the set of all bounded continuous
+ complex-valued functions $x(t)$ on $[\alpha, \beta]$. (If the
+ interval is not bounded, we assume further that $x(t)$ is uniformly
+ continuous). Define $x + y$ and $\alpha x$ by 
+ \begin{align*}
+  (x + y) (t) & = x(t) + y(t)\\
+  (\alpha x) (t) & = \alpha. x(t).
+ \end{align*}
+ $C[\alpha, \beta]$ is a Banach space with the norm given by
+ $$
+ || x || = \sup_{t \in [ \alpha, \beta]} |x(t) |
+ $$
+
+ Converges in this metric is nothing but uniform convergence on the
+ whole space. 
+\item $L_p (\alpha, \beta). \quad (1 \le p < \infty)$. This is the
+ space of all real or complex valued Lebesgue functions $f$ on the
+ open interval $(\alpha, \beta)$ for which $|f(t)|^p$ is Lebesgue
+ summable over $(\alpha, \beta)$; two functions $f$\pageoriginale and $g$ which
+ are equal almost everywhere are considered to define the same vector
+ of $L_p (\alpha, \beta)$. $L_p (\alpha, \beta)$ is a Banach space
+ with the norm: 
+ $$
+ || f || = \left( \int\limits_\alpha^\beta |f(t)|^p dt \right)^{1/p}
+ $$
+ The fact that $|| ~ ||$ thus defined is a norm follows from
+ Minkowski's in-equality; the Riesz-Fischer theorem asserts the
+ completeness of $L_p$. 
+\item $L_\infty (\alpha, \beta)$: This is the space of all measurable
+ (complex valued) functions $f$ on $(\alpha, \beta)$ which are
+ essentially bounded, i.e., for every $f \in L_\infty (\alpha,
+ \beta)$ there exists $a \wp > 0$ such that $| f(t) | \le \wp$ almost
+ everywhere. Define $|| f ||$ to be the infimum of such $\wp$. 
+ 
+ (Here also we identify two functions which are equal almost everywhere).
+\end{enumerate}
+
+\section{Example of a Hilbert space}\label{chap1:sec8}
+
+$L_2 (\alpha, \beta): L_2 (\alpha, \beta)$ (see example $(2)$
+above), is a Hilbert space with the scalar product 
+$$
+(f, g) = \int\limits_\alpha^\beta f(t) \overline{g(t)} dt. 
+$$
+
+\section{Completion of a normed linear space}\label{chap1:sec9}
+
+Just as the completeness of the real number field plays a fundamental
+role in analysis, the completeness of a Banach space will play an
+essential role in some of our subsequent discussions. If we have an
+incomplete normed linear space we can always complete it; we can imbed
+this space in a Banach spaces as an everywhere dense subspace and this
+Banach spaces is essentially unique. We have, in fact, the 
+
+\begin{theorem*}%thm
+ Let $X_0$ be a normed linear space. Then there exists a {\em
+  complete} normed linear space (Banach spaces ) $X$ and a norm
+ preserving isomorphism $T$ of $X_0$ onto a subspace $X'_0$ of $X$
+ which is dense in\pageoriginale $X$ in the sense of the norm topology. (That $T$
+ is a norm preserving isomorphism means that $T$ is one-to-one,
+ $T(\alpha x_0 + \beta y_0) = \alpha T(x_0) + \beta T(y_0)$ and $|| x
+ || = || T(x) ||$). Such an $X$ is determined uniquely upto a norm
+ preserving isomorphism 
+\end{theorem*}
+
+\noindent
+{\bf Sketch of the proof:} The proof follows the same idea as that
+utilized for defining the real numbers from the rational numbers. Let
+$X$ be the totality of all Cauchy sequences $\{x_n\} \subset X_0$
+classified according to the equivalence: $\{ x_n\} \sim \{y_n\}$ if
+and only if $\lim \limits_{n \to \infty} || x_n - y_n || = 0$. Denote
+by $\{\overline{x_n}\}$ the class containing $\{x_n\}$. 
+
+If $\tilde{x}, \tilde{y} \in X$ and $\tilde{x} = \{\overline{ x_n}\},
+\tilde{y} = \{\overline{y_n}\}$, define $\tilde{x} + \tilde{y} =
+\{\overline{x_n + y_n}\}, \alpha \tilde{x} = \{\overline{\alpha
+ x_n}\}, || \tilde{x} || = \lim \limits_{n \to \infty} || x_n
+||$. These definitions do not depend on the particular representatives
+for $\tilde{x}, \tilde{y}$ respectively. Finally if $x_0 \in X_0$
+defines $T(x_0) = \{\overline{x_n}\}$ where each $x_n = x_0$. 
+
+
+\section{Additive operators}\label{chap1:sec10}
+
+\begin{defi*}%def
+ Let $X$ and $Y$ be linear spaces over $K$. An {\em additive
+  operator} from $X$ to $Y$ is a single-valued function $T$ from a
+ subspace $M$ of $X$ into $Y$ such that 
+ $$
+ T(\alpha x + \beta y) = \alpha Tx + \beta Ty, \quad x, y \in M,
+ \alpha, \beta \in K. 
+ $$
+ 
+ $M$ is called the domain of $T$ and is denoted by $\mathscr{D} (T)$;
+ the set $\{ z | z \in Y $ such that $ z =Tx$ for some $ x \in
+ \mathscr{D} (T) \}$ is called the range of $T$ and is denoted by
+ $\mathfrak{W} (T)$. 
+\end{defi*}
+
+If $Y$ is the space of real or complex numbers (according as $X$ is a
+real or a complex linear space) and $T$ is an additive operator from
+$X$ to $Y$ we say that $T$ is an \textit{additive functional}. 
+
+\begin{defi*}%def
+ Let\pageoriginale $X$ and $Y$ be two normed linear spaces. An additive operator
+ $T$ is said to be {\em continuous} at $x_0 \in \mathscr{D} (T)$ if
+ for every sequence $\{ x_n\} \subset \mathscr{D} (T)$ with $x_n \to
+ x_0$ we have $Tx_n \to Tx_0$. An additive operator is said to be
+ {\em continuous} (on $\mathscr{D}(T)$) if it is continuous at every
+ point of $\mathscr{D}(T)$. It is easy to see that an additive
+ operator $T$ is continuous on $\mathscr{D} (T)$ if it is continuous
+ at one point $x_0 \in \mathscr{D} (T)$. 
+\end{defi*}
+
+\begin{prop*}%prop
+ An additive operator $T: X \to Y$ between two normed linear spaces
+ is continuous if and only if there exists a real number $\wp > 0$
+ such that 
+ $$
+ || Tx || \le \wp || x|| \quad \text{ for every } \quad x \in
+ \mathscr{D} (T) 
+ $$
+\end{prop*}
+
+\begin{proof}
+ The sufficiency of the condition is evident, for if $x_n \to x_0 ~ ||
+ Tx_0 - Tx_n || = || T(x_0 - x_n) || \le \wp || x_0 - x_n || \to 0$. 
+
+ Now assume that $T$ is continuous. If there exists no $\wp$ as in
+ the proposition, then there exists a sequence $\{x_n\} \subset
+ \mathscr{D}(T)$ such that $|| Tx_n || > n || x_n ||$. Since $T(0) =
+ 0, x_n \ne 0$. Define $y_n = x_n/ \sqrt{n} || x_n ||$. Then $|| y_n
+ || = \dfrac{1}{\sqrt{n}} \to 0$ as $n \to \infty$; as $T$ is
+ continuous $T_{y_n}$ must tend to zero as $n \to \infty$. But $Ty_n
+ = \dfrac{1}{\sqrt{n}||x_n||} Tx_n$ and $|| Ty_n || =
+ \dfrac{1}{\sqrt{n}||x_n||} ||Tx_n || > \sqrt{n}$ and so $Ty_n$ does
+ not tend to zero. This is a contradiction. 
+\end{proof}
+
+Let $T$ be an additive operator from a linear space $X$ into a linear
+space $Y$. $T$ is one-one if and only if $Tx = 0$ implies $x =0 $. If
+$T$ is one-one it has an inverse $T^{-1}$, which is an additive
+operator from $Y$ into $X$ with domain $\mathfrak{w}(T)$, defined by 
+$$
+T^{-1} y = x \quad if \quad y =Tx. 
+$$
+
+$T^{-1}$\pageoriginale satisfies the relations $T^{-1}Tx = x$ for $x \in \mathscr{D}
+(T)$ and $T T^{-1} y = y$ for $y \in \mathscr{D}(T^{-1}) =
+\mathfrak{W}(T)$. If $X$ and $Y$ are normed linear spaces, $T$ has a
+continuous inverse if and only if there exists a $\delta > 0$ such
+that $|| T x || \ge \delta || x || $ for $x \in \mathscr{D}(T)$. 
+
+The \textit{sum} of two operators $T$ and $S$, with $\mathscr{D}(T),
+\mathscr{D}(S) \subset x$ and $\mathfrak{W}(T), \mathfrak{W}(S)
+\subset Y$ is the operator $(T + S)$, with domain $\mathscr{D}(T) \cap
+\mathscr{D}(S)$, defined by: 
+$$
+(T + S)x = Tx + Sx. 
+$$

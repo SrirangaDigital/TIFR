@@ -1,0 +1,103 @@
+\documentclass[a4paper,twoside,11pt]{article}
+\usepackage[dvips,breaklinks]{hyperref}
+\usepackage{amsthm,mathrsfs,,latexsym,amsmath,titlesec,enumerate}
+\usepackage[all]{xy}
+\usepackage{txfonts,xspace,rotating}
+\usepackage{fancyhdr}
+
+ \allowdisplaybreaks
+
+\newcounter{pageoriginal}
+\marginparwidth=15pt
+\marginparsep=10pt
+\marginparpush=5pt
+%\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+\newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
+} 
+\let\pageoriginaled\pageoriginale
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
+
+%\newtheoremstyle{nonum}{}{}{\rm}{}{\bfseries}{.}{ }{#1}
+%\theoremstyle{nonum}
+
+\makeatletter
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {-1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize}}
+\renewcommand\thesubsubsection{(\thesubsection.\@arabic\c@subsubsection)}
+\makeatother
+
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[section]
+\newtheorem{notation}[dfn]{Notation}
+\newtheorem{case}{Case}
+\newtheorem{Remark}[dfn]{Remark}
+\newtheorem{EXP}[dfn]{Example}
+\newtheorem{Ques}[dfn]{Question}
+
+
+\theoremstyle{plain}
+\newtheorem{lemma}[dfn]{Lemma}
+\newtheorem{Prop}[dfn]{Proposition}
+\newtheorem{cor}{Corollary}[dfn]
+\newtheorem{LEM}[cor]{Lemma}
+\newtheorem{MT}[dfn]{Main Theorem}
+\newtheorem{Theorem}[dfn]{Theorem}
+
+
+
+
+\renewcommand\theequation{\thedfn.\arabic{equation}}
+
+\usepackage[papersize={140mm,215mm},textwidth=110mm,
+textheight=170mm,headheight=6mm,headsep=4mm,topmargin=17.5mm,botmargin=1.15cm,
+leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+
+\lhead[\small\em \thepage]{}
+\rhead[]{\small\em \thepage}
+\chead[\small\em \leftmark]{\small\em \rightmark}
+\cfoot[]{}
+
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+\renewcommand\subsubsectionmark[1]{}
+
+\newtheoremstyle{nonum}{}{}{\rm}{}{\bfseries}{.}{ }{#1}
+\theoremstyle{nonum}
+\newtheorem{TM}{Main Theorem}
+\newtheorem{Proof}{Proof}
+\newtheorem{lem}{Lemma\ref{lemma1.4}}
+
+\DeclareMathOperator{\Tor}{\mathscr{T}\!{\it or}}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\id}{id}
+
+
+
+
+
+\def\enprf{\hfill{Q.E.D}}
+\def\notequiv{\not\kern-1pt\equiv}
+\def\notsubset{\not\kern-1pt\subset}
+\def\hom{\mathscr{H}\!{\it om}}
+\def\ext{\mathscr{E}\!{\it xt}}
+\def\Supp{\mathrm{Supp}}
+\def\Ass{\mathrm{Ass}}
+\def\im{\mathrm{im}}
+\begin{document}
+%\tableofcontents
+
+\input article
+
+
+\end{document}

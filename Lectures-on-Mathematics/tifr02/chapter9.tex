@@ -1,0 +1,300 @@
+\part{Analysis}\label{part2}
+
+\chapter{Lecture}\label{part2:lec9}
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+\heading{Theta-functions}
+
+A\pageoriginale power series hereafter shall for us mean something entirely
+different from what it did hitherto. $x$ is a complex variable and
+$\sum\limits^\infty_{n=0} a_n x^n$ will have a value, its sum, which
+is ascertained only only after we introduce convergence. Then
+$$
+f(x) = \sum^\infty_{n=0} a_n x^n;
+$$
+$x$ and the series are coordinated and we have a function on the
+complex domain. We take for granted the theory of analytic functions
+of a complex variable; we shall be using Cauchy's theorem frequently,
+and in a moment we shall have occasion to use Weierstrass's double
+series theorem. 
+
+Let us go back to the Jacobi identity:
+\begin{align*}
+  \prod^\infty_{n=1} (1-x^{2n}) (1+ \mathfrak{z}x^{2n-1})
+  (1+\mathfrak{z}^{-1} x^{2n-1})
+  & = \sum^\infty_{k=-\infty} \mathfrak{z}^k x^{k^2}\\
+  & = 1+ \sum^\infty_{k=1} (\mathfrak{z}^k + \mathfrak{z}^{-k})
+  x^{k^2}, (\mathfrak{z}\neq 0),
+\end{align*}
+which is a power series in $x$. Two questions arise. First, what are
+the domains of convergence of both sides? Second, what does equality
+between the two sides mean? Formerly, equality meant agreement of the
+coefficients\pageoriginale up to any stage; what it means now we have
+got to explore. The left side is absolutely convergent - and absolute
+convergence is enough for us - for $|x|<1$; (for the infinite product
+$\prod (1+ a_n)$ is absolutely convergent if $\sum |a_n|< \infty$; $z$
+is a complex variable which we treat as a parameter). For the right
+side we use the Cauchy-Hadamard criterion for the radius of
+convergence:
+\begin{align*}
+  \rho & = \frac{1}{\llim\sqrt[n]{|a_n|}}\\
+  & = \frac{1}{\llim \sqrt[k^2]{|\mathfrak{z}+ \mathfrak{z}^{-k}}|}
+\end{align*}
+
+Suppose $|\mathfrak{z}|>1$; then *****************, and 
+$$
+\displaylines{\hfill |\mathfrak{z}^k+ \mathfrak{z}^{-k}| <2 |
+  \mathfrak{z}|^k, \hfill \cr
+  \text{and} \hfill \sqrt[k^2]{|\mathfrak{z}^k + \mathfrak{z}^{-k}|} <
+  \sqrt[k^2]{2} \sqrt[k]{|\mathfrak{z}|} \to 1 ~\text{as}~ k \to
+  \infty \hfill \cr
+  \hfill \therefore \quad \llim (\sqrt[k^2]{|\mathfrak{z}^k+
+    \mathfrak{z}^{-k}|})\leq 1. \hfill }
+$$
+
+It is indeed $=1$, not $<1$, because ultimately, if $k$ is large
+enough, $|\mathfrak{z}|^k> 1$, and so
+$$
+\frac{1}{2} |\mathfrak{z}|^k< |\mathfrak{z}^k+ \mathfrak{z}^{-k}|,
+$$
+and we have the reverse inequality. By symmetry in $\mathfrak{z}$ and
+$1/\mathfrak{z}$, this holds also for $|\mathfrak{z}|<1$. The case
+$|\mathfrak{z}|=1$ does not present any serious difficulty either. So
+in all cases $\rho=1$. Thus both sides are convergent for $|x|<1$, and
+indeed \textit{uniformly} in any closed circle $|x|\leq 1-\delta <
+1$. 
+
+The\pageoriginale next question is, why are the two sides equal in
+the sense of function theory? This is not trivial. Here equality of
+values of coefficients up to any definite stage is not sufficient as
+it was before; the unfinished coefficients before multiplication may
+go up and cannot be controlled. Here, however, we are in a strong
+position. We have to prove that
+$$
+\prod^N_{n=1} (1-x^{2n}) (1+ \mathfrak{z}x^{2n-1})(1+\mathfrak{z}^{-1}
+x^{2n-1}) \to 1+ \sum^\infty_{k=1} (\mathfrak{z}^k +
+\mathfrak{z}^{-k}) x^{k^2}
+$$
+with increasing $N$, when $|x|<1$, and indeed uniformly so in $|x|\leq
+1 - \delta < 1$. On the left side we have a sequence of polynomials:
+$$
+f_N (x) = \prod^N_{n=1} (1-x^{2n})(1+\mathfrak{z} x^{2n-1})
+(1+\mathfrak{z}^{-1} x^{2n-1}) = \sum^\infty_{m=0} a_m^{(N)} x^m,
+~\quad\text{say}. 
+$$
+(of course the coefficients are all zero beyond a certain finite
+stage). Now we know that the left side is a partial product of a
+convergent infinite product; in fact $f_N(x)$ tends uniformly to a
+series, $f (x)$, say. Now what do we know about a sequence of analytic
+functions on the same domain converging uniformly to a limit function?
+The question is answered by Weierstrass's double series theorem. We
+can assert that $f(x)$ is analytic in the same domain at least, and
+further if $f(x) = \sum\limits^\infty_{m=0} a_m x^m$, then
+$$
+a_m = \lim\limits_{N \to \infty} a_m^{(N)}.
+$$
+
+The\pageoriginale coefficients of the limit function have got
+something to do with the original coefficients. Now
+$$
+a_m^{(N)}= \frac{1}{2 \pi i} \int\limits_{|x|=1-\delta} \frac{f_N(x)}{x^{m+1}}dx
+$$
+
+Let $N \to \infty$; this is permissible by uniform convergence and the
+$a_m^{(N)}, s$ in fact converge to 
+$$
+a_m = \frac{1}{2 \pi i} \int\limits_{|x|=1-\delta} \frac{f(x)}{x^{m+1}}dx.
+$$
+
+(Weierstrass's' own proof of this theorem was what we have given here,
+in some disguise; he takes the values at the roots of unity and takes
+a sort of mean value).
+
+Now what are the coefficients in
+$1+\sum(\mathfrak{z}^k+\mathfrak{z}^{-k})x^{k^2}$? Observe that the
+convergence of $a_m^{(N)}$ to $a_m$ is a peculiar and simple
+one. $a_m^{(N)}$ indeed converges to a known $a_m$; as a matter of
+fact $a_m^{(N)}=a_m$ for $N$ sufficiently large. They reach a limit
+and stay put. And this is exactly the meaning of our formal
+identity. So the identity has been proved in the function-theoretic
+sense:
+$$
+\prod^\infty_{n=1} (1-x^{2n}) (1+\mathfrak{z}
+x^{2n-1})(1+\mathfrak{z}^{-1} x^{2n-1})= 1+ \sum^\infty_{k=1}
+(\mathfrak{z}^k+ \mathfrak{z}^{-k}) x^{k^2} = \sum^\infty_{k=-\infty}
+\mathfrak{z}^k x^{k^2}.
+$$
+
+These\pageoriginale things were done in full extension by Jacobi. Let
+us  employ the usual symbols; in place of $x$ write $q, |q|<1$, and
+put $z=e^{2 \pi i v}$. Notice that the right side is a Laurent
+expansion in $z$ in $0< |\mathfrak{z}|< \infty$ ($v$ is unrestricted
+because we have used the exponential). We write in the traditional
+notation 
+\begin{align*}
+  \prod^\infty_{n=1} (1-q^{2n})& (1+q^{2n-1} e^{2 \pi i v})(1+ q^{2n-1}
+  e^{-2\pi i v})\\
+  & = \sum^\infty_{n=-\infty} q^{n^2} e^{2 \pi i n v}\\
+  & = v_3 (v, q)
+\end{align*}
+$v_3$ (and in fact all the theta functions) are entire functions of
+$v$. We have taken $|q|< 1$; it is customary to write $q=e^{\pi i
+  \tau}$, so that $|q|<1$ implies
+$$
+\displaylines{\hfill |e^{\pi i \tau}|= e^{\mathscr{R}\pi i \tau},
+  \mathscr{R} \pi i \tau < 0\hfill \cr
+  \text{i.e.,} \hfill \mathscr{R} i \tau < 0 \quad \text{or}\quad
+  \mathscr{I} m \tau > 0 \hfill }
+$$ 
+$\tau$ is a point in the upper half-plane. $\tau$ and $q$ are
+equivalent parameters. We also write
+$$
+\mathscr{V}_3 (\mathscr{V}, q)= \mathscr{V}_3 (\mathscr{V}/\tau)
+$$
+
+(An excellent account of the $\mathscr{V}$-functions can be found in
+Tannery and Molk: Fonctiones Elliptiques, in 4 volumes; the second
+volume contains a very well organized collection of formulas).
+
+One remark is immediate from the definition of $\mathscr{V}_3$, viz.
+$$
+\mathscr{V}_3 (\mathscr{V}+1, q)= \mathscr{V}_3(\mathscr{V}, q)
+$$
+
+On\pageoriginale the other hand,
+\begin{align*}
+  \mathscr{V}_3 (\mathscr{V}+\tau, q) & = \prod^\infty_{n=1}
+  (1- q^{2n})(1-q^{2n-1}e^{2 \pi i \mathscr{V}} e^{2 \pi i \tau})\times (1+
+  q^{2n-1} e^{-2 \pi i \mathscr{V}} e^{-2\pi i \tau})\\
+  & = \sum^\infty_{n=-\infty} q^{n^2} e^{2 \pi i n \mathscr{V}} e^{2
+    \pi i n \mathscr{V}},
+\end{align*}
+and since $q=e^{\pi i \tau}$,
+$$
+\prod^\infty_{n=1} (1-q^{2n}) (1+ q^{2n+1}e^{2 \pi i \mathscr{V}}) (1+
+q^{2n-3}e^{-2\pi i \mathscr{V}}) = \sum^\infty_{n=- \infty} q^{n^2+
+  2n} e^{2 \pi i n \mathscr{V}}
+$$
+or 
+\begin{align*}
+  \frac{1+q^{-1} e^{-2 \pi i \mathscr{V}}}{1+q e^{2 \pi i
+      \mathscr{V}}} & \prod^\infty_{n=1} (1-q^{2n})(1+ q^{2n-1}e^{2 \pi i
+    \mathscr{V}})(1+q^{2n-1} e^{-2\pi i \mathscr{V}})\\
+  & = q^{-1} e^{-2 \pi i \mathscr{V}} \sum^\infty_{n=-\infty}
+  q^{(n+1)^2} e^{2 \pi i (n+1)\mathscr{V}}\\
+  & = q^{-1} e^{-2 \pi i \mathscr{V}} \mathscr{V}_3(\mathscr{V}, q)\\
+  & = (q e^{2\pi i \mathscr{V}})^{-1} \mathscr{V}_3 (\mathscr{V}, q)
+\end{align*}
+
+So we have the neat result:
+$$
+\mathscr{V}_3 (\mathscr{V}+ \tau, q)= q^{-1} e^{-2 \pi i \mathscr{V}}
+\mathscr{V}_3 (\mathscr{V}, q)
+$$
+1\pageoriginale is a period of $\mathscr{V}_3$ and $\tau$ resembles a period. It is
+quite clear that we cannot expect 2 periods in the full sense, because
+it is impossible for an entire function to have two periods. Indeed if
+$\omega_1$ and $\omega_2$ are two periods of $f$, then $f(\mathscr{V}+
+\omega_1) =f(\mathscr{V})$, $f(\mathscr{V}+ \omega_2)=
+f(\mathscr{V})$, and $f(\mathscr{V}+ \omega_1+ \omega_2)=
+f(\mathscr{V})$ and the whole module generated by $\omega_1$ and
+$\omega_2$ form periods. Consider the fundamental region which is the
+parallelogram with vertices at $0, \omega_1, \omega_2$, $\omega_1+
+\omega_2$. If the function is entire it has no poles in the
+parallelogram and is bounded there (because the parallelogram is
+bounded and closed), and therefore in the whole plane. Hence by
+Liouville's theorem the function reduces to a constant.
+
+While dealing with trigonometric functions one is not always satisfied
+with the cosine function alone. It is nice to have another function:
+$\cos (x- \pi/2)= \sin x$. A shift by a half-period makes it
+convenient for us. Let us consider analogously
+$\mathscr{V}_3(\mathscr{V}+ \frac{1}{2},q)$,
+$\mathscr{V}_3(\mathscr{V}+ \tau/2, q)$, and
+$\mathscr{V}_3(\mathscr{V}+ \frac{1}{2} + \frac{\tau}{2}, q)$. Though
+$\tau$ is not strictly a period we can still speak of the fundamental
+region, because on shifting by $\tau$ we change only by a trivial
+factor. Replace $\mathscr{V}$ by $\mathscr{V}+\frac{1}{2}$ and
+everything is fine as 1 is a period.
+\begin{align*}
+  \mathscr{V}_3 (\mathscr{V}+ \frac{1}{2}, q) & = \prod^\infty_{n=1}
+  (1-q^{2n}) (1-q^{2n-1} e^{2 \pi i \mathscr{V}})(1-q^{2n-1} e^{-2\pi
+    i \mathscr{V}})\\
+  & = \sum^\infty_{n=-\infty} (-)^n q^{n^2}e^{2 \pi i n \mathscr{V}}
+\end{align*}
+which is denoted $\mathscr{V}_4(\mathscr{V}, q)$
+
+Again\pageoriginale
+\begin{align*}
+  \mathscr{V}_3 (\mathscr{V}+ \frac{\tau}{2}, q) & = \prod^\infty_{n=1}
+  (1-q^{2n}) (1+q^{2n-1} e^{2 \pi i \mathscr{V}}e^{\pi i \tau})(1+q^{2n-1} e^{-2\pi
+    i \mathscr{V}}e^{-\pi i \tau})\\
+  & = \sum^\infty_{n=-\infty} q^{n^2} e^{2 \pi i n \mathscr{V}} e^{\pi
+  i n \tau}\\
+\text{i.e.,} \quad(1+ e^{-2 \pi i \mathscr{V}})
+  &\prod\limits^\infty_{n=1} (1- q^{2n}) (1+q^{2n} e^{2 \pi i \mathscr{V}})
+  (1+q^{2n} e^{- 2 \pi i \mathscr{V}}) \\
+ & = \sum\limits^\infty_{n=- \infty} q^{n^2 + n} e^{2 \pi i n
+   \mathscr{V}}\\
+ & = q^{-1/4} e^{- \pi i\mathscr{V}} \sum^\infty_{n=-\infty} q^{(n+
+  1/2)^2}e^{(2n+1)\pi i \mathscr{V}}\\
+ & = q^{-1/4} e^{- \pi i \mathscr{V}} \mathscr{V}_2 (\mathscr{V}, q)
+\end{align*}
+where $\mathscr{V}_2(\mathscr{V}, q)= \sum\limits^\infty_{n=-\infty}
+q^{(n+ 1/2)^2} e^{(2n+1)\pi i \mathscr{V}}$, by definition. (Here
+$q^{-1/4}$ does not contain an unknown 4th root of unity as factor,
+but is an abbreviation for $e^{- \pi i \tau/4}$, so that it is well
+defined). So
+$$
+\mathscr{V}_2 (\mathscr{V}, q)= 2q^{1/4} \cos \pi \mathscr{V}
+\prod^\infty_{n=1} (1- q^{2n})(1+q^{2n} e^{2 \pi \tau \mathscr{V}})(1+ q^{2n}
+e^{-2 \pi i \mathscr{V}})
+$$
+
+Finally\pageoriginale
+\begin{align*}
+  \mathscr{V}_3 (\mathscr{V}+ \frac{1+\tau}{2}, q) & = q^{-1/4} e^{-
+    \pi i (\mathscr{V}+\frac{1}{2})} \mathscr{V}_2 \left(\mathscr{V}+
+  \frac{1}{2}, q\right)\\
+    & = q^{-1/4} \frac{1}{i} e^{- \pi i \mathscr{V}} \mathscr{V}_2
+  \left(\mathscr{V}+ \frac{1}{2}, q\right)\\
+  & = q^{1/4} e^{- \pi i \mathscr{V}} \sum^\infty_{n=- \infty} (-)^n
+  q^{\left( \frac{2n+1}{2}\right)^2} e^{(2n+1) \pi i \mathscr{V}}\\
+  & = \frac{2}{i} \cos \pi \left(\mathscr{V}+ \frac{1}{2}\right)
+  e^{-\pi i \mathscr{V}}\\ 
+  & \hspace{2cm}\prod^\infty_{n=1} (1- q^{2n})\left(1- q^{2n} e^{2
+    \pi i \mathscr{V}}\right)\times  \left(1 - q^{2n} e^{-2 \pi i
+    \mathscr{V}}\right)  
+\end{align*}
+
+Now define
+$$
+\mathscr{V}_1 (\mathscr{V}, q)= \mathscr{V}_2 \left(\mathscr{V}+
+\frac{1}{2}, q\right),
+$$
+or
+\begin{align*}
+  \mathscr{V}_1 (\mathscr{V}, q) & = 2q^{1/4} \sin \pi \mathscr{V}
+  \prod^\infty_{n=1} (1- q^{2n}) (1+ q^{2n} e^{2 \pi i \mathscr{V}})
+  (1- q^{2n} e^{- 2 \pi i \mathscr{V}})\\
+  & = i q^{-1/4} \sum^\infty_{m=-\infty} (-)^n q^{\left(\frac{2n+1}{2}
+    \right)^2} e^{(2n+1)\pi i \mathscr{V}}
+\end{align*}
+
+Collecting\pageoriginale together we have the four
+$\mathscr{V}$-functions:
+\begin{align*}
+  \mathscr{V}_1 (\mathscr{V}, q) & = i q^{-1/4} \sum^\infty_{m=-\infty}
+  (-)^n q^{\left( \frac{2n+1}{2}\right)^2} e^{(2n+1)\pi i \mathscr{V}}\\
+  & = \sum^\infty_{n=0} (-)^n q^{\left( \frac{2n+1}{2}\right)^2} \sin
+  (2n+1) \pi \mathscr{V}\\
+  \mathscr{V}_2 (\mathscr{V}, q) & = 2 \sum^\infty_{n=0}
+    q^{\left(\frac{2n+1}{2} \right)^2} \cos (2n+1) \pi \mathscr{V}\\
+  \mathscr{V}_3 (\mathscr{V}, q) & = 1+ 2 \sum^\infty_{n=1} q^{n^2}
+  \cos 2 n \pi \mathscr{V}\\
+  \mathscr{V}_4 (\mathscr{V}, q) & = 1+ 2 \sum^\infty_{n=1} (-)^n
+  q^{n^2} \cos 2 \pi n \mathscr{V}
+\end{align*}
+
+Observe that the sine function occurs only in $\mathscr{V}_1$. Also if
+$q, \mathscr{V}$ are rel these reduce to trigonometric expansions. 

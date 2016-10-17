@@ -1,0 +1,978 @@
+\chapter{Invariant Probability Distributions}\label{chap31}
+
+\begin{defi*}
+Let\pageoriginale $\{P_{x}\}_{x\in \mathbb{R}^{d}}$ be a family of
+Markov process on 
+$$
+\Omega=C([0,\infty);\mathbb{R}^{d})
+$$ 
+indexed by the
+  starting points $x$, with homogeneous transition probability
+  $p(t,x,A)=P_{x}(X_{t}\in A)$ for every Borel set $A$ in
+  $\mathbb{R}^{d}$. A probability measure $\mu$ on the Borel field of
+  $\mathbb{R}^{d}$ is called an {\em invariant distribution} if,
+  $\forall A$ Borel in $\mathbb{R}^{d}$.
+$$
+\int\limits_{\mathbb{R}^{d}}p(t,x,A)d\mu(x)=\mu(A).
+$$
+
+We shall denote $dp(t,x,y)$ by $p(t,x,dy)$ or $p(t,x,y)dy$ if it has a
+density. 
+\end{defi*}
+
+\begin{prop*}
+Let $L_{2}=\Delta/2+b\cdot\nabla$ with no explosion. Let $Q_{x}$ be
+the associated measure. If $\{Q_{x}\}$ has an invariant measure $\mu$
+then the process is recurrent.
+\end{prop*}
+
+\begin{proof}
+It is enough to show that if $K$ is a compact set with non-empty
+interior then
+$$
+Q_{x}(E^{K}_{\infty})=1
+$$
+for some $x$. Also $Q_{x}(E^{K}_{t})\geq Q_{x}(X_{t}\in
+K)=q(t,x,K)$. Therefore
+$$
+\mu(K)=\int q(t,x,K)d\mu(x)\leq \int Q_{x}(E^{K}_{t})d\mu(x).
+$$
+
+Now, $0\leq Q_{x}(E^{K}_{t})\leq 1$ and $Q_{x}(E^{K}_{t})$ decreases
+to $Q_{x}(E^{K}_{\infty})$ as $t\to \infty$. Therefore by the
+dominated convergence theorem
+$$
+\mu(K)\leq \int Q_{x}(E^{K}_{\infty})d\mu(x).
+$$\pageoriginale
+
+If the process were transient, then $Q_{x}(E^{S_{n}}_{\infty})=0$,
+$\forall n$, where $S_{n}=\{x\in \mathbb{R}^{d}:|x|\leq n\}$, i.e.\@
+$\mu(S_{n})=0$, $\forall n$. Therefore $\mu(\mathbb{R}^{d})=0$, which
+is false. Thus the process is recurrent.
+
+The converse of this proposition is {\em not} true as is seen by the
+following example.
+
+Let $L=\dfrac{1}{2}\dfrac{\p^{2}}{\p x^{2}}$ so that we are in a
+one-dimensional situation (Brownian motion). Then
+$$
+p(t,x,K)=\int\limits_{K}\frac{1}{\surd (2\pi
+  t)}e^{\frac{-(x-y)^{2}}{2t}}dy\leq \frac{1}{\surd (2\pi t)}\lambda (K),
+$$
+where $\lambda$ denotes the Lebesgue measure on $\mathbb{R}$. If there
+exists an invariant distribution $\mu$, then
+$$
+\mu(K)=\int p(t,x,K)d\mu(x)\leq \frac{1}{\surd(2\pi t)}\lambda(K)\int
+d\mu(x)=\frac{\lambda(K)}{\surd (2\pi t)}
+$$
+
+Letting $t\to \infty$, we get $\mu(K)=0\ \forall$ compact $K$, giving
+$\mu=0$, which is false.
+\end{proof}
+
+\begin{theorem*}
+Let $L=\Delta/2+b\cdot \nabla$ with no explosion. Assume $b$ to be
+$C^{\infty}$. Define the formal adjoint $L^{*}$ of $L$ by
+$L^{*}=\Delta/2-\nabla\cdot b$ (i.e.\@ $L^{*}u=\dfrac{1}{2}\Delta
+u-\nabla\cdot (bu)$). Suppose there exists a smooth function
+$\phi(C^{2}$ - would do) such that $L^{*}\phi=0$, $\phi\geq 0$,
+$\inf\phi dx=1$. If one defines $\mu$ by the rule
+$\mu(A)=\int\limits_{A}\phi(y)dy$, then $\mu$ is an invariant
+distribution relative to the family $\{Q_{x}\}$.
+\end{theorem*}
+
+\begin{proof}
+We\pageoriginale assume the following result from the theory of
+partial differential equations. 
+
+If $f\in C^{\infty}_{0}(G)$ where $G$ is a bounded open set with a
+smooth boundary $\p G$ and $f\geq 0$, then there exists a smooth
+function $U_{G}:[0,\infty)\times \overline{G}\to [0,\infty)$ such that
+\begin{align*}
+& \frac{\p U_{G}}{\p t}=LU_{G}\q\text{on}\q (0,\infty)\times G,\\
+& U_{G}(0,x)=f(x)\q\text{on}\q \{0\}\times \overline{G},\\
+& U_{G}(t,x)=0,\q \forall x\in G.
+\end{align*}
+
+Let $t>0$. As $U_{G}$, $\phi$ are smooth and $G$ is bounded, we have
+$$
+\frac{\p}{\p
+  t}\int\limits_{G}U_{G}(t,x)\phi(x)dx=\int\limits_{G}\frac{\p}{\p
+  t}U_{G}\phi ds=\int\limits_{G}\phi LU_{G}dx
+$$
+
+Using Green's formula this can be written as
+\begin{align*}
+\frac{\p}{\p t}\int\limits_{G}U_{G}(t,x)\phi(x)dx &=
+\int\limits_{G}U_{G}L^{*}\phi-\frac{1}{2}\int\limits_{\p
+  G}\left[\phi\frac{\p U_{G}}{\p n}-U_{G}\frac{\p}{\p n}\right]dS+\\
+&\q +\int\limits_{\p G}\langle b\cdot n\rangle U_{G}(t,x)\phi(x)dS
+\end{align*}
+
+Here $n$ is assumed to be the inward normal to $\p G$. So,
+$$
+\frac{\p}{\p
+  t}\int\limits_{G}U_{G}(t,x)\phi(x)dx=-\frac{1}{2}\int\limits_{\p
+  G}(x)\frac{\p U_{G}}{\p n}(t,x)dS
+$$
+(Use the equation satisfied by $\phi$ and the conditions on
+$U_{G}$). Now $U_{G}(t,x)\break \geq 0$, $\forall x\in G$, $U_{G}(t,x)=0$,
+$\forall x$ in $\p G$, so that
+$$
+\frac{\p U_{G}}{\p n}(t,x)\geq 0.
+$$
+
+This\pageoriginale means that
+$$
+\frac{\p}{\p t}\int\limits_{G}U_{G}(t,x)\phi(x)dx\leq 0,\ \forall t>0,
+$$
+i.e.\@ $\int\limits_{G}U_{G}(t,x)\phi(x)dx$ is a monotonically
+decresing function of $t$. Therefore
+\begin{align*}
+\int\limits_{G}U_{G}(t,x)\phi(x)dx &\leq
+\int\limits_{G}U_{G}(0,x)\phi(x)dx\\
+&= \int\limits_{G}f(x)\phi(x)dx\\
+&= \int\limits_{\mathbb{R}^{d}}f(x)\phi(x)dx.
+\end{align*}
+
+Next we prove that if $U:[0,\infty)\times \mathbb{R}^{d}\to
+  [0,\infty)$ is such that $\frac{\p U}{\p t}=LU$, $\forall t>0$ and
+    $U(0,x)=f(x)$, then
+$$
+\int\limits_{\mathbb{R}^{d}}U(t,x)\phi(x)dx\leq
+\int\limits_{\mathbb{R}^{d}}f(x)\phi(x)dx. 
+$$
+
+The solution $U_{G}(t,x)$ can be obtained by using It\^o calculus and
+is given by
+$$
+U_{G}(t,x)=\int f(X(t))\chi_{\{\tau_{G>t}\}}dQ_{x}.
+$$
+
+We already know that
+$$
+U(t,x)=\int f(X(t))dQ_{x}.
+$$
+
+Therefore
+$$
+\int U(t,x)\phi(x)dx=\iint f(X(t))\phi(x)DQ_{x}dx.
+$$
+
+Now 
+\begin{align*}
+& \iint f(X(t))\chi_{\{\tau_{G}>t\}}dQ_{x}\phi(x)dx\\
+&\qq \int U_{G}(t,x)\phi(x)dx\leq \int\limits_{\mathbb{R}^{d}}f(x)\phi(x)dx.
+\end{align*}\pageoriginale
+
+Letting $G$ increase to $\mathbb{R}^{d}$ and using Fatou's lemma, we
+get
+$$
+\iint f(X(t))\phi(x)dQ_{x}dx\leq \int f(x)\phi(x)dx
+$$
+\end{proof}
+
+This proves the assertion made above.
+
+Let
+\begin{gather*}
+\mu(A)=\int\limits_{A}\phi(X)dx,\\
+\nu(A)=\int Q_{x}(X_{t}\in A)d\mu(x)=\int q(t,x,A)d\mu(x).
+\end{gather*}
+
+Let $f\in C^{\infty}_{0}(G)$, $f\geq 0$, where $G$ is a bounded open
+set with smooth boundary. Now
+\begin{align*}
+\int f(y)d\nu(y) &= \iint f(y)q(t,x,y)d\mu(x)dy\\
+&= \iint f(X(t))dQ_{x}d\mu(x)\\
+&= \int U(t,x)d\mu(x)\\
+&= \int U(t,x)\phi(x)dx\\
+&\leq \int f(x)\phi(x)dx=\int f(x)d\mu (x).
+\end{align*}
+
+Thus, $\forall f\geq 0$ such that $f\in C^{\infty}_{0}$,
+$$
+\int f(x)d\nu(x)\leq \int f(x)d\mu(x).
+$$
+
+This\pageoriginale implies that $\nu(A)\leq \mu(A)$ for every Borel
+set $A$. (Use mollifier $s$ and the dominated convergence theorem to
+prove the above inequality for $\chi_{A}$ when $A$ is
+bounded). Therefore $\nu(A^{c})\leq \mu(A^{c})$, or $1-\mu(A)\leq
+1-\mu(A)$, since $\mu$, $\nu$ are both probability measures. This
+gives $\mu(A)=\nu(A)$, i.e.
+$$
+\mu(A)=\int q(t,x,A)d\mu(x),\q \forall t,
+$$
+i.e.\@ $\mu$ is an invariant distribution.
+
+We now see whether the converse result is true or not. Suppose there
+exists a probability measure $\mu$ on $\mathbb{R}^{d}$ such that
+$$
+\int Q_{x}(X_{t}\in A)d\mu(x)=\mu(A),\q \forall A\text{~ Borel in~ }
+\mathbb{R}^{d}\text{~ and~ } \forall t.
+$$
+
+The question we have in mind is whether $\mu(A)=\int\limits_{A}\phi
+dx$ for some smooth $\phi$ satisfying $L^{*}\phi=0$, $\phi\geq 0$,
+$\int \phi(x)dx=1$. To answer this we proceed as follows.
+
+By definition $\mu(A)=\int q(t,x,A)d\mu(x)$. Therefore
+\begin{gather*}
+\iint f(X(t))dQ_{x}d\mu(x)\\
+=\iint f(y)q(t,x,y)dy\ d\mu(x)\\
+=\int f(y)d\mu(y)\forall f\in
+C^{\infty}_{0}(\mathbb{R}^{d})||f||_{\infty}\leq 1.\tag{1}
+\end{gather*}
+
+Since $X$ is an It\^o process relative to $Q_{x}$ with parameters $b$
+and $I$,
+$$
+f(X(t))-\int\limits^{t}_{0}(Lf)(X(s))ds
+$$
+is\pageoriginale a martingale. Equating the expectations at time $t=0$
+and time $t$ we obtain
+$$
+E^{Q_{x}}(f(X(t))=f(x)+E^{Q_{x}}\left(\int\limits^{t}_{0}(Lf)(X(s))ds\right)
+$$
+
+Integrating this expression with respect to $\mu$ gives
+$$
+\iint f(X(t))dQ_{x}d\mu(x)=\int
+f(x)d\mu(x)\iint\limits_{\mathbb{R}^{d}}\int\limits^{t}_{0}(Lf)(X(s))ds\ dQ_{x}d\mu. 
+$$
+
+Using (1), we get
+$$
+0=\int\limits_{\mathbb{R}^{d}}\int\limits_{\Omega}\int\limits^{t}_{0}(Lf)(X(s))dQ_{x}ds\ d\mu(x)
+$$
+
+Applying equation (1) to the function $Lf$ we then get
+\begin{align*}
+0 &= \int\limits_{\mathbb{R}^{d}}\int\limits^{t}_{0}(Lf)(y)d\mu(y)ds\\
+&= t \int\limits_{\mathbb{R}^{d}}(Lf)(y)d\mu(y),\q \forall t>0.
+\end{align*}
+
+Thus
+$$
+0=\int\limits_{\mathbb{R}^{d}}(Lf)(y)d\mu(y),\q \forall f\in
+C^{\infty}_{0}(\mathbb{R}^{d}).
+$$
+
+In the language of distributions this just means that $L^{*}\mu=0$.
+
+From the theory of partial differential equations it then follows that
+there exists a smooth function $\phi$ such that $\forall A$ Borel in
+$\mathbb{R}^{d}$,
+$$
+\mu(A)=\int\limits_{A}\phi(y)dy
+$$
+with $L^{*}\phi=0$. As $\mu\geq 0$, $\phi\geq 0$ and since
+$$
+\mu(\mathbb{R}^{d})=1,\q \int\limits_{\mathbb{R}^{d}}\phi(x)dx=1.
+$$\pageoriginale
+
+We have thus proved the following (converse of the previous) theorem.
+
+\begin{theorem*}
+Let $\mu$ be an invariant distribution with respect to the family
+$\{Q_{x}\}$ with $b:\mathbb{R}^{d}\to \mathbb{R}^{d}$ being
+$C^{\infty}$. Then there exists a $\phi \in L'(\mathbb{R}^{d})$,
+$\phi\geq 0$, $\phi$ smooth such that
+$$
+L^{*}\phi=0,\q \int \phi(y)dy=1
+$$
+and such that
+$$
+\mu(A)=\int\limits_{A}\phi(y)dy,\q \forall A\q\text{Borel in}\q
+\mathbb{R}^{d}. 
+$$
+\end{theorem*}
+
+\begin{theorem*}[(Uniqueness)]
+Let $\phi_{1}$, $\phi_{2}$ be smooth on $\mathbb{R}^{d}$ such that 
+$$
+\phi_{1}, \phi_{2}\geq 0,
+1=\int\limits_{\mathbb{R}^{d}}\phi_{1}dy=\int\limits_{\mathbb{R}^{d}}\phi_{2}dy,
+L^{*}\phi_{1}=0=L^{*}\phi_{2}. 
+$$
+
+Then $\phi_{1}=\phi_{2}$.
+\end{theorem*}
+
+\begin{proof}
+Let $f(x)=\phi_{1}(x)-\phi_{2}(x)$,
+$$
+\mu_{i}(A)=\int\limits_{A}\phi_{i}(x)dx,\q i=1,2.
+$$
+
+Then $\mu_{1}$, and $\mu_{2}$ are invariant distributions. Therefore
+\begin{align*}
+\int q(t,x,y)\phi_{i}(x)dx &= \int q(t,x,y)d\mu_{i}(x)\\
+&= \phi_{i}(y),\q\text{(a.e.),}\q i=1,2.
+\end{align*}
+
+Taking the difference we obtain
+$$
+\int q(t,x,y)f(x)dx=f(y),\q\text{a.e.}
+$$
+
+Now 
+\begin{align*}
+\int |f(y)\ dy &= \int|\int q(t,x,y)f(x)dx|dy\\
+&\leq \iint q(t,x,y)|f(x)|dx\ dy\\
+&= \int |f(x)|dx\int q(t,x,y)dy\\
+&= \int |f(\underline{x})|dx.
+\end{align*}\pageoriginale
+
+Thus
+\begin{equation*}
+\iint |f(x)|q(t,x,y)dx\ dy=\int|\int q(t,x,y)f(x)dx|dy\ \forall t.\tag{*}
+\end{equation*}
+
+We show that $f$ does not change sign, i.e.\@ $f\geq 0$ a.e.\@ or
+$f\leq 0$ a.e. The result then follows from the fact that $\int
+f(x)dx=0$. Now
+$$
+|\int q(1,x,y)f(x)dx|\leq \int q(1,x,y)|f(x)|dx
+$$
+and $(*)$ above gives
+$$
+\int|\int q(1,x,y)f(x)dx|dy=\iint q(1,x,y)|f(x)|dx\ dy.
+$$
+
+Thus
+$$
+|\int q(1,x,y)f(x)dx|=\int q(1,x,y)|f(x)|dx\text{~ a.e.~ } y,
+$$
+i.e.
+\begin{align*}
+& |\int\limits_{E^{-}}q(1,x,y)f(x)dx+\int\limits_{E^{-}}q(1,x,y)f(x)dx|\\
+&\qq
+  =\int\limits_{E^{+}}q(1,x,y)f(x)dx-\int\limits_{E^{-}}q(1,x,y)f(x)dx\text{~
+    a.e.~ } y,
+\end{align*}
+where
+$$
+E^{+}=\{x:f(x)>0\},\q E^{-}=\{x:f(x)<0\},\q E^{0}=\{x:f(x)=0\}.
+$$
+
+Squaring both sides of the above equality, we obtain
+\begin{equation*}
+\left(\int\limits_{E^{+}}q(1,x,y)f(x)dx\right)\left(\int\limits_{E^{-}}q(1,x,y)f(x)dx\right)=0,\q\text{a.e.}\q y.\tag{**}
+\end{equation*}\pageoriginale
+
+Let $A$ be a set of positive Lebesgue measure; then
+$p(1,x,A)=P_{x}(X(1)\in A)>0$. Since $Q_{x}$ is equivalent to $P_{x}$
+on $\Omega$ we have $Q_{x}(X(1)\in A)=q(1,x,A)>0$. Therefore
+$q(1,x,y)>0$ a.e.\@ $y$ for each $x$. By Fubini's theorem $q(1,x,y)>0$
+a.e.\@ $x$, $y$. Therefore for almost all $y$, $q(1,x,y)>0$ for almost
+all $x$. Now pick a $y$ such that $(**)$ holds for which $q(1,x,y)>0$
+a.e.\@ $x$.
+
+We therefore conclude from $(**)$ that either
+$$
+\int\limits_{E^{+}}q(1,x,y)f(x)dx=0,\q \text{in which case}\q f\leq
+0\q \text{a.e.,}
+$$
+or
+$$
+\int\limits_{E^{-}}q(1,x,y)f(x)dx=0,\q \text{in which case}\q f\geq
+0\q\text{a.e.} 
+$$
+
+Thus $f$ does not change its sign, which completes the proof.
+\end{proof}
+
+\begin{remark*}
+The only property of the operator $L$ we used was to conclude
+$q>0$. We may therefore expect a similar result for more general operators.
+\end{remark*}
+
+\begin{theorem*}
+Let $L^{*}\phi=0$ where $\phi\geq 0$ is smooth and
+$\int\phi(x)dx=1$. Let $K$ be any compact set. Then
+$$
+\sup\limits_{x\in K}\int|q(t,x,y)-\phi(y)|dy\to 0\q\text{as}\q t\to +\infty.
+$$
+\end{theorem*}
+
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap31-lem1}
+Let $b$ be bounded and smooth. For every $f:\mathbb{R}^{d}\to
+\mathbb{R}^{d}$ that is bounded and measurable let
+$u(t,x)=E^{Q_{x}}(f(X(t))$. Then for every fixed $t$, $u(t,x)$ is a
+continuous function of $x$. Further, for $t\geq \epsilon >0$,
+\begin{gather*}
+|u(t,x)-\int u(t-\epsilon,y)\frac{1}{\surd (2\pi \epsilon)^{d}}\exp
+-\frac{|x-y|^{2}}{2\epsilon}dy|\\
+\leq ||f||_{\infty}\surd (e^{ct}(e^{c\epsilon}-1)),
+\end{gather*}
+where\pageoriginale $c$ is a constant depending only on $||b||_{\infty}$.
+\end{lemma}
+
+\begin{proof}
+Let
+\begin{equation*}
+\begin{split}
+(T_{t}f)(x) &= E^{Q_{x}}(f(X(t))=E^{P_{x}}(f(X(t))Z(\epsilon,t))+\\
+&\q +E^{P_{x}}(f(X(t))(Z(t)-Z(\epsilon,t))),
+\end{split}\tag{1}\label{chap31-eq1}
+\end{equation*}
+where
+\begin{align*}
+& Z(t)=\exp \left[\int\limits^{t}_{0}\langle b^{2},dx\rangle
+  -\frac{1}{2}\int\limits^{t}_{0}|b|^{2}ds\right],\\
+& Z(\epsilon,t)=\exp \left[\int\limits^{t}_{\epsilon}\langle
+    b,dx\rangle -\frac{1}{2}\int\limits^{t}_{\epsilon}|b(X(s))|^{2}ds\right].
+\end{align*}
+\begin{align*}
+E^{P_{x}}(f(X(t))Z(\epsilon,t)) &=
+E^{P_{x}}(E^{P_{X}}(f(X(t))Z(\epsilon,t)|_{\epsilon}))\\ 
+&= E^{P_{x}}(E^{P_{X}}\epsilon)(f(X(t-\epsilon))Z(t-\epsilon)))\\
+&\qq\q \text{(by Markov property),}\\
+&= E^{P_{x}}(u(t-\epsilon , X(\epsilon)).
+\end{align*}
+\begin{equation*}
+=\int u(t-\epsilon, y)\frac{1}{(\surd (2\pi \epsilon))^{d}}\exp
+\left[-\frac{|(x-y)|^{2}}{2\epsilon}\right]dy.\tag{2}\label{chap31-eq2} 
+\end{equation*}
+
+Now
+\begin{align*}
+& (E^{P_{x}}(|Z(t)-Z(\epsilon,t)|))=\\
+&\qq =E^{P_{x}}(|Z(\epsilon)Z(\epsilon,t)-Z(\epsilon,t)|))^{2}\\
+&\qq =E^{P_{x}}(Z(\epsilon,t)Z(\epsilon)-1|))^{2}\\
+&\qq \leq
+  (E^{P_{x}}((Z(\epsilon)-1)^{2}))(E^{P_{x}}(Z^{2}(\epsilon,t)))\\
+&\qq\qq \text{(by Cauchy Schwarz inequality),}\\
+&\qq \leq
+  E^{P_{x}}(Z^{2}(\epsilon)-2Z(\epsilon)+1)E^{P_{x}}(Z^{2}(\epsilon,t))\\
+&\qq \leq
+  E^{P_{x}}(Z^{2}(\epsilon)-1)E^{P_{x}}(Z^{2}(\epsilon,t)),(\text{since~
+  } E^{P_{x}}(Z(\epsilon))=1),\\
+&\qq \leq E^{P_{x}}(Z^{2}(\epsilon)-1)E^{P_{x}}(\exp
+  (2\int\limits^{t}_{\epsilon}\langle b,dX\rangle
+  -\frac{2}{2}\int\limits^{t}_{\epsilon}|b|^{2}ds+\int\limits^{t}_{\epsilon}|b|^{2}ds))\\
+&\qq \leq E^{P_{x}}(Z^{2}(\epsilon)-1)e^{ct},
+\end{align*}\pageoriginale
+using Cauchy Schwarz inequality and the fact that
+$$
+E^{P_{x}}(\exp (2\int\limits^{t}_{\epsilon}\langle b,dX\rangle
+-\frac{2^{2}}{2}\int\limits^{t}_{\epsilon}|b|^{2}ds))=1. 
+$$
+
+Thus
+$$
+E^{P_{x}}(|Z(t)-Z(\epsilon,t)||^{2}\leq (e^{c\epsilon}-1)e^{ct}
+$$
+where $c$ depends only on $||b||_{\infty}$. Hence
+\begin{align*}
+& |E^{P_{x}}(f(X(t))(Z(t)-Z(\epsilon,t))|\leq
+||f||_{\infty}E^{P_{x}}(|Z(t)-Z(\epsilon,t)|)\\ 
+&\qq \leq ||f||_{\infty}\surd
+((e^{c\epsilon}-1)e^{ct}).\tag{3}\label{chap31-eq3} 
+\end{align*}
+
+Substituting \eqref{chap31-eq2} and \eqref{chap31-eq3} in
+\eqref{chap31-eq1} we get
+\begin{gather*}
+|u(t,x)-\int u(t-\epsilon y)\cdot \frac{1}{(\surd (2\pi
+  \epsilon)^{d})}\exp \left[\frac{-|x-y|^{2}}{2\epsilon}\right]dy\\
+\leq ||f||_{\infty}\surd ((e^{c\epsilon}-1)e^{ct})
+\end{gather*}
+
+Note that the right hand side is independent of $x$ and as
+$\epsilon\to 0$ the right hand side converges to $0$. Thus to show
+that $u(t,x)$ is a continuous function of $x$ ($t$ fixed), it is
+enough to show that
+$$
+\int u(t-\epsilon,y)\frac{1}{(\surd (2\pi\epsilon)^{d}}\exp
+\left[\frac{-|x-y|^{2}}{2\epsilon}\right]dy 
+$$
+is\pageoriginale a continuous function of $x$; but this is clear since
+$u$ is bounded. Thus for any fixed $tu(t,x)$ is continuous.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem2}
+For any compact set $K\subset R^{d}$, for $r$ large enough so that 
+$$
+K\subset \{x:|x|<r\},\q x\to Q_{x}(\tau_{r}\leq t)
+$$
+is continuous on $K$ for each $t\geq 0$, where
+$$
+\tau_{r}(w)=\inf \{s:|w(s)|\geq r\}.
+$$
+\end{lemma}
+
+\begin{proof}
+$Q_{x}(\tau_{r}\leq t)$ depends only on the coefficient $b(x)$ on
+  $|x|\leq r$. So modifying, if necessary, outside $|x|\leq r$, we can
+  very well assume that $|b(x)|\leq M$ for all $x$. Let
+\begin{align*}
+\tau^{\epsilon}_{r} &= \inf \{s:s\geq \epsilon,|w(s)|\geq r\}.\\
+&\q Q_{x}(\tau^{\epsilon}_{r}\leq t)=E^{Q_{x}}(u(X(\epsilon))),
+\end{align*}
+where 
+$$
+u(x)=Q_{x}(\tau_{r}\leq t-\epsilon)
+$$
+
+As $b$ and $u$ are bounded, for every fixed $\epsilon>0$, by Lemma
+\ref{chap31-lem1}, $Q_{x}(\tau_{r}\leq t)$ is a continuous function of
+$x$. As 
+$$
+|Q_{x}(\tau^{\epsilon}_{r}\leq t)-Q_{x}(\tau_{r}\leq t)|\leq
+Q_{x}(\tau_{r}\leq \epsilon),
+$$
+to prove the lemma we have only to show that
+$$
+\displaystyle{\mathop{\text{limit}}_{\epsilon\to 0}}\sup\limits_{x\in
+    K}Q_{x}(\tau_{r}\leq \epsilon)=0
+$$
+
+Now
+\begin{align*}
+& Q_{x}(\tau_{r}\leq \epsilon)=\int\limits_{\{\tau_{r}\leq
+    \epsilon\}}Z()dP_{x}\\
+& \leq (\int (Z(\epsilon))^{2}dP_{x})^{1/2}\cdot \surd
+  P_{x}(\tau_{r}\leq \epsilon),
+\end{align*}
+by\pageoriginale Cauchy-Schwarz inequality. The first factor is
+bounded because $b$ is bounded. The second factor tends to zero
+uniformly on $K$ because
+$$
+\sup\limits_{x\in K}P_{x}(\tau_{r}\leq \epsilon)\leq
+P(\sup\limits_{0\leq s\leq \epsilon}|w(s)|>\delta)
+$$
+where
+$$
+\delta=\inf\limits_{\substack{y\in K\\ |x|=r.}}|(x-y)|.
+$$
+\end{proof}
+
+
+\begin{lemma}\label{chap31-lem3}
+Let $K$ be compact in $\mathbb{R}^{d}$. Then for fixed $t$, $Q_{x}(\tau_{r}\leq
+t)$ monotically decreses to zero as $r\to \infty$ and the convergence
+is uniform on $K$.
+\end{lemma}
+
+\begin{proof}
+Let $f_{r}(x)=Q_{x}(\tau_{r}\leq t)$. As $\{\tau_{r}\leq t\}$
+decreases to the null set, $f_{r}(x)$ decreases to zero. As $K$ is
+compact, there exists an $r_{0}$ such that for $r\geq r_{0}$,
+$f_{r}(x)$ is continuous on $K$, by Lemma \ref{chap31-lem2}. Lemma
+\ref{chap31-lem3} is a consequence of Dini's theorem.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem4}
+Let $b:\mathbb{R}^{r}\to \mathbb{R}^{d}$ be smooth (not necessarily
+bounded). Then 
+$E^{Q_{x}}(f(X(t)))$ is continuous in $x$ for every fixed $t$, $f$
+being any bounded measurable function.
+\end{lemma}
+
+\begin{proof}
+Let $b_{r}$ be any bounded smooth function on $R^{d}$ such that
+$b_{r}\equiv b$ on $|x|\leq r$ and $Q^{r}_{x}$ the measure
+corresponding to $b_{r}$. Then by Lemma \ref{chap31-lem1},
+$E^{Q_{x}}(f(X(t)))$ is continuous in $x$ for all $r$. Further,
+$$
+|E^{Q^{r}_{x}}(f(X(t)))-E^{Q_{x}}(f(X(t)))|\leq 2||f||_{\infty}\cdot
+Q_{x}(\tau_{r}\leq t).
+$$
+
+The\pageoriginale result follows by Lemma \ref{chap31-lem3}.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem5}
+With the hypothesis as the same as in Lemma \ref{chap31-lem1},
+$(S_{1})$ is an equicontinuous family, where
+$$
+S_{1}=\{f:\mathbb{R}^{d}\to \mathbb{R},f\text{~ bounded measurable,~ }
+||f||_{\infty}\leq 1\}
+$$
+\end{lemma}
+
+\begin{proof}
+For any $f$ in $S_{1}$, let $U(x)=U(t,x)\equiv E^{Q_{x}}(f(X(t)))$ and
+$$
+U_{\epsilon}(x)=U_{\epsilon}(t,x)=\int U(t-\epsilon,y)\frac{1}{(\surd
+  (2\pi\epsilon)^{d})}\exp
+\left[\frac{-|x-y|^{2}}{2\epsilon}\right]dy. 
+$$
+
+By Lemma \ref{chap31-lem1},
+\begin{gather*}
+|U(x)-U_{\epsilon}(x)|\leq (((e^{c\epsilon}-1)\epsilon^{ct}))^{1/2}\\
+|U(x)-U(y)|\leq
+|U(x)-U_{\epsilon}(x)|+|U_{\epsilon}(y)-U(y)|+|U_{\epsilon}(x)-U_{\epsilon}(y)|\\
+\leq 2\surd ((e^{c\epsilon}-1)e^{ct})+|U_{\epsilon}(x)-U_{\epsilon}(y)|.
+\end{gather*}
+
+The family $\{U_{\epsilon}:f\in S_{1}\}$ is equicontinuous because
+every $U$ occuring in the expression for $U_{\epsilon}$ is bounded by
+1, and the exponential factor is uniformly continuous. Thus the right
+hand side is very small if $\epsilon$ is small and $|x-y|$ is
+small. This proves the lemma.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem6}
+Let $b$ be smooth and assume that there is no explosion ($b$ is not
+necessarily bounded). Then $(S_{1})$ is an equi-continuous family
+$\forall t>0$.
+\end{lemma}
+
+\begin{proof}
+Let $r>0$ be given. Define $b_{r}\in C^{\infty}$ such that $b_{r}=0$
+on $|x|>r+1$, $b_{r}=b$ on $|x|\leq r$, $b_{r}:\mathbb{R}^{d}\to
+\mathbb{R}$. By Lemma \ref{chap31-lem2}, we have that
+$$
+\{E^{Q^{r}_{x}}(f(X(t))):f\in S_{1}\}
+$$\pageoriginale
+is equicontinuous, where $Q^{r}_{x}$ is the probability measure
+corresponding to the function $b_{r}$.
+\begin{equation*}
+E^{Q_{x}}(f(X(t))\chi_{\{\tau_{r}>t\}})E^{Q^{r}_{x}}(f(X(t))\chi_{\{\tau_{r}>t\}}).\tag{1}\label{chap31-addeq1} 
+\end{equation*}
+
+Therefore
+\begin{align*}
+&\qq |E^{Q_{x}}(f(X(t)))-E^{Q^{r}_{x}}(f(X(t))|\\
+&=
+  |E^{Q_{x}}(f(X(t))\chi_{\{\tau_{r}>t\}})+E^{Q_{x}}(f(X(t))\chi_{\{\tau_{r}\leq
+    t\}})\\ 
+&-
+  E^{Q^{r}_{x}}(f(X(t))\chi_{\{\tau_{r}>t\}})-E^{Q^{r}_{x}}(f(X(t)))\chi_{\{\tau_{r}\leq
+    t\}})\\
+&= |E^{Q_{x}}(f(X(t)\chi_{\{\tau_{r}\leq
+    t\}})-E^{Q^{r}_{x}}(f(X(t))\chi_{\{\tau_{r}\leq t\}})|\\
+&\leq ||f||_{\infty}(E^{Q_{x}}(\chi_{\{\tau_{r}\leq
+    t\}})+E^{Q^{r}_{x}}(\chi_{\{\tau_{r}\leq t\}})\\
+&\leq l[E^{Q_{x}}(\chi_{(\tau_{r}\leq
+      t)})+E^{Q_{x}}(\chi_{(\tau_{r}\leq t)})](\text{use (1)  with~ }
+  f=1)\\
+&= 2E^{Q_{x}}(\chi_{(\tau_{r}\leq t)}).
+\end{align*}
+
+Thus
+$$
+\sup\limits_{x\in K}\sup\limits_{||f||_{\infty}\leq
+  1}|E^{Q_{x}}(f(X(t))-E^{Q^{r}_{x}}(f(X(t))|\leq 2\sup\limits_{x\in
+  K}(\chi_{\{\tau_{r}\leq t\}}).
+$$
+
+By Lemma \ref{chap31-lem3},
+$$
+\sup\limits_{x\in K}E^{0_{x}}(\tau_{r}\leq t)\to 0
+$$
+for every compact set $K$ as $n\to \infty$, for every fixed $t$.
+
+The equicontinuity of the family $(S_{1})$ now follows
+easily. For\pageoriginale fixed $x_{0}$, put
+$u_{r}(x)=E^{Q^{r}_{x}}(f(X(t)))$ and $u(x)=E^{Q_{x}}(f(X(t)))$ and
+let $K=s[x_{0},1]=\{x:|x-x_{0}|\leq 1\}$. Then
+\begin{gather*}
+|u(x)-u(x_{0})|\leq
+|u(x)-u_{r}(x)|+|u(x_{0})-u_{r}(x_{0})|+|u_{r}(x)-u_{r}(x_{0})|\\
+\leq 2\sup\limits_{y\in K}E^{Q_{y}}(\chi_{(\tau_{r}\leq
+|t)})+|u_{r}(x)-u_{r}(x_{0})| 
+\end{gather*}
+
+By the previous lemma $\{u_{r}\}$ is an equicontinuous family and
+since $\sup\limits_{y\in K}E^{Q_{y}}(\chi_{(\tau_{r}\leq 1)})\to 0$,
+$\{u:||f||_{\infty}\leq 1\}$ is equicontinuous at $x_{0}$. This proves
+the Lemma. 
+\end{proof}
+
+\begin{lemma}\label{chap31-lem7}
+$T_{r}\circ T_{s}=T_{t+s}$, $\forall s$, $t\geq 0$.
+\end{lemma}
+
+\begin{remark*}
+This property is called the {\em semigroup property}. 
+\end{remark*}
+
+\begin{proof}
+\begin{align*}
+& T_{r}(T_{s}f)(x)\\
+& =\iint f(z)q(s,y,z)q(t,x,y)dy\ dz.
+\end{align*}
+
+Thus we have only to show that
+$$
+\int q(t,x,y)q(s,y,A)dy=q(t+s,x,A).
+$$
+\begin{align*}
+q(t+s,x,A) &= E^{Q_{x}}(X(t+s)\in A)\\
+&= E^{Q_{x}}(X(t+s)\in A|_{t}))\\
+&= E^{Q_{x}}(E^{Q_{x}}X(t)(X(s)\in A))),\\
+&\qq \text{by Markov property}\\
+&= E^{Q_{x}}(q(s,X(t),A))\\
+&= \int q(t,x,y)q(s,y,A)dy,
+\end{align*}
+which proves the result.
+
+As\pageoriginale a trivial consequence we have the following.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem8}
+Let $\epsilon>0$ and let $S_{1}$ be the unit ball in
+$B(\mathbb{R}^{d})$. Then $\bigcup\limits_{t\geq
+  \epsilon}T_{t}(S_{1})$ is equicontinuous.
+\end{lemma}
+
+\begin{proof}
+$\bigcup\limits_{t\geq \epsilon>0}T_{t}(S_{1})=T(\bigcup\limits_{t\geq
+    0}T_{t}(S_{1}))$ (by Lemma \ref{chap31-lem7})
+  $T_{\epsilon}(S_{1})$. 
+
+The result follows by Lemma \ref{chap31-lem6}.
+\end{proof}
+
+\begin{lemma}\label{chap31-lem9}
+Let $u(ttx)=E^{Q_{x}}(f(X(t)))$ with $||f||_{\infty}\leq 1$. Let
+$\epsilon>0$ be given and $K$ any compact set. Then there exists a
+$T_{0}=T_{0}(\epsilon,K)$ such that $\forall T\geq T_{0}$ and $\forall
+x_{1}$, $x_{2}\in K$,
+$$
+|u(T,x_{1})-u(T,x_{2})|\leq \epsilon.
+$$
+\end{lemma}
+
+\begin{proof}
+Define
+$q^{*}(t,x_{1},x_{2},y_{1},y_{2})=q(t,x_{1},y_{1})q(t,x_{2},y_{2})$
+and let $Q_{(x_{1},x_{2})}$ be the measure corresponding to the
+operator
+$$
+L=\frac{1}{2}(\Delta_{x_{1}}+\Delta_{x_{2}})+b(x_{1})\cdot
+\nabla_{x_{1}}+b(x_{2})\cdot \nabla_{x_{2}}
+$$
+i.e., for any $u:\mathbb{R}^{d}\times \mathbb{R}^{d}\to \mathbb{R}$, 
+\begin{align*}
+Lu &= \frac{1}{2}\sum\limits^{2d}_{i=1}\frac{\p^{2}u}{\p
+  x^{2}_{i}}+\sum\limits^{t}_{i=1}b_{i}(x_{1},\ldots,x_{d})\frac{\p
+  u}{\p x^{2}_{i}}+\\
+&\qq +\sum\limits^{d}_{i=1}b_{i}(x_{d+1,\ldots,x_{2d}})\frac{\p u}{\p x_{i+d}}.
+\end{align*}
+
+Then $Q_{(x_{1},x_{2})}$ will be a measure on
+$C([0,\infty);\mathbb{R}^{d}\times \mathbb{R}^{d})$. We claim that
+  $Q_{(x_{1},x_{2})}=Q_{x_{1}}\times Q_{x_{2}}$. Note that
+$$
+C([0,\infty);\mathbb{R}^{d}\times
+  \mathbb{R}^{d})=C([0,\infty);\mathbb{R}^{d})\times
+    C[(0,\infty);\mathbb{R}^{d}) 
+$$\pageoriginale
+and since $C([0,\infty);\mathbb{R}^{d})$ is a second countable metric
+  space, the Borel field of $C([0,\infty)\mathbb{R}^{d}\times
+    \mathbb{R}^{d})$ is the $\sigma$-algebra generated by
+    
+$$
+\mathscr{B}=(C([0,\infty);\mathbb{R}^{d}))\times\mathscr{B}(C[0,\infty);\mathbb{R}^{d}).
+$$ 
+
+By going to the finite-dimensional distributions one can check that
+$P_{(x_{1},x_{2})}=P_{x_{1}}\times P_{x_{2}}$.
+\begin{align*}
+& \frac{dQ_{(x_{1},x_{2})}}{dP_{(x_{1},x_{2})}}\Big|_{\mathscr{F}_{t}}=\exp
+  \left[\int\limits^{t}_{0}\langle b^{(1)},dX_{1}\rangle
+    -\frac{1}{2}\int\limits^{t}_{0}|b^{(1)}|^{2}ds\right]\times\\
+&\q \times \exp \left[\int\limits^{t}_{0}\langle b^{(2)},dX_{2}\rangle
+    -\frac{1}{2}\int\limits^{t}_{0}|b^{(2)}|^{2}ds\right], 
+\end{align*}
+where 
+$$
+b^{(1)}(x_{1}\ldots
+x_{d})=b(x_{1}\ldots,x_{d})\cdot  
+b^{(2)}(x_{d+1}\ldots
+x_{2d})=b(x_{d+1},\ldots,x_{2d}),
+$$ 
+so that
+$Q_{(x_{1},x_{2})}=Q_{x_{1}}\times Q_{x_{2}}$.
+
+It is clear that if $\phi$ defined an invariant measure for the
+process $Q_{x}$, i.e.
+$$
+\int\limits_{A}\phi(x)dx=\int \phi(y)Qy(X_{t}\in A)dy,
+$$
+then $\phi(y_{1})\phi(y_{2})$ defines an invariant measure for the
+process $Q_{(x_{1},x_{2})}$. Thus the process $Q_{(x_{1},x_{2})}$ is
+recurrent.
+
+Next we show that $u(T-t,X_{1}(t))$ is a martingale $(0\leq t\leq T)$
+for any fixed $T$ on $C([0,T];\mathbb{R}^{d})$.
+\begin{align*}
+& E^{Q_{x}}(u(T-t,X(t)|\mathscr{F}_{s}))\\
+& =[\int u(T-t,y)q(t-s,x,dy)]_{x=X(s)}\\
+& =[\iint f(z)q(T-t,y,dz)q(t-s,x,dy)]_{x=X(s)}\\
+& =[\int f(z)q(T-s,x,dz)]_{x=X(s)}\\
+& =u(T-s,X(s)),\q s<t. 
+\end{align*}\pageoriginale
+
+It now follows that $u(T-t,X_{1}(t))$ is a martingale on
+$C([0,\infty);\mathbb{R}^{d})\times
+  C([0,\infty);\mathbb{R}^{d})$. Hence
+    $u(T-t,X_{1}(t))-u(T-t,X_{2}(t))$ is a martingale relative to
+    $Q_{(X_{1},x_{2})}$. 
+
+Let $V=S(0,\delta/2)\subset \mathbb{R}^{d}\times \mathbb{R}^{d}$ with
+$\delta<1/4$. If $(x_{1},x_{2})\in V$, then
+$$
+|x_{1}-x_{2}|\leq |(x_{1},0)-(0,0)|+|(0,0)-(0,x_{2})|<\delta.
+$$
+\end{proof}
+
+\setcounter{claim}{0}
+\begin{claim}\label{chap31-claim1}
+$Q_{(x_{1},x_{2})}(\tau_{V}\leq T)\to 1$ as $T\to \infty$, where
+  $\tau_{V}$ is the exit time from $R^{d}-V$.
+\end{claim}
+
+\begin{proof}
+If $w$ is any trajectory starting at some point in $V$, then
+$\tau_{V}=0\leq T$, $\forall T$. If $w$ starts at some point outside
+$V$ then, by the recurrence property, $w$ has to visit a ball with
+centre $0$ and radius $\delta/2$; hence it must get into $V$ at some
+finite time. Thus $\{\tau_{V}\leq T\}\uparrow$ to the whole space as
+$T\uparrow \infty$. Next we show that the convergence is uniform on
+compact sets.
+
+If $x_{1}$, $x_{2}\in K$, $(x_{1},x_{2})\in K\times K$ (a compact
+set). Put $g_{T}(x_{1},x_{2})=Q_{(x_{1},x_{2})}(\tau_{V}\leq T)$. Then
+$g_{T}(x_{1},x_{2})\geq 0$ and $g_{T}(x_{1},x_{2})$ increases to $1$
+as $T$ tends to $\infty$.
+\begin{gather*}
+g_{T}(x_{1},x_{2})=Q_{(x_{1},x_{2})}(\tau_{V}\leq T)\\
+Q_{(x_{1},x_{2})}(\tau^{1}_{V}\leq T),
+\end{gather*}\pageoriginale
+where 
+$$
+\tau^{1}_{V}=\inf \{t\geq 1:(x_{1},x_{2})\in V\}.
+$$
+
+Therefore
+\begin{align*}
+g_{T}(x_{1},x_{2}) &\geq
+E^{Q}(x_{1},x_{2})(E^{Q}(x_{1},x_{2})((\tau^{1}_{V}\leq T)|_{1}))\\
+&= E^{Q}(x_{1},x_{2})(Q_{(X_{1}(1),X_{2}(1))}\{\tau^{1}_{V}\leq
+T)\})\\
+&= E^{Q}(x_{1},x_{2})(\psi_{T}(X_{1}(1),X_{2}(1))),
+\end{align*}
+where $\psi_{T}$ is a bounded non-negative function. Thus, if 
+\begin{align*}
+h_{T}(x_{1},x_{2}) &= Q_{(x_{1},x_{2})}(\tau^{1}_{V}\leq T)=\\
+&= E^{Q}(x_{1},x_{2})(\psi_{T}(X_{1}(1),X_{2}(1))),
+\end{align*}
+then by Lemma \ref{chap31-lem4}, $h_{T}$ is continuous for each $T$,
+$g_{T}\geq h_{T}$ and $h_{T}$ increases to $1$ as $T\to
+\infty$. Therefore, $h_{T}$ converges uniformly (and so does $g_{T}$)
+on compact sets.
+
+Thus given $\epsilon>0$ chose $T_{0}=T_{0}(\epsilon,K)$ such that if
+$T\geq T_{0}$,
+$$
+\sup\limits_{x_{2}\in K}\sup\limits_{x_{1}\in
+  K}Q_{(x_{1},x_{2})}(\tau_{V}\geq T-1)\leq \epsilon.
+$$
+
+By Doob's optional stopping theorem and the fact that
+$$
+u(T-t,X_{1}(t))-u(t-t,X_{2}(t))
+$$ 
+is a martingale, we get, on equating
+expectations, 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& |u(T,x_{1})-u(T,x_{2})|\\
+&\qq =|E^{Q_{(x_{1},x_{2})}}[u(T-0,X_{1}(0)-u(T-0,X_{2}(0)]|\\
+&\qq =|E^{Q_{(x_{1},x_{2})}}[u(T-(\tau_{v}\wedge
+    (T-1)),X_{1}(T-(\tau_{v}\wedge (T-1))-\\
+&\qq\q -u(T-(\tau_{v}\wedge T(-1)),X_{2}(T-(\tau_{v}\wedge (T-1)]|\\
+&\qq |\int\limits_{\{\tau_{v}\geq
+    T-1\}}[u(1,X_{1}(1))-u(1,X_{2}(1))]dQ_{(x_{1},x_{2})}+\\
+&\qq +\int\limits_{\{\tau_{v}<(T-1)\}}[u(T-\tau_{v},X_{1}(T-\tau_{v}))-u(T-\tau_{v}),X_{2}(T-\tau_{v}))dQ_{(x_{1},x_{2})}|. 
+\end{align*}}\relax\pageoriginale
+
+Therefore
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+& |u(T,x_{1})-u(T,x_{2})|\\
+& \leq\int\limits_{\{\tau_{v}\geq
+    (T-1)\}}|[u(1,X_{1}(1))-u(1,X_{2}(1))]|dQ_{(x_{1},x_{2})}+\\ 
+&
+  +|\int\limits_{\{\tau_{v}<(T-1)\}}[u(T-\tau_{v},X_{1}(T-\tau_{v}))-u(T-\tau_{v},X_{2}(T-\tau_{v}))dQ_{(x_{1},x_{2})}|\\
+& \leq 2\epsilon + |\int\limits_{\{\tau_{v}<(T-1)\}}[u(T-\tau_{v},X_{1}(T-\tau_{v}))-u(T-\tau_{v},X_{2}(T-\tau_{v}))]dQ_{(x_{1},x_{2})}|,
+\end{align*}}\relax
+since $u$ is bounded by $1$.
+
+The second integration is to be carried out on the set $\{T-v\geq
+1\}$. Since $\bigcup\limits_{t\geq 1}T_{t}(S_{1})$ is equicontinuous
+we can choose a $\delta>0$ such that whenever $x_{1}$, $x_{2}\in K$
+such that $|x_{1}-x_{2}|<\delta$
+$$
+|u(t,x_{1})-u(t,x_{2})|\leq \epsilon,\q \forall t\geq 1.
+$$\pageoriginale
+
+Thus $|u(T,x_{1})-u(T,x_{2})|\leq 3\epsilon$ whenever $x_{1}$,
+$x_{2}\in K$ and $T\geq T_{0}$. This proves the Lemma.
+\end{proof}
+
+\noindent
+{\bf Corollary to Lemma \ref{chap31-lem9}.}
+$\sup\limits_{x_{1},x_{2}\in K}\int|q(t,x_{1},y)|dy$ {\em converges to
+  $0$ as $t\to \infty$.}
+
+\begin{proof}
+Since the dual of $L^{1}$ is $L^{\infty}$, we have
+\begin{gather*}
+\int |q(t,x_{1},y)-q(t,x_{2},y)|dy\\
+=\sup\limits_{||f||_{\infty}\leq 1}|\int [q(t,x_{1},y)-q(t,x_{2},y)]f(y)dy|
+\end{gather*}
+and the right side converges to $0$ as $t\to \infty$, by Lemma
+\ref{chap31-lem9}.
+
+We now come to the proof of the main theorem stated before Lemma
+\ref{chap31-lem1}. Now
+\begin{align*}
+&\qq \int |q(t,x,y)-\phi(y)|dy\\
+&= \int|q(t,x,y)-\int \phi(x^{1})q(t,x^{1},y)dx^{1}|dy\\
+&\hspace{3.5cm} \text{(by invariance property)}\\
+&= \int |\int q(t,x,y)\phi(x^{1})dx^{1}-\int
+  \phi(x^{1})q(t,x^{1},y)dx^{1}|dy\\
+&\hspace{4.5cm} (\text{since~ }\int\phi(x^{1})dx^{1}=1)\\
+&\leq \iint |q(t,x,y)-q(t,x^{1},y)|\phi(x^{1})dx^{1}dy\q (\text{since~
+  } \phi\geq 0)\\
+&= \int \phi(x^{1})dx^{1}\int |q(t,x,y)-q(t,x^{1},y)|dy\\
+\end{align*}
+
+Since
+$$
+\int \phi (x^{1})dx^{1}=\Lt\limits_{n\to
+  \infty}\int\limits_{|x^{1}|\leq n}\phi(x^{1})dx^{1},
+$$
+choose\pageoriginale a compact set $L$ $K$ such that
+$\int\limits_{\mathbb{R}^{d}-L}\phi(x^{1})dx^{1}<\epsilon$. Then
+\begin{align*}
+& \int\phi(x^{1})dx^{1}\int |q(t,x,y)-q(t,x^{1},y)|dy\\
+& =\int\limits_{L}\phi(x^{1})dx^{1}\int |q(t,x,y)-q(t,x^{1},y)|dy+\\
+& +\int\limits_{\mathbb{R}^{d}-L}\phi(x^{1})dx^{1}\int
+  |q(t,x,y)-q(t,x^{1},y)|dy\\ 
+&\leq \iint\limits_{L}\phi(x^{1})dx^{1}\int
+  |q(t,x,y)-q(t,x^{1},y)|dv+2\epsilon. 
+\end{align*}
+
+Chose $t_{0}$ such that whenever $t\geq t_{0}$,
+$$
+\int |q(t,x,y)-q(t,x^{1},y)|dy\leq
+\frac{\epsilon}{1+\int\limits_{L}\phi(x^{1})dx^{1}} 
+$$
+$\forall x$, $x_{1}$ in $L$. (Corollary to Lemma
+\ref{chap31-lem9}). Then
+$$
+\int |q(t,x,y)-\phi(y)|dy\leq 3\epsilon,
+$$
+if $t\geq t_{0}\forall x\in K$ completing the proof of the theorem.
+\end{proof}

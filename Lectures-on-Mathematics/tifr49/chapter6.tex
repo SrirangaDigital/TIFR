@@ -1,0 +1,381 @@
+
+\chapter{Interpolation Theory in Sobolev Spaces}\label{chap6}
+
+WE\pageoriginale OUTLINED THE internal approximation method in
+Sec.~\ref{chap3}. We are naturally interested in the convergence of
+the solutions $u_{h}\in V_{h}$ to the global solution $u\in V$. As a
+key step in this analysis we obtained the error estimate (cf.\@
+Theorem \ref{chap3-thm3.1}):
+\begin{equation*}
+||u-u_{h}||\leq C\inf_{v_{h}\in
+  V_{h}}||u-v_{h}||.\tag{6.1}\label{chap6-eq6.1} 
+\end{equation*}
+
+To be more specific let us consider an example. Given $\Omega\subset
+\mathbb{R}^{2}$ a polygon, consider the solution of the following
+problem, which is therefore posed in the space $V=H^{1}_{0}(\Omega)$:
+\begin{equation*}
+\begin{cases}
+-\Delta u+au=f\text{~ in~ }\Omega,\\
+u=0\text{~ on~ }\Gamma.
+\end{cases}\tag{6.2}\label{chap6-eq6.2}
+\end{equation*}
+
+Let $\mathfrak{t}_{h}$ be a triangulation of $\Omega$ by triangles of
+type (1), (2) or (3). Then $u_{h}\in V_{h}\subset H^{1}_{0}(\Omega)$
+and \eqref{chap6-eq6.1} reads as
+\begin{equation*}
+||u-u_{h}||_{1,\Omega}\leq C\inf\limits_{v_{h}\in
+  V_{h}}||u-v_{h}||_{1,\Omega}.\tag{6.3}\label{chap6-eq6.3} 
+\end{equation*}
+
+We know `a priori' that $u\in H^{1}_{0}(\Omega)$. Let us assume for
+the moment that $u\in C^{0}(\overline{\Omega})$. (Such assumptions are
+made possible by the various regularity theorems. For instance, $u\in
+H^{2}(\Omega)\subset C^{0}(\overline{\Omega})$ if $f\in L^{2}(\Omega)$
+and $\Omega$ is a convex polygon). If $u\in C^{0}(\overline{\Omega})$,
+then we may define the $V_{h}$-interpolate of $u$, i.e., $\pi_{h}u$ by
+$\pi_{h}u(b_{j})=u(b_{j})$ for the nodes $b_{j}$ of the
+triangulation. Note also that $\pi_{h}u|_{K}=\pi_{K}u$ (cf.\@
+\eqref{chap5-eq5.5}). Now from \eqref{chap6-eq6.3} we get, 
+\begin{align*}
+& ||u-u_{h}||_{1,\Omega}\leq C||u-\pi_{h}u||_{1,\Omega}\\
+&\qquad
+  = C\left[\sum_{K\in\mathfrak{t}_{h}}||u-\pi_{h}u||^{2}_{1,K}\right]^{\frac{1}{2}}\\
+&\qquad
+  =C\left[\sum_{K\in\mathfrak{t}_{h}}||u-\pi_{K}u||^{2}_{1,K}\right]^{\frac{1}{2}} 
+\end{align*}\pageoriginale
+
+{\em Thus the problem of estimating $||u-u_{h}||_{1,\Omega}$ is
+  reduced to the problem of estimating $||u-\pi_{K}u||_{1,K}$.} This
+is one central problem in the finite element method and motivates the
+study of interpolation theory in Sobolev spaces.
+
+We consider more general types of Sobolev spaces for they are no more
+complicated for this purpose than those defined in Sec.~\ref{chap2}.
+
+\begin{definition}\label{chap6-defi6.1}
+Let $m\geq 0$ be an integer, and $1\leq p\leq +\infty$. Then the
+Sobolev space $W^{m,p}(\Omega)$ for $\Omega\subset \mathbb{R}^{n}$,
+open, is defined by
+$$ 
+W^{m,p}(\Omega)=\{v\in L^{p}(\Omega);\ \p^{\alpha}v\in
+L^{p}(\Omega)\quad\text{for all}\quad |\alpha|\leq m\}.
+$$
+\end{definition}
+
+\begin{remark}\label{chap6-rem6.1}
+$H^{m}(\Omega)=W^{m,2}(\Omega)$.
+\end{remark}
+
+On the space $W^{m,p}(\Omega)$ we define a norm
+$||\cdot||_{m,p,\Omega}$ by
+\begin{equation*}
+||v||_{m,p,\Omega}=\left(\int_{\Omega}\sum_{|\alpha|\leq
+  m}|\p^{\alpha}v|^{p}dx\right)^{1/p}\tag{6.4}\label{chap6-eq6.4} 
+\end{equation*}
+and the semi-norm $|\cdot|_{m,p,\Omega}$ by
+\begin{equation*}
+|v|_{m,p,\Omega}=\left(\int_{\Omega}\sum_{|\alpha|=m|}|\p^{\alpha}v|^{p}dx\right)^{1/p}\tag{6.5}\label{chap6-eq6.5} 
+\end{equation*}
+
+If $k\geq 1$ is an integer, consider the space
+$W^{k+1,p}(\Omega)/P_{k}$. If $\dot{v}$ stands for the equivalence
+class of $v\in W^{k+1,p}(\Omega)$ we may define the analogues of
+\eqref{chap6-eq6.4} and \eqref{chap6-eq6.5} respectively by
+\begin{equation*}
+||\dot{v}||_{k+1,p,\Omega}=\inf\limits_{p\in
+  P_{k}}||v+p||_{k+1,p,\Omega}\tag{6.6}\label{chap6-eq6.6} 
+\end{equation*}
+and\pageoriginale
+\begin{equation*}
+|\dot{v}|_{k+1,p,\Omega}=|v|_{k+1,p,\Omega}.\tag{6.7}\label{chap6-eq6.7}
+\end{equation*}
+
+These are obviously well-defined and $||\cdot||_{k+1,p,\Omega}$
+defines the quotient norm on the quotient space above. We then have
+the following key result, whose proof may be found in Ne\v{c}as
+\cite{key20} for instance.
+
+\begin{theorem}\label{chap6-thm6.1}
+In $W^{k+1,p}(\Omega)/P_{k}$, the semi-norm $|\dot{v}|_{k+1,p,\Omega}$
+is a norm \break equivalent to the quotient norm
+$||\dot{v}||_{k+1,p,\Omega}$, i.e., there exists a constant
+$C=C(\Omega)$ such that for all $\dot{v}\in W^{k+1,p}(\Omega)/P_{k}$ 
+\begin{equation*}
+|\dot{v}|_{k+1,p,\Omega}\leq ||\dot{v}||_{k+1,p,\Omega}\leq
+C|\dot{v}|_{k+1,p,\Omega}.\tag{6.8}\label{chap6-eq6.8} 
+\end{equation*}
+\end{theorem}
+
+Equivalently, we may state
+
+\begin{theorem}\label{chap6-thm6.2}
+There exists a constant $C=C(\Omega)$ such that for each $v\in
+W^{k+1,p}(\Omega)$ 
+\begin{equation*}
+{\displaystyle{\mathop{\text{inf.}}_{p\in
+      P_{k}}}}||v+p||_{k+1,p,\Omega}\leq
+C|v|_{k+1,p,\Omega}.\tag{6.9}\label{chap6-eq6.9} 
+\end{equation*}
+\end{theorem}
+\noindent
+(Note: This result holds if $\Omega$ has a continuous boundary and if
+it is bounded so that $P_{k}\subset W^{k+1,p}(\Omega)$.)
+
+We now prove the following
+
+\begin{theorem}\label{chap6-thm6.3}
+Let $W^{k+1,p}(\Omega)$ and $W^{m,q}(\Omega)$ be such that
+$W^{k+1,p}(\Omega)\hookrightarrow W^{m,q}(\Omega)$ (continuous
+injection). Let
+$\pi\in\mathscr{L}(W^{k+1},\rho(\Omega),W^{m,q}(\Omega))$, i.e. a
+continuous linear map, such that for each $p\in P_{k}$, $\pi
+p=p$. Then there exists $C=C(\Omega)$ such that for each $v\in
+W^{k+1,p}(\Omega)$ 
+\begin{equation*}
+|v-\pi v|_{m,q,\Omega}\leq
+C||I-\pi||_{\mathscr{L}(W^{k+1},P(\Omega),W^{m,q}(\Omega))}|v|_{k+1,p,\Omega} 
+\end{equation*}\pageoriginale
+\end{theorem}
+
+\begin{proof}
+For each $v\in W^{k+1,p}(\Omega)$ and for each $p\in P_{k}$, we can
+write 
+$$
+v-\pi v=(I-\pi)(v+p).
+$$
+
+Thus,
+\begin{align*}
+|v-\pi v|_{m,q,\Omega} &\leq ||v-\pi v||_{m,q,\Omega}\\
+&=
+  ||I-\pi||_{\mathscr{L}(W^{k+1,p}(\Omega),W^{m,q}(\Omega))}||v+p||_{k+1,p,\Omega}, 
+\end{align*}
+for all $p\in P_{K}$. Hence,
+\begin{align*}
+|v-\pi v|_{m,q,\Omega} &\leq
+||I-\pi||_{\mathscr{L}(W^{k+1,p}(\Omega),W^{m,q}(\Omega))}\inf\limits_{p\in
+P_{k}}||v+p||_{k+1,p,\Omega}\\ 
+&\leq
+|C||I-\pi||_{\mathscr{L}(W^{k+1,p}(\Omega),W^{m,q}(\Omega))}|v|_{k+1,p,\Omega} 
+\end{align*}
+
+By theorem \ref{chap6-thm6.2}, this completes the proof.
+\end{proof}
+
+\begin{definition}\label{chap6-defi6.2}
+Two open subsets $\Omega$, $\hat{\Omega}$ of $\mathbb{R}^{n}$ are said
+to be affine equivalent if there exists an invertible affine map $F$
+mapping $\hat{x}$ to $B\hat{x}+b$, $B$ an invertible $(n\times n)$
+matrix and $b\in \mathbb{R}^{n}$, such that $F(\hat{\Omega})=\Omega$. 
+\end{definition}
+
+If $\Omega$, $\hat{\Omega}$ are affine equivalent, then we have a
+bijection between their points given by $\hat{x}\leftrightarrow
+x=F(\hat{x})$. Also we have bijections between smooth functions on
+$\Omega$ and $\hat{\Omega}$ defined by $(v:\Omega\to
+\mathbb{R})\leftrightarrow (\hat{v}:\hat{\Omega}\to \mathbb{R})$ where
+$v(x)=\hat{v}(\hat{x})$. 
+
+The following theorem gives estimates of $|v|_{m,p,\Omega}$ and
+$|\hat{v}|_{m,p,\hat{\Omega}}$ each in terms of the other.
+
+\begin{theorem}\label{chap6-thm6.4}
+Let $\Omega$, $\hat{\Omega}\subset \mathbb{R}^{n}$ be affine
+equivalent. Then there exist\pageoriginale constants $C$, $\hat{C}$
+such that for all $v\in W^{m,p}(\Omega)$
+\begin{equation*}
+|\hat{v}|_{m,p,\hat{\Omega}}\leq C||B||^{m}||\det
+B|^{-1/p}|v|_{m,p,\Omega}\tag{6.11}\label{chap6-eq6.11} 
+\end{equation*}
+and for all $\hat{v}\in W^{m,p}(\hat{\Omega})$
+\begin{equation*}
+|v|_{m,p,\Omega}\leq C||B^{-1}||^{m}|\det
+B|^{1/p}|\hat{v}|_{m,p,\hat{\Omega}}.\tag{6.12}\label{chap6-eq6.12} 
+\end{equation*}
+\end{theorem}
+
+\noindent
+{\bf Note:}
+\begin{itemize}
+\item[(i)] It suffices to prove either \eqref{chap6-eq6.11} or
+  \eqref{chap6-eq6.12}. We get the other by merely interchanging the
+  roles of $\Omega$ and $\hat{\Omega}$. We will prove the former.
+
+\item[(ii)] $||B||$ is the usual norm of the linear transformation
+  defined by $B$, viz.\@
+  $||B||=\sup\limits_{\substack{x\in\mathbb{R}^{n}\\ x\neq
+      0}}\dfrac{||Bx||}{||x||}$. (Recall that
+  $F(\hat{\Omega})=\Omega$, $F(\hat{x})=B\hat{x}+b$). 
+\end{itemize}
+
+\begin{proof}
+Let $\{e_{1},\ldots,e_{n}\}$ be the standard basis for
+$\mathbb{R}^{n}$. Let $\alpha$ be a multi-index with $|\alpha|=m$. By
+choosing a suitable collection $\{e_{1\alpha},\ldots,e_{m\alpha}\}$
+with appropriate number of repetitions from the basis, we may write,
+$$
+(\p^{\alpha}\hat{v})(\hat{x})=(D^{m}\hat{v})(\hat{x})(e_{1\alpha},\ldots,e_{m\alpha}), 
+$$
+where $D^{m}\hat{v}$ is the $m^{\text{th}}$ order Fr\'echet derivative
+of $\hat{v}$ and $D^{m}\hat{v}(\hat{x})$ is consequently an $m$-linear
+form on $\mathbb{R}^{n}$. Thus,
+$$
+|\p^{\alpha}\hat{v}(\hat{x})|\leq
+||D^{m}\hat{v}(\hat{x})||=\sup\limits_{\substack{||\xi_{i}||=1\\ 1\leq
+    i\leq m}}|D^{m}\hat{v}(\hat{x})(\xi_{1},\ldots,\xi_{m})|. 
+$$
+
+Since this is true for all $|\alpha|=m$, we get
+\begin{equation*}
+|\hat{v}|_{m,p,\hat{\Omega}}\leq
+C_{1}\left(\int_{\hat{\Omega}}||D^{m}\hat{v}(\hat{x})||^{p}d\hat{x}\right)^{1/p}\leq
+C_{2}|\hat{v}|_{m,p,\hat{\Omega}}.\tag{6.13}\label{chap6-eq6.13}
+\end{equation*}
+
+The first inequality is a consequence of our preceding argument. The
+second follows by a straightforward argument. By composition of
+functions in differentiation:
+\begin{equation*}
+D^{m}\hat{v}(\hat{x})(\xi_{1},\ldots,\xi_{m})=D^{m}v(x)(B\xi_{1},\ldots,B\xi_{m}); \tag{6.14}\label{chap6-eq6.14}
+\end{equation*}
+
+This\pageoriginale gives
+\begin{equation*}
+||D^{m}\hat{v}(\hat{x})||\leq
+||D^{m}v(x)||~||B||^{m}.\tag{6.15}\label{chap6-eq6.15} 
+\end{equation*}
+
+Hence the first inequality in \eqref{chap6-eq6.13} may be rewritten as
+\begin{align*}
+|\hat{v}|^{p}_{m,p,\hat{\Omega}} &\leq
+C^{p}_{1}||B||^{mp}\int_{\hat{\Omega}}||D^{m}v(F(\hat{x}))||^{p}d\hat{x}\\ 
+&= C^{p}_{1}||B||^{mp}|\det B|^{-1}\int_{\Omega}||D^{m}v(x)||^{p}dx\\
+&\leq C^{p}||B||^{mp}|\det B|^{-1}|v|_{m,p,\Omega}.
+\end{align*}
+by an inequality similar to the second inequality of
+\eqref{chap6-eq6.13}. Raising to power $1/p$ on either side we get
+\eqref{chap6-eq6.11}. This completes the proof.
+\end{proof}
+
+We now estimate the norms $||B||$ and $||B^{-1}||$ in terms of the
+`sizes' of $\Omega$ and $\hat{\Omega}$. More precisely, if $h$,
+(resp.\@ $\hat{h}$) the supremum of the diameters of all balls that
+can be inscribed in $\Omega$, (resp.\@ $\hat{\Omega}$), we have the
+following: 
+
+\begin{theorem}\label{chap6-thm6.5}
+$||B||\leq h/\hat{\rho},\quad\text{and}\quad ||B^{-1}||\leq \hat{h}/\rho$.
+\end{theorem}
+
+\begin{proof}
+Again it suffices to establish one of these. Now,
+$$
+||B||=\sup\limits_{||\xi||=\hat{\rho}}\left(\frac{1}{\hat{\rho}}||B\xi||\right). 
+$$
+
+Let $\xi\in\mathbb{R}^{n}$ with $||\xi||=\hat{\rho}$. Choose
+$\hat{y}$, $\hat{z}\in\overline{\hat{\Omega}}$ such that
+$\xi=\hat{y}-\hat{z}$. Then $B\xi=B\hat{y}-B\hat{z}=y-z$, where
+$F(\hat{y})=y$, $F(\hat{z})=z$. But $y$, $z\in\overline{\Omega}$ and
+hence $||y-z||\leq h$. Thus $||B\xi||\leq h$. Hence $||B||\leq
+h/\hat{\rho}$, which completes the proof.
+\end{proof}
+
+We conclude this section with an {\em important, often used, result.}
+
+\begin{theorem}\label{chap6-thm6.6}
+Let $(\hat{K},\hat{\Sigma},\hat{P})$ be a finite element. Let
+$s(=0,1\text{~ or~ }2)$ be the maximal order of derivatives occurring
+in $\hat{\Sigma}$. Assume that: 
+\begin{itemize}
+\item[(i)] $W^{k+1,p}(\hat{K})\hookrightarrow
+  C^{s}(\hat{K})$\pageoriginale
+
+\item[(ii)] $W^{k+1,p}(\hat{K})\hookrightarrow W^{m,q}(\hat{K})$
+
+\item[(iii)] $P_{k}\subset \hat{P}\subset W^{m,q}(\hat{K})$
+\end{itemize}
+
+Then there exists a constant $C=C(\hat{K},\hat{\Sigma},\hat{P})$ such
+that for all affine equivalent finite elements $(K,\Sigma,P)$ we have
+\begin{equation*}
+|v-\pi_{K}v|_{m,q,K}\leq C(\text{meas~}K)^{\frac{1}{q}-\frac{1}{p}}\frac{h^{k+1}_{K}}{\rho^{m}_{K}}|v|_{k+1,p,K}\tag{6.16}\label{chap6-eq6.16}
+\end{equation*}
+for all $v\in W^{k+1,p}(K)$, where $h_{K}$ is the diameter of $K$ and
+$\rho_{K}$ is the supremum of diameters of all balls inscribed in $K$.
+\end{theorem}
+
+\begin{proof}
+Since $P_{k}\subset \hat{P}$, for any polynomial $p\in P_{k}$ we have
+$\hat{\pi}p=p$. We may write
+\begin{equation*}
+\begin{split}
+\hat{\pi}\hat{v} &=
+\sum_{i}\hat{v}(\hat{a}^{0}_{i})\hat{p}^{0}_{i}+\sum_{i,k}(D\hat{v}(\hat{a}^{1}_{i})(\hat{\xi}^{1}_{i,k}))\hat{p}^{1}_{i,k}\\
+&= +\sum_{i,k,l}(D^{2}\hat{v}(\hat{a}^{2}_{i})(\hat{\xi}^{2}_{i,k},\hat{\xi}^{2}_{i,l}))\hat{p}^{2}_{i,k,l},
+\end{split}.\tag{6.17}\label{chap6-eq6.17} 
+\end{equation*}
+all these sums being finite (the second and third may or may not be
+present).
+We claim that $\hat{\pi}\in\mathscr{L}(W^{k+1},
+p(\hat{K}),W^{m,q}(\hat{K}))$. Since $\hat{P}\subset W^{m,q}(\hat{K})$
+all the basis functions in \eqref{chap6-eq6.17} are in
+$W^{m,q}(\hat{K})$. Thus,
+\begin{equation*}
+\begin{split}
+||\hat{\pi}\hat{v}||_{m,q,\hat{K}} &\leq
+\sum_{i}|\hat{v}(\hat{a}^{0}_{i})|~||\hat{p}^{0}_{i}||_{m,q,\hat{K}}\\
+&\quad
++\sum_{i,k}|D\hat{v}(\hat{a}^{1}_{i})(\xi^{1}_{i,k})|~||\hat{p}^{1}_{ik}||_{m,q,\hat{K}}\\
+&\quad +\sum_{i,k,l}|D^{2}\hat{v}(\hat{a}^{2}_{i})(\hat{\xi}^{2}_{i,k},\hat{\xi}^{2}_{i,l})|~||\hat{p}^{2}_{ikl}||_{m,q,\hat{K}}
+\end{split}\tag{6.18}\label{chap6-eq6.18}
+\end{equation*}
+
+Since $W^{k+l,p}(\hat{K})\hookrightarrow C^{s}(\hat{K})$ and all the
+numbers $\hat{v}(\hat{a}^{0}_{i})$, etc\ldots, are bounded by their
+essential supremum over $\hat{K}$, 
+$$
+||\hat{\pi}\hat{v}||_{m,q,\hat{K}}\leq C||\hat{v}||_{k+1,p,\hat{K}}.
+$$\pageoriginale
+
+Hence the claim is valid. Now by virtue of (ii) and also our
+observation on preservation of polynomials, we may apply theorem
+\ref{chap6-thm6.3} to $\hat{\pi}$. Hence there exists
+$C=C(\hat{K},\hat{\Sigma},\hat{P})$ such that
+$$
+|\hat{v}-\hat{\pi}\hat{v}|_{m,q,\hat{K}}\leq
+C|\hat{v}|_{k+1,p,\hat{K}}\quad\text{for}\quad \hat{v}\in
+W^{k+1,p}(\hat{K}). 
+$$
+
+Notice that $\hat{\pi}\hat{v}=\widehat{\pi_{K}v}$ by
+Theorem~\ref{chap5-thm5.1}. Thus
+$\hat{v}-\hat{\pi}\hat{v}=\widehat{v-\pi_{K}v}$. Thus if
+$F_{K}(\hat{K})=K$ where $F_{K}(\hat{x})=B_{K}\hat{x}+b_{K}$, we get
+\begin{equation*}
+|v-\pi_{K}v|_{m,q,K}\leq C_{1}||B^{-1}_{K}||^{m}|\det
+B_{K}|^{1/q}|\hat{v}-\hat{\pi}\hat{v}|_{m,q,\hat{K}},\tag{6.19}\label{chap6-eq6.19} 
+\end{equation*}
+by Theorem~\ref{chap6-thm6.4}. Also by the same theorem
+\begin{equation*}
+|\hat{v}|_{k+1,p,\hat{K}}\leq C_{2}||B_{K}||^{k+1}|\det
+B_{K}|^{-1/p}|v|_{k+l,p,K}.\tag{6.20}\label{chap6-eq6.20} 
+\end{equation*}
+
+Further $|\det B_{K}|$ being the Jacobian of the transformation, we
+have $|\det B_{K}|=\dfrac{\text{meas~ }K}{\text{meas~}\hat{K}}$ and
+$||B_{K}||\leq \dfrac{h_{K}}{\hat{\rho}}$, $||B^{-1}_{K}||\leq
+\hat{h}/\rho_{K}$ by theorem \ref{chap6-thm6.5}. Since $\hat{h}$,
+$\hat{\rho}$, meas $\hat{K}$ are constants, combining
+\eqref{chap6-eq6.19}, \eqref{chap6-eq6.20} and the preceding
+observation we complete the proof of the theorem.
+\end{proof}
+
+\noindent
+{\bf References:}~See Bramble and Hilbert \cite{key28}, Bramble and
+Zl\'qmal \cite{key2}, Ciarlet and Raviart \cite{key7}, Ciarlet and
+Wagschal \cite{key8}, Strang \cite{key21}, \v{Z}eni\v{s}ek
+\cite{key23,key24} and Zl\'amal \cite{key25,key32}. 
+

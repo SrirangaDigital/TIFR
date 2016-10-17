@@ -1,0 +1,1386 @@
+ \chapter{Srong Markov Processes} %\chp section 2
+
+\section{Markov time}\label{chap2-sec1}
+\pageoriginale 
+%\section 1,
+
+\begin{defi*}
+Let $(S, W, P_a )$ be a Markov process with $ W = W_{rc}$,
+  $W_{d_{1}}$ or $W_c$. A mapping $\sigma : W \to [ 0, \infty ]$ is
+  called \textit{Markov time} if  
+  $$
+  (w : \sigma (w) \ge t ) \in \mathbb{B}_t.
+  $$
+\end{defi*}
+
+It is easily seen that $w \to w^-_\sigma$ is a measurable map of $W
+\to W$. In fact, it is enough to show that  
+$$
+w \to w^-_\sigma (t) = x ( \sigma \Lambda t, W )
+$$
+is measurable, and this is immediate  since $ x(s, w), ~ \sigma (w) $,
+$t$ and $w$ are all measurable in the pair $(s, w)$. Similarly, $w \to
+w^+_\sigma$ is measurable. 
+
+The system of all subsets of $W$ of the form $( w : w^-_{\sigma (w)}
+\in B )$, $B \in \mathbb{B}$, is denoted by
+$\mathbb{B}_{\sigma}$. $\mathbb{B}_{\sigma}$ is a Borel algebra
+contained in $\mathbb{B}$. We shall give examples to show that
+$\sigma$ is not always $\mathbb{B}_{\sigma}$ -measurable. However, if
+$\sigma < \infty, x_\sigma = w( \sigma (w))$ is  
+$\mathbb{B}_{\sigma}$-measurable, for $x_\sigma = \lim \limits_{t \to
+  \infty} ~ w^-_\sigma 
+(t)$ and $x_\sigma (w_t-)$ is $\mathbb{B}_{\sigma}$ -measurable for
+every $t$. 
+
+If $\sigma$ is a Markov time, then $\sigma + \in$ is also a Markov
+time for every $\in \ge 0$. It is not difficult to see that
+$\mathbb{B}_{\sigma + \in}$ increases with $\in$. Let 
+$$
+\mathbb{B}_{\sigma +} = \bigcap_{\in > 0} \mathbb{B}_{\sigma + \in} =
+\bigcap_{n} \mathbb{B}_{\sigma + ~ 1/n}. 
+$$
+
+Then\pageoriginale $\mathbb{B}_{\sigma + } \supset
+\mathbb{B}_{\sigma}$ and $\mathbb{B}_{\sigma +} \subset
+\mathbb{B}_{\sigma + \in}$ for every 
+$\in > 0$. The class of all bounded $\mathbb{B}_{\sigma}$ -measurable
+functions is denoted by $\mathbb{B}_\sigma$ and the class of all
+bounded $\mathbb{B}_{\sigma +}$ -measurable funcitons by
+$\mathscr{B}_{\sigma +}$. 
+
+\begin{theorem*} 
+$\sigma (w)$ is $\mathbb{B}_{\sigma +}$ -measurable.
+\end{theorem*}
+
+\begin{proof}
+We shall prove that for every $\in > 0$, $\sigma (w) = \sigma
+  (w^-_{\sigma + \in})$, from this the theorem follows. Let $w_0 \in
+  W$. If $\sigma (w_0) = \infty$ the equality is trivial. Let $t =
+  \sigma (w_0) < \infty$. Now  
+  $$
+  (w :\sigma (w) \ge t )\in \mathbb{B}_{t} \subset \mathbb{B}_{t + \in}
+  $$
+  for any $\in > 0$. Also
+  $$
+  ( w: \sigma (w) > t) = \bigcup_{n} ~ \left(w : \sigma (w)\ge t +
+  \frac{\in}{n} \right) \in \mathbb{B}_{t + \in}. 
+  $$
+
+
+It follows that 
+$$
+(w : \sigma (w) = t ) \in \mathbb{B}_{t + \in}.
+$$
+
+Hence
+$$
+( w : \sigma (w) = t ) = ( w : w^-_{t + \in} \in B )
+$$
+for some $B \in \mathbb{B}$. Since $\sigma (w_0) = t$ we see that
+$(w_0)^-_{t + \in} \in B$. 
+
+Hence 
+$$
+\left[ (w_0)^-_{t + \in}
+    \right]^-_{t + \in} = (w_0)^-_{t + \in} \in B.
+$$
+
+So
+$$
+\sigma \left[
+    (w_0)^-_{t + \in} \right] ~ = t,
+$$
+i.e.,
+$$
+\sigma \left[ (w_0)^-_{\sigma (w_0) + \in} \right] = \sigma (w_0),
+$$
+completing the proof.
+\end{proof}
+
+\section{Examples of Markov time}\label{chap2-sec2}\pageoriginale
+%\section 2
+
+\begin{enumerate}
+\item $\sigma \equiv t$.
+\item $\sigma = \sigma_G = \inf. \left \{ t : x_t (w) \in G \right \}$ 
+
+\quad = first passage time for the open set $G \subset S$.
+\end{enumerate}
+
+
+
+We have
+\begin{align*}
+  \left\{ w : \sigma_G < t \right \} &= \left\{ w : \exists s < t
+  \text{ and } ~ x_s \in G \right \} \\ 
+  &= \left \{ w: \exists r < t, ~ x_r \in G \text{ and } ~ r ~ \text{
+    rational } \right \} \\ 
+  &= \bigcup_{\substack {r \\ r \text{ rational, } r < t}} \left \{ w:
+  x_r (w_t^-) \in G \right \}. 
+\end{align*}
+
+Thus $\sigma_G$ is a Markov time.
+\begin{remark*}
+  $\sigma = \sigma_G$ is not always
+  $\mathbb{B}_{\sigma}$-measurable. If $\sigma$ is a Markov time which
+  is 
+  $\mathbb{B}_{\sigma}$-measurable, then  
+  $$
+  \left \{ w : \sigma ((w) < c \right \} = \left \{ w : w^-_\sigma \in
+  B, ~ B \in \mathbb{B} \right \}, 
+  $$
+  and since $(w^-)^{-}_\sigma=w^-_\sigma$, we should have
+  $\sigma (w^-_\sigma) < c$. In particular, if $\sigma$ is
+  $\mathbb{B}_{\sigma}$-measurable and $\sigma (w) < \infty$, then
+  $\sigma (w^-_\sigma) < \infty$. Now consider a Markov process with
+  $S = ( - \infty, \infty ), W = W_c$ and let $\sigma = \sigma_G$
+  where $G = (0, \infty)$. Let $w (t) = -1 + t$. Then $\sigma (w) =
+  1$. Also $w^-_\sigma (t) = - 1 + t$ if $t \leq 1$ and $w^-_\sigma
+  (t) = 0$ if $t \ge 1$. Therefore  $\sigma (w^-_\sigma) =
+  \infty$. Hence $\sigma$ cannot be $\mathbb{B}_{\sigma}$-measurable.  
+  \begin{enumerate}
+\setcounter{enumi}{2}
+  \item If $G = \left\{ \infty \right\}$, $\sigma_G = \sigma_\infty
+    = $ killing time. 
+  \item Let $W = W_c$ and 
+    $$
+    \sigma = \sigma_F = \inf. \left \{ t : x_t \in F \right \}.
+    $$\pageoriginale
+    where $F$ is closed in $S$. Let $G_m \supset G_{m+1}$ be a
+    sequence of open sets such that $\bigcap\limits_{m} G_m = F$, and
+    let $\tilde{\sigma} = \lim \limits_{m} ~ \sigma_{G_{m}}$. Then
+    $\tilde{\sigma}$ is  measurable [actually it is a Markov time]. We
+    easily verify that   
+    $$
+    \sigma_F =
+    \begin{cases}
+      \tilde{\sigma} &\text{ if } ~~\tilde{\sigma} < \sigma_\infty \\
+      \infty &\text{ if } ~~\tilde{\sigma} = \sigma_\infty .\\
+    \end{cases}
+    $$
+  \end{enumerate}
+\end{remark*}
+
+It follows that $\sigma_F$ is measurable. Now it is easily verified that 
+$$
+\left [ w : ~ \sigma_F (w) < t \right ] = ~ \left [ w : ~ \sigma_F
+  (w^-_t) < t \right ]~ ; 
+$$
+in fact the  closedness of $F$ is not necessary to prove this. Since
+$w \to w^-_t$ is $\mathbb{B}_{t}$ -measurable, it follows that
+$\sigma_F$ is a Markov time. 
+
+\section{Definition of strong Markov process}\label{chap2-sec3}
+% \section 3.
+
+Let $\mathbb{M}$ be a Markov process. $\mathbb{M}$ is  said to have
+ the \textit{strong Markov property} with respect to the Markov time
+ $\sigma$ if  
+ $$
+ P_a ( w: w \in B_1, w^+_\sigma \in B_2 ) = E_a ( w \in B_1 : P_{x_{\sigma}} (B_2)),
+ $$ 
+ where $B_1 \in \mathbb{B}_{\sigma +}$ and $B_2 \in \mathbb{B}$. 
+
+\begin{remark*}
+  The above condition is equivalent to 
+  $$
+  E_a (f (w)g (w^+_\sigma)) ~ =  E_a (f(w) E_{x_{\sigma}} (g(w'))),
+  $$
+  or, more generally, to 
+  \begin{multline*}
+    E_a ( w\in B_1, ~ w^+_\sigma \in B_2 : f (w) g (w^+_\sigma )) =  \\
+    = E_a (w \in B_1 ~ : f (w) E_{x_{\sigma}} (w' \in B_2 : g (w'))), 
+  \end{multline*}\pageoriginale
+  where
+  $$
+  f \in \mathscr{B}_{\sigma +}, g \in \mathscr{B}, ~ B_1 \in
+  \mathbb{B}_{\sigma +}~~ \text{ and } ~~B_2 \in \mathbb{B}. 
+  $$
+\end{remark*}
+
+\begin{defi*}
+  $\mathbb{M}$ is called a  {\em strong Markov process} if it has the
+  strong markov property with respect to all Markov times. A strong
+  Markov process is called a {\em diffusion process} if $W = W_c (S)$. 
+\end{defi*}
+
+
+\section[A condition for a Markov process...]{A condition for a Markov process to be a storng Markov process}\label{chap2-sec4} 
+%\section 4. 
+
+
+
+We shall later give examples to show that not all Markov processes are
+strong Markov processes. The following theorem gives a sufficient
+condition for a Markov process to be a strong Markov process. 
+\begin{theorem*}
+Let $\mathbb{M} = ( S,W,P_a )$ be Markov process and $C (S)$ the set
+of all real continuous bounded functions on $S$. If $H_t$ maps 
+$C(S)$ into $C (S)$, then $\mathbb{M}$ is a strong Markov process. 
+\end{theorem*}
+
+\begin{proof}
+Let $\sigma$ be a Markov time. We have to show that 
+$$
+E_a (f (w) g (w^+_\sigma )) = E_a (f (w) E_{x_{\sigma}} ~ (g (w'))).
+$$
+\end{proof}
+
+Let $\delta > 0$ and $f \in \mathscr{B}_{\sigma +}$. Then, since $f
+\in \mathscr{B}_{\sigma + \in}$ for every $\in > 0$, 
+$$
+( w : t - \delta \leq f (w) < t ) = ( w : w^-_{\sigma + \in} \in B), ~
+B \in \mathbb{B}. 
+$$
+
+Also $( w^-_{\sigma + \in})^-_{\sigma + \in} = w^-_{\sigma + \in}$. Therefore
+$$
+i - \delta \leq f (w^-_{\sigma + \in} )< t .
+$$\pageoriginale
+
+Putting  $t = f (w) + \delta$ and letting $\delta \to 0$ we get $f (w)
+= f (w^-_{\sigma + \in})$.  
+
+If $\sigma_m = \dfrac{[ m \sigma ] +1}{m} $, then $\sigma_m > \sigma$
+and $\sigma_m \to \sigma$ as $m \to \infty$. We have for $f \in
+\mathscr{B}_{\sigma +}$ and $g_1,~ g_2 \in \mathscr{B} (S) $,  
+$$
+E_a (f (w) g_1 (x_{t_{1}+ \sigma}) g_2 (x_{t_{2} + \sigma})) = E_a (
+  \sigma < \infty : ~ f (w) g_1 (x_{t_{1} + \sigma}) g_2 (x_{t_{2} +
+    \sigma} ))
+$$
+and
+$$
+f (w^-_{\sigma_{m}} ) = f (w^-_{\sigma + \sigma_m - \sigma} ) = f
+(w).
+$$
+
+If $g_1$, $g_2 \in C(S)$, $g_i (x_{t_{i}+ \sigma_m}) \to g_i (x_{t_{i} +
+  \sigma}), ~ i = 1,2$, as  $m \to \infty$. 
+
+We have therefore
+\begin{align*}
+   E_a (f (w) & g_1 (x_{t_{1} + \sigma}) g_2 ( x_{t_{2} + \sigma})) = \\
+  &= \lim_{m \to \infty} E_a ( \sigma < \infty : ~ f
+  (w^-_{\sigma_{m}}) g_1 (x_{t_{1} + \sigma_m}) g_2 (x_{t_{2} + \sigma_m}))\\ 
+  & = \lim_{m \to \infty} \sum^{\infty}_{k=1} E_a \big[ * : f
+    (w^-_{\sigma_{m}}) g_1 (x_{t_{1}+ \sigma_m}) g_2 (x_{t_{2}+
+      \sigma_m}),\\
+     & \qquad \text{ where } * \equiv \left(\sigma \ge \frac{k-1}{m} \right)
+    - ~ \left( \sigma \ge \frac{k}{m} \right) ,\\ 
+    & = \lim_{m \to \infty} \sum^{\infty}_{k=1} E_a \big[ * : f
+      (w^-_{k/m}) g_1 (x_{t_{1}+ k/m}) g_2 (x_{t_{2} + k/m} ),
+\end{align*}
+since $\sigma_m = k/m$ if\ $\dfrac{k-1}{m} \leq \sigma <
+\dfrac{k}{m}$. From the definition of Markov time, 
+$$
+\left( \sigma \ge \frac{k-1}{m}\right) \in \mathbb{B}_{\frac{k-1}{m}} \subset
+\mathbb{B}_{\frac{k}{m}}, ~ ( \sigma \ge k/m ) \in \mathbb{B}_{k/m}, 
+$$\pageoriginale
+so that $* \in \mathbb{B}_{k/m}$. Therefore form the Markov property
+ we have the last expression equal to 
+\begin{align*}
+  \lim_{m \to \infty} \sum^{\infty}_{k=1}& E_a \left [*: f (w^- _{k/m})
+    E_{x_{k/m}} \right] \left \{ ~ g_1 (x_{t_{1}}) g_2 (x_{t_{2}})
+  \right \} \\ 
+  &= \lim_{m \to \infty} \sum^{\infty}_{k=1} E_a \left[*: f (w^- _{\sigma_m}) E_{x_{\sigma_{m}}} \left \{ ~ g_1 (x_{t_{1}}) g_2
+    (x_{t_{2}}) \right \}\right] \\ 
+  &= \lim_{m \to \infty} E_a \left [ \sigma < \infty: ~ f
+    (w^-_{\sigma_{m}}) F (x_{\sigma_{m}}) \right ] , 
+ \end{align*} 
+where $F (x_{\sigma_{m}}) = E_{x_{\sigma_{m}}} \left \{ g_1
+ (x_{t_{1}}) g_2 (x_{t_{2}}) \right \} $. Also, 
+ \begin{align*}
+   F(b)  &= E_b ( g_1 (x_{t_{1}}) g_2 (x_{t_{2}})) \\
+   &= E_b \left[ g_1 (x_{t_{2}} (w^-_{t_{1}})) g_2 (x_{t_{2}-t_1}
+     (w_{t_{1}}^+)) \right ], ~ \text{ if } ~ t_2 > t_1 , \\ 
+   &= E_b \left[g_1 (x_{t_{2}} (w^-_{t_{1}})) E_{x_{t_{1}}} (g_2
+     (x_{t_{2}-t_1}  (w'))) \right] \\ 
+   &= E_b \left[ g_1 (x_{t_{1}}) H_{t_{2}-t_1}  g_2 (x_{t_{1}} ) \right ] \\
+   &= H_{t_{1}} \left [ g_1  H_{t_{2}-t_1} ~ g_2 \right ] (b).
+ \end{align*}
+
+Thus $F (b)$ is continuous in $b$ since $H_t : C (S) \to C (S)$.
+
+Therefore
+\begin{align*}
+E_a  \big [ f (w) g_1 &( x_{t_{1} + \sigma}) g_2 (x_{t_{2} + \sigma}) \big ] = \\
+  &= E_a \big [ \sigma < \infty : f(w) E_{x_\sigma} (g_1 (x_{t_{1}})
+    g_2 (x_{t_{2}})) \big ]\\ 
+  &= E_a \big [ f (w) E_{x_{\sigma}}  (g_1 (x_{t_{1}}) g_2 (x_{t_{2}})) \big ]. \\
+\end{align*}\pageoriginale
+
+Generalizing this to  $n > 2$, we have, if  $g_i \in C (S)$,
+$$
+E_a  \big [ f (w) g_1 ( x_{t_{1} + \sigma})  \ldots g_n (x_{t_{n} +
+    \sigma}) \big ] = E_a  \big [ f (w) E_{x_{\sigma}} ( g_1 (
+  x_{t_{1}}) \ldots  g_n (x_{t_{n}})) \big ]. 
+$$
+
+The same equation holds if $g_i \in \mathscr{B} (S)$. If $B \in
+\mathbb{B}$ and $B = ( w : w (t_1) \in E_1, \ldots , w (t_n) \in E_n
+)$, then  
+$$
+X_B (w) = X_{E_{1}} (x_{t_{1}}) \ldots X_{E_{n}} (x_{t_{n}}),
+$$
+and therefore,
+\begin{align*}
+  E_a f(w) X_B (w^+_\sigma) &=  E_a \big [ f (w) E_{x_{\sigma}}
+    (X_{E_{1}} ( x_{t_{1}}) \ldots X_{E_{n}} (x_{t_{n}}) \\ 
+    &= E_a \big [ f (w) E_{x_{\sigma}} (X_B (w')) \big ].
+\end{align*}
+
+The equation
+$$
+E_a (f (w) g (w^+_\sigma)) = E_a \big [ f  (w) E_{x_{\sigma}} (g(w')) \big ]
+$$
+follows easily now for $g \in \mathscr{B}$.
+
+\section[Example of a Markov process....]{Example of a Markov process  which is not a\break strong Markov
+  process}\label{chap2-sec5} 
+%Section 5
+
+
+
+The above theorem shows the all the preceding examples of  
+Markov\pageoriginale
+processes are strong Markov processes. The natural question is whether
+there exist Markov processes which are not strong Markov
+processes. The following example answers this question in the
+affirmative. 
+
+Suppose that $\Omega (P)$ is a probability space and $\tau (w)$, $w
+\in \Omega$, a random variable on $\Omega (P)$ such that  
+$$
+P ( w : \tau (w) \in E ) = ~ \int \limits_{E} \lambda e^{-\lambda t}
+dt, ~ \lambda > 0. 
+$$
+
+Such a random variable is often called \textit{exponetial holding
+  time.} 
+
+Let $S = \big[ 0, \infty )$ and $W = W_c$. Define
+\begin{align*}
+  \xi^{(a)} (t,w) &=  a + t, ~ a > 0 ;\\
+  \xi^{(0)} (t.w) &=  0, \text{ if } ~ t < \tau (w),\\
+  &t- \tau, \text{ if } ~ t \ge \tau (w). \\ 
+\end{align*}
+ $\xi^{(a)} (t, w)$ are random variables on $\Omega (p)$ and for fixed
+$w$ are in $W_c$. For $B \in \mathbb{B} (W)$ and $0 \leq a < \infty$,
+define 
+ $$
+ P_a (B) = P \big [ w : \xi^{(a)} (.,w) \in B \big ].
+ $$
+
+For $a > 0$, then, $P_a (B) = 1$ if $ \xi^{(a)} \in B $ and  $P_a (B)
+= 0$ otherwise.  
+
+To show that $\mathbb{M} = (S, W, P_a )$ is a Markov process, we have
+only to verify the Markov property. To do this, we show that if
+$f_1,f_2 \in \mathscr{B} (S)$, then 
+$$
+E_a (f_1 (x_{t_{1}}) f_2 (x_{t_{2}})) = H_{t_{1}} ( f_1 H_{t_{2}-t_1} f_2) (a).
+$$
+
+Denoting\pageoriginale by $E$ the expectiation on $\Omega$, we have 
+\begin{gather*}
+H_t f (a) = f (a+t), ~ a > 0;\\
+H_t f (0) = E_0 (f(x_t)) = E (\tau \leq t; f (t-\tau )) + E (t <
+\tau; ~ f(0)).
+\end{gather*}
+
+So if $a > 0$,
+\begin{align*}
+  E_a( f_1 (x_{t_{1}}) f_2 (x_{t_{1}})) &=f_1(a+t_1)f_2(a+t_2).\\ 
+  &=f_1(a+t_1)H_{t_2-t_1}f(a+t_1)\\
+  &=H_{t_1}(f_1H_{t_2-t_1} f_2)(a)\\
+\end{align*}
+
+If $a=0$, we have
+\begin{align*}
+  E_0 & (f_1(x_{t_1})f_2(x_{t_2}))=E ( \tau \leq t_1; f_1 (t_1 - \tau
+  )f_2 (t_2 -\tau))\\ 
+  & \hspace{1cm}+ E ( t_1 < \tau \leq t_2; f_1 (0) f_2 (t_2 -
+  \tau)) + E(t_2 < \tau : f_1 (0) f_2 (0)) \\ 
+  &= \int \limits^{t_1}_{0} f_1 (t_1 -s) f_2 (t_2 -s) \lambda
+  e^{-\lambda s} ds + f_1 (0)\\ 
+  & \hspace{1cm} \int \limits^{t_2}_{t_1} f_2 (t_2 -s)
+  \lambda e^{-\lambda s} ds + f_1 (0) f_2 (0) e^{-\lambda t_2} \\ 
+  &= \int \limits^{t_1}_{0} f_1 (t_1 -s) f_2 (t_2-s) \lambda e^{-
+    \lambda s} ds + f_1 (0) e^{-\lambda t_1}\\ 
+  & \hspace{1cm} \int \limits^{t_2
+    -t_1}_{0} f_2 (t_2-t_{1}-s) \lambda e^{- \lambda s} ds +  f_1 (0) f_2
+  (0) e^{-\lambda t_2} \\ 
+  &= \int \limits^{t_1}_{0} f_1 (t_1 -s) \left[ H_{t_{2}-t_1} f_2 (t_1
+    -s) \right]  \lambda e^{-\lambda s} ds + f_1 (0) e^{-\lambda t_1}\\
+  & \hspace{1cm} \left[\int \limits^{t_2-t_1}_{0} f_2 (t_2 -t_1 -s) \lambda
+    e^{-\lambda s} ds + f_2 (0) e^{-\lambda (t_2 -t_1)} \right]\\ 
+  &= \int \limits^{t_1}_{0} f_1 (t_1 -s) H_{t_{2}-t_1} f_2 (t_1 -s)
+  \lambda e^{-\lambda s} + f_1 (0) e^{-\lambda t_1} H_{t_{2}-t_1} f_2
+  (0) \\ 
+  &= H_{t_{1}} \big[ f_1 ~ H_{t_{2}-t_1} f_2 \big] (0).
+\end{align*}\pageoriginale
+
+The following facts are easily verified: 
+\begin{align*}
+  \mathfrak{N} &= \left \{ f : f = 0 ~ a.e., ~ f(0) = 0 \right \}; \\
+  \mathscr{R} &= \left \{ u : u\ \text{abs.cont. in } (0, \infty),\
+  u,u' \in \mathscr{B} ~ (0, \infty) \right \}; 
+\end{align*}
+$\mathscr{G} u (a) = u' (a)$ for $a > 0$ and $\mathscr{G} u (0) =
+\big[ u (0+) -u (0) \big ] \lambda$. 
+
+We now show that $\mathbb{M}$ is \textit{not} strong Marko
+process. Let $\sigma = \sigma_G$, where $G = (0, \infty)$. We shall
+show that $\mathbb{M}$ does not have the strong Markov property with
+respect to the Markov time $\sigma$. We have, 
+$$
+A = P_0 ( \sigma > 0, ~ \sigma (W^+_\sigma) > 0 ) = 0,
+$$
+since $ \sigma (w^+_\sigma) = 0$. Also
+$$
+\big \{ w : \tau (w) > 0 \big \}  ~ \subset \big \{ w : \sigma (
+\xi^{(0)} (.,w )) > 0 \big \}, 
+$$
+and hence 
+$$
+P_0 ( w: \sigma (w) > 0 ) = P ( w : \sigma ( \xi^{(0)} (., w )) > 0
+\ge P \big \{ w : \tau (w) > 0 \big \} = 1. 
+$$
+
+Note that $w (\sigma (w)) = 0$. If $\mathbb{M}$ has the strong Markov
+property with respect to $\sigma$, we should have 
+\begin{multline*}
+  0=A=P_0 ~ ( \sigma > 0, \sigma(w^+_\sigma) > 0 ) = E_0 ( \sigma > 0;
+  P_{x_{\sigma}} ( \sigma > 0 ))\\ 
+  = E_0 ( \sigma > 0; P_0 ( \sigma > 0 ))
+  = 1 \cdot P_0 (\sigma > 0) = 1, 
+\end{multline*}\pageoriginale
+but this is absurd.
+
+\section[Dynkin's formula and generalized ...]{Dynkin's formula and generalized first passage time relation}\label{chap2-sec6}
+% \section 6. 
+
+We now prove some theorems on Markov processes which have the strong
+Markov property with respect to the Markov time $\sigma$. 
+
+\setcounter{thm}{0}
+\begin{thm}[Dynkin]\label{chap2-sec6-thm1}%theorem 1
+  If $u (a) = G_\alpha f (a)$, then 
+  $$
+  u (a) = E_a \left( \int \limits^{\infty}_{0} e^{-\alpha t} f (x_t) dt\right) +
+  E_a ( e^{-\alpha \sigma} u (x_\sigma )). 
+  $$
+\end{thm}
+
+\begin{proof}
+We have
+\begin{align*}
+    u (a) &= E_a \left[\int \limits^{\infty}_{0} e^{-\alpha t} f(x_t) dt \right]\\
+    &= E_a \left( \int \limits^{\sigma}_{0} e^{-\alpha t} f (x_t) dt\right) +
+    E_a \left[\int \limits^{\infty}_{\sigma} e^{-\alpha t} f(x_t) dt\right],
+\end{align*}
+and 
+\begin{align*}
+    E_a \left( \int \limits^{\infty}_{\sigma} e^{-\alpha t} f(x_t) dt\right) &=
+    E_a \left( e^{-\alpha \sigma} \int \limits^{\infty}_{0} e^{-\alpha t}
+    f(x_t (w^+_\sigma )) dt\right)\\ 
+    &=  \int \limits^{\infty}_{0} e^{-\alpha t}  E_a ( e^{- \alpha
+      \sigma}  f (x_t (w^+_\sigma ))) dt \\ 
+    &= \int \limits^{\infty}_{0} e^{-\alpha t} E_a ( e^{- \alpha
+      \sigma} E_{x_{\sigma}} (f (x_t)) dt, 
+\end{align*}
+because $\mathbb{M}$ has the strong Markov property with respect to
+$\sigma$. (Note that\pageoriginale 
+if $\varphi$ is a Borel function on the real
+line, then $\varphi (\sigma) \in  \underset{\sigma +}{\mathscr{B}} )$.  
+
+
+Therefore 
+\begin{align*}
+  E_a \left(\int \limits^{\infty}_{0} e^{-\alpha t} f(x_t) dt\right) &= E_a
+  \left(\int \limits^{\infty}_{0} e^{-\alpha \sigma} E_{x_{\sigma}}
+  (e^{-\alpha t}f(x_t)) dt \right)\\ 
+  &= E_a (e^{-\alpha \sigma} u (x_\sigma )).
+\end{align*}
+\end{proof}
+
+Before proving Theorem \ref{chap2-sec6-thm2}, we prove the following 
+
+\begin{lemma*}
+Let
+  $$
+  \mu_a (dt\ db) = P_a [\sigma \in dt, x_{\sigma} \in  db]
+  $$
+  be the meausre induced on the Borel sets of $ R' \times S $ by the
+  mapping $w \to (\sigma, x_\sigma)$ of $W$ into $R' \times S$. Let
+  $\varphi(t, b)$ be a bounded Borel  measurable function on $R' \times
+  S$. Then 
+  \begin{multline*}
+    \int \limits_{\big[ o, \infty ) \times S} e^{-\alpha t} \mu_a (dt
+      ~ db ) \int \limits^{\infty}_{s=0} e^{-\alpha s} \varphi (s, b)
+      ds \\
+      = \int \limits^{\infty}_{0} e^{-\alpha t} dt \int \limits_{\big[
+          0,t \big ] \times S} \varphi (t-s,b ) \mu_a (ds ~ db)
+  \end{multline*}
+\end{lemma*}
+
+\begin{proof}
+  We have 
+  \begin{align*}
+  \int\limits_{[ 0, \infty ) \times S} e^{-\alpha t} \mu_a (dt db)
+    & \int\limits_{0}^{\infty} e^{-\alpha s} \varphi (s,b) db\\ 
+    & = \int  
+    \limits_{[ 0, \infty ) \times S} \mu_a (dt ~ db) \int \limits_{t}^{\infty}
+      e^{-\alpha s} \varphi (s-t,b) ds\\ 
+    & = \int \limits_{[ 0, \infty )
+          \times S} \mu_a (dt ~ db) ~ \int \limits^{\infty}_{0} F
+        (t,s,b) ds 
+  \end{align*}
+  where\pageoriginale
+  \begin{gather*}
+    F (t, s, b) = e^{-\alpha s} \varphi (s-t,b) , \text{ if } ~ s \ge t;\\
+    0, ~ \text{ if } ~ s < t. \\
+  \end{gather*}
+
+Changing the order of integration we get the last expression equal to 
+\begin{align*}
+\int\limits^{\infty}_{0} ds \int \limits^{\infty}_{[ 0, \infty )
+      \times S} F (t,s,b) \mu_a (dt ~ db)  
+    &= \int \limits^{\infty}_{0} e^{-\alpha s} ds \int
+    \limits^{\infty}_{[ 0, \infty ) \times S} \varphi (s-t,b) \mu_a
+      (dt ~ db)
+\end{align*}
+
+This proves the lemma.
+\end{proof}
+
+
+\begin{thm}\label{chap2-sec6-thm2}% theorem 2.
+(Generalized first passage time relation). Put 
+$$
+Q (t,a,E) = P_a (x_t \in E \text{ and } \sigma > t ).
+$$
+\end{thm}
+
+Then  
+$$
+P (t, a, E) = Q (t, a, E) + \int \limits_{[ 0, t ] \times S} P (t-s,
+b, E) \mu_a (ds~ db) 
+$$
+
+\begin{remark*}
+  When $\sigma$ is the first passage time, this is usually known as
+  the `first passage time relation'. 
+\end{remark*}
+
+\begin{proof}
+  We have
+  \begin{align*}
+    E_a \left(\int \limits^{\sigma}_{0}  e^{- \alpha t } f (x_t) dt\right) &=
+    E_a \left(\int \limits^{\infty}_{0} e^{- \alpha t} f(x_t) ~
+    \underset{[ 0,\sigma]}{\chi} (t) dt\right) \\ 
+    &= \int \limits^{\infty}_{0} e^{-\alpha t} E_a ( \sigma > t : f
+    (x_t) ) dt . 
+  \end{align*}
+
+Further\pageoriginale
+$$
+E_a ( e^{-\alpha \sigma} u (x_\sigma)) = \int \limits_{[ 0,\infty ) \times
+    S} e^{- \alpha t} u (b) \mu_a (dt~ db), 
+$$
+and since $u(b) = \int \limits^{\infty}_{0} e^{- \alpha s} H_s f (b)
+ds$, we have from the Lemma, 
+$$
+E_a ( e^{-\alpha \sigma} u (x_\sigma)) = \int \limits^{\infty}_{t=0}
+e^{-\alpha t} dt \int \limits_{[ 0, t] \times S} H_{t-s} f (b) \mu_a
+(ds ~ db). 
+$$
+
+From Theorem \ref{chap2-sec6-thm1}, therefore
+\begin{multline*}
+  \int \limits^{\infty}_{0} e^{-\alpha t} H_t f (a) dt = u (a) = \int
+  \limits^{\infty}_{0} e^{-\alpha t} E_a ( \sigma > t : f (x_t) dt\\ 
+  +\int \limits^{\infty}_{t=0} e^{-\alpha t} dt \int \limits_{[0,t]
+    \times S} H_{t-s} f (b) \mu_a (ds~ db). 
+\end{multline*}
+
+Since the last equation is true for all $\alpha > 0$, we have for
+almost all $t$, 
+$$
+H_t f(a) = E_a ( \sigma > t; ~ f(x_t)) + \int \limits_{[ 0,t ] \times
+  S} H_{t-s} f (b) \mu_a (dsdb). 
+$$
+
+Now suppose that $f$ is bounded and continuous. Then
+$$
+H_t f (a) -E_{a}( \sigma > t : f (x_t)) ~ = E_a ( \sigma \leq t; f (x_t)) ~
+= E_a ( f (x_t) \underset{[ 0,t]}{\chi} ( \sigma (w))) 
+$$
+is right continuous in $t$ since $f (x_t)$ and $\underset{[
+    0,t]}{\chi}$ are right continuous in $t$. Further 
+$$
+\int \limits_{[ 0,t ] \times S} H_{t-s} f (b) \mu_a (dsdb) = \int
+\limits_{[0, \infty]\chi S}X_{[ 0, t ] }(s) H_{t-s} f (b) \mu_a (ds
+~ db) 
+$$\pageoriginale
+and so is also right continuous in $t$. Therefore the above equation
+holds for all $t$ if $f$ is continuous and bounded. It follows easily
+that for any $f \in \mathscr{B} (s)$ the equation is true identically
+in $t$. Putting $f = X_E$ we get Theorem \ref{chap2-sec6-thm2}. 
+
+The following rough proof should give us an intuitive explanation of
+Theorem \ref{chap2-sec6-thm2}. 
+\begin{align*}
+  P (t,a,E) - Q (t,a,E)  & =  P_a (x_t \in  E, ~ t \ge \sigma ) \\
+  &= \int \limits^{t}_{s=0} \int \limits^{t}_{S} P_a ( \sigma \in ds,
+  X_\sigma \in db, ~ x_t \in E)\\ 
+  &= \int \limits^{t}_{s=0} \int \limits^{t}_{S} P_a ( \sigma \in ds,
+  X_S \in db, ~ x_{t-s}  ( W^+_S ) \in E \\ 
+  &= \int \limits^{t}_{s=0} \int \limits^{t}_{S} P_a ( \sigma \in ds,\
+  X_S \in db)  P_b ( x_{t-s} \in E) \\ 
+  &= \int \limits^{t}_{s=0} \int \limits^{t}_{S}  ~ P (t-s, b,E) \mu
+  (ds ~ db). 
+\end{align*}
+
+We give below two examples to illustrate the use of Theorem
+\ref{chap2-sec6-thm2}. 
+\end{proof}
+
+\setcounter{exam}{0}
+\begin{exam}\label{chap2-sec6-exam1}% Exp 1.
+  Let $\mathbb{M}$ be the standard Brownian motion, $E \in \mathbb{B}
+  (0, \infty)$ and $a > 0$. Then we shall prove that  
+$$
+P_a (x_t \in E, ~ t< \sigma_0) = \int\limits_{E} \big[ N (t,a,b) - N
+    (t,a,-b) \big] db  
+$$\pageoriginale
+where $\sigma_0 (w) = \inf (t : w (t) = 0 )$,
+  
+  Since $w ( \sigma_0 (w)) = 0$, for $E \in  \mathbb{B} [ 0. \infty]$
+  and $F \in \mathbb{B} (S)$ we have 
+  $$
+  \mu_a (E \times F) = P_a (\sigma_0 \in E, x_{\sigma_{0}}\in F)  = 0,
+  ~ \text{ if } ~ 0 \in F;\ \ P_a (~ \sigma_0 \in E ), \text{ if } ~ 0 \in F. 
+  $$
+\end{exam}
+
+
+Therefore form Theorem \ref{chap2-sec6-thm2}, with $\sigma =
+\sigma_0$, we have 
+\begin{align*}
+  P (t,a,E) & = Q (t,a,E) + \int \limits^{t}_{s=0} ~ P (t-s,o,E) \mu_a (ds), \\
+  P (t,a,-E) & = Q (t,a,-E) + \int \limits^{t}_{s=0} ~ P (t-s,o,-E) \mu_a (ds).
+\end{align*}
+
+Since $a > 0$, $E \in \mathbb{B} (0,\infty)$ and all continuous paths
+starting at a  and going into $-E$ pass through $o$, $Q (t,a,-E) =
+0$. Also $P(t-s,o,E) = P (t-s,o,-E)$. Therefor, subtractiong, 
+$$
+P (t,a,E) -P (t,a,-E) = Q (t,a,E) =  P_a (x_t \in E, ~ t < \sigma_0)
+$$
+i.e., \qquad  $\int \limits_{E} \big [ N (t,a,b) ~ -N (t,a,-b) \big]
+db = P_a (x_t \in E, ~ t < \sigma_0)$. 
+
+\begin{remark*}
+$P_a (x_t \in E$ and $t < \sigma_\circ ) ~ = P_a (x_t \in E$ and
+  $x_s > 0$, \break $0 \leq s \leq t )$. 
+\end{remark*}
+
+\begin{exam}\label{chap2-sec6-exam2}%Exp 2.
+$$
+P_a (x_s > 0, ~ 0 \leq s \leq t) = 2 \int \limits^{a}_{0}
+\frac{1}{\sqrt{2 \pi t}} e^{- \xi^2 /2t} d \xi = P_0 (|x_t| < a ). 
+$$
+\end{exam}
+
+Put\pageoriginale $E = (0, \infty)$ in Example
+\ref{chap2-sec6-exam1}. Then we get 
+\begin{align*}
+  P_a (x_s > 0, 0 \le s \le t) & = \int^\infty_0 \frac{1}{\sqrt{2 \pi}
+      t} \left(e ^{-\frac{(b-a)^2}{2t}} -e^{\frac{(b+a)^2}{2t}}\right) db\\ 
+  & = 2 \int^a_0 \frac{1}{\sqrt{2 \pi} t} e^{-\xi^2 /2t}{{d \xi}} \\
+  & = P_0 (|x_t| < a).
+\end{align*}
+
+Note that  if $a > 0$
+\begin{align*}
+  P_a (x_s > 0,0 \le s \le t) & = P_a (\sigma_0 > t)=\\
+  & = P_a \left(\min_{0 \le s \le t} x_s >0\right)= P_a \left(\min_{0 \le s
+    \le t} x_s > -a\right)\\ 
+  & = P_0 \left(\max_{0 \le s \le t} x_s < a\right).
+\end{align*}
+
+The following important theorem which follows easily from Theorem
+\ref{chap2-sec6-thm1} 
+gives what is called Dynkin's formula. 
+
+\begin{thm}\label{chap2-sec6-thm3}%Thm 3
+  If  $E_a (\sigma) < \infty$ and $u \in \mathscr{D}
+  (\mathscr{G})$, then 
+  $$
+  E_a \left(\int^\sigma_0 \mathscr{G} u (x_t) dt\right) = E_a (u
+  (x_\sigma)) - u(a). 
+  $$
+\end{thm}
+
+\begin{proof}
+  From Theorem \ref{chap2-sec6-thm1},
+  $$
+  u (a) = E_a \left(\int^\sigma_0 e^{- \alpha t} f (x_t) dt\right) + E_a
+  (e^{-\alpha \sigma} u (x_\sigma)). 
+  $$
+
+  Also\pageoriginale 
+  $$
+  f (x_t) = u(x_t) -\mathscr{G} u (x_t). 
+  $$
+  
+  Therefore 
+  $$
+  u (a) = E_a \left\{ \int^\sigma_0 e^{- \alpha t} (\alpha u (x_t) - u
+  (x_t)) dt \right\} + E_a (e^{-\alpha \sigma} (u (x_\sigma)). 
+  $$
+  
+  Letting $\alpha \to 0$, we get the result.
+\end{proof}
+
+\section{Blumenthal's $0-1$ law}\label{chap2-sec7}
+%Sec 7
+
+Let $\mathbb{M}$ denote a strong Markov process.
+
+\setcounter{thm}{0}
+\begin{thm}\label{chap2-sec7-thm1}%Thm 1
+If $A \in \mathbb{B}_{0+} (= \bigcap\limits_{ \varepsilon >
+    0} \mathbb{B}_\varepsilon)$, then $P_a (A) =1$ or $0$. 
+\end{thm}
+
+\begin{proof}
+  For $P_a (A) = P_a (A, w \in A) = P_a (A, w^+_0 \in A)$
+  $$
+  =E_a (A : P_{x_0} (A)) = E_a (P_a (A) : A) = (P_a (A))^2
+  $$
+\end{proof}
+
+\begin{thm}\label{chap2-sec7-thm2}%Thm 2
+  If $f (w) \varepsilon \mathbb{B}_{0+}$, then $P_a (f = E_a (f)) = 1$.
+\end{thm}
+
+\begin{proof}
+  Since $f \in \mathbb{B}_{0+}, f$ is bounded. From Theorem
+  \ref{chap2-sec7-thm1}, 
+  $$
+  P_a [f > E_a (f)] = 1 \text { or } 0.
+  $$
+
+  Obviously it cannot be $1$, since then $E_a(f) < E_a (f)$. Hence
+  $P_a [f > E_a (f)] = 0$. For the same reason, $P_a [f < E_a (f)]
+  =0$. Hence $P_a [f = E_a (f)] = 1$. 
+\end{proof}
+
+We consider the following
+\begin{example*}
+  Let $\varphi (t)$ be a function of $t$, positive and increasing for
+  $t > 0$. Let  $x_t$ be a real valued strong Markov process. Consider 
+  $$
+  P_a (\varphi) = P_a \left(\lim_{\delta \downarrow 0} \bigcap_{0 \le
+    t \le 
+    \delta} (|x_t-a|) \le \varphi (t)\right). 
+  $$\pageoriginale
+\end{example*}
+
+By Theorem \ref{chap2-sec7-thm1}, $P_a (\varphi) = 1$ or $0$. If $P_a
+(\varphi) = 1$, we 
+say that $\varphi \in  \mathscr{U}_\varepsilon$ (the upper
+class) and if $P_a (\varphi) =0$, we say that $\varphi \in
+\mathcal{L}_a$ (the lower class). Wiener proved that for the Brownian
+notion, 
+$$
+\varphi (t) = t^{\frac{1}{2}} \in \mathscr{U}_a \text{ and }
+\varphi (t) = t^{\frac{1}{2}+ \varepsilon} \in \mathcal{L}_a
+\text{ for every } \varepsilon > 0 
+$$
+
+These results have been made more precise by P. Lavy, Kolmogorff and
+Er\"ods P. Levy's theorem is that 
+\begin{align*}
+\varphi (t) \in (1+c) \sqrt{2t\log\log 1/t}\in
+& \mathscr{U}_a, c > 0\\
+& \mathscr{L}_a, c < 0. 
+\end{align*}
+
+\section{Markov process with discrete state space}\label{chap2-sec8}
+%Sec 8
+
+Let $\mathbb{M}$ be a right continuous Markov process with discrete
+state space $S$. Since $S$ satisfies the second countability axiom, it
+is countable. We denote the elements of $S$ by $(1,2,3,\ldots)$. Since
+$S$ is discrete, $\mathbb{B} (S) = C (S)$ and $W$ consists of the set
+of all step functions before their killing -time. $\mathbb{M}$ is a
+Markov process because $H_t C (S) \subset C (S)$.   
+
+Let $\tau_a = \inf (t : x_t \neq a) = \inf (t : x_t \in G)$
+where $G= (S - \{a\} ) \cup \{\infty\}$. $\tau_{a}$ is called the 
+\textit{first leaving time} from $a$. Clearly $\tau_a \leq
+\sigma_\infty$. $\tau_a$ has the following properties: 
+\begin{enumerate}
+\item $\tau_a$\pageoriginale is a Markov time.
+
+For,
+  \begin{align*}
+(\tau_a \ge t) &= (x_{s}=a \text{ for all } s < t)\\
+    & = (x_r = a \text{ for all } r <t, r \text{  rational})
+    \in \mathbb{B}_t. 
+  \end{align*}
+
+Note that
+\begin{align*}
+  (\tau_a > t) & = (x_s = a \text{ for all } s \le t)\\
+  & = (x_r = a \text{ for all rational } r < t \text{ and } x_t =a)
+  \in \mathbb{B}_t. 
+\end{align*}
+
+\item $P_a (\tau_a > t) = e^{p_at}$ where $\dfrac{1}{p_a} = E_a (\tau_a)$
+
+Indeed we have
+  \begin{align*}
+    P_a (\tau_a > t+s) & = P_a (\tau_a > t, \tau_a (w^+_t) > s)\\
+    & = E_a (\tau_a > t, p_{x_{t}} (\tau_a > s))\\
+    & = E_a (\tau_a > t, P_a (\tau_a > s)), \text{ since }  x_t = a,\\
+    & = P_a (\tau_a >t) P_a (\tau_a >s)
+  \end{align*}
+
+  Therefore, if $\varphi (t) = P_a (\tau_a > t)$, then $\varphi (t)$
+  is right continuous, as is easily seen, $0 \le \varphi (t) \le 1$
+  and $\varphi (t+s) = \varphi (t) \varphi (s)$. Further 
+  $$
+  \varphi (0) = P_a (\tau_a > 0) = P_a (w:x_o = a) = 1.
+  $$
+
+  If $\varphi (t) = 0$ for some $t >0$, then $\varphi (t) = (\varphi
+  (t /n))^n = 0$ and so we should have $\varphi (t/n) = 0$ for all
+  $n$, and by right continuity, $\varphi (0) = 0$.\pageoriginale 
+Therefore $0 < \varphi (t) \leq 1$ for all $t$. Thus  
+  $$
+  \varphi (t) = e^{-P_at},\quad 0 \le p_a < \infty.
+  $$
+
+  If $p_a = 0$, then $\varphi (t) \equiv 1$, i.e. $P_a (\tau_a > t) =
+  1$, i.e. $P_a (\tau_a = \infty) = 1$ and so 
+  $$
+  E_a (\tau_a) = \int\limits_{\tau_a = \infty} \tau_a (w) dP_a (w) = \infty.
+  $$
+  
+  If $p_a > 0$, the map $w \to \tau_a (w)$ induces the mesure $p_a
+  e^{-p_at} dt$. Therefore 
+  $$
+  E_a (\tau_a) = \int^\infty_0 tp_a e^{-p_at} dt = \frac{1}{p_a}.
+  $$
+
+\item $x_{\tau_{a}}$ and $\tau_a$ are independent with respect to $P_a$.
+\end{enumerate}
+
+Indeed, noticing that $\tau_a (w) = t + \tau_a (w^+_t)$ if $\tau_a (w)
+> t$, we have 
+\begin{align*}
+  P_a (\tau_a > t,x_{\tau_a} \varepsilon E) & = P_a (\tau_a > t, x_{t +
+  \tau_a (w^+_t)}(w) \in E)\\ 
+  &= P_a (\tau_a > t, x _{\tau_a (w^+_t)}(w^+_t) \in E\\
+  & = E_a (\tau_a > t, p_{x_t} (x\tau_a \in E))\\
+  & = E_a (\tau_a > t, P_a (x_{\tau_a} \in E)) \\
+  & = P_a (x_{\tau_a} \in E) P_a (\tau_a > t).
+\end{align*}
+
+We\pageoriginale now determine the generator. From
+Theorem \ref{chap2-sec7-thm1}, 
+$$
+u (a) = E_a \left(\int_0^{\tau_a} f (x_t)e^{- \alpha t} dt\right) + E_a
+(e^{-\alpha \tau_a} u(x_{\tau_a})) 
+$$
+
+Since $w (t) = a $ for $t < \tau_a (w)$ and $\tau_a, x_{\tau{_a}}$ are
+independent, we have 
+\begin{align*}
+  u (a) & = E_a \left(f (a) \int^{\tau_a}_0 e^{-\alpha t} dt\right) + E_a
+  (e^{-\alpha \tau_a}) E_a (u (x_{\tau{_a}}))\\ 
+  & = f (a) E_a \left(\frac{1-e^{-\alpha \tau_a}} {\alpha}\right) + E_a (e^{-
+    \alpha \tau_a}) E_a (u (x_{\tau_{a}}))\\ 
+  & = f (a) \int^\infty_0 \frac{1-e^{- \alpha t}}{\alpha} e^{-p_at}
+  p_a dt+ E_a (u (x_\tau{_a})) \int^\infty_0 e^{-\alpha t}
+  e^{-p_at} p_a dt\\ 
+  & = \frac{f(a)}{p_a+\alpha} +\frac{p_a}{p_a^{+\alpha}} E_a (u (x_{\tau_a})).
+\end{align*}
+
+Let now
+$$
+\pi_{ab} = P_a(x_{\tau{_a}}=b).
+$$
+
+Then
+$$
+E_a (u (x_{\tau_{a}})) = \sum_{b \in S \cup \infty} \pi_{ab} u (b).
+$$
+
+Since $u (\infty)$ is by definition zero,
+$$
+u(a) = \frac{f(a)}{p_a+ \alpha} + \frac{p_a}{p_a+\alpha}
+\sum_{b \in S} \pi_{ab} u (b). 
+$$
+
+From\pageoriginale the last equation we see that $u \equiv 0$ implies $f \equiv
+0$. Therefore 
+$$
+\mathfrak{M} = \big\{ f : f \equiv 0\big\}.
+$$
+
+Also from the above we get
+$$
+\alpha u (a) - f(a) = p_a \sum_{b \in S} \pi_{ab} u (b) -p_a u (a)
+$$
+and hence
+\begin{align*}
+  \mathscr{G} u (a) & = p_a \left(\sum_{b \in S} \pi_{ab} u
+  (b) - u (a)\right)\\ 
+  & = p_a \left(\sum_{b \in S} \pi_{ab} (u (b) -u (a)) -
+  \pi_{a \infty} u (a)\right) 
+\end{align*}
+since \quad $\sum\limits_{b \in S} \pi_{ab} + \pi_{a \infty} = 1$.
+
+\begin{remark*}
+It is generally difficult to determine $\mathscr{R} = \mathscr{D}
+  (\mathscr{G})$. We can also find $\mathscr{G}$ from Dynkin's formula
+  as follows: 
+  $$
+  E_a \left(\int^{\tau_a}_0 \mathscr{G} u (x_t) dt\right) = E_a
+  (u(x_{\tau_a})) - u(a). 
+  $$
+\end{remark*}
+
+Therefore
+$$
+\mathscr{G} u (a)E_a \left[\int^{\tau_a}_0  dt\right]= \sum_{b \in S}
+\pi_{ab} u (b) - u (a)  
+$$
+i.e., $\mathscr{G} u (a) E_a (\tau_a) = \sum\limits_{b \in S}
+\pi _{ab} u (b) - u (a)$  
+and since $E_a (\tau_a) = 1/p_a$, we get the result.
+
+\begin{example*}
+Suppose\pageoriginale that $\pi_{ab} = 0$ expect for $b = a \pm 1$ or $b = \infty$ and let
+$$
+\pi_{a,a+1} = \mu_a,\quad \pi_{a,a-1} = \nu_a,\quad \pi_{a \infty} = \lambda_a
+  1-\mu_a - \nu_a. 
+$$
+\end{example*}
+
+This process is called the \textit{birth and death process}. We have
+\begin{align*}
+\mathscr{G} u (a) & = p_a (\mu_a u (a+1) + \nu_a u (a-1) - u (a))\\
+  & = p_a \left[ \mu_a (u (a+1) -u (a)) + \nu_a (u(a-1) -u(a)) -
+    \lambda_a u(a)\right] 
+\end{align*}
+
+In this particular case we can derermine $\mathscr{D} \mathscr{G}$
+which will depend on the behaviour of $p_a$, $\mu_a$ and $\nu_a$ at $a =
+\infty$. 
+
+\section{Generator in the restricted sence}\label{chap2-sec9}%sec 9
+
+In case of the generator $\mathscr{G}$ defined previously there was
+some ambiguity so that $\mathscr{G} u (a)$ had no meaning unless we
+took a version of $\mathscr{G} u$. We shall now aviod this ambiguity
+by restricting the domain of the generator; we can then speak of
+$\mathscr{G} u (a)$. Before doing this we prove some theorems on the
+domain of the new generator. We first define the function space
+$\mathscr{D}(S)$.   
+
+\begin{defi*}
+Let $y_t$, $t > 0$, be a random process on a probability space $\Omega
+  (\mathbb{B}, P)$. We say that $y_t$ \textit{tends to $y$ essentially
+    $(P)$} as $t \downarrow t_0$, in symbols: $y_t
+  \xrightarrow[ess.(P)]{} y$, if for any countable $t$-set $C$ with
+  $t_0 \in \bar{c}$, 
+  $$
+  p\left(\lim_{t \in C, t \to t_0} y_t = y\right) =1.
+  $$
+\end{defi*} 
+
+Let\pageoriginale $\mathbb{M} = (S,W P_a)$ be a strong Markov
+proces. We make the following  
+
+\begin{defi*}
+$\mathscr{D} (S) = \big\{ f : f \in \mathscr{B} (S)$ and for
+  every $a$, $f (x_t) \xrightarrow[\text{ess.}(P_a)]{} f (a)$, as $t
+  \downarrow 0 \big\}$. 
+\end{defi*}
+
+\setcounter{thm}{0}
+\begin{thm}\label{chap2-sec9-thm1}%Thm 1
+  $\mathscr{D} (S) \supset \subset (S)$.
+\end{thm}
+
+\begin{proof}
+ Clear.
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm2}%2
+$G_\alpha \mathbb{B}(S) \subset \mathscr{D} (S)$. In particular,
+  $G_\alpha \mathscr{D} (S) \subset \mathscr{D} (S)$. 
+\end{thm}
+
+The proof depends on the following Lemma, the proof of which can be in
+Doob's book (p.355).
+
+\begin{lemma*}
+Let $z$ be a random variable on a probability space $\Omega
+  (\mathbb{B}, p)$, with $E(|z|) < \infty$. Let $\mathbb{B}_t \subset
+  \mathbb{B}$, $0 < t < \infty$, be Borel algebras such that if $t < s$,
+  $\mathbb{B}_t \subset \mathbb{B}_s$. Then, if $\mathbb{B}_{o+} =
+  \bigcap\limits_{t > 0} \mathbb{B}_t$, we have 
+$$
+E (z/\mathbb{B}_t) \xrightarrow[\text{ess. }(P)]{} E (z/ \mathbb{B}_{o+}).
+$$
+\end{lemma*}
+
+
+\begin{pot2}%pot2
+We prove first that
+$$
+G_\alpha f (x_t) = e^{\alpha t} E_a (z /\mathbb{B}_t) -e^{\alpha t}
+\int^t_o e^{- \alpha s} f (x_s) ds 
+$$
+with $P_a$ probability 1, where $z = \int^\infty_0 e^{-\alpha s} f
+  (x_s) ds$. Indeed, if $B_t \in \mathbb{B}_t$, by the Markov
+  property, 
+\begin{align*}
+E_a (G_\alpha f (x_t):B_t) & = E_a \left(E_{x_t} \left(\int^\infty_0
+e^{-\alpha s} f (x_s) ds\right):B_t\right)\\ 
+& = E_a \left(\int^\infty_0 e^{-\alpha s} f (x_s (w^+_t)) ds:B_t\right)\\
+& = e^{\alpha t} E_a \left(\int^\infty_0 e^{-\alpha s} f (x_s) ds:B_t\right).
+\end{align*}\pageoriginale
+  
+Since $G_\alpha f (x_t) \in \mathbb{B}_t$, by the definition
+of conditional expectation we have 
+\begin{align*}
+G_\alpha f (x_t) & =e^{\alpha t} E_a \left(\int^\infty_t e^{-\alpha s} f
+    (x_s) ds \big/ \mathbb{B}_t\right)\\ 
+& = e^{\alpha t} E_a \left(\int^\infty_0 e^{-\alpha s} f (x_s) ds \big/
+    \mathbb{B}_t\right) -e^{\alpha t} E_a \left(\int^t_0 e^{-\alpha s}
+    f (x_s) ds \big/ \mathbb{B}_t\right)\\ 
+    & = e^{\alpha t} E_a (z/\mathbb{B}_{t})-e^{\alpha t}
+\left(\int\limits^{t}_{0}e^{-\alpha s}f(x_{s})ds\right).
+  \end{align*}
+  
+Since $\int^t_0 e^{-\alpha s} f (x_s)ds \in \mathbb{B}_t$, the
+  conditional expectation of $\int^t_0 e^{-\alpha s}\break f (x_s)ds$ is
+  $\int^t_0 e^{-\alpha s} f (x_s)ds$  with probability $1$. Using the
+  lemma, therefore, 
+$$
+G_\alpha f (x_t) \xrightarrow[\text{ess }(P_a)]{} E_a (z \big/
+\mathbb{B}_{0+}). 
+$$
+  
+From Blumenthal's $0-1$ law, if $E \varepsilon \mathbb{B}_{0+}$, $P_a
+  (E) = 0$ or $1$. Hence  
+$$
+E_a (z \big/ \mathbb{B}_{0+}) = E_a (z) = G_\alpha f (a).
+$$
+  
+This\pageoriginale proves the theorem.
+\end{pot2}
+
+\begin{thm}\label{chap2-sec9-thm3}%Thm 3
+If $f \in \mathscr{D} (S)$, $f (x_t)$ is right continuous with
+respect to $L'$-norm. 
+\end{thm}
+
+\begin{proof}
+Since $f \in \mathscr{D} (S)$, if $t_n \to 0$, $P_a (f (x_t)
+  \to f (a)) = 1$, so that  
+$$
+E_a (|f (x_t) - f (a)|) \to 0 \text{\ as\ } n \to \infty.
+$$
+
+
+Now
+\begin{align*}
+E_a (|f (x_{s+t}) -f (x_s)|) & = E_a (|f(x_t (w^+_s)) - f (x_0 (w^+_0))|)\\
+  & = E_a (E_{x_s} (|f (x_t)-f(x_{0})|))\to 0\text{\ as \ } n\to \infty.
+\end{align*}
+
+This proves the result
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm4}% them 4.
+  If $F \in \mathscr{D} (S)$ and $G_\alpha f = 0$, then $f
+  \equiv 0$. 
+\end{thm}
+
+\begin{proof}
+Note that if $g_\alpha f = 0$ for some $\beta$, $G_\beta f =0$ for all
+  $\beta$, from the resolvent equation. From Theorem \ref{chap2-sec9-thm3}, 
+$$
+H_t f (a) = E_a (f (x_t)) \to f (a) \text{\ as\ } t \to 0.
+$$
+
+Now
+\begin{align*}
+ 0 &= \alpha G_\alpha f (a) = \alpha
+    \int^\infty_0 e^{- \alpha t} H_t f (a) dt\\ 
+    & = \int^\infty_0 e^{-s} H_{s/\alpha} f (a) ds \to f (a) \text{\ as\ }
+    \alpha \to \infty.  
+  \end{align*}
+\hfill Q.E.D.
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm5}%Thm 5
+If $f \varepsilon \mathscr{D} (S)$,
+$$
+P_a \left(\frac{1}{t} \int^t_0 f (x_s) ds \to f (a) \text{\ as\ } t
+\to 0\right) = 1. 
+$$\pageoriginale
+\end{thm}
+
+\begin{proof}
+Put $y (s, w) = f (x_s (w)) -f(a)$ and let $C = \left\{2^{-n}{_k},
+  k,n = 1,2 , \ldots\right\}$ be the set of dyadic rational
+  numbers. Then from the definition of $\mathscr{D} (S)$, 
+$$
+\lim_{t \to 0} \sup_{ s \varepsilon C, 0 \le s \le t}|y (s,w)|=0,
+$$
+for $w \in \Omega_1$, with $P_a (\Omega_1) =1$. Put
+  $\varphi_n (s) = \dfrac{[2^n s] +1}{2^n}$. Then $\varphi_n (s) \to
+  s$ for every $s$. From Theorem \ref{chap2-sec9-thm3},  
+  $$
+  \int^1_0 E_a(|y(\varphi_n (s), w) - y (s,w)|)ds \to 0 \text{\ as\ } n
+  \to \infty, 
+  $$
+  i.e.,  $y(\varphi_n (s),w) \to y (s,w)$ in $L'$-norm on $L' ([0,1]
+  \times W)$. Therefore, there exists a subsequence,
+  $\psi_n(s)=\varphi_{k_n}(s)$, say, such that $y(\psi_n(s),w) \to y
+  (s, w)$ for $(s, w) \in A$, say, with $(m \times P_a)(A) =
+  1$, $m \times P_a$ denoting the product measure on $[0,1] \times
+  W$. Now 
+  $$
+  (m \times P_a) (A) =\int m (s: (s, w) \in A) dP_a (w) = 1,
+  $$
+  so that $m (s:(s, w) \in A) =1$ for $w \in \Omega_2$,
+  $P_a (\Omega_2) =1$. Let $\Omega_1 \cap \Omega_2 = \Omega$. Then if
+  $w \in \Omega$, $w \in \Omega_2$ so that 
+  \begin{multline*}
+    \bigg|\frac{1}{t} \int^t_0 y (s,w) ds\bigg| =\lim_n \bigg|
+    \frac{1}{t} \int^t_0 y (\psi_n(s),w)ds \bigg|\\ 
+    \leq \lim_{n} \sup_{n
+      \in C,0 \leq s \leq t} y (s,w) \to 0 \text{\ as\ } t \to 0, 
+  \end{multline*}
+since\pageoriginale $w \in \Omega_1$.
+
+\medskip
+\noindent 
+{\textbf{Definition of generator in the restricted sence}}. Let
+ $\mathbb{M}$ be a strong Markov process. Consider the restriction of
+ $G_\alpha$ to $\mathscr{D} (S)$. We shall denote this also by
+ $G_\alpha$. 
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm6}%Thm 6
+$\mathbb{R}_\alpha =G_{\alpha}\mathbb{D} (S)$ is indepentent of $\alpha$. (We
+can therefore denote $\mathbb{R}_{\alpha}$ by $\mathbb{R}$.) 
+\end{thm}
+
+The proof is similar to that is the case of the generator defined earlier.
+
+\begin{thm}\label{chap2-sec9-thm7}%Thm 7
+  $G_\alpha : \mathscr{D} (S) \to \mathbb{R}$ is $1:1$ and linear.
+\end{thm}
+
+\begin{proof}
+Since $G_\alpha f =0$ implies $f \equiv 0$, $G_\alpha$ is $1:1$. Let
+  us write $\mathscr{G}_\alpha = \alpha -G^{-1}_\alpha$. 
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm8}%Thm 8
+$\mathscr{G}_\alpha$ is independent of $\alpha$. 
+\end{thm}
+
+This is obvious.
+
+\begin{defi*}
+$\mathscr{G} = \alpha -G^{-1}_\alpha$ is called the {\em{generator
+      in the restricted sence}}. 
+\end{defi*}
+
+Since  $G_\alpha$  is  $1:1$, $\mathscr{G} u \in
+  \mathbb{B} (S)$. 
+
+\begin{thm}[Dynkin's formula]\label{chap2-sec9-thm9}%Thm 9 
+If $u \in \mathscr{D} (\mathscr{G})$ and $\sigma$ a Markov
+  time with $E_a (\sigma) < \infty$, then 
+$$
+E_a \left(\int^\sigma_0 \mathscr{G} u (x_t) dt\right) = E_a (u
+(x_\sigma)) -u (a). 
+$$
+\end{thm}
+
+proof as before.
+
+\begin{thm}[Dynkin]\label{chap2-sec9-thm10}%Thm 10
+If $\mathscr{G} u$ is continuous at a and if $\mathscr{G} u (a) \neq
+0$, then  
+$$
+\mathscr{G} u (a) = \lim_{U \downarrow a} \frac{E_a (u
+(x_{\tau_U})) -u (a)}{E_a (\tau_U)} 
+$$\pageoriginale
+where $U$ denotes a closed neighbourhood of $a$ and $\tau_U$ is the
+leaving time for $U$, i.e. $\tau_U =\inf\left\{ t :x_t \in
+  (S-U) \cup \infty\right\}$. 
+\end{thm}
+
+\begin{proof}
+Since $\mathscr{G} u (a) \neq 0$, we may suppose that $\mathscr{G} u
+  (a) > \alpha > 0$. Let $U$ be a closed neighbourhood of a such that
+  for $b \in U$, $\mathscr{G} u(b) >\alpha /2$. Let $\tau^n =
+  \tau_U \wedge n$; then $E_a (\tau^n) < \infty$ and  
+  $$
+  E_a \left(\int^{\tau^n}_0 \mathscr{G} u (x_t) dt\right) = E_a (u
+  (x_{\tau^n})) -u (a). 
+  $$
+
+If $T < \tau^n$, $u(x_t)\in U$ and $\mathscr{G} u (x_t) > \alpha/2$. Hence
+$2 || u || \geq \frac{\alpha}{2} E_a (\tau^n)$. If follows that $E_a
+(\tau_U) < \infty$. Therfore 
+$$
+E_a \left(\int^{\tau_U}_0 \mathscr{G} u (x_t) dt\right) = E_a (u
+(x_{\tau_U})) - u (a). 
+$$
+
+Since $\mathscr{G} u (a)$ ia continuous at $a$, $\sup_{b \in
+  \cup} |\mathscr{G} u (a) - \mathscr{G} u (b)|\to 0$ as $U \downarrow
+a$. Therefore 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+\left| \mathscr{G} u (a) - \frac{E_a (u (x_{\tau_U})) - u (a)}
+      {E_a (\tau_U)} \right| &=\frac{1}{E_a (\tau_U)}\left|E_a
+      \left(\int^{\tau_U}_0 (\mathscr{G} u (x_t) - \mathscr{G} u (a))
+      dt\right)\right|\\ 
+      &\leq \frac{1}{E_a (\tau_U)} E_a (\tau_U) \left|
+      \sup_{b \in \cup} |\mathscr{G} u (a) - \mathscr{G} u
+      (b)|\right| \to 0\\
+&\qquad  \text{as \ } U \downarrow a 
+\end{align*}}\relax
+\end{proof}
+
+\begin{thm}\label{chap2-sec9-thm11}%Thm 11
+  If\pageoriginale $u \in \mathscr{D} (\mathscr{G}) = \mathbb{R}$, then
+  given any sequence of Markov times $\{\sigma_n\}$ such that
+  $\sigma_n > 0$, we can find a sequence $\{\tau_n\}$ of Markov times,
+  $0 < \tau_n \leq \sigma_n $ such that 
+  $$
+  \mathscr{G} u (a) = \lim_{n \to \infty} \frac{E_a (u(x_{\tau_n}))
+    - u(a)}{E_a(\tau_n)} 
+  $$
+\end{thm}
+
+\begin{proof}
+Let $\theta_\varepsilon (f) = \inf \left\{ t : \frac{1}{t} \left|
+  \int^t_0 f (x_s) ds -f(a)\right| > \varepsilon\right\}$. If is
+  easily seen that $\theta_\varepsilon (f)$ is a Morkov time, and
+  since $P_a (\frac{1}{t} \int^t_0 f (x_s) ds \to f (a)) = 1$, $P_a
+  (\theta_\varepsilon (f) > 0) = 1$. Let now 
+$$
+\tau_n = \theta_{1/n} (\mathscr{G} u) \wedge \sigma_n \wedge 1.
+$$
+
+Then $P_a (\tau_n > 0) = 1$ and $0 < E_a (\tau_n) < 1$. Therefore
+$$
+E_a \left(\int^{\tau_n}_0 \mathscr{G} u (x_t)dt\right) = E_a
+(u(x_{\tau_{n}}))-u(a). 
+$$
+
+We have 
+\begin{align*}
+& \left| \mathscr{G} u (a) - \frac{E_a (u(x_{\tau_n})) - u(a)}{E_a
+    (\tau_n)}\right|\\
+&\qquad \leq \frac{1}{E_a[\tau_n]} E_a
+  \left[\frac{1}{\tau_{n}}\tau_{n}\left| \int^{n}_0 (\mathscr{G} u(x_t)
+  - \mathscr{G} u (a)) dt\right|\right]\\
+&\qquad  \leq \frac{1}{E_a (\tau_n)} E_a (\tau_n) \frac{1}{n}
+  \to 0 \text{\ as\ } n \to \infty. 
+\end{align*}
+
+Properties of generator in the restricted sense:
+\end{proof}
+
+\begin{thm}[Mean value property]\label{chap2-sec9-thm12}%Thm 12
+  Let\pageoriginale $U$ be an open subset of $S$ and $\tau_U$ the
+  leaving time 
+  from $\bar{U}$ and $u \in \mathscr{D} (\mathscr{G})$.  
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item If $u(a) = E_a (u (x_{\tau_U}))$ for every $a \in
+  \bar{U}$, then $\mathscr{G} u(a) = 0$ in $U$.
+ 
+\item Conversely, if $E_a (\tau_U) < \infty$, $\mathscr{G} u (a) = 0$
+  in $U$, then 
+$$
+u (a) = E_a (u (x_{\tau_U})) \text{\ for every\ } a \in U.
+$$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item If $u(a) = E_a (u (x_{\tau_U}))$ for every $a \in
+  \bar{U}$, then $u(a) = E_a\break (u(x_{\tau_U}))$ for every $a
+  \in S$. For if $a \notin \bar{U}$, $P_a (\tau_U = 0) =
+  1$. If follows that $E_a (u(x_{\tau_U})) = u(a)$. Noting this,
+  let $\tau$ be a Markov time $\leq \tau_U$. Then since $\tau_U =
+  \tau + \tau_U (w^+_\tau)$, we have 
+\begin{align*}
+u (a) = E_a (u (x_{\tau_U})) & = E_a (u(x_{\tau + \tau_U (w^+_\tau)} (w)))\\
+& = E_a (u (x_{\tau_U(w^+_\tau)} (w^+_\tau)))\\
+& = E_a (E_{x_\tau} (u(x_{\tau_U}))) = E_a (u (x_\tau)).
+  \end{align*} 
+
+Now we can choose a sequence of Markov times $\tau_n \leq \tau_U$ so
+that  
+$$
+\mathscr{G} u (a) = \lim_n \frac{E_a (u(x_{\tau_n})) - u(a)} {E_a
+  (\tau_n)} = 0. 
+$$
+
+\item If $E_a(\tau_U) < \infty$ we have from Dynkin's formula
+$$
+E_a \left(\int^{\tau_U}_0 \mathscr{G} u (x_t) dt\right) = E_a
+(u(x_{\tau_U})) -u(a), 
+$$
+so\pageoriginale that if $\mathscr{G} u (a) = 0$ for $a \in
+\bar{U}$, $\mathscr{G} u (x_t) = 0$ for $t < \tau_0$ and we get the
+result. 
+\end{enumerate}
+\end{proof}
+
+\begin{thm}[Local property]\label{chap2-sec9-thm13}%Thm 13
+  Let $u$, $v \in \mathscr{D} (\mathscr{G})$ and $u =v$ in a
+  closed neighbourhood $U$ of $a$. Suppose that there exists a Markov
+  thime $\sigma$ such that  $P_a (\sigma > 0) = 1$ and $P_a$ ($x_t$ is
+  continuous for $0 \le < \sigma$) $=1$. Then 
+  $$
+  \mathscr{G} u (a) = \mathscr{G} v (a).
+  $$
+\end{thm}
+
+\begin{proof}
+  Let $h =u-v$. Then $h (b) = 0$ for $b \in U$. Let $\tau=
+  \sigma \wedge \tau_U$. Then since $x_t$ is continuous for $0 \leq
+  t \leq \tau$, $x_\tau \in U$ so that  $E_a (h (x_\tau)) = 0 = h
+  (a)$. Now 
+$$
+\mathscr{G} h (a) = \lim_{n \to \infty} \frac{E_a (h (x_{\tau_n}))
+    - h (a)}{E(\tau_n)} =0, 
+$$
+since $\tau_n$ can be chosen so that $\tau_n \le \sigma \wedge \tau_U$. 
+\end{proof}

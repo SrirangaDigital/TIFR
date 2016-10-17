@@ -1,0 +1,531 @@
+\title{BASE CHANGE FOR TWISTED INVERSE IMAGE OF COHERENT SHEAVES}
+\markright{Base Change for Twisted Inverse Image of Coherent Sheaves}
+
+\author{By~~ Jean-Louis Verdier}
+\date{}
+
+\maketitle
+
+\setcounter{pageoriginal}{392}
+\section{Existence Theorem}\label{art20-sec1}
+\pageoriginale
+Let $X/k$ be a complete smooth algebraic variety of dimension $n$ over a field $k$ and $\omega_{X}$ be the sheaf of differentials of degree $n$ on $X$. There exists a canonical morphism:
+$$
+\int\limits_{X/k}:H^{n}(X,\omega_{X})\to k,
+$$
+such that for any quasi-coherent sheaf on $X$, the induced map:
+$$
+\Ext^{n-p}(X;F,\omega_{X})\to H^{p}(X,F)^{*}
+$$
+($^{*}$means dual over $k$) is an isomorphism for all $p$.
+
+Let $X\to Y$ be an immersion of schemes which is regular, i.e. defined locally by a regular sequence of $n$ parameters. Let $\bfI$ be the sheaf of ideals on $Y$ defining $X$ and $N_{X/Y}=({\displaystyle{\mathop{\wedge}\limits^{n}}}\bfI/\bfI^{2})^{-1}$ the inverse of the highest exterior power of the cotangent sheaf. For any quasi-coherent sheaf $F$ on $X$ and any quasi-coherent sheaf $G$ on $Y$, there exist canonical isomorphisms:
+$$
+\Ext^{p-n}(X;\foprod{F}{N_{X/Y}}{O_{Y}})\simeq \Ext^{p}(Y;F,G),
+$$
+for all $p$.
+
+These two results are special cases of Grothendieck duality theory developed by Hartshorne in \cite{art20-key1}.
+
+We use freely the notation of \cite{art20-key1} and unless otherwise stated, the terminology of \cite{art20-key1}. The general duality theorem can be summarized as follows.
+
+\begin{theorem}[Existence Theorem]\label{art20-thm1}
+Let $f:X\to Y$ be a proper morphism of noetherian schemes of finite Krull dimension. There exists an exact functor
+$$
+f^{!}:D^{+}_{qc}(Y)\to D^{+}_{qc}(X)
+$$
+and a morphism of functors
+$$
+\int\limits_{f}:Rf_{*}f^{!}\to \Iid
+$$\pageoriginale
+(denoted by $\Tr_{f}$ in \cite{art20-key1}) such that for any $F\in D_{qc}(X)$ and any $G\in D^{+}_{qc}(Y)$ the morphism induced by $\int$ :
+$$
+\Ext^{p}(X;F,f'(G)\to \Ext^{p}(Y:Rf_{*}F,G)
+$$
+are isomorphisms for all $p$.
+\end{theorem}
+
+It should be noted that the pair consisting of the functor $f^{!}$ and the morphism of functors $\int_{f}$ is unique up to unique isomorphism. An immediate consequence of the existence theorem is that if $X\xrightarrow{f}Y$ and $Y\xrightarrow{g}Z$ are proper morphisms of noetherian schemes of finite Krull dimension, then there exists a canonical isomorphism $f^{!}g^{!}\cong (gf)^{!}$. The functor $f^{!}$ is called the {\em twisted inverse image} functor.
+
+Theorem \ref{art20-thm1} is proved in a slightly weaker form under somewhat more restricted hypotheses in (\cite{art20-key1}, chap. VII). Of course, Hartshorne gives in \cite{art20-key1} an explicit description of the functor $f^{!}$. However, starting from this explicit description, the proof of Theorem \ref{art20-thm1} is rather long and leads to many verifications of compatibility.
+
+In \cite{art20-key1} Appendix, P. Deligne has pointed out that the existence theorem can be proved simply and directly. Using only the existence theorem, he has also proved Corollary \ref{art20-coro1} below. We would like to show taht the results of \cite{art20-key1}, except the theory of dualizing and residual complexes, are easy consequences of the existence theorem.
+
+\section{Base change Theorem}\label{art20-sec2}
+
+\setcounter{theorem}{1}
+\begin{theorem}\label{ART20-THM2}
+Let
+\[
+\xymatrix@C=1.5cm{
+X'\ar[d]_-{f'}\ar[r]^-{g'} & X\ar[d]^-{f}\\
+Y'\ar[r]^-{g} & Y
+}
+\]
+be a cartesian square of noetherian schemes of finite Krull dimension where $f$ is proper and $g$ flat. Then the canonical morphism
+\begin{equation}
+g'\ast f^{!}\to {f'}^{!}g^{*}\label{art20-2.1}
+\end{equation}\pageoriginale
+is an isomorphism. In particular, the functor $f^{!}$ is local on $Y$.
+\end{theorem}
+
+Let us first indicate some corollaries.
+
+\begin{corollary}\label{art20-coro1}
+The functor $f^{!}$ is local on $X$ in the following sense. LEt
+\[
+\xymatrix@C=1.5cm{
+ & U\ar@{_(->}[dl]_-{i_{1}}\ar@{^(->}[dr]^-{i_{2}} & \\
+X_{1}\ar[dr]_-{f_{1}} & & X_{2}\ar[dl]^-{f_{2}}\\
+ & Y & 
+}
+\]
+be a commutative diagram, where $Y$ is noetherian of finite Krull dimension, $f_{1}$ and $f_{2}$ are proper and $i_{1}$ and $i_{2}$ are open immersions. For any $G$ in $D^{+}_{qc}(Y)$, there exists a canonical isomorphism
+$$
+f^{!}_{1}G/U\simeq f^{!}_{2}G/U.
+$$
+\end{corollary}
+
+\begin{proof}
+Using a closure of $U$ in the fiber product $\fprod{X_{1}}{X_{2}}{Y}$ and the isomorphisms of composition of twisted inverse images, we are reduced to study the case $X_{1}=Y$, $f_{1}=\Iid_{Y}$. Let us consider the fiber product
+\[
+\xymatrix@C=1.2cm{
+U\ar@{_(->}[d]_{i_{1}} & \fprod{X_{2}}{U}{Y}\ar@{_(->}[d]^-{P_{1}}\ar[l]_-{P_{2}} & U\ar[l]_-{s}\\
+Y & X_{2}\ar[l]_-{f_{2}} & 
+}
+\]
+and the section $s:U\to \fprod{X_{2}}{Y}{Y}$ of the second projection $p_{2}$ defined by the open immersion $i_{2}:U\hookrightarrow X_{2}$. Since $s$ is an open and closed immersion, one has a canonical isomorphism $s^{!}\simeq s^{*}$. Applying the base change theorem, we obtain a canonical isomorphism
+$$
+p^{!}_{2}i^{*}_{1}G\simeq p^{*}_{1}f^{!}_{2}G,
+$$
+and applying the functor $s^{!}\simeq s^{*}$ to both sides we obtain an isomorphism
+$$
+s^{!}p^{!}_{2}i^{*}_{1}G\simeq s^{*}p^{*}_{1}f^{!}_{2}G.
+$$
+However\pageoriginale $s^{!}p^{!}_{2}$ is isomorphic to the identity and therefore we have an isomorphism
+$$
+G/U\simeq f^{!}_{2}G/U.
+$$
+\end{proof}
+
+\begin{lemma}\label{art20-lem1}
+If $G\in D^{+}_{qc}(Y)$ has coherent cohomology, then $f^{!}G$ also has coherent cohomology. The functor $f^{!}$ carries direct sums into direct sums. Let $U\subset X\xrightarrow{f}Y$ be an open set in $X$ on which $f$ is of finite flat dimension (finite tor-dimension in the terminology of \cite{art20-key1}.) Then if $G$ is a bounded complex on $Y$ the complex $f^{!}G/U$ is also bounded (actually the functor $G\to f^{!}G/U$ is ``way out'' in the terminology of \cite{art20-key1}).
+\end{lemma}
+
+\begin{proof}
+Since the statements are local on $X$ and on $Y$, and since they are ``stable under composition'' we are reduced at once to the following two cases : case (1) $f$ is a closed immersion and case (2) $Y$ is affine, $X=P_{1}(Y)$ and $f$ is the canonical morphism. In those two cases the verification is easy.
+\end{proof}
+
+\begin{corollary}\label{art20-coro2}
+If $f:X\to Y$ is of finite flat dimension, then there exists for any $G\in D^{b}_{qc}(Y)$ a canonical isomorphism
+\setcounter{equation}{0}
+\begin{equation}
+f^{!}G\xleftarrow{\sim} f^{!}(O_{Y}) \bigotimes\limits^{\bfL}_{O_{X}}\bfL f^{*}G.\footnotemark[2]\label{art20-coro2-eq2.1}
+\end{equation}
+\footnotetext[2]{$\bigotimes\limits^{\bfL}$ denotes the total tensor product, i.e. the tensor product in the derived category.}
+If further $f^{!}(O_{Y})$ is of finite flat amplitude, this isomorphism holds for all $G\in D^{+}_{qc}(Y)$.
+\end{corollary}
+
+\begin{proof}
+The morphism \eqref{art20-coro2-eq2.1} is defined by the universal property of $f^{!}$ (Theorem \ref{art20-thm1}) and the projection formula (in a form slightly stronger than II. 5.6 in \cite{art20-key1}). To prove that is an isomorphism, the lemma on way out functors (I.7 in \cite{art20-key1}) is used.
+\end{proof}
+
+\begin{corollary}\label{art20-coro3}
+Let $R_{\overdot{Y}}$ be a dualizing complex on $Y$ (V. $2$ in \cite{art20-key1}). Then $f^{!}R_{\overdot{Y}}=R_{\overdot{X}}$ is a dualizing complex on $X$. Denote by $D_{Y}$, $D_{X}$ the corresponding dualizing functors in $D_{c}(Y)$ and $D_{c}(X)$ respectively. For any $G\in D^{-}_{c}(Y)$ there exists a canonical isomorphism:
+\setcounter{equation}{0}
+\setcounter{section}{3}
+\begin{equation}
+f^{!}D_{Y}G\simeq D_{X}\bfL f^{*}G.\label{art20-coro3-eq3.1}
+\end{equation}
+In\pageoriginale particular, for any $G\in D^{+}_{c}(Y)$, there exists a canonical isomrophism:
+\begin{equation}
+f^{!}G\simeq D_{X}\bfL f^{*}D_{Y}G.\label{art20-coro3-eq3.2}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The first statement is local on $Y$ and on $X$ and is ``stable under composition''. Therefore we are reduced to proving it in the two cases noted in the proof of Lemma \ref{art20-lem1}. In those cases the verification is easy (for the case of a closed immersion use V.2.4. in \cite{art20-key1}; a similar proof can be given in the case of the canonical morphism $P_{1}(Y)\to Y$). Now the isomorphism \eqref{art20-coro3-eq3.1} is a formal consequence of Theorem \ref{art20-thm1} and the projection formula. The isomorphism \eqref{art20-coro3-eq3.2} is deduced from \eqref{art20-coro3-eq3.1} via the defining property of a dualizing complex.
+\end{proof}
+
+So far we have used Theorem \ref{ART20-THM2} only in the case when $g$ is an open immersion. We will use Theorem \ref{ART20-THM2} in the case of a smooth morphism $g$ for the proof of Theorem \ref{art20-thm3} below.
+
+\setcounter{proposition}{0}
+\begin{proposition}\label{art20-sec2-prop1}
+Let $f:X\to Y$ be a regular immersion, defined locally by an $O_{Y}$-sequence $t_{1},\ldots,t_{n}$. The Koszul complex built on $t_{1},\ldots,t_{n}$ defines locally an isomorphism
+$$
+f^{!}(O_{Y})\simeq N_{X/Y}[-n],
+$$
+where $N_{X/Y}$ is the inverse of the highest exterior power of the cotangent sheaf. This isomorphism does not depend on the choice of the parameters $t_{1},\ldots,t_{n}$ and thus defines a canonical global isomorphism.
+\end{proposition}
+
+\begin{proof}
+See \cite{art20-key1}, III. 7.2.
+\end{proof}
+
+\begin{theorem}\label{art20-thm3}
+Let $f:X\to Y$ be a proper morphism of noetherian schemes of finite Krull dimension and $U\subset X$ an open subscheme of $X$ smooth over $Y$ of relative dimension $n$. Then, there exists a canonical isomorphism
+$$
+f^{!}(O_{Y})/U\simeq \omega_{U/Y}[n],\footnotemark[2]
+$$
+\footnotetext[2]{If $A=(A^{i},d^{i}_{A})$ is a complex and $n$ an integer, $A[n]$ denotes the complex $A[n]^{i}=A^{n+i},d^{i}_{A[n]}=(-1)^{n}d^{i+n}_{A}$.}
+where $\omega_{U/Y}$ is the sheaf of relative differentials of degree $n$ on $U$.
+\end{theorem}
+
+\begin{proof}
+Consider the diagram
+\[
+\xymatrix@C=1.3cm{
+U\ar[r]^-{\Delta} & \fprod{U}{X}{Y}\ar[d]_-{p_{1}}\ar[r]^{p_{2}} & X\ar[d]^{f}\\
+ & U\ar[r]^-{f/U} & Y
+}
+\]\pageoriginale
+where $p_{1}$ and $p_{2}$ are the projections and $\Delta$ the diagonal. Using Theorem \ref{ART20-THM2}, we have a canonical isomorphism $\bfL p^{*}_{2}f^{!}O_{Y}\simeq p^{!}_{1}O_{U}$ and applying the functor $\Delta^{!}$ we get an isomorphism $\Delta^{!}\bfL p^{*}_{2}f^{!}O_{Y}\simeq \Delta^{!}p^{!}_{1}O_{U}$. But $p_{1}\Delta$ is the identity morphism, hence we get $\Delta^{!}\bfL p^{*}_{2}f^{!}O_{Y}\simeq O_{U}$. Using Corollary \ref{art20-coro2} we obtain $\Delta^{!}(O_{\fprod{U}{X}{Y}})\bigotimes\limits^{\bfL}_{O_{U}}\bfL\Delta^{*}\bfL p^{*}_{2}f^{!}O_{Y}\simeq O_{U}$. The morphism $p_{2}\Delta  : U\to X$ is the canonical injection. Therefore $\bfL \Delta^{*}\bfL p^{*}_{2}f^{!}O_{Y}\simeq f^{!}O_{Y}/U$. Now, using Proposition \ref{art20-sec2-prop1} we obtain an isomorphism :
+$$
+N_{\fprod{U/U}{X}{Y}}[-n]\bigotimes\limits^{\bfL}_{O_{U}}f^{!}O_{Y}/U\simeq O_{U}
+$$
+However $N_{\fprod{U/U}{X}{Y}}[-n]$ is an invertible sheaf whose inverse is $\omega_{U/Y}$. Therefore we get an isomorphism
+$$
+f^{!}O_{Y}/U\simeq \omega_{U/Y}[n].
+$$
+
+Let $f:X\to Y$ be a proper and smooth morphism of noetherian schemes with $\dim(X/Y)=n$. We have an isomorphism $f^{!}O_{Y}\simeq \omega_{X/Y}[n]$. Hence the morphism $\int_{f}:Rf_{*}f^{!}O_{Y}\to O_{Y}$ which defines the duality in Theorem \ref{art20-thm1} induces and is uniquely determined by a morphism denoted once again by
+$$
+\int_{f}:R^{n}f_{*}\omega_{X/Y}\to O_{Y}.
+$$
+It remains to describe this latter morphism. Using the base change theorem (see Remark (1) at the end) one sees at once that it is enough to describe ti when $Y$ is the spectrum of a noetherian complete local ring $A$. Let $Z\xrightarrow{i}X$ be a closed subscheme of $X$, finite over $Y$ and defined locally by an $O_{X}$-sequence. Let $g:Z\to Y$ be the composed morphism $fi$. The canonical isomorphism of composition of twisted inverse images $i^{!}(\omega_{X/Y}[n])=\Ext_{O_{X}}^{n}(O_{Z},\omega_{X/Y})\simeq g^{!}O_{Y}$ composed with the\pageoriginale integral $\int_{g}:\Gamma(Z,g^{!}O_{Y})\to A$ determines a morphism called the {\em residue map} :
+$$
+\Res_{Z}:\Ext^{n}(X;O_{Z},\omega_{X/Y})\to A.
+$$
+Furthermore the canonical morphism
+$$
+\Ext^{n}(X;O_{Z},\omega_{X/Y})\xrightarrow{m_{Z}}H^{n}(X,\omega_{X/Y})
+$$
+is embedded into a commutative diagram:
+\[
+\xymatrix@C=1.5cm{
+\Ext^{n}(X;O_{Z},\omega_{X/Y})\ar[d]_-{m_{Z}}\ar[dr]^{\Res_{Z}} & \\
+H^{n}(X,\omega_{X/Y})\ar[r]^{\int_{f}} & A
+}
+\]
+\end{proof}
+
+\begin{proposition}\label{art20-prop2}
+For any closed subscheme $Z$ of $X$ finite and \'etale over $Y=\spec (A)$, which intersects non-trivially all the connected components of $X$, the morphism $m_{Z}$ is surjective.
+\end{proposition}
+
+\begin{proof}
+Decomposing $X$ into its connected components, we may assume that $X$ is connected. Using the Stein factorisation of $f$ and the fact that $Y$ is the spectrum of a complete local ring, we see that the closed fiber is also connected. By Nakayama's lemma and the base change property of the $n$-th direct image, we are reduced to proving the corresponding statement when $Y=\spec (k)$ where $k$ is a field. By the duality theorem for $f$, the map $m_{Z}$ can be interpreted as the canonical map
+$$
+\Gamma(Z,O_{Z})^{*}\to \Gamma(X,O_{X})^{*}
+$$
+which is the dual of the restriction map
+$$
+\rho :\Gamma(X,O_{X})\to \Gamma(Z,O_{Z}).
+$$
+(Here, $^*$ means the dual over $k$). However $\Gamma(X,O_{X})$ is a field (actually a separable finite extension of $k$), and therefore $\rho$ is injective.
+
+Since there is always a subscheme $Z$ of $X$ fulfilling the hypotheses of Proposition \ref{art20-prop2}, this proposition says in other words that any integral can be computed by residues.
+
+The\pageoriginale residue map $\Res_{Z}:\Ext^{n}(X;O_{Z},\omega_{X/Y})\to A$ however, is completely described by the {\em residue symbol} (\cite{art20-key1}, III. 9.). Choosing $t_{1},\ldots,t_{n}$ an $O_{X}$-sequence of parameters which generate the ideal of $Z$ locally around a closed point $z_{0}\in Z$ and $\omega$ a differential form of degree $n$ on $X$ defined in a neighbourhood $U$ of $z_{0}$, the Koszul complex built over $t_{1},\ldots,t_{n}$ defines an element
+$$
+\left[\begin{array}{c}
+\omega\\
+t_{1},\ldots,t_{n}
+\end{array}\right]
+\in \Ext^{n}(X;O_{Z},\omega_{X/Y}),
+$$
+and every element of $\Ext^{n}(X;O_{Z},\omega_{X/Y})$ can be obtained as a sum of such elements. Applying the residue map we get an element 
+$$
+\Res_{Z}\left[\begin{array}{c} \omega\\ t_{1},\ldots,t_{n}\end{array}\right]\in A
+$$ 
+which we denote simply by $\Res_{z_{0}}\left[\begin{array}{c} \omega\\ t_{1},\ldots,t_{n}\end{array}\right]$. With the aid of Theorems \ref{art20-thm1} and \ref{ART20-THM2}, it can be shown that this residue symbol has the following properties.
+\begin{itemize}
+\item[(R0)] The residue symbol is $A$-linear in $\omega$.
+
+\item[(R1)] If $s_{i}=\Sigma c_{ij}t_{j}$ then $\Res_{z_{0}}\left[\begin{array}{c} \omega\\ t_{1},\ldots,t_{n}
+\end{array}\right]=\Res_{z_{0}}\left[\begin{smallmatrix} \det(c_{ij})\omega\\ s_{1},\ldots,s_{n}\end{smallmatrix}\right]$.
+
+\item[(R2)] The formation of the residue symbol commutes with any base change.
+
+\item[(R3)] If the morphism $g:Z\to Y$ is an isomorphism at $z_{0}$ then 
+\begin{align*}
+\Res_{z_{0}}\left[\begin{array}{l} dt_{1}\wedge\ldots\wedge dt_{n}\\ t^{k_{1}}_{1},\ldots,t^{k_{n}}_{n}\end{array}\right] &= 1\text{~ if~ } k_{1}=\ldots=k_{n}=1,\\
+&= 0\text{~ otherwise.}
+\end{align*}
+
+\item[(R4)] If $\omega\in \Gamma(U,\Sigma t_{i}\omega_{X/Y})$, \ then \ $\Res_{z_{0}}\left[\begin{array}{c} \omega\\ t_{1},\ldots,t_{n}\end{array}\right]=0$.
+\end{itemize}
+
+It is not difficult to show that there exists only one residue symbol which possesses the properties (R0) to (R4) [2].
+\end{proof}
+
+\setcounter{section}{2}
+\section{Proof of Theorem \ref{ART20-THM2}}\label{art20-sec3}
+
+We keep the notations of Theorem \ref{ART20-THM2}. First we have to make explicit the canonical morphism
+$$
+{g'}^{*}f^{!}\to {f'}^{!}g^{*}.
+$$
+There are apparently two ways to define such a morphism.
+
+\medskip
+\noindent
+{\bf First Definition.}~ The\pageoriginale functor $Rg_{*}:D^{+}_{qc}(Y')\to D^{+}_{qc}(Y)$ is right adjoint to the functor $g^{*}$. We have therefore adjunction morphisms denoted by $\Phi_{g}:\Iid\to Rg_{*}g^{*}$, $\Psi_{g}:g^{*}Rg_{*}\to \Iid$. Since $g$ is flat, we have a base change isomorphism for the total direct image $\sigma : g^{*}Rf_{*}\to Rf'_{*}{g'}^{*}$. Taking the right adjoint of both sides we get an isomorphism $\tau : Rg'_{*}{f'}^{!}\xrightarrow{\sim}f^{!}Rg_{*}$. We can define a canonical morphism by composing the following morphisms :
+$$
+{g'}^{*}f^{!}\xrightarrow{{g'}^{*}f^{!}\circ \Phi_{g}}{g'}^{*}f^{!}Rg_{*}g^{*}\xrightarrow{\substack{{g'}^{*}\circ \tau\circ g^{*}\\ \sim}} {g'}^{*}R{g'}_{*}{f'}^{!}g^{*}\xrightarrow{\Psi_{g'}\circ {f'}^{!}g^{*}}{f'}^{!}g^{*}.
+$$
+
+\noindent
+{\bf Second Definition.}~ By Theorem \ref{art20-thm1}, the functor $f^{!}$ is right adjoint to the functor $Rf_{*}$. Therefore we have adjunction morphisms denoted by $\cotr_{f}:\Iid\to f^{!}Rf_{*}$ and $\int_{f}:Rf_{*}f^{!}\to \Iid$. We can define a canonical morphism by composing the following morphisms :
+$$
+{g'}^{*}f^{!}\xrightarrow{\cotr_{f'}\circ {g'}^{*}f^{!}}{f'}^{!}Rf'_{*}{g'}^{*}f^{!}\xrightarrow{\substack{{f'}^{!}\circ \sigma \circ f^{!}\\ \sim}} {f'}^{!}g^{*}Rf_{*}f^{!}
+\xrightarrow{{f'}^{!}g^{*}\circ \int_{f}}{f'}^{!}g^{*}.
+$$
+
+Fortunately those definitions yield the same morphism denoted by
+$$
+c_{g}:{g'}^{*}f^{!}\to {f'}^{!}g^{*}
+$$
+as a result from a general lemma on adjoint functors. The morphisms $c_{g}$ verify the usual cocycle property with respect to the composition of base change. It follows at once that we have only to prove that $c_{g}$ is an isomorphism in the two following cases : case (1) the morphism $g$ is an open immersion and case (2) the morphism $g$ is affine.
+\begin{description}
+\item[Case 1.] {\bf The Morphism \boldmath$g$ is an open immersion.}
+\end{description}
+
+We need the following lemma.
+
+\begin{lemma}\label{art20-sec2-lem2}
+Let $X$ be a noetherian scheme, $i:U\to X$ an open immersion, $m$ a sheaf of ideals on $X$ such that the support of $O_{X}/m=X-U$. Then for any $G\in D^{+}_{qc}(X)$ and for any integer $p$, the canonical morphisms
+\begin{align*}
+& \varinjlim_{n} \Ext^{p}(X;m^{n},G)\to H^{p}(U,G),\\[3pt]
+& \varinjlim_{n}\scrExt^{p}(m^{n},G)\to R^{p}i_{*}i^{*}G,
+\end{align*}\pageoriginale
+are isomorphisms.
+
+Furthermore if $F$ is a complex of sheaves which is bounded above and which has coherent cohomology then the canonical morhisms
+$$
+\varinjlim_{n}\Ext^{p}(X;F\bigotimes\limits^{\bfL}m^{n},G)\to \Ext^{p}(U;F/U,G/U)
+$$
+are isomorphisms.
+\end{lemma}
+
+\begin{proof}
+This is the ``derived version'' of \cite{art20-key1} app. Prop. 4.
+\end{proof}
+
+To prove Theorem \ref{ART20-THM2} in that case, we use the first definition of the canonical morphism $c_{g}:{g'}^{*}f^{!}\to {f'}^{!}g^{*}$. Since two fo the three morphisms defining $c_{g}$ are isomorphisms, it is enough to prove that the morphism
+$$
+{g'}^{*}f^{!}\xrightarrow{{g'}^{*}f^{!}\circ \Phi_{g}}{g'}^{*}f^{!}Rg_{*}g^{*},
+$$
+is an isomorphism, i.e. to prove that for any $G\in D^{+}_{qc}(Y)$ and any open subset $V$ in $X'$ the morphism
+$$
+f^{!}\circ \Phi_{g}:f^{!}G\to f^{!}Rg_{*}g^{*}G
+$$
+induces isomorphisms :
+$$
+w:H^{p}(V,{f'}G)\xrightarrow{\sim}H^{p}(V,f^{!}Rg_{*}g^{*}G).
+$$
+Let $m$ be a sheaf of ideals on $Y$ such that $\supp(O_{Y}/m)=Y-Y'$ and $I$ a sheaf of ideals on $X$ such that $\supp(O_{X}/I)=X-V$. The canonical morphism $G\to Rg_{*}g^{*}G$ factors through
+\footnotetext[2]{$R\scrHom$ is the total derived functor of the functor $\scrHom$ : the sheaf of homomorphisms.}
+$$
+G\to R\scrHom(m^{n},G)\to Rg_{*}g^{*}G.\footnotemark[2]
+$$
+We have therefore a commutative diagram
+\[
+\xymatrix{
+\varinjlim\limits_{r}\Ext^{p}(X;I^{r},f^{!}G)\ar[dd]\ar[r]^-{u} & \varinjlim\limits_{r}\varinjlim\limits_{n}\Ext^{p}(X;I^{r},f^{!}R\scrHom(m^{n},G))\ar[d]^-{v}\\
+ & \varinjlim\limits_{r}\Ext^{p}(X;I^{r},f^{!}Rg_{*}g^{*}G)\ar[d]\\
+H^{p}(V,f^{!}G)\ar[r]^-{W} & H^{p}(V,f^{!}Rg_{*}g^{*}G)
+}
+\]\pageoriginale
+Since the verticle maps are isomorphisms by Lemma \ref{art20-sec2-lem2}, it is enough to show that $u$ and $v$ are isomorphisms. For $r$ fixed however, the map
+$$
+v_{n,r}:\varinjlim_{n}\Ext^{p}(X;I^{r},f^{!}R\scrHom(m^{n},G))\Ext^{p}(X,I^{r},f^{!}Rg_{*}g^{*}G)
+$$
+is isomorphic, by Theorem \ref{art20-thm1}, to the map
+$$
+\varinjlim_{n}\Ext^{p}(Y;Rf_{*}I^{r},R\scrHom(m^{n},G))\to \Ext^{p}(Y;Rf_{*}I^{r},Rg_{*}g^{*}G),
+$$
+which is in turn isomorphic to the map
+$$
+\varinjlim_{n}\Ext^{p}(Y;Rf_{*}I^{r}\bigotimes\limits^{L}m^{n},G)\to \Ext^{p}(Y;Rf_{*}I^{r}/Y',G/Y').
+$$
+Since $f$ is proper, the complex $Rf_{*}I^{r}$ has {\em coherent cohomology}. Therefore by Lemma \ref{art20-sec2-lem2}, this latter map is bijective. Hence $v$ is an isomorphism.
+
+For $r$ and $n$ fixed, the map
+$$
+\Ext^{p}(X;I^{r},f^{!}G)\to \Ext^{p}(X;I^{r},f^{!}R\scrHom(m^{n},G))
+$$
+is isomorphic, by Theorem \ref{art20-thm1}, to the map 
+$$
+\Ext^{p}(Y;Rf_{*}I^{r},G)\to \Ext^{p}(Y;Rf_{*}I^{r},R\scrHom(m^{n},G)),
+$$
+which is in turn isomorphic to the map
+$$
+\Ext^{p}(Y;Rf_{*}I^{r},G)\to \Ext^{p}(Y;Rf_{*}I^{r}\bigotimes\limits^{\bfL}m^{n},G).
+$$
+The projection formula, yields an isomorphism
+$$
+Rf_{*}I^{r}\bigotimes\limits^{\bfL}m^{n}\to Rf_{*}(I^{r}\bigotimes\limits^{\bfL}\bfL f^{*}m^{n}).
+$$
+Therefore,\pageoriginale once again applying Theorem \ref{art20-thm1}, the map $u_{n,r}$ is isomorphic to the map
+$$
+\Ext^{p}(X;I^{r},f^{!}G)\to \Ext^{p}(X;I^{r}\bigotimes\limits^{\bfL}\bfL f^{*}m^{n},f^{!}G),
+$$
+induced by the canonical morphism $\bfL f^{*}m^{n}\to O_{X}$. Going up to the limit on $r$, we obtain by Lemma \ref{art20-sec2-lem2} the map
+$$
+H^{p}(V,f^{!}G)\to \Ext^{p}(V,\bfL f^{*}m^{n}/V,f^{!}V).
+$$
+Since $V$ is contained in $X'$, the complex $\bfL f^{*}m^{n}/V$ is canonically isomorphic to $O_{X}/V$ and therefore this latter map is bijective. Hence $u$ is an isomorphism. This concludes the proof of Theorem \ref{ART20-THM2} in Case 1.
+\begin{description}
+\item[Case 2.] {\bf The morphism \boldmath$g$ is affine.}
+\end{description}
+
+First we need two propositions.
+
+\begin{proposition}[Local form of Theorem \ref{art20-thm1}]\label{art20-sec2-prop3}
+Let $X\xrightarrow{f}Y$ be a proper morphism where $Y$ is noetherian of finite Krull dimension. For any $F\in D^{-}_{qc}(X)$ and any $G\in D^{+}_{qc}(Y)$ the composed morphism 
+{\fontsize{10pt}{12pt}\selectfont
+$$
+Rf_{*}R\scrHom(F,f^{!}G)\xrightarrow{[Rf_{*}]}R\scrHom (Rf_{*}F, Rf_{*}f^{!}G)\xrightarrow{``\int_{f}''}R\scrHom(Rf_{*}F,G)
+$$}\relax
+is an isomorphism. (The morphism $[Rf_{*}]$ is obtained by sheafifying the functorial morphism
+$$
+\RHom (F,f^{!}G)\to \RHom(Rf_{*}F,Rf_{*}f^{!}G).
+$$
+\end{proposition}
+
+\begin{proof}
+This is a formal consequence of Theorem \ref{art20-thm1} and the projection formula.
+\end{proof}
+
+\begin{proposition}\label{art20-sec2-prop4}
+Let $g:Y'\to Y$ be a flat morphism where $Y$ is a noetherian, $M\in D^{-}_{c}(Y)$ a complex bounded above with coherent cohomology, $N\in D^{+}(Y)$ a complex of sheaves which is bounded below. The canonical morphism
+$$
+g^{*}R\scrHom(M,N)\to R\scrHom(g^{*}M,g^{*}N)
+$$
+is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+See \cite{art20-key1}, II. 5.8.
+\end{proof}
+
+We now prove Theorem \ref{ART20-THM2} in the second case. We proceed in three steps.
+\begin{description}
+\item[Step A.] {\em Let\pageoriginale $F$ be a sheaf on $X$ (not necessarily quasi-coherent). For any $G\in D^{+}_{qc}(Y)$ denote by}
+{\fontsize{10pt}{12pt}\selectfont
+$$
+l_{g}(F,G):Rf'_{*}(R\scrHom({g'}^{*}F,{g'}^{*}f^{!}G)\to Rf'_{*}R\scrHom({g'}^{*}F, {f'}^{!}g^{*}G)
+$$}\relax
+the morphism in $D(X')$ induced by $c_{g}$. Then $l_{g}(F,G)$ is an isomorphism whenever $F$ is coherent.
+\end{description}
+
+\begin{proof}
+We have a commutative diagram
+\[
+\xymatrix@R=1.2cm{
+Rf_{*}R\scrHom({g'}^{*F},{g'}^{*}f^{!}G)\ar[d]^-{[Rf'_{*}]}\ar[r]^-{l_{g}(F,G)} & Rf_{*}R\scrHom({g'}^{*}F,{f'}^{!}g^{*}G)\ar[d]^-{[Rf'_{*}]}\\
+R\scrHom(Rf'_{*}{g'}^{*F},Rf'_{*}{g'}^{*}f^{!}G)\ar[r]^-{Rf'_{*}\circ c_{g}}\ar@{-->}[dr]_-{\mu} & R\scrHom(Rf_{*}g^{*}F,Rf_{*}f^{!}g^{*}G)\ar[d]^-{\text{``}\int_{f'}\text{''}}\\
+ & R\scrHom(Rf'_{*}{g'}^{*}F,g^{*}G)
+}
+\]
+where $\mu$ is the only morphism which makes the diagram commutative. By Proposition \ref{art20-sec2-prop3}, we know that the composed vertical morphism on the right is an isomorphism. Hence it is enough to prove that the composed morphism
+\begin{equation*}
+\vcenter{\xymatrix{
+Rf'_{*}\scrHom({g'}^{*F},{g'}^{*}f^{!}G)\ar[r]^{[Rf'_{*}]} & R\scrHom(Rf'_{*}{g'}^{*}F,Rf'_{*}g^{*}f^{!}G)\ar[d]^-{\mu}\\
+ & R\scrHom(Rf'_{*}{g'}^{*}F, g^{*}G)
+}}\tag{*}
+\end{equation*}
+is an isomorphism.
+
+Using the second definition of $c_{g}$, it is easily checked that the morphism $\mu$ is induced by the composed morphism
+$$
+Rf'_{*}{g'}^{*}f^{!}G\xrightarrow{\sigma\circ f^{!}}g^{*}Rf_{*}f^{!}G\xrightarrow{g^{*}\circ \int_{f}}g^{*}G.
+$$
+Using this description of the morphism $\mu$, the Proposition \ref{art20-sec2-prop4} for $g$ and\pageoriginale $g'$ and the base change isomorphism $\sigma:g^{*}Rf_{*}\to Rf'_{*}{g'}^{*}$, it can be seen that the morphism (*) above is isomorphic to the morphism 
+\begin{gather*}
+g^{*}Rf_{*}R\scrHom(F,f^{!}G)\xrightarrow{g^{*}\circ [Rf_{*}]}g^{*}R\scrHom(Rf_{*}F,Rf_{*}f^{!}G)\\
+\xrightarrow{g^{*}\circ \int_{f}}g^{*}R\scrHom(Rf_{*}F,G),
+\end{gather*}
+which is, by Proposition \ref{art20-sec2-prop3}, an isomorphism.
+\end{proof}
+
+\begin{description}
+\item[Step B.] {\em For any open set $V$ in $X$, the morphism}
+\footnotetext[2]{The sheaf $O_{V}$ is the characteristic sheaf of the open set $V$: the sheaf equal to $O_{X}$ on $V$ extended by zero outside $V$.}
+\begin{gather*}
+l_{g}(O_{V},G):Rf'_{*}R\scrHom({g'}^{*}O_{V},g^{*}f^{!}G)\\
+\to Rf'_{*}R\scrHom({g'}^{*}O_{V},f^{!}g^{*}G)\footnotemark[2]
+\end{gather*}
+{\em is an isomorphism.}
+\end{description}
+
+\begin{proof}
+Let $m$ be a sheaf of ideals on $X$ such that $\supp(O_{X}/m)=X-V$. We are going to approximate the sheaf $O_{V}$ by the pro-object $m^{r}$, $r\in \bfN$. Since $g'$ is flat, ${g'}^{*}m$ is a sheaf of ideals on $X$ such that $\supp(O_{X'}/{g'}^{*}m)=X'-{g'}^{-1}(V)$. By Lemma \ref{art20-sec2-lem2} we know that for any $q\in \bfZ$, the canonical morphisms
+\begin{align*}
+& \varinjlim_{r} \Ext^{q}({g'}^{*}m^{r},{g'}^{*}f^{!}G)\to \Ext^{q}({g'}^{*}O_{V},{g'}^{*}f^{!}G)\\[3pt]
+& \varinjlim_{r}\Ext^{q}({g'}^{*}m^{r},{f'}^{!}g^{*}G)\to \Ext^{q}({g'}^{*}O_{V},{f'}^{!}g^{*}G)
+\end{align*}
+are isomorphisms. Furthermore the space $X'$ is noetherian; thus the functor $Rf_{*}$ commutes with directed limits. Hence the canonical morphisms
+\begin{align*}
+&\varinjlim_{r} R^{p}f'_{*}\Ext^{q}({g'}^{*}m^{r},{f'}^{!}g^{*}G)\to R^{p}f'_{*}\Ext^{q}({g'}^{*}O_{V},f^{!}g^{*}G)\\
+&\varinjlim_{r} R^{p}f'_{*}\Ext^{q}({g'}^{*}m^{r},{g'}^{*}f^{!}G)\to R^{p}f'_{*}\Ext^{q}({g'}^{*}O_{V},{g'}^{*}f^{!}G)
+\end{align*}
+are isomorphisms. Therefore the hypercohomology spectral sequences show that for any $n\in \bfZ$, the canonical morphisms
+\begin{align*}
+& \varinjlim_{r}\mathscr{H}^{n}Rf'_{*}R\scrHom({g'}^{*}m^{n},f^{!}g^{*}G)\to \mathscr{H}^{n}Rf'_{*}R\scrHom({g'}^{*}O_{V},{f'}^{!}g^{*}G)\\
+&\varinjlim_{r}\mathscr{H}^{n}Rf'_{*}R\scrHom({g'}^{*}m^{n},g^{*}f^{!}G)\to \mathscr{H}^{n}Rf^{!}_{*}R\scrHom({g'}^{*}O_{V},{g'}^{*}f^{!}G)
+\end{align*}
+are\pageoriginale isomorphisms. Since for any $r$ the morphism $l_{g}(m^{r},G)$ is an isomorphism (Step A), the morphism $l_{g}(O_{V},G)$ is also an isomorphism.
+\end{proof}
+
+\begin{description}
+\item[Step C.] Since $g$ is an affine morphism, the scheme $X'$ can be covered by affine open subspaces which are inverse images by $g'$ of affine open subspaces of $X$. Therefore, to show that $c_{g}$ is an isomorphism, it is enough to show that for any affine open set $V$ in $X$ and any $n\in \bfZ$, the maps induced by $c_{g}$ :
+\begin{equation*}
+H^{n}({g'}^{-1}(V),{g'}^{*}f^{!}G)\to H^{n}({g'}^{-1}(V),{f'}^{!}g^{*}G)\tag{**}
+\end{equation*}
+are isomorphisms. Denote by $i:g^{-1}(O_{V})\to X'$ the open immersion. For any complex of sheaves $M$ on $X'$ (bounded below) we have canonical isomorphism
+$$
+R\scrHom({g'}^{*}(O_{V}), M)\simeq Ri_{*}i^{*}M.
+$$
+Applying $Rf'_{*}$ we get an isomorphism
+$$
+Rf'_{*}R\scrHom({g'}^{*}(O_{V}),M)\xrightarrow{\sim} Rf'_{*}Ri_{*}i^{*}M,
+$$
+and applying the functor $R\Gamma(Y,\quad)$, the derived functor of the functor global section on $Y$, we get an isomorphism
+$$
+R\Gamma(Y',Rf_{*}R\scrHom({g'}^{*}(O_{V}),M))\xrightarrow{\sim}R\Gamma(Y',Rf_{*}Ri_{*}i^{*}M).
+$$
+The composition of direct image functors yields an isomorphism
+$$
+R\Gamma(Y',Rf_{*}Ri_{*}i^{*}M)\xrightarrow{\sim}R\Gamma({g'}^{-1}(V),M);
+$$
+thus we have an isomorphism
+$$
+R\Gamma(Y',Rf_{*}R\scrHom({g'}^{*}(O_{V}),M))\xrightarrow{\sim}R\Gamma({g'}^{-1}(V),M).
+$$
+Therefore applying $R\Gamma(Y',\quad)$ to both sides of $l_{g}(O_{V},G)$, we obtain an isomorphism induced by $c_{g}$ :
+$$
+R\Gamma(g^{-1}(V),{g'}^{*}f^{!}G)\xrightarrow{\sim}R\Gamma(g^{-1}(V),{f'}^{!}g^{*}G),
+$$
+and taking the $n$-th cohomology of both complexes we obtain the morphisms (**) which are hence isomorphisms. This concludes the proof of Theorem \ref{ART20-THM2}.
+\end{description}
+
+\begin{remark*}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item For\pageoriginale the sake of simplicity we have not stated Theorem \ref{ART20-THM2} completely. It should be completed by a description of the behaviour of the integration map under base change.
+
+\item One can prove the base change theorem (Theorem \ref{ART20-THM2}) when $g$ is a morphism of finite flat amplitude under an hypothesis of cohomological transversality, namely: for any couple of points $y'\in Y$ and $x\in X$ such that $g(y')=f(x)$ and for any $n>0\Tor^{f(x)}_{n}(O_{y'},O_{x})=0$.
+
+\item In the context of \'Etale cohomology, one can prove a base change theorem for the twisted inverse image by the same method when $g$ is a smooth morphism, the main point being to have a proposition analogous to Proposition \ref{art20-sec2-prop4} which in the case of $g$ smooth is a consequence of the base change theorem under smooth morphisms for direct images.
+\end{enumerate}
+\end{remark*}
+
+\begin{thebibliography}{99}
+\bibitem{art20-key1} \textsc{R. Hartshorne :} {\em Residues and Duality :} Lecture Notes, Springer Verlag. 
+\end{thebibliography}
+
+\bigskip
+\noindent
+{\small Facult\'e des Sciences de Strasbourg, I.R.M.A.}

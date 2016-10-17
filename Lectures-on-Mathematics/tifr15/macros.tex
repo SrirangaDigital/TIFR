@@ -1,0 +1,157 @@
+\usepackage{graphicx,xspace,fancybox}
+\newcounter{pageoriginal}
+\marginparwidth=10pt
+\marginparsep=10pt
+\marginparpush=5pt
+%\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+\newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
+} 
+\let\pageoriginaled\pageoriginale
+
+\newtheorem{lem}{Lemma}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{remark}{10pt}{10pt}{ }%
+{}{\bfseries}{.}{ }{}
+\theoremstyle{remark}
+
+\newtheorem{defi}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{remarks}{Remarks}
+\newtheorem{example}{Example}
+\newtheorem{prob}{Problem}	
+\newtheorem{proofofprop}{Proof of Proposition}
+\newtheorem{proofofthm}{Proof of theorem}
+
+%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{nonum-it}{}{}{\itshape}{}{\bfseries}{\bf.}{ }%
+{\thmname{#1}\thmnote{ \bfseries#3}}
+\theoremstyle{nonum-it}	
+
+\newtheorem{lemma*}{Lemma}	
+\newtheorem{theorem*}{Theorem}	
+\newtheorem{prop*}{Proposition}	
+\newtheorem{coro*}{Corollary}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{nonum-roman}{}{}{}{}{\bfseries}{\bf.}{ }%
+{\thmname{#1}\thmnote{ \bfseries#3}}
+\theoremstyle{nonum-roman}	
+
+\newtheorem{defi*}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{proof of the corollary}{Proof of the Corollary}
+\newtheorem{remark*}{Remark}	
+\newtheorem{remarks*}{Remarks}	
+\newtheorem{prob*}{Problem}	
+\newtheorem{examples*}{Examples}
+\newtheorem{proofofthm*}{Proof of Theorem}
+%%%%%%%%%%%%%%%%%%%%%
+
+\def\ophi{\overset{o}{\phi}}
+
+\def\oval#1{\text{\cornersize{2}\ovalbox{$#1$}}}
+
+\newcommand*\mycirc[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=.7pt](C) {#1};\:
+}
+
+\DeclareMathOperator{\const}{Const}
+
+%\DeclareMathOperator{\Ker}{Ker}
+%\DeclareMathOperator{\Int}{Int}
+%\DeclareMathOperator{\Supp}{Supp}
+%\DeclareMathOperator{\Sup}{Sup}
+
+\def\uub#1{\underline{\underline{#1}}}
+\def\ub#1{\underline{#1}}
+\def\oob#1{\overline{\overline{#1}}}
+\def\ob#1{\overline{#1}}
+
+
+\font\bigsymb=cmsy10 at 4pt
+\def\bigdot{{\kern1.2pt\raise 1.5pt\hbox{\bigsymb\char15}}}
+\def\overdot#1{\overset{\bigdot}{#1}}
+
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {-1.5ex \@plus .2ex}%
+                                     {\normalfont}}%
+
+\renewcommand\thesection{\@arabic\c@section}
+%\renewcommand\thesubsection{({\thechapter.\thesection.\@arabic\c@subsection})}
+\renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname}\hspace{0.3em}}
+\makeatother
+
+\def\fibreproduct#1#2#3{#1{\displaystyle\mathop{\times}_{#3}}#2}
+\let\fprod\fibreproduct
+
+\def\fibreoproduct#1#2#3{#1{\displaystyle\mathop{\otimes}_{#3}}#2}
+\let\foprod\fibreoproduct
+
+
+\def\cf{{cf.}\kern.3em}
+\def\Cf{{Cf.}\kern.3em}
+\def\eg{{e.g.}\kern.3em}
+\def\ie{{i.e.}\kern.3em}
+\def\iec{{i.e.,}\kern.3em}
+\def\idc{{id.,}\kern.3em}
+\def\resp{{resp.}\kern.3em}
+
+
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bC{\mathbf{C}}
+\def\bD{\mathbf{D}}
+\def\bE{\mathbf{E}}
+\def\bF{\mathbf{F}}
+\def\bG{\mathbf{G}}
+\def\bH{\mathbf{H}}
+\def\bI{\mathbf{I}}
+\def\bJ{\mathbf{J}}
+\def\bK{\mathbf{K}}
+\def\bL{\mathbf{L}}
+\def\bM{\mathbf{M}}
+\def\bN{\mathbf{N}}
+\def\bO{\mathbf{O}}
+\def\bP{\mathbf{P}}
+\def\bQ{\mathbf{Q}}
+\def\bR{\mathbf{R}}
+\def\bS{\mathbf{S}}
+\def\bT{\mathbf{T}}
+\def\bU{\mathbf{U}}
+\def\bV{\mathbf{V}}
+\def\bW{\mathbf{W}}
+\def\bX{\mathbf{X}}
+\def\bY{\mathbf{Y}}
+\def\bZ{\mathbf{Z}}
+
+
+\makeatletter
+\renewcommand\chaptermark[1]{\markboth{\thechapter. #1}{}}
+\renewcommand\sectionmark[1]{\markright{\thesection. #1}}
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \thispagestyle{empty}\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+        \@mkboth{%
+           \contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+\makeatother
+
+\marginparsep=10pt
+\marginparwidth=18pt

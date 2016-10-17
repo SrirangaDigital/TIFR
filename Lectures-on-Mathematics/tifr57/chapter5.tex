@@ -1,0 +1,688 @@
+
+\chapter{Irreducibility, Newton's  Polygon}\label{part1:chap5} 
+
+\setcounter{section}{11}
+\section{Irreducibility Criterion}\label{part1:chap5:sec12}
+
+\subsection{}\label{part1:chap5:sec12:ss12.1}
+
+Let\pageoriginale $k$ be an algebraically  closed field. Let $f= f(X, Y)$ be an
+irreducible element of $k((X))[Y]$ such that $f$ is monic in $Y$ and
+char $k$ does not divide $\deg_Y f$. Let $n= \deg_Y f$. By Newton's
+Theorem \ref{part1:chap2:sec5:ss5.14} there exists an element $y(t)$
+of $k((t))$ such that
+$$
+f(t^n, Y) = \prod_{w \in \mu_n} (Y- y(wt)).
+$$
+where $\mu_n= \mu_n (k)$. Let $\nu$ be an integer such that $|\nu|=
+n$. Let $h= h(f)$ and let $m_i= m_i(\nu, f)$, $q_i = q_i(\nu, f)$,
+$s_i = s_i (\nu, f)$, $r_i = r_i (\nu, f)$, $d_{i+1}= d_{i+1}(f)$ for
+$0 \leq i \leq h+1$.
+
+\subsection{}\label{part1:chap5:sec12:ss12.2}
+
+Let $L$ be an overfield of $k((t))$ and let $v$ be a valuation of $L$
+extending the valuation $\ord_t$ of $k((t))/k$. (As in
+\S\ \ref{part1:chap4:sec11}, by a valuation we mean a real discrete
+valuation with value group $\mathbb{Z}$, as defined
+in \ref{part1:chap4:sec11:ss11.1}.) Let $e = v(t)$. Then we have
+$v(a)= e\ord_t$ a for every $a \in k((t))$.  
+
+With the notation of \ref{part1:chap5:sec12:ss12.1}
+and \ref{part1:chap5:sec12:ss12.2}, we have 
+
+\setcounter{thm}{2}
+\begin{lemma}\label{part1:chap5:sec12:lem12.3}
+  Let $z$ be an element of $L$ such that $v(z-y(wt)) \leq em_h$ for
+  every $w \in \mu_n$. Then $v(f(t^n, z))\leq es_h$.
+\end{lemma}
+
+\begin{proof}
+Let $m=\sup \left\{ v(z-y(wt)) \Big| w \in \mu_n\right\}$. Then $m
+\leq em_h$. We may assume, without loss of generality, that
+$m=v(z-y(t))$. Then $v(z-y(t)) \geq v(z-y(wt))$ for every $w \in
+\mu_n$. Therefore, since 
+$$
+y(t) - y(wt) = (y(t) - z)+ (z - y(wt)),
+$$
+we\pageoriginale get
+\begin{equation*}
+  v(y(t)- y(wt))\geq v(z- y(wt))
+  \tag{12.3.1}\label{part1:chap5:sec12:eq12.3.1} 
+\end{equation*}
+for every $w \in \mu_n$. Now, we have
+\begin{align*}
+  v (f(t^n, z)) & = v\left(\prod_{w \in \mu_n}  (z-y(wt))\right)\\
+  & = v(z- y(t))+ v \left( \prod_{w \neq 1} (z-y(wt))\right)\\
+  & \leq em_h + v \left( \prod_{w m\neq 1} (y(t)- y (wt))\right)&
+  \text{(by (\ref{part1:chap5:sec12:eq12.3.1}))}\\
+  & = em_h + e \ord_t \left( \prod_{w \neq 1} (y (t)- y (wt))\right)\\
+  & = em_h + e(s_h - m_h) & \text{(by
+    \ref{part1:chap3:sec7:coro7.8})}\\
+  & = e s_h.
+\end{align*}
+\end{proof}
+
+\setcounter{subsection}{3}
+
+\subsection{Theorem (Irreducibility
+  Criterion).}\label{part1:chap5:sec12:ss12.4}  
+
+Let $k$ be an algebraically  closed field and let $n$ be a positive
+integer such that char $k$ does not divide $n$. Let $f= f(X, Y)$,
+$\varphi= \varphi (X, Y)$ be elements of $k((X))[Y]$ such that $f$ and
+$\varphi$ are monic in $Y$ and $\deg_Y f= \deg_Y \varphi=n$. Assume
+that $f$ is irreducible in $k ((X)) [Y]$, and let $y(t)$ be an element
+of $K((t))$ such that $f(t^n, y(t))=0$. Let $\nu$ be an integer such
+that $|\nu|=n$. Suppose that
+$$
+\ord_t \varphi (t^n, y(t)) > s_h (\nu, f),
+$$
+where $h= h(f)$. Then:
+\begin{enumerate}[(i)]
+\item $\varphi$ is irreducible in $k((X)) [Y]$.
+\item There exists $z(t) \in k((t))$ such that $\varphi(t^n, z (t))=0$
+  and $\ord_t (z(t)- y(t)) > m_h (\nu, f)$.\pageoriginale
+\end{enumerate}
+
+\begin{proof}
+  We shall use the notation of \ref{part1:chap5:sec12:ss12.1}.
+  \begin{enumerate}[(i)]
+  \item Let $L$ be a finite algebraic normal extension of $k((t))$
+    such that $L$ contains the splitting field of $\varphi (t^n, Y)$
+    over $k((t^n))$. Then there exist $z_1 , \ldots, z_n \in L$ such
+    that we have
+    \begin{equation*}
+      \varphi (t^n , Y) = \prod^n_{i=1} (Y -
+      z_i).\tag{12.4.1}\label{part1:chap5:sec12:eq12.4.1} 
+    \end{equation*}
+    Let $v$ be a valuation of $L$ extending the valuation $\ord_t$ of
+    $k((t))$. (See \ref{part1:chap5:sec12:ss12.2}.) Let $e =
+    v(t)$. Then we have $v(a)= e \ord_t$ a for every $a \in
+    k((t))$. Now, we have
+    $$
+    \ord_t \varphi(t^n, y(wt))= \ord_t \varphi (t^n, y(t)) > s_h
+    $$
+    for every $w \in \mu_n$. Therefore $v(\varphi (t^n, y (wt))) >
+    es_h$ for every $w \in \mu_n$ and it follows that
+    \begin{align*}
+      nes_h & < v \left(\prod_{w \in \mu_n} \varphi (t^n, y(wt))
+      \right)\\
+      & = v \left( \prod^n_{i=1} \prod_{w \in \mu_n} (z_i -
+      y(wt)))\right) & \text{(by
+        (\ref{part1:chap5:sec12:eq12.4.1}))}\\
+      & = v\left( \prod^n_{i=1} f(t^n, z_i)\right)\\
+      & = \sum^n_{i=1} v(f(t^n, z_i)).
+    \end{align*}
+    Therefore there exists $i_0$, $1 \leq i_0 \leq n$, such that,
+    writing $z= z_{i_0}$, we have $v(f(t^n, z)) > es_h$. It therefore
+    follows from Lemma \ref{part1:chap5:sec12:lem12.3} that there
+    exists $w' \in \mu_n$ such that we have
+    \begin{equation*}
+      v (z-y (w't)) >
+      em_h. \tag{12.4.2}\label{part1:chap5:sec12:eq12.4.2} 
+    \end{equation*}
+    Put $y' = y (w' t)$. For $w \in \mu_n$, let $\sigma_w$ be
+    the $k((t^n))$-automorphism of $k((t))$ defined\pageoriginale by
+    $\sigma_w (t)=wt$. Let $\tau_w$ be an extension of $\sigma_w$ to
+    an automorphism of $L$. Since $k((t))$ it complete with respect to
+    the valuation $\ord_t$, $v$ is the only valuation of $L$ extending
+    $\ord_t$. Therefore, since $\ord_t= \ord_t \circ \sigma_w$, we
+    have $v= v \circ \tau_w$ for every $w \in \mu_n$. In particular,
+    from (\ref{part1:chap5:sec12:eq12.4.2}) we get
+    \begin{equation*}
+      v(\tau_w (z) - \tau_w (y')) = v (z- y')> em_h
+      \tag{12.4.3}\label{part1:chap5:sec12:eq12.4.3}  
+    \end{equation*}
+    for every $w \in \mu_n$. Moreover, if $w_1$, $w_2 \in \mu_n$, $w_1
+    \neq w_2$, then by Proposition \ref{part1:chap2:sec6:prop6.15} we
+    have
+    \begin{equation*}
+v(\tau_{\omega_1} (y') - \tau_{\omega_2} (y'))  = e \ord_t (y (w_1 w't)- y(w_2 w't)) \leq e   m_h.\tag{12.4.4}\label{part1:chap5:sec12:eq12.4.4}    
+    \end{equation*}
+
+    Therefore, since
+    \begin{multline*}
+    \tau_{w_1} (z) - \tau_{w_2} (z) = (\tau_{w_1}(z) - \tau_{w_1}
+    (y'))\\
+    + (\tau_{w_1}(y')- \tau _{w_2} (y')) + (\tau_{w_2}(y')-
+    \tau_{w_2}(z)),
+    \end{multline*}
+    it follows from (\ref{part1:chap5:sec12:eq12.4.3}) and
+    (\ref{part1:chap5:sec12:eq12.4.4}) that $v(\tau_{w_1}(z)-
+    \tau_{w_2})\leq em_h$ if $w_1 \neq w_2$. In particular,
+    $\tau_{w_1} (z) \neq \tau_{w_2}(z)$ if $w_1 \neq w_2$. Therefore
+    the set $S = \left\{ \tau_w (z) \Big| w \in \mu_n \right\}$
+    consists of $n$ distinct elements. Since all the $n$ elements of
+    $S$ are conjugates of $z$ over $k((t^n))$, the minimal polynomial
+    of $z$ over $k((t^n))$ has degree at least $n$. On the other hand,
+    $\varphi (t^n, Y) \in k((t^n))[Y]$, $\deg_Y \varphi(t^n, Y)=n$ and
+    $\varphi(t^n, z)=0$. Therefore $\varphi (t^n, Y)$ is irreducible
+    in $k((t^n)) [Y]$. This means that $\varphi (X, Y)$ is irreducible
+    in $k((X))[Y]$. This proves (i).
+
+\item Since $\varphi$ is irreducible by (i), all the roots of
+  $\varphi(t^n, Y)$ belong to $k((t))$ by Newton's Theorem
+  \ref{part1:chap2:sec5:ss5.14}. Therefore $\tau_w (z) \in k((t))$ for
+  every $w \in \mu_n$. Now, taking $z(t) = \tau_w (z)$ with $w=
+  w'^{-1}$, (ii) follows from (\ref{part1:chap5:sec12:eq12.4.3}).
+  \end{enumerate}
+\end{proof}
+
+\section{Irreducibility of the Approximate
+  Roots}\label{part1:chap5:sec13} 
+
+\subsection{}\label{part1:chap5:sec13:ss13.1} 
+
+Let\pageoriginale $k$ be an algebraically closed field and let $f=
+f(X, Y)$ be an irreducible element of $k((X))[Y]$. Assume that $f$ is
+monic in $Y$ and that char $k$ does not divide $n = \deg_Y f$. Let
+$\nu$ be an integer such that $|\nu|=n$. With this notation, we have
+the following theorem:
+\setcounter{thm}{1}
+\begin{thm}\label{part1:chap5:sec13:thm13.2} 
+  Let $y(t)$ be an element of $k((t))$ such that $f(t^n,\break y(t))=0$. Let
+  $e$ be an integer such that $1 \leq e \leq h(f)+1$ and let 
+$$
+g_e = g_e (X, Y)= App_Y ^{d_e} (f).
+$$
+where $d_e = d_e (f)$. Then:
+\begin{enumerate}[\rm (i)]
+\item $g_e$ is irreducible in $k((X))[Y]$.
+
+\item If $e \geq 2$ then there exists an element $z(t)$ of $k((t))$
+  such that\break  $g_e (t^{n/d_e}, z(t))=0$ and $\ord_t (z(t^{d_e})-
+  y(t))=m_e (\nu, f)$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+~
+\begin{enumerate}[(i)]
+\item If $e=1$ then $\deg_Y g_e = n/d_1 =1$, so that the assertion is
+  clear in this case. If $e= h(f)+1$ then $g_e =f$, so that the
+  assertion is clear also in this case. We assume now that $2 \leq e
+  \leq h(f)$. Write $y(t)= \sum y_jt^j$ with $y_j \in k$ for every
+  $j$, and let $\ob{y}(t)= \sum\limits_{j < m_e} y_j t^j$, where $m_e = m_e
+  (\nu, f)$. Let $G_e = G_e (X, Y)$ be the pseudo $d^{\rm th}_e$ root of
+  $f$. Recall that $G_e$ is the minimal monic polynomial of
+  $\ob{y}(t)$ over $k((t^n))$. Now, by Proposition
+  \ref{part1:chap2:sec6:prop6.13} (ix) $d_e$ divides $j$ for every $j
+  \in \Supp_t \ob{y}(t)$. Therefore  there exists $y'(t) \in k((t))$
+  such that $\ob{y}(t) = y' (t^{d_e})$. Put $n' = n/d_e, t' =
+  t^{d_e}$. Then we have $G_e (t'^{n'}, y' (t'))= G_e (t^n,
+  \ob{y}(t))=0$. Let $\nu'= \nu/d_e$. Now, in order to prove (i), it
+  is enough to show that
+  \begin{equation*}
+    ord_{t'} g_e (t'^{n'}, y' (t')) > s_{h'} (\nu', G_e),
+    \tag{13.2.1}\label{part1:chap5:sec13:eq13.2.1}  
+  \end{equation*}
+  where\pageoriginale $h' = h(G_e)$. For, given (\ref{part1:chap5:sec13:eq13.2.1}),
+  we can apply Theorem \ref{part1:chap5:sec12:ss12.4} with $f$ (\resp
+  $\varphi$) replaced by $G_e$ (\resp $g_e$) and conclude that $g_e$
+  is irreducible. Now, (\ref{part1:chap5:sec13:eq13.2.1}) is clearly
+  equivalent to 
+\begin{equation*}
+  \ord_t g_e (t^n , \ob{y} (t))> s_{h'} (\nu', G_e)
+  d_e. \tag{13.2.2}\label{part1:chap5:sec13:eq13.2.2} 
+\end{equation*}
+
+By Proposition \ref{part1:chap2:sec6:prop6.16} we have $h' = e-1$ and 
+$$
+s_{h'} (\nu', G_e) d_e = s_{e-1} (\nu, f)/d_e< s_e (\nu, f)/d_e= r_e
+(\nu, f).
+$$
+
+Therefore, in order to prove (\ref{part1:chap5:sec13:eq13.2.2}), it is
+enough to prove that
+\begin{equation*}
+  \ord_t g_e (t^n, \ob{y} (t))> r_e (\nu,
+  f).\tag{13.2.3}\label{part1:chap5:sec13:eq13.2.3}  
+\end{equation*}
+Now, (\ref{part1:chap5:sec13:eq13.2.3}) follows from
+Corollary \ref{part1:chap3:sec7:coro7.20}  by taking $a=0$ and
+$u=0$. This completes the proof of (i).
+\item If $e=h(f)+1$ then $d_e= 1$, $g_e =f$ and
+  $m_e=\infty$. Therefore in this case the assertion is clear by
+  taking $z(t) = y(t)$. Now, suppose $2 \leq e \leq h(f)$. Then, in
+  view of (\ref{part1:chap5:sec13:eq13.2.1}), it follows from Theorem
+  \ref{part1:chap5:sec12:ss12.4} that there exists $z' (t') \in k
+  ((t'))$ such that $g_e (t'^{n'}, z' (t'))=0$ and 
+\begin{equation*}
+  \ord_{t'} (z' (t') - y(t')) > m_{h'} (\nu',
+  G_e).\tag{13.2.4}\label{part1:chap5:sec13:eq13.2.4} 
+\end{equation*}
+Therefore by Proposition \ref{part1:chap2:sec6:prop6.17} we get
+\begin{equation*}
+h(g_e) = h' , m(\nu', g_e) = m(\nu', G_e), S(\nu', g_e) = s(\nu',
+G_e).\tag{13.2.5}\label{part1:chap5:sec13:eq13.2.5}  
+\end{equation*}
+In particular, from (\ref{part1:chap5:sec13:eq13.2.4}) we get
+\begin{equation*}
+  \ord_t (y' (t') - z' (t'))> m_{h'} (\nu',
+  g_e). \tag{13.2.6}\label{part1:chap5:sec13:eq13.2.6}  
+\end{equation*}
+
+Now,\pageoriginale by Corollary \ref{part1:chap3:sec7:coro7.10} applied to
+(\ref{part1:chap5:sec13:eq13.2.6}) by replacing $f$ (\resp\break  $y(t)$,
+\resp $u(t)$) by $g_e$ (\resp $z'(t')$, \resp $y' (t')$), we get
+$$
+\ord_{t'} (g_e (t'^{n'}, y' (t')))= s_{h'} (\nu', g_e) - m_{h'}(\nu',
+g_e) + \ord_{t'} (y' (t') - z' (t')).
+$$
+From this, by (\ref{part1:chap5:sec13:eq13.2.5}) we get
+$$
+\ord_{t'} (g_e(t'^{n'}, y' (t')))= s_{h'}(\nu' G_e) - m_{h'} (\nu'
+G_e) + \ord_{t'} (y' (t')- z'(t')).
+$$
+Now, since $t'= t^{d_e}$, there exists $z(t) \in k((t))$ such that $z'
+(t')= z(t^{d_e})$, and we get
+$$
+\ord_t (g_e(t^n , \ob{y} (t))) = d_e s_{h'} (\nu', G_e) - d_e m_{h'}
+(\nu', G_e) + \ord_t (\ob{y} (t) - z(t^{d_e})).
+$$
+
+Therefore by (\ref{part1:chap5:sec13:eq13.2.3}) we get
+\begin{gather*}
+  r_e (\nu,f)< d_e s_{h'} (\nu' , G_e) - d_e m_{h'}(\nu', G_e) +
+  \ord_t (\ob{y} (t)- z(t^{d_e}))\\
+  = s_{e-1} (\nu, f)/d_e-m_{e-1} (\nu, f) + \ord_t (\ob{y}(t)- z()t^{d_e})
+\end{gather*}
+by Proposition \ref{part1:chap2:sec6:prop6.16}. This gives
+\begin{align*}
+  \ord_t (\ob{y}(t)- z(t^{d_e}))& > m_{e-1} (\nu, f) + f_e (\nu, f)-
+  s_{e-1} (\nu, f)/d_e\\
+  & = m_{e-1} (\nu, f) + (s_e (\nu, f)- s_{e-1} (\nu, f))/d_e\\
+  & = m_{e-1} (\nu, f)+ q_e (\nu, f)\\
+  & = m_e (\nu, f).
+\end{align*}
+
+Therefore, since $\ord_t(\ob{y} (t)- y(t))= m_e (\nu, f)$, we get
+\begin{align*}
+  \ord_t (z(t^{d_e})- y(t))& = \ord_t ((z(t^{d_e}) - \ob{y} (t)) +
+  (\ob{y}(t)- y(t)))\\
+  & = m_e (\nu, f).
+\end{align*}
+\end{enumerate}
+Also,\pageoriginale from $g_e (t'^{n'}, z' (t'))=0$ we get $g_e (t^{n/d_e},
+z(t))=0$. This completes the proof of (ii).
+\end{proof}
+
+\begin{coro}\label{part1:chap5:sec13:coro13.3}  
+  Let $f$ and $\nu$ be as in \ref{part1:chap5:sec13:ss13.1}. Let $e$
+  be an integer, $2 \leq e \leq h(f)+1$. Let $g_e = App_Y^{d_e} (f)$,
+  where $d_e = d_e(f)$. Let $\nu' = \nu/d_e$. Then $h(g_e)=e-1$ and
+  for $0 \leq i \leq e-1$ we have
+\begin{align*}
+  m_i (\nu', g_e)& = m_i (\nu, f)/d_e,\\
+  q_i (\nu', g_e)& = q_i (\nu, f)/d_e,\\
+  s_i (\nu', g_e) & = s_i (\nu, f)/d^2_e \quad (\text{if}~ i \neq
+  0).\\
+  r_i (\nu', g_e) & = r_i (\nu, f)/d_e,\\
+  d_{i+1} (g_e) & = d_{i+1} (f)/ d_e.
+\end{align*}
+\end{coro}
+
+\begin{proof}
+  This is immediate from Theorem \ref{part1:chap5:sec13:thm13.2} (ii).
+\end{proof}
+
+\begin{coro}\label{part1:chap5:sec13:coro13.4}
+  Let char $k=0$. Let $\varphi = \varphi (X, Y)$ be an element of
+  $k[X, Y]$ such that $n = \deg_Y \varphi> 0$, $\varphi$ is monic in
+  $Y$ and $k[X, Y]/ (\varphi)$ is isomorphic (as a $k$-algebra) to
+  $k[Z]$, where $Z$ is an indeterminate. Let $f=f(X, Y)=\varphi
+  (X^{-1}, Y)$. Then $f$ is irreducible in $k((X)) [Y]$. Let $h =h(f)$
+  and for $1\leq e \leq h+1$ let $\psi_e= App_Y^{d_e}(\varphi)$, where
+  $d_e = d_e (f)$. Then $k[X, Y]/(\psi_e)$ is isomorphic (as a
+  $k$-algebra) to $k[Z]$ for every $e$, $1 \leq e \leq h+1$.
+\end{coro}
+
+\begin{proof}
+  The irreducibility of $f$ follows from
+  Theorem \ref{part1:chap4:sec9:thm9.24}. Now, since $d_1 (f) =
+  n$,\pageoriginale $\psi_1$ is monic in $Y$ of $Y$-degree
+  one. Therefore the assertion is clear for $e=1$. For $2 \leq e \leq
+  h+1$ we prove the assertion by decreasing induction on $e$. If $e=
+  h+1$ then $d_e=1$, so that $\psi_e=\varphi$ and the assertion
+  follows from the hypothesis. Now, let $2 \leq e \leq h(f)$ and
+  suppose $k[X, Y]/(\psi_{e+1})$ is isomorphic to $k[Z]$. Let
+  $g_{e+1}= App_Y^{d_{e+1}}(f)$. Then by
+  Proposition \ref{part1:chap1:sec4:prop4.7} we have $g_{e+1}(X, Y)=
+  \psi_{e+1} (X^{-1}, Y)$. Let $h' = h(g_{e+1})$. Then by
+  Corollary \ref{part1:chap5:sec13:coro13.3} we have $h'=e$ and
+  $d_{h'}(g_{e+1}) = d_e/d_{e+1}$. If follows that $\psi_e =
+  App_Y^{d_{h'}} (\psi_{e+1})$, where $d_{h'}= d_{h'}
+  (g_{e+1})$. Now it follows from Corollary
+  \ref{part1:chap4:sec9:coro9.28} that $k[X, Y]/(\psi_e)$ is
+  isomorphic to $k[Z]$.   
+\end{proof}
+
+\begin{coro}\label{part1:chap5:sec13:coro13.5}
+  With the notation and assumptions of
+  Corollary \ref{part1:chap5:sec13:coro13.4} , let $h=h(f)$ and let
+  $m_i= m_i (-n, f)$, $q_i = q_i(-n, f)$, $s_i (-n, f)$, $r_i=
+  r_i(-n, f)$ and $d_{i+1}= d_{i+1}(f)$ for $0 \leq i \leq h$. Then we
+  have:
+  \begin{enumerate}[(i)]
+  \item $r_i =- d_{i+1}$ for $2 \leq i \leq h$.
+    \item $s_i =- d_i d_{i+1}$ for $2 \leq i \leq h$.
+      \item $q_i= d_{i-1} - d_{i+1}$ for $3 \leq i \leq h$.
+        \item $m_i = d_1 - d_i - d_{i+1}$ for $2 \leq i \leq h$.
+          \item If $h\geq 2$ then $m_i < n-2$ for every $i$, $1 \leq i
+            \leq h$.
+  \end{enumerate}
+\end{coro}
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item Fix an $e$, $2 \leq e \leq h$, and let $\psi =
+  App_Y^{d_{e+1}}(\varphi)$. Then by
+  Corollary \ref{part1:chap5:sec13:coro13.4} $k[X, Y]/(\psi)$ is
+  isomorphic to $k[Z]$. Let $g=g(X, Y)= \psi (X^{-1}, Y)$. Then $g=
+  App_Y^{d_{e+1}}(f)$. Let $h'=h(g)$. Then by Corollary
+  \ref{part1:chap5:sec13:coro13.3} we have $h'=e$ and $d_{h'}(g)= d_e/
+  d_{e+1}$. Noting that $\deg_Y \psi = n/d_{e+1}$ and $h' = e \geq 2$,
+  it follows from Corollary \ref{part1:chap4:sec9:coro9.25} that we
+  have $r_{h'}(-n /d_{e+1}, g)=- 1$. By Corollary
+  \ref{part1:chap5:sec13:coro13.3} we have $r_{h'}(-n/d_{e+1},
+    g)=r_e(-n, f)/d_{e+1}= r_e / d_{e+1}$. Thus we have $-1 = r_e/
+  d_{e+1}$, and (i) is proved.
+
+\item This\pageoriginale is immediate from (i), since $s_i= d_i r_i$.
+
+\item By (ii) we have
+\begin{align*}
+  -d_i d_{i+1} & = s_i\\
+  & = s_{i-1} + q_i d_i\\
+  & = -d_{i-1}d_i + q_i d_i,
+\end{align*}
+since $i \geq 3$. This gives $q_i = d_{i-1}- d_{i+1}$.
+
+\item For $i \geq 3$ we have
+\begin{align*}
+  m_i & = m_{i-1}+ q_i\\
+  & = m_{i-1} + d_{i-1} - d_{i+1}
+\end{align*}
+by (iii). Therefore, by induction on $i$, it is enough to prove that
+$m_2 = d_1- d_2 - d_3$. Now, by (ii) we have $-d_2 d_3 = s_2 = q_1 d_1
++ q_2 d_2$. Therefore  we get 
+$$
+m_2 = q_1 + q_2 =- q_1 ((d_1 /d_2) -1) -d_3.
+$$
+
+Now, by Corollary \ref{part1:chap4:sec9:coro9.27} we have $d_2 = d_1$
+or $d_2=- q_1$. We consider the two cases separately.
+
+\textit{Case(1).} $d_2=d_1$. Then $m_2 = - d_3= d_1 - d_2 -d_3$.
+
+\textit{Case (2).} $d_2=- q_1$. Then
+$$
+m_2 = d_2 ((d_1/d_2) -1) - d_3 = d_1-d_2-d_3.
+$$ 
+
+\item Suppose $h \geq 2$. It is enough to prove that $m_h< n-2$. By
+  (iv) we have $m_h = d_1 - d_h - d_{h+1} < d_1 -2 = n-2$, since
+  $d_{h+1}=1$ and $d_h\geq 2$.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}\label{part1:chap5:sec13:rem13.6}
+  Corollaries \ref{part1:chap5:sec13:coro13.4} and
+  \ref{part1:chap5:sec13:coro13.5} hold also for char $k > 0$ (and, in
+  fact, the same proof goes through) provided we assume that $n$ is
+  not divisible by char $k$.
+\end{remark}
+
+\begin{prop}\label{part1:chap5:sec13:prop13.7}
+  Let\pageoriginale $f$ and $\nu$ be as in \ref{part1:chap5:sec13:ss13.1}. Let $e$
+  be an integer, $1 \leq e \leq h(f)$. Let $y(t)$ be an element of
+  $k((t))$ such that $f(t^n, y(t))=0$. Let $k'$ be an overfield of $k$
+  and let $y^*(t)$ be an element of $k'((t))$ such that $\ord_t(y^*
+  (t)- y(t)) \geq m_e (\nu, f)$ and $m_e (\nu, f) \in \Supp_t y^*
+  (t)$. Let $g_e = g_e (X, Y)$ be defined as follows: If $e\geq 2$
+  then $g_e = App_Y^{d_e} (f)$, whereas if $e=1$ then $g_1 =
+  App_Y^{d_1}(f)$ or $g_1 = Y$, where $d_e = d_e (f)$. Let $g'_e$
+  denote the $Y$-derivative of $g_e$. Then we have
+$$
+\ord_t g'_e (t^n, y^* (t))= r_e (\nu, f)- m_e (\nu, f).
+$$
+\end{prop}
+
+\begin{proof}
+  With either definition of $g_1$ we have $g'_1 =1$. Therefore, since
+  $r_1 (\nu, f)=m_1 (\nu, f)$, the assertion is clear in case
+  $e=1$. Assume now that $e \geq 2$. By
+  Theorem \ref{part1:chap5:sec13:thm13.2} $g_e$ is irreducible in
+  $k((X))[Y]$. Put $d=d_e$, $g= g_e, h'= h(g)$, $\nu' = \nu/d$,
+  $s'_{h'} = s_{h'}(\nu', g)$, $m'_{h'} =m_{h'}(\nu' ,g)$. Then by
+  Corollary \ref{part1:chap3:sec7:coro7.9} applied to $g$ we have
+\begin{equation*}
+  \ord_t g' (t^{n/d}, z(t))= s'_{h'}-
+  m'_{h'},\tag{13.7.1}\label{part1:chap5:sec13:eq13.7.1} 
+\end{equation*}
+where $g'= g'_e$ and $z(t) \in k((t))$ is any zero of $g(t^{n/d},
+Y)$. Put $m_i= m_i(\nu, f)$, $q_i = q_i (\nu, f)$, $s_i= s_i (\nu, f)$
+and $r_i = r_i(\nu, f)$ for $0 \leq i \leq h(f)$. then by Corollary
+\ref{part1:chap5:sec13:coro13.3} we have $h' = e-1$, $s'_{h'}=
+s_{e-1}/d^2$, $m'_{h'}= m_{e-1}/d$. Therefore
+\begin{align*}
+  d (s'_{h'}- m'_{h'})& = s_{e-1}/d-m_{e-1}\\
+  & = s_e /d - q_e - m_{e-1}\\
+  & = r_e - m_e.
+\end{align*}
+Therefore it follows from (\ref{part1:chap5:sec13:eq13.7.1}) that we
+have
+\begin{equation*}
+  \ord_t g' (t^n , z(t^d)) = r_e - m_e
+  \tag{13.7.2}\label{part1:chap5:sec13:eq13.7.2}
+\end{equation*}
+for\pageoriginale any zero $z(t)$ of $g(t^{n/d}, Y)$. By Theorem
+\ref{part1:chap5:sec13:thm13.2} we may choose $z(t)$ such that
+$\ord_t(y(t)- z(t^d))= m_e$. Then, since $\ord_t (y^* (t)- y(t)) \geq
+m_e$ and $m_e \in \Supp_t y^*(t)$ by assumption and since $m_e \notin
+\Supp_t z(t^d)$, we get 
+\begin{equation*}
+  \ord_t (y^* (t)-
+  z(t^d))=m_e.\tag{13.7.3} \label{part1:chap5:sec13:eq13.7.3}   
+\end{equation*}
+
+Now, we have
+$$
+g(t^{n/d}, Y)= \prod_{w \in \mu_{n/d}} (Y - z(wt)),
+$$
+where $\mu_{n/d} = \mu_{n/d}(k)$. Therefore
+$$
+g(t^n, Y) = \prod_{w \in \mu_{n/d}} (Y- z(wt^d)).
+$$
+
+differentiating with respect to $Y$ and then substituting $y= y^*(t)$,
+we get
+\begin{align*}
+g' (t^n, y^* (t)) &= \sum_{v \in \mu_{n/d}} \prod_{w \neq v} (y^* (t)-
+z(wt^d)\\
+& P_1 + \sum_{\substack{v \in \mu_{n/d}\\v \neq 1}} P_v,
+\end{align*}
+where $\displaystyle{P_v= \prod_{w \neq v} (y^* (t) -
+  z(wt^d))}$. Thus, in order to complete the proof of the proposition,
+it is now enough to prove the following two statements:
+\begin{enumerate}[(i)]
+\item $\ord_t P_1 = r_e - m_e$.
+\item $\ord_t P_v > r_e - m_e$ for every $v \in \mu_{n/d}- \{1 \}$.
+\end{enumerate}
+
+Since we have
+$$
+y^* (t) - z(wt^d)= (y^* (t)- z(t^d)) + (z(t^d)- z(wt^d))
+$$
+and\pageoriginale since for $w \neq 1$
+\begin{align*}
+\ord_t (z(t^d)- z(wt^d)) & \leq d m'_{h'} & \text{(Proposition
+  \ref{part1:chap2:sec6:prop6.15})}\\
+& m_{e-1} & \text{(Corollary \ref{part1:chap5:sec13:coro13.3})}\\
+& = < m_e,
+\end{align*}
+it follows from (\ref{part1:chap5:sec13:eq13.7.3}) that we have
+\begin{equation*}
+  \ord_t(y^* (t) - z(wt^d))= \ord (z(t^d)- z(wt^d))<
+  m_e\tag{13.7.4}\label{part1:chap5:sec13:eq13.7.4}    
+\end{equation*}
+for $w \neq 1$. Therefore
+\begin{align*}
+  \ord_t P_1 & = \ord_t \prod_{w \neq 1} (z(t^d)- z(wt^d))\\
+  & = \ord_t g' (t^n, z(t^d))\\
+  & = r_e - m_e
+\end{align*}
+by (\ref{part1:chap5:sec13:eq13.7.2}). This proves (i). Now, let $v
+\in \mu_{n/d}, v \neq 1$. We have
+$$
+P_v = P_1 (y^* (t)- z(t^d)) (y^* (t)- z(vt^d))^{-1}.
+$$
+Therefore by (i) we have
+$$
+\ord_t P_v = r_e - m_e + \ord_t (y^* (t) - z(t^d)) - \ord_t (y^*(t) -
+z(vt^d)). 
+$$
+Therefore (ii) will be proved if we show that
+$$
+\ord_t (y^* (t) - z(t^d)) > \ord_t(y^* (t)- z(vt^d)).
+$$
+
+Since $v\neq 1$, this last inequality is clear from
+(\ref{part1:chap5:sec13:eq13.7.3}) and (\ref{part1:chap5:sec13:eq13.7.4}).
+\end{proof}
+
+\section{Newton's Algebraic Polygon}\label{part1:chap5:sec14}  
+
+\subsection{}\label{part1:chap5:sec14:ss14.1}
+
+We\pageoriginale revert to the notation of
+\ref{part1:chap3:sec7:notn7.1}, \ref{part1:chap3:sec7:notn7.2} and
+\ref{part1:chap3:sec7:def7.3}. In addition, we fix the following
+notation: for an integer $m$, we put
+$$
+p(m) = \inf\left\{ i \Big| 1 \leq i \leq h+1, m< m_i\right\}.
+$$ 
+
+Let $d^* (m) = d_{p(m)}$ and let 
+$$
+s^* (m)= 
+\begin{cases}
+  s_{p-1} + (m-m_{p-1})d_p, & \text{if}~ p= p(m) \geq 2.\\
+  m d_1, & \text{if}~ p(m) =1.
+\end{cases}
+$$
+
+Note that $p(m_i)= i+1$, $d^* (m_i) = d_{i+1}$ and $s^* (m_i) =s_i$
+for $1 \leq i \leq h$. If $Z$ is an indeterminate, define
+$$
+P(m, Z)=
+\begin{cases}
+  Z- y_m, & \text{if}~ m \notin \{ m_1 , \ldots , m_h \},\\
+  Z^{n_e}- y^{n_e}_{m_e}, & \text{if}~ m \in \{ m_1, \ldots , m_h \},
+\end{cases}
+$$
+where $e= p(m)-1$.
+
+with the above notation, we have
+\setcounter{thm}{1}
+\begin{thm}\label{part1:chap5:sec14:thm14.2}
+  Let $m$ be an integer. Let $Z$ be an indeterminate and let $k'
+  =k(Z)$. Let $y^*$ be an element of $k'((t))$ such that 
+$$
+\text{info}~ (y^* - y(t)) = (Z-y_m)t^m.
+$$
+Then 
+$$
+\text{info}~ (f(t^n, y^*)) = \diameter P(m, Z)^{d^*(m)} t^{s^*(m)}. 
+$$
+\end{thm}
+
+\begin{proof}
+  Suppose $m \in \{ m_1, \ldots, m_h\}$. say $m=m_e$. Then $p(m)=
+  e+1$. Let $\ob{y} (t) = \displaystyle{\sum_{j < m_e}}y_j
+  t^j$.\pageoriginale Then it easily follows from the assumption on
+  $y^*$ that we have 
+$$
+\text{info}~ (y^* - \ob{y} (t)) = Z t^{m_e}.
+$$ 
+Therefore $y^*$ is an $(e, Z)$-deformation of $y(t)$ and it follows
+from Lemma \ref{part1:chap3:sec7:lem7.16} that we have
+$$
+\text{info}~ (f(t^n, y^*)) = \diameter \left(Z^{n_e}- y^{n_e}_{m_e}
+\right)^{d_{e+1}} t^{s_e}. 
+$$
+Since $d^* (m_e)= d_{e+1}$ and $s^* (m_e)= s_e$, the assertion is
+proved in case $m \in \{ m_1, \ldots , m_h\}$. 
+\end{proof}
+
+Now, suppose $m \notin \{ m_1, \ldots , m_h\}$. Let $p = p(m)$. Let
+$Q(p)$, $R(p)$ be the sets defined in Definition
+\ref{part1:chap3:sec7:def7.4}. If $w \in R(p)$ then $\ord (y(t)-
+y(wt))\geq m_p > m$. Therefore, since
+\begin{equation*}
+  y^* - y(wt)= (y^* - y(t))+ (y(t)-
+  y(wt)),\tag{14.2.1}\label{part1:chap5:sec14:eq14.2.1} 
+\end{equation*}
+we get info $(y^* - y(wt))=$ info $(y^* - y(t))= (Z- y_m)t^m$ for $w
+\in R(p)$. This shows that we have
+\begin{align*}
+  \text{info}~ \left(\prod_{w \in R(p)} (y^* - y(wt))\right) & =
+  \prod_{w \in R(p)} (Z- y_m) t^m\\
+  & = (Z- y_m)^{d^*(m)} t^{md^*
+    (m)},\tag{14.2.2}\label{part1:chap5:sec14:eq14.2.2}  
+\end{align*}
+since by Lemma \ref{part1:chap3:sec7:lem7.5} card $(R(p))= d_p = d^*
+(m)$. Now, suppose $w \in Q(p)$ and $p \geq 2$. Then by Proposition
+\ref{part1:chap2:sec6:prop6.15} we get $\ord_t (y(t))\leq
+m_{p-1}$. Since $m \notin \{ m_1, \ldots , m_h \}$, we have $m_{p-1}<
+m$. Therefore from (\ref{part1:chap5:sec14:eq14.2.1}) we get 
+\begin{equation*}
+  \text{info}~ (y^* - y(wt))= \text{info}~ (y(t)- y(wt)) ~\text{for}~
+  w \in Q(p).\tag{14.2.3}\label{part1:chap5:sec14:eq14.2.3} 
+\end{equation*}
+
+Since $Q(1) = \phi$, (\ref{part1:chap5:sec14:eq14.2.3}) holds also
+for $p=1$. Now, clearly, inco $(y(t) - y(wt))= \diameter$
+for\pageoriginale every $w \in Q(p)$. Therefore we get
+\begin{align*}
+  \text{info}~ \left( \prod_{w \in Q(p)} (y^* - y(wt)) \right) & =
+  \text{info}~ \left( \prod_{w \in Q(p)} (y(t) - y(wt))\right)\\
+  & = \diameter t^s,\tag{14.2.4}\label{part1:chap5:sec14:eq14.2.4} 
+\end{align*}
+where by Lemma \ref{part1:chap3:sec7:lem7.7} we have
+$$
+s=
+\begin{cases}
+  s_{p-1}-m_{p-1}d_p, & \text{if}~ p \geq 2,\\
+  0, & \text{if}~ p=1.
+\end{cases}
+$$
+
+From (\ref{part1:chap5:sec14:eq14.2.2}) and
+(\ref{part1:chap5:sec14:eq14.2.4}) we get
+\begin{align*}
+  \text{info}~ (f(t^n, y^*)) &= \text{info}~ \left(\prod_{w \in \mu_n
+    (k)} (y^* - y(wt)) \right)\\
+  & = \diameter (Z- y_m)^{d^*(m)}t^{md^*(m)+s}\\
+  & = \diameter P(m, Z)^{d^*(m)} t^{s^*(m)}.
+\end{align*}
+
+\begin{remark}\label{part1:chap5:sec14:rem14.3} 
+The above theorem is an algebraic version of the method of Newton's
+polygon for constructing a root in $k((t))$ of the equation $f(t^n,
+Y)=0$. The successive coefficients $y_j$ of a root $y(t) = \sum y_j
+t^j$ are found by induction on $j$. Thus, suppose we know $y_j$ for
+$j$ less than a certain integer $m$. Let $Z$ be an indeterminate and
+let $y^*= \displaystyle{\sum_{j < m} y_j t^j + Z t^m}$. Find inco
+$(f(t^n, y^*))$. This will be a certain polynomial $F(Z)\in k[Z]$,
+viz. $F(Z)= \diameter P (m, Z)^{d^*(m)}$. Take $y_m$ to be any root of
+the equation $F(Z)=0$. Note that if $m \notin \{ m_1, \ldots , m_h\}$
+then $F(Z)=0$ will have a unique root, whereas if $m=m_e$ for some
+$e$, $1\leq e \leq h$, then $F(Z)=0$ will have $n_e$ distinct
+roots. Let us remark that, since $f(t^n, 0)=(-1)^n \prod y (wt)$, we
+have $m_1 = \ord_X f(X, 0)$. Therefore we may {\em start} the
+inductive construction of $y_j$ by taking $y_j =0$ for all $j< \ord_X
+f(x, 0)$.
+\end{remark}

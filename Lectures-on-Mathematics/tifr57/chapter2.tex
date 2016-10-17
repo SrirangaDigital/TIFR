@@ -1,0 +1,678 @@
+
+\chapter{Characteristic Sequences of a Meromorphic Curve}\label{part1:chap2}
+
+\setcounter{section}{4}
+\section{Newton-puiseux Expansion}\label{part1:chap2:sec5}
+
+\begin{notn}\label{part1:chap2:sec5:notn5.1}
+  Let\pageoriginale $k$ be a field. If $n$ is a positive integer we
+  denote by $\mu_n (k)$ (or simply by $\mu_n$ if no confusion is
+  likely) the group of $n$th roots of unity in $k$. We use the letters
+  $X$, $Y$, $t$ to denote indeterminates. As usual, $k[[t]]$ denotes
+  the ring of formal power series in $t$ over $k$. We denote by
+  $k((t))$ the quotient field of $k[[t]]$. Recall that every element $a$
+  of $k((t))$ has a unique expression of the form $a=
+  \displaystyle{\sum_{j \in \mathbb{Z}}} a_j t^j$ with $a_j \in k$ for
+  every $j$ and $a_j = 0$ for $j\ll 0$. We denote by ord$_ta$ the
+  $t$-order of $a$. Recall that if $a\neq 0$ then writing $a = \sum
+  a_j t^i$ with $a_j \in k$, we have 
+$$
+\ord_t a = \inf \left\{ j \in \mathbb{Z} \Big| a_j \neq 0 \right\}.
+$$
+\end{notn}
+
+If $a=0$ then $\ord_t a = \infty$. If $a = \sum a_j t^j \in k ((t))$ (with $a_j \in k$) we define
+$$
+\Supp_t a = \left\{ j \in \mathbb{Z} \Big| a_j \neq 0 \right\}.
+$$
+
+If $R$ is a ring and $f \in R[Y]$, we write $\deg_Y f$ (or simply $\deg f$ if no confusion is likely) for the $Y$-degree of $f$. We use the convention: $\deg 0 =- \infty$.
+
+\setcounter{subsection}{1}
+\subsection{HENSEL'S LEMMA.}\label{part1:chap2:sec5:ss5.2}
+
+Let $f= f(X, Y)$ be an element of $k [[X]][Y]$ such that $f$ is monic in $Y$. Suppose $f(0, Y)= \ob{g} \ob{h}$, where $\ob{g}, \ob{h}$ are elements of $k[Y]$, both monic in $Y$, and $\gcd (\ob{g}, \;  \ob{h})=1$. Then there exist elements $g = g(X, Y)$, $h= h(X, Y)$ of $k[[X]] [Y]$, both monic in $Y$, such that $g(0, Y)= \ob{g}$, $h(0, Y)= \ob{h}$ and $f=gh$.
+
+\begin{proof}
+  Let $n= \deg_Y f$. we can write $f = \displaystyle{\sum^\infty_{q=0} f_q X^q}$ with $f_q \in k [Y]$ for every $q$. Then $f_0$ is monic in $Y$ of degree $n$ and $\deg f_q < n$ for $q \geq 1$. Let $r= \deg \ob{g}$,\pageoriginale $s= \deg \ob{h}$. Then $r
++ s=n$. Now, in order to prove the lemma. it is enough to find, for every $i \in \mathbb{Z}^+$, elements $g_i$, $h_i$ of $k [Y]$ such that
+\begin{enumerate}
+\item $g_0 = \ob{g}$ and $h_0 = \ob{h}$.
+\item $\deg g_i < r$ and $\deg h_i < s$ for all $i \geq 1$.
+\item $f_q = \sum^q_{i=0} g_i h_{q-i}$ for all $q\geq 0$.
+\end{enumerate}
+\end{proof}
+
+For, then $\displaystyle{g= \sum^\infty_{i=0} g_i X^i, h= \sum^\infty_{i=0} h_i X^i}$ would meet the requirements of the lemma.
+
+We define $g_i$, $h_i$ by induction on $i$, these being already defined for $i=0$ by condition (i). Let $q$ be a positive integer and suppose $g_i$, $h_i$ are already defined for $i < q$. Let 
+$$
+e_q = f_q - \sum^{q-1}_{i=1} g_i h_{q-i}.
+$$
+
+Then $\deg e_q < n$. Since $\gcd (g_0, h_0)=1$, there exist $G_q, H_q \in k [Y]$ such that $e_q= H_q g_0 + G_q h_0$. Let $G_q = g_0 Q + g_q$ with $Q$, $g_q \in k [Y]$ and $\deg g_q < \deg g_0=r$. Then $e_q = h_q g_0 + g_q h_0$, where $h_q = H_q+ Qh_0$. Since $\deg e_q < n = r+s$, we get $\deg h_q < s$. Now
+$$
+f_q = \sum^q_{i=0} g_i h_{q-i}
+$$
+and the lemma is proved.
+
+\setcounter{thm}{2}
+\begin{coro}\label{part1:chap2:sec5:coro5.3}
+  Let $k$ be an algebraically closed field. Let $u$ be an element of $k ((X))$ such that $\ord_X u=0$. Let $n$ be an integer such that char $k$ does not divide $n$. Then there exists $v \in k ((X))$ such that $u= v^n$.
+\end{coro}
+
+\begin{proof}
+  Since\pageoriginale $\ord_X u =0$ if and only if $\ord_X u^{-1}=0$ and since $u= v^n$ if and only if $u^{-1} = v^{-n}$, we may assume that $n$ is positive. Since $\ord_X u=0$, we have $u = u(X) \in k [[X]]$ and $u (0) \neq 0$. Let $f(X, Y) = Y^n-u$. Then $f(X, Y) \in k [[X]][Y]$ and $f (0, Y)= Y^n- u(0)$. Since $k$ is algebraically closed, there exist $v_i \in k$, $1 \leq i \leq n$, such that $\displaystyle{Y^n - u(0)=\prod^n_{i=1} (Y- v_i)}$. Since $u(0) \neq 0$ and char $k$ does not divide $n$, we have $v_i \neq v_j$ for $i \neq j$. Therefore if we let $\ob{g} = Y -v_1$ and $\ob{h} = \displaystyle{\prod^n_{i=2} (Y- v_i)}$ then \gcd $(\ob{g}, \ob{h})=1$ and $f(0, Y)= \ob{g} \ob{h}$. Therefore by Hensel's Lemma \ref{part1:chap2:sec5:ss5.2} there exists an element $g(X, Y)$  in $k [[X]] [Y]$ such that $g (X, Y)$ is monic in $Y$, $g (0 , Y) = \ob{g}$ and $g(X, Y)$ divides $f(X, Y)$ in $f (X, Y)$ in $k [[X]] [Y]$. From the equality $g (0 , Y)= \ob{g} = Y- v_1$ and the fact that $g(X, Y)$ is monic in $Y$, we get $g(X, Y)= Y - v$ for some $v \in k ((X))$. Now $g(x, v)=0$. Therefore $f(X, v)=0$. This means that $v^n =u$.
+\end{proof}
+
+\begin{coro}\label{part1:chap2:sec5:coro5.4}
+  Let $k$ be an algebraically closed field. Let $a$ be a nonzero element of $k((X))$ and let $n= \ord_X a$. Assume that char $k$ does not divide $n$. Then there exists $z \in k ((X))$ such that:
+\begin{enumerate}[(i)]
+\item $a= z^n$.
+\item $\ord_X z=1$.
+\item $k[[z]]= k[[X]]$ and $k((z))= k ((X))$.
+\end{enumerate}
+\end{coro}
+
+\begin{proof}
+  (iii) is immediate from (ii), and (ii) is immediate from (i). Therefore it is enough to prove (i). Write $a= X^n u$ with $u \in k ((X))$. Then $\ord_X u =0$. Therefore by Corollary \ref{part1:chap2:sec5:coro5.3} there exists $v \in k ((X)))$ such that $u = v^n$. Let $z= X v$. Then $a= z^n$.
+\end{proof}
+
+\setcounter{subsection}{4}
+\setcounter{mysubsection}{4}
+\subsection{NEWTON'S LEMMA}\label{part1:chap2:sec5:ss5.5}
+
+Let $k$ be an algebraically closed field. Let $f(X, Y)$ be a non-zero element of $k ((X)) [Y]$. Assume that char $k$ does not divide\pageoriginale $\deg_Y f(X, Y)$. Then there exists a positive integer $m$ and an element $y(t) \in k ((t))$ such that $f(t^m, y(t))=0$.
+
+\begin{proof}
+  Without loss of generality, we may assume that $f(X, Y)$ is irreducible. Let $N= \deg_Y f(X, Y)$. We shall prove the result by induction on $n$. If $n=1$ then the assertion is clear with $m=1$. Assume therefore that $n \geq 2$. Write $\displaystyle{f(X, Y)=\sum^n_{i=0} f_i Y^{n-i}}$ with $f_i = f_i (X) \in k ((X))$ for $0 \leq i \leq n$, $f_0 \neq 0$. Now, for the moment, grant the following
+\end{proof}
+
+\begin{claim}\label{part1:chap2:sec5:ss5.5:sss5.5.1}
+  In order to prove the lemma, we may, without loss of generality, make the following three assumptions:
+\begin{enumerate}[(i)]
+\item $f_0 =1$.
+\item $f_1=0$.
+\item $f_1 \in k [[X]]$ for every $i$ and $f_i (0) \neq 0$ for some $i$, $2 \leq i \leq n$.
+\end{enumerate}
+\end{claim}
+
+Then \ref{part1:chap2:sec5:ss5.5:sss5.5.1} implies that $f(X, Y) \in  k [[X]][Y]$ and we have
+$$
+f(0, Y)= Y^n + f_2 (0) Y^{n-2} + \cdots + f_n (0)
+$$
+with $f_i (0) \neq 0$ for some $i$, $2 \leq i \leq n$. Since char $k$ does not divide $n$, it follows from the above expression for $f(0, Y)$ that $f(0, Y)$ is not the $n$th power of an element of $k[Y]$. Therefore, since $k$ is algebraically closed, there exist $\ob{g}, \ob{h} \in k [Y]$, both of them monic in $Y$ of degree less than $n$, such that $f(0, Y)= \ob{g} \ob{h}$ and \gcd $(\ob{g}, \ob{h})=1$. It follows by Hensel's Lemma \ref{part1:chap2:sec5:ss5.2} that there exist $g(X, Y)$, $h(X, Y) \in k [[X]][Y]$, both of them monic in $Y$, such that $f(X, Y)= g (X, Y) h (X, Y)$ and $g (0, Y)= \ob{g}$, $h (0, Y)= \ob{h}$. Let $r= \deg_Y g(x, Y)= \deg \ob{g}$, $s = \deg_Y H(X, Y)= \deg \ob{h}$. Then $r<n$, $s<n$ and $r+s=n$. Since char $k$ does not divide $n$, char $k$ does not divide at least one of $r$ and $s$, say $r$. Then, by induction hypothesis, there exists a positive integer $m$ and an element\pageoriginale $y(t) \in k((t))$ such that $g(t^m, y(t))=0$. Therefore $f(t^m, y(t))=0$, and the lemma is proved modulo the Claim \ref{part1:chap2:sec5:ss5.5:sss5.5.1}. 
+
+\noindent \textbf{Proof of \ref{part1:chap2:sec5:ss5.5:sss5.5.1}}.
+
+\begin{enumerate}[(i)]
+\item Since $f_0 \neq 0$, we may replace $f(X, Y)$ by $f^{-1}_0 f(X, Y)$.
+\item Assume (i), i.e. $f_0 =1$. Let $Z= Y + n^{-1} f_1$. Then $f(X, Y)= f(X, Z-n^{-1} f_1)= g(X, Z)$, say. It is clear that $g(X, Z)$ has the form
+$$
+g(X, Z)= Z^n + g_2 Z^{n-2} + \cdots + g_n
+$$
+with $g_i \in k ((X))$, $2 \leq i \leq n$. If $m$ is a positive integer and $y(t)$ is an element of $k((t))$ such that $g(t^m, y(t))=0$ then we have $f(t^m, z(t))=0$, where $z(t) = y(t) - n^{-1}f_1 (t^m)$.
+\item Assume that $f$ already satisfies (i) and (ii). Since $f(X, Y)$ is irreducible and $n \geq 2$, there exists $i, 2 \leq i \leq n$, such that $f_i \neq 0$. Let $u_i = \ord_X f_i$ and let
+$$
+u \inf \left\{ u_i /i \Big| 2 \leq i \leq n \right\}.
+$$
+\end{enumerate}
+
+Let $r$ be an integer, $2 \leq r \leq n$, such that $u= u_r/r$. Let $W$ be an indeterminate and let $Z= W^{-u_r} Y$. Let $g(W, Z)= W^{-nu_r} f(W^r, Y)= Z^n+ \sum^n_{i=2} g_i Z^{n-i}$, where $g_i = g_i (W) = f_i (W^r) W^{-iu_r}$. Now $\ord_W g_i = ru_i - iu_r \geq r \, iu- iu_r =0$ with equality for $i=r$. This means that $g_i \in k [[W]]$ for all $i, 2 \leq i \leq n$, and $g_r (0) \neq 0$. Now, if $m$ is a positive integer and $y(t)$ is an element of $k((t))$ such that $g(t^m, y(t))=0$ then we have
+$$
+0 = g(t^m, y(t))=t^{-mnu_r} f(t^{mu_r} y(t)),
+$$
+so that $f(t^{mr}, t^{mu_r} y(t))=0$.
+
+\setcounter{thm}{5}
+\begin{notn}\label{part1:chap2:sec5:notn5.6}
+  Let $m$ be a positive integer. We write $k((t^m))$ for the set of those $a\in k ((t))$ for which $\Supp_t a \subset m \mathbb{Z}$. Note that $k((t^m))$ is a subfield of\pageoriginale $k((t))$.
+\end{notn}
+
+\begin{lemma}\label{part1:chap2:sec5:lem5.7}
+  Let $m$ be a positive integer. Then $k((t))/k((t^m))$ is a finite algebraic extension of degree $m$.
+\end{lemma}
+
+\begin{proof}
+  The set $\{ 1, t, \ldots t^{m-1} \}$ is clearly a $k((t^m))$-vector space basis of $k((t))$.
+\end{proof}
+
+\begin{defi}\label{part1:chap2:sec5:def5.8}
+  Let $m$ be a positive integer and let $y= y(t)$ be an element of $k((t))$. By Lemma \ref{part1:chap2:sec5:lem5.7}, $y$ is algebraic over $k((t^m))$. Let $f(t^m, Y)$ in $k((t^m))[Y]$ be the minimal monic polynomial of $y$ over $k((t^m))$. Put $f=f(X, Y)$. Then $f \in k((X)) [Y]$. By abuse of language, we shall call $f$ the {\em minimal monic polynomial} of $y$ over $k((t^m))$.
+\end{defi}
+
+\begin{lemma}\label{part1:chap2:sec5:lem5.9}
+  Let $m$ be a positive integer and let $y= y(t)$ be an element of $k((t))$. Let $f=f(X, Y) \in k ((X)) [Y]$ be the minimal monic polynomial of $y$ over $k((t^m))$. Then we have:
+\begin{enumerate}[\rm(i)]
+\item $f$ is monic in $Y$ and $f$ is irreducible in $k((X))[Y]$.
+\item $f(t^m, y)=0$.
+\item If $g= g(X, Y)$ is any element of $k((X)) [Y]$ such that $g(t^m, y)=0$ then $f$ divides $g$ in $k((X)) [Y]$.
+\item $\deg_Y f=[k((t^m))(y): k((t^m))]$.
+\item $\deg_Y f$ divides $m$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (i), (ii), (iii) and (iv) are clear from Definition \ref{part1:chap2:sec5:def5.8}. To prove (v), we note that since $y \in k((t))$, we have
+\begin{align*}
+  m & = [k((t)) : k((t^m))]\\
+  & = [k((t)) : k((t^m))(y)] [k((t^m)) (y) : k((t^m))]\\
+  & = [k((t)) : k((t^m))(y)] \deg_Y f.
+\end{align*}
+\end{proof}
+
+\begin{lemma}\label{part1:chap2:sec5:lem5.10}
+  Let\pageoriginale $m$ be a positive integer and let $y= y(t)$ be an element of $k((t))$. Let $f(X, Y) \in k ((X)) [Y]$ be the minimal monic polynomial of $y$ over $k((t^m))$. Assume that char $k$ does not divide $m$ and that
+$$
+\gcd (\{ m\} \cup \Supp_t y)=1.
+$$
+\end{lemma}
+
+Then we have:
+\begin{enumerate}[(i)]
+\item $\displaystyle{f(t^m, Y)= \prod_{w \in \mu_m (\ob{k})}} (Y - y (wt))$, where $\ob{k}$ is the algebraic closure of $k$. Moreover, the $m$ roots $y(wt)$, $w \in \mu_m (\ob{k})$, of $f(t^m , Y)=0$ are distinct.
+\item $[k((t^m))(y): k((t^m))] = \deg_Y f(X, Y)=m$.
+\end{enumerate}
+
+\begin{proof}
+  By Lemma \ref{part1:chap2:sec5:lem5.9} (v) we have $\deg_Y f(X, Y) \leq m$. Therefore it is enough to prove the following two statements:
+\begin{enumerate}[(1)]
+\item $f(t^m, y(wt))=0$ for every $w \in \mu_m (\ob{k})$.
+\item If $w_1, w_2 \in \mu_m (\ob{k})$, $w_1 \neq w_2$, then $y(w_1t) \neq y(w_2 t)$. 
+\end{enumerate}
+
+For, given (1) and (2), $f(t^m, Y)$ will have at least $m$ distinct roots $y(wt)$, $w \in \mu_m (\ob{k})$., Since $\deg_Y f(X, Y) \leq m$ and $f(X, Y)$ is monic in $Y$, both (i) and (ii) would be proved.
+\end{proof}
+
+
+\medskip
+\noindent \textbf{Proof of (1).} Since $w^m = 1$, substituting $wt$
+for $t$ in the equality $f(t^m,\break y(t))=0$, we get $f(t^m, y(wt))=0$. 
+
+\medskip
+\noindent \textbf{Proof of (2).} Write $y= \sum y_j t^j$ with $y_j \in k$. Then $y(wt)= \sum y_j w^j t^j$. Therefore if $y(w_1 t)= y(w_2 t)$ then we have $w^j_1 = w^j_2$ for every $j \in \Supp_t y$. Writing $w= w_1 w^{-1}_2$,\pageoriginale we get get $w^j =1$ for every $j \in \Supp j \in \Supp_t y$. Since also $w^m=1$ and 
+$$
+\text{\gcd} ~(\{ m\}  \cup \Supp_t y) =1,
+$$
+we get $w=1$. This means that $w_1 = w_2$.
+
+\begin{remark}\label{part1:chap2:sec5:rem5.11}
+  A more general version of the above lemma appears in Proposition \ref{part1:chap2:sec5:prop5.16}.
+\end{remark}
+
+\begin{lemma}\label{part1:chap2:sec5:lem5.12}
+  Let $p=$ char $k$. Let $f= f(X, Y)$ be an irreducible element of $k((X)) [Y]$ such that $f \notin k ((X)) [Y^p]$. Let $m$ be a positive integer and let $y= y(t)$ be an element of $k((t))$ such that $f(t^m, y)=0$. If $p$ divides $m$ then $y \in k ((t^p))$.
+\end{lemma}
+
+\begin{proof}
+  Write $y= \sum y_j t^j$ with $y_j \in k$. Suppose $y \notin k((t^p))$. Then, since $y^p = \sum y^p_j t^{jp} \in k((t^p))$, the minimal monic polynomial of $y$ over $k((t^p))$ is $g(X, Y)= Y^p- z(X)$, where $z(X)= \sum y^p_j X^j$. Note that $g(t^p, Y) = Y^p - z(t^p)= (Y-y)^p$. Let $m=pr$ and let $h(X, Y)= f(X^r, Y)$. Then $h(t^p, y)= f(t^m, y)=0$. Therefore $g(X, Y)$ divides $h(X, Y)$ in $k ((X)) [Y]$, so that $g(t^p, Y)= (Y- y)^p$ divides $h(t^p, Y)= f(t^m, Y)$ in $k((t^p)) [Y]$. This implies that in the algebraic closure of $k((t^m))y$ occurs as a root of the polynomial $f(t^m, Y)$ in $Y$ with multiplicity at least $p$. But this is a contradiction, since $f(t^m, Y)$, being irreducible in $k((t^m))[Y]$ and being not an element of $k((t^m))[Y^p]$, is a separable polynomial over $k((t^m))$. This contradiction proves that $y \in k((t^p))$.
+\end{proof}
+
+\begin{lemma}\label{part1:chap2:sec5:lem5.13}
+  Let $k$ be an algebraically closed field. Let $f = f(X, Y)$ be an irreducible element of $k((X))[Y]$ such that $f$ is monic in $Y$ and char $k$ does not divide $\deg_Y f$. Then there exists an element $y(t)$ of $k((t))$ and a positive integer $m$ such that char $k$ does not divide $m$ and $f(t^m, y (t))=0$.
+\end{lemma}
+
+\begin{proof}
+  By\pageoriginale Newton's Lemma \ref{part1:chap2:sec5:ss5.5} thee exists a positive integer $m$ and an element $y(t)$ of $k((t))$ such that $f(t^m, y(t))=0$. Let us choose $m$ to be the least positive integer for which there exists an element $y(t)$ of $k((t))$ with $f(t^m, y(t))=0$. We then claim that char $k$ does not divide $m$. For, let $p=$ char $k$ and suppose $p$ divides $m$. Then by Lemma \ref{part1:chap2:sec5:lem5.12} $y(t) \in k ((t^p))$. Therefore there exists $z(t) \in k((t))$ such that $y(t)= z(t^p)$. Now, we get $0= f(t^m, y(t))= f((t^p)^{m/p}, z(t^p))$, which shows that $f(t^{m/p}, z(t))=0$. This contradicts the minimality of $m$.
+\end{proof}
+
+\setcounter{subsection}{13}
+\setcounter{mysubsection}{13}
+\subsection{NEWTON'S THEOREM}\label{part1:chap2:sec5:ss5.14}
+  Let $k$ be an algebraically closed field. Let $f=f(X, Y)$ be an irreducible element of $k((X))[Y]$ such that $f$ is monic in $Y$. Let $n= \deg _Y f$, and assume that char $k$ does not divide $n$. Then there exists an element $y(t)$ of $k((t))$ such that $f(t^n, y(t))=0$. Moreover, for any such $y(t)$ we have: 
+\begin{enumerate}[(i)]
+\item $f(t^n, Y)= \displaystyle{\prod_{w \in \mu_k (k)}} (Y- y(w t))$.
+\item The $n$ roots $y(wt)$, $w \in \mu_n(k)$, of $f(t^n, Y)=0$ are distinct.
+\item \gcd $(\{ n\}\cup \Supp_t y(wt))=1$ for every $w \in \mu_n (k)$.
+\end{enumerate}
+
+\begin{proof}
+ By Lemma \ref{part1:chap2:sec5:lem5.13} there exists a positive integer $m$ such that 
+\begin{claim}\label{part1:chap2:sec5:ss5.14:sss5.14.1}
+  char $k$ {\em does not divide $m$ and $f(t^m, y(t))=0$ for some $y(t) \in k ((t))$}.
+\end{claim}
+\end{proof}
+
+Let us assume that $m$ is the smallest positive integer satisfying\break \ref{part1:chap2:sec5:ss5.14:sss5.14.1}. Let
+$$
+d= \text{\gcd}~ (\{ m\} \cup \Supp_t y(t)).
+$$
+
+We claim that $d=1$. for, since $d$ divides every $j \in \Supp_t y(t)$, there exists $z (t) \in k((t))$ such that $y(t)= z(t^d)$. Now, we have
+$$
+0 = f(t^m, y(t)) = f((t^d)^{m/d}, z(t^d)),
+$$
+which\pageoriginale shows that $f(t^{m/d}, z(t))=0$. Therefore by the minimality of $m$ we get $d=1$. Since $f(X, Y)$ is monic in $Y$ and irreducible in $k((X))[Y]$ and since $f(t^m, y(t))=0$, $f$ is the minimal monic polynomial of $y(t)$ over $k((t^m))$. Therefore, since $d=1$, by Lemma \ref{part1:chap2:sec5:lem5.10} we get $n= \deg_Y f(X, Y)=m$. Now, (i) and (ii) follow directly from Lemma \ref{part1:chap2:sec5:lem5.10}. Since, $\Supp_t y(wt)= \Supp_t y(t)$ for every $w \in \mu_n (k)$, (ii) follows from the fact $d=1$ proved above.
+
+\setcounter{thm}{14}
+\begin{remark}\label{part1:chap2:sec5:rem5.15}
+  With the notation of Theorem \ref{part1:chap2:sec5:ss5.14}. let $y(t) = \sum y_j t^j$ with $y_j \in k$. If we write $X^{1/n}$ for $t$ then $y(X^{1/n})= \sum y_j X^{j/n}$ and $f(X, y(X^{1/n}))=0$. Note that $y(X^{1/n})$ is a power series in $X$ with {\em fractional} exponents, in fact with exponents in $(1/n)\mathbb{Z}$. The equality $f(X, y(X^{1/n}))=0$ can thus be interpreted to mean that given an equation $f(X, Y)=0$ (where $f(X, Y)$ is an irreducible element of $k((X)) [Y]$), we can expand $Y$ as a fractional power series in $X$ with exponents in $(1/n)\mathbb{Z}$. We call $y(X^{1/n})$ a {\em Newton-Puiseux expansion} of $Y$ in fractional powers of $X$. Note that there are $n$ distinct Newton-Puiseux expansions of $Y$, given by the $n$ distinct roots $y(wt)$, $w \in \mu_n(k)$.
+\end{remark}
+
+\begin{prop}\label{part1:chap2:sec5:prop5.16}
+  Let $m$ be a positive integer such that char $k$ does not divide $m$, and let $y= y(t)$ be an element of $k((t))$. Let $f(X, Y) \in k ((X)) [Y]$ be the minimal monic polynomial of $y$ over $k((t^m))$. Let
+$$
+d = \text{\gcd}~ ( \{ m\} \cup \Supp_t y).
+$$
+\end{prop}
+
+Then 
+$$
+(f(t^m, Y))^d = \prod_{w \in \mu_m (\ob{k})} (Y- y(wt)).
+$$
+where\pageoriginale $\ob{k}$ is the algebraic close of $k$. In particular, we 
+have 
+$$
+[k((t^m)) (y): k((t^m))]= \deg_Y f(X, Y) = m/d.
+$$
+
+\begin{proof}
+  Since $d$ divides $j$ for every $j \in  \Supp_t y(t)$, there exists $z(t) \in k((t))$ such that $y(t)= z(t^d)$. Let $\tau = t^d$. Then $y(t)=z(\tau)$ and clearly we have
+$$
+\text{\gcd}~ (\{ m/d\} \cup \Supp_\tau z(\tau))=1.
+$$
+\end{proof}
+
+Therefore by Lemma \ref{part1:chap2:sec5:lem5.10} we have
+\eqn{f(\tau^{m/d}, Y) = \prod_{ w \in \mu_{m/d}} (Y - z (w \tau)). \tag{5.16.1}\label{part1:chap2:sec5:eq5.16.1}}
+where $\mu_{m/d}= \mu_{m/d} (\ob{k})$. Let $v$ be a primitive $m$th  root of unity in $\ob{k}$. Then $v^d$ is a primitive $(m/d)$th root of unity of $\ob{k}$. Therefore
+$$
+\mu_{m/d} = \left\{ v^{di} \Big| 1 \leq i \leq m/d \right\}
+$$ 
+and from \ref{part1:chap2:sec5:eq5.16.1} we get
+\eqn{\begin{aligned}
+    f(t^m, Y) & = \prod^{m/d}_{i=1} (Y - z (v^{di} \tau))\\
+    & = \prod^{m/d}_{i=1} (Y-z((v^i t)^d))\\
+    & = \prod^{m/d}_{i=1} (Y- y (v^i t)).
+  \end{aligned}\tag{5.16.2}\label{part1:chap2:sec5:eq5.16.2}}
+
+Let $n= m/d$. Since $d$ divides $j$ for every $j \in \Supp_t y(t)$, $m$ divides $nj$ for every $j \in \Supp_t y(t)$. It follows that $y(v^{rn+i}t) = y(v^i t)$ for all integers $i$, $r$. Therefore we get
+\begin{align*}
+  \prod_{w \in \mu_m (\ob{k})} (Y - y (wt)) & = \prod^m_{j=1} (Y- y(v^j t))\\
+    & = \prod^{d-1}_{r=0} \prod^{n}_{i=1} (Y - y (v^{rn+i} t)) = \left(\prod_{i=1}^n (Y-y (v^i t)) \right)^d\\
+    & = (f (t^m, Y))^d \hspace{3cm}{\text{(by \ref{part1:chap2:sec5:eq5.16.2}).}}
+\end{align*}
+
+\section{Characteristic Sequences}\label{part1:chap2:sec6}
+
+Throughout\pageoriginale this section, we shall preserve the notation introduced in \ref{part1:chap2:sec6:ss6.1} below
+
+\subsection{}\label{part1:chap2:sec6:ss6.1} 
+
+Let $k$ be an algebraically closed field and let $X$, $Y$, $t$ be indeterminates. Let $f= f(X, Y)$ be an irreducible element of $k((X))[Y]$ such that $f$ is monic in $Y$. We call such an $f$ a {\em meromorphic curve} over $k$. Let $n= \deg_Y f$, and assume that char $k$ does not divide $n$. Then by Newton's Theorem \ref{part1:chap2:sec5:ss5.14} there exists an element $y(t) \in k ((t))$ such that $f (t^n, y(t))=0$ and 
+$$
+f(t^n, Y) = \prod_{w \in \mu_n (k)} (Y- y (wt)).
+$$ 
+
+Therefore if $z(t)$ is any element of $k((t))$ such that $f(t^n, z(t))=0$ then $z(t) = y(wt)$ for some $w \in \mu_n (k)$. In particular, we have $\Supp_t z(t) = \Supp_t y(t)$. Thus the set $\Supp_t y(t)$ depends only on $f$ and not on a root $y(t)$ of $f(t^n, Y)=0$. Therefore we can make
+
+\setcounter{thm}{1}
+\begin{defi}\label{part1:chap2:sec6:def6.2} 
+  The {\em support} of $f$ denoted $\Supp (f)$ is defined by
+  $$
+  \Supp (f) = \Supp_t y(t)
+  $$
+  where $y(t)$ is any element of $k((t))$ such that $f(t^n, y(t))=0$.
+\end{defi}
+
+\begin{convn}\label{part1:chap2:sec6:convn6.3} 
+  We\pageoriginale extend the notion of divisibility in $\mathbb{Z}$ to the set $\mathbb{Z} \cup \{ \infty, - \infty\}$ by postulating that:
+\begin{enumerate}[(i)]
+\item $\infty$ and $- \infty$ divide every element of $\mathbb{Z} \cup \{ \infty, - \infty\}$.
+  \item No integer divides $\infty$ or $-\infty$.
+\end{enumerate}
+Note that ``$a$ divides $b$'' is still a reflexive and transitive relation on $\mathbb{Z}\cup \{ \infty, - \infty\}$. If $I$ is a subset of $\mathbb{Z}$ we denote, as usual, by \gcd $(I)$ the unique non-negative generator of the ideal of $\mathbb{Z}$ generated by $I$. If $I$ is a subset of $\mathbb{Z} \cup \{ \infty, - \infty\}$ such that $I \not\subset \mathbb{Z}$ then we {\em define} \gcd $(I)=- \infty$. For a subset $I$ of $\mathbb{Z}$ we denote by $\inf (I)$ the infimum of $I$. As usual, we set $\inf (\phi)= \infty$.
+\end{convn}
+
+\begin{defi}\label{part1:chap2:sec6:def6.4} 
+  Let $J$ be a subset of $\mathbb{Z}$ bounded below and let $\nu$ be a non-zero integer. We define $m_i (\nu, J)$ and $d_{i+1} (\nu, J)$ for every $i \in \mathbb{Z}^+$ by induction on $i$ as follows: $m_0 (\nu, J)= \nu, d_1 (\nu, J)= |\nu|$, $m_1(\nu, J)= \inf (J)$ and, $i \geq 2$, 
+\begin{align*}
+d_i (\nu, J) & = \text{\gcd}~ (d_{i-1} (\nu, J), m_{i-1} (\nu, J)),\\
+m_i (\nu, J) & =  \inf \left\{ j \in J \Big| j \nequiv 0 (\text{mod } d_i (\nu, J))\right\}.
+\end{align*}
+Note that we have $d_i (- \nu, J) = d_i (\nu, j)$ for every $i \geq 1$.
+\end{defi}
+
+\begin{lemma}\label{part1:chap2:sec6:lem6.5}
+  With the notation of \ref{part1:chap2:sec6:def6.4}, let $J_1= J$ and, for $i \geq 2$, let
+$$
+J_i = \left\{ j \in J_1 \Big| j \nequiv 0 (\text{mod } d_i (\nu, J)) \right\}.
+$$ 
+\end{lemma}
+
+Let $d= \text{\gcd}~ (\{ \nu \} \cup J)$. Then we have:
+\begin{enumerate}[(i)]
+\item $d_{i+1} (\nu , J)= \text{\gcd}~ (m_0 (\nu, J), \ldots , m_i (\nu, J))$ for all $i \geq 0$.
+
+\item $d_{i+1} (\nu, J)$ divides $d_i (\nu, J)$ for every $i\geq 1$.
+
+\item $J_i \supset J_{i+1}$ and $m_i (\nu, J) \notin J_{i+1}$ for every $i \geq 1$. In particular, if $J_{i} \neq \phi$ then $J_i \displaystyle{\mathop{\supset}_{\neq}} J_{i+1}$ and $m_i (\nu, J)< m_{i+1} (\nu, J)$.
+
+\item If\pageoriginale $i \geq 2$ and $J_i \neq \phi$ then $d_i (\nu, J)> d_{i+1}(\nu, J) \geq d$. If $i \geq 1$ and $j_i = \phi$ then $d_{i+1} (\nu, J)=- \infty$.
+
+Moreover, there exists a unique non-negative integer $h$ such that we have:
+
+\item $d_1 (\nu, J) \geq d_2 (\nu, j) > d_3 (\nu, J)> \cdots > d_{h+1} (\nu, J)=d$.
+
+\item $d_i (\nu, J)=- \infty$ for $i \geq h+2$.
+
+\item $m_i (\nu, J) \in \mathbb{Z}$ for $0 \leq i \leq h$ and $m_i (\nu, J)= \infty$ for $i \geq h+1$.
+
+\item $m_1 (\nu, J) < \cdots < m_h (\nu, J) < m_{h+1} (\nu, J)= \infty$.
+
+\item $d_i (\nu, J)=\text{\gcd}~ ( \{ \nu\} \cup \{ j \in J |j < m_i (\nu, J)\} )$ for $1 \leq i \leq h+1$.
+\end{enumerate}
+
+\begin{proof}
+~
+\begin{enumerate}[(i)]
+\item Clear from the definition by induction on $i$.
+
+\item Follows from (i).
+
+\item Let $i \geq 1$. It follows from (ii) that $J_i \supset J_{i+1}$. Moreover, since $d_{i+1}(\nu, J)$ divides $m_i (\nu, J)$, we have $m_i(\nu, J) \notin J_{i+1}$. If $J_i \neq \phi$ then $m_i (\nu, J) = \inf (J_i)$ belongs to $J_i$, so that we get $J_i \displaystyle{\mathop{\supset}_{\neq}} J_{i+1}$ and $m_i (\nu, J) < m_{i+1} (\nu, J)$.
+
+\item Let $i \geq 2$. If $J_i \neq \phi$ then $m_i (\nu, J) \in J_i$, so that $d_i(\nu, J)$ does not divide $m_i (\nu, J)$. This shows that $d_i (\nu, J)> d_{i+1} (\nu, J)$. Moreover, since $J_i \neq \phi$, by (iii) we have $J_p \neq \phi$ for $1 \leq p \leq i$. Therefore $m_p (\nu, J \in J)$ for $1 \leq p \leq i$, so that $d= \text{\gcd} (\{ \nu\} \cup J)$ divides \gcd $(m_0 (\nu, J), \ldots , m_i (\nu , J)) = d_{i+1} (\nu, J)$. This shows that $d_{i+1} \geq d$.  Now, suppose $i \geq 1$ and $J_i = \phi$. Then $m_i (\nu, J)= \inf (J_i) = \infty$. Therefore $d_{i+1}(\nu, J)=- \infty$. This proves (iv).
+
+We now claim that there exists $i \geq 1$ such that $J_i = \phi$. For, if $J_i \neq\phi$ for every $i$ then, by (iv), $\{ d_i (\nu, J)|i \geq 2\}$ is a strictly decreasing infinite sequence of integers bounded below by $d$. This is not possible. Therefore there exists $i$ such that $J_i = \phi$. Let
+$$
+h+1 = \inf \left\{ i \geq 1 \Big| J_i = \phi \right\}.
+$$
+
+Then,\pageoriginale since $J_i \supset J_{i+1}$ for every $i \geq 1$, we have $J_i \neq \phi$ for $1\leq i \leq h$ and $J_i = \phi$ for $i \geq h+1$. This proves (vi), (vii) and (viii) in view of (iii) and (iv).
+
+\item Since $J_p \neq \phi$ for $1 \leq p \leq h$, we have $m_p (\nu, J) \in J$ for $1 \leq p \leq h$. Therefore $d$ divides $d_{h+1}(\nu, J)$. On the other hand, since $J_{h+1}= \phi$, $d_{h+1} (\nu, J)$ divides $j$ for every $j \in J$. Since $d_{h+1}(\nu, J)$ also divides $\nu$, we see that $d_{h+1}(\nu, J)$ divides $d$. Therefore we get $d_{h+1}(\nu, J)=d$. Now, (v) follows from (i) and (iv).
+
+(ix) Fix an $i$, $1 \leq i \leq h+1$. Let 
+$$
+J' = \left\{ j \in J \Big| j < m_i(\nu, J)\right\}
+$$ 
+and let $d' = \text{\gcd}~ ( \{ \nu\} \cup J')$. If $i=1$ then $J' = \phi$ and we have $d' = |\nu| = d_i (\nu, J)$. Assume therefore that $2 \leq i \leq h+1$. Since $m_i (\nu, J)= \inf (J_i)$, we have $J' \cap J_i = \phi$. This means that $d_i (\nu, J)$ divides $j$ for every $j \in J'$. Therefore $d_i (\nu, J)$ divides $d'$. On the other hand, by (viii) $m_p (\nu, J) \in J'$ for $1 \leq p \leq i-1$. Therefore, since $\nu = m_0 (\nu, J), d'$ divides
+$$
+\text{\gcd}~ (m_0 (\nu, J) , \ldots , m_{i-1} (\nu, J)),
+$$
+which is equal to $d_i (\nu, J)$ by (i). Thus we get $d' = d_i (\nu, J)$.
+\end{enumerate}
+\end{proof}
+
+\begin{defi}\label{part1:chap2:sec6:def6.6}
+  Let $J$ be a subset of $\mathbb{Z}$ bounded below and let $\nu$ be a non-zero integer. The $m$-{\em sequence} of $J$ {\em with respect to} $\nu$, denoted $m (\nu, J)$, is defined to be 
+$$
+m(\nu, J)= (m_0 (\nu, J), \ldots , m_h (\nu, J), m_{h+1} (\nu, J)),
+$$
+where $m_i (\nu, J)$ is defined as in Definition \ref{part1:chap2:sec6:def6.4} and where $h$ is the unique non-negative integer of Lemma \ref{part1:chap2:sec6:lem6.5}. If $\nu$ and $J$ are not clear from the context\pageoriginale then we shall write $h (\nu, J)$ for $h$. Note then that $h (- \nu, J)= h(\nu, J)$. Note also that by Lemma \ref{part1:chap2:sec6:lem6.5} we have $m_i (\nu, J) \in \mathbb{Z}$ for $0 \leq i \leq h$ and $m_{h+1}(\nu, J)= \infty$.
+\end{defi}
+
+\begin{lemma}\label{part1:chap2:sec6:lem6.7}
+  Let $J$ be a subset of $\mathbb{Z}$ bounded below and let $\nu$ be a non-zero integer. Let $e$ be an integer such that $1 \leq e \leq h (\nu, J)+1$. Let 
+$$
+J' = \left\{ j/ d_e \Big| j \in J, j < m_e (\nu, J)\right\},
+$$
+where $d_e = d_e (\nu, J)$. Let $\nu'= \nu/ d_e$. Then $J' \subset \mathbb{Z}, J'$ is bounded below, $\nu'$ is a non-zero integer and we have
+\begin{align*}
+  h (\nu', J') & = e-1,\\
+  m_i (\nu' , J') & = m_i (\nu, J)/d_e,\\
+  d_{i+1} (\nu', J') & = d_{i+1} (\nu, J)/ d_e
+\end{align*}
+for $0 \leq i \leq h(\nu', J')$.
+\end{lemma}
+
+\begin{proof}
+A straightforward verification.
+
+In the remainder of this section we let $\nu$ be an integer such that $|\nu|=n$.
+\end{proof}
+
+\begin{defi}\label{part1:chap2:sec6:def6.8}
+  The $m$-{\em sequence} $m (\nu, f)$ of $f$ {\em with respect to} $\nu$ is defined by
+$$
+m (\nu, f) = m (\nu, \Supp (f)).
+$$
+Note that, since $|\nu|= \deg_Y f, h(\nu, \Supp (f))$ depends only on $f$ an does not depend upon $\nu$. We shall write $h(f)$ for $h (\nu, \Supp (f))$ and $m_i (\nu, f)$ for $m_i (\nu, \Supp (f))$ for $0 \leq i \leq h(f) +1$. Note that $m_i (\nu, f)= \ord_t y (wt)$ for every $w \in \mu_n (k)$.
+\end{defi}
+
+\begin{defi}\label{part1:chap2:sec6:def6.9}
+  The $d$-{\em sequence} $d(f)$ of $f$ is defined to be
+$$
+d(f) = (d_1 (f), \ldots , d_{h+1} (f), d_{h+2}(f)),
+$$
+where\pageoriginale $h= h(f)$ and $d_i(f)= d_i (\nu, \Supp (f))$ as defined in Definition \ref{part1:chap2:sec6:def6.4}, $1 \leq i \leq h+2$. We note that, since $|\nu|=\deg_Y f$, $d(f)$ depends only on $f$ and does not depend upon $\nu$.
+\end{defi}
+
+\begin{defi}\label{part1:chap2:sec6:def6.10}
+  The $q$-{\em sequence $q (\nu, f)$ of $f$ with respect to} $\nu$ is defined to be
+$$
+q (\nu, f) = (q_0 (\nu, f), \ldots , q_n (\nu, f), q_{h+1} (\nu, f)),
+$$
+where $h= h(f)$, $q_i (\nu, f)= m+i (\nu, f)$ for $i=0, 1$, and $q_j (\nu, f)= m_j (\nu, f)- m_{j-1} (\nu, f)$ for $2 \leq j \leq h+1$.
+\end{defi}
+
+\begin{defi}\label{part1:chap2:sec6:def6.11}
+  The $s${\em sequence $s (\nu, f)$ of $f$ with respect to} $\nu$ is defined to be 
+  $$
+  s (\nu, f)= (s_0 (\nu, f), \ldots , s_h (\nu, f), s_{h+1} (\nu, f)),
+  $$
+where $h= h(f)$, $s_0 (\nu, f)= q_0(\nu, f)$ and 
+$$
+s_i (\nu, f)= \sum^i_{p=1} q_p (\nu, f) d_p (f)
+$$
+for $1 \leq i \leq h+1$.
+\end{defi}
+
+\begin{defi}\label{part1:chap2:sec6:def6.12}
+  The $r$-{\em sequence $r(\nu, f)$ of $f$ with respect to} $\nu$ is defined to be 
+$$
+r (\nu, f) = (r_0 (\nu, f), \ldots, r_h (\nu, f), r_{h+1} (\nu, f)),
+$$
+where $h = h(f), r_0 (\nu, f)= s_0 (\nu, f)$ and $r_i (\nu, f)= s_i (\nu, f)/d_i (f)$ for $1 \leq i \leq h+1$.
+\end{defi}
+
+Some properties of the various sequences defined above are listed in the following proposition. These will be used in the sequel, mostly without explicit reference.
+
+\begin{prop}\label{part1:chap2:sec6:prop6.13}
+  Let\pageoriginale $\nu$ be an integer such that $|\nu|=n$. Let $h= h(f)$ and for every $i, 0 \leq i \leq h+1$, let $m_i = m_i (\nu, f)$, $q_i =q_i (\nu, f)$, $s_i = s_i (\nu, f)$, $r_i=r_i(\nu, f)$ and $d_{i+1} = d_{i+1} (f)$. Then:
+\begin{enumerate}[(i)]
+\item $d_{i+1}$ divides $d_i$ for $1 \leq i \leq h+1$.
+\item $d_1 \geq d_2 > d_3 > \cdots > d_h > d_{h+1}=1$.
+\item $d_1 =n$ and $d_{h+2}=- \infty$.
+\item $r_0 = s_0 = q_0 = m_0= \nu$ and $r_1= q_1= m_1$.
+\item $r_{h+1} = s_{h+1} = q_{h+1} = m_{h+1}=\infty$.
+\item $m_i$, $q_i$, $s_i$, $r_i$ are integers for $0 \leq i \leq h$.
+\item $m_1 < m_2 < \cdots < m_h < m_{h+1}= \infty$.
+\item $q_i$ is a positive integer for $2 \leq i \leq h$.
+\item $d_i = \text{\gcd}~ ( \{ n\} \cup \{ j \in \Supp (f)| j < m_i \})$ for $1 \leq i \leq h+1$.
+\item For $0 \leq i \leq h+1$, we have
+  \begin{enumerate}[(1)]
+    \item $d_{i+1} = \text{\gcd}~ (m_0 , \ldots , m_i)$,
+      \item $d_{i+1} = \text{\gcd}~ (q_0 , \ldots , q_i)$,
+        \item $d_{i+1} = \text{\gcd}~ (r_0 , \ldots , r_i)$,
+          \item $d_{i+1} = \text{\gcd}~ (s_0,s_1/d_1 \ldots , s_i/d_i)$.
+  \end{enumerate}
+In particular, each of the four sequences $m (\nu, f)$, $q (\nu, f)$, $s(\nu, f)$ and $r(\nu, f)$ determines $d(f)$, the sequence $s(\nu, f)$ determining $d(f)$ by the recursive formula (4).
+\item each one of the four sequences $m(\nu, f)$, $q (\nu, f)$, $s (\nu, f)$ and $r(\nu, f)$ determines the other three.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  ~
+\begin{enumerate}[(i)]
+\item Follows from Lemma \ref{part1:chap2:sec6:lem6.5}.
+\item Follows from Lemma \ref{part1:chap2:sec6:lem6.5} and Theorem \ref{part1:chap2:sec5:ss5.14}.
+  \item Clear from the definition and Lemma \ref{part1:chap2:sec6:lem6.5}.
+    \item Clear\pageoriginale from the definition.
+      \item Clear from the definition.
+        \item By Lemma \ref{part1:chap2:sec6:lem6.5} $m_i$ is an integer for $0 \leq i \leq h$. Therefore it follows the definition that $q_i$, $s_i$ are integers for $0 \leq i \leq h$ and that $r_0$ is an integer. Now by (i) $d_p/ d_i$ is an integer for $1\leq p \leq i \leq h$. Therefore for $1 \leq i \leq h$
+$$
+r_i = s_i/d_i = \sum^i_{p=1} q_p (d_p/ d_i)
+$$
+is an integer.
+\item Follows from Lemma \ref{part1:chap2:sec6:lem6.5}.
+\item Follows from (vi) and (vii).
+  \item Follows from Lemma \ref{part1:chap2:sec6:lem6.5}, since $n=|\nu|$.
+    \item (i) follows from Lemma \ref{part1:chap2:sec6:lem6.5}. (2) follows easily from (1), since $q_0= m_0$, $q_1=m_1$ and $q_i = m_i-m_{i-1}$ for $1 \leq i \leq h+1$. To prove (3), we note that we have
+\eqn{r_i \sum^{i-1}_{p=1} q_p (d_p /d_i) + q_i \tag{6.13.1}\label{part1:chap2:sec6:prop6.13:eq6.13.1}}
+for $1 \leq i \leq h+1$. Therefore, since $d_p/d_i$ is an integer and since $d_i$ divides $q_p$ for $1 \leq p \leq i-1$, we get
+\begin{align*}
+  \text{\gcd}~ (d_i, r_i) & = \text{\gcd}~ (d_i, q_i)& \\
+  & = \text{\gcd}~ (q_0, \ldots , q_{i-1}, q_i) & \text{(by (2))}\\
+  & = d_{i+1}& \text{(by (2))}
+\end{align*}
+for $1 \leq i \leq h+1$. Therefore, since $d_1= |q_0| = |r_0|$, we get (3) for $0 \leq i \leq h+1$ by induction on $i$, (4) is immediate from (3).
+\item Since\pageoriginale each of four sequences determines $d(f)$ by $(x)$, it is enough to show that each one of them {\em together with} $d(f)$ determines the other three. It is clear from the definition that $m(\nu, f)$ determines $q(\nu, f)$, $q(\nu, f)$ and $d(f)$ determine $s(\nu, f)$, and $s(\nu, f)$ and $d(f)$ determine $r(\nu, f)$. Moreover, $q (\nu, f)$ clearly determines $m(\nu, f)$ by the formulas
+\begin{align*}
+m_0 & = q_0,\\
+m_i & = \sum^i_{p=1} q_p, \quad 1 \leq i \leq h+1.
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+Therefore, to complete the cycle, it is enough to show that $r (\nu, f)$ and $d(f)$ determine $q (\nu, f)$. But this is clear from the recursive formulas
+\begin{align*}
+  q_0 & = r_0,\\
+  q_i & = r_i - \sum^{i-1}_{p=1} q_p (d_p/d_i), 1 \leq i \leq h+1,
+\end{align*}
+which we get from \ref{part1:chap2:sec6:prop6.13:eq6.13.1}.
+
+\begin{lemma}\label{part1:chap2:sec6:lem6.14}
+  Let $\nu$ be an integer such that$|\nu|=n$. Let $h= h(f)$ and let $m_i = m_i (\nu, f)$, $d_{i+1}= d_{i+1}(f)$ for $0 \leq i \leq h+1$. Let $y(t)$ be an element of $k((t))$ such that $f(t^n, y(t))=0$. Let $e$ be an integer such that $1\leq e \leq h+1$. Let $w$ be an $n$th root of unity in $k$ and let $p = \ord (w)$. Then we have:
+\begin{enumerate}[\rm (i)]
+\item $\ord_t (y(t)- y (w t))\geq m_e$ if and only if $p$ divides $d_e$.
+\item $\ord_t (y(t)- y (w t))\leq m_e$ if and only if $p$ does not divide $d_{e+1}$.
+\item $\ord_t (y(t)- y (w t)) = m_e$ if and only if $p$ divides $d_e$ and $p$ does not divide $d_{e+1}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  It is clearly enough to prove (i) and (ii). Since $\ord_t (y(t)=m_1= \ord_t y (wt)$ and since $p$ divides $n= d_1$, (i) is obvious for $e=1$. Since $m_{h+1}= \infty$ and since $p$\pageoriginale does not divide $- \infty = d_{h+2}$, (ii) is obvious for $e= h+1$. Therefore it is enough to prove (i) for $e \geq 2$ and (ii) for $e \leq h$. Now, for the moment, grant the following two statements:
+\begin{enumerate}
+\item[(i$'$)] {\em If $2 \leq e \leq h+1$ and $p$ divides $d_e$ then $\ord_t(y(t)- y(wt)) \geq m_e$.}
+
+\item[(ii$'$)] {\em If $1 \leq e \leq h$ and $p$  does not divide $d_{e+1}$ then $\ord_t (y(t) - y(wt))\leq m_e$.}  
+\end{enumerate}
+Then if $2 \leq e \leq h+1$ and $\ord_t(y(t)- y(wt))\geq m_e$ we get $\ord_t(y(t)- y(wt))> m_{e-1}$, since $m_e > m_{e-1}$. This shows by (ii$'$) that $p$ divides $d_e$. If $1 \leq e \leq h$ and $\ord_t (y(t)- y (wt))\leq m_e$ then we get $\ord_t (y(t)- y(wt))< m_{e+1}$ since $m_e < m_{e+1}$. This shows by (i$'$) that $p$ does not divide $d_{e+1}$. Thus, in order to complete the proof of the lemma, it is enough to prove (i$'$) and (ii$'$).
+
+(i$'$) Let $J= \Supp (f)= \Supp_t y(t)$. Write $y(t)= \displaystyle{\sum_{j \in J}y_j t^j}$ with $y_j \in k$, $h_j \neq 0$ for every $j \in J$. Then $y(wt)= \displaystyle{\sum_{j \in J}} w^jy_j t^j$. Therefore we have
+\begin{align*}
+\ord_t (y(t)- y (wt)) & = \inf \left\{ j \in J \Big| w^j \neq 1 \right\}\\
+& = \inf \left\{ j \in J \Big| j \not\equiv 0 (\text{mod } p) \right\}\\
+& = \inf \left\{ j \in J \Big| j \not\equiv 0 (\text{mod } d_e)\right\}\\
+& m_e,
+\end{align*}
+where the inequality follows from the fact that $p$ divides $d_e$.
+
+(ii$'$) Let 
+$$
+c = \inf \left\{ i \Big| 1 \leq i \leq h, p ~\text{does not divide}~ d_{i+1}\right\}.
+$$
+
+Then, since $p$ divides $n= d_1$, we see that $p$ divides $d_c$ and $p$ does not divide $d_{c+1}$. Moreover, $c \leq e$. Now, $d_{c+1}= \text{\gcd}~ (d_c, m_c)$. Since $p$ divides $d_c$ and $p$ does not divide $d_{c+1}$, we see that $p$ does not divide $m_c$. Therefore $w^{m_c}\neq 1$, which shows that
+$$
+\ord_t (y(t)- y(wt)) \leq m_c \leq m_e.
+$$
+\end{proof}
+
+\begin{prop}\label{part1:chap2:sec6:prop6.15}
+  Let\pageoriginale $\nu$ be an integer such that $|\nu|=n$. Let $h= h(f)$ and let $m_i= m_i (\nu, f)$, $d_{i+1}= d_{i+1} (f)$ for $0 \leq i \leq h+1$. Let $y(t)$ be an element of $k((t))$ such that $f(t^n, y(t))=0$. Let
+\begin{align*}
+   E & = \left\{ \ord_t (y(w_1t) -  y(w_2t)) \Big| w_1, w_2 \in \mu_n (k), w_1 \neq w_2\right\},\\
+   M_1 & = \left\{ m_1 , \ldots , m_h\right\}\\
+\text{and} \hspace{1cm} M_2 & = \left\{ m_2 , \ldots , m_h \right\}.
+\end{align*}
+Then $M_2 \subset E \subset M_1$. Moreover, we have
+$$E= 
+\begin{cases}
+  M_1, & \text{if}~ d_1 > d_2,\\
+  M_2, & \text{if}~ d_1 = d_2.
+\end{cases}
+$$
+\end{prop}
+
+\begin{proof}
+  If $h=0$ then $d_1 =1$ and $E = M_1 = M_2 = \phi$. We may therefore assume that $h \geq 1$. Since $\ord_t (y(w_1t)- y (w_2t))= \ord_t (y(t)- y(w_2 w_1^{-1}t))$, it is clear that $   E = \left\{ \ord_t (y(t) - y(wt)) \Big| w \in \mu_n (k), w \neq 1\right\}$. Let $w \in \mu_n(k)$, $w \neq 1$, and let $p = \ord (w)$. Then $p$ divides $n= d_1$ and $p$ does not divide $1= d_{h+1}$. Therefore there exists $e$, $1 \leq e \leq h$, such that $p$ divides $d_e$ and $p$ does not divide $d_{e+1}$. Therefore by Lemma \ref{part1:chap2:sec6:lem6.14} we get
+$$
+\ord_t (y(t)- y (wt))= m_e \in M_1.
+$$
+
+This proves that $E \subset M_1$. Now, let $i$ be an integer such that $2 \leq i \leq h$. Since $d_i$ divides $d_1=n$, there exists $w \in \mu_n (k)$ such that $\ord(w)=d_1$. Since $i \geq 2$, $d_i$ does not divide $d_{i+1}$ by Proposition \ref{part1:chap2:sec6:prop6.13}. Therefore by Lemma \ref{part1:chap2:sec6:lem6.14} we have
+$$
+m_i = \ord_t (y(t)- y(wt))\in E.
+$$
+
+This\pageoriginale proves that $M_2 \subset E$. Now, suppose $d_1 > d_2$. Then, if $w$ is a primitive $n$th root of unity in $k$, $\ord(w)= d_1$ does not divide $d_2$, so that by Lemma \ref{part1:chap2:sec6:lem6.14} we get
+$$
+m_1 = \ord_t (y(t)- y(wt))\in E,
+$$
+which proves that $E= M_1$. Finally, suppose $d_1= d_2$. Then, since $d_2= \text{\gcd}~(d_1, m_1), d_1$ divides $m_1$. Therefore $w^{m_1}=1$ for every $w\in \mu_n (k)$. Since $\ord
+_t y(t)= m_1 = \ord_t y(wt)$, it follows that
+$$
+\ord_t (y(t)- y(wt)) > m_1
+$$
+for every $w \in \mu_n (k)$. This means that $m_1 \notin E$, which proves that $E= M_2$.
+\end{proof}
+
+\begin{prop}\label{part1:chap2:sec6:prop6.16}
+  Let $\nu$ be an integer such that $|\nu|=n$. Let $e$ be an integer such that $1 \leq e \leq h(f)+1$. Let $d_e = d_e(f)$ and let $n'= n/d_{e'} \nu'= \nu/d_e$. Let $f'$ be an irreducible element of $k ((X))[Y]$ such that  $f'$ is monic in $Y$ and $\deg_Y f' = n'$. Assume that
+$$
+\Supp (f') = \left\{j/d_e \Big| j \in \Supp (f), j < m_e (\nu, f)\right\}.
+$$ 
+
+Then $h(f')=e-1$, and for $o \leq i \leq h(f')$ we have:
+\begin{enumerate}[(i)]
+\item $m_i (\nu', f') = m_i (\nu, f)d_e$.
+\item $d_{i+1}(f')= d_{i+1} (f) /d_e$.
+\item $q_i (\nu', f') = q+i (\nu, f)/d_e$.
+\item $s_i (\nu', f')= s_i (\nu, f)/d^2_e$ (if $i \neq 0$).
+\item $r_i (\nu', f') = r_i (\nu, f)/d_e$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  (i) and (ii) follow from Lemma \ref{part1:chap2:sec6:lem6.7}. (iii), (iv) and (v) follow immediately from\pageoriginale (i) and (ii).
+\end{proof}
+
+\begin{prop}\label{part1:chap2:sec6:prop6.17}
+  Let $\nu$ be an integer such that $|\nu|=n$. Let $f'$ be an irreducible element of $k((X)) [Y]$ such that $f'$ is monic in $Y$ and $\deg_Y f' =n$. Suppose there exists $z(t) \in k((t))$ such that $f' (t^n, z(t))=0$ and $\ord_t (z(t)- y(t))>m_h (\nu, f)$, where $h= h(f)$. Then we have:
+\begin{enumerate}[(i)]
+\item $h(f') = h(f)$.
+\item $m(\nu, f')= m(\nu, f)$.
+\item $q(\nu, f') = q (\nu, f)$.
+\item $s(\nu, f')= s(\nu, f)$.
+\item $r(\nu, f') = r(\nu, f)$.
+\item $d(f')= d(f)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  Let $J= \Supp (f)$, $J' = \Supp (f')$. Then the hypothesis implies that we have
+\eqn{\left\{ j \in J \Big| j \leq m_h (\nu, f)\right\} = \left\{ j \in J' \Big| j \leq m_h (\nu, f)\right\}.\tag{6.17.1}\label{part1:chap2:sec6:eq6.17.1}}
+
+We shall prove the lemma under the weaker assumption (\ref{part1:chap2:sec6:eq6.17.1}). Note that it is enough to prove (ii). For, the rest then follows from (ii) and the definition. We first prove by induction on $i$ that we have
+\eqn{i \leq h(f') ~\text{and}~ m_i (\nu, f)= m_i (\nu, f')\tag{6.17.2}\label{part1:chap2:sec6:eq6.17.2}}
+for $0 \leq i \leq h= h(f)$. For $i=0$, this is clear. Suppose now that $p$ is an integer, $1 \leq p \leq h$, such that (\ref{part1:chap2:sec6:eq6.17.2}) holds for $0 \leq i \leq p-1$. Then by Proposition \ref{part1:chap2:sec6:prop6.13}  $(x)$ we have 
+\begin{align*}
+  d_p (f') & = d_p (f) = d_p, ~\text{say}.~ Let\\
+  J_p & = \begin{cases}
+    \left\{ j \in J \Big| j \neq 0 \pmod{d_p} \right\}, & \text{if}~ p \geq 2,\\
+    J, & \text{if}~ p=1,
+  \end{cases}\\
+  J'_p & = \begin{cases}
+    \left\{ j \in J' \Big| j \neq 0 \pmod{d_p} \right\}, & \text{if}~ p \geq 2,\\
+    J', & \text{if}~ p=1.
+  \end{cases}
+\end{align*}
+
+Then\pageoriginale we have $m_p (\nu, f)= \inf (J_p)$, $m_p (\nu, f')
+= \inf (J'_p)$. Since $m_p (\nu, f)$ $\leq m_h (\nu, f)$, we have $m_p
+(\nu, f)\in J'_p$ by (\ref{part1:chap2:sec6:eq6.17.1}). This shows
+that $m_p(\nu, f')$ $\leq m_p (\nu, f) \leq m_h (\nu, f)$. Therefore by
+(\ref{part1:chap2:sec6:eq6.17.1}) $m_p (\nu, f') \in J_{p'}$ so that
+$m_p (\nu, f') \leq m_p (\nu, f)$. This proves that $m_p (\nu, f')=
+m_p (\nu, f)< \infty$, which shows also that $p \leq h(f')$. Thus
+(\ref{part1:chap2:sec6:eq6.17.2}) is proved for $0 \leq i \leq h$. In
+particular, we get $h \leq h(f')$ and $d_{h+1} (f')= d_{h+1} (f)=1$ by
+Proposition \ref{part1:chap2:sec6:prop6.13}. This means that 
+$$
+J'_{h+1} = \left\{ j \in J \Big| j \notin 0 \text{ (mod } d_{h+1} (f')) \right\}
+$$
+is empty, so that $h \geq h(f')$. Thus we have $h(f')= h= h(f)$ and by (\ref{part1:chap2:sec6:eq6.17.2}) we  get $m (\nu, f)= m(\nu, f')$.
+\end{proof}

@@ -1,0 +1,453 @@
+\chapter{Approximations to \texorpdfstring{$|x|$}{|x|}}\label{chap3}
+
+\setcounter{section}{6}
+\section{}\label{chap3:sec7}
+
+We\pageoriginale now take up the central problem of polynomial
+  approximation,\break namely 
+
+Given a function $f(x)$, how high is the degree of the polynomial
+necessary to approach it with an assigned accuracy? 
+
+The answer may well depend on structural properties of $f(x)$. For
+instance, we may guess (rightly) that we can predict a lower degree if
+$f(x)$ is assumed to be differentiable instead of only continuous. The
+best theorems on these matter lie fairly deep. We shall go through
+some heuristic motion of finding from particular cases what truth
+appears to be and then deciding how to try to establish it. 
+
+A useful function to study with care is $|x|$ in $(-1,1)$. This
+function was the basis of Lebesgue's proof of Theorem \ref{chap1:sec1:pofthm1}. 
+
+From Exercises 1, 2 at the end of Chapter $I$, the deviation from
+$|x|$ of a polynomial of degree $n$ of any of the three types used in
+proving Theorem \ref{chap1:sec1:thm1} is of order $1/ \sqrt{n}$. 
+
+Let us clarify our mode of speech. If, for some $p(x)$ in $P_n$,
+$$
+|f(x)-p(x)|=0 \{\varphi (n)\}
+$$
+we will say that the approximation is $0\{\varphi (n) \}$. If,
+moreover, there is no $p(x)$ in $P_n$ for which 
+$$
+|f(x)-p(x)|=0 \{\varphi (n)\}
+$$
+we will say that the approximation is \textit{actually} $0 \{\varphi
+(n)\}$. 
+
+Study of the proofs of Theorem \ref{chap1:sec1:pofthm1} might lead us to conjecture that
+the best approximation in $p_n$ to $|x|$ is actually $0(1/ \surd n)$. 
+
+We\pageoriginale proceed to show that, in fact, it is actually $0(1/n)$. This will
+be proved, following Bernstein, Lecons Ch.I, by elementary (though
+rather lengthy) algebra. 
+
+To approximation to $|x|$ in $(-1,1)$ is the same thing as to
+approximate to $x$ in $(0,1)$ by polynomials whose exponents are all
+even, and this is what we shall do. 
+
+If $d_{2n}$ is the best approximation to $x$ in $(0,1)$ by 
+$$
+a_ 0 +a_1 x^2+ \cdots + a_n x^{2n}
+$$
+we shall prove that
+$$
+\frac{1}{2n+1} > d_{2n}> \frac{1}{4(1+ \sqrt{2})}\cdot \frac{1}{2n-1}.
+$$
+
+Bernstein went further and proved that $d_{2n} \sim C/n$, where $C$ is
+a constant which he evaluated as $0.282 \pm 0.004$. 
+
+The theorems of this Chapter will not be used later in the course, and
+any one who wishes may note above inequalities for $d_{2n}$ and pass
+on to Chapter IV. 
+
+\section{Oscillating polynomials}\label{chap3:sec8}
+
+\begin{defi*}
+  If $0 \leq \alpha_ 0 < \alpha_1 \cdots < \alpha_n$ and $A_i \neq 0$
+  (all $i$), we say that 
+  $$
+  p(x)=A_ 0 x^{\alpha _0}+A_1 x^{\alpha_ 1}+ \cdots + A_n x^{\alpha _ n}
+  $$
+  is an \textit{oscillating polynomial} in $(0,1)$ if $\sup |p(x)|$ is
+  attained for $n+1$ values of $x$ in $0 \leq x \leq 1$. We shall
+  suppose the $\alpha's$ integers. 
+
+\noindent\textbf{Illustrations.} 
+
+  \begin{enumerate}[\quad \rm (1)]
+    \item $\alpha _i =2i+1$  \quad $T_{2n+1}(x)$ \quad satisfies
+    \item $\alpha_i = i$  \qquad $T_{2n}(\sqrt{x})$.
+  \end{enumerate}
+\end{defi*}
+
+\setcounter{lem}{0}
+\begin{lem}\label{chap3:sec8:lem1}%lemma 1
+  The\pageoriginale polynomial $p(x)$ in the definition has at most $n$ positive
+  zeros. If it has $n$ the coefficients alternate in sign. 
+\end{lem}
+
+From Descrates' rule fo signs.
+\begin{lem}\label{chap3:sec8:lem2}%lemma 2
+  The coefficients of an oscillating polynomial alternate in sign.
+\end{lem}
+
+\begin{proof}
+  \begin{enumerate}[(1)]
+  \item Let $\alpha_ 0=0$ (and $A_ 0\neq 0$). There are at most $n-1$
+    changes of sign in the coefficients of $p'(x)$. Therefore $p'(x)$
+    has at most $n-1$ positive zeros. The $n+1$ values of $x$ at which
+    $\sup |p(x)|$ is attained must be $n-1$ zeros of $p'(x)$ and
+    $x=0,x=1$. So $p'(x)$ has $n-1$ zeros, say $x_1,x_2, \ldots
+   , x_{n-1}$ lying inside $(0,1)$ and its coefficients $A_1, \ldots
+   , A_{n-1}$ alternate in sign. 
+    
+    $p(x)$ has no maxima or minima other than these $n-1$. Therefore
+    $$
+    p(0),p(x_1), \ldots, p(x_{n-1}),p(1)
+    $$
+    alternate in sign. Therefore $p(x)$ has $n$ zeros. Therefore $A_
+    0, A_1, \ldots,\break A_n$ alternate in sign 
+  \item Let $\alpha _ 0 >0$. Then $p(0)=0$. So $\sup |p(x)|$ is
+    attained at $n$ points inside $(0,1)$ which are roots of
+    $p'(x)=0$. Therefore the coefficients alternate in sign. 
+  \end{enumerate}
+\end{proof}
+
+\begin{coro*}
+  $p(x)$ takes the values $\pm \sup |p(x)|$ with $+$ and $-$ sign
+  alternately. 
+\end{coro*}
+
+\begin{theorem}\label{chap3:sec8:thm10}%theorem 10
+  $p(x)=\sum \limits^n_{i= 0}A_i x ^{\alpha _i}$ is an
+    oscillating polynomial in $(0,1).q(x)$ is another polynomial
+    $\sum B_i x^{\alpha_i}$ with the same exponents. One coefficient
+    of $p$ is the same as the corresponding one of $q$ (say
+    $A_j=B_j$), where $\alpha_j >0$. Then 
+    $$
+    \sup |q|> \sup |p|.
+    $$
+\end{theorem}
+
+\begin{proof}
+  If\pageoriginale not, $p-q$ takes alternate signs (may be $0$) for the $n+1$
+  values of $x$ for which $p$ takes its numerically greatest
+  value. Therefore $p-q$ has at least $n$ zeros in $0 \leq x \leq
+  1$. But, since $A_j=B_j$ it has only $n$ terms, and so at most $n-1$
+  changes of sign in its coefficients and so (by Lemma \ref{chap3:sec8:lem1}) at most
+  $n-1$ positive zeros. This is a contradiction. 
+\end{proof}
+
+\noindent
+\textbf{Converse of Theorem 10}. $p(x)$ and $q(x)$ are two
+polynomials with the same exponents and one coefficient the same
+$(A_j=B_j$, where $\alpha _j >0$). If  
+$$
+\sup |p|< \sup |q|
+$$
+for every such $q$, then $p$ is an oscillating polynomial.
+
+\begin{proof}
+  We gives the gist of the proof, without setting out all the detail
+  in full. It uses a 'deformation' argument like that of theorem
+  \ref{chap2:sec5:thm5}.   
+\end{proof}
+
+Suppose that $p(x)$ is not an oscillating polynomial. Then $p(x)$
+takes the values $\pm M$, where $M=\sup |p(x)|$, at $h$ points, say
+$x_k(k=1,\ldots, h)$, where $h< n+1$. We can construct a polynomial
+$r(x)= \sum C_i x^{\alpha_i}$ with $C_j=0$ and $r(x_k)=p(x_k)$. (The
+$n+1$ coefficients $C_i$ have to satisfy at most $n+1$ equations; the
+determinant can be proved $\neq 0$). 
+
+We can take $\varepsilon$ and intervals round the $x_k$, outside which
+$|p(x)|<M-\varepsilon$ and inside each of which $p(x)$ and $r(x)$ have
+the same sign. 
+\begin{gather*}
+  ~\text{Choose}~ \lambda ~\text{to make}~ \lambda |r(x)|<
+  \varepsilon ~\text{for}~ 0 \leq x \leq 1.\\ 
+  ~\text{Then} \qquad \sup |p-\lambda r|< \sup |p|.
+\end{gather*}
+
+But $p-\lambda r$ satisfies the conditions for a $q$, giving a contradiction.
+
+Apply\pageoriginale theorem \ref{chap3:sec8:thm10}, taking $p(x)$ to be a constant multiple of one of
+the oscillating polynomials $T_{2n}(\sqrt{x})$ and $T_{2n+1}(x)$. We
+obtain  
+
+\begin{corollary}\label{chap3:sec8:coro1} %corollary 1
+  If $q(x)=a_ 0 +a_1x + \cdots a_n x^n$ and $M=\sup |q(x)|$ in $(0,1)$, then
+  $$
+  |a_i|\leq M|t_i ~|(i=0,1, \ldots, n),
+  $$
+  where\pageoriginale $t_i$ is the coefficient of $x^i$ in $T_{2n}(\surd x)$.
+\end{corollary}
+
+\begin{corollary}\label{chap3:sec8:coro2} %corollary 2
+  If $q(x)=a_ 0 x +a_1 x^3+ \cdots a_n x^{2n+1}$ and $M= \sup |q(x)|$
+  in $(0,1)$, then 
+  $$
+  |a_i|\leq M|t_i|(i=0, \ldots,n)
+  $$
+  where $t_i$ is the coefficient of $x^{2i+1}$ in $T_{2n+1}(x)$.
+\end{corollary}
+
+\begin{theorem}\label{chap3:sec8:thm11} %theorem 11
+  To a given set of exponents there corresponds an oscillating
+  polynomial in $(0,1)$, which is unique except for a constant factor.
+\end{theorem}
+
+\begin{proof}
+  Let $\alpha _ 0, \alpha_1, \ldots, \alpha _n$ be the given exponents
+  in ascending order. Suppose that the coefficient of $x^{\alpha_k}$
+  is given to be $K$. 
+\end{proof}
+
+We need to prove that among all the polynomials with the given exponents
+$$
+q(x)=B_ 0 x^{\alpha _ 0}+ \cdots + B_{k-1}x^{\alpha_{k-1}}+k
+x^{\alpha_k}+ \cdots + B_n x^{\alpha_n}, 
+$$
+there is a unique $q(x)$ for which $\sup \limits _{0 \leq x \leq 1}
+|q(x)|$ attains its lower bound. 
+
+Clearly $\sup |q(x)|$ is a continuous function of the $n$ variables
+($B_ 0 \cdots,$ $B_{k-1},B_{k+1},\ldots, B_n$). Its lower bound is
+greater than $0$ by Corollary \ref{chap3:sec8:coro1} of
+Theorem \ref{chap3:sec8:thm10}. It is less than or
+equal to $K$, as is seen by taking the $B's$ to be small. Again by
+Corollary \ref{chap3:sec8:coro1}, we need only consider values of $B_i$ for which 
+$$
+|B_i|\leq K|t_i|\quad (i=0,1, \ldots, k-1,k+1,\ldots, n),
+$$
+where $t_i$ is the coefficient of $x^{\alpha_i}$ in $T_{2 \alpha_n}(\sqrt{x})$. 
+
+The $B_i$ lie in a bounded closed region of $n$ space, and so they
+have at least one set of values for which $\sup |q(x)|$ attains its
+lower bound. This proves the existence of an oscillating
+polynomial. Uniqueness follows from Theorem \ref{chap3:sec8:thm10}. 
+
+\begin{theorem}\label{chap3:sec8:thm12}%theorem 12
+   If
+   \begin{align*}
+     p(x) & = x^{\alpha _ 0}+A_1x^{\alpha_1}_{\beta_1}+ \cdots +A_n
+     x^{\alpha _n}_{\beta _n}\\ 
+     \text{and}\qquad q(x)&= x^{\alpha_0}+B_1
+     x^{\beta_1}+\cdots +B_n x^{\beta_n}
+   \end{align*}
+   are both oscillating polynomials in $(0,1)$ where
+   $$
+   0<\alpha_0<\beta_1< \alpha_1 < \beta_2 < \cdots <\beta_n <\alpha_n,
+   $$
+   $$
+   ~\text{then} \qquad \sup|p(x)|>\sup|q(x)|.
+   $$
+\end{theorem}
+
+\begin{proof}
+  By Lemma \ref{chap3:sec8:lem2}, the coefficients fo  of $p(x)$ alternate in sign and
+  so do those of $q(x)$.  
+  $$
+  q(x)-p(x)=B_1x^{\beta_1}-A_1x^{\alpha_1}+B_2 x^{\beta_2}-\cdots -A x_n^{\alpha_n}
+  $$
+  has $n$ variation of sign, and so the equation
+  $$
+  q(x)-p(x)=0
+  $$
+  has at most $n$ positive roots.
+\end{proof}
+
+Suppose the theorem false and
+$$
+\sup |p(x)|\leq \sup|q(x)|.
+$$
+
+Then $q(x)-p(x)$ has the sign of $q(x)$ (it may be $0$) for the values
+$x_n(k=1,\ldots, n+1)$ at which $|q(x)|$ takes its maximum
+value. Therefore $q(x)-p(x)$ vanishes for $n$ values $\xi_1, \ldots, 
+\xi_n$ such that  
+$$
+x_i\leq \xi_1 \leq x_2 \leq \xi_2 \leq \cdots \leq \xi_n \leq x_{n+1}.
+$$
+
+Moreover,\pageoriginale there are $n+1x's$ and only $n \xi 's$ so at least one $x$,
+say $x_i$ must satisfy $\xi_{i-1}<x_i<\xi_i$ (giving meaning to $\xi_
+0,\xi_{n+1}$). 
+
+We shall now compute the sign of $q(x_i)$ by two different methods and
+obtain contradictory results. 
+
+Firstly, in $(0, \xi_1), q(x) -p(x)$ has the sign of its dominant term
+$B_1x^{\beta_1}$, which is negative. By following the changes of sign
+along the sequence, $q(x)-p(x)$ has sign $(-1)^i$ in
+$(\xi_{i-1},\xi_i)$. At $x_i, q(x)-p(x)$ and also $q(x)$ have the sign
+$(-1)^i$. 
+
+Secondly, for small values of $x, q(x)$ had the sign of its first
+term, which is positive. Therefore $q(x_1)>0$. So $q(x_2)<0$, and
+generally, $q(x_i)$ has the sign $(-1)^{i+1}$. 
+
+This is a contradiction.
+
+The same arguments can be used to prove
+\begin{theorem*}[12 (Extension)]%theorem 12
+  If
+  \begin{align*}
+    p(x)&=A_ 0 x^{\alpha_ 0}+\cdots +
+    A_{i-1}x^{\alpha_{i-1}}+x^m+A_{i+1}x^{\alpha_{i+1}}+ \cdots
+    +A_nx^{\alpha_n}\\ 
+    q(x)&= B_ 0 x^{\beta_ 0}+\cdots +
+    B_{i-1}x^{\beta_{i-1}}+x^m+B_{i+1}x^{\beta_{i+1}}+ \cdots
+    +B_nx^{\beta_n} 
+  \end{align*}
+  are both oscillating polynomials in $(0,1)$, where
+  $$
+  0 \leq \alpha_ 0 < \beta_ 0< \cdots < \alpha_{i-1}< \beta_{i-1}<m<
+  \beta_{i+1}< \alpha_{i+1}\cdots <\beta_n <\alpha_n, 
+  $$
+  then
+  $$
+  \sup |p(x)|>\sup |q(x)|.
+  $$
+\end{theorem*}
+
+\section{Approximation to \texorpdfstring{$|x|$}{|x|}}\label{chap3:sec9}
+
+\begin{theorem}\label{chap3:sec9:thm13}%theorem 13
+  If
+  $$
+  p(x)=x+a_1 x^2+a_2 x^4+\cdots + a_n x^{2n}
+  $$
+  is an oscillating polynomial in $(0,1)$, then
+  $$
+  \frac{1}{2n+1} >\sup|p(x)|> \frac{1}{2(1+\sqrt{2})(2n-1)} (n>1).
+  $$
+\end{theorem}
+
+\begin{note*} 
+  If\pageoriginale $n=1$, the second inequality
+  is to be replaced by equality. The oscillating polynomial is
+  $x-\left(\dfrac{1}{2}+\dfrac{1}{\sqrt{2}}\right)x^2$. 
+\end{note*}
+
+\begin{proof}
+  Take $n>1$. By Theorem \ref{chap3:sec8:thm12}, $\sup |p(x)|$ is less than the supremum
+  of the oscillating polynomial 
+  $$
+  x+b_1 x^3 +\cdots
+  $$
+  with exponents $1,3,5,\ldots 2n+1$. But that polynomial is $(-1)^n
+  T_{2n+1}(x)/$ $(2n+1)$. This gives the first inequality of the theorem.  
+\end{proof}
+
+By Theorems \ref{chap3:sec8:thm12} and \ref{chap3:sec8:thm10}, the oscillating polynomial $x+b_1x^3 +\cdots
++ b_{n-1}x^{2n-1}$ has smaller maximum modulus than the polynomial $x+
+c_2 x^4 +\cdots +c_rx^{2n}$ with exponents $1,4,6,\ldots, 2n$. But the
+former polynomial is $(-1)^{n-1}T_{2n-1}(x)/(2n-1)$, with maximum
+modules $1/(2n-1)$. We shall now construct a polynomial of the latter
+form (with no term in $x^2$). 
+
+With the notation of the hypothesis for $p(x)$, write $\sup|p(x)|=m$.
+
+Then, if $\mu >0$,
+$$
+\bigg| \frac{x}{1+ \mu}+a_1 \left(\frac{x}{1+ \mu} \right)^2 \cdots
++a_n \left(\frac{x}{1+ \mu} \right)^{2n} \bigg| \leq m. 
+$$
+
+Therefore
+$$
+\displaylines{\hfill 
+  | x(1+ \mu)+a_1 x^2+a'_2 x^4 + \cdots + a'_n x^{2n}|\leq m (1+
+  \mu)^2 \hfill \cr
+  \text{i.e.,}\hfill | p(x)+\mu (x+c_2 x^4 +\cdots +c_n x^{2n})|\leq
+  m(1+ \mu)^2.\hfill } 
+$$
+
+Therefore 
+$$
+\displaylines{\hfill 
+  |\mu(x +c_2 x^4  +\cdots +c_n x^{2n})|\leq m \left\{(1+\mu)^2+1
+  \right\}\hfill\cr 
+  \text{and so}\hfill |x + c_2 x^4 +\cdots +c_n x^{2n}|\leq m \left\{
+  (1+\mu)^2+1 \right\} / \mu \hfill } 
+$$
+
+This\pageoriginale is true for all positive values of $\mu$, and so we can replace
+the right-hand side by its minimum, which is $2m(1+\sqrt{2})$. 
+
+As we said, the maximum modulus of a polynomial with exponents
+$1,4,6,\ldots, 2n$ is greater than $1/(2n-1)$ and therefore 
+$$
+m>\frac{1}{2(1+ \sqrt{2})}.\frac{1}{2n-1} 
+$$
+
+We have now all the material for the final result announced at the end
+of \S \ref{chap3:sec7}.
+ 
+\begin{theorem}\label{chap3:sec9:thm14}%theorem 14
+  If $d_{2n}$ is the best approximation to $x$ in $(0,1)$ by
+  $$
+  \displaylines{\hfill 
+  a_ 0 +a_1 x^2 +\cdots + a_n x^{2n},\hfill \cr
+  \mbox{then}\hfill 
+  \frac{1}{2n+1}>d_{2n}> \frac{1}{4(1+\sqrt{2})}\cdot
+  \frac{1}{2n-1}.\hfill} 
+  $$
+\end{theorem}
+
+\begin{proof}
+  $d_{2n}$ is the maximum modulus of the oscillating polynomial
+  $$
+  A_ 0 +x+A_1 x^2 +A_2 x^4+ \cdots +A_n x^{2n}.
+  $$
+
+  Let $p(x)$ and $m$ have the same meanings as in
+  Theorem \ref{chap3:sec9:thm13}. 
+\end{proof}
+
+By Theorem \ref{chap3:sec8:thm10}, \qquad $d_{2n}<m$.
+
+Write $q(x)-A_0 =x+A_1 x^2 +\cdots + A_n x^{2n}$.
+
+So, by Theorem \ref{chap3:sec8:thm10},
+$$
+\sup |q(x)-A_ 0|
+$$
+is greater than the maximum modulus of $p(x)$, the oscillating
+polynomial with exponents $1,2,4, \ldots, 2n$ and coefficient of $x$
+equal to 1; that is to say, is greater than $m$. 
+
+But $\sup|q(x)-A_ 0| \leq d_{2n} +|A_ 0|\leq 2 d_{2n}$.
+
+Therefore \qquad $2 d_{2n}>m$.
+
+The inequalities of Theorem \ref{chap3:sec9:thm13} for $m$ give the
+started inequalities for $d_{2n}$. 
+
+\begin{center}
+{\bf Notes}
+\end{center}
+
+\begin{enumerate}[1.]
+\item Example.\pageoriginale Find the polynomial in $P_n$ for which the coefficient
+  of $x^k$ is $1$ and which deviates least from $0$. 
+\item The definition on page $22$ of an oscillating polynomial can be
+  extended to a system 
+  $$
+  A_0 \varphi _0 + \cdots + A_n \varphi_n (x),
+  $$
+  if the $\varphi 's$ satisfy certain conditions. See Bernstein,
+  Lecons, $1$ or Aschieser, $67$ 
+\end{enumerate}
+
+\begin{center}
+{\bf Hint}
+\end{center}
+
+\begin{enumerate}[1.]
+\item If $k,n$ are both even or both odd, consider $T_n(x)$, otherwise
+  $T_{2n}(\sqrt{x})$. 
+\end{enumerate}

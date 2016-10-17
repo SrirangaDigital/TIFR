@@ -1,0 +1,204 @@
+\chapter{Lecture 21}\label{chap21}%lecture 21
+
+\section{Integration of the Fokker-Planck equation}\label{chap21:sec1}
+
+We\pageoriginale consider the Fokker-Planck equation
+\begin{gather*}
+ \frac{\partial u(t,x)}{\partial t}=Au(t,x), \quad t \geq 0\\
+ (Af)(x)=\frac{1}{\sqrt{g(x)}} \frac{\partial^2}{\partial x^i \partial
+  x^j}
+ (\sqrt{g(x)} a^{ij}(x)f(x))-\frac{1}{\sqrt{g(x)}}\frac{\partial}{\partial
+  x^i}(g(x)b^i(x)f(x)) 
+\end{gather*}
+in a relatively compact subdomain $R$ (with a smooth boundary) of an
+oriented $n$-dimensional Reimannian space with the metric
+$ds^2=g_{ij}$ $(x)dx^i$ $dx^j$. As usual the volume element in $R$ is
+defined by $dx=\sqrt {g(x)}dx^1$ $\cdots dx^n$. where $g(x)=\det
+(g_{ij}(x))$. We assume that the contravariant tensor $a^{ij}(x)$ is
+such that $a^{ij}\xi_i \xi_j >0$ for $\sum \limits^m_{i=1}\xi^2_i
+>0,\xi_i$ real. The functions obey, for the coordinate transformation
+$x\to \bar{x}$, the transformation rule 
+$$
+\bar{b}^i(\bar{x})=\frac{\partial \bar{x}}{\partial x^k}b^k +
+\frac{\partial^2 \bar{x}}{\partial x^k \partial x^s} a^{ks}(x). 
+$$
+
+We assume that $g_{ij}(x),a^{ij}(x)$ and $b^i(x)$ are $C^\infty$
+function of the local coordinates $x=(x^1 \cdots x^m)$. 
+
+Suggested by the probabilistic interpretation of the Fokker-Planck
+equation due to $A$. Kolmogorov, we shall solve the Cauchy problem in
+the space $L_1(R)$. 
+
+\section*{Green's integral formula:}
+
+Let $A^*$ be the formal adjoint of $A$;
+
+$$
+A^*=a^{ij}(x)\frac{\partial^2}{\partial x^i \partial x^j}+a^i
+(x)\frac{\partial}{\partial x^i}. 
+$$
+
+Let $G$ be a subdomain of $R$ with a smooth boundary $\partial
+G$. Then we obtain by partial integration Green's formula: 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+\int \limits_G \{ h(x)(Af)(x) & -f(x)(A^*h)(x) \} dx\\
+ & =\int \limits_{\partial G} \left( \frac{\partial
+  \sqrt{g(x)}a^{ij}(x)}{\partial x^j}-\sqrt{g(x)} b^i (x)\right) 
+  \cos (n,x^i)f(x)h(x)dS\\ 
+ & +\int \limits_{\partial G} \sqrt{g(x)}a^{ij}(x) \left(h(x) \frac{\partial
+  f}{\partial x^j}-f (x)\frac{\partial h}{\partial x^j}\right) \cos (n,
+ x^i)dS 
+\end{align*}}\relax
+where\pageoriginale $n$ denotes the outer normal at the point $x$ of $\partial G$
+and $ds$ denotes the hypersurface area of $\partial G$. 
+
+\begin{remark*}%Remk
+ If $a^{ij}(x)\cos (n,x^i)\cos (n,x^j)>0$ at $x \in \partial G$ we
+ may define the transversal (or conormal) direction $\nu$ at $x$ by 
+ $$
+ \frac{dx_i}{\sqrt{g(x)}a^{ij}(x)\cos (n,x^j)}= d \nu (i=1,2, \ldots, m)
+ $$
+ so that we have
+ $\sqrt{g(x)}a^{ij}(x)(h(x)\dfrac{\partial f}{\partial
+  x^i}-f(x)\dfrac{\partial h}{\partial x^j}) \cos (n,x^i)dS$ 
+ 
+ $=(h(x)\dfrac{\partial f}{\partial v}-f(x)\dfrac{\partial
+  h}{\partial v}) dS$. 
+\end{remark*}
+
+We consider $A$ to be an additive operator defined on the totality of
+$D(A)$ of $C^\infty$ functions $f(x)$ in $R U \partial R$ with compact
+supports satisfying the following boundary condition: 
+\begin{align*}
+ \sqrt{g(x)}a^{ij}(x)\frac{\partial f}{\partial x^j}\cos
+ (n,x^i) & + \left(\frac{\partial \sqrt{g(x)} a^{ij} (x)}{\partial x^j}
+ -\sqrt{g(x)} a^i(x)\right).\\ 
+ &\quad . \cos (n,x^i) f(x) =0.
+\end{align*}
+
+(When $R$ is a subdomain of the euclidean space $E^m$ and $A$ is the
+Laplacian $\Delta$ the above condition is nothing but the co called
+``reflecting barrier condition'')  
+$$
+\frac{\partial f}{\partial n}=O,
+$$
+since $\nu$ and $n$ coincide in this case). $D(A)$ is dense in the
+Banach space $L_1(R)$. 
+
+To\pageoriginale discuss the resolvent of $A$ we begin with
+\setcounter{Lemma}{0}
+\begin{Lemma}\label{chap21:sec1:lem1}%Lem 1
+ Let $f(x)\in D(A)$ be positive (or negative) in domain $G \subseteq R$
+ such that $f(x)$ vanishes on $\partial G-\partial R$, (i.e., $f(x)$
+ vanishes on the part of $\partial G$ not contained in $\partial
+ R$). Then we have the inequality 
+ $$
+ \int \limits_G (Af)(x)dx \leq 0 \quad \left(\resp \int \limits_G
+ Af(x)dx \geq 0\right). 
+ $$
+\end{Lemma}
+
+\begin{proof}
+ Taking $h \equiv 1$ in Green's formula and remembering the boundary
+ condition on $f(x)$, we obtain 
+ $$
+ \int \limits_G (Af)(x)dx= \int \limits_{\partial G-\partial R}
+ \frac{\partial f}{\partial \nu}ds 
+ $$
+ $$
+ \leq 0.
+ $$
+\end{proof}
+
+\begin{coro*}%Corlry
+ For $f \in D(A)$ we have for any $\alpha >0 \parallel f-
+ \alpha^{-1}Af \parallel \geq \parallel f \parallel$. 
+\end{coro*}
+
+\begin{proof}
+ Let $h(x)=1,-1$ or $0$
+ according as $f(x)$ is $>0, <0$ or $= 0$. Since the conjugate space of
+ $L_1(R)$ is the space of essentially bounded function $k(x)$ with the
+ norm 
+ $$
+ \parallel k \parallel^*= \text{ essential } \sup_{x \in R} |k(x)|,
+ $$
+ we have
+ \begin{align*}
+  \parallel f- \alpha^{-1} Af \parallel & \geq \int \limits_R h(x)
+  \left\{ f(x)- \alpha^{-1} Af(x) \right\} dx\\ 
+  &= \int |f(x)|dx- \alpha^{-1} \sum_i \int\limits_{P_i} (Af)(x)dx\\
+  &+ \alpha^{-1}\sum_i \int \limits_{N_j} (Af)(x)dx
+ \end{align*}
+ where $P$ (\resp $N$) is connected domain in which $f(x)>0$ (\resp $<0$)
+ such that $f(x)$ vanishes on $\partial P(\text{\resp} \partial N)$. 
+\end{proof}
+
+\begin{Lemma}\label{chap21:sec1:lem2}%Lem 2
+ The smallest closed extension $\tilde {A}$ of $A$ exists and for any
+ $\alpha > 0$ the operator $(I- \alpha^{-1} \tilde {A})$ admits of a
+ bounded inverse, $J_\alpha=(I-\alpha^{-1} \tilde{A})^{-1}$ with
+ norm $\leq 1$. 
+\end{Lemma}
+
+\begin{proof}
+ The\pageoriginale existence of $\tilde{A}$ follows from Green's formula. For if
+ $\{ f_k \} \subseteq D(A)$ be such that
+ strong $\lim f_k=0$, strong $\lim Af_k=h$, then for $\varphi \in
+ \mathscr{D}^\infty (R)$, 
+ \begin{align*}
+  \lim \int \limits_R & \left\{ \varphi Af_k-f_k A^* \varphi
+  \right\} dx=0, ~\text(or)\\ 
+  & \int \varphi h dx=0. ~\text{ So}~ h=0.
+ \end{align*}
+ 
+ The other part of the lemma follows from the corollary of
+ lemma \ref{chap21:sec1:lem1}. 
+\end{proof}
+
+\begin{Lemma}\label{chap21:sec1:lem3}%Lem 3
+ $\tilde {A}$ is the infinitesimal generator of a semi-group $T_t$ in
+ $L_1(R)$ if and only if for sufficiently large $\alpha$ the range
+ $\{ (I-\alpha^{-1} A)f,f \in D(A) \}$ of the operator $(I-
+ \alpha^{-1}A)$ is dense in $L_1(R)$. Moreover, if this condition is
+ satisfied, then $J_\alpha$ is a transition operator, i.e., if
+ $f(x)\geq 0$ and $f \in L_1 (R)$, then $(J_\alpha f)(x)\geq 0$ and 
+ $$
+ \int \limits_R (J_ \alpha f)(x)dx= \int \limits_R f(x)dx.
+ $$
+\end{Lemma}
+
+\begin{proof}
+ The first part is evident. Then latter part may be proved as
+ follows: For any $g(x) \geq 0$ of $L_1 (R)$ there exists a sequence
+ $\{ f_k (x)\} \subset D(A)$ such that $s-\lim f_k=f$ exists and
+ $s-\lim (f_k -\alpha^{-1}Af_k)=f- \alpha^{-1}\tilde {A}f=g$. By the
+ boundary condition on $f_k$, we have 
+ $$
+ \int \limits_R (f_k -\alpha^{-1}Af_k)dx= \int \limits_R f_k dx,
+ $$
+ (Put $h(x)\equiv 1$ in Green's formula). So in the limit we have 
+ $$
+ \int \limits_R gdx= \int fdx.
+ $$
+ Also, by the Corollary to Lemma \ref{chap21:sec1:lem1},
+ $$
+ \displaylines{\hfill 
+ \int |f_k- \alpha^{-1} A f_k| dx \geq \int |f_k|dx,\hfill \cr
+ \text{and hence}\hfill 
+ \int |g|dx \geq \int |f|dx. \hfill }
+ $$
+ Therefore\pageoriginale by the positivity of $g(x)$
+ $$
+ \int f(x)dx=\int g(x)dx= \int |g(x)|dx \geq \int |f(x)| dx
+ $$
+ proving that $J_ \alpha$ is a transition operator.
+\end{proof}
+Therefore the semi-group
+\begin{align*}
+ T_t u &= \strong_{\alpha \to \infty} \lim \exp (t \tilde{A}J_\alpha)u\\
+ & = \strong_{\alpha \to \infty}\lim \exp (\alpha t(J_ \alpha -I)u)
+\end{align*}
+is a semi-group of transition operators.

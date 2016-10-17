@@ -1,0 +1,1645 @@
+ \chapter{Additive Processes} % chapter 4
+
+\section{Definitions}\label{chap4-sec1}\pageoriginale
+
+Let $x_{\bigdot}=(x_t,0 \leq t < a)$ be a stochastic process on a probability
+space $(\Omega,P)$. If $I=(t_1,t_2]$ the \textit{increment} of $x$ in
+      $I$ is by definition the random variable
+      $x(I)=x_{t_2}-x_{t_1}$. 
+
+\begin{defi*}
+A process, $x_{\bigdot}=(x_{t})$ with $x_{0}\equiv 0$ is called an
+{\em additive} (or {\em differential}) process,
+if for every finite disjount system $I_1, \ldots,I_n$ of
+  intervals, $x(I_1),\ldots,x(I_n)$ are independent. 
+\end{defi*}
+
+We shall only consider additive processes $x$ for which $E(x^2_t)<
+\infty$ for all $t$. In this case $E(x_t)=m(t)$ exists and is called
+the \textit{first moment} of $x_t. E((x_t-m(t))^2)$ is called the
+\textit{varience} of $x_t$ and is denoted by $V(x_t)$ or $v(t)$. If
+$y_t=x_t-m(t) , y . = (y_t)$ is also additive. 
+
+\begin{defi*}
+  A process $x=(x_t)$ is said to be {\em continuous in probability} at
+  $t_0$ or said to have {\em fixed discontinuity} at $t_0$, if for
+  every $\in >0$, 
+  $$
+  \lim_{t \to t_0} P[|x_t-x_{t_0}|> \epsilon]=0.
+  $$
+
+  If it is continuous in probability at every point $t$ it is said to
+  be continuous in probability. 
+\end{defi*}
+
+The following theorem is due to Doob.
+\setcounter{thm}{0}
+\begin{thm}\label{chap4-sec1-thm1}% Thm 1
+  If\pageoriginale an additive process $(x_t)$ has no fixed
+  discontinuity then there 
+  exists a process $(y_t)$ such that 
+  \begin{enumerate}
+    \renewcommand{\labelenumi}{(\theenumi)}
+    \item $P(x_t=y_t)=1$ for all $t$;
+
+    \item almost all sample functions of $(y_t)$ are $d_1$.
+    
+    If further $(y_t)$, $(y'_t)$ are two such processes, then
+  $$
+  P(\text{for every\ } t , y_t = y'_t)=1.
+  $$
+  $y_{\bigdot}=(y_t)$ is called the {\em standard modification} of $x_t$. The
+  proof can be seen in Doob's Stochastic processes. 
+  \end{enumerate}
+\end{thm}
+
+\begin{defi*}
+  An additive process $(x_t)$ with no point of fixed discontinuity and
+  whose sample paths are $d_1$ with probability $1$ is called a {\em
+    Levy process.} 
+\end{defi*}
+
+It can be seen easily that Wiener processes and Poison processes are
+particular cases of Levy processes. 
+
+\begin{defi*}
+A process $(x_t)$ is called {\em temporally homogeneous} if the
+  probability distribution of $x_s-x_t(s>t)$ depends only on $s-t$. 
+\end{defi*}
+
+The above theorem of Doob shows that it is enough to study Levy
+processes in order of study additive processes with no point of fixed
+discontinuity. 
+
+\section[Gaussian additive processes and ...]{Gaussian additive processes and poisson additive
+  processes}\label{chap4-sec2} 
+%sec 2 
+
+The following two theorems give two elementary types of Levy processes.
+\begin{defi*}
+ An additive process $(x_t)$ which almost all sample paths continuous
+  is called a {\em Gaussian additive process.} If for almost all
+  $w$,\pageoriginale 
+  the sample functions are step fucntions increasing with jump $1$ the
+  process is called a {\em Poisson additive process.} 
+\end{defi*}
+
+We prove the following two theorem which justify the above nomenclature.
+\setcounter{thm}{0}
+\begin{thm}\label{chap4-sec2-thm1}%Thm 1
+  Let $(x_t)$ be a Levy process. If $x_t(w)$ is continuous in $t$ for
+  almost all $w$, then $x(I)$ is Gassian variable. 
+
+
+The condition that $x_t$ is continuous of almost all $w$ is sometimes
+referred to as $"(x_t)$ has no moving discontinuity" in contrast with
+``$(x_t)$ has no fixed discontinuity''. 
+\end{thm}
+
+\begin{proof}
+  Let $I=(t_0,t_1]$. Since almost all sample functions are continuous,
+    for any $\epsilon >0$, there exists a $\delta (\epsilon)>0$ such that 
+    $$
+    P(\text{for all\ }t,s \in I,|t-s|< \delta \Rightarrow |x_t-x_s|<
+    \epsilon)> 1- \epsilon. 
+    $$
+
+Noting this, let for each $n$,
+$$
+t_0=t_{n_0}<t_{n_1}< \ldots < t_{n_{p_n}}=t_1
+$$
+be a subdivision of $(t_0,t_1]$, with $0<t_{ni}-t_{n i-1}< \delta
+  (\epsilon_n)$, where $\epsilon_n \downarrow 0$. Let
+  $x_{nk}=x(t_{nk})-x(t_{nk-1})$. Then 
+  $x=x(I)=\sum\limits^{p_n}_{k=1}x_{nk}$. Define $x'_{nk}-x_{nk}$ if
+  $|x_{nk}|< \in_n$ and zero otherwise. Put $x_n=\sum
+  \limits^{p_n}_{k=1}x'_{nk}$. Then from the above it follows that 
+  $$
+  P(x=x_n)>1- \in_n ;
+  $$
+  i.e., that $x_n \to x$ in probability. Since $x_{nk}$ are
+  independent so are\pageoriginale $x'_{nk}$. Therefore 
+  $$
+  E(e^{i\alpha x})=\lim_{n \to \infty}E(e^{i\alpha x_n})=\lim_{n \to
+    \infty} \prod^{P_n}_{k=1}E(e^{i\alpha x'_{nk}}). 
+  $$ 
+
+  Let $m_{nk}=E(x'_{nk}),V_{nk}=V(x'_{nk}),m_n=\sum
+  \limits^{P_n}_{k=1}m_{nk}$ and $V_n \sum
+  \limits^{P_n}_{k=1}V_{nk}$. Then $|m_{nk}|\leq \in_n$ and
+  $V_{nk}\leq 4 \in^2_n$. Now 
+  \begin{align*}
+    E(e^{i\alpha x})&=\lim_{n \to \infty} e^{i\alpha
+      m_n}\prod^{P_n}_{k=1} E(e^{i \alpha (x'_{nk}-m_{nk})})\\ 
+    &=\lim_{n \to \infty} e^{i\alpha m_n}\prod^{P_n}_{k=1}\left[1-
+      \frac{\alpha^2}{2}V_{nk}(1+0(\in_n))\right], 
+  \end{align*}
+  so that
+  $$
+  |E(e^{i\alpha x})|\leq \varliminf_{n \to \infty} \prod _k
+  e^{-\frac{\alpha^2}{2}}V_{nk}=\varliminf_{n \to
+    \infty}e^{-\frac{\alpha^2}{2}}V_n \leq e^{-\frac{\alpha^2}{2}}
+  \varlimsup V_n. 
+  $$
+
+Since $E(e^{i\alpha x})$ is continuous in $\alpha$ and is $1$ at $\alpha=0$,
+for sufficient small $\alpha$, $E(e^{i\alpha x})\neq 0$. Hence
+$\varlimsup\limits_{n \to \infty} V_n < \infty$, i.e. $V_n$ is bounded. By
+taking a subsequence if necessary we can assume that $V_n \to V$. 
+
+We can very easily prove taht if $z_n=\sum\limits^{P_n}_{i=1}z_{ni}$ such that 
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item $\sup\limits_{1 \leq i \leq P_n}|z_{ni}|\to 0$ as $n \to \infty$;
+
+\item $\sum\limits^{P_n}_{i=1}|z_{ni}|$ is bounded uniformly in $n$; and
+
+\item $z_n \to z$, then
+  $$
+  \lim_{n - \infty}\prod^{P_n}_{i=1}[1-z_{ni}]=e^{-z}.
+  $$
+
+  Now\pageoriginale in our case $\max\limits_k |V_{nk}| \leq 4 \in^2_n
+  \to 0, \sum\limits^{P_n}_{k=1} V_{nk}[1+0 (\in_n)] \to V$ and
+  $V_{nk}\geq 0$ so that 
+  $$
+  \lim_{n \to \infty}\prod^{P_n}_{k=1} \left[1-\frac{\alpha^2}{2}
+    V_{nk}(1+0(\in_n))\right]=e^{-\frac{\alpha^2}{2}V}.    
+  $$
+
+  Therefore $E(e^{i \alpha x})=\lim \limits_{n \to \infty}e^{i \alpha
+    m_n}e^{-\alpha^2/V}$. This implies that $\varphi (\alpha)=\lim
+  \limits_{n \to \infty}e^{i \alpha m_n}$ exists. Now if $0 \leq \beta
+  \leq \pi /2$, 
+  $$
+  \int\limits^\beta_0 \varphi (\alpha)d \alpha =\lim_n 
+\int\limits^\beta_0 e^{i\alpha m_n}d\alpha=\lim_{n \to \infty} 
+\frac{e^{i \beta m_n}-1}{im_n}=0 
+  $$
+  if $m_n \to \pm \infty$, and then $\varphi (\alpha)=0$ for almost
+  all $\alpha \leq \pi/2$, i.e. $E(e^{i \alpha x})=0$ for almost all
+  $\alpha \leq \pi /2$ and this is a contradiction. Therefore $m_n \to
+  m$ and  
+  $$
+  E(e^{i \alpha x})=e^{i \alpha m-\alpha^2/2V}.
+  $$
+\end{enumerate}
+\end{proof}
+
+\begin{thm}\label{chap4-sec2-thm2}% Thm 2
+Let $(x_t)$ be a Levy process. If almost all sample functions are
+    step functions with jump $1$, then $x(I)$ is a Poisson variable. 
+\end{thm}
+
+\begin{proof}
+From the continuity in probability of $x_t$,
+$$
+\sup_{|t-s|<n^{-1},t_0 \leq t,s\leq t_1}P(|x_t-x_s| \geq 1)\to 0
+\text{ as } n \to \infty. 
+$$
+
+For each $n$, let $t_0=t_{no}<t_{n1}< \cdots <
+    t_{np_n}=t_1,t_{ni}-t_{ni-1}\leq \dfrac{1}{n}$, be a subdivision
+    of $[t_0,t_1]$ and let $ x_{nk} =
+    x_{tnk}-x_{tnk-1},x'_{nk}=x_{nk}$ if $x_{nk}=0$ or $1$ and
+    $x'_{nk}=1$ if $x_{nk}\geq 2$. Put $x_n=\sum x'_{nk}$. 
+    Then since\pageoriginale
+    $P(x_n \to x)=1$, 
+    \begin{align*}
+      E(e^{-\alpha x})&=\lim_{n \to \infty}E(e^{-\alpha x_n})=\lim_{n
+        \to \infty} \prod^{P_n}_{k=1} E(e^{-\alpha x'_{nk}})\\ 
+      &=\lim_{n \to \infty} \prod^{P_n}_{k=1}
+      \left[(1-p_{nk})+p_{nk}e^{-\alpha}\right]=\lim_{n \to \infty}
+      \prod^{P_n}_{k=1}\left[1-P_{nk}(1-e^{-\alpha})\right]\\ 
+      &\leq \lim_{n \to \infty} \prod^{P_n}_{k=1} e^{-p_{nk}(1-e^{-
+          \alpha})}= \lim_{n \to \infty} e^{-P_n(1-e^{-\alpha})} =
+      e^{-(1-e^{- \alpha}) \varlimsup P_n}, 
+    \end{align*}
+    where $p_{nk}=P(x_{nk}\geq 1)=P(x'_{nk}=1)$ and $P_n= \sum
+    \limits^{P_n}_{k=1}P_{nk}$. Therefore $P_n$ is bounded. We can
+    assume that $P_n \to P$. Again since $\max\limits_{1 \leq k \leq
+      p_n} P_{nk}\to 0$, $E(e^{- \alpha x})=e^{-p(1 - e^{- \alpha })}$. 
+\end{proof}
+
+\section{Levy's canonical form}\label{chap4-sec3}
+
+Before considering the decomposition of a Levy process we prove some lemmas.
+
+\setcounter{theorem}{0}
+\begin{Lemma}\label{chap4-sec3-lem1}% Lemma 1
+  Let $(x_t)$ be a Levy process and $(y_t)$ a Pisson additive
+  process. Suppose further that $(z_t)=((x_t,y_t))$ is a vector-valued
+  additive process. Then, if 
+  $$
+  P(\text{for every }t, x_t = x_{t-}  \text{ or }y_t=y_{t-})=1,
+  $$
+the processes $(x_t)$ and $(y_t)$ are independent.
+\end{Lemma}
+
+\begin{proof}
+It is enough to prove that
+$$
+P(x(I)\in E,y(I)\in F)=P(x(I)\in E) P(y(I)\in F).
+$$
+
+For\pageoriginale once this is proved we have, by the additivity of
+$(z_t)$, for any 
+finite disjoint system $I_1, \ldots ,I_n$ of intervals, 
+\begin{align*}
+  P(x(I_i)&\in E_i,y(I_i)\in F_i),i=1,2, \ldots ,n) =\prod
+  _{i-1}P(x(I_i)\in E_i,y(I_i)\in F_i)\\ 
+  &=\prod _{i-1}^n P(x(I_i)E_i)P(y(I_i)F_i)\\
+  &= P[x(I_i)\in E_i,i=1,2, \ldots,n]P[y(I_i)\in F_i,i=1,2, \ldots,n],
+\end{align*}
+and the proof can be completed easily.
+\end{proof}
+
+Since $y(I)$ is a Poisson variable it is enough to prove that $E(e^{i
+  \alpha x(I)}:y(I)=K)E(e^{i \alpha x(I)})p(y(I)=K)$. 
+
+Let $I=(t_0,t_1]$. For each $n$ let $t_0=t_{n0} < t_{n_{1}}< \ldots <
+    <t_{n_n}=t_1$, $t_{ni}-t_{n-1}=\dfrac{1}{n}(t_1-t_0)$ be the
+    subdivision of $I$ into $n$ equal intervals. Put
+    $x_{ni}=x(t_{ni})-x(t_{ni-1}),y_{ni}=y(t_{ni_n})-y(t_{ni-1})x'_{ni}=x_{ni}$
+    if $y_{ni}=0,x'_{ni}=0$ if $y_{ni} \geq 1$, and
+    $x_n=\sum\limits_{i=1}^n x'_{n_i}=\sum \limits _{y_{ni}=0}x_{ni}$. We have
+    $x=x(I)=\sum \limits^n_{i=1}x_{ni}$ and $|x(w)-x_n(w)|\leq
+    y_{ni}\sum \limits_{(W)\geq 1} x_{ni}(w)$. Since $y_t(w)$ is a
+    Poisson variable increasing with jump 1 the number of terms in the
+    right hand side of the last 
+    inequality is at most  $y(w)=P$
+    (say). Suppose that $\tau_1(w),\ldots ,\tau_p (w)$ are the points
+    in $I$, at which $y_t(w)$ has jumps. Then $|x(w)-x_n(w)|\leq \sum
+    \limits^p_{j=1}|x(s'_{nj})-x(s_{nj})|$ where $(s_{nj},s'_{nj}]$ is
+the interval of the $n$th subdivision which contains $\tau_j(w)$. Now
+$|x(s'_{nj})-x(s_{nj})|\leq
+|x(s'_{nj})|-x(\\tau_j)|+|x(\tau_j)-x(s_{nj})|$. Since at $\tau_1, \ldots
+,\tau_p$, $y_t(w)$ has jumps, $x_t(w)$ has no jumps at these
+points. Therefore $|x(\tau_j)-x(s_{nj})|$ and 
+$|x(x(s'_{nj})|-x(\tau_j)| \to 0$\pageoriginale 
+as $n \to \infty$. Thus $P(x_n \to
+x)=1$. Now 
+\begin{gather*}
+E(e^{i \alpha x_n}:y=k)  = \sum_{r \leq k}\sum_{\substack{0 \leq
+    \lambda_1 \leq \lambda_2 
+      \leq \cdots \leq \lambda_r \leq n\\{P_1+\cdots+
+        P_r=k}\\{P_1,\ldots, P_r\geq 1}}}\\ 
+ E \begin{pmatrix}
+    e^{i \alpha}\sum_{\lambda \neq \lambda_\sigma}x_{n \lambda}:y_{n
+        \lambda_ \sigma}=p_\sigma,\sigma=1,2, \ldots r\\ 
+    \qquad \quad y_{n \lambda=0 ,\lambda \neq \lambda_ \sigma}
+  \end{pmatrix}
+\end{gather*}
+
+
+Put
+\begin{gather*}
+  E
+\begin{pmatrix}
+e^{i \alpha}\sum_{\lambda \neq \lambda_ \sigma}x_{n \lambda}:y_{n
+      \lambda_ \sigma}=p_ \sigma, 1 \leq \sigma \leq r
+    \\
+  y_{n \lambda=0 ,\lambda \neq \lambda_ \sigma}
+\end{pmatrix}
+=E_{r(\lambda)(p)}
+\end{gather*}
+
+Using the hypothesis that $(x_t,y_t)$ is additive one shows without
+difficulty that 
+$$
+  E_{r(\lambda)(p)}=\prod\limits_{\lambda \neq \lambda_\sigma}E(e^{i
+  \alpha x_{n \lambda}})  : y_{n \lambda} = 0) \prod\limits_{1 \leq
+  \sigma \leq r} P(y_{n \lambda_\sigma} = p_\sigma),
+$$
+so that
+$$
+E_{r(\lambda)(p)} = E(e^{i \alpha \sum \limits_{\lambda \neq \lambda_
+    \sigma} x_n \lambda } : y_{n \lambda} = 0 , \lambda \neq
+  \lambda_\sigma) P(y_{n \lambda_\sigma} = p_\sigma , 1 \leq \sigma
+  \leq r) 
+$$
+
+Also $P(y=0)=P(y_{n \lambda}=0 $ for all $\lambda)P(y_{n \lambda}=0,
+\lambda \neq \lambda_ \sigma)P(Y_{n \lambda_ \sigma}=0,1 \leq \sigma
+\leq r)$. Therefore (using the additivity of $(x_t,y_t)$ again) 
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+E_{r(\lambda)(p)}P(y=0)& =E (e^{i \alpha \sum\limits_{\lambda \neq
+      \lambda_ \sigma}x_n \lambda}:y_n \lambda=0, \lambda \neq
+  \lambda_ \sigma)P(y_{n \lambda_ \sigma}=0,1 \leq \sigma \leq r)\\
+  & \hspace{1cm}\times xP(y_{n \lambda_ \sigma}=p_ \sigma, 1 \leq \sigma \leq
+  r)P(y_{n \lambda}=0, \lambda \neq \lambda_\sigma)\\ 
+  &=E (e^{i \alpha \sum\limits_{\lambda \neq \lambda_ \sigma}x_n
+    \lambda}:y_n \lambda=0 \text{ for all }\lambda)\\
+  & \hspace{1.5cm}P(y_{n \lambda_
+    \sigma}=p_ \sigma,1 \leq \sigma \leq r,y_{n \lambda}=0,\lambda
+  \neq \lambda_ \sigma)\\ 
+  &=E(e^{i\alpha \sum\limits_{\lambda \neq \lambda_ \sigma}x_n
+    \lambda}:y=0\\
+  & \hspace{2cm}P(y_{n \lambda_ \sigma}=p_ \sigma,1 \leq
+  \sigma \leq r,y_{n \lambda}=0,\lambda \neq \lambda_ \sigma). 
+\end{align*}}\relax
+
+Therefore\pageoriginale
+\begin{align*}
+P(y=0) & E(e^{i \alpha x_n} : y = k)=  \sum_{r \leq k} \sum_{\substack{0
+    \leq \lambda_1 \leq \ldots< \lambda_r \leq
+    n\\{P_1+\cdots +P_r=k}\\{P_1,\ldots,P_r\geq 1}}}
+E_{(\lambda)(P)}P(y=0)\\ 
+& =\sum_{r \leq k} \sum_{\substack{0 \leq \lambda_1 <\ldots <
+    \lambda_r \leq n\\
+     {P_1+\cdots + P_r=k}\\{P_1,\ldots, P_r\geq 1}}}E(e^{i \alpha
+  \sum\limits_{\lambda \neq \lambda_\sigma}x_n \lambda}:y=0)\\
+& \hspace{2cm}P(y_{n \lambda_\sigma}=p_\sigma,y_{n\lambda}=0,\lambda
+\neq \lambda_\sigma)  
+\end{align*}
+
+Now
+\begin{gather*}
+|E \left(e^{i \alpha \sum\limits_{\lambda \neq
+    \lambda_\sigma}x_{n\lambda}}
+:y=0\right)-E\left(e^{i \alpha x}: y=0\right)|\leq
+  E\left(|e^{i \alpha \sum\limits_{1 \leq \sigma \leq}r^xn \lambda \sigma}-1|\right)\\ 
+  \leq \sum_{\sigma=1}^r E \left(|e^{i \alpha x_{n_{\lambda
+        \sigma}}}-1|\right)\leq K \sup_{\substack{|t-s|\leq
+      \frac{1}{2}(t_1-t_0)\\{t_0 \leq t,s \leq t_1}}} E \left(|e^{i \alpha
+    x_t}-e^{i \alpha x_s}|\right) \to 0, 
+\end{gather*}
+as $n \to \infty$, since $x_t$ has no point of fixed discontinuity. We
+thus have, since $P(y=k)=\sum\limits_{r \leq
+  k}\sum\limits_{\substack{(\lambda)\\{(p)}}}
+P(y_{n \lambda _ \sigma}=p_ \sigma,y_{n \lambda=0 ,\lambda \neq
+  \lambda_ \sigma})$, 
+\begin{align*}
+  |p(y=0) & E \left(e^{i \alpha x_n}:y=k\right)-p(y=k)E(e^{i \alpha x};y=0)\\
+  &\leq \sum _{r \leq k}\sum_{\substack{(\lambda)\\(p)}}\left|E
+  \left(e^{i \alpha \sum 
+    \limits_{\lambda \neq \lambda_ \sigma}x_n}:y=0\right)-E \left(e^{i \alpha
+    x}:y=0\right)\right|\\
+  & \hspace{1cm}P \left(y_{n \lambda_ \sigma}=P_ \sigma,y_{n \lambda}=0, \lambda
+  \neq \lambda_ \sigma\right)\\ 
+  &\leq \sup_{(\lambda),(p)}E\left(e^{i \alpha \sum \limits_{\lambda \neq
+      \lambda_ \sigma}x_n \lambda}:y=0\right)-E (e^{i \alpha
+    x}:y=0)|\\
+  & \hspace{1.5cm}\sum _{r
+    \leq k_{^{(\lambda)}_{(p)}}} p(y_{n \lambda_{\sigma}}= p_{\sigma}y_{n\lambda}=0, \lambda \neq
+    \lambda_\sigma)\\ 
+  &\leq \sup_{(\lambda),(p)}E \left(e^{i \alpha \sum \limits_{\lambda \neq
+      \lambda_ \sigma}x_n \lambda}:y=0\right)-E(e^{i \alpha x}:y=0)| \to 0. 
+\end{align*}
+
+Therefore\pageoriginale $p(y=0) E (e^{i \alpha x}:  y=k)  = E(e^{i
+  \alpha x}: y = 0) 
+P(y= k)$. Summing the above for $k= 0, 1, 2, \ldots$ we get $P (y=0) E
+(e^{i \alpha x}) = E(e^{i \alpha x}: y = 0)$. Hence finally we have  
+\begin{gather*}
+P(y=0) E(e^{i \alpha x}: y = k)= E(e^{i \alpha x}: y = 0)\\
+P(y=k) = E(e^{i \alpha x})P( y = 0) P (y=k), 
+\end{gather*}
+i.e.,
+$$
+E(e^{i \alpha x}: y = k) = P (y=k) E(e^{i \alpha
+    x}).
+$$
+
+We have proved the lemma.
+\begin{remark*}
+  We can prove  that if $x_{\bigdot} = (x_t)$,
+  ${}^{\bigdot}y_{\bigdot}= (y_t)$ are independent Levy processes,
+  then   
+  $$
+  P(\text{for every } t, x_t =x_{t-} \text{\ or\ } y_t = y_{t-}) =1.
+  $$
+\end{remark*}
+
+\begin{Lemma}[Ottaviani]\label{chap4-sec3-lem2} % lem 2
+  If $r_1 (.) , \ldots , r_n (.)$ are
+  independent stochastic processes almost all of whose-sample
+  functions are of type $d_1$, then for any $\in > 0$, 
+  \begin{gather*}
+  P \left[\max_{1 \leq m \leq n} ||  r_1 (\bigdot)  +  \cdots + r_m
+    (\bigdot) || > 2 
+    \in \right]\\
+ \leq \frac{P\left[ || r_1 +  \cdots +  r_n ||> \in
+      \right]}{1- \max\limits_{1 \leq m \leq n-1} P \left[ ||  r_{n+1}
+      +  \cdots + r_n || > \in \right]}
+  \end{gather*}
+where\ $||  r ||  = || r(\bigdot) ||  = \sup\limits_{0 \le s
+    \le t} | r (s) |$.
+\end{Lemma}
+
+
+\begin{proof}
+Let
+\begin{align*}
+    A_m & = \left( \max_{a \le \mu \le m-1} || r_1 + \cdots + r_\mu ||  \le 2
+    \in , ||  r_1 + \cdots +  r_m || 2 \in \right) \\ 
+    B_m & = ( || r_{m+1}+  \cdots +r_n ||  \le \in ) . 
+\end{align*}
+
+Then since $A_m$ are disjoint, $A_m \cap B_m$ are also
+disjoint. Further $\bigcup\limits_{m=1}^n A_m B_m \subset  C =  ( ||
+r_1 + \cdots + r_n || > \in )$,\pageoriginale so that  
+$$
+P(c) \ge \sum P(A_m \cap B_m) = \sum P(A_m) P (B_m) \ge P(U A_m)
+\min^n_{m=1} P(B_m) 
+$$
+
+If we now note that $\min\limits^{n}_{m=1} P(B_m)=1 - \max_{1 \leq m
+  \leq n} P(B^c_m)$ we get the result. 
+\end{proof}
+
+\begin{Lemma}\label{chap4-sec3-lem3} % lem 3.
+  Let $(x_t)$ be a Levy process, such that $E(x(t)) =0$, $E(x(t)^2) <
+  \infty$. Then for any $\in > 0$, 
+  $$
+  P \left[ \sup_{o \leq s \leq t} | x(s) | > \in \right] <
+  \frac{1}{\in^2} E (x(t)^2). 
+  $$
+\end{Lemma} 
+
+\begin{proof}
+This lemma is the continuous version of Kolmogoroff's inequality
+which is as follows. 
+
+\medskip
+\noindent 
+\textbf{Kolomogoroff's inequality.} If $x_1, \ldots , x_n$ are
+independent random variables with $E(x_i) =0$, $E(x^2_i) < \infty$,
+$i=1,2, \ldots , n$, and if $S_m = x_1 + \cdots + x_m$, then 
+$$
+P\left(\max_{1 \le m \le n}|S_m| >  \epsilon \right)<
+\frac{1}{\epsilon^2} E(S^2_n). 
+$$
+ 
+The lemma follows easily from this inequality.
+
+Let now $(x_t, o \leq t < a)$ be a Levy process, $S= \{ (s, u): o \leq
+s < a, - \infty < u < \infty \}$. Let $\mathbb{B}(S)$ be the set of
+Borel subsets of $S$ and   
+$$
+\mathbb{B}^+ (S) = (E : E \in \mathbb{B}(S) \text{\ and\ } \rho (E, s
+- axis) >0) . 
+$$ 
+ 
+For every $w$ we define
+$$
+J(w) = ((t, u)  \in S : x_{t}(w) - x_{t-}(w) = u \neq 0, o \leq t < a).
+$$
+
+For $E \in \mathbb{B}(S)$ put $p(E)=$ number of points in $J(w) \cap
+E$. For fixed $w$,\pageoriginale therefore $p$ is a mesure on
+$\mathbb{B}(S)$. We 
+can prove that $p(E)$ is measurable in $w$, for fixed $E \in
+\mathbb{B}^+ (S)$. Let $\sigma (M) = E (p(M))$ for $M \in
+\mathbb{B}^+(S)$. Then we have the
+\end{proof}
+
+\begin{theorem*}
+\begin{align*}
+x_t &= x_\infty (t)  + \lim_{n \to \infty} \int\limits_{[o,t] \times  (u:1 \ge
+    |u  |  > \frac{1}{n})} [u p (ds\ du) -  u \sigma  (ds\ du) ]\\
+&\quad  +
+  \int\limits_{[o,t] \times (| u | > 1)}up(ds\ du) 
+\end{align*}
+where $x_\infty (t)$ is continous.
+\end{theorem*}  
+
+\begin{proof}
+The proof is in several stages. Let $E_t = E \cap [ (s,u) : o \le s
+    \le t ]$ for $E \in  \mathbb{B}^+ (S)$. 
+\begin{enumerate}
+\item We shall first prove that $y^E_t = p(E_t)$ is an additive
+  Poisson process. 
+     
+  Using the fact that $x_t$ is of type $d_1$ it is not difficult to
+  see that $y^E_t <  \infty$, and that it increases with jump $1$. 
+  
+  Let $\mathbb{B}_{ts}$ be the least Boral algebra with respect to
+  which $x_u - x_v, s \le u, v \le t$, are measurable. We shall prove
+  tha t $Y^E_t - y^E_s$ is $\mathbb{B}_{ts}$-measurable. It suffices
+  to prove this when $E = G$ is open. Let $G_m \uparrow G, \bar{G}_m
+  \subset G_{m+1}$ be a sequnce of open sets such that $\bar{G}_m$ is
+  compact. Let $y^G_t-  y^G_s= N$, $y^{G_m}_t - y^{G_m}_s = N_m$. For
+  every $n$ let $t^n_k=s + k \frac{(t-s)}{n}, k = 1,2, \ldots , n$ and
+  $N^m_n= $number of $k$ such  that $(t^n_k, x_{t^n_k}- x_{t^n_{k-1}})
+  \in G_m$. Then $N_{m-1} \le {\varlimsup\limits_{n \to \infty}}
+  N^m_n \le N_{m+1}, N^m_n$ is measurable in $\omega$ with respect to
+  $\mathbb{B}_{ts}$, and $y^G_t - y^G_s =  =\lim\limits_{m \to \infty}
+  {\varlimsup\limits_{n \to \infty}} N^m_n$.   
+  
+  Now suppose that $I_i = (s_i, t_i ] i=1,2, \ldots , n$ are
+  disjoint. Then $\mathbb{B}_{t_is_i}$, $1 \le i \le n$ are
+  independent and $y^E_{I_i}$ is $\mathbb{B}_{{t_i}{
+      s_i}}$-measurable. Therefore\pageoriginale $y^E_t$ is an
+  additive process.  
+   
+   Finally $y^E_t$ has no fixed discontinuity. For, a fixed
+   discontinuity of $y^E_t$ is also a fixed discontinuity of $x_t$. 
+   
+   Thus we have proved that $p(E_t)$ is an additive Poisson process.
+
+\item Let $r(E_t)= \sum\limits_{(s,u) \in E_t \cap J} u =
+   \int_{E_t} u p (ds\ du)$. 
+
+   We prove that $r(E_t)$ is additive. For every $w \in  \Omega, ~ p$ is
+   a measure on $\mathbb{B}(E_t- E_s)$. Any  simple function on $E_t -
+   E_s$ is of the form $\sum\limits_{i=1}^n  a_i \chi_{F_i}$ where $F_i \in
+   \mathbb{B} ({E_t}- {E_s}) , i=1,2, \ldots ,n$, are disjoint. Also
+   $\int_{{E_t} -{ E_s}} ( \sum a_i \chi_{F_i}) p  (ds\ du)=  \sum a_i p
+   (F_i)$, so that $\int_{{E_t} -{ E_s}} ( \sum a_i \chi_{F_i})\break p  (ds
+   du)$ is $\mathbb{B}_{ts}$-measurable. It follows that  
+   $$
+   r(E_t) -r (E_s) = \int_{{E_t} -{ E_s}} up (ds ~ du)
+   $$
+   is $\mathbb{B}_{ts}$-measurable. Let $x^E_t = x_t - r (E_t)$. Using the
+   fact that $r(E_t) - r(E_s)$ is $\mathbb{B}_{ts}$-measurable, it is
+   seen without difficulty that $x^E_t$ is a Levy process. Since $z^E_T =
+   ( x^E_t , y^E_t)$ is additive, and $P[x^E_t = x^E_{t_-}$ or $y^E_{t} =
+   y^E_{t_-}$ for every $t$) $=1$ it follows that $x^E$. and $y^E_{\bigdot}$ are
+   independent. 
+
+ \item Now we prove that  $E_1, \ldots , E_n \in \mathbb{B}^+ (S)$
+   are disjoint then \break $x^{E_1 \cup \ldots \cup E_n}_{\bigdot}$, $y^{E_1}_{\bigdot}, \ldots , y^{E_n}$ are independent. For simplicity we prove
+   this for $n=2$. Put $x'_t = x^{E_1}_t$. Then $(x'_t)^{E_2}= x^{E_1
+     \cup E_2}_t$ and the process $y^{E_2}_{\bigdot}$ defined with respect to
+   $x'_t$ is the same as $y^{E_2}_t$ with respect to $x_t$. Hence,
+   since $(x'_{\bigdot})^{E_2}$ and $y^{E_2}$ are independent from
+   2,\pageoriginale $x^{E_1\cup E_2}_{\bigdot}$ and $y^{E_2}_{\bigdot}$
+   are independent. Further $x^{E_1 \cup E_2}_{\bigdot},
+   y^{E_2}_{\bigdot})$ is measurable with respect to
+   $\mathbb{B}(x^{E_1}_{\bigdot}$, the
+   least Borel algebra with respect to which $x^{E_1}_t$ is measurable
+   for all $t$, and $\mathbb{B}(x^{E_1}_{\bigdot})$,
+   $\mathbb{B}(y^{E_1}_{\bigdot}$ are 
+   independent. Therefore $(x^{E_1 \cup E_2}_{\bigdot},
+   y^{E_2}_{\bigdot})$ and $y^{E_1}_{\bigdot}$ 
+   are independent. It follows that $x^{E_1 \cup E_2}_{\bigdot}$,
+   $y^{E_1}_{\bigdot}$  and
+   $y^{E_1}_{\bigdot}$ are independent.
+ 
+\item $x^E_t$ and $r(E_t)$ are independent.
+   
+   Since $r(E_t) = \int_{E_t} u\ p (ds\ du)$, it is enough to prove that
+   if $F$ is a simple function on $E_t$, $\int_{E_t} F\ p (ds\ du)$ and
+   $x^E_t$ are independent; this follows from $3$.
+ 
+ \item If $\sigma (M) = E(p(M))$ then $E(e^{i \alpha r (E_t)}) =
+   \exp \left(\int_{E_t} (e^{i \alpha u}-1) \sigma (ds\ du)\right)$. 
+   
+   It is again enough to prove this for simple functions on $E_t$. Note
+   that if $y$ is a Poisson variable then $E(e^{i \alpha y}) =
+   e^{(e^{i\alpha} -1)}$  where $\lambda = E(y)$, so that for any $\beta$ we
+   have $E(e^{i \alpha \beta y})= e^{\lambda (e^{i \alpha \beta -1})}$. 
+   
+   Let $f=  \sum s_i \chi_{F_i}$ be a simple function on $E_t$ with $F_i$,
+   $1 \le i \le n$ disjoint. Since $p(F_i)$ are independent random
+   variables we have  
+   \begin{align*}
+     E \left( \exp\left( \int_{E_t} f p( ds\ du) \right)\right) & = E
+     \left(e^{i \alpha \sum\limits_{j=1}^n 
+       s_j p(F_j)}\right) = \Pi_{j=1}^n E(e^{i \alpha s_j p (F_j)}) \\
+     &= \prod_{1 \le j \le n} \exp \left( \sigma (F_j) (e^{i \alpha
+       s_j}-1)\right)\\
+     & = \Pi_{1 \le j \le n} \exp \left( \int_{E_t} (e^{i \alpha \chi_{F_j}s_j}-1)
+     \sigma (ds\ du)\right) \\ 
+     &= \exp \left(\int\limits_{E_t} (e^{i \alpha \sum\limits_{j=1}^n s_j \chi_{F_{j-1}}}) \sigma (ds\ du)\right)\\ 
+     & = \exp \left(\int\limits_{E_t}(e^{i \alpha f}-1) \sigma
+     (ds\ du)\right). 
+   \end{align*}
+    
+\item Let\pageoriginale $U= ((s,u)\in S : | u | > 1)$, $U^n = (( s,u)
+  \in S : \frac{1}{n} \le | u | \le 1)$. 
+        
+   Then $x_t = x^{U^n}_t+ r(U^n_t)$, and since $(X^E_t \text{ and }
+   r(E_t)$ are independent 
+   \begin{align*}
+     | E (e^{i \alpha x_t}) | &= \left| E\left(e^{i \alpha x^{U^n}_{t}}\right) |  | E
+     \left(e^{i \alpha r (U^n_t)}\right) | \le | E \left(e^{i \alpha r
+       (U^n_t)}\right) \right| = \\  
+     & = \left|\exp \left( \int_{U^n_t} \left( e^{i \alpha u}-1\right) \sigma (ds
+     du)\right)\right|\\   
+     & = \exp \left( \int_{U^{n}_t}( \cos \alpha u-1) \sigma (ds
+     du)\right)\\ 
+     & \qquad \le \exp \left( -
+     \frac{\alpha^2}{4} \int_{U^n_t} u^2 \sigma (ds\ du)\right), 
+   \end{align*}    
+   because $\cos \alpha u-1 \le - \dfrac{\alpha^2 u^2}{4}$ for $| \alpha
+   | \le 1$. It follows that $\int_{U^n_t} u^2\break \sigma (ds\ du) < \infty$
+   for every $n$. Therefore $\lim\limits_{n \to \infty} \int_{U^n_t} u^2
+   \sigma (ds\ du) < \infty$.
+ 
+\item Let $r_n (t) = r(U^n_t) - E(r(U^n_t))$, then $r_n(t)$
+   converges uniformly in $[ o,a)$. The limit we denote by $r_\infty
+     (t)$. 
+
+Now $r(U^{m+k+1}_t) - r(U^{m+k}_t) =r(U^{m+k+1}_t - U^{m+k}_t)
+$. It follows that $r_{m+k}(\bigdot)-r_{m+k-1}(\bigdot), k= 1,2,
+\ldots , n-m$ are 
+independent. Using Lemmas \ref{chap4-sec3-lem2} and \ref{chap4-sec3-lem3},   
+\begin{align*}
+  P \left(\max_{1 \le k \le n-m} || r_{m+k} - r_m || > 2 \in \right) \le
+  \frac{P( ||  r_n - r_m || >\in)}{1- \max\limits_{1 \le k \le n-m-1}
+    P ( || r_n -r_{m+k} || > \in )} \\ 
+  \le \frac{\frac{1}{\in^2} \int_{U^n_{t}- U^m_t} u^2 \sigma (ds\
+    du)}{1- \frac{1}{\in^2 }\int_{U^n_{t}- U^m_t} u^2 \sigma (ds\ du)}
+  \to 0 \text{ as } m,n \to \infty. 
+\end{align*}         
+since    
+\begin{align*}
+E( |r_n (t) - r_m (t)|^2) &= E (| r (U^n_t- U^m_t) -
+  E(r(U^n_t-  U^m_t) |^2 ) \\ 
+  &= E \left[ \left( \int_{U^n_t- U^m_t} u [ p (ds\ du) - \sigma (ds\
+      du)]^2\right)\right] 
+\end{align*}\pageoriginale 
+and 
+$$
+E \left(\left[ \int_{E_t} u (p(ds\ du) - \sigma (ds\ du))^2\right] =
+\int_{E_t} u^2 \sigma (ds\ du)\right) 
+$$
+which can be proved by first considering simple functions etc., and
+noting the fact that if $y$ is a Poisson variable, then 
+$$
+E[(y-E(y))^2] = E(y).
+$$ 
+
+\item Let $x_n(t) = x^{U^n}_t + E(r(U^n_t)) - r(U_t) = x_t - r_n
+   (t) - r(U_t)$. Since $r_u(t)$ converges uniformly, in every compact
+   subinterval of $[o,a)$, with probabilty $1, x_n(t)$ converges
+   uniformly in $[o,a)$, say to $x_\infty (t)$. Since $x_n(t)$ has
+   no jumps exceeding $\dfrac{1}{n}$ in absolute value $x_\infty
+   (t)$ is continuous. We have   
+   \begin{multline*}
+     x_t = r(U_t) +  \lim_{n \to \infty} r_n(t) +  \lim_{n \to
+       \infty} x_n (t)=\\ 
+     = \int\limits_{U_t} u p (ds\ du) + \lim_{ n \to
+       \infty}[u p (ds\ du) - u \sigma(ds\ du)] 
+   \end{multline*}
+ since $E(r(u^n_t) = \int_{U^n_t} u \sigma (ds\ du)$. The theorem is proved.
+ \end{enumerate} 
+
+Since  $\int_{U_t} \sigma (ds\ du )= E(p(U_t)) < \infty$, $\int_{U_t}
+ \dfrac{u}{1+u^2} \sigma (ds\ du) < \infty$.\break We have seen that
+ $\lim\limits_{n \to \infty}\int\limits_{U_t^n} u^2 \sigma (ds\ du) <
+ \infty$. Therefore $\lim\limits_{n \to \infty}
+ \int\limits_{U_t^n}\dfrac{u^3}{1+u^2}\break \sigma (ds\ du) < \infty$ and we
+ can also write the last equation\pageoriginale as  
+ $$
+x_t=g(t) + \lim\limits_{n \to \infty} \int\limits_{[o,t] \times (u: | u| >
+     \frac{1}{n})} \left[u  p(ds\ du) - \frac{u}{1+u^2} \sigma (ds
+     du)\right]
+$$
+where
+$$
+g(t) = x_\infty (t) +  \int\limits_{U_t}
+   \frac{u}{1+u^2} \sigma (ds 
+   du)- \lim_{n \to \infty} \int\limits_{U_t^n} \frac{u^3}{1+u^2} \sigma
+   (ds\ du).
+$$ 
+ 
+For simplicity we shall write
+$$
+x_t =g(t) +  \int\limits_{s=o}^t \int\limits_{- \infty}^\infty \left[u p(ds\ du)-
+  \frac{u}{1+u^2} \sigma (ds\ du)\right]. 
+$$
+ 
+In the general case when $x_o \neq 0$, we have
+$$
+x_t = x_o +  g(t) +    \int\limits_{s=o}^t \int\limits_{- \infty}^\infty \left[u
+  p(ds\ du)- \frac{u}{1+u^2} \sigma (ds\ du)\right] 
+$$
+ 
+From  now on we shall write
+ $$
+ x_t = \int\limits_{- \infty}^\infty u p ( [o,t]\times du ) - \frac{u}{1+
+   u^2} \sigma ([o,t] \times du) + g(t).  
+ $$
+ 
+Since $x_t$ has no fixed discontinuity $P (| x_t - x_{t-} | > 0) = 0$. 
+It follows that $\sigma ( \{ t\} \times U) =0$. Noting this it is not
+difficult to see that $\int_{U_t} \dfrac{u}{1+u^2} \sigma (ds\ du)$ and
+$\lim\limits_{n \to \infty} \int_{U_t^n} \dfrac{u^3}{1+u^2} \sigma (ds
+du)$ are both continuous in $t$. Therefore $g(t)$ is continuous hence
+is a Gaussian additive process. Further we can show that $g(t)$ and
+$\int_{- \infty}^\infty [ u p( [o,t]] \times du) - \dfrac{u}{1+u^2}
+\sigma ([o,t] \times du)$ are independent. We have 
+\begin{align*}
+  E(e^{i \alpha (x_t - x_s)}) &= E (\exp( i \alpha \int_{\infty}^\infty [
+    u p ( [s,t] \times du \\
+    & \quad - \frac{u}{1-u^2} \sigma ([s,t] \times du] ))
+  E(e^{i \alpha [ g(t) - g(s)]})\\ 
+  &=\lim_{n \to \infty} E ( \exp ( i \alpha  \int_{| u  |  >
+    \frac{1}{n}} [ u p ( [s,t] \times du) - \frac{u}{1-u^2}\\ 
+    &\quad \sigma ([s,t] \times du] )) \times  \exp  \left(i (m (t) -
+  m (s)) \alpha - \frac{v(t) - v(s)}{2} \alpha^2 \right) \\ 
+  &= \lim_{n \to \infty} \exp \left[\int_{| u  |  > \frac{1}{n}}(e^{ i
+      \alpha u}- 1- \frac{i \alpha u}{a+u^2}) \sigma ( [s,t] \times
+    du)\right]\\ 
+  & \quad \times \exp \left(t \alpha (m(t)- m(s))- \frac{v(t) - v(s)}{2}
+  \alpha^2 \right)  
+\end{align*}\pageoriginale 
+ 
+Therefore 
+ \begin{multline*}
+   \log E(e^{i \alpha (x_t - x_s)}) = i \alpha [ m (t) - m(s)]-
+   \frac{v(t) - v(s)}{2} \alpha^2+\\    
+  + \int_{- \infty}^\infty [ e^{i
+       \alpha u}- 1 - \frac{i \alpha u}{1+u^2} \sigma ([s,t] \times du).  
+ \end{multline*}
+ 
+Since $g(t)$ is Gaussian $m(t)$ and $v(t)$ are continuous in $t$ and
+$v(t)$ increases with $t$. 
+
+Conversely, given $m$, $v$ and $\sigma$ such that (1) $m(t)$ is
+continuous in $t$, (2) 
+$v(t)$ is continuous and increasing, (3) $\sigma [ \{ t\} \times U] =0$,
+$\int_{- \infty}^\infty \dfrac{u^2}{1+u^2} \sigma ( [o,t] \times du)
+<\infty$, we can construct a unique (in law)  L\'evy process. 
+
+Let\pageoriginale us now consider some special cases. If $\int_{-
+  \infty}^\infty u^2 
+\sigma ([o,t] \times du ) < \infty$ we can write 
+$$
+x_t = g_1 (t)  + \int_{- \infty}^\infty u[p ( [o,t] \times dv)- \sigma
+  ([o,t] \times du). 
+$$
+ 
+The condition $\int_{- \infty}^\infty \dfrac{| u |}{1+|u|} \sigma
+([o,t] \times du) < \infty$ is equivalent to the two condition (1)
+$\int_{- \infty}^\infty \dfrac{u^2}{1+u^2} \sigma ([o,t] \times du) <
+\infty $ and (2) 
+$$
+\int_{- \infty}^\infty \dfrac{| u |}{1+u^2} \sigma ([o,t] \times du) <
+  \infty \text{ so that if } \int_{- \infty}^\infty \dfrac{| u |}{1+|u|}
+  \sigma ([o,t] \times du) < \infty
+$$
+we can write
+$$ 
+x_t = \int_{- \infty}^\infty u p ([o,t] \times du) +  g_2 (t)
+$$
+and
+$$  
+\log E(e^{i \alpha x_t}) =- i \alpha m (t) - \frac{v(t)}{2} \alpha^2
+  +\int_{- \infty}^\infty [e^{i \alpha u}-1] \sigma ([o,t] \times du)
+$$ 
+
+The condition $\int_{-\infty}^\infty \dfrac{u^2}{1+|u|} \sigma
+([o,t] \times du) < \infty$ is equivalent to the condition (1) $\int_{-
+  \infty}^\infty \dfrac{u^2 }{1+u^2} \sigma ([o,t] \times du) <
+\infty$ and (2) $\int_{- \infty}^\infty \dfrac{u^3}{1+ u^2} \sigma
+([o,t] \times du) < \infty$. Therefore if $\int_{- \infty}^\infty
+\dfrac{u^2}{1+ |  u |}\sigma ([o,t] \times du) < \infty$  
+we can write
+$$
+\log E(e^{i \alpha x_t}) = i \alpha m (t) - \frac{v(t)}{2} \alpha^2
++\int_{- \infty}^\infty [e^{i \alpha u}-1- i \alpha u] \sigma ([o,t]
+\times du)  
+$$ 
+\end{proof}
+
+\begin{lemma*}
+If $f (\alpha) = im\ \alpha - \dfrac{v}{2} \alpha^2 + \int_{-
+    \infty}^\infty [e^{ i \alpha u}-1 - \dfrac{i \alpha u}{1+ u^2}]
+  \sigma (du) \equiv 0$, where $m$ and $v$ are real and $\sigma$ is a
+  signed measure such that $\int_{- \infty}^{\infty} \dfrac{u^2}{1+u^2}
+  \sigma (du) < \infty$, then $m =v = \sigma = 0$. 
+\end{lemma*}
+
+\begin{proof}
+  We\pageoriginale have $0 \equiv f(\alpha) - \frac{1}{2} \int_{\alpha
+    -1}^{\alpha +1} f( \beta) d  \beta= \frac{v}{3} + \int_{- \infty}^{\infty} e^{
+    i \alpha u} [ \frac{1- \sin u}{u}] \sigma (du)$ so that if
+  $\delta_o$ is the Dirac measure at $0$, 
+$$
+\int\limits_{- \infty}^{\infty}\left[ \frac{v}{3} \delta_o (du) +  \left(1-
+\frac{\sin u}{u}\right) \sigma (du) \right] e^{i \alpha u} \equiv 0. 
+$$
+
+
+It follows that $\frac{v}{3} \delta_o (A) + \int_{A} ( 1- \dfrac{\sin
+  u}{u}) \sigma (du) =0$. Taking $A= \{ 0 \}$, since $\int_{\{
+  0\}} ( 1- \dfrac{\sin u}{u}) \sigma (du) =0$ we see that $v =0 $. It
+then follows that $\sigma = 0 $ and hence $m =0$. 
+\end{proof}
+
+Form this lemma we can easily deduce that in the expression 
+$$
+\log E(e^{i \alpha  x_t}) = i \alpha m(t) - \frac{v(t)}{2} \alpha^2 +
+\int\limits_{- \infty}^{\infty} [e^{i u}-1- \frac{i \alpha u}{1+ u^2}]
+\sigma ([o,t] \times du), 
+$$ 
+$m(t)$, $v(t)$ and $\sigma$ are unique.
+
+\section{Temporally homogeneouos L\'evy processes}\label{chap4-sec4} % \sec 4
+
+We shall prove that if $(x_t)$ is a temporally homogeneous L\'evy
+process, then $\log E(e^{i \alpha x_t}) = t \psi (\alpha)$ where 
+$$
+\psi
+(\alpha ) = im \alpha - \dfrac{v}{2} \alpha^2 +  +\int_{-
+  \infty}^{\infty}\left[ i^{i \alpha u}- 1 - \dfrac{i \alpha
+    u}{1 + u^2}\right] \sigma (du).
+$$ 
+
+\begin{defi*}
+Two  random variables $x$ and $y$ on a  probability space $\Omega
+  (P)$ are said to be {\em equivalent in law} and we write $s
+  \undersim{L} y$ if they yield the same distribution. 
+\end{defi*}
+
+A stochastic process $(x_t, 0 \leq  t < a)$ on $\Omega$ can be regarded
+as a measurable function into $R^{[0,a]}$. Two stochastic processes
+$(x_t)$, $(y_t)$, $0 \le t < a $ are said to be equivalent in law if
+they induce the same probability distribution on $R^{[0,a]}$ and we
+write $x_{\bigdot} \undersim{L} y_{\bigdot}$. If  $(x_t)$ and $(y_t)$
+are addtive processes 
+such that $x_t - x_s \undersim{L} y_t - y_s$, then we can be prove that
+$x_{\bigdot} \undersim{L} y_{\bigdot}$. 
+
+Let\pageoriginale $D'$ denote the set of all $d_1$-type functions on
+$[0,a)$ into 
+  $R'$. Then $D' \subset R^{[0, a)}$ and let $\mathbb{B}(D')$ be the
+    induced Borel algebra on $D'$ by $\mathbb{B}(R^{[0,a)})$. If
+      $(x_t, 0 \leq t < a)$ is a L\'evy process then the map $w \to
+      x_{\bigdot} (w)$ 
+      into $D'$ is measurable; also  if $x^{(h)}_t= x_{x+h}- x_t$, $0
+      \le t < a-h$ we can show that $(x_t)$ is temporally homogeneous
+      if and only if $x_{\bigdot} \undersim{L} x^{(h)}_{\bigdot}$. 
+      
+Now consider $D'$. Let $E \in \mathbb{B}^+ (S)$,
+$$
+J(f) = \{ (s,u): f(s) - f(s-) = u \neq 0 \}, f\ D'
+$$ 
+and $F^E_t (f)$ = number of points in $J(f) \cap E_t$.
+
+We can show that $F_t (f) < \infty$ and that $F_t$ is measurable on
+$D'$. The proof of measurability of $F_t$ follows exactly on the same
+lines as that of the mesurability of $Y^E_t$. We have clearly $p
+(E_t)= y^E_t = F^E_t (x_{\bigdot})$. 
+
+Let $E \in \mathbb{B}( [0,t])$ and $U \in \mathbb{B}(R')$ be such that
+$E_1 = E \times U \in  \mathbb{B}^+ (S)$. If $h$ is such that $t +  h
+< a$ we prove that $\sigma((E+h) \times U) = \sigma (E \ U)$. Let $E_2
+= (E+h) \times U$. Then $\sigma (E_2\times U) =  E(y^{E_2}_{t+h}) =
+E(y^{E_2}_{t+h}-y^{E_{2}}_{h})$. Let $x^{(h)}_t = x_{t+h} - x_h$. Since $x_t$ is
+temporally homogeneous $x^{(h)}_{\bigdot}
+\undersim{L}x_{\bigdot}$. Also $y^{E_2}_{t+h}-
+y^{E_2}_{h}=F^{E_1}_{t}[x^{(h)}_{\bigdot}]$ and $y^{E_1}_t = F^{E_1}_t
+[x_{\bigdot}]$. It
+follows that $E(y^{E_1}_{t})= E(y^{E_2}_{t+h})$. Thus  for fixed
+$U$, $\sigma$ is a translation-invariant measure on $\mathbb{B} [
+  (0,a))]$ and hence is the Lebesgue measure, i.e. $\sigma (E \times
+U) = m  (E) \sigma_1 (U)$, where $m(E)$ is the Lebesgue  measure of
+$E$ and $\sigma_1(U)$ is a constant depending on $U$. Since $\sigma$
+is a measure on $R^2$, it follows that $\sigma_1$ is also a
+measure. Hence $\sigma (ds\ du)= ds\, \sigma_1 (du)$. We
+shall\pageoriginale drop the suffix 1 and use same symbol $\sigma$. Thus  
+$$ 
+\int\limits^{t}_0 \int\limits^{\infty}_{- \infty} \left[ e^{i \alpha
+    u}-1- \frac{i \alpha u}{1 + u^2}\right] \sigma (ds\ du) = t
+\int\limits^{\infty}_{- \infty} \left[e^{i\alpha u}-1- \frac{i \alpha
+    u}{1 + u^2}\right] \sigma (du).  
+$$
+
+Now $\log E(e^{i \alpha (x_t - x_s)})$ depends only  on
+$t-s$. Therefore $m(t) - m(s)$ and $v(t) - v(s)$ depend only  on
+$t-s$. Hence $m(t)= m.t$, $v(t) = v.t$. Therefore, finally, 
+$$
+\log E(e^{i \alpha x_t}) = \Iim \alpha t -  \frac{vt}{2} \alpha^2 +  t 
+\int_{- \infty}^\infty \left[ e^{i \alpha u}-1- \frac{i \alpha u}{1 + u^2}\right]
+\sigma (du). 
+$$
+
+We shall now consider some special cases of temporally homogeneous
+L\'evy process. We have  seen that  
+$$
+x_t = g(t) + \int\limits_{-\infty}^\infty \left[ u p_t (du) - \frac{u}{1+
+    u^2} t \sigma (du)\right],
+$$
+where $p_t (du) = p( [0,t] \times du)$. Since $g(t)$ is Gaussian
+additive and temporally homogeneous $g(t) = mt +  \sqrt{v} B_t$, where
+$B_t$ is a Wiener process. Thus 
+$$
+x_t = mt  + \sqrt{v} B_t + \int\limits_{- \infty}^\infty \left[u p_t (du) -
+  \frac{u}{1 + u^2} t \sigma (du)\right]
+$$
+and
+$$
+\psi ( \alpha) = \Iim \alpha - \frac{v}{2} \alpha^2 +  \int_{-
+    \infty}^\infty \left[e^{i \alpha u }- 1- \frac{i \alpha u}{1+
+      u^2}\right] \sigma (du)
+$$
+
+\noindent
+\textbf{Special cases:}
+\begin{enumerate}
+\item $\sigma \equiv 0$. Then $x_t = m t + \sqrt{v} B_t$.
+
+\item In case $m'  = \lim\limits_{\epsilon \downarrow 0} \int_{| u | >
+  \epsilon} \frac{u}{1+ u^2} \sigma (du)$ existce, we can write $x_t = (m+
+  m')+ \sqrt{v} B_t + \int_{- \infty}^\infty u p_t (du)$, and  
+$$
+\psi ( \alpha) = i (m+ m') \alpha - \frac{v}{2} \alpha^2 + \int_{-
+ \infty}^\infty [e^{i \alpha u}- 1] \sigma (du). 
+$$
+
+Note\pageoriginale that if $\sigma$  is symmetric, $m' =0$.
+
+\item If $m+ m' =0$ and $v=0, x_t = \lim\limits_{\in \downarrow 0}
+  \int_{| u | >\in } u p_t (du)$ 
+  $$
+  \psi ( \alpha )  = \lim\limits_{\in \downarrow 0}\int_{| u | >\in} [
+    e^{-i \alpha u}-1] \sigma (du) 
+  $$
+  
+Such a process is called a \text{pure jump process.}
+
+\item If $\lambda = \sigma (R') < \infty$, then 
+  $$
+  x_t = \int_{- \infty}^\infty u p_t (du) , \psi ( \alpha )= \lambda
+  \int_{- \infty}^\infty [e^{i \alpha u}-1] \Theta (du)  = \lambda [
+    \Theta ( \alpha ) -1]  
+  $$
+  where $\Theta (E) = \lambda^{-1} \sigma (E)$ and $\theta(
+  \alpha)$ is the characteristic function of $\Theta$. We have  
+\begin{align*}  
+E(e^{ i \alpha x_t}) &= e^{ t \psi ( \alpha}= e^{- \lambda t}
+  \sum_{k} \frac{t^k \lambda^k}{k!} \theta ( \alpha)^k\\
+  &= e^{-\lambda t} \sum_{k} \frac{t^k \lambda^k}{k !} \times 
+[\text{characteristic function of }  \Theta^{* k}], 
+\end{align*}
+where $\Theta^{ * k}$ denotes the  k-fold convolution of
+  $\Theta$. Since  $E(e^{i \alpha x_t})$ is the chaacteristic function
+  of the measure $\varphi (t,.)$ we have  
+  $$
+  \varphi (t, E) = e^{- \lambda t} \sum_{k} \frac{\lambda^{k_t k}}{k!}
+  \Theta^{* k} (E). 
+  $$
+\end{enumerate}
+
+\begin{remark*}
+If $\varphi  (t,E) = P (x_t \in E)$ is symmtric, i.e. if $P(x_t \in
+  E)=  P(- x_t \in E)$ then $E(e^{i \alpha x_t})$ is real. Hence $\psi
+  ( \alpha )$ is real. Further, since $x_t \undersim{L}- x_t$, we have $x
+  \undersim{L} -x$. It follows that $\sigma (db)=  \sigma (-
+  db)$. Therefore 
+  $$
+  \psi ( \alpha ) = i m \alpha - \frac{v}{2} \alpha^2 + 2
+  \int_{o}^\infty [ \cos \alpha u-1] \sigma (du). 
+  $$
+\end{remark*}
+
+Since\pageoriginale $\psi ( \alpha )$ is real $m=0$, so that 
+$$
+\psi(\alpha) = - \frac{v}{2}\alpha^2 + 2 \int_{0}^\infty [ \cos
+  \alpha u -1] \sigma (du). 
+$$
+
+\section{Stable processes}\label{chap4-sec5} % \sec 5
+
+Let $(x_t , 0 \le t < \infty )$ be a temporally homogeneous Levy
+process. If $x_t \undersim{L} c_t x_1$, where $c_t$ is a constant
+depending on $t$ we say that $(x_t)$ is a \textit{stable process}. We
+shall now give a theorem which characterises stable process
+completely. From Levy's canonical form we have $E(e^{i \alpha x_t)} =
+e^{ t \psi ( \alpha )}$ where  
+$$
+\psi(\alpha)  = \Iim \alpha - \frac{v}{2} \alpha^2 + \int_{-
+  \infty}^\infty \left[ e^{i \alpha u}-1- \frac{i \alpha u}{1+ u^2}\right]
+\sigma (du). 
+$$
+
+\setcounter{thm}{0}
+\begin{thm}\label{chap4-sec5-thm1} 
+\begin{equation*}
+    \psi ( \alpha ) = 
+    \begin{cases}
+      \Iim \alpha, m \text{ real}\\
+      - a_o |  \alpha |^2 \\
+      ( - a_o +  i \frac{\alpha}{| \alpha |}a_1 ) | \alpha |^c ,
+    \end{cases}
+  \end{equation*}
+  where $a_0 > 0$, $0 < c 2$ and $a_1$ is real.
+\end{thm}
+
+\begin{proof}
+Suppose that $\psi(\alpha)$ is not of the form $\Iim \alpha$.
+
+We prove that if $\psi (c \alpha)  = \psi (d \alpha)$ then $c =d$. For
+if $\in = \min \left( \dfrac{c}{d}, \dfrac{d}{c}\right) < 1$ and
+$\psi( \alpha) = 
+\psi ( \in \alpha)$ so that $\psi ( \alpha )=  \psi ( \in^n \alpha)
+\to 0$. Hence $\psi (\alpha) \equiv 0$ and this is the omitted case. 
+
+Since $e^{\psi (c_t \alpha)} = E( e^{ic_t \alpha x_1}= E( e^{i \alpha
+  x_t})= e^{t \psi ( \alpha )}$ we  have $\psi (c_t \alpha) = t \psi (
+\alpha )$. Therefore 
+$$
+\psi (c_{ts}\alpha) = ts \psi ( \alpha ) = t \psi (c_s \alpha) =
+\psi(c_t c_s \alpha ). 
+$$
+
+It\pageoriginale follows that $c_{ts}= c_t c_s$.
+
+We prove next that $c_t$ is continuous. Let $c_{t_n} \to d$ as $t_n
+\to t$. If $d =\infty$ we should have, since $\psi (c_{t_n} \alpha)  =
+t_n \psi ( \alpha )$, 
+$$
+\psi ( \alpha) = t_n \psi (c_{t_n}^{-1} \alpha ) \to 0.
+$$
+
+Therefore $d \neq \infty$ and $\psi (c_t \alpha) = t \psi ( \alpha ) =
+\lim\limits_{n} t_n \psi ( \alpha ) = \lim\limits_{n} \psi(c_{t_n}
+\alpha )= \psi ( d \alpha)$. Hence $\lim c_{t_n}= d = c_t$. One shows
+easily that $c_t = t^{1/c}$. Therefore if $\alpha > 0$, 
+$$
+\psi ( \alpha .1) = \psi (( \alpha^c )^{\psi_c}.1) = \alpha^c \psi (1),
+$$
+and if $\alpha < 0$,
+$$
+\psi ( \alpha ) = \psi ( | \alpha |  ( -1) = | \alpha |^c \psi (-1) =
+|  \alpha|^c \overline{\psi (1)}, 
+$$
+for from the form of $\psi ( \alpha )$ we see that $\overline{\psi (
+  \alpha)} = \psi ( - \alpha )$. Thus if $\psi (1) =-  a_o  + a_i i$,
+we have  $\psi ( \alpha ) = | \alpha | ^c ( -a_o +  ia_1
+\dfrac{\alpha}{|  \alpha |})$. Since $|  e^{ \psi ( \alpha )}| \le 1,
+a_o \ge 0$; if $a_o =0$, $E(e^{ i \alpha x_1}) = e^{ia_1\alpha\cdot |
+\alpha | ^{c-1}}$ so that  
+$$
+\displaylines{\hfill 
+  E \left[\cos \alpha (x_1 - a_1 |  \alpha | ^{c-1})\right]= 1,\hfill \cr 
+  \text{ i.e.,} \hfill E\left[1 -
+  \cos \alpha \left(x_1 - a_1  |  \alpha |^{c-1}\right)\right]
+  =0.\hfill}  
+$$ 
+
+We should therefore  have $\cos \alpha (x_1 - a_1 | \alpha |^{c-1})
+=1$ a.e. or $\alpha [x_1 (w) -a_1 | \alpha |^{c-1}] =2 k ( \alpha, w)
+\pi$, $k ( \alpha, w)$ being an integer depending on $\alpha$ and
+$w$. For fixed $w$, thus $k( \alpha, w)$ is continuous in
+$\alpha$. Letting $\alpha \to 0$ we see that $k ( \alpha, w) \equiv
+0$. Therefore $x_1 (w) - a_1 |  \alpha  | ^{c-1} \equiv 0$. If $a_1
+\neq 0$ this shows that $c=1$ so that $\psi ( \alpha ) = i a_1
+\alpha$. 
+
+We\pageoriginale shall now show that $o < c \le 2$. We have $x_t
+\undersim{L}t^{\frac{1}{c}} x_1$, $x_{st} \undersim{L}
+(st)^{\frac{1}{c}}\break x_1
+\undersim{L} s^{\frac{1}{c}} x_t$. By using additivity and homogeneity of
+$x_t$ and $x_{st}$ we can show that $x_s \undersim{L} s^{
+  \frac{1}{c}}x$. (as random processes). It follows that the
+expectations of the number of jumps of these processes are the same
+(because if $p_1 (E_t)$ and $p_2 (E_t)$ correspond to $x_s$ and
+$S^{1/c} x$ then $p_1 (E_t), p_2 (E_t)$ are equivalent in law). The
+expected number of jumps of $x_s$ and $s^{\frac{1}{c}}x$ in $dt\ du$
+are $sdt \sigma (du)$ and $dt \sigma (S^{-1/c}du)$ respectively. We
+have therefore $\sigma(s^{\frac{-1}{c}}du) = s \sigma (du)$. Let
+$\sigma_+ (u) = \int_{u}^\infty \sigma (du)$ for $u  >  0$. Then since
+$s \sigma (du)= \sigma (s^{-1/c}du)$,   
+$$
+s \sigma_+ (u)= s \int_{u}^\infty \sigma (du) = \int_{u}^\infty \sigma
+(s^{-1/c}du) = \int_{s^{-1 /c_u}}^\infty  \sigma (du) = \sigma_+
+(us^{-1/c )}. 
+$$
+
+Putting $s = u^c$ and $a_+ = c \sigma_+(1) (\geq 0)$ we get $u^c \sigma_+  (u) =
+\sigma_+ (1) = \dfrac{a_+}{c}$, so that $\sigma_+ (u) = \dfrac{a_+}{c}
+u^{-c}$. Therefore $\sigma (du)= a_+  u^{-c-1} du$. Similarly we see
+that $\sigma (du) = a_{-} | u |^{- c-1} (u < 0)$. If $a_+ = a_- =0$ then
+$\psi ( \alpha ) = i m \alpha - v/2 \alpha^2$ and $x_t$ is Gaussian
+additive. Also $\psi ( \alpha ) =  |  \alpha |^c (-a_o + i a_1
+\dfrac{\alpha}{|  \alpha |})$ so that $c =2, v/2=a_o$ and $a_1 = m=0$,
+Therefore $\psi ( \alpha ) =- a_o  \alpha^2, a_o > 0$. 
+
+Let us now assume that at least one of $a_+$ or $a_ -$ is positive,
+say $a_+$. Since $\int_{1}^{-1} u^2 \sigma (du) < \infty,  \int_{o}^1
+u^2 \sigma (du) <  \infty$, so that $a_+ \int_{o}^1 u^2
+\dfrac{du}{u^{c+1}} < \infty$. This proves that $c< 2$. Again  using
+$\int_{1}^o \sigma (du) < \infty$ we can see that $o < c$. The theorem
+is completely proved. 
+
+The\pageoriginale number $c$ is called the \textit{index}  of the
+stable process. 
+We shall discuss the cases $o < c <  1, c=1$, and $1 < c < 2$.   
+\end{proof}
+
+\medskip
+\noindent
+{\bf Case (a)}~$0 <  c <  1$.
+\smallskip
+
+  In this case we have $\int_{- \infty}^\infty \sigma (du) = \infty,
+  \int_{-1}^1 | u | \sigma (du) < \infty$. The second inequality implies
+  $E ( \int_{-1}^1 | u | p ([o, t] \times du)) <\infty$ so that  
+  $$
+  P( \int_{-1}^1 | u | p ([ o,t] \times du) < \infty) =1.
+  $$ 
+
+  Let 
+  \begin{align*}
+    f(n) & = t \int_{|  u | \ge \frac{1}{n}} \sigma (du) = \int_{|  u
+    | \ge \frac{1}{n}} \sigma ([o,t] \times du) = E \left(\int_{|  u | \ge
+    \frac{1}{n}} p([o,t] \times du)\right)\\
+    &=E \left(p\left( [o,t] \times \left( | u | \ge
+    \frac{1}{n}\right)\right)\right). 
+  \end{align*}
+
+
+Since $p(E_t)$ is a Poisson variable we have
+$$
+P \left[p ([o,t] \times (| u | \ge \frac{1}{n})) \ge N \right] =
+\sum_{k \ge N} e^{-f (n)} \frac{[f(n)]^k}{k!} = 1 - e^{-f (n)} \sum_{k
+  \le N} \frac{[f(n)]^k}{k!} 
+$$
+
+Letting $n \to \infty$, since $f(n) \to \infty$ we have 
+$$
+P[p ([o,t] \times ( | u | > o )) \ge N ] =1.
+$$
+
+Hence  $P$ [the number of jumps in $[o,t] = \infty $] = 1. Now
+$\int_{- \infty}^\infty \dfrac{ | u |}{1+u^2}$ $\sigma (du) < \infty$,
+so that we can write 
+$$
+x_t = g_2 (t)  +  \int_{- \infty}^\infty u p ([o,t] \times du).  
+$$
+
+We can now  show that 
+$$
+\psi (\alpha) = i m - \frac{v}{2} \alpha^2 +  a_+ \int_{o}^\infty
+     [e^{i \alpha u}-1] \frac{du}{u^{c+1}}+ a_ -\int_{- \infty}^o
+     [e^{i \alpha u}-1] \frac{du}{| u |^{c+1}} 
+$$
+
+Also\pageoriginale $\int_{0}^\infty (e^{i \alpha u}-1)
+\frac{du}{u^{c+1}} =\alpha^c 
+\int_{0}^\infty [e^{iu}-1] \frac{du}{u^{c+1}} = 0 (| \alpha |^0) =0 (
+| \alpha | ) = 0 ( | \alpha |^2)$; 
+similarly $\int_{- \infty}^0 ( e^{ i \alpha u}-1) \dfrac{du}{|u|^{c+i}}
+= 0 ( | \alpha |^c )= 0 (|\alpha|) =0 ( | \alpha |^2 )$ as $\alpha \to
+\infty$. Hence $v= m =0$, and $\psi ( \alpha) = a_+ \int_{0}^\infty
+      [e^{i \alpha u}-1] \frac{du}{u^{c+1}} +  a_ - \int_{- \infty}^o [ e^{i \alpha
+          u}-1] \dfrac{du}{| u |^{c+1}}$ and $x_t = \int_{-
+        \infty}^\infty u p ( [o, t] \times du)$. 
+
+\medskip
+\noindent
+{\bf Case (b)}~ $1 < c < 2$
+
+  In this case $\int_{- \infty}^\infty \dfrac{u^2}{1 +  |  u |}
+  \dfrac{du}{| u |^{c+1}} < \infty$. Hence we can write  
+  \begin{multline*}
+  \psi ( \alpha ) = im \alpha - \frac{v}{2} \alpha^2 +  a_ +
+  \int_{0}^\infty \left[e^{i \alpha u}-1- i \alpha u\right] \frac{du}{u^{c+1}}\\ 
+  + a_- \int_{- \infty}^0 \left[ e^{ i \alpha u}-1- \alpha u \right] \frac{du}{| u
+    |^c +1} 
+  \end{multline*}
+
+Now $\psi ( \alpha ) = 0  ( | \alpha  |^c)$, so that comparing the
+orders as $\alpha \to \infty$ and $\alpha \to o$ we see immediately
+that $m = v =0$. Hence 
+$$
+\psi ( \alpha ) = a_+ \int_{o}^\infty \left[e^{i \alpha u}- 1-i \alpha u\right]
+\frac{du}{u^{c+1}}+  a_- \int_{- \infty}^o \left[e^{i \alpha u}- 1- i
+  \alpha u\right] \frac{du}{| u|^{c+1}}. 
+$$
+
+We have 
+$$
+E \left(\int_{-1}^1 | u |^{c^1}p( [o, t] \times du)\right) = a_+ t \int_{o}^1 | u
+|^{c^1} \frac{du}{u^{c+1}}+ ma_- t \int_{-1}^o | u |^{c^1} \frac{du}{|
+  u |^{c+1}}, 
+$$
+which is finite of infinite according as $c' >o$ or $c' \le
+c$. Therefore $P[\sum\limits_{s \le t} |  x_s - x_{s-}| c' <\infty ]
+=1$ if $c' >  c$. We can easily show that  
+$$
+E\left( \exp\left(-\int_{-\delta}^\delta | u |^{c^1} p([o,t] \times
+  du )\right)\right) =
+  \exp \left( -t \int_{-\delta}^\delta ( 1 -e^{- | u |^c}) \sigma (du)\right) 
+$$
+
+Since $\int_{-1}^1 | u |^{c^1} \sigma (du)= \infty$ the right side is
+zero in the limit. It follows that $\exp( - \int_{-1}^1|u |^{c^1} p(
+[o, t] \times du)) =0$ with probability 1. Hence\pageoriginale $P[
+  \sum_{s \le t} |x_1 - x_{s-}| ^{c^1} = \infty] =1$ if $c^1 \le c$. 
+
+\medskip
+\noindent
+{\bf Case (c)}~ $c=1$
+\smallskip
+  
+We have $\psi (\alpha ) = i a_1 \alpha - a_o |  \alpha |$. Since 
+$$
+- \Pi | \alpha | =  2 \int_{o}^\infty [ \cos \alpha u -1]
+\frac{du}{u^2}= \int_{-\infty}^\infty [e^{i \alpha u}-1- \frac{i
+\alpha u}{1+ u^2}] \frac{du}{u^2}, 
+$$
+we have 
+  \begin{multline*}
+  \psi (\alpha )  = i a_1 \alpha + \frac{a_o}{\Pi}
+  \int_{-\infty}^\infty \left[e^{i \alpha u}-1- \frac{ i \alpha u}{1+ u^2}\right]
+  \frac{du}{u^2}\\
+  = im \alpha -  \frac{v}{2}\alpha^2 + \int_{-
+    \infty}^\infty \left(e^{i \alpha u}-1 \frac{i  \alpha u}{1+ u^2}\right)
+  \sigma (du). 
+  \end{multline*}
+
+From the uniqueness of representation of $\psi (\alpha ) $ we get $v =
+0$ and $\sigma ( du) = \frac{du}{u^2}$. In this case thus $a_+ = a_ -$
+and  
+$$
+\psi( \alpha ) = i a_1 \alpha + \frac{a_o}{ \Pi} \int_{-\infty}^\infty
+    \left[e^{i \alpha  u}-1- \frac{i \alpha u}{1+ u^2}\right] \frac{du}{u^2} . 
+$$
+
+\begin{defi*}
+  Processes for which $c=1$ are called \textit{Cauchy processes}.
+\end{defi*}
+
+\section{L\'evy process as a Markov process}\label{chap4-sec6}  % \sec 6
+
+Let $(x_t (w))$, $w \in \Omega (\mathbb{B},p)$ be a temporally
+homogeneous Levy process. Let $\mathbb{M}= (R', W, P_a)$, where $W=
+W_{d_1}$ and $P_a (B) = P(x_{\bigdot} + a \in  B)$. We show that
+$\mathbb{M}$ is Markov process. 
+
+If $x$ is a random variable on a probability space $\Omega$, then the
+map $(w,a) \to (x(w),a)$ is measurable. It follows that the map $(w,a)
+\to x(w)+a$ is measurable in the pair $(w,a)$. Now note that if $F$ is
+a fixed subset of $\Omega \times R'$, then $f(a)= P(w: (w, a) \in F)$
+is measurable in $a$. Hence $P (w : x (w) + a \in  E)$ for $E \in
+\mathbb{B} (R')$ is measurable in $a$. 
+
+Therefore\pageoriginale $P(t, a, E) = P(w: x_t (w) + a \in E)$ is
+measurable in 
+$a$. If $U$ is an open set containing a, $U-a$ is an open set
+containing $0$. Since $x_t$ is continuous in probability 
+$$
+\lim_{t \to 0}P(t, a, U) = \lim_{t \to 0} P[x_t(w) \in U-a ]=1.
+$$
+
+It remains to prove that if $t_1 < \ldots < t_n, P_a(x_{t_{i}} \in
+E_i,1 i n)= \int \limits_{a_i \in E_i} \cdots$ $\int P(t_1, a, da_1)
+P(t_2 - t_1, a_1, da_2) \ldots P(t_n - t_{n-1}, a_{n-1}, da_n)$ We
+prove this for $n=2$. We have, since $x_{t_{2}} - x_{t_{1}} \undersim{L}
+x_{t_{2}} - t_1$, 
+\begin{align*}
+  \int \limits_{a_1 \in E_1} & \int \limits_{a_2 \in E_2} P(t_1, a, da_1)
+  P(t_2 - t_1, a_1, da_2)\\
+& = \int \limits_{a_1 \in E_1} P(t_1, a, da_1)
+  P(t_2 - t_1, a_{1},E_2) \\
+  & = \int \limits_{a_1 \in E_1} P(x_{t_{1}} \in da_1 -a) P(x_{t_{2 -
+      t_1}} \in E_2-a_1)\\ 
+  & = \int \limits_{a_1 \in E_1} P(x_{t_{1}} \in da_1 -a) P(x_{t_{2}}-
+  x_{t_{1}} \in E_2--a-(a_1-a))\\ 
+  &= P[(x_{t_{1}}, x_{t_{2}} - x_{t_{1}}) \in (E_2 -a)^1 \in ((E_1 -a) \times R')]\\
+  &= P[x_{t_{1}} \in E_1-a, x_{t_{2}} \in E_2 -a] = P_a [x_{t_{1}} \in
+    E_1, x_{t_{2}} \in E_2]  
+\end{align*}
+where$(E_2-a)'= \{ (\xi, \eta) : (\xi, \eta) \in R^2$ and $\xi + \eta
+\in E_2 -a \}$. 
+
+Thus $\mathbb{M}$ is a Markov process. Further since $H_t f(a) = f(b)
+P(t, a, db)\break = \int f(a+b) P(x_t \in db)$, we see that $H_t(C(R'))
+\subset C(R')$. $\mathbb{M}$ is thus strongly Markov.  $\mathbb{M}$ is
+conservative. Recall that $W_{d_{1}}$ consists of all functions which
+are of $d_1-$ type before their killing time.\pageoriginale We have  
+\begin{align*}
+  P_a(\sigma_{\infty} = \infty ) &= P_a (w: w(n) \in R' \text{ for
+    every integer }n \\ 
+  & = \lim_{n} P_a(w(n) \in R') = \lim_{n} P(w: x_n(w) \in R') = 1.
+ \end{align*} 
+ 
+Also $\mathbb{M}$ is translation invariant, i.e. if $\tau_h b = b+h$
+then $P_{\tau_{h^a}}(\tau_h B) = P_a(B)$. 
+
+Conversely any conservative translation invariant Markov process with
+state space $R'$ can be got in the above way from a temporally
+homogeneous L\'evy process. 
+
+We shall now prove that the kernel of $G_{\alpha}$ is the set of
+functions which are zero $a. e. , i. e. G_{\alpha} f = 0$ implies $f
+=0$ a. e. To prove this firstly onserve that $G_{\alpha} f = 0$
+implies $H_t f(a) =0$ for almost all $t$. Hence we can fined a
+sequence of $t_n \downarrow 0$ such that $H_{t_{n}}f(a) =0$. Now
+$\int f(a+b) \varphi (t_n,db)=0$. Since $f$ is bounded it is locally
+summable. Hence for any interval $(\alpha, \beta)$ we have  
+\begin{align*}
+  \iint\limits^{\beta}_{\alpha} f(a + b) \varphi(t_n , db) =& 0\\ 
+  \text{i.e.,}\hspace{2cm}  0 = &\iint \limits^{\beta}_{\alpha} f(a+b)
+  da \varphi (t_n,   db)\hspace{2cm}\\ 
+  = &\iint \limits^{\beta +b}_{\alpha+b} f(a) da \varphi (t_n, db)\\ 
+  = & \int g(b) \varphi(t_n, db) = 0
+\end{align*}
+where $g(b) = \int \limits^{\beta+b}_{\alpha+b} f(a) da$ is
+continuous. It follows that $\int g(b) \varphi (t_n, db) \to g(0)$ as
+$t_n \to 0$ i. e.$\int \limits^{\beta}_{\alpha} f(a) da = 0$. Since
+this is true for every interval $(\alpha, \beta), f = 0$ a. e. This
+proves our contention. 
+
+\noindent
+\medskip
+\textbf{Generator}. It\pageoriginale is difficult to determine the
+generator of this 
+process in the general case. However we will determing $\mathscr{G} u$
+when $u$ satisfies some conditions. 
+
+\setcounter{thm}{0}
+\begin{thm}\label{chap4-sec6-thm1} %1
+  Let $\hat{f} (\eta) = \int e^{- i \eta a} f(a) da$ denote the
+  Fourier transform of $f$. If $u = G_{\alpha} h$ with $h \in
+  L'(-\infty, \infty)$, then $u \in L'$ and $\hat{u}=
+  \dfrac{\hat{h}}{\propto - \psi}$. Therefore $\mathscr{G} u \in L'$
+  and $\widehat{\mathscr{G} u} = \psi \hat{u}$. 
+\end{thm} 
+
+\begin{proof}
+  Let $\varphi (t, E) = P(x_t \in E)$. Then if $f \geq 0$ we have 
+  \begin{align*}
+    \int H_t f(a) da & = \int da \int f(a+b) \varphi (t, db) = \int
+    \varphi (t, db) \int f(a+b) da\\ 
+    & = \int \varphi (t, db) \int f(a) da = \int f(a) da
+  \end{align*}
+  so that if $f \in L'$ so is $H_t f(a)$. Now $H_t f(a)$ is measurable
+  in the pair $(t, a)$. We have similarly if $f \geq 0$, 
+\begin{multline*}
+\int G_{\alpha} f(a) da = \int da \int\limits^{\infty}_0 e^{-\alpha
+    t} H_t f(a) dt\\ 
+  = \int\limits^{\infty}_0 e^{-\alpha t} dt
+ \int H_{t} f (a) da\\
+ = \int\limits^{\infty}_{0}e^{-\alpha t}dt\int f(a)da=\frac{1}{\alpha}
+ f(a) da  
+\end{multline*}
+so that $G_{\alpha} f(a) \in L'$. Therefore 
+$$
+\widehat{G_{\alpha} h} (\eta) = \int e^{-ia \eta} da \int
+\limits^{\infty}_0 e^{- \alpha t} dt \int h(a+c) \eta (t, dc). 
+$$
+\end{proof}
+
+Since
+\begin{gather*}
+  \left| \iiint e^{-\alpha t} h (a+c) e^{i a \eta} da dt \varphi (t,
+  dc) \right| \leq \iiint e^{- \alpha t}|h(a+c) | da dt \varphi (t,
+  dc)\\ 
+  = \int G_{\alpha}|h(a) | da = \frac{1}{\alpha} \int |h (a)| da
+\end{gather*}
+we can interchange the orders of integration as we like. We have
+$$
+\widehat{G_{\alpha} h (\eta)} = \int\limits^{\infty}_0 e^{-\alpha t}
+\hat{h}(\eta) \int e^{i \eta c} \varphi (t, dc) dt = \int \limits^{\infty}_0
+e^{-\alpha t} \hat{h}(\eta) e^{t \psi (\eta)} dt =
+\frac{\hat{h}(\eta)}{\alpha - \psi (\eta)}
+$$\pageoriginale
+since $\int e^{i \alpha a}
+\varphi (t, da) = E(e^{i \alpha x_t}) = e^{t \psi (\alpha)}$ and since
+the real part of $\psi(\alpha)$ is non-positive $\int
+\limits^{\infty}_0 e^{-(\alpha- \psi (\eta))t}dt$ exists and equals
+$\dfrac{1}{\alpha - \psi(\eta)}$. Since $u = G_{\alpha} h$ is in $L',
+\mathscr{G} u \in L'$. Also from the last equation $\alpha
+\widehat{G_{\alpha} h - h} = \psi \widehat{G_{\alpha} h}$ so that
+$\widehat{\mathscr{G}u} = \psi \hat{u}$.
+ 
+\begin{coro*}
+  If $\alpha > 0$ and $(\alpha - \psi) \hat{u}  = \hat{f}$ for
+  some function $f \in L'$ then $u = G_{\alpha} f \in \mathscr{D}
+  (\mathscr{G})$ and $\widehat{\mathscr{G} u} = \psi \hat{u}$. 
+\end{coro*}
+
+For we have from Theorem \ref{chap4-sec6-thm1}, $\widehat{G_{\alpha} f} =
+\dfrac{\hat{f}}{\alpha - \psi} = \hat{u}$ so that $u = G_{\alpha}
+f(a. e)$ and $\widehat{\mathscr{G} u} = \psi \hat{u}$. 
+
+\begin{thm}\label{chap4-sec6-thm2}%2
+  If $u$, $u'$ and $u''$ are in $L'$, then $u \in
+  \mathscr{D}(\mathscr{G})$ and $u$ is given a.e. by  
+  $$
+  \mathscr{G}u(a) = m u' (a) + \frac{v}{2} u''(a) + \int
+  \limits^{\infty}_{-\infty} \left[u(a+b) - u(a) - \frac{b u' (a)}{1+b^2}\right]
+  \sigma (db). 
+  $$
+\end{thm}
+
+\begin{proof}
+  Let $f_1 = m u' , f_2 = \dfrac{v}{2} u'', f_3 = \int
+  \limits_{|b|>|} \left[u(a+b) - u(a) - \dfrac{b u' (a)}{1+b^2}\right]\break \sigma
+  (db)$. $f_4 = \int\limits_{|u|\leq 1} \dfrac{b^3}{1+b^2} u' (a) \sigma
+  (db) $ and $f_5 = \int\limits_{|b|\leq 1} [u(a+b) - u(a)- b u' (a)]
+  \sigma (db)$. 
+\end{proof}
+
+From the hypothesis we see that $f_i \in L',i= 1, 2, 3, 4$. We prove
+that $f_5$ exists and is in $L'$. We have  
+\begin{align*}
+u(a+b) - u(a) - b u' (a) & = \int^b_0 u' (a+x) dx - b u' (a)\\ 
+&=\int^b_0 [u' (a+x) - u' (a)] dx\\ 
+& = \int \limits^b_{x=0} dx \int \limits^x_{y=0} u'' (a+y)dy. 
+\end{align*}
+
+Therefore
+\begin{align*}
+  \int^{\infty}_{-\infty} da & \int \limits_{|b| \leq 1}| u(a+b) - u(a) -
+  bu'(a) | \sigma (db)\\ 
+  & \leq \int^{\infty}_{-\infty} da \int \limits_{|b|
+    \leq 1} \sigma (db) \int \limits^b_{x=o} dx \int \limits_{y=0}^x
+  u''(a+y) dy\\ 
+  & = \int\limits_{|b| \leq 1} \sigma (db) \int\limits_{x=0}^b dx \int
+  \limits_{y=0}^x  dy \int^{\infty}_{-\infty} | u''(a+y) |da\\ 
+  & = \int \limits_{|b| \leq 1} \sigma (db) \int \limits_{x=0}^b dx
+  \int \limits_{y=0}^x dy ||u''|| = \frac{||u''||}{2} \int
+  \limits_{|b| \leq 1} b^2 \sigma (db) < \infty. 
+\end{align*}\pageoriginale
+
+This shows that $f_5$ exists, is in $L'$ and $||f_5||\leq
+\frac{||u''||}{2} \int \limits_{|b| \leq 1} b^2 \sigma (db)$. We can
+easily see that  
+\begin{align*}
+\hat{f}_1(\eta) &= \Iim \eta \hat{u}(\eta), \hat{f}_2 (\eta) =
+  \frac{v}{2} \eta^2 \hat{u}(\eta), f_3 (\eta)\\ 
+  &= \hat{u}(\eta) \int
+  \limits_{|b|>|}[ e^{i \eta b}-1- \frac{i \eta b}{1+b^2}] \sigma (db) 
+\end{align*}
+and $\hat{f}_4 (\eta) = i \eta \hat{u}(\eta) \int \limits_{|b|\leq 1}
+\dfrac{b^3}{1+ b^2} \sigma(d b)$. Further $f_5 \in L'$ and we have see
+that $\iint | u(a+b) -u(a)-bu'(a)| \sigma (db)da$ exists as a double
+integral. 
+
+Hence we can interchange the order of integration in 
+$$
+\iint e^{- i \eta a}[u (a+b) - u (a) - bu' (a)] \sigma (db) da.
+$$
+
+Thus we have $\hat{f}_5 (\eta) = \int [e^{i \eta a} -1-i \eta b]
+\hat{u}(\eta) \sigma (db)$. Hence finally if $f = f_1 + \cdots + f_5$,
+$\hat{f}(\eta) + \hat{f}_1(\eta) + \cdots + \hat{f}_5 (\eta) = \psi (\eta)
+\hat{u}(\eta)$. We have $[\alpha - \psi (\eta)] \hat{u}(\eta) = \alpha
+\hat{u} - \hat{f} = \alpha \widehat{u-f}$. Using the corollary of
+Theorem \ref{chap4-sec6-thm1}, we see that $u \in \mathscr{D}(\mathscr{G})$ and $u =
+G_{\alpha}[ \alpha u -f ]$ so that $\mathscr{G} u = \alpha u-(\alpha
+u-f) = f(a. e)$. This proves the theorem. 
+
+\begin{remark*}
+  If $\varphi (t, E)$ is symmetric, $\mathscr{G} u(a) = \dfrac{v}{2}
+  u'' (a) + \int^{\infty}_0 [u(a+b) + u(a-b) - 2u (a)] \sigma
+  (db)$. In the case of a symmetric Cauchy process $v=0$ and
+  $\mathscr{G} u(a) = \int^{\infty}_0 [ u(a+b) + u (a-b) -2u(a)]
+  \sigma (db)$. 
+\end{remark*}
+
+\section{Multidimensional Levy processes}\label{chap4-sec7}\pageoriginale
+%sec 7.
+
+A $k$-dimensional stochastic process $(x_t)$ is called a
+$k$-\textit{dimensional L\'evy process} if, it is additive, almost all
+sample functions are $d_1$ and it has no point of fixed discontinuity; note
+that unlike the k-dimensional Brownian motion the component process
+need not be independent. 
+
+A $k$-dimensional random variable $x$ is called Gaussian if and only if
+$E(e^{i (\alpha, x)}) = e^{i(m, \alpha) - \dfrac{1}{2}(v \alpha,
+  \alpha)}$ where $m$ is a vector, $v$ a positive definite matrix and
+$(a, b)$ denotes the scalar product of $a$ and $b$. 
+
+Let $x= (x^1, \ldots, x^k)$ be a $k$-dimensional random variable such
+that for any real $c_1, \ldots , c_k$, $\sum c_i x^i$ is a Gaussian
+variable. Then $x$ is also Gaussian. For $E(e^{i \beta \sum \alpha_i
+  x^i}) = e^{im \beta - \dfrac{v}{2}' \beta^2}$ where $m = \sum
+\alpha_i m^i$, $v'= E(( \sum \alpha_i (x^i-m^i))^2)$ with $m^i =
+E(x^i)$. Now $v'= \sum \alpha^2_i v_{ii} + 2 \sum\limits_{i < j}
+\alpha_i \alpha_j v_{ij} = (v \alpha, \alpha)$ where $v_{ij}= E(( x^i-
+m^i) (x^j-m^j))$ and $v=(v_{ij})$. Since $v' \geq 0, v$ is a positive
+definite matrix. Putting $\beta = 1$ we have $E(e^{i(\alpha, x)}) =
+E(e^{i \sum \alpha^i x^i}) = e^{i (m, \alpha) \frac{1}{2} (v \alpha,
+  \alpha)}$. 
+
+Thus if almost all sample functions of a $k$-dimensional Levy process
+$(x_t)$ are continuous then $x_{t}-x_{s}$ is Gaussian. 
+
+Let $(x_t(w))$ be a $k$-dimensional L\'evy process. Proceeding exactly as
+in the case of $k=1$ we can show that  
+$$
+x_t = g(t) + \int\limits_{R^k \times [0, t]}- \frac{1}{1+
+    u^2} \sigma (ds\ du)]. 
+$$
+where\pageoriginale $g(t)$ is continuous; hence we can obtain
+\begin{multline*}
+  \log E(e^{i (\alpha, x_t)}) = i(m(t), \alpha)\\
+  -\frac{1}{2}(v(t)\alpha, \alpha) + \int \limits_{R^k \times [0,
+      t]} \left[e^{i(\alpha, b) }-1- \frac{i(\alpha, b)}{|b|^2+1}\right]
+  \sigma(ds db) 
+\end{multline*}
+
+If $\sigma = 0$ the path functions are continuous.
+
+If $(x_t)$ is rotation invariant i.e., if $ E(e^{i (\alpha, x_t)})=
+E(e^{i (\alpha, 0x_t)})$ where $0$ is any rotation, we have, since
+$(\alpha, 0^{-1} x_t)=(0 \alpha, x_t) (m(t), 0 \alpha) = (m(t),
+\alpha)$ and $(v(t) 0 \alpha, 0 \alpha) = (v(t) \alpha,
+\alpha)$. Since this is true for every rotation $0$ we should have
+$m(t) \equiv 0$ and $v(t)$ a diagonal matrix in which all the diagonal
+elements are the same and we can write 
+$$
+\log  E(e^{i (\alpha, x_t)}) = -\frac{1}{2} v (t) |\alpha|^2 + \int
+\limits_{[0, t] \times R^k} [e^{i(\alpha, b)}-1- \frac{i(\alpha,
+    b)}{1+ b^2} \bigg] \sigma (ds\ db). 
+$$
+
+If the process is temporally homogeneous $ E(e^{i (\alpha, x_t)})=
+e^{t \psi (\alpha)}$ where $\psi (\alpha) = i(m, \alpha) -
+\dfrac{1}{2}(v \alpha, \alpha) + \int\limits_{ R^k} \left[e^{i(\alpha, b)}
+  - 1 - \dfrac{i(\alpha, b)}{1+ b^2} \right] \sigma (db)$. 
+
+Now suppose that $(x_t)$ is a stable process i. e. $(x_t)$ is
+temporally homogeneous and $x_t \undersim{L} c_t x_1$. We can show
+(proceeding in the same way as for $k=1$) that $\sigma(a E)=
+\dfrac{1}{a^c}\sigma(E)$ for $a > 0$. Now we prove that $0 < c < 2$ unless
+$\sigma \equiv 0$. Let $E= (b: 1 \geq |b| > \dfrac{1}{2}$. Since
+$\int\limits_{|b| \leq 1} |b|^2 \sigma (db) < \infty$ we have  
+$$
+\sum^{\infty}_{n=0} \int \limits_{\frac{1}{2^1} \geq |b| \geq
+  \frac{1}{2}. \frac{1}{2^n}} |b|^2 \sigma (db) < \infty
+$$
+so that
+$$
+\sum^{\infty}_{n=0} \frac{1}{2^2} 2^{2n} \sigma\left(b: \frac{1}{2^n} \geq
+  |b| >\frac{1}{2} \frac{1}{2^n}\right) < \infty 
+$$
+i.e.,
+$$
+\sum \frac{1}{2^{2n}}
+  \sigma \left(\frac{1}{2^n} E\right) < \infty.
+$$
+
+Hence\pageoriginale since $\sigma (r E) = \dfrac{1}{r^c} \sigma (E)$,
+we should have 
+$\sigma (E) \sum \dfrac{2^{nc}}{2^{2n}}< \infty$. If $\sigma (E) \neq
+0, c < 2$. Similarly considering $\int \limits_{|b| \geq 1} \sigma(db)
+< \infty$ we can prove that $c > 0$. 
+
+Let $S$ denote the surface of the unit sphere in $R^k$. Then $R^k$
+minus the point $(0, 0, \ldots, 0)$ can be regarded as the product of
+$S$ and the half line $(0, \infty)$. For any Borel subset $\Theta$ of
+$S$ let $c^{-1}{\sigma_+}(\Theta) = \sigma(\Theta \times [1,
+  \infty]))$. Then $c^{-1}{\sigma_+}(d \theta)$ is a measure on
+$\mathbb{B}(S)$ and  
+$$
+\sigma(\Theta \times [r, \infty)) = \sigma (r. \Theta \times [1,
+    \infty)) = \frac{1}{r^c} c^{-1}{\sigma_+} (\Theta) = \frac{1}{c}
+    \int\limits_{[r, \infty) \times \Theta} \frac{dr}{r^{c+1}} c \sigma+
+      (d \theta) 
+$$
+
+It follows that $\sigma (db) = \dfrac{dr}{r^{c+1}} \sigma_+ (d \theta)$. 
+
+If $x_t$ is rotation invariant $\sigma_+ (d \theta)$ will be rotation
+invariant and hence must be the uniform distribution $d \theta$ so
+that $\sigma(db) = $const. $\dfrac{dr\ d\theta}{r^{c+1}}$. 
+
+We can consider a $k$-dimensional temporally homogenous L\'evy process
+$(x_t)$ as a Markov process with state space $R^k$ and we can prove
+that if $f \in L'(R^k)$ and $u= G_{\alpha} f$ then $(\alpha - \psi
+(\xi))\hat{u}(\xi) = \hat{f}(\xi)=$ and $\widehat{\mathscr{G} u} (\xi)
+= \psi (\xi) \hat{u}(\xi)$. If $u \in L'$ and $(\alpha- \psi (\xi))
+\hat{u} (\xi) \in L'$ then $u \in \mathscr{D}(\mathscr{G})$ and
+$\widehat{\mathscr{G} u} (\xi) = \psi (\xi) \hat{u}(\xi)$. To prove
+this let $\hat{f}= ( \alpha - \psi (\xi)) \hat{u}(\xi)$ and $v =
+G_{\alpha} f$. Then $(\alpha - \psi(\xi)) \hat{v} = \hat{f}= (\alpha -
+\psi(\xi)) \hat{u}$ so that $u = v$ a.e. and $u \in
+\mathscr{D}(\mathscr{G})$. 
+
+Now suppose that $(x_t)$ is stable and rotation invariant. We can show
+that $\psi (\alpha) - | \alpha|^c \psi (\dfrac{\alpha}{|\alpha|})$ so
+that if $\psi (\alpha)$ is rotation\pageoriginale 
+invariant $\psi (\alpha) = - |\alpha|^c$, constant. 
+If we look at the expression for $\psi
+(\alpha)$, we see that real part of $\psi (\alpha) \leq 0$. It follows
+that const. $\geq 0$. In this case we thus have  
+$$
+\displaylines{\hfill 
+  \widehat{\mathscr{G}u} (\xi) = - \lambda \hat{u}(\xi) |\xi|^c\hfill \cr
+  \text{i.e.,}\hfill  \hat{u}(\xi) = - \frac{1}{\lambda|\xi|^c}
+  \hat{\mathscr{G}}u (\xi).\hfill } 
+$$
+
+The Fourier transform (in the distribution sense) of $|a|^{c-k}$ is
+$\mu | \xi |^{-c}$, $\mu = \pi^{(k/2)-c} \Gamma (c/2) / \Gamma
+(\dfrac{k-c}{2})$ (refer to Theorie des distributions by Sch\-wartz,
+page 113, Example 5). Since $\mathscr{G} u$ is bounded, it is a
+rapidly decreasing distribution. Hence (see page 124, Theorie des
+distributions, Schwartz) 
+$$
+\hat{u}(\xi) = A \widehat{\mathscr{G} u} (\xi)
+\frac{\hat{1}}{|a|^{k-c}} (\xi) = A \mathscr{G} u \hat{*}
+\frac{1}{|a|^{k-c}}(\xi), A = - \frac{1}{\mu \lambda}. 
+$$
+
+Therefore $u(a) = A \int \mathscr{G} u (b)  \dfrac{1}{|a-b|^{k-c}}
+db$. Thus  $\dfrac{1}{|a-b|^{k-c}}$ is the potential kernel
+corresponding to this process. Potentials with such kernels are called
+\textit{Reisz Potentials}. 
+
+When $c= 2, u (a) = A \mathscr{G} u *  \dfrac{1}{|a|^{k-2}}$ so that
+$\Delta u (a) = A \mathscr{G} u * \Delta  \dfrac{1}{|a|^{k-2}} = A
+\mathscr{G} u (a)$. 

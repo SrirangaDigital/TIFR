@@ -1,0 +1,355 @@
+\chapter{The Gamma Function}\label{chap6}
+
+\section[Elementary Properties]{Elementary Properties \protect \cite[p.148]{key15}}\label{chap6:sec1}\pageoriginale 
+
+Define the function $\Gamma$ by the relation.
+$$
+\Gamma (x) = \int\limits^\infty_0 t^{x-1} e^{-t} dt, \; x \text{ real. }
+$$
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item This integral converges at the `upper limit' $\infty$, for all
+  $x$, since $t^{x-1} e^{-t} = t^{-2} t^{x+1} e^{-t} = O(t^{-2})$ as
+  $t \to \infty$; it converges at the lower limit $0$ for $x>0$.
+
+\item The integral converges uniformly for $0<a \leq x \leq b$. For 
+\begin{align*}
+\int\limits^\infty_0 t^{x-1} e^{-t} dt = \int\limits^1_0 +
+\int\limits^\infty_1 & = O \left( \int\limits^1_0 t^{a-1} dt\right) +
+O \left( \int\limits^{\infty}_1 t^{b-1} e^{-t} dt\right)\\
+& = O (1), \text{ independently of $x$.}
+\end{align*}
+
+Hence the integral represents a \textit{continuous function for $x>0$.}
+
+\item If $z$ is complex, $\int\limits^\infty_0 t^{z-1} e^{-t} dt$ is
+  again uniformly convergent over any finite region in which $\re z
+  \geq a > 0$. For if $z = x + iy$, then 
+$$
+|t^{z-1}| = t^{x-1},
+$$
+and we use (ii). Hence $\Gamma (z)$ is an \textit{analytic function
+  for $\re z >0$}
+
+\item If $x>1$, we integrate by parts and get
+\begin{align*}
+\Gamma (x) & = \left[ -t^{x-1} e^{-t}\right]^{\infty}_0 + (x-1)
+\int\limits^{\infty}_0 t^{x-2} e^{-t} dt\\
+& = (x-1) \Gamma (x-1).
+\end{align*}
+However,\pageoriginale  
+\begin{align*}
+\Gamma (1) & = \int\limits^\infty_0 e^{-t} dt = 1; \text{ hence}\\
+\Gamma (n) & = (n-1) !,
+\end{align*}
+if $n$ is a $+$ve integer. Thus $\Gamma (x)$ is a generalization of $n!$
+
+\item We have
+$$
+\log \Gamma (n) = \left(n - \frac{1}{2}\right) \log n - n + c + O (1),
+$$
+where $c$ is a constant.
+$$
+\log \Gamma (n) = \log (n -1) ! = \sum\limits^{n-1}_{r=1} \log r.
+$$
+
+We estimate log $r$ by an integral: we have
+\begin{align*}
+\int\limits^{r + \frac{1}{2}}_{r-\frac{1}{2}}  \log t \; dt  & =
+\int\limits^{\frac{1}{2}}_{-\frac{1}{2}} \log (s+r) ds =
+\int\limits^{\frac{1}{2}}_0 + \int\limits^0_{-\frac{1}{2}}\\
+& = \int\limits^{1/2}_0 \left[\log (t+r) + \log (r-t) \right] \; dt\\
+& = \int\limits^{1/2}_0 \left[ \log r^2 + \log \left(1-\frac{t^2}{r^2}
+  \right)\right] dt\\
+& = \log r + c_r, \text{ where } c_r = O \left(\frac{1}{r^2} \right).
+\end{align*}
+
+Hence
+\begin{align*}
+\log \Gamma (n) & = \sum\limits^{n-1}_{r=1}
+\left(\int\limits^{r+\frac{1}{2}}_{r-\frac{1}{2}} \log t \; dt - c_r \right)\\
+& = \int\limits^{n-\frac{1}{2}}_{\frac{1}{2}}  \log t \; dt -
+\sum^{n-1}_{r=1} c_r\\
+& = \left\{\left(n-\frac{1}{2} \right) \log \left(n-\frac{1}{2}
+\right) - \frac{1}{2} \log \frac{1}{2}\right\} - \left(n-\frac{1}{2}\right) +
+\frac{1}{2}\\
+& \hspace{2cm} - \sum\limits^{\infty}_{r=1} c_r + \sum\limits^\infty_n
+C_r\\
+& = \left(n-\frac{1}{2}\right) \log n - n + c + o(1), \text{ where $c$ is a constant.}
+\end{align*}\pageoriginale 
+
+Hence, also 
+$$
+(n!) = a \cdot e^{-n} n^{n+\frac{1}{2}} e^{o(1)},
+$$
+where $a$ is a constant such that $c = \log a $
+
+\item We have
+$$
+\frac{\Gamma (x) \Gamma (y)}{\Gamma (x+y)} = \int\limits^\infty_0
+\frac{t^{y-1}}{(1+t)^{x+y}}  dt, \; x>0, \; y >0.
+$$
+For 
+$$
+\Gamma (x) \Gamma (y) = \int\limits^\infty_0 t^{x-1} e^{-t} dt \cdot
+\int\limits^\infty_0 s^{y-1} e^{-s} ds, \; x >0,\; y >0
+$$
+Put $s = tv$; then
+\begin{align*}
+\Gamma (x) \Gamma (y) & = \int\limits^\infty_0 t^{x-1} e^{-t} \; dt
+\int\limits^\infty_0 t^y v^{y-1} e^{-tv} \; dv\\
+& = \int\limits^\infty_0 v^{y-1} dv \int\limits^\infty_0 t^{x+y-1}
+e^{-t(1+v)} dt\\
+& = \int\limits^\infty_0 v^{y-1} dv \int\limits^\infty_0
+\frac{u^{x+y-1}e^{-u}}{(1+v)^{x+y}}  du\\
+& = \Gamma (x+y) \int\limits^\infty_0 \frac{v^{y-1}}{(1+v)^{x+y}}dv.
+\end{align*}
+
+The inversion\pageoriginale of the repeated integral is justified by
+the use of the fact that the individual integrals converge uniformly
+for $x \geq \epsilon >0$, $y \geq \epsilon > 0$.
+
+\item Putting $x = y = \dfrac{1}{2}$ in (vii), we get [using the
+  substitution $t = \tan^2 \theta$]
+$$
+\left\{\Gamma\left(\frac{1}{2}\right)\right\}^2 = 2 \Gamma (1) \int\limits^{\pi/2}_0 d\theta
+= \pi.
+$$
+Since $\Gamma \left(\frac{1}{2}\right) > 0$, we get $\Gamma \left(\frac{1}{2}\right) = \sqrt{\pi}$
+
+Putting $y = 1 -x$, on the other hand, we get the important relation 
+$$
+\Gamma (x) \Gamma (1-x) = \int\limits^\infty_0 \frac{u^{-x}}{1+u} du =
+\frac{\pi}{\sin (1-x)\pi}, \; 0 < x < 1, 
+$$
+since 
+$$
+\int\limits^\infty_0 \frac{x^{a-1}}{1+x} dx = \frac{\pi}{\sin a\pi} 
+\;\; \text{ for } \;\; 0 < a < 1, \; \text{  by contour}
+$$
+integration. Hence
+$$
+\Gamma (x) \Gamma (1-x) = \frac{\pi}{\sin x \pi}, \quad 0 < x< 1.
+$$
+\end{enumerate}
+
+
+\section[Analytic continuation of $\Gamma (z)$]{Analytic continuation of {\boldmath$\Gamma (z)$} \protect \cite[p. 148]{key15}}\label{chap6:sec2} 
+
+We have seen that the function
+$$
+\Gamma (z) = \int\limits^\infty_0 e^{-t} t^{z-1} \; dt
+$$
+is a regular function for $\re z>0$. We now seek to extend it
+analytically into the rest of the complex $z$-plane. Consider
+$$
+I(z) \equiv \int\limits_C e^{-\zeta} (-\zeta)^{z-1} d\zeta,
+$$
+where $C$ consists of the real axis from $\infty$ to $\delta >0$, the
+circle\pageoriginale $|\zeta|=\delta$ in the `positive' direction
+$\curvearrowleft$ and again the real axis from $\delta$ to $\infty$.
+
+We define 
+$$
+(-\zeta)^{z-1} = e^{(z-1) \log (-\zeta)}
+$$
+by choosing $\log (-\zeta)$ to be real when $\zeta = - \delta$
+
+The integral $I(z)$ is uniformly convergent in any finite region of
+the $Z$-plane, for the only possible difficulty is at $\zeta =
+\infty$, but this was covered by case (iii) in \S\ \ref{chap6:sec1}.  \textit{Thus
+$I(z)$ is regular for all finite values of $z$.}
+
+We shall evaluate $I(z)$. For this, set
+$$
+\zeta = \rho e^{i\varphi}
+$$
+so that
+$$
+\log (-\zeta) = \log \rho + i (\varphi - \pi) \text{ on the contour }
+$$
+[so as to conform with the requirement that $\log (-\zeta)$ is real
+  when $\zeta = - \delta$]
+
+Now the integrals on the portion of $C$ corresponding to $(\infty,
+\delta)$ and $(\delta, \infty)$ give [since $\varphi = 0$ in the first
+case, and $\varphi = 2 \pi$ in the second]:
+\begin{align*}
+&\quad \int\limits^\delta_\infty e^{-\rho + (z-1) \cdot (\log \rho - i \pi)}
+d \rho + \int\limits^\infty_\delta e^{-\rho + (z-1) (\log \rho + i
+  \pi)} d\rho\\
+& =  \int\limits^\infty_\delta \left[-e^{-\rho + (z-1) (\log \rho
+    -i\pi)}  + e^{-\rho + (z-1) (\log \rho + i \pi)}\right] d\rho\\
+& = \int\limits^\infty_\delta e^{-\rho + (z-1) \log \rho}
+\left[e^{(z-1)i\pi} -e^{-(z-1)i\pi} \right] d\rho\\
+& = -2 i \sin z\pi \int\limits^\infty_\delta e^{-\rho} \cdot
+\rho^{z-1} d\rho
+\end{align*}
+
+On the circle $|\zeta| =\delta$, we have
+\begin{align*}
+|(-\zeta)^{z-1}| & = |e^{(z-1) \log (-\zeta)}| = |e^{(z-1)[\log \delta
++ i (\varphi - \pi)]}|\\
+& = e^{(x-1) \log \delta - y (\varphi-\pi)}\\
+& = O(\delta^{x-1}).
+\end{align*}\pageoriginale 
+
+The integral round the circle $|\zeta| =\delta$ therefore gives 
+$$
+O(\delta^x) = O(1), \text{ as } \delta \to 0, \text{ if } x > 0.
+$$
+Hence, letting $\delta \to 0$, we get
+\begin{align*}
+I(z) & = - 2 i \sin \pi z \int\limits^{\infty}_0 e^{-\rho} \rho^{z-1}
+d\rho, \re z > 0\\
+& = - 2 i \sin \pi z \Gamma (z), \; \re z > 0.
+\end{align*}
+
+We have already noted that $I(z)$ is regular for {\bf all} finite $z$; so 
+$$
+\frac{1}{2} i I (z) \cosec \pi z
+$$
+is regular for all finite $z$, {\em except} (possibly) for the poles of
+$\cosec \pi z$ namely, $z=0$, $\pm 1$, $\pm 2, \ldots $; and it equals
+$\Gamma (z)$ for $\re z > 0$.
+
+\textit{Hence  - $\frac{1}{2} i I (z) \cosec z \pi$ is the analytic
+  continuation of $\Gamma (z)$ all over the $z$-plane.}
+
+We know, however, by (iii) of \S\ \ref{chap6:sec1}, that $\Gamma (z)$ is regular for
+$z=1,2,3,\ldots$. Hence the only {\em possible} poles of $\dfrac{1}{2}i I
+(z) \cosec \pi x$ are $z =0,-1,-2, \ldots$. {\em These are actually} poles
+of $\Gamma (z)$, for if $z$ is one of these numbers, say $-n$, then
+$(-\zeta)^{z-1}$ is single-valued in $0$ and $I(z)$ can be evaluated
+directly by Cauchy's theorem. Actually
+\begin{align*}
+& (-1)^{n+1} \int\limits_C \frac{e^{-\zeta}}{\zeta^{n+1}} d\zeta =
+  \frac{2\pi i}{n!} (-1)^{n+n+1} =  \frac{-2\pi i}{n!}\\
+\text{i.e. } & I(-n) = - \frac{-2\pi i}{n!}.
+\end{align*}
+
+So the\pageoriginale poles of $\cosec \pi z$, at $z=0$, $-n$, are
+actually poles of $\Gamma (z)$. The residue at $z=-n$ is therefore
+$$
+\lim\limits_{z\to -n} \left(\frac{-2\pi i}{n!} \right)
+\left(\frac{z+n}{-2i \sin z\pi} \right) = \frac{(-1)^n}{n!}
+$$ 
+The formula in (viii) of \S\ \ref{chap6:sec1} can therefore be upheld for complex
+values.
+
+Thus
+$$
+\Gamma (z) \cdot \Gamma (1-z) = \pi \cosec \pi z 
+$$
+for all \textit{non-integral values of $z$}. Hence, also,
+$$
+\frac{1}{\Gamma(z)} \text{ is an entire function.}
+$$
+(Since the poles of $\Gamma (1-z)$ are cancelled by the zeros of $\sin
+\pi z$)
+
+
+\section{The Product Formula}\label{chap6:sec3}
+
+We shall prove that $\dfrac{1}{\Gamma (z)}$ is an entire function of
+order 1.
+
+Since $I(z) = - 2 i \sin z \pi$ $\Gamma (z)$, and 
+$$
+\Gamma (z) \cdot \Gamma (1-z) = \frac{\pi}{\sin \pi z},
+$$
+we get
+\begin{align*}
+I(1-z) & = - 2 i \sin (\pi - z \pi) \Gamma (1-z)\\
+& = -2 i \sin z \pi \frac{\pi}{\sin \pi z} \cdot \frac{1}{\Gamma(z)}\\
+& = - \frac{2 i \pi}{\Gamma (z)}
+\end{align*}
+or
+$$
+\frac{1}{\Gamma(z)} = \frac{I(1-z)}{-2i\pi}.
+$$
+Now\pageoriginale 
+\begin{align*}
+I(z) & = O \left[e^{\pi|z|} \left\{\int\limits^1_0 e^{-t} t^{x-1} d t
+  + \int\limits^\infty_1 e^{-t} t^{x-1} dt \right\} \right]\\
+& = O \left[e^{\pi|z|} \left\{ 1+\int\limits^\infty_1 e^{-t} t^{|z|}
+  dt\right\} \right] \\
+& = O \left[e^{\pi|z|} \left\{1 + \int\limits^{1+|z|}_1 +
+  \int\limits^{\infty}_{1+|z|} \right\} \right] \\
+& = O \left[e^{\pi|z|} (|z| +1)^{|z| +1} \right]\\
+& = O \left[e^{|z|^{1+\epsilon}} \right], \; \epsilon > 0.
+\end{align*}
+
+Hence $\dfrac{1}{\Gamma(z)}$ is of order $\leq 1$. However, the
+exponent of convergence of its zeros equals 1. Hence the order is
+$=1$, and the genus of the canonical product is also equal to 1. 
+
+Thus 
+$$
+\frac{1}{\Gamma(z)} = z\cdot e^{az+b} \prod\limits^{\infty}_{n=1}
+\left(1+\frac{z}{n}\right) e^{\frac{-z}{n}}
+$$
+by Hadamard's theorem. However, we know that $\lim\limits_{z\to 0+}
+\dfrac{1}{z\Gamma (z)} =1$ and $\Gamma(1)=1$. These substitutions give
+$b=0$, and 
+$$
+1 = e^a \Pi \left(1+\frac{1}{\pi} \right) e^{-1/n}
+$$
+or,
+\begin{align*}
+0 &= a + \sum\limits^\infty_1 \left[\log \left(1+\frac{1}{n} \right)
+  -\frac{1}{n} \right] \\
+& = a - \lim\limits_{m \to \infty} \left\{\sum\limits^m_{1} \left[\log
+\left(1+\frac{1}{n} \right) - \frac{1}{n} \right] \right\} \\
+& = a + \lim\limits_{m \to \infty} \left\{ \sum\limits^m_1 \left[\log
+  (n+1) - \log n \right] - \sum\limits^m_1 \frac{1}{n}\right\}\\
+& = a + \lim\limits_{m\to\infty} \left[\log(m+1) - \sum\limits^m_1
+  \frac{1}{n} \right] \\
+& = a - \gamma, \text{ where $\gamma$ is Euler's constant.}
+\end{align*}\pageoriginale 
+
+Hence
+$$
+\frac{1}{\Gamma (z)} = e^{\gamma z} z \prod\limits^\infty_{n=1}
+\left\{\left(1+\frac{z}{n} \right)e^{-z/n} \right\}
+$$
+
+As a consequence of this we can derive Gauss's expression for
+$\Gamma(z)$. For 
+\begin{align*}
+\Gamma(z) & = \lim\limits_{n\to\infty} \left[ e^{z(\log n -1 -
+    \frac{1}{2} - \ldots -\frac{1}{n})} \frac{1}{z} \cdot
+  \frac{e^{z/1}}{1+\frac{z}{1}} \ldots \frac{e^{z/n}}{1+\frac{z}{n}}
+\right]\\
+& = \lim\limits_{n \to \infty} \left[n^z \cdot \frac{1}{z} \cdot
+  \frac{1}{z+1} \cdot \frac{2}{z+2} \ldots \frac{n}{z+n} \right]\\
+& = \lim\limits_{n\to\infty} \left[\frac{n^z \cdot n!}{z(z+1) \ldots
+    (z+n)} \right] 
+\end{align*}
+
+We shall denote
+$$
+\frac{n^z \cdot n!}{z(z+1) \ldots (z+n)} \equiv \Gamma_n(z),
+$$
+so that\pageoriginale
+$$
+\Gamma (z) = \lim\limits_{n \to \infty} \Gamma_n (z).
+$$
+
+Further, we get by logarithmic-differentiation,
+$$ 
+\frac{\Gamma' (z)}{\Gamma(z)} = -\gamma - \frac{1}{z} -
+\sum\limits^\infty_{n=1} \left(\frac{1}{z+n} -\frac{1}{n} \right).
+$$
+
+Thus
+$$
+\frac{d^2}{dz^2} [\log \Gamma (z)] = \sum\limits^\infty_{n=0}
+\frac{1}{(n+z)^2}; 
+$$
+
+Hence
+$$
+\frac{d^2}{dz^2} [\log \Gamma (z)] > 0 \text{ for real, positive $z$.}
+$$

@@ -1,0 +1,264 @@
+
+\chapter{Lecture}\label{lec12}%% 12 
+\setcounter{section}{6}
+
+\subsection{}\label{lec12:sec6:subsec8} %%% 6.8
+
+Upto\pageoriginale now we considered problems in which the
+space $V$ was a closed 
+ subspace of $H^1(\Omega)$. We wish to consider now some cases in
+ which $V$ is not closed in $H^1(\Omega)$. 
+
+Let $\Omega = \{ x_n > 0 \}$, $\ulcorner$ be the boundary of $\Omega$
+and $\gamma$ be the mapping of $H^1(\Omega) \rightarrow
+H^{\frac{1}{2}}(\Gamma)$ as defined in \S\ \ref{lec4:sec2:subsec4}. Let $V = u ~
+\in ~ H^1 (\Omega)$ such that $\gamma ~ u ~ \in ~
+H^1(\Gamma)$. On $V$ we introduce the norm 
+\begin{equation}
+  | ~ u ~ |^2_V  = || u ||^2_1 + || \gamma ~ u ||_{H^1(\Gamma)}\tag{1}\label{lec12:sec6:subsec8:eq1} 
+\end{equation}
+
+\begin{lemma}\label{lec12:sec6:subsec8:lem6.5}% lemma 6.5
+  (\ref{lec12:sec6:subsec8:eq1}) defines on $V$ a Hilbert structure.
+\end{lemma}
+
+\begin{remark*} % remark
+  $V$ is not closed in $H^1(\Omega)$.
+\end{remark*}
+
+On $V$ consider the sesquilinear form
+$$
+a(u,v) = (u,v)_1 + \lambda(u,v)_0 + (\gamma u,\gamma v)_1, \lambda > 0.
+$$
+\begin{lemma}\label{lec12:sec6:subsec8:lem6.6}% lemma 6.6
+  $a(u,v)$ is continuous on $V$ and is elliptic for $\lambda > 0$. Let
+  $Q = L^2(\Omega)$. Then by theorem \ref{lec5:sec3:subsec2:thm3.1}, $a(u,v)$ determines a
+  space $N$ and an operator $A$ which is an isomorphism of $N$ onto
+  $L^2$. To see what $A$ is we observe $a(u,v) = \langle
+  Au,\bar{v}\rangle$ for all $\varphi = v ~ \in ~ \mathscr{D}
+  (\Omega)$. Then $a(u,\varphi) = (- \triangle ~ u + \lambda u,
+  \varphi)_o$. Hence $A = - \triangle + \lambda$. Further $u ~
+  \in ~ N$ if and only if $u ~ \in ~ V , - \triangle ~
+  u ~ \in ~ L^2(\Omega)$ and $(Au,v)_o = a(u,v)$ for all $v ~
+  \in ~ V$. 
+\end{lemma}
+
+To interpret \textit{formally} $u ~ \in ~ N$ we see that from
+above we have 
+$$
+(- \triangle ~ u,v)_o + \lambda (u,v)_o = (u,v)_1 + \lambda(u,v)_o +
+(\gamma ~ u, \gamma ~ v) 
+$$
+for all $v ~ \in ~ V$. Applying Green's formula
+$$
+\int\limits_\Gamma \frac{\partial u}{\partial x_n} (x', 0) ~
+\overline{\gamma ~v} ~ dx' = - \sum_{i=1}^{n-1}
+\frac{\partial^2}{\partial x^2_i} ~ \gamma ~ u ~ \bar{v} ~ dx', \text{
+  where } x' = x_1,\ldots, x_{n-1}), 
+$$
+for all $v ~ \in ~ V$. Hence $u ~ \in ~ N$ if and only
+if $ \dfrac{\partial u}{\partial x_n} = - \triangle_{x'} u(x',0)$. 
+
+Before\pageoriginale leaving the study of second order equations, we allude to its
+connections with the theory of semi-groups and to mixed problems.  
+\begin{enumerate}[a)]
+\item Let $V$ be such that $H^1_0(\Omega) \subset V \subset
+  H^1(\Omega)$ and $Q = L^2(\Omega)$. Let $a(u,v)$ be a continuous
+  sesquilinear form. Then by theorem \ref{lec5:sec3:subsec2:thm3.1}, a space $N \subset V$ and
+  an operator $A ~ \in ~ \mathscr{L} (N,L^2)$ is defined. If
+  on $N$ we consider the topology induced by $L^2(\Omega), A$ is an
+  unbounded operator with domain $N$. If $a(u,v)$ is elliptic, it is
+  easily proved that there exists $\xi$ so that $(A + \lambda)I$ has
+  an inverse $(A + \lambda)^{-1}$ bounded in norm by $1/\lambda$ when
+  $\lambda > \xi$, $A$ is an infinitesimal generator of a regular
+  semi-group. 
+\item In mixed boundary value problems we have to consider the
+  following problem: A family of sesquilinear forms 
+$$
+(a(u,v,t)) = \int \sum a_{ij} (x,t) \frac{\partial u}{\partial x_j} ~
+  \frac{\partial \bar{v}}{\partial x_i} 
+$$
+are given where $a_{ij}(t)$ are continuous functions from $R$ to
+$L^\infty$ with the weak topology of dual. Let $V = H^1 (\Omega)$ and
+$Q = L^2(\Omega)$ and let for every $t$, $a(u,v)$ be $V$-elliptic. Then
+for every $t$, a space $N(t)$ and an operator $A(t)$ is defined such
+that $A(t)$ is an isomorphism of $N(t)$ onto $L^2(\Omega)$. If $f ~
+\in ~ L^2 (\Omega)$ and $u(t) ~ \in ~ N$ such that
+$A_t u(t) = f$, then $u(t)$ is a \textit{continuous} function from $R$
+into $V$.  
+\end{enumerate}
+
+\section{Operators of order 2m}\label{lec12:sec7}% section 7
+
+\subsection{}\label{lec12:sec7:subsec1} %%% 7.1
+
+\begin{definition}\label{lec12:sec7:subsec1:def7.1} % definition 7.1
+  An operator $A = \sum (-1)^{|p|}D^p (a_{pq}{(x)D^q}),a_{pq} ~
+  \in ~ L^\infty (\Omega)$ is called {\em{uniformly elliptic}}
+  in $\bar{\Omega}$ if there exists an $\alpha ~ > ~ 0$ such that  
+  $$
+  \re  \sum_{|p|, ~ |q| = m} a_{pq}(x) ~ \xi~ ^{p}\xi^{q} \ge ~ \alpha
+  ~\left(\sum_{i=1}^{m} \xi_i~^2\right)^m \text{ for all } x ~ \in ~
+  \bar{\Omega} ~\text{and}~ \xi \in R^n. 
+  $$
+\end{definition}
+
+We admit without proof (for a proof, see Yosida \cite{k21}).
+
+\begin{theorem}\label{lec12:sec7:subsec1:thm7.1}% theorem 7.1
+  Garding's inequality.\pageoriginale
+\end{theorem}
+
+ If $\Omega$ is bounded and $A$ is uniformly elliptic, then there
+ exists a $\lambda > 0$ such that  
+ \begin{align*}
+   \re  ~ a(\varphi,\varphi) + \lambda | \varphi |^2_0  & \ge \alpha ||
+   \varphi ||^2_m \text{ for all } \varphi ~ \in ~ \mathscr{D}
+   (\Omega)\tag{2}\label{lec12:sec7:subsec1:eq2} \\
+   \text{ where } \hspace{2cm} 
+   a(u,v)   &= \sum \int\limits_{\Omega} ~ a_{pq}(x) D^q u D^{\overline{p_v}}
+   ~ dx \hspace{2cm} \tag{3}\label{lec12:sec7:subsec1:eq3} 
+ \end{align*} 
+
+\subsection{Applications to the Dirichlet's problem}\label{lec12:sec7:subsec2}
+
+\begin{theorem}\label{lec12:sec7:subsec2:thm7.2}% theorem 7.2
+  If $\Omega$ is bounded and $A$ is uniformly elliptic, then 
+  \begin{enumerate}[\rm a)]
+  \item $(A + \lambda)$ is an isomorphism of $H^m_o(\Omega)$ onto
+    $H^{-m}(\Omega)$ for $\lambda$ large enough; 
+  \item $(A + \lambda)$ is an isomorphism for all $\lambda$ except for a
+    countable system $\lambda_1, \ldots, \lambda_n$; such that
+    $\lambda_n \rightarrow 0$. 
+  \end{enumerate} 
+\end{theorem} 
+
+\begin{proof}% proof
+  $(A + \lambda)$ is the operator associated with $a(u,v) +
+  \lambda(u,v)_o$ which on account of Garding's inequality is
+   elliptic on $H^m_o(\Omega)$, for large $\lambda$. Hence by theorem
+   \ref{lec5:sec3:subsec2:thm3.1}, $A +\lambda$ is an isomorphism of $H^m_o(\Omega)$ onto
+   $H^{-m}(\Omega)$. Further since the injection $H^m_o(\Omega)
+   \rightarrow L^2$ is completely continuous, we have the second
+   assertion. 
+\end{proof} 
+ 
+\subsection{}\label{lec12:sec7:subsec3}  %% 7.3
+
+To consider other boundary value problems and
+specially the Neumann problem it is useful to introduce the motion of
+\textit{m-regularity}. 
+
+Let $K^m(\Omega)$ be the space of all $u ~ \in ~ L^2(\Omega)$
+such that $D^p u ~ \in ~ L^2 (~~) $ \textit{ for $|p| = m$}.
+On $K^m(\Omega)$ we define the norm $| u |^2_{K m} = | u |^2 + |u|^2_m
+. K^m (\Omega)$ is a Hilbert space. Trivially $H^m(\Omega) \subset
+K^m(~~)$. However, the inclusion \textit{can be strict}.  
+
+\begin{definition}\label{lec12:sec7:subsec3:def7.2}% definition 7.2
+  $\Omega$ is said to be \textit{m-regular} if $H^m(\Omega) =
+  K^m(\Omega)$ algebraically. 
+\end{definition}
+
+For instance, $\Omega = R^n$ is m-regular for $H^m(R^n) = K^m(R^n)$ as
+is seen easily by Fourier transformation. 
+
+\begin{theorem}\label{lec12:sec7:subsec3:thm7.3}% theorem 7.3
+  If\pageoriginale $\Omega$ is $m$-regular, then there exists a constant $c$ such that 
+  \begin{equation}
+    |u|^2_k \leq c ~ (|u|^2_1 + |u|^2_m) \text{ for } k = 1,\ldots, m-1.\tag{4}\label{lec12:sec7:subsec3:eq4} 
+  \end{equation} 
+\end{theorem}
+
+\begin{proof}% proof
+  The injection of $H^m(\Omega)$ into $K^m(\Omega)$ is onto and
+  continuous. Hence by the closed graph theorem, it is an
+  isomorphism. And so $|| u ||_m \leq c_1 ~ (|u|^2_0 + |u|^2_m)$, which
+  implies the inequalities (\ref{lec12:sec7:subsec3:eq4}). 
+\end{proof} 
+ 
+ Now the problem arises whether if (\ref{lec12:sec7:subsec3:eq4}) holds $\Omega$ is m-regular
+ or not. If (\ref{lec12:sec7:subsec3:eq4}) holds the inclusion mapping is continuous, one to
+ one, and its range is closed. We have to prove then that
+ $H^m(\Omega)$ is dense in $K^m(\Omega)$. This is still an unsolved
+ problem. 
+
+we admit following theorems without proof.
+\begin{theorem}\label{lec12:sec7:subsec3:thm7.4} % theorem 7.4
+  Every open set with smooth boundary is $m$-regular.
+\end{theorem}
+
+\begin{theorem}\label{lec12:sec7:subsec3:thm7.5}% theorem 7.5
+  If the injection $H^1(\Omega) \rightarrow L^2 (\Omega)$ is completely
+  continuous, then $\Omega$ is m-regular. 
+\end{theorem}
+
+\begin{definition}\label{lec12:sec7:subsec3:def7.3}% definition 7.3
+  $\Omega$ is strongly $m$-regular, if (a) it is $m$-regular, and (b)
+  for every $\in > 0$, there exists a $c(\in)$ such
+  that  
+  \begin{equation}
+    | u |^2_k \le \in ~ | u |^2_m + c(\in) ~ | u |^2_0
+    \text{ for } k = 1,\ldots, m-1 \tag{5}\label{lec12:sec7:subsec3:eq5} 
+  \end{equation}
+  for all $u ~ \in ~ H^m(\Omega)$.
+\end{definition}
+
+\begin{proposition}\label{lec12:sec7:subsec3:prop7.1}% proposition 7.1
+  $\Omega = R^n$ is strongly $m$-regular for every $m$. 
+\end{proposition}
+
+\begin{proof}% proof
+ By Plancherele's theorem, we have to prove that given any
+ $\in > 0$ there exists $c(\in)$ such that  
+ $$
+ |u|^2_k ~ \in~ \int | \hat{u}(\xi)|^2 ~ |\xi| ^{2k} d ~ \xi
+ \le \int ~ (\in | \xi|^{2m} + c(\in)) |\hat{u}|^2 d
+ \xi 
+ $$
+ for $k = 1, \ldots, m-1$, i.e., $|\xi |^{2k} \le \in|\xi
+ |^{2m} + c(\in)$ for $ k = 1, \ldots, m-1$, which follows
+ from elementary considerations. 
+\end{proof}
+
+We\pageoriginale do not know however if there exists $m$-regular domain which are not
+strongly $m$-regular. 
+
+\begin{theorem}\label{lec12:sec7:subsec3:thm7.6}% 7.6
+  If the injection $H^1(\Omega) \rightarrow L^2 (\Omega)$ is completely
+  continuous, then $\Omega$ is strongly m-regular. 
+\end{theorem}
+
+\begin{proof}% proof
+  By theorem \ref{lec12:sec7:subsec3:thm7.5}, we see that $\Omega$ is m-regular. We have now to
+  prove the inequality (\ref{lec12:sec7:subsec3:eq5}). If it is not true there exists an
+  $\in > 0$ and a sequence $u_i ~ \in ~ H^m(\Omega)$ and
+  a sequence $c_i \rightarrow \infty$ such that 
+  $$
+  |u_i|^2_k \geqq \in |u_i|^2_m + c_i | u |^2_0.
+  $$
+  
+  Let $v_i = \dfrac{u_i}{(|u_i|^2_m + |u_i|_o)^{\frac{1}{2}}}$. Then
+  $v_i ~ \in ~ K^m(\Omega) = H^m(\Omega)$. 
+\end{proof}
+
+  Further 
+  $$
+  |v_i|^2_k \ge \in + (c_i - \in) \dfrac{|u_i|^2_0}{|u_i|^2_m +
+    |u_i|^2} ~\text{and}~ c'_i = c_i - \in \rightarrow \infty. 
+  $$
+  
+  Hence  
+  \begin{equation}
+    |v_i|^2 \ge \in + c'_i |v_i|^2_0.\tag{6}\label{lec12:sec7:subsec3:eq6}
+  \end{equation}
+  
+  Now $|v_i|^2 + |v_i|^2_m = 1$, so that $v_i$ are bounded in
+  $H^m(\Omega)$ and hence $|v_i|_k \le C$. From (\ref{lec12:sec7:subsec3:eq6}) it follows that
+  $|v_i|^2 \le \dfrac{C - \in }{c'_i}$, and hence $v_i
+  \rightarrow 0$ in $L^2(\Omega)$. Therefore there exists a sequence
+  $v_\mu$ converging weakly to $0$ in $H^{m-1}(\Omega)$. Since the
+  injection of $H^1(\Omega)$ into $L^2(\Omega)$ is completely continuous
+  $v_\mu \rightarrow 0$ strongly in $H^{m-1}(\Omega)$, i.e., $|v|_k
+  \rightarrow 0$ which contradicts (\ref{lec12:sec7:subsec3:eq6}). 
+

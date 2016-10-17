@@ -1,0 +1,252 @@
+
+\chapter[Review of the Error Estimates for the...]{Review of the Error
+  Estimates for the Finite Element  Method}\label{chap5}   
+
+THE\pageoriginale PURPOSE OF this chapter is to state the theorems on
+error estimates which are useful for our future analysis. The proof of
+the theorems can be found in CIARLET \cite{key9}.
+
+\begin{def*}
+Let $\Omega\subset\mathbb{R}^n$ be an open subset, $m\geq 0$ be an
+integer and $1\leq p\leq +\infty$. Then the Sobolev Space
+$W^{m,p}(\Omega)$ is defined by 
+$$
+W^{m,p}(\Omega)=\{v\varepsilon L^p(\Omega):\partial^\alpha
+v\varepsilon L^p(\Omega),\quad\text{for all } |\alpha |\leq m\}.
+$$
+
+On the space $W^{m, p}(\Omega)$ we define a norm $\parallel\centerdot
+\parallel_{m,p,\Omega}$ by
+$$
+\parallel v\parallel_{m,p,\Omega}=\left(\int\limits_\Omega
+\sum\limits_{|\alpha |\leq m}|D^\alpha v|^p\,dx\right)^{1/p},
+$$
+and a semi norm $|\centerdot |_{m,p,\Omega}$ by 
+$$
+|v|_{m,p,\Omega}=\left(\int\limits_\Omega \sum\limits_{|\alpha
+|=m}|D^\alpha v|^p\,dx\right)^{1/p}.
+$$
+
+If $k$ is an integer, then we consider the quotient space
+$$
+W^{-k+1,p}(\Omega)=W^{k+1,p}(\Omega)/p_k(\Omega)
+$$
+with the quotient norm
+$$
+\parallel \tilde{v}\parallel_{k+1,p,\Omega}=\underset{\ell\varepsilon
+\mathbb{P}_k}{\Inf}\parallel v+\ell\parallel_{k+1,p,\Omega},
+$$
+where\pageoriginale $\tilde{v}$ is the equivalence class containing
+$v$.
+
+We introduce a semi norm in $\tilde{W}^{k+1,p}(\Omega)$ by 
+$$
+|\tilde{v}|_{k+1,p,\Omega}=|v|_{k+1,p,\Omega}.
+$$
+
+Then we have 
+\end{def*}
+
+\setcounter{THM}{0}
+\begin{THM}\label{chap5:THM1}
+{\bf (CIARLET - RAVIART).} In $\tilde{W}^{k+1,p}(\Omega)$ the semi norm
+$|\tilde{v}|_{k+1,p,\Omega}$ is a norm equivalent to the quotient norm
+$\parallel v\parallel_{k+1,p,\Omega}$.
+\end{THM}
+
+Using this theorem it is easy to prove 
+
+\begin{THM}\label{chap5:THM2}
+Let $W^{k+1,p}(\Omega)$ and $W^{m,q}(\Omega)$ be such that
+$W^{k+1,p}(\Omega)\hookrightarrow W^{m,q}(\Omega)$ (continuous
+injection). Let 
+$$
+\pi\in\mathscr{L}(W^{k+1,p}(\Omega),\;W^{m,q}(\Omega))
+$$
+be such that for each $p\varepsilon\mathbb{P}_k$, $\pi p=p$. Then
+there exists a $c=c(\Omega,\pi)$ such that for each $v\in
+W^{k+1,p}(\Omega)$
+$$
+|v-\pi v|_{m,q,\Omega}\leq c|v|_{k+1,p,\Omega}.
+$$
+\end{THM}
+
+\begin{def*}
+Two open subsets $\hat{\Omega}, \Omega$ of $\mathbb{R}^n$ are said to
+be affine equivalent if there exists an affine map $F$ from
+$\hat{\Omega}$ onto $\Omega$ such that $F(\hat{x})=B\hat{x}+b$, where
+$B$ is a $n\times n$ non singular matrix and
+$b\varepsilon\mathbb{R}^n$.
+
+We have 
+\end{def*}
+
+\begin{THM}\label{chap5:THM3}
+Let $\hat{\Omega}, \Omega$ be affine equivalent with $F$ as their
+affine map. Then there exist constants $\hat{c},c$ such that for all
+$v\varepsilon W^{m,p}(\Omega)$,\pageoriginale
+$$
+|\hat{v}|_{m,p,\hat{\Omega}}\leq c\parallel B\parallel^m\;|\det
+B|^{-1/p}|v|_{m,p,\Omega},
+$$
+and for all $\hat{v}\varepsilon W^{m,p}(\hat{\Omega})$,
+$$
+|v|_{m,p,\Omega}\leq\hat{c}\parallel B^{-1}\parallel^m\;|\det
+B|^{1/p}\;|\hat{v}|_{m,p,\hat{\Omega}},
+$$
+where
+$$
+\hat{v}=v\bullet F.
+$$ 
+\end{THM}
+
+If $h$ ($\resp \hat{h}$) is the diameter of $\Omega$ ($\resp
+\hat{\Omega}$) and $p$ ($\resp \hat{p}$) is the supremum of the
+diameters of all balls that can be inscribed in $\Omega$ ($\resp
+\hat{\Omega}$), then we have 
+
+\begin{THM}\label{chap5:THM4}
+$\parallel B\parallel \leq h/\hat{\rho}$ and $\parallel B^{-1}
+\parallel \leq \hat{h}/\rho$.
+\end{THM}
+
+\begin{def*}
+Two finite elements $(\hat{K}, \hat{\Sigma}, \hat{P})$ and $(K, \Sigma,
+P)$ are said to be affine equivalent if there exists an affine map
+$F\hat{x}= B\hat{x}+b$ on $\mathbb{R}^n$, where $B$ is an $n \times n$
+non singular matrix, and $b\varepsilon\mathbb{R}^n$ such that 
+
+\begin{enumerate}
+\item [(i)] $F(\hat{K})= K$
+\item [(ii)] $\hat{p} =\{\hat{p}=p \circ F:p\varepsilon P\}$,
+\item [(iii)] $\hat{\Sigma} =\{\hat{\phi}=F^{-1}\circ\phi:\phi\varepsilon
+\Sigma\}$ 
+\end{enumerate}
+where
+$$
+F^{-1}\circ\phi(\hat{p})=\phi(\hat{p}\circ F^{-1}).
+$$
+\end{def*}
+
+\begin{def*}
+Let\pageoriginale $(K,\Sigma, P)$ be a finite element and
+$v:K\to\mathbb{R}$ be a smooth function on $K$. Then by virtue of the
+$P$-unisolvency of $\Sigma$ there exists a unique element, say,
+$\pi_Kv\in P$, such that $\phi(\pi_Kv)=\phi(v)$ for all
+$\phi\in \Sigma$. The function $\pi_Kv$ is called the
+$P$-interpolate function of $v$ and the operator $\pi_K:C^\infty(K)\to
+P$ is called the $P$-interpolation operator.
+\end{def*}
+
+Now we state an important theorem which is often used.
+
+\begin{THM}\label{chap5:THM5}
+Let $(\hat{K},\hat{\Sigma},\hat{P})$ be a finite element. Let $s(=0,
+1, 2)$ be the maximal order of derivatives occurring in
+$\Sigma$. Assume that 
+
+\begin{enumerate}
+\item [(i)] $W^{k+1,p}(\hat{K})\hookrightarrow C^s(\hat{K})$,
+\item [(ii)] $W^{k+1,p}(\hat{K})\hookrightarrow W^{m,q}(\hat{K})$,
+\item [(iii)] $P_k\subset\hat{P}\subset W^{m,q}(\hat{K})$,
+\end{enumerate}
+
+Then there exists a constant $C=C(\hat{K},\hat{\Sigma},\hat{P})$ such
+that for all affine equivalent finite elements $(K,\Sigma,P)$ we have 
+$$
+|v-\pi_Kv|_{m,q,K}\leq C\;(\meas K)^{1/q-1/p}\frac{h_K^{k+1}}
+{\rho_K^m}|v|_{k+1,p,K}
+$$
+for all $v\in W^{k+1,p}(K)$, where $\pi_K$ is a
+$P$-interpolate operator, $h_K$ is the diameter of $K$ and $\rho_K$ is
+the supremum of diameter of all balls inscribed in $K$.
+\end{THM}
+
+\begin{def*}
+A family $(T_h)$ of triangulations of $\Omega$ is regular if 
+\begin{enumerate}
+\item [(i)] for\pageoriginale all $h$ and for each $K\varepsilon T_h$ the 
+finite elements $(K,\Sigma, P)$ are all affine equivalent to a single
+  finite element $(\hat{K},\hat{\Sigma},\hat{P})$;
+\item [(ii)] there exists a constant $\sigma$ such that for all $T_h$
+  and for each $K\varepsilon T_h$ we have 
+$$
+\frac{h_K}{\rho_K}\leq\sigma;
+$$
+\item [(iii)] for a given triangulation $T_h$, if 
+$$
+h=\max\limits_{K\varepsilon T_h}h_K,
+$$
+\end{enumerate}
+then $h\to 0$.
+\end{def*}
+
+\setcounter{exercise}{0}
+\begin{exercise}\label{chap5:exr1}
+Prove that there exists a constant $C$ independent of $h$ such that 
+$$
+|p|_{1,k}\leq C/h\;|p|_{\circ,K}\quad\text{for all } p\varepsilon
+\mathbb{P}_k. 
+$$
+
+A theorem which gives a global error bound is the following.
+\end{exercise}
+
+\begin{THM}\label{chap5:THM6}
+Let us assume that 
+
+\begin{enumerate}
+\item [(i)] $\pi_h:H^{k+1}(\Omega)\to V_h$, the restriction of $\pi_h$
+  to $V_h$ being the identity,
+\item [(ii)] $V_h\subset\underset{K\varepsilon
+T_h}{\pi}\mathbb{P}_k(K)$,
+\item [(iii)] $V_h\subset H^m(\Omega)$,\pageoriginale
+\item [(iv)] $u\in H^m(\Omega)\quad$ (regularity assumption), 
+\end{enumerate}
+Then we have 
+$$
+\parallel u-\pi_hu\parallel_{m,\Omega}\leq
+C\;h^{k+1-m}|u|_{k+1,\Omega},
+$$
+where $C$ is a constant independent of $h$ and $(T_h)$ is a regular
+family of triangulations.
+\end{THM}
+
+For stating a theorem on $L_2$ -error estimates we need the definition
+of a regular adjoint problem.
+
+\begin{def*}
+Let $V=H^1(\Omega)$ or $H_\circ^1(\Omega)$, $H=L^2(\Omega)$. The
+adjoint problem:
+
+\begin{equation*}
+\begin{cases}
+\text{Find}\quad\phi\varepsilon V\quad\text{such that}\\
+a(v,\phi)= (g, v)\quad\text{for all } v\varepsilon V,
+\end{cases}
+\end{equation*}
+is said to be regular if 
+
+\begin{enumerate}
+\item [(i)] for all $g\varepsilon L^2(\Omega)$, the solution $\phi$ of
+the adjoint problem for $g$ belongs to $H^2(\Omega)\cap V$;
+\item [(ii)] there exists a constant $C$ such that 
+$$
+\parallel\phi\parallel_{2,\Omega}\leq C|g|_{\circ,\Omega}.
+$$
+\end{enumerate}
+
+We now have
+\end{def*}
+
+\begin{THM}\label{chap5:THM7}
+Let $(T_h)$ be a regular family of triangulations on $\Omega$ with
+reference finite element $(\hat{K},\hat{\Sigma},\hat{P})$. Let $s=0$
+and $n\leq 3$. Suppose\pageoriginale there exists an integer $k\geq 1$
+such that $u\varepsilon H^{k+1}(\Omega) \; P_k\subset\hat{p}\subset H^1
+(\hat{K})$. Assume further that the adjoint problem is regular. Then
+there exists a constant $C$ independent of $h$ such that 
+$$
+|u-u_h|_{\circ,\Omega}\leq C \;h^{k+1}\;|u|_{k+1,\Omega}.
+$$
+\end{THM}

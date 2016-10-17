@@ -1,0 +1,219 @@
+\chapter{Lecture}\label{part3:lec24} %%% 24
+\markboth{\thechapter. Lecture}{\thechapter. Lecture}
+
+We\pageoriginale derived Selberg's formula, and it looked in our
+transformation like this:
+$$
+A_k (n) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{l^2 \equiv \gamma
+  \pmod{24 k}} (-) ^{\left\{ \frac{\ell}{6} \right\}} e^{\frac{\pi i \ell}{6 k}}, 
+$$
+where $\nu = 1- 24n$, or $\nu\equiv 1 \pmod{24}$. We write this
+$B_k(\nu)$; this is defined for $\nu \equiv 1 \pmod{24}$, and we had
+tacitly $(\ell, 6)=1$. We make an important remark about the symbol
+$(-)^{\left\{\frac{\ell}{6}\right\}}$. This repeats itself for $\ell modulo 12$. The
+values are 
+
+\medskip
+\begin{tabular}{rrrrr}
+  $\ell$ =& 1\quad &3 \quad &7 \quad &11\\
+  $(-)^{\left\{ \frac{\ell}{6}\right\}}$ =& 1 \quad &$-1$ \quad &$-1$ \quad &1 
+\end{tabular}
+
+But $(-)^{\left\{\frac{\ell}{6} \right\}}$ can be expressed in terms
+of the Legendre symbol:
+$$
+(-)^{\left\{\frac{\ell}{6} \right\}}= \left( \frac{\ell}{3} \right)
+\left( \frac{-1}{\ell}\right)
+$$
+when $(\ell, 6)=1$. We can test this, noticing that $\left(
+\frac{-1}{\ell}\right)= (-1)^{\frac{\ell-1}{2}}$. Since 1, 7 are
+quadratic residues and 5, 11 quadratic non-residues modulo 3, we have
+for $\ell =1,5, 7, 11$, $(-)^{\{\frac{\ell}{6} \}}= 1, -1, -1, 1$
+respectively; this agrees with the previous list. It is sometimes
+simpler to write $(-)^{\{\frac{\ell}{6} \}}$ in this way, though it is
+an after-thought. It shows the periodicity.
+
+Let\pageoriginale us repeat the formula:
+$$
+B_k (\nu) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{\ell^2 \equiv \nu
+  \pmod{24 k}} \left( \frac{\ell}{3}\right)  \left(
+\frac{-1}{\ell}\right) e^{\frac{\pi i \ell}{6k}}
+$$
+
+This depends upon how $k$ behaves with respect to 24. It has to be
+done separately for 2, 3, 4, 6. For this introduce $d= (24, k^3)$. We
+have
+
+\begin{alignat*}{4}
+  d=1 & ~\text{if}~ &~~& (k, 24) =1,\\
+  3 & ~\text{if}~ &&3\mid 4, k ~\text{odd},\\
+  8 & ~\text{if}~ && k ~\text{is even and}~ 3 \nmid k\\
+  24 & ~\text{if}~  && 6\mid k.
+\end{alignat*}
+
+Let us introduce the complementary divisor $e, de= 24$. So $e= 24, 8,
+3$ or $1$. $(d, e)=1$. Also $(c, k)=1$. 
+
+All this is a preparation for our purpose. The congruence $\ell^2
+\equiv \nu \pmod{24 k}$ can be re-written separately as two
+congruences: $\ell^2 \equiv \nu \pmod{dk}$, $\ell^2 \equiv \nu
+\pmod{e}$.
+
+The latter is always fulfilled if $(\ell, 6)=1$. Now break the
+condition into two subcases. Let $r$ be a solution of the congruence
+$$
+(er)^2 \equiv \nu \pmod{dk};
+$$
+then we can write $\ell=er+ dkj$, where $j$ runs modulo $e$ and
+moreover $(j, e)=1$. To different pairs modulo $dk$ and $e$
+respectively belong different $\ell$ modulo $24k$. $B_k(\nu)$ can then
+be written as 
+$$
+B_k (\nu) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{(er)^2 \equiv \nu
+  \pmod{dk}} ~\sum_{\substack{j \mod
+    e\\(j, e)=1}} \left( \frac{er + dkj}{3}\right) \left(\frac{-1}{er
+  + dkj} \right) e^{\frac{\pi i}{6k} (er+dkj)}
+$$
+
+Separating\pageoriginale the summations, this gives
+$$
+B_k (\nu) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{(er)^2 \equiv \nu
+  \pmod{dk}} e^{\frac{\pi i\ell k}{6k}} S_k (r),
+$$
+where 
+$$
+S_k(r) = \sideset{}{'}\sum_{j \mod e} \left(\frac{er+dhj}{3} \right)
+\left(\frac{-1}{er+ dkj} \right) e^{\frac{\pi i d j}{6k}}
+$$
+
+We compute this now in the four different cases implied in the
+possibilities $d=1, 3, 8, 24$.
+
+\setcounter{case}{0}
+\begin{case}\label{part3:lec24:case1}
+  $d=1$, $e=24$
+  \begin{align*}
+    S_k (r) & = \sideset{}{'}\sum_{j \mod 24} \left(
+    \frac{kj}{3}\right)\left(\frac{-1}{kj}  \right) e^{\frac{\pi i
+        j}{6}}\\
+    & = \left(\frac{k}{3}\right)\left(\frac{-1}{k}\right) \sideset{}{'}\sum_{j
+      \mod 24} \left(\frac{j}{3}\right) (-)^{\frac{j-1}{2}}
+    e^{\frac{\pi i j}{6}}
+  \end{align*}
+\end{case}
+  There are eight summands, but effectively only four, because they
+  can be folded together.
+  \begin{align*}
+    S_k (r) & = 2\left(\frac{k}{3}\right)\left(\frac{-1}{k} \right)
+    \sideset{}{'}\sum_{j \mod 12} \left(\frac{j}{3} \right)
+    (-)^{\frac{\pi -1}{2}} e^{\pi i j}\\ 
+    & = 2 \left( \frac{h}{3}\right) \left(\frac{-1}{k} \right) \left\{
+    e^{\frac{\pi i}{6}} -e^{\frac{5 \pi i}{6}} -e^{\frac{7 \pi i}{6}}
+    + e^{\frac{11 \pi i}{6}}\right\}
+\end{align*}
+
+(We replaced the nice symbol $(-)^{\{\frac{\ell}{6} \}}$ by the
+  Legendre symbol because we did not know a factorisation law for the
+  former. So we make use of one special character that we know). 
+\begin{align*}
+  S_k (r) & = 4 \left( \frac{k}{3}\right)\left(\frac{-1}{k} \right)
+  \left(\cos \frac{\pi}{6} - \cos \frac{5 \pi}{6} \right)\\
+  & = 4 \left( \frac{k}{3}\right) \left( \frac{-1}{k}\right) \sqrt{3} 
+\end{align*}
+and\pageoriginale since $\left( \frac{k}{3}\right) \left( \frac{3}{k}\right)=
+(-)^{\frac{k-1}{2}\cdot 1} = \left( \frac{-1}{k}\right)$, this gives
+gives
+$$
+S_k (r) = 4 \sqrt{3} \left( \frac{3}{k}\right)
+$$
+
+\begin{case}\label{part3:lec24:case2}
+  $d=3$, $e=8$.
+  \begin{align*}
+  S_k (r) & = \sideset{}{'}\sum_{j \mod 8} \left( \frac{8r}{3}\right) \left(
+  \frac{-1}{3kj}\right)  e^{\frac{\pi i j}{2}}\\
+  & = \left( \frac{-r}{3}\right) \left( \frac{-1}{3k}\right)
+  \sideset{}{'}\sum_{j 
+    \mod 8} \left( \frac{-1}{j}\right) e^{\frac{\pi ij}{2}}\\
+  & = 2 \left( \frac{r}{3}\right) \left( \frac{-1}{k}\right)
+  \sideset{}{'}\sum_{j
+    \mod 4} \left( \frac{-1}{j}\right) e^{\frac{\pi ij}{2}}\\
+  & = 2 \left( \frac{r}{3}\right) \left( \frac{-1}{k}\right) (i+i)\\
+  & = 4i \left( \frac{r}{3}\right) \left( \frac{-1}{k}\right).
+  \end{align*}
+\end{case}
+
+\begin{case}\label{part3:lec24:case3}
+  $d= 8$, $e=3$.
+\begin{align*}
+  S_k (r) & = \sideset{}{'}\sum_{j \mod 3} \left( \frac{8kj}{3}\right) \left(
+  \frac{-1}{3r}\right) e^{\frac{4 \pi ij}{3}}\\
+  & = \left( \frac{k}{3}\right) \left( \frac{-1}{r}\right)
+  \sideset{}{'}\sum_{j
+    \mod 3} \left( \frac{j}{3}\right) e^{\frac{4 \pi i}{3}}\\
+  & = \left( \frac{k}{3}\right) \left( \frac{-1}{r}\right) \left(
+  e^{\frac{4\pi i}{3}} - e^{\frac{8 \pi i}{3}}\right)\\
+  & = -2 i \left( \frac{k}{3}\right) \left( \frac{-1}{r}\right) \sin
+  \frac{2 \pi}{3}\\
+  & = \frac{1}{i} \sqrt{3} \left( \frac{k}{3}\right) \left(
+  \frac{-1}{r} \right)
+\end{align*}
+\end{case}\pageoriginale
+
+\begin{case}\label{part3:lec24:case4}
+  $d=24$, $e=1$.
+  \begin{align*}
+    S_k (r) = \left( \frac{k}{3}\right)\left( \frac{-1}{r}\right) =
+    \left( \frac{3}{r}\right) 
+  \end{align*}
+  Now utilise these; we get a handier definition for $A_k (n)$.
+\end{case}
+
+\setcounter{case}{0}
+\begin{case}
+  $$
+  B_k (\nu) = \left( \frac{3}{k}\right)^{\sqrt{k}} \sum_{(24 r)^2
+    \equiv \nu \pmod{k}} e^{\frac{4 \pi i r}{k}}
+  $$
+\end{case}
+
+\begin{case}
+  $$
+  B_k (\nu) = i \sqrt{\frac{k}{3}} \left( \frac{-1}{k}\right)
+  \sum_{(8k)^2 \equiv \nu \pmod{3k}} \left( \frac{r}{3}\right)
+  e^{\frac{4 \pi i r}{3k}}
+  $$
+\end{case}
+
+The $i$ should not bother us because $r$ and $-r$ are solutions
+together, so they combine to give a real number. 
+$$
+B_k (\nu) =- \sqrt{\frac{k}{3}} \left( \frac{-1}{k}\right) \sum_{(8
+  r)^2 \equiv v \pmod{3k}} \left( \frac{r}{3}\right) \sin \frac{4 \pi
+  r}{3k} 
+$$
+
+\begin{case}
+  \begin{align*}
+    B_k (\nu) &= \frac{1}{4i} \sqrt{k} \left( \frac{k}{3}\right)
+    \sum_{(3k)^2 \equiv \nu \pmod{8k}} \left( \frac{-1}{r}\right)
+    e^{\frac{\pi i r}{3k}}\\
+    & = \frac{1}{4} \sqrt{k} \left( \frac{k}{3}\right) \sum_{(3 r)^2
+      \equiv \nu \pmod{8k}} \left( \frac{-1}{r}\right) \sin \frac{\pi r}{2k}
+  \end{align*}
+\end{case}\pageoriginale
+
+\begin{case}
+  $$
+  B_k (\nu) = \frac{1}{4} \sqrt{\frac{k}{3}} \sum_{r^2 \equiv \nu
+    \pmod{24 k}} \left( \frac{3}{r}\right) e^{\frac{\pi i r}{6k}}
+  $$
+\end{case}
+
+This is the same as the old definition.
+
+This makes it possible to compute $A_k(n)$. We break $k$ into prime
+factors and because of the multiplicative property which we shall
+prove, have to face only the task of computing for prime powers.
+
+

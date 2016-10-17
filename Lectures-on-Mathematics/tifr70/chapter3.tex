@@ -1,0 +1,802 @@
+
+\chapter{$L^2$ Sobolev Spaces}\label{chap3}%chap 3
+
+THERE\pageoriginale ARE MANY ways of measuring smoothness properties of functions in
+terms of various norms. Often it is convenient to use $L^2$ norms,
+since $L^2$ interacts nicely with the Fourier transforms. In this
+chapter, we set up a precise theory of $L^2$ differentiability and use
+it to prove Hormander's theorem on the hypoellipticity of constant
+coefficient differential operators. 
+
+\section{General Theory of $L^2$ Sobolev Spaces}\label{chap3:sec1}%SEC 1.
+
+\begin{defi}\label{chap3:sec1:def3.1} %defini 3.1
+For a non-negative integer $k$, the {\em Sobolev space} $H_k$ is
+defined to be the space of all tempered distributions all of whose
+derivatives of order less than or equal to $k$ are in $L^2$. 
+\end{defi}
+
+Thus
+$$
+H_k = \{ f \epsilon S' : D^\alpha f \epsilon L^2 (\mathbb{R}^n)
+\text{ for } 0 \leq | \alpha | \leq k \}. 
+$$
+
+From the definition, we note that $f \epsilon H_k$ if and only if
+$\xi^\alpha \hat{f} (\xi) \epsilon L^2$ for $0 \leq | \alpha | \leq
+k$. 
+
+\setcounter{prop}{1}
+\begin{prop}\label{chap3:sec1:prop3.2}%3.2
+  $f \epsilon H_k$ {\em if and only if }$(1 + | \xi |^2)^{k/2}
+  \hat{f} \epsilon L^2$. 
+\end{prop}
+
+\begin{proof}
+  First assume that $(1 + | \xi |^2)^{k/2} \hat{f} \epsilon
+  L^2$. Since, for $| \xi | \geq 1$, 
+  $$
+  | \xi^\alpha | \leq | \xi |^k \leq (1 + | \xi |^2)^{k/2} \text{ for
+    all } | \alpha | \leq k
+  $$\pageoriginale
+  and for $| \xi | < 1$,
+  $$
+  \displaylines{\hfill
+    | \xi^\alpha | \leq 1 \leq (1 + | \xi |^2)^{k/2} \text{ for all } |
+    \alpha | \leq k, \hfill\cr
+    \text{we have}\hfill 
+    | \xi^\alpha \hat{f} (\xi) | \leq (1+ | \xi |^2)^{k/2} \hat{f}(\xi)\hfill \cr 
+    \text{and hence}\hfill 
+    \xi^\alpha \hat{f} \epsilon L^2 \text{ for } | \alpha | \leq k
+    \text{ which implies } f \epsilon H_k.\hfill\Box} 
+  $$
+\end{proof}
+
+Conversely, assume that $f \epsilon H_k$. Since $| \xi |^k$ and
+$\sum\limits_{j=1}^n | \xi_j |^k$ are homogeneous of degree $k$ and
+nonvanishing for $\xi \neq 0$, we have 
+$$
+\displaylines{\hfill 
+(1 + | \xi |^2)^{k/2} \leq c_0 (1+ | \xi |^k ) \leq c_0 \left(1+ c
+\sum_{j=1}^n | \xi_j |^k \right) \hfill\cr
+\text{so that}\hfill  
+|| (1 + | \xi |^2)^{k/2} \hat{f} ||_2 \leq c_0 || f ||_2 + c_0 c
+\sum_{j=1}^n || \partial^k_j f ||_2 \hfill}
+$$
+which shows that $(1 + | \xi |^2 )^{k/2} \hat{f} \epsilon L^2$.
+
+The characterisation of $H_k$ given in the above proposition
+immediately suggests a generalisation to non-integral values of $k$
+which turns out to be very useful. 
+
+\setcounter{defi}{2}
+\begin{defi}\label{chap3:sec1:def3.3}%3.3
+  For $s \epsilon \mathbb{R}$, we define the operator $\Lambda^s : S
+  \to S$ by 
+  $$
+  (\Lambda^s f) \hat{} (\xi) = (1 + | \xi |^2)^{s/2} \hat{f} (\xi).
+  $$
+  
+  In\pageoriginale other words, $\Lambda^s = \left(I -
+  \dfrac{\triangle}{4\pi^2}\right)^{s/2}$. Clearly $\Lambda ^s$ maps $S$
+  continuously onto itself. We can therefore extend $\Lambda ^s$
+  continuously from $S'$ onto itself. 
+\end{defi}
+
+The \textit{Sobolev space of order} $s$ is defined by 
+$$
+H_s = \{ f \epsilon S' : \Lambda^s f \epsilon L^2 \}.
+$$
+
+We equip $H_s$ with the norm $|| f ||_{(s)} = || \Lambda^s f ||_2$. If
+$s$ is a positive integer, the proof of Proposition
+\ref{chap3:sec1:prop3.2} shows that 
+$||\quad ||_{(s)}$ is equivalent to the norm 
+$$
+|| f || = \Sigma_{0 \leq | \alpha | \leq s} || D^\alpha f ||_2.
+$$
+
+\noindent 
+\textit{PROPERTIES OF} $H_s$
+\begin{enumerate}[(i)]
+\item $H_s$ is a Hilbert space with the scalar product defined by
+  $(u, v)_{(s)} = (\Lambda^s u, \Lambda^s v)$. Here the scalar product
+  on the right is that in $L^2$. The Fourier transform is a unitary
+  isomorphism between $H_s$ and the space of functions which are
+  square integrable with respect to the measure $(1 + | \xi |^2)^s d
+  \xi$. 
+\item For every $s \epsilon \mathbb{R}, S$ is dense in $H_s$.
+
+\item If $s > t, H_s \subset H_t$ with continuous imbedding. In fact,
+  for $u \epsilon H_s$,\break $|| u||_{(t)} \le || u ||_{(s)}$. In
+  particular, $H_s \subset L^2$ for $s > 0$. 
+\item $D^\alpha$\pageoriginale is a bounded operator from $H_s$ into $H_{s - |
+  \alpha |} s \epsilon \mathbb{R}$. 
+\item If $f \epsilon H_{-s}$, then $f$ as a linear functional on
+  $S$ extends continuously to $H_s$ and $|| f ||_{(-s)}$ is the norm
+  of $f$ in $(H_s)^*$. So we can identify $(H_s)^*$ with
+  $H_{(-s)}$. For $f \epsilon H_{-s}, g \epsilon H_s$ the
+  pairing is given by  
+  $$
+  < f, g > = < \Lambda^{-s} f, \Lambda^s g > = \int \hat{f} \hat{g}.
+  $$
+  
+  (If $s = 0$, this identification of $H_0 = L^2$ with its dual is the
+  complex conjugate of the usual one). 
+\item The norm $||. ||_{(s)}$ is translation invariant. Indeed, if
+  $g(x) = f (x - x_0)$, then $\hat{g} (\xi) = e^{2 \pi ix_0. \xi}
+  \hat{f} (\xi)$ and hence $|| f ||_{(s)} = || g ||_{(s)}$. 
+\end{enumerate}
+
+\setcounter{prop}{3}
+\begin{prop}\label{chap3:sec1:prop3.4} %3.4
+For $s > n/2$, we have $\delta \epsilon H_{-s}$.
+\end{prop}
+
+\begin{proof}
+$(1 + | \xi |^2)^{-s/2} \,\hat{\delta} = (1 + | \xi |^2)^{-s/2}
+  \epsilon L^2$, whenever $s > n/2$. This is a consequence of the
+  following observation : 
+\end{proof}
+
+$\int (1 + | \xi |^2)^{-s} d \xi \sim 1+ \int\limits_1^\infty r^{-2s}
+r^{n-1} dr < \infty$ if and only if $s > n/2$. 
+
+As an immediate consequence of this proposition, we have 
+
+\setcounter{coro}{4}
+\begin{coro}\label{chap3:sec1:coro3.5}%coroll 3.5
+  For $s > n/2 + | \alpha |, D^{\alpha} \delta \epsilon H_{-s}$.
+\end{coro}
+
+\setcounter{thm}{5}
+\begin{thm}[SOBOLEV IMBEDDING THEOREM]\label{chap3:sec1:thm3.6} %%% thm3.6
+  For\pageoriginale $s > \dfrac{n}{2} + k, H_s
+  \subset C^k$. Further, we have 
+\begin{equation}
+  \sum_{| \alpha | \leq k} \sup\limits_{\mathbb{R}^N} | D^\alpha f |
+  \leq C_{sk} || f ||_{(s)}. \tag{3.7}\label{chap3:sec1:eq3.7} 
+\end{equation}
+\end{thm}
+
+\begin{proof}
+  Since $S$ is dense in $H_s$, it suffices to prove (\ref{chap3:sec1:eq3.7}) for $f
+  \epsilon S$. Let $\delta_x$ denote the Dirac measure at $x$. For $|
+  \alpha | \leq k$, since $s > \dfrac{n}{2} + | \alpha |, D^\alpha \delta_x
+  \epsilon H_{-s}$. 
+\end{proof}
+
+Since 
+$$
+< D^\alpha \delta_x, f > = (-1)^{| \alpha |}  < \delta_x, D^\alpha f >
+= (-1)^{| \alpha |} (D^\alpha f) (x) 
+$$
+and $|| D^\alpha \delta_x ||_{(-s)}$ is independent of $x$,
+\begin{align*}
+  \sum_{| \alpha | \leq k} \sup\limits_{\mathbb{R}^n} | D^\alpha f (x) |
+  &= \sum_{| \alpha | \leq k} \sup\limits_{\mathbb{R}^n} | D^\alpha
+  \delta_x, f >| \\ 
+  &\leq \sum_{| \alpha | \leq k} \sup\limits_{\mathbb{R}^n} | D^\alpha
+  \delta_x ||_{(-s)} || f ||_{(s)} = C_{sk} || f ||_{(s)} 
+\end{align*}
+
+Now, given $u \epsilon H_s$, choose a sequence $(u_j)$ in $S$ such
+that $|| u - u_j ||_{(s)}$ converges to 0, as $j$ tends to
+$\infty$. The above inequality with $f = u_i - u_j$ shows that
+$(D^\alpha u_j)$ is a Cauchy sequence in the uniform norm for $|
+\alpha | \leq k$; so its limit $D^\alpha u$ is continuous. 
+
+\setcounter{coro}{7}
+\begin{coro}\label{chap3:sec1:coro3.8}%3.8
+  If $u \epsilon H_s$ for all $s \epsilon \mathbb{R}$, then
+  $u \epsilon C^\infty $ i.e., $\bigcap\limits_s H_s \subset
+  C^\infty$. 
+\end{coro}
+
+This argument can be extended to show that if $s > \dfrac{n}{2} + k$, then
+elements of $H_s$ and their derivatives of order less than or
+equal\pageoriginale to 
+$k$ are not merely continuous but actually H\"{o}lder continuous. 
+
+\setcounter{prop}{8}
+\begin{prop} \label{chap3:sec1:prop3.9}%3.9
+If $0 < \alpha < 1$ and $s = \dfrac{n}{2} + \alpha$, then $||
+  \delta_x - \delta_y ||_{(-s)} \leq C_\alpha | x - y |^\alpha$ 
+\end{prop}
+
+\begin{proof}
+We have 
+$$
+|| \delta_x - \delta_y ||_{(-s)}^2  = \int | e^{-2 \pi i x. \xi }-
+e^{-2 \pi i y. \xi}|^2 (1 + | \xi |^2)^{-s} d \xi. 
+$$
+
+Let $R$ be a positive number, to be fixed later. When $| \xi | \leq R$
+we use the estimate $| e^{-2 \pi ix. \xi}-e^{-2\pi iy. \xi} | \leq 2
+\pi | \xi | | x-y |$ (by the mean value theorem) and when $| \xi | >
+R$, we use $ | e^{-2 \pi ix. \xi}-e{-2 \pi iy. \xi} | \leq 2$. Then we
+have 
+\begin{align*}
+  || \delta_x - \delta_y ||^2_{(-s)} &\leq 4 \pi^2 | x- y |^2
+  \int\limits_{| \xi | \leq R} | \xi |^2 (1 + | \xi |^2)^{-s}  d\xi + 4
+  \int\limits_{| \xi | > R} (1 + | \xi |^2)^{-s}  d\xi \\ 
+  &\leq c \left[ | x-y |^2  \int\limits_0^R (1 + r^2)^{-s} r^{n+1} dr +
+    \int\limits_0^R r^{-2 s+n-1} dr \right]\\ 
+  &\leq c' \left[ | x-y |^2 R^{-2 s+n+2} + R^{-2 s+n}\right] ~\text{ as
+  }~\frac{n}{2} <   s < \frac{n}{2} + 1 \\ 
+  &= c' \left[ | x-y |^2 R^{2 - 2 \alpha} + R^{-2 \alpha}\right]
+\end{align*}
+When we take $R = | x-y |^{-1}$ we get our result.
+\end{proof}
+
+\begin{exercise}
+  Show that the above argument does not work when
+  $\alpha = 1$. Instead, we get $|| \delta_x - \delta_y ||_{(-s)} \leq c
+  | x - y | | \log | x- y ||^{1/2}$ when $x$ is near $y$. What happens
+  when $\alpha > 1$?
+\end{exercise}
+
+\setcounter{coro}{9}
+\begin{coro}\label{chap3:sec1:coro3.10}%coroll 3.10
+  Let\pageoriginale $0 < \alpha < 1$ and $\Lambda_\alpha = $ bounded functions
+  $g : \sup\limits_{x, y}$ $\dfrac{| g(x) - g(y) |}{| x - y |^\alpha} <
+  \infty$. If $s = \dfrac{n}{2} + \alpha + l$ and $f \epsilon H_s$,
+  then $ D^{\beta} f \epsilon \Lambda_\alpha$ for $| \beta | \leq
+  k$.  
+\end{coro}
+
+\setcounter{rem}{10}
+\begin{rem}\label{chap3:sec1:rem3.11}%remark 3.11
+  We shall obtain an analogue of this result for $L^p$ norms in
+  Chapter \ref{chap5}. 
+\end{rem}
+
+The following lemma will be used in several arguments hereafter.
+
+\setcounter{lem}{11}
+\begin{lem}\label{chap3:sec1:lem3.12} % 3.12
+For all $\xi, n \epsilon \mathbb{R}^n$ and $s \epsilon
+  \mathbb{R}$, we have 
+$$
+\Bigg[\frac{1 + | \xi |^2}{1 + | \eta |^2} \Bigg]^s < 2^{| s |} (1 + |
+\xi - \eta |^2)^{| s |}. 
+$$
+\end{lem}
+
+\begin{proof}
+  $| \xi | \leq | \eta | + | \xi - \eta |$ gives
+  \begin{gather*}
+    | \xi |^2 < 2 (| \eta |^2 + | \xi - \eta |^2) \text{ so that }\\
+    (1 + | \xi |^2) < 2 (1 + |\eta|^2) (1 + | \xi - \eta |^2).
+  \end{gather*}
+\end{proof}
+
+If $s > 0$, then raise both sides to the $s^{th}$ power. If $s < 0$,
+interchange $\xi$ and $\eta$ and raise to the $-s^{th}$ power. 
+
+\setcounter{prop}{12}
+\begin{prop}\label{chap3:sec1:prop3.13}%propo 3.13
+  {\em If $\phi \epsilon S$, then the operator $f \to \phi f$ is
+    bounded for all $s$.} 
+\end{prop}
+\begin{proof}
+  The operator $f \to \phi f$ is bounded on $H_s$ if and only if the
+  operator of $g \to \Lambda^s \phi \Lambda^{-s} g$ is bounded on $L^2$,
+  as one sees by   
+\end{proof}
+setting\pageoriginale $g = \wedge^s f$. But
+\begin{align*}
+  (\wedge ^s \phi^{-s} g)^{\wedge}(\xi ) & = (1+ |\xi |^2 )^{s/2} (\phi
+  \wedge ^{-s} g)\hat{~}(\xi )\\ 
+ & = (1+ |\xi |^2 )^{s/2} \left[\hat{\phi} (\xi) *  (\wedge ^{-s}g)
+    {}^{\hat{}}(\xi) \right ]\\ 
+ & = (1+ |\xi |^2 )^{s/2} \int \hat{\phi}(\xi - \eta) ( 1+ |\eta
+  |^2)\hat{g}(\eta) d	\eta \\ 
+ & = \int \hat{g} (\eta) K (\xi, \eta) d \eta
+\end{align*}
+where 
+$$
+K (\xi, \eta) = (1+ \eta |^2)^{-{s/2}} ( 1+ |\xi|^2)^{s/2} \hat{\phi}
+(\xi -\eta). 
+$$ 
+
+By lemma \ref{chap3:sec1:lem3.12},
+$$
+|K(\xi, \eta)| < 2^{|s|/2} (1 + |\xi - \eta|^2)^{|s| /2}
+|\hat{\phi}(\xi - \eta)|. 
+$$
+
+Therefore, since $\hat{\phi}$ is rapidly decreasing at $\infty$, 
+\begin{align*}
+  &\int |K (\xi, \eta)| d \xi  \le c \text{ for every } \eta \epsilon
+  \mathbb{R}^n,\\ 
+  &\int |K (\xi, \eta)| d \eta  \le c \text{ for every }
+  \eta \epsilon \mathbb{R}^n. 
+\end{align*}
+
+Thus from  Theorem \ref{chap1:sec1:thm1.1}, the operator with kernel
+$K$ is bounded on $L^2$. Hence our proposition is proved.  
+
+The spaces $H_s$ are defined on $\mathbb{R}^n$ globally by means of
+the Fourier transform. Frequently, it is more appropriate to consider
+the following versions of these spaces.  
+
+\setcounter{defi}{13}
+\begin{defi}\label{chap3:sec1:dif3.14}	%definition 3.14
+If $\Omega \subset \mathbb{R}^n$ is open and $ s \epsilon
+  \mathbb{R}$, we define $H^{\loc}_{s}\Omega = \{ f \epsilon
+  \mathcal{D'}\break (\Omega) : \forall {\Omega}' \Subset \Omega$,  
+  $ \exists ~g_{\Omega}, \epsilon H_s$  such that 
+ $$
+ g_{\Omega'} = f \textit{ on } \Omega ' \}. 
+ $$
+\end{defi}
+
+\setcounter{prop}{14}
+\begin{prop} \label{chap3:sec1:prop3.15}%Proposition 3.15
+  $f \epsilon H^{\loc}_s (\Omega)$\pageoriginale if and only if $ \phi f
+  \epsilon H_s$  for $\phi \epsilon C^{\infty}_{0} (\Omega)$.
+\end{prop}
+
+\begin{proof}
+If $f \epsilon H^{\loc}_s(\Omega)$ and $\phi \epsilon C^\infty
+_0(\Omega)$, then there exists $g \epsilon H_s$ such that $f=g$ on
+supp $\phi$. Therefore $\phi f = \phi g \epsilon H_s$ by
+proposition \ref{chap3:sec1:prop3.13}. 
+\end{proof}
+
+Conversely, if $\phi f \epsilon H_s$ for all $\phi \epsilon
+C^\infty_0 (\Omega')$, and $\Omega' \Subset \Omega$, choose\break $\phi
+\epsilon C^\infty _0(\infty)$ with $\phi \equiv 1$ on
+$\Omega'$. Then $\phi f \epsilon H_s$ and $f = \phi f$ on
+$\Omega'$.  
+
+\setcounter{coro}{15}
+\begin{coro} \label{chap3:sec1:coro3.16}%corollary 3.16
+  If $L = \sum\limits_{|\propto|\leq k} a_\propto (x)D^\propto$
+  with $a_\propto \epsilon C^\infty (\Omega)$, then $L$ maps
+  $H^{\loc}_s(\Omega) $ into $H^{\loc}_{s-k}(\Omega) $ for all $s
+  \epsilon \mathbb{R}$.  
+\end{coro}
+	
+It is a consequence of the Arzela-Ascoli theorem that if $(u_j)$ is a
+sequence of $C^k$ functions such that $|u_j|$ and
+$|\partial^{\alpha}u_j| (|\alpha |\leq k)$ are bounded on compact
+set uniformly in $j$, there exists a subsequence $(v_j)$ of $(u_j)$
+such that $(\partial^{\alpha} {v_j})$ converges uniformly on compact
+set for $|\alpha |\leq k -1$. In particular, if the $u_j'$s are
+supported in a common compact set, then $(\partial^{\alpha} v_j)$
+converges uniformly.   
+
+There is an analogue of this result for $H_s$ spaces. 
+
+\setcounter{lem}{16}
+\begin{lem} \label{chap3:sec1:lem3.17}%Lemma 3.17
+Suppose $(u_k)$ is a sequence of $C^\infty $functions supported
+  in a fixed compact set $\Omega$ such that $\sup\limits_k|| u_k
+  ||_{(s)}< \infty $. Then there exists a subsequence which
+  converges in the $H_t$ norm for all $t < s$.
+\end{lem}	
+
+\begin{proof}
+  Pick\pageoriginale a $\phi \epsilon C^\infty_0$ such that $\phi = 1$ on $\Omega$
+  so that $u_k= \phi u_k$ and hence $\hat{u}_k =\hat{\phi}_*
+  \hat{u}_k$. Then  
+{\fontsize{10pt}{12pt}\selectfont
+\begin{align*}
+  (1+|\xi |^2)^{s/2} |\hat{u}_k (\xi)| &= (1+ |\xi |^2)^{s/2} | \int
+  \hat{\phi}(\xi - \eta) \hat{u}_k(\eta) d \eta |\\ 
+  & \leq \int |\hat{\phi}(\xi - \eta)|| \hat{u}_k (\eta) | 2^{|s|/2}
+  (1+|\eta|^2)^{s/2}(1 + | \xi -\eta | ^2)^{ |s|/2} d \eta  \\ 
+  & \leq  2^{|s|/2}|| \phi ||_{(|s|)}||u_k ||_{(s)} \leq c-_1 ~{\rm
+    independent~ of ~} k.   
+\end{align*}}\relax
+
+Likewise, we have 
+$$
+(1+ |\xi|^2)^{s/2}|\partial_j \hat{u}_k (\xi)| \leq 2^{|s|/2} || 2 \pi
+x_j \phi (x) ||_{|s|} || u_k || _{(s)} \leq c_2 
+$$
+independently of $k$. Therefore, by the Arzela-Ascoli theorem there
+exists a subsequence $(\hat{v}_k)$ of $(\hat{u}_k)$ which converges
+uniformly on compact sets. For $t \leq s$,  
+\begin{align*}
+  || v_j - v_k || ^2_{(t)} & = \int (1+|\xi |^2)^t |\hat{v}_j -
+  \hat{v}_k |^2 d \xi\\ 
+  & = \int\limits_{|\xi | \leq R} (1+|\xi |^2)^t
+  |\hat{v}_j-\hat{v}_k|^2 d\xi + \int\limits_{|\xi | > R} (1+|\xi |^2)^t
+  |\hat{v}_j-\hat{v}_k|^2 d\xi \\ 
+  &  <  ( 1+R^2)^{\max (t, 0)} \sup_{|\xi| \leq R}
+  |\hat{v}_j(\xi)-\hat{v}_k(\xi ) |^2 \int\limits_{|\xi|\leq R} d\xi +\\
+  & \qquad +(1+R^2)^{t-s} \int_{|\xi | > R} [ (1+|\xi|^2 )^s | \hat{v}_j(\xi )-
+    \hat{v}_k(\xi )|^2 d \xi ] \\ 
+  & \leq c(l+R^2)^{n+|t|} \sup\limits_{|\xi |\leq R}| \hat{v}_j(\xi )-
+  \hat{v}_j(\xi )|^2 + (1 + R^2)^{t-s} || v_j - v_k ||^{2}_{(s)}.  
+\end{align*}
+\end{proof}
+
+Given $\epsilon > 0$, choose $R$ large enough so that the second
+term is less than $\epsilon /2$ for all $j$ and $k$. This is
+possible since $|| v_j - v_k||_{(s)} \leq c$ and\pageoriginale $t - s < 0$. Then for
+$j$ and $k$ large enough the first term is less than $\epsilon/ 2$,
+since $(\hat{v}_k)$ converges uniformly on compact sets. Thus we see
+that $(v_k)$ is a Cauchy sequence in $H_{t'}$ and since $H_t$ is
+complete we are done.  
+
+\setcounter{lem}{17}
+\begin{rem} \label{chap3:sec1:rem3.18}%Remark 3.18
+  Lemma \ref{chap3:sec1:lem3.17} is false, if we do not assume that all the $u_k 's $ have
+  support in a fixed compact set. For example, for $u \epsilon
+  C^\infty_0$ and $x_k \epsilon \mathbb{R}^n$ with $|x_k|$ tending to
+  $\infty$, define $u_k(x) = u(x-x_k)$. Then the invariance of $H_s$
+  norms shows that $|| u_k||_{(s)} = || u||_{(s)}$. But no subsequence
+  of $(u_k)$ converges, in any $H_t$. For, if a subsequence $(v_k)$ of
+  $(u_k)$ converges, it must converge to 0, since $u_k$ converges to
+  $0$ in $S'$. But then $\lim || v_k ||_{(t)}=0$ which is not the case. 
+\end{rem}
+
+\setcounter{thm}{19}
+\begin{thm}[RELLICH THEOREM]\label{chap3:sec1:thm3.19} %Theorem 3.19
+  Let $H^0_s (\Omega)$ be the closure of
+   $C^\infty _0(\Omega)$ in $H_s$. If $\Omega$ is bounded and $t < s$,
+   the inclusion $H^0 _s (\Omega)\hookrightarrow H_t$ is compact,
+   i.e., bounded sets in $H^0_s(\Omega)$ are relatively compact in
+   $H_t$.
+\end{thm}
+
+\begin{proof}
+  Let $(u_k)$ be a sequence in $H^0_s (\Omega)$. To each $k$, find a
+  $v_k \epsilon C^\infty _0 (\Omega)$ such that $|| u_k-
+  v_k||_{(s)}\leq \dfrac{1}{k}$. Then we have $|| v_k ||_{(s)}\leq ||
+  u_k||_{(s)}+ |\leq c$ (independent of $k$.) Therefore, by
+  lemma \ref{chap3:sec1:lem3.17},
+  a subsequence $(w_k)$ of $(v_k)$ exists such that $(w_k)$ converges in
+  $H_t$. If $(u'_k)$ is the subsequence of $(u_k)$\pageoriginale corresponding to the
+  sequence $(w_k)$, we have  
+  \begin{align*}
+    || u'_i- u'_j||_{(t)} & < || u'_i-w_i||_{(t)} + || w_i - w_j||_{(t)} +
+    || w_j- u'_j||_{(t)}\\ 
+    & < \frac{1}{i}+ \frac{1}{j}+ || w_i - w_j||_{(t)} \to 0 ~\text {as }~
+    || i, j \to \infty.  
+  \end{align*}
+  
+  Hence  $(u'_k)$ converges in $H_t$. 
+\end{proof}
+
+I the proof of the next theorem, we will use the technique of complex
+interpolation, which is based on the following result from elementary
+complex analysis called \textit{ `Three lines lemma'}. 
+	
+\setcounter{lem}{19}
+\begin{lem} \label{chap3:sec1:lem3.19}%Lemma 3.20
+  Suppose $F(z)$ is analytic in $o < Re Z < 1$, continuous and
+  bounded on $0 \leq Re Z \leq 1$. If $|F(1+\text{it})| \leq c_0$ and
+  $|F(l+\text{it})|\leq c_1$, then $F(s+\text{it})\leq c^{1-s}_0
+  c^s_1$, for $0 < s < 1$. 
+\end{lem}
+
+\begin{proof}
+  If $\epsilon > 0$, the function 
+  $$
+  g_\epsilon (z) = c^{z-1}_0 c^{z-1}_1 e^{\epsilon (z^2 -z)}f(z)
+  $$
+  satisfies the hypotheses with $c_0$ and $c_1$ replaced by 1, and
+  also $|g_\epsilon (z)|$ converges to $0$ as $| Im z| \to \infty $
+  for $0 \leq Re Z \leq 1$. From the maximum modulus principle, it
+  follows that $|g (z) |\leq 1$ for $0 \leq Re z \leq 1$ and letting
+  $\epsilon $ tend to 0, we obtain the desired result.  
+\end{proof}
+
+\setcounter{thm}{20}
+\begin{thm} \label{chap3:sec1:thm3.21}%Theorem 3.21
+ Suppose that $-\infty < s_0 < s_1 < \infty$ and $T$ is a bounded
+  linear operator $H_{s_0}$ such that $T| H_{s_1}$ is bounded on
+  $H_{s_1}$. Then $T|H_s$ is bounded on $H_s$ for all $s$ with $s_0 \leq s \leq
+  s_1$. 
+\end{thm}
+
+\begin{proof}
+Our\pageoriginale hypothesis means that 
+$$
+\wedge^{s_0} T \wedge^{- s_0} \text { and } \wedge^{s_1} T \wedge^{-s_1}
+$$
+are bounded operators on $L^2$. For $0 \leq Re z \leq 1$ we define
+ $$
+s_z = (l-z) s_0 + zs_1 \text { and } T_z = \wedge^{s_z} T \wedge^{-s_z}.
+$$ 
+\end{proof}
+
+
+Then what we wish to prove is that $T_z$ is bounded on $L^2$ for $0
+\leq z \leq 1$. Observe that when $w= x + iy, \wedge^w, \wedge^x
+\wedge^{iy}$ and   
+\begin{align*}
+   (\wedge ^{iy}f)\hat{~}(\xi) &= (1+ |\xi|^2)^{iy/2} \hat{f}^2(\xi)
+  ~\text{ so that }\\ 
+   | (\wedge^{iy}f)\hat{~}(\xi) & = |\hat{f}(\xi)|. 
+\end{align*}
+
+Thus $\wedge^{iy}$ is unitary on $H^s$ for all $s$. 
+
+For $\phi, \psi \epsilon S$, we define 
+$$
+F(z)= \int (T_z \phi ) \psi = < \wedge^{s_z}T \wedge^{-s_z} \phi, \psi >. 
+$$
+
+Then 
+\begin{align*}
+  |F(z)|   & = | < \wedge^{s_z} T \wedge^{-s_z}\phi, \psi > |\\
+  & = | < T  \wedge^{s_z}\phi, \wedge^{-s_z}\psi >|\\
+  & \leq || T \wedge^{-s_z} \phi ||_(s_0) ||\wedge^{-s_z}\psi ||_{(-s_0)}\\
+  & \leq c ||\wedge^{-s_z}\phi ||_{s_0}||\wedge^{s_z}||_{(-s_0)}\\
+  & \leq c ||\phi ||_{(s_0-s_1) Re ~z} ||\psi ||_{(s_1- s_0) Re z}\\
+  & \leq c || \phi ||_{(0)} || \psi ||_{s_1-s_0}
+\end{align*}
+$F(z)$ is clearly an analytic function of $z$ for $0 < Re ~ z <
+1$.\pageoriginale Further, by our hypothesis on $T$, when $Re z = 0$, we have  
+$$
+|F(z)| \leq c_0|| \phi || _{(0)}||\psi||_{(0)}
+$$
+and when $Re z=1$, we have
+$$
+|F(z)|\ \leq c_1 || \phi || _{(0)}||\psi||_{(0)}.
+$$
+
+Therefore, by the Three lines lemma 
+$$
+|F(z)| \leq c^{1-z}_0 c^{z}_0 || \phi || _{(0)}||\psi||_{(0)}\text{
+  for } 0 < z< 1. 
+$$
+
+Finally, by the self duality of $H_0 = L^2$, this gives 
+$$
+||T_z \phi ||\ \leq c^{1-z}_0 c^{z}_0 || \phi || _{(0)}
+$$
+which completes the proof. 
+
+\setcounter{rem}{21}
+\begin{rem} \label{chap3:sec1:rem3.22}%Remark 3.22
+  The same proof also yields the following \textit{more general result: }
+  
+  Suppose $\infty < s_0< s_1< \infty < t_0< t_1<\infty $. If $T$ is a
+  bounded linear operator from $H_{s_0}$ to $H_{t_0}$ whose restriction
+  to $H_{s_1}$ to $H_{t_1}$,  then the restriction of $T$ to
+  $H_{t_\theta}$ is bounded from $H_{t_\theta}$ to $H_{t_\theta}$ for $0
+  < \theta < 1$ where $s_\theta = (1 - \theta)s_0 + \theta s_1$ and
+  $t_\theta = (1-\theta) t_0 + \theta t_1$.  
+  
+  As a consequence of this result, we obtain an easy proof that
+  $H^{\loc}_s$ is invariant under smooth coordinate changes.  
+\end{rem}
+
+\setcounter{thm}{22}
+\begin{thm} \label{chap3:sec1:thm3.23}%Theorem 3.23
+Suppose $\Omega$ and $\Omega'$  are open subsets of
+  $\mathbb{R}^n$ and $\phi: \Omega \to \Omega'$ is a
+  $C^\infty$\pageoriginale diffeomorphism. Then the mapping $f \to f o \phi $ maps
+  $H^{\loc}_s(\Omega')$. continuously onto $H^{\loc}_{s}(\Omega)$. 
+\end{thm}
+
+\begin{proof}
+  The statement of the theorem is equivalent to the assertion that for
+  any $\phi \epsilon C^\infty_0 (\Omega')$, the map $Tf = (\phi f)
+  \circ \phi$ is bounded on $H_s$ for $s \epsilon \mathbb{R}$. If $s
+  = 0, 1, 2, \ldots, $ this follows from the chain rule and the fact
+  that $H_s =\{ f: D^\propto f \epsilon L^2$ for $|\propto|\leq s \}
+  $. By Theorem \ref{chap3:sec1:thm3.21}, it is true for all $s \geq
+  0$. But the adjoint of $T$ is another map of the same form :  
+\end{proof}
+
+$T^*g = (\psi g)_\circ \psi $ where $\psi = \theta^{-1}$ and $\psi =
+\phi |J|\circ \Phi, J $ being the Jacobian determinant of
+$\Phi^{-1}$. Hence $T^*$ is bounded on $H_s$ for all $s\geq 0$ and by
+duality of $H_s$ and $H_{-s}$, this yields the boundedness of $T$ on $H_s$
+for $s < 0$.  
+
+Finally, we ask to what extend the $H_s$ spaces include all
+distributions. Globally they do not, since, if $f \epsilon H_s$,
+then $f$ is tempered and  $\hat{f}$ is a function. But locally they
+do, as we see from the following result.  
+	
+\setcounter{prop}{23}
+\begin{prop}\label{chap3:sec1:prop3.24}%propo 3.24
+   Every distribution with compact support lies in some $H_s$:
+   i.e., $E' \subset \bigcup\limits_{s \in \mathbb{R}} H_s$. 
+\end{prop}	
+
+\begin{proof}
+  If $f \epsilon E'$, then it is a continuous linear functional on
+  $C^\infty$. Therefore, there exists a constant $c > 0$, a compact set
+  $K$, and a nonnegative integer $k$ such that  
+  $$
+  | < f, \phi >| \leq c \sum_{|\propto|\leq k} \sup_k |D^\propto \phi|
+  \text{ for all } \phi \epsilon C^\infty,  
+  $$
+  i.e., $| < f, \phi > | \le c \sum\limits_{|\alpha| \le | k}
+  \sup\limits_{\mathbb{R}^n} |D^{\alpha}\phi|$ for all $\phi \epsilon
+  C^{\infty}$.\pageoriginale 
+  
+  By the Sobolev imbedding theorem, 
+  $$
+  \sum_{|\propto|\leq k}\sup_{\mathbb{R}^n} |D^{\alpha} \phi| \leq c'
+  ||\phi||_{(k+\frac{n}{2}+\epsilon)} ~\text{for}~  \epsilon > 0. 
+  $$
+  
+  Therefore, $|< f, \phi > | \leq c'' ||_{\left(k+\frac{n}{2}+\epsilon\right)}$
+  for all $\phi \epsilon S$ since $S$ is dense in
+  $H_{(k+\frac{n}{2}+\epsilon)}$, this shows that $f$ is a continuous
+  linear functional on $H_{\left(k+\frac{n}{2}+\epsilon\right)}$. Hence $f
+  \epsilon H_{-\frac{n}{2}-k-\epsilon}$. 
+\end{proof}
+
+\setcounter{coro}{24}
+\begin{coro}\label{chap3:sec1:coro3.25}%Corollary 3.25
+  If $f \epsilon D' (\Omega)$ and $\Omega'$ has compact closure
+  in $\Omega$ then there exists $s$ in $\mathbb{R}$ such that $f
+  \epsilon H^{\loc}_s(\Omega')$.   
+\end{coro}
+
+\section[Hypoelliptic Operators With Constant
+  Coeffi\-cients]{Hypoelliptic Operators With Constant\hfill\break
+  Coeffi\-cients}\label{chap3:sec2} %sec 2
+
+We now apply the machinery of Sobolev spaces to derive a criterion
+for the hypoellipticity of constant coefficient differential
+operators. First, we have a few preliminaries.  
+
+\setcounter{defi}{25}
+\begin{defi} \label{chap3:sec2:def3.26}%Definition 3.26
+  Let $P$ be a polynomial in $n$ variables. For a multi-index $\propto,
+  P^{(\propto)}$ will ne defined by $P^{(\propto)}(\xi) =
+  (\dfrac{\partial}{\partial \xi})^\propto P(\xi) $.  
+\end{defi}
+
+\setcounter{prop}{26}
+\begin{prop} \label{chap3:sec2:prop3.27}%prop 3.27
+  \textbf{LEIBNIZ RULE} When $f \epsilon C^\infty, g
+  \epsilon D'$ and $P(D)$ is a constant-coefficient partial
+  differential operator of order $k$, we have  
+$$
+P(D) (fg)  = \sum_{|\propto| \leq k } \dfrac{1}{\propto !}
+(P^{(\propto)} (D)g) D^\propto f). 
+$$
+The proof of this proposition is left as an exercise to the reader. 
+\end{prop}
+
+\setcounter{defi}{27}
+\begin{defi}\label{chap3:sec2:def3.28} %% 3.28
+  We\pageoriginale say that a polynomial $P$ satisfies condition $(H)$ if there
+  exists a $\delta > 0$ such that  
+  $$
+  \frac{|P^{(\propto)}(\xi)|}{|P(\xi)|}= 0~
+  (|\xi|^{-\delta|\alpha|})\text{ as }|\delta| \to \infty, \forall
+  \propto.  
+  $$
+\end{defi}
+
+\setcounter{thm}{28}
+\begin{thm}[H\"{O}RMANDER]\label{chap3:sec2:def3.29}%Theorem 3.29
+  If $P$ satisfies condition $(H)$,
+    then $P(D)$ is hypoelliptic. More precisely, if $f$ is in $D'
+    \Omega)$and $P(D) \,f H^{\loc}_{s+k \delta}(\Omega)$, where $\delta$
+    is as in condition $(H)$ and $k$ is the degree of $P$.  
+\end{thm}
+
+\begin{proof}
+We first observe that the second assertion implies the first since
+$C^\infty (\Omega)= \bigcap\limits_{s \epsilon \mathbb{R}}
+H^{\loc}_{s}(\Omega)$ by Corollary \ref{chap3:sec1:coro3.8}.  
+\end{proof}
+
+Suppose therefore that $P(D) f \epsilon H^{\loc}_s(\Omega), f
+\epsilon D' (\Omega)$. Given $\phi \epsilon
+C^\infty_\circ(\Omega)$ we have to prove that $\phi f \epsilon
+H_{s+k\delta}$. Let $\Omega'$, be an open set such that $\Omega' \Subset
+\Omega$ and $\supp \phi \subset \Omega'$. By
+Corollary \ref{chap3:sec1:coro3.25}, therefore
+exists $t$ in $\mathbb{R}$ such that $f \epsilon H^{\loc}_t(\Omega
+')$. By decreasing $t$, we can some that $t = s+ k -1-m\delta$ for
+assume positive integer $m$. Set $\phi_m = \phi $ and then choose
+$\phi _{m-1},\phi _{m-2},\ldots, \phi_0, \phi{-1}$ in
+$C^\infty_0(\Omega')$ such that $\phi_j = 1$ on $\supp \phi_{j+1}$.  
+	
+Then $\phi_j P(D) f \epsilon H_S \subset H_{t-k+l+j\delta}$ for $0
+\leq j \leq m$ and $\phi_{-1}f \epsilon H_t$. Now  
+$$
+P(D) (\phi_0 f ) = \phi _0 P(D) f + \sum_{\propto \neq
+  0}\frac{1}{\propto!} P^{\propto}(D) (\phi_{-1}f)D^{\propto_{\phi_0}} 
+$$
+since $\theta_{-1}=1$ on the support of $\phi _0$. So, $P(D) (\phi_0
+f) \epsilon H_{r-k+1}$. This means that  
+$$
+\int (1+ |\xi|^2)^{t-k+1}|P(\xi)(\phi_0 f)\hat{~}(\xi)|^2 d\xi < \infty. 
+$$ 
+By\pageoriginale condition (H)
+$$
+\int (1 +|\xi|^2)^{t-k+l+\delta|\delta|} |P^{\propto|} (\xi)(\phi_0f)^(\xi)
+|^2 d \xi < \infty  
+$$
+This implies that 
+$P^{(\alpha)}(D) (\phi_\circ f)\epsilon H_t-k + l + \delta |\delta|$.
+
+Next, 
+$$
+P(D)(\phi_1 f) = \phi_1 P(D) f + \sum_{\propto\neq 0}
+\frac{1}{\propto !} p^{(\propto)}(D)(\phi_o f) D^{\propto}(\phi_1 f) 
+$$
+since $\phi_0 = 1$ on the support of $\phi_1$, so $P(D) (\phi_1 f)
+\epsilon H_{t - k +1+\delta}$. By the same argument same argument
+as above,  
+$$
+P^{(D)}(\phi_1 f) \epsilon H_{t + k+l+\delta (1+|\propto|)}. 
+$$
+
+Continuing inductively, we obtain $P(D) (\phi_j f)\epsilon
+H_{t-k+l+j\delta}$, which implies that  
+$$
+P^{(\propto)} (D) (\phi_j f )\epsilon H_{t- k+l + \delta (j+|\propto|)}. 
+$$
+For $j = m$, we above 
+$$
+P^{(\propto)}(D)(\phi_m f) \epsilon H_{t- k+l+\delta (m + (\delta))}
+= H_{s + \delta |\propto|}.  
+$$
+If 
+$$
+P(\xi) = \sum_{|\propto|\leq k} a_\propto \xi^{\propto}, 
+$$
+choose $\propto$ with $|\propto|= k$ such that $a_\propto \neq
+0$. Then $P^{\propto}(\xi)= \propto ! a_{\propto}\neq 0$. whence $\phi
+f= \phi_m f \epsilon H_{s+k\delta}$ and we are done.  
+
+\setcounter{rem}{29}
+\begin{rem} \label{chap3:sec2:rem3.30}%Remark 3.30
+  The\pageoriginale condition (H) is equivalent to the following apparently weaker condition 
+  $$
+  (H'): \frac{|p^{(\propto)(\xi)}|}{|P(\xi)|} \to 0\text{ as } |\xi |
+  \to \infty \text{ for } \propto \neq 0. 
+  $$
+  Condition $(H')$ is in turn equivalent to 
+  $$
+  (H'') : |\text{Im} \zeta| \to \infty, \text{ in the set }~\{ \zeta \epsilon
+  \varmathbb{C}^n : P(\zeta) = 0\}.  
+  $$
+\end{rem}
+	
+The converse of H\"{o}rmander's theorem is also true,
+i.e., hypoellipticity implies condition (H).  
+	
+The proofs of these assertions can be found in H\"{o}rmander \cite{6}. The
+logical order of the proofs is  
+$$
+(H) \Rightarrow hypoellipticity \Rightarrow ({H''})\Rightarrow ({H'})
+\Rightarrow(H). 
+$$
+	
+The implication $(H')\Rightarrow (H)$ requires the use of some results
+from (semi) algebraic geometry.  
+
+\setcounter{defi}{30}
+\begin{defi} \label{chap3:sec2:def3.31}%Definition 3.31
+$P(\xi)= \sum\limits_{|\propto|\leq k} a_\propto \xi^\propto$ is called
+  \textit{ elliptic } if $\sum\limits_{|\propto|= k} a_\propto
+  \xi^\propto \neq 0$  for every $\xi \neq 0$. 
+\end{defi}
+
+\textbf{EXERCISES}
+\begin{enumerate}
+\item Prove that $P$ is elliptic if and only if $|P(\xi)|\geq c_\circ
+  |\xi|^k$ for large $|\xi|$.  
+\item Prove that $P$ is elliptic if and only if $P$ satisfies
+  condition $(H) $ with $\delta =1$.  
+\item Prove that no $P$ satisfies condition $(H)$ with $\delta >
+  1$. (Hint: If $|\propto|= k, P^{(\propto)}$ is a constant).  
+\item Let\pageoriginale $P$ be elliptic and real valued. Define $ Q$ on
+  $\mathbb{R}^{n+1}$ by $Q(\xi, \tau)=2 \pi i \tau +P(\xi)$, so that $
+  Q(D_x, D_t) = \partial_t + P(D_x)$. Show that $ Q$ satisfies
+  condition $(H)$ with $\delta = 1/k$ where $k$ is the degree of $P$
+  and that $1/k$ is the best possible value of $\delta$. 
+
+  (Hint : Consider the regions $| \xi |^k \le |\tau |$ and $|\tau| \le
+|\xi|^k$ separately). 
+\end{enumerate}

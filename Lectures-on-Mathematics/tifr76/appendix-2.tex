@@ -1,0 +1,2064 @@
+
+\makeatletter
+
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\bfseries Appendix\space \thechapter
+       \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1 \par\nobreak
+    \vskip 40\p@
+  }}
+
+\c@tocdepth=1
+\renewcommand\thesection{\@Alph\thechapter.\@arabic\c@section}
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                       \if@mainmatter
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                         \addcontentsline{toc}{chapter}%
+                                   {\protect\numberline{}
+                          Appendix 2: #1}%
+                       \else
+                         \addcontentsline{toc}{chapter}{#1}%
+                       \fi
+                    \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                    \fi
+                    \chaptermark{#1}%
+                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
+
+\makeatother
+
+\chapter{Complements of Chapter IV}
+
+
+In\pageoriginale this appendix, we give complete proofs for several results we used in Chapter \ref{chap4}, $\S \S 5$ and 6 and which were omitted there for the sake of brevity. The notation is that of Chapter \ref{chap4} and our exposition follows E1 Hajji \cite{10}.
+
+To begin with, we make precise a few definitions and elementary properties. Let $E$ be a real Banach space with norm $|| \cdot ||$ and $Q$ a compact space. The Banach space $C^{0} (Q, E)$ will be equipped with the norm $| \cdot |_{\infty, Q}$ defined by
+$$
+\psi \epsilon C^{0} (Q, E) \to |\psi|_{\infty, Q} = \sup_{x \epsilon
+  Q} ||\psi(x)||. 
+$$
+
+Now, if $\Omega$ denotes an open subset of some other real Banach
+space and $m \geq 0$ a given integer, we call
+$C^{m}(\overline{\Omega}, E)$ the space of mappings $m$ times
+differentiable in $\Omega$ whose derivatives of order $\leq m$ can be
+continuously extended to the closure $\overline{\Omega}$. Note that if
+the ambient space of $\Omega$ is infinite-dimensional,
+$C^{m}(\overline{\Omega}, E)$ is not a normed space, even when
+$\Omega$ is bounded. On the contrary, if $\Omega$ is bounded and its
+ambient space is finite-dimensional, $C^{m}(\overline{\Omega}, E)$ is
+a Banach space with the norm
+$$
+\psi \epsilon C^{m}(\overline{\Omega}, E) \to \sum\limits_{i=0}^{m}
+\sup_{x \epsilon \overline{\Omega}} ||D^{i} \psi (x)|| =
+\sum\limits_{i=0}^{m} |D^{i} \psi|_{\infty, \overline{\Omega}}.
+$$
+
+In other words, convergence in the space $C^{m}(\overline{\Omega}, E)$
+is equivalent to convergence of the derivatives of order $\leq m$ in
+the uniform norm.
+
+Our\pageoriginale first task is to prove, for $r > 0$ and $\delta > 0$
+small enough, that the sequence $(g_{\ell})$
+(resp. $(D_{\widetilde{\xi}}g_{\ell})$) tends to $g$
+(resp. $D_{\widetilde{\xi}}g$) in the space $C^{0}([-r, r] \times
+\triangle, \mathbb{R}^{n})$ (resp. $C^{0} ([-r, r] \times \triangle,
+\mathscr{L} (\mathbb{R}^{n+1}, \mathbb{R}^{n}))$). Since the results
+we are looking for are local, it is not restrictive to assume that
+$\mathscr{O}$ (in IV.5) is {\em convex} and $r > 0$ is chosen so that
+$t \widetilde{\xi} \epsilon \mathscr{O}$ for every $t \epsilon [-r,
+  r]$ and every $\widetilde{\xi} \epsilon \triangle$.
+
+Due to the definition of $k$, the Taylor formula shows for $0 < |t| \leq
+r$ and $\widetilde{\xi} \epsilon \triangle$ that
+$$
+g_{\ell} (t, \widetilde{\xi}) -g(t, \widetilde{\xi}) = k \int_{0}^{1}
+(1-s)^{k-1} D^{k} (f_{\ell} - f) (st \widetilde{\xi}) \cdot
+(\widetilde{\xi})^{k} ds.
+$$
+
+From the definitions, this remains true for $t = 0$ and, as
+$||\widetilde{\xi}|| \leq 1 + \delta / 2$ we get
+\begin{equation*}
+|g_{\ell} - g|_{\infty, [-r, r] \times \triangle} \leq \left(1 +
+\frac{\delta}{2}\right)^{k} |D^{k} (f_{\ell} - f)|_{\infty,
+  \overline{\mathscr{O}}}.\tag{A2.1} \label{app-2-eqA2.1}
+\end{equation*}
+
+Also, for $t \neq 0$, we have
+\begin{equation*}
+D_{\widetilde{\xi}}(g_{\ell}-g) (t, \widetilde{\xi}) =
+\frac{k!}{t^{k-1}} D(f_{\ell} - f) (t \widetilde{\xi}),\tag{A2.2}\label{app-2-eqA2.2}
+\end{equation*}
+while the relation $g_{\ell}(0, \cdot) = g(0, \cdot) = q$ for every
+$\ell \geq 0$ yields 
+\begin{equation*}
+D_{\widetilde{\xi}}(g_{\ell} - g)(0, \widetilde{\xi}) = 0.\tag{A2.3}\label{app-2-eqA2.3}
+\end{equation*}
+
+Thus, if $k = 1$
+\begin{equation*}
+|D_{\widetilde{\xi}}(g_{\ell} - g)|_{\infty, [-r, r]} \times \Delta \leq k(1
++ \frac{\delta}{2})^{k-1} |D^{k}(f_{\ell}-f)|_{\infty,
+  \overline{\mathscr{O}}}.\tag{A2.4} \label{app-2-eqA2.4}
+\end{equation*}
+
+In order to show that the above formula remains true also when $k \geq
+2$, it suffices to apply the Taylor formula to the term $D(f_{\ell} -
+f)$ and to substitute it in (\ref{app-2-eqA2.2}); we then find, for $0 < |t| \leq
+r$\pageoriginale and $\widetilde{\xi} \epsilon \triangle$, that
+$$
+D_{\widetilde{\xi}}(g_{\ell}-g) (t, \widetilde{\xi}) = k(k-1)
+\int_{0}^{1} (1-s)^{k-2} D^{k}(f_{\ell}-f) (st \widetilde{\xi}) \cdot
+(\widetilde{\xi})^{k-1} ds,
+$$
+and this relation remains valid for $t = 0$, which establishs (\ref{app-2-eqA2.4})
+immediately. The assertion follows from (\ref{app-2-eqA2.1}) and (\ref{app-2-eqA2.4}) and the
+convergence of the sequence $(f_{\ell})$ to $f$ in the space
+$C^{k}(\overline{\mathscr{O}}, \mathbb{R}^{n})$.
+
+It is then easy to deduce that the sequence $(M_{\ell})$ (respectively\break
+$(D_{\widetilde{\xi}} M_{\ell})$) tends to $M$ (respectively
+$D_{\widetilde{\xi}}M$) uniformly in the set $[-r, r] \times C \times
+\triangle$. More precisely, introducing
+\begin{equation*}
+w(\delta) = \sup_{\widetilde{\zeta}_0 \epsilon C}
+||A(\widetilde{\zeta}_{0}) - A(\widetilde{\xi}_{0})|| = |A -
+A(\widetilde{\xi}_{0})|_{\infty, C},\tag{A2.5}\label{app-2-eqA2.5}
+\end{equation*}
+one has
+\begin{equation*}
+|M_{\ell} - M|_{\infty, [-r, r] \times C \times \triangle} \leq
+(||A(\widetilde{\xi}_{0})|| + w(\delta)) |g_{\ell} - g|_{\infty, [-r,
+    r] \times \triangle}\tag{A2.6}\label{app-2-eqA2.6}
+\end{equation*}
+
+Besides, the same arguments leads to the inequality
+\begin{equation*}
+|M_{\ell} (t, \cdot , \cdot)-M(t, \cdot , \cdot)|_{\infty, C \times
+  \triangle} < \left(||A(\widetilde{\xi}_{0})|| + w(\delta)\right)
+|g_{\ell}(t, \cdot)-g(t, \cdot)|_{\infty, \triangle},\tag*{(A2.6)$'$}\label{app-2-eqA2.6'}
+\end{equation*}
+for every $t \epsilon [-r, r]$.
+
+Now, for $(t, \widetilde{\zeta}_{0}, \widetilde{\xi}) \epsilon [-r, r]  
+\times C \times \triangle$
+$$ 
+||N_{\ell}(t, \widetilde{\zeta}_{0}, \widetilde{\xi})-N(t,
+\widetilde{\zeta}_{0}, \widetilde{\xi})|| \leq 2 \frac{||M_{\ell}(t,
+  \widetilde{\zeta}_{0}, \widetilde{\xi}) -M(t, \widetilde{\zeta}_{0},
+   \widetilde{\xi})||}{||M(t, \widetilde{\zeta}_{0}, \widetilde{\xi})||}
+$$ 
+
+Hence, from Lemma \ref{chap4-lem2.1} of Chapter \ref{chap4}
+\begin{equation*}
+|N_{\ell} - N|_{\infty, [-r, r] \times C \times \triangle} \leq
+\frac{2}{1 - \delta} |M_{\ell} - M|_{\infty, [-r, r] \times C \times
+  \triangle},\tag{A2.7} \label{app-2-eqA2.7}
+\end{equation*}
+from which it follows that the sequence $(N_{\ell})$ tends to $N$
+uniformly in\pageoriginale the set $[-r, r] \times C \times \triangle$. The same
+method shows that
+\begin{equation*}
+|N_{\ell}(t, \cdot, \cdot) -N(t, \cdot , \cdot)|_{\infty, C \times
+  \triangle} < \frac{2}{1 - \delta} |M_{\ell} (t, \cdot , \cdot) -
+M(t, \cdot, \cdot)|_{\infty, C \times \triangle},\tag*{(A2.7)$'$}\label{app-2-eqA2.7'}
+\end{equation*}
+for every $t \epsilon [-r, r]$.
+
+The proof of Theorem \ref{chap4-thm5.1} of Chapter \ref{chap4} is
+based on the following estimate. 
+
+\begin{alphlemma}\label{app-2-lemA2.1}%[A2.1]
+For every triple $(t, \widetilde{\zeta}_{0}, \widetilde{\xi}) \epsilon
+[-r, r] \times C \times \triangle$ and every $\ell \epsilon
+\mathbb{N}$, one has
+\begin{align*}
+& ||D_{\widetilde{\xi}}N_{\ell} (t, \widetilde{\zeta}_{0},
+\widetilde{\xi})|| \leq \frac{3\delta}{(1 - \delta^{3})} +
+\frac{2||D_{\widetilde{\xi}}g_{\ell} (0, \widetilde{\xi}_{0})||}{(1 -
+  \delta)} w(\delta) +\\
+& + 2 \left[\frac{||A(\widetilde{\xi}_{0})|| +
+    w(\delta)}{(1-\delta)}\right] \left[\frac{3}{(1 - \delta)^{2}}||
+  g_{\ell} (t, \widetilde{\xi})|| + ||D_{\widetilde{\xi}}g_{\ell} (t,
+  \widetilde{\xi}) - D_{\widetilde{\xi}}g_{\ell} (0,
+  \widetilde{\xi}_{0})||\right].\tag{A2.8} \label{app-2-eqA2.8}
+\end{align*}
+\end{alphlemma}
+
+
+\begin{proof}
+In this proof, it will be convenient to use the following natation:
+$M_{\ell}^{*}$ (resp. $\Lambda_{\ell}^{*}$) will denote the value
+$M(t, \widetilde{\zeta}_{0}, \widetilde{\xi})$
+(resp. $D_{\widetilde{\xi}}M_{\ell} (t, \widetilde{\zeta}_{0},
+\widetilde{\xi})$) at some arbitrary point $(t, \widetilde{\zeta}_{0},
+\widetilde{\xi}) \epsilon [-r, r] \times C \times \triangle$ and
+$M_{\ell}^{0}$ (resp. $\Lambda_{\ell}^{0}$) the particular value
+$M_{\ell}(0, \widetilde{\xi}_{0}, \widetilde{\xi}_{0})$
+(resp. $D_{\widetilde{\xi}}m_{\ell} (0, \widetilde{\xi}_{0},
+\widetilde{\xi}_{0})$). Thus, by the definition of $M_{\ell}$
+\begin{equation*}
+M_{\ell}^{0} = \widetilde{\xi}_{0}.\tag{A2.9}\label{app-2-eqA2.9}
+\end{equation*}
+
+On the other hand, the calculation of $D_{\widetilde{\xi}}M(0,
+\widetilde{\xi}_{0}, \widetilde{\xi}_{0})$ made in Chapter
+\ref{chap4}, $\S 3$ can be repeated for finding
+$D_{\widetilde{\xi}}M_{\ell} (0, \widetilde{\xi}_{0},
+\widetilde{\xi}_{0}) = \Lambda_{\ell}^{0}$ so that
+\begin{equation*}
+\Lambda_{\ell}^{0} \widetilde{h} = (\widetilde{\xi}_{0} |
+\widetilde{h}) \widetilde{\xi}_{0},\tag{A2.10}\label{app-2-eqA2.10}
+\end{equation*}
+for every $\widetilde{h} \epsilon \mathbb{R}^{n+1}$. As a result
+\begin{equation*}
+||M_{\ell}^{0}|| = 1,\tag{A2.11}\label{app-2-eqA2.11}
+\end{equation*}
+
+\begin{equation*}
+||\Lambda_{\ell}^{0}|| = 1.\tag{A2.12}\label{app-2-eqA2.12}
+\end{equation*}\pageoriginale
+
+With the notation introduced above, an elementary calculation gives
+\begin{equation*}
+D_{\widetilde{\xi}}N_{\ell} (t, \widetilde{\zeta}_{0},
+\widetilde{\xi}) \cdot \widetilde{h} = \frac{\Lambda_{\ell}^{*}
+  \widetilde{h}}{||M_{\ell}^{*}||} - \frac{(\Lambda_{\ell}^{*} \widetilde{h} |
+  M_{\ell}^{*})}{||M_{\ell}^{*}||^{3}} M_{\ell}^{*},\tag{A2.13}\label{app-2-eqA2.13}
+\end{equation*}
+for every $\widetilde{h} \epsilon \mathbb{R}^{n+1}$. In particular,
+choosing $(t, \widetilde{\zeta}_{0}, \widetilde{\xi}) = (0,
+\widetilde{\xi}_{0}, \widetilde{\xi}_{0})$, we get
+\begin{equation*}
+D_{\widetilde{\xi}}N_{\ell}(0, \widetilde{\xi}_{0},
+\widetilde{\xi}_{0}) = \Lambda_{\ell}^{0} \widetilde{h} -
+(\Lambda_{\ell}^{0} \widetilde{h} | M_{\ell}^{0}) M_{\ell}^{0}\tag{A2.14}\label{app-2-eqA2.14}
+\end{equation*}
+
+Next, from (\ref{app-2-eqA2.9})-(\ref{app-2-eqA2.10}), it follows that
+$D_{\widetilde{\xi}}N_{\ell} (0, \widetilde{\xi}_{0},
+\widetilde{\xi}_{0}) = 0$.\break Therefore the relation (\ref{app-2-eqA2.13}) is unchanged
+by subtracting (\ref{app-2-eqA2.14}) from it, which means that
+$$
+D_{\widetilde{\xi}}N_{\ell} (t, \widetilde{\zeta}_{0},
+\widetilde{\xi}) \cdot \widetilde{h} = \left(\frac{\Lambda_{\ell}^{*}
+  \widetilde{h}}{||M_{\ell}^{*}||} - \Lambda_{\ell}^{0}
+\widetilde{h}\right) - \left(\frac{(\Lambda_{\ell}^{*} \widetilde{h} |
+  M_{\ell}^{*})}{||M_{\ell}^{*}||^{3}} M_{\ell}^{*} -
+(\Lambda_{\ell}^{0} \widetilde{h} | M_{\ell}^{0})M_{\ell}^{0}\right)
+$$
+for every $\widetilde{h} \epsilon \mathbb{R}^{n+1}$. Hence the
+inequality
+\begin{equation*}
+||D_{\widetilde{\xi}}N_{\ell} (t, \widetilde{\zeta}_{0},
+\widetilde{\xi}) \cdot \widetilde{h}|| \leq
+||\frac{\Lambda_{\ell}^{*}\widetilde{h}}{||M_{\ell}^{*}||} -
+\Lambda_{\ell}^{0} \widetilde{h}|| +
+||\frac{(\Lambda_{\ell}^{*}\widetilde{h} |
+  M_{\ell}^{*})}{||M_{\ell}^{*}||^{3}} M_{\ell}^{*} -
+(\Lambda_{\ell}^{0} \widetilde{h} | M_{\ell}^{0})M_{\ell}^{0}||.\tag{A2.15}\label{app-2-eqA2.15}
+\end{equation*}
+
+As a first step, we establish an estimate for the term
+$||\frac{\Lambda_{\ell}^{*} \widetilde{h}}{||M_{\ell}^{*}||} -
+\Lambda_{\ell}^{0} \widetilde{h}||$. One has
+$$
+\frac{\Lambda_{\ell}^{*} \widetilde{h}}{||M_{\ell}^{*}||} -
+\Lambda_{\ell}^{0} \widetilde{h} = \frac{1}{||M_{\ell}^{*}||}
+((\Lambda_{\ell}^{*})\widetilde{h} + (1 - ||M_{\ell}^{*})
+\Lambda_{\ell}^{0}\widetilde{h}). 
+$$
+
+From (\ref{app-2-eqA2.11}), we first find a majorisation by
+$$
+\frac{1}{||M_{\ell}^{*}||} \left(||\Lambda_{\ell}^{*} -
+\Lambda_{\ell}^{0}|| + |1 - ||M_{\ell}^{*}|| |\right)
+||\widetilde{\mathscr{h}}||. 
+$$
+
+Now,\pageoriginale since $|1 - ||M_{\ell}^{*}||| \leq ||M_{\ell}^{*} -
+M_{\ell}^{0}||$ (cf. (\ref{app-2-eqA2.11}))
+\begin{equation*}
+||\frac{\Lambda_{\ell}^{*} \widetilde{h}}{||M_{\ell}^{*}||} -
+\Lambda_{\ell}^{0} \widetilde{h}|| \leq \frac{1}{||M_{\ell}^{*}||}
+(||\Lambda_{\ell}^{*} - \Lambda_{\ell}^{0})|| + ||M_{\ell}^{*} -
+M_{\ell}^{0}||) ||\widetilde{h}||.\tag{A2.16}\label{app-2-eqA2.16}
+\end{equation*}
+
+Next, we look for an appropriate majorisation of the second term
+appearing in the right hand side of (\ref{app-2-eqA2.15}), namely 
+$$||\frac{(\Lambda_{\ell}^{*} \widetilde{h} |
+  M_{\ell}^{*})}{||M_{\ell}^{*}||^{3}} M_{\ell}^{*} -
+(\Lambda_{\ell}^{0} \widetilde{h} | M_{\ell}^{0})
+M_{\ell}^{0}||.$$ Here, we use the identity
+\begin{align*}
+\frac{(\Lambda_{\ell}^{*} \widetilde{h} |
+  M_{\ell}^{*})}{||M_{\ell}^{*}||} M_{\ell}^{*} & - (\Lambda_{\ell}^{0}
+\widetilde{h} | M_{\ell}^{0}) M_{\ell}^{0} =
+\frac{1}{||M_{\ell}^{*}||^{3}} \{((\Lambda_{\ell}^{*} -
+\Lambda_{\ell}^{0}) \widetilde{h} | M_{\ell}^{*}) M_{\ell}^{*} +\\
+ & + (\Lambda_{\ell}^{0}  \widetilde{h} | M_{\ell}^{*}) (M_{\ell}^{*}
+- M_{\ell}^{0}) + (\Lambda_{\ell}^{0}  \widetilde{h}, M_{\ell}^{*} -
+M_{\ell}^{0}) M_{\ell}^{0} + \\
+& + (1 - ||M_{\ell}^{*}||^{3}) (\Lambda_{\ell}^{0}
+\widetilde{h}. M_{\ell}^{0})M_{\ell}^{0}\}. 
+\end{align*}
+
+As $|1 - ||M_{\ell}^{*}||^{3}| = |1 - ||M_{\ell}^{*}|| | (1 +
+||M_{\ell}^{*}|| + ||M_{\ell}^{*}||^{2})$ and using the inequality $|1
+- ||M_{\ell}^{*}|| | \leq ||M_{\ell}^{*} - M_{\ell}^{0}||$, we obtain
+\begin{align*}
+& || \frac{(\Lambda_{\ell}^{*}  \widetilde{h} |
+    M_{\ell}^{*})}{||M_{\ell}^{*}||} M_{\ell}^{*} -
+  (\Lambda_{\ell}^{0}  \widetilde{h} | M_{\ell}^{0}) M_{\ell}^{0}||
+  \leq \tag{A2.17}\label{app-2-eqA2.17} \\
+& \leq \{\frac{1}{||M_{\ell}^{*}||} ||\Lambda_{\ell}^{*} -
+  \Lambda_{\ell}^{0}|| + \left(\frac{1}{||M_{\ell}^{*}||} +
+  \frac{2}{||M_{\ell}^{*}||^{2}} +
+  \frac{2}{||M_{\ell}^{*}||^{3}}\right) ||M_{\ell}^{*} -
+  M_{\ell}^{0}||\} || \widetilde{h}||.
+\end{align*}
+
+Using (\ref{app-2-eqA2.16}) and (\ref{app-2-eqA2.17}) in (\ref{app-2-eqA2.15}), we arrive at
+$$
+||D_{\widetilde{\xi}}N_{\ell}(t,  \widetilde{\zeta}_{0},
+\widetilde{\xi})|| \leq \frac{2}{||M_{\ell}^{*}||}
+\{||\Lambda_{\ell}^{*} - \Lambda_{\ell}^{0}|| + \left(1 +
+\frac{1}{||M_{\ell}^{*}} + \frac{1}{||M_{\ell}^{*}||^{2}}\right)
+||M_{\ell}^{*} - M_{\ell}^{0}||\}.
+$$
+
+In view of Lemma \ref{chap4-lem2.1} of Chapter \ref{chap4} and from
+$0 < 1 - \delta < 1$, this inequality\pageoriginale takes the simpler
+form
+\begin{equation*}
+||D_{ \widetilde{\xi}}N_{\ell} (t,  \widetilde{\zeta}_{0},
+\widetilde{\xi})|| \leq \frac{2}{1 - \delta}
+\left(||\Lambda_{\ell}^{*} - \lambda_{\ell}^{0}|| +
+\frac{3}{(1-\delta)^{2}} ||M_{\ell}^{*} - M_{\ell}^{0}||\right).\tag{A2.18}\label{app-2-eqA2.18}
+\end{equation*}
+
+At this stage, proving our assertion reduces to finding a suitable
+estimate for the two terms $||\Lambda_{\ell}^{*} -
+\Lambda_{\ell}^{0}||$ and $||M_{\ell}^{*} - M_{\ell}^{0}||$. We begin
+with a majorisation of $||M_{\ell}^{*} - M_{\ell}^{0}||$. By (\ref{app-2-eqA2.9})
+and the definition of the mapping $M_{\ell}$,
+\begin{align*}
+||M_{\ell}^{*} - M_{\ell}^{0}|| & \leq || \widetilde{\xi} -
+\widetilde{\xi_{0}}|| + ||A( \widetilde{\zeta}_{0}) \cdot g_{\ell} (t,
+ \widetilde{\xi})||\\
+& \leq \frac{\delta}{2} + ||A( \widetilde{\zeta}_{0})|| ||g_{\ell}(t,
+ \widetilde{\xi})||. 
+\end{align*}
+
+As $||A( \widetilde{\zeta}_{0})|| \leq ||A( \widetilde{\xi}_{0})|| +
+w(\delta)$ by the definition of $w(\delta)$ (of. (\ref{app-2-eqA2.5}))
+\begin{equation*}
+||M_{\ell}^{*} - M_{\ell}^{0}|| \leq \frac{\delta}{2} + \left(||A(
+\widetilde{\xi}_{0})|| + w(\delta)\right) ||g_{\ell}(t,
+\widetilde{\xi})||.\tag{A2.19} \label{app-2-eqA2.19}
+\end{equation*}
+
+Finally, it is immediate that
+$$
+\Lambda_{\ell}^{*} - \Lambda^{0}  \widetilde{h} = A(
+\widetilde{\zeta}_{0}) D_{ \widetilde{\xi}}g_{\ell} (t,
+\widetilde{\xi}) \cdot  \widetilde{h} - A( \widetilde{\xi}_{0}) D_{
+  \widetilde{\xi}}g_{\ell} (0,  \widetilde{\xi}_{0}) \cdot  \widetilde{h}.
+$$
+
+Hence
+\begin{align*}
+||\Lambda_{\ell}^{*} - \Lambda_{\ell}^{0}|| & < ||A(
+\widetilde{\zeta}_{0}) - A( \widetilde{\xi}_{0})|| ||D_{
+  \widetilde{\xi}}g_{\ell} (0,  \widetilde{\xi}_{0})|| +\\
+& + ||A( \widetilde{\zeta}_{0})|| ||D_{ \widetilde{\xi}}g_{\ell} (t,
+\widetilde{\xi}) - D_{\widetilde{\xi}} g_{\ell} (0,  \widetilde{\xi}_{0})||.
+\end{align*}
+
+From the inequality $||A( \widetilde{\zeta}_{0})|| < ||A(
+\widetilde{\xi}_{0})|| + w(\delta)$ again and by the definition of
+$w(\delta)$, we find then
+\begin{align*}
+||\lambda_{\ell}^{*} - \Lambda_{\ell}^{0}|| & < w(\delta) ||D_{
+  \widetilde{\xi}}g_{\ell}(0)|| + \\
+& + (||A( \widetilde{\xi}_{0})|| + w(\delta)) ||D_{
+  \widetilde{\xi}}g_{\ell} (t,  \widetilde{\xi}) - D_{
+  \widetilde{\xi}}g_{\ell}(0,  \widetilde{\xi}_{0})||.\tag{A2.20}\label{app-2-eqA2.20}
+\end{align*}
+
+The combination of inequalities (\ref{app-2-eqA2.18}) - (\ref{app-2-eqA2.20}) yields the desired extimate (\ref{app-2-eqA2.8}).
+\end{proof}
+
+\medskip
+\noindent{\textbf{Proof of Theorem 5.1:}} As\pageoriginale a first
+step, we prove that the mapping $N_{\ell}(t,  \widetilde{\xi}_{0},
+\cdot)$ is Lipschitz continuous with constant $\gamma$. The fact that
+$N(t,\break\widetilde{\zeta}_{0}, \cdot)$ maps the ball $\triangle$ into
+itself will be shown afterwards. The starting point is the estimate
+(\ref{app-2-eqA2.8}) of Lemma \ref{app-2-lemA2.1}: From the relation $D_{
+  \widetilde{\xi}}g_{\ell}(0,  \widetilde{\xi}_{0}) = D_{
+  \widetilde{\xi}}g(0,  \widetilde{\xi}_{0})$ ($= Dq(
+\widetilde{\xi}_{0})$, Chapter \ref{chap2}, $\S 3$) and writing
+$g_{\ell} = g_{\ell} - g + g$, it is easily seen that
+\begin{align*}
+||D_{ \widetilde{\xi}}N_{\ell} (t,  \widetilde{\zeta}_{0},
+\widetilde{\epsilon})|| & \leq \frac{3\delta}{(1 - \delta)^{3}} +
+\frac{2||D_{ \widetilde{\xi}}g(0,  \widetilde{\xi}_{0})||}{1 - \delta}
+w(\delta) +
+ + \frac{2(||A( \widetilde{\xi}_{0})|| + w(\delta))}{1 - \delta}\\
+&\left[\frac{3}{(1 - \delta)^{2}} ||g(t,  \widetilde{\xi})|| + ||D_{
+    \widetilde{\xi}}g(t,  \widetilde{\xi}) - D_{ \widetilde{\xi}}g(0,
+  \widetilde{\xi}_{0})||\right] +\\
+&{} + \frac{2(||A( \widetilde{\xi}_{0})|| + w(\delta))}{1 - \delta}\\
+&\left[\frac{3}{(1-\delta)^{2}} ||(g_{\ell} - g)(t,  \widetilde{\xi})||
++ ||D_{ \widetilde{\xi}}(g_{\ell} - g)(t,  \widetilde{\xi})||\right].
+\end{align*}
+
+Given any constant $\gamma > 0$, the sum of the first three terms of
+the above inequality can clearly be made $\leq \gamma / 2$ provided $r
+> 0$ and $\delta$ with $0 < \delta < 1$ are taken small enough. Fixing
+then $r$, and $\delta$ (for the time being), the last term is uniformly
+bounded by
+$$
+\frac{2(||A( \widetilde{\xi}_{0})|| + w(\delta))}{1-\delta}
+\left[\frac{3}{(1-\delta)^{2}} |g_{\ell}-g|_{\infty, [-r, r] \times
+    \triangle} + |D_{ \widetilde{\xi}}(g_{\ell}-g)|_{\infty, [-r, r]
+    \times \triangle}\right].
+$$
+
+For $\ell$ large enough, say $\ell \geq \ell_{0}$, it can then be made
+$\leq \gamma / 2$ as well. By the mean value theorem, the mapping
+$N(t,  \widetilde{\zeta}_{0}, \cdot)$ is then Lipschitz continuous
+with constant $\gamma$ in the ball $\triangle$ for every pair $(t,
+\widetilde{\zeta}_{0}) \epsilon [-r, r] \times C$ and every $\ell \geq
+\ell_{0}$. This property is not affected by shrinking $r > 0$ and $0 <
+\delta < 1$ arbitrarily. Applying then Theorem \ref{chap5-thm3.1} to
+each mapping $N_{\ell}, 0 \leq \ell \leq \ell_{0} - 1$ (thus a finite
+number of times), it is not restrictive to assume that $r > 0$ and
+$\delta$ with $0 < \delta < 1$ are such\pageoriginale that the mapping $N_{\ell}(t,
+\widetilde{\zeta}_{0}, \cdot)$ is a contraction with constant $\gamma$
+in the ball $\triangle$ for every $\ell \epsilon \mathbb{N}$. Again,
+this property remains true if $r > 0$ is arbitrarily diminished. Let us
+then fix $\delta$ as above. We shall show that $N_{\ell}(t,
+\widetilde{\zeta}_{0}, \cdot)$ maps the ball $\triangle$ into itself
+for every $\ell \epsilon \mathbb{N}$ after modifying $r > 0$ if
+necessary.
+
+For every triple $(t,  \widetilde{\zeta}_{0},  \widetilde{\xi})
+\epsilon [-r, r] \times C \times \triangle$ and since $N(0,
+\widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) =  \widetilde{\xi}_{0}$
+(cf. relation (\ref{chap4-eq2.10}) of Chapter \ref{chap4}), one has
+\begin{align*}
+& ||N_{\ell}(t,  \widetilde{\zeta}_{0},  \widetilde{\xi}) -
+\widetilde{\xi}_{0}||  \leq ||N_{\ell}(t,  \widetilde{\zeta}_{0},
+\widetilde{\xi}) - N_{\ell}(t,  \widetilde{\zeta}_{0},
+\widetilde{\xi}_{0})|| +\\
+& \qquad + ||N_{\ell}(t,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) - N (t , \widetilde{\zeta}_0, \widetilde{\xi}_0) || +
+||N(t,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) -N(0,
+\widetilde{\zeta}_{0},  \widetilde{\xi}_{0})||.
+\end{align*}
+
+The first term in the right hand side is bounded by $\gamma ||
+\widetilde{\xi} -  \widetilde{\xi}_{0}|| \leq \gamma \delta / 2$. As
+$\gamma < 1$ and further the mapping $N(\cdot, \cdot,
+\widetilde{\xi}_{0})$ is uniformly continuous on the compact set $[-r,
+r] \times C$, we may assume that $r > 0$ is small enough fro the
+inequality
+$$
+||N(t,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) - N(0,
+\widetilde{\zeta}_{0},  \widetilde{\xi}_{0})|| \leq (1 - \gamma)
+\frac{\delta}{4}, 
+$$
+to hold. The term $||N_{\ell}(t,  \widetilde{\zeta}_{0},
+\widetilde{\xi}_{0}) - N(t, \widetilde{\zeta}_{0},
+\widetilde{\xi}_{0})||$ is bounded by 
+$$|N_{\ell} - N|_{[-r, r] \times
+  C \times \triangle}$$ 
+and can therefore be made $\leq (1 -
+\gamma)\delta / 4$ for $\ell$ large enough, say $\ell \geq
+\ell_{0}$. Thus
+$$
+||N_{\ell}(t,  \widetilde{\zeta}_{0},  \widetilde{\xi}) -
+\widetilde{\xi}_{0}|| \leq \frac{\delta}{2},
+$$
+for every triple $(t,  \widetilde{\zeta}_{0},  \widetilde{\xi})
+\epsilon [-r, r] \times C \times \triangle$ and every $\ell \geq
+\ell_{0}$. This property notbeing affected by diminishing $r > 0$
+arbitrarily (without (modifying $\delta$, of course) and observing
+that $N_{\ell} (0,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) =
+\widetilde{\xi}_{0}$ for every\pageoriginale $ \widetilde{\zeta}_{0}
+\epsilon C$, let us write for $0 \leq \ell \leq \ell_{0} - 1$
+\begin{align*}
+||N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\xi}) -
+\widetilde{\xi}_{0}|| & \leq ||N_{\ell} (t,  \widetilde{\zeta}_{0},
+\widetilde{\xi}) - N_{\ell}(t,  \widetilde{\zeta}_{0},
+\widetilde{\xi}_{0}) || + \\
+& + ||N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) -
+N_{\ell}(0,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0})||.
+\end{align*}
+
+The first term in the right hand side is bounded by $\gamma ||
+\widetilde{\xi} -  \widetilde{\xi}_{0}|| \leq \gamma \delta /
+2$. Owing to the uniform continuity if the mapping $N_{\ell} (\cdot,
+\cdot,  \widetilde{\xi}_{0})$ on the compact set $[-r, r] \times C$,
+we may assume that $r > 0$ is small enough for the inequality
+$$
+||N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0}) -
+N_{\ell} (0,  \widetilde{\zeta}_{0},  \widetilde{\xi}_{0})|| \leq (1 -
+\gamma) \delta / 2,
+$$
+to hold for $0 \leq \ell \leq \ell_{0} - 1$ and, for these indices as
+well, we get
+$$
+||N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\xi}) -
+\widetilde{\xi}_{0}|| \leq \frac{\delta}{2},
+$$
+which completes the proof.
+
+In chapter \ref{chap4}, Theorem \ref{chap4-thm5.1} has been used for
+proving the convergence of the sequence $ \widetilde{x}_{\ell} = t
+\widetilde{\zeta}_{\ell}$ (where $ \widetilde{\zeta}_{\ell + 1} =
+N_{\ell}(t,  \widetilde{\zeta}_{0},  \widetilde{\zeta}_{\ell})$) to $
+\widetilde{x} = t \widetilde{\xi}$ (where $ \widetilde{\xi}$ is the
+unique fixed point of the mapping $N(t,  \widetilde{\zeta}_{0},
+\cdot)$ in the ball $\triangle$). We shall now give an estimate of the
+rate of convergence of the sequence $( \widetilde{x}_{\ell})$ to $
+\widetilde{x}$ under suitable assumptions on the rate of convergence
+of the sequence $(f_{\ell})$ to $f$ in appropriate spaces.
+
+\begin{alphtheorem}\label{app-2-thmA2.1}%[A2.1]
+(i) Assume that the sequence $(f_{\ell})$ tends to f geometrically in
+  the space $C^{k}(\overline{\mathscr{O}}, \mathbb{R}^{n})$. Then,
+  there are constant $0 < \gamma' < 1$ and $K > 0$ such that, for
+  every $t \epsilon [-r, r]$
+\begin{equation*}
+|| \widetilde{x}_{\ell} -  \widetilde{x}|| \leq K|t| \gamma'^{\ell},\tag{A2.21}\label{app-2-eqA2.21}
+\end{equation*}
+for every $\ell \geq 0$.
+
+(ii) Assume\pageoriginale only that the sequence $(f_{\ell})$ tends to
+f in the space $C^{k} (\overline{\mathscr{O}},\break \mathbb{R}^{n})$, the
+convergence being geometrical in the space $C^{k-1}
+(\overline{\mathscr{O}}, \mathbb{R}^{n})$. Then, there are constant $0
+< \gamma' < 1$ and $K > 0$ such that, for every $t \epsilon [-r, r]$
+\begin{equation*}
+|| \widetilde{x}_{\ell} -  \widetilde{x} \leq K\gamma'^{\ell}.\tag{A2.22}\label{app-2-eqA2.22}
+\end{equation*}
+\end{alphtheorem}
+
+
+\begin{proof}
+From the relation
+\begin{align*}
+ \widetilde{\zeta}_{\ell + 1} -  \widetilde{\xi} & = N_{\ell}(t,
+ \widetilde{\zeta}_{0},  \widetilde{\zeta}_{\ell}) - N(t,
+ \widetilde{\zeta}_{0},  \widetilde{\xi})\\
+& = N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\zeta}_{\ell}) -
+ N_{\ell} (t,  \widetilde{\zeta}_{0},  \widetilde{\xi}) + N_{\ell}(t,
+ \widetilde{\zeta}_{0},  \widetilde{\xi}) - N(t,
+ \widetilde{\zeta}_{0},  \widetilde{\xi}),
+\end{align*}
+and from Theorem \ref{chap4-thm5.1} of Chapter \ref{chap4}, we get
+$$
+|| \widetilde{\zeta}_{\ell + 1} -  \widetilde{\xi}|| < \gamma ||
+\widetilde{\zeta}_{\ell} -  \widetilde{\xi}|| + ||N_{\ell} (t,
+\widetilde{\zeta}_{0},  \widetilde{\xi}) - N(t,
+\widetilde{\zeta}_{0},  \widetilde{\xi})||.
+$$
+
+Hence
+\begin{equation*}
+|| \widetilde{\zeta}_{\ell + 1} -  \widetilde{\xi}|| \leq \gamma ||
+\widetilde{\zeta}_{\ell} -  \widetilde{\xi}|| + |N_{\ell}(t, \cdot,
+\cdot) - N (t, \cdot, \cdot)|_{\infty, C \times \triangle},\tag{A2.23}\label{app-2-eqA2.23}
+\end{equation*}
+for every $t \epsilon [-r, r]$. To prove (i), observe that
+$|N_{\ell} (t, \cdot, \cdot) - N (t, \cdot, \cdot)|_{\infty, C \times
+  \triangle} \leq |N - N_{\ell}|_{\infty, [-r, r] \times C \times
+  \triangle}$. From (\ref{app-2-eqA2.6}) - (\ref{app-2-eqA2.7}) and (\ref{app-2-eqA2.1})
+\begin{align*}
+|| \widetilde{\zeta}_{\ell + 1} -  \widetilde{\xi}|| & \leq \gamma ||
+\widetilde{\zeta}_{\ell} -  \widetilde{\xi}|| + \frac{2(||A(
+  \widetilde{\xi}_{0})|| + w(\delta))}{1 - \delta} |g_{\ell} -
+g|_{\infty, [-r, r] \times \triangle}\\
+& \leq \gamma || \widetilde{\zeta}_{\ell} -  \widetilde{\xi}|| +
+\frac{2(||A( \widetilde{\xi}_{0})|| + w(\delta))}{1 - \delta} \left(1
++ \frac{\delta}{2}\right)^{k} |D^{k}(f_{\ell} - f)|_{\infty,
+  \overline{\mathscr{O}}}. 
+\end{align*}
+
+As the sequence $(f_{\ell})$ tends to $f$ geometrically in the space
+$C^{k} (\overline{\mathscr{O}}, \mathbb{R}^{n})$ by hypothesis and
+after increasing $0 < \gamma < 1$ if necessary, there is a constant $C
+> 0$ such that
+$$
+|| \widetilde{\zeta}_{\ell + 1} -  \widetilde{\xi}|| \leq \gamma ||
+\widetilde{\zeta}_{\ell} -  \widetilde{\xi}|| + C \gamma^{\ell}.
+$$
+
+By\pageoriginale a simple induction argument, we find
+$$
+||\widetilde{\zeta}_{\ell + 1} - \widetilde{\xi}|| \leq \gamma^{\ell +
+1} ||\widetilde{\zeta}_{0} - \widetilde{\xi}|| + (\ell + 1) C\gamma^{\ell}.
+$$
+
+Thus
+$$
+||\widetilde{\zeta}_{\ell} - \widetilde{\xi}|| \leq \gamma^{\ell}
+\left(||\widetilde{\zeta}_{0} - \widetilde{\xi}|| + \frac{\ell C}{\gamma}\right),
+$$
+for every $\ell \geq 0$. As $\widetilde{\zeta}_{0} \epsilon C \subset
+\triangle$ and $\widetilde{\xi} \epsilon C \subset \triangle$ and the
+ball $\triangle$ has diameter $\delta < 1$
+\begin{equation*}
+||\widetilde{\zeta}_{\ell} - \widetilde{\xi}|| \leq \gamma^{\ell} \left(1 +
+\frac{\ell C}{\gamma}\right).\tag{A2.24}\label{app-2-eqA2.24}
+\end{equation*}
+
+Multiplying by $|t|$, we see that
+$$
+||\widetilde{x}_{\ell} - \widetilde{x}|| \leq |t| \gamma^{\ell}
+\left(1 + \frac{\ell C}{\gamma}\right).
+$$
+
+Choosing $\gamma < \gamma' < 1$, inequality (\ref{app-2-eqA2.21}) follows with
+$$
+K = \sup_{\ell \geq 0} \left(\frac{\gamma}{\gamma'}\right)^{\ell}
+\left(1 + \frac{\ell C}{\gamma}\right) < + \infty.
+$$
+
+To prove (ii), we use the same method, replacing the relations (\ref{app-2-eqA2.6}) and (\ref{app-2-eqA2.7}) by \ref{app-2-eqA2.6'} and \ref{app-2-eqA2.7'}. With (\ref{app-2-eqA2.23}), we get
+$$
+||\widetilde{\zeta}_{\ell + 1} - \widetilde{\xi}|| \leq \gamma
+||\widetilde{\zeta}_{\ell} - \widetilde{\xi}|| +
+\frac{2(||A(\widetilde{\xi}_{0})|| + w(\delta))}{1 - \delta} |g_{\ell}
+(t, \cdot) - g(t, \cdot)|_{\infty, \triangle}.
+$$
+
+Now, note that
+$$
+|g_{\ell} (t, \cdot) - g(t, \cdot)|_{\infty, \triangle} \leq
+\frac{k}{|t|} \left(1 + \frac{\delta}{2}\right)^{k-1} |D^{k-1}
+(f_{\ell} - f)|_{\infty, \overline{\mathscr{O}}}.
+$$
+
+Indeed, this is obvious if $k = 1$. If $k \geq 2$, the inequality
+follows from the relation
+$$
+g_{\ell}(t, \widetilde{\zeta}) - g(t, \widetilde{\zeta}) = \frac{k(k -
+  1)}{t} \int_{0}^{1} (1 - s)^{k-1} D^{k-1} (f_{\ell} - f)(st
+\widetilde{\zeta}) \cdot (\widetilde{\zeta})^{k-1} ds.
+$$
+
+Arguing\pageoriginale as before, we find the analogue of (\ref{app-2-eqA2.24}),
+namely
+$$
+||\widetilde{\zeta}_{\ell} - \widetilde{\xi}|| \leq \gamma^{\ell} \left(1 +
+ \frac{\ell C}{\gamma |t|}\right),
+$$
+for every $\ell \geq 0$. Multiplying by $|t| > 0$, we obtain
+$$
+||\widetilde{x}_{\ell} - \widetilde{x}|| \leq \gamma^{\ell} \left(|t|
++ \frac{\ell C}{\gamma}\right) \leq \gamma^{\ell} \left(r + \frac{\ell
+  C}{\gamma}\right). 
+$$
+
+Choosing $\gamma < \gamma' < 1$, the inequality (\ref{app-2-eqA2.22}) follows with
+$$
+K = \sup_{\ell \geq 0} \left(\frac{\gamma}{\gamma'}\right)^{\ell}
+\left(r + \frac{\ell C}{\gamma}\right) < + \infty,
+$$
+and remains valide for $t = 0$.
+\end{proof}
+
+We shall now prove the results about convergence in the spaces of type
+$C^{k}$ that we used in $\S 6$ of Chapter \ref{chap4}. Recall that
+given a real Banach space $\widetilde{Z}$ and a mapping $\Phi(= \Phi
+(\widetilde{x}, \widetilde{z})) \epsilon C^{k} (\overline{\mathscr{O}}
+\times \overline{B} (0, \rho), \widetilde{Z})$, $k \geq 1$, where
+$\overline{B}(0, \rho)$ denotes the closed ball with radius $\rho > 0$
+centered at the origin of $\widetilde{Z}$, verifying $\Phi(0) = 0$ and
+$D_{\widetilde{z}}\Phi(0) = 0$, it is possible to shrink $\rho > 0$
+and the neighbourhood $\mathscr{O}$ so that, given any arbitrary
+constant $0 < \beta < 1$, one has
+\begin{equation*}
+||D_{\widetilde{z}} \Phi(\widetilde{x}, \widetilde{z})|| \leq \beta\tag{A2.25}\label{app-2-eqA2.25}
+\end{equation*}
+for every $(\widetilde{x}, \widetilde{z}) \epsilon
+\overline{\mathscr{O}} \times \overline{B}(0, \rho)$ and the mapping
+$\Phi(\widetilde{x}, \cdot)$ is a contraction with constant $\beta$
+from $\overline{B}(0, \rho)$ to itself for every $\widetilde{x}
+\epsilon \overline{\mathscr{O}}$. If so, for $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$, the sequence
+\begin{equation*}
+\begin{cases}
+\widetilde{\varphi}_{0} (\widetilde{x}) = 0,\\
+\widetilde{\varphi}_{\ell + 1} (\widetilde{x}) = \Phi(\widetilde{x},
+\widetilde{\varphi}_{\ell} (\widetilde{x})), \ell \geq 0,
+\end{cases}
+\end{equation*}
+is well defined, each mapping $\widetilde{\varphi}_{\ell}$ being in
+the space $C^{k}(\overline{\mathscr{O}}, \widetilde{Z})$ with values
+in $\overline{B}(0, \rho)$. We already know that this sequence
+converges pointwise to\pageoriginale the mapping $\widetilde{\varphi}
+\epsilon C^{k} (\overline{\mathscr{O}}, \widetilde{Z})$ characterized
+by
+$$
+\widetilde{\varphi} (\widetilde{x}) = \Phi(\widetilde{x},
+\widetilde{\varphi}(\widetilde{x})), 
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$. In $\S 6$
+of Chapter \ref{chap4}, we used the fact that the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to $\widetilde{\varphi}$ in the
+space $C^{k}(\overline{\mathscr{O}}, \widetilde{Z})$, the convergence
+being geometrical in the space $C^{k-1} (\overline{\mathscr{O}},
+\widetilde{Z})$. Proving this assertion will take us a certain amount
+of time. To begin with, we show that
+
+
+\begin{alphlemma}\label{app-2-lemA2.2}%[A2.2]
+The sequence $(\widetilde{\varphi}_{\ell})$ tends to
+$\widetilde{\varphi}$ in the space $C^{0} (\overline{\mathscr{O}},
+\widetilde{Z})$. 
+\end{alphlemma}
+
+\begin{proof}
+Let $\ell \geq 1$ be fixed. For every $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ 
+\begin{align*}
+\widetilde{\varphi}_{\ell + 1} (\widetilde{x}) -
+\widetilde{\varphi}_{\ell} (\widetilde{x}) & = \Phi(\widetilde{x},
+\widetilde{\varphi}_{\ell}(\widetilde{x})) - \Phi(\widetilde{x},
+\widetilde{\varphi}_{\ell - 1} (\widetilde{x})) \\
+& = \int_{0}^{1} D_{\widetilde{z}}\Phi (\widetilde{x},
+\widetilde{\varphi}_{\ell - 1} (\widetilde{x}) +
+s(\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+\widetilde{\varphi}_{\ell - 1} (\widetilde{x}))) \cdot\\
+&\hspace{4cm}(\widetilde{\varphi}_{\ell}(\widetilde{x}) - \widetilde{\varphi}_{\ell
+- 1} (\widetilde{x})) ds.
+\end{align*}
+
+Due to (\ref{app-2-eqA2.25}) we obtain
+$$
+||\widetilde{\varphi}_{\ell + 1} (\widetilde{x}) -
+\widetilde{\varphi}_{\ell} (\widetilde{x})|| \leq \beta
+||\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+\widetilde{\varphi}_{\ell - 1} (\widetilde{x})||,
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$. Thus
+$$
+|\widetilde{\varphi}_{\ell + 1} - \widetilde{\varphi}_{\ell}|_{\infty,
+\overline{\mathscr{O}}} \leq \beta |\widetilde{\varphi}_{\ell} -
+\widetilde{\varphi}_{\ell - 1}|_{\infty, \overline{\mathscr{O}}}.
+$$
+
+Hence, the sequence $(\widetilde{\varphi}_{\ell})$ tends
+(geometrically) to a limit in the space $C^{0}(\overline{\mathscr{O}},
+\widetilde{Z})$. Of course, this limit must be the pointwise limit
+$\widetilde{\varphi}$ and the proof is complete.
+
+For $j \geq 0$, let us denote by $\mathscr{L}_{j} (\mathbb{R}^{n+1},
+\widetilde{Z})$ the space of $j$-linear mappings from $\mathbb{R}^{n+1}$
+into $\widetilde{Z}$ with the usual abuse of notation
+$\mathscr{L}_{0}(\mathbb{R}^{n+1}, \widetilde{Z}) =
+\widetilde{Z}$. Also, recall the canonical isomorphism
+\begin{equation*}
+\mathscr{L}_{i+1} (\mathbb{R}^{n+1}, \widetilde{Z}) \simeq
+\mathscr{L}(\mathbb{R}^{n+1}, \mathscr{L}_{i}(\mathbb{R}^{n+1},
+\widetilde{Z})),\tag{A2.26} \label{app-2-eqA2.26}
+\end{equation*}
+which\pageoriginale will be repeatedly used in sequel.
+\end{proof} 
+
+We shall denote by $\lambda_{i}$ the generic element of the space
+$\mathscr{L}_{i}(\mathbb{R}^{n+1}, \widetilde{Z})$. Due to the
+identification $\mathscr{L}_{0} (\mathbb{R}^{n+1}, \widetilde{Z}) =
+\widetilde{Z}$, this means, in particular, that we shall identify the
+element $\widetilde{z} \epsilon \widetilde{Z}$ with $\lambda_{0}$ so
+that the assumption $D_{\widetilde{x}}\Phi(0) = 0$ will be rewritten
+as
+\begin{equation*}
+D_{\lambda_{0}} \Phi(0) = 0.\tag{A2.27}\label{app-2-eqA2.27}
+\end{equation*}
+
+Now, setting $\Phi = \Phi_{0}$, introduce the mappings
+$$
+\Phi_{j} : \overline{\mathscr{O}} \times \overline{B}(0, \rho) \times
+\prod_{i=1}^{j} \mathscr{L}_{i} (\mathbb{R}^{n+1}, \widetilde{Z}) \to
+\mathscr{L}_{j}(\mathbb{R}^{n+1}, \widetilde{Z}), 1 \leq j \leq k,
+$$
+by 
+\begin{align*}
+\Phi_{j} (\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j}) & =
+\frac{\partial \Phi_{j-1}}{\partial x} (\widetilde{x}, \lambda_{0},
+\cdots, \lambda_{j-1}) + \tag{A2.28} \label{app-2-eqA2.28}\\
+& + \sum\limits_{i=0}^{j-1} \frac{\partial \Phi_{j-1}}{\partial
+  \lambda_{i}} (\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j-1}) \lambda_{i+1},
+\end{align*}
+where the term $\frac{\partial \Phi_{j-1}}{\partial \lambda_{i}}
+(\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j-1}) \lambda_{i+1}$ is
+the product of the linear mappings 
+$$\frac{\partial
+  \Phi_{j-1}}{\partial \lambda_{i}} (\widetilde{x}, \lambda_{0},
+\cdots, \lambda_{j-1}) \epsilon \mathscr{L}
+(\mathscr{L}_{i}(\mathbb{R}^{n+1}, \widetilde{Z}), \mathscr{L}_{j-1}
+(\mathbb{R}^{n+1}, \widetilde{Z}))$$ and 
+$$\lambda_{i+1} \epsilon
+\mathscr{L} (\mathbb{R}^{n}, \mathscr{L}_{i}(\mathbb{R}^{n+1}, \widetilde{Z})).$$
+
+\begin{alphrem}\label{app-2-remA2.1}%[A2.1]
+Observe, in particular, that the only term involving $\lambda_{j}$ in
+the definition of $\Phi_{j}, j \geq 1$, is the term $\frac{\partial
+  \Phi_{j-1}}{\partial \lambda_{j-1}} (\widetilde{Z}, \lambda_{0},
+\cdots, \lambda_{j-1}) \lambda_{j} $ it follows that $\Phi_{j}
+(\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j})$ is {\em linear with
+respect to $\lambda_{j}$ when $j \geq 1$}.
+\end{alphrem}
+
+The importance of the mappings $\Phi_{j}, 0 \leq j \leq k$ lies in the
+fact that
+\begin{equation*}
+D^{j}\widetilde{\varphi}(\widetilde{x}) = \Phi_{j}(\widetilde{x},
+\widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}(\widetilde{x})), 0 \leq j \leq k\tag{A2.29} \label{app-2-eqA2.29}
+\end{equation*}
+for\pageoriginale every $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ and, for every $\ell \geq 0$
+\begin{equation*}
+D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) =
+\Phi_{j}(\widetilde{x}, \widetilde{\varphi}_{\ell}(\widetilde{x}),
+D\widetilde{\varphi}_{\ell}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x})), 0 \leq j \leq k,\tag{A2.30}\label{app-2-eqA2.30}
+\end{equation*}
+for every $x \epsilon \overline{\mathscr{O}}$. These properties can be
+immediately checked by induction. Also, it is clear that the mapping
+$\Phi_{j}$ is of class $C^{k-j}$ and, for $1 \leq j \leq k, \Phi_{j}$
+is of class $C^{\infty}$ with respect to $(\lambda_{1}, \cdots,
+\lambda_{j})$. We now establish two simple preliminary lemmas.
+
+\begin{alphlemma}\label{app-2-lemA2.3}%[A2.3]
+Given any index $0 \leq j \leq k$, one has
+\begin{equation*}
+\frac{\partial \Phi_{j}}{\partial \lambda_{j}} (0, 0, \lambda_{1},
+\cdots, \lambda_{j}) = 0,\tag{A2.31}\label{app-2-eqA2.31}
+\end{equation*}
+for every $(\lambda_{1}, \cdots, \lambda_{j}) \epsilon \prod\limits_{i=1}^{j}
+\mathscr{L}_{i} (\mathbb{R}^{n+1}, \widetilde{Z})$.
+\end{alphlemma}
+
+\begin{proof}
+For $ j = 0$, the result is nothing but (\ref{app-2-eqA2.27}). For $j \geq 1$, it
+follows from Remark \ref{app-2-remA2.1} that for every $\mu_{j} \epsilon \mathscr{L}
+(\mathbb{R}^{n+1}, \widetilde{Z})$
+$$
+\frac{\partial \Phi_{j}}{\partial \lambda_{j}} (\widetilde{x},
+\lambda_{0}, \cdots, \lambda_{j}) \cdot \mu_{j} = \frac{\partial
+  \Phi_{j-1}}{\partial \lambda_{j-1}} (\widetilde{x}, \lambda_{0},
+\cdots, \lambda_{j-1}) \mu_{j}.
+$$
+
+Choosing $\widetilde{x} = 0, \lambda_{0} = 0$, the above relation
+yields the desired result by an indeuction argument.
+\end{proof}
+
+\begin{alphlemma}\label{app-2-lemA2.4}%[A2.4]
+Let the index $0 \leq  j \leq k $ be fixed. If the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to $\widetilde{\varphi}$ in the
+space $C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$ (which is already
+known for $j = 0$), the set
+\begin{equation*}
+\Lambda_{j} = \bigcup_{\ell \geq 0} D^{j}\widetilde{\varphi}_{\ell}
+(\overline{\mathscr{O}}) \subset \mathscr{L}_{j} (\mathbb{R}^{n+1},
+\widetilde{Z}),\tag{A2.32} \label{app-2-eqA2.32}
+\end{equation*}
+is compact and one has
+\begin{equation*}
+D^{j}\widetilde{\varphi}(\overline{\mathscr{O}}) \subset \Lambda_{j}.\tag{A2.33}\label{app-2-eqA2.33}
+\end{equation*}
+\end{alphlemma}
+
+\begin{proof}
+A\pageoriginale sequence in the set $\bigcup\limits_{\ell \geq 0}
+D^{j}\widetilde{\varphi}_{\ell} (\overline{\mathscr{O}})$ is of the
+form $(\lambda_{j}^{(p)})_{p > 0}$ where for each $p \epsilon
+\mathbb{N}$ there is an index $\ell = \ell(p)$ and an element
+$\widetilde{x}_{p} \epsilon \overline{\mathscr{O}}$ such that
+$\lambda_{j}^{(p)} = D^{j}\widetilde{\varphi}_{\ell(p)}
+(\widetilde{x}_{p})$. If, for infinitely many indices $p$, namely for a
+subsequence $(p_{m})$, the index $\ell(p_{m})$ equals some fixed value
+$\ell$, one has
+$$
+\lambda_{j}^{(p_{m})} = D^{j} \widetilde{\varphi}_{\ell} (\widetilde{x}_{p_{m}}).
+$$
+
+As the set $\overline{\mathscr{O}}$ is compact and after extracting a
+subsequence, we may assume that there is $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ such that the sequence
+$(\widetilde{x}_{p_{m}})$ tends to $\widetilde{x}$. By continuity of
+the mapping $D^{j}\widetilde{\varphi}_{\ell}$, we deduce that the
+sequence $\lambda_{j}^{(p_{m})}$ tends to
+$D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x})$ as $m$ tends to $+
+\infty$.
+
+Now, assume that the mapping $p \to \ell(p)$ takes only finitely many
+times any given value $\ell$. Then, there is a subsequence
+$\ell(p_{m})$ which is strictly increasing and thus tends to $+
+\infty$ as $m$ tends to $+ \infty$. For every $m$, let us write
+$$
+D^{j}\widetilde{\varphi}_{\ell(p_{m})} (\widetilde{x}_{p_{m}}) =
+D^{j}\widetilde{\varphi}_{\ell(p_{m})} (\widetilde{x}_{p_{m}}) -
+D^{j}\widetilde{\varphi}(\widetilde{x}_{p_{m}}) +
+D^{j}\widetilde{\varphi}(\widetilde{x}_{p_{m}}). 
+$$
+
+Again, in view of the compactness of the set $\overline{\mathscr{O}}$,
+we may assume that the sequence $(\widetilde{x}_{p_{m}})$ tends to
+$\widetilde{x} \epsilon \overline{\mathscr{O}}$. As the sequence
+$(D^{j} \widetilde{\varphi}_{\ell})_{\ell \geq 0}$ tends to
+$D^{j}\widetilde{\varphi}$ in the space $C^{0}
+(\overline{\mathscr{O}}, \mathscr{L}_{j}(\mathbb{R}^{n+1},
+\widetilde{Z}))$, by hypothesis, the same property holds for the
+subsequence $(D^{j}\widetilde{\varphi}_{\ell(p_{m})})_{m \geq
+  0}$. Therefore, in the space $\mathscr{L}_{j}(\mathbb{R}^{n+1},
+\widetilde{Z})$ 
+$$
+\lim_{m \to + \infty} \left[D^{j}\widetilde{\varphi}_{\ell(p_{m})}
+  (\widetilde{x}_{p_{m}}) -
+  D^{j}\widetilde{\varphi}(\widetilde{x}_{p_{m}})\right] = 0
+$$
+
+On the other hand, by the continuity of the mapping
+$D^{j}\widetilde{\varphi}$, we get
+$$
+\lim_{m \to + \infty} D^{j}\widetilde{\varphi}(\widetilde{x}_{p_{m}})
+= D^{j}\widetilde{\varphi}(\widetilde{x}).
+$$\pageoriginale
+
+As a result, the sequence $(\lambda_{j}^{(p_{m})})_{m \geq 0}$ tends
+to $D^{j}\widetilde{\varphi}(\widetilde{x})$.
+
+To sum up, we have shown that every sequence $(\lambda_{j}^{(p)})_{p
+  \geq 0}$ of the set $\bigcup\limits_{\ell \geq 0}
+D^{j}\widetilde{\varphi}_{\ell} (\overline{\mathscr{O}})$ has a
+cluster point in the space $\mathscr{L}_{j}(\mathbb{R}^{n+1},
+\widetilde{Z})$ and hence is relatively compact, which proves
+(\ref{app-2-eqA2.32}). The relation (\ref{app-2-eqA2.33}) is now obvious since
+$D^{j}\widetilde{\varphi}(\widetilde{x})$ is the limit of the sequence
+$(D^{j}\widetilde{\varphi}_{\ell} (\widetilde{x}))_{\ell \geq 0}$ for
+every $\widetilde{x} \epsilon \overline{\mathscr{O}}$.
+\end{proof}
+
+In oure new notation, the condition (\ref{app-2-eqA2.25}) can be rewritten as
+\begin{equation*}
+||\frac{\partial \Phi_{0}}{\partial \lambda_{0}} (\widetilde{x},
+\lambda_{0})|| \leq \beta,\tag{A2.34}\label{app-2-eqA2.34}
+\end{equation*}
+for every $(\widetilde{x}, \lambda_{0}) \epsilon
+\overline{\mathscr{O}} \times \overline{B} (0, \rho)$. It will be
+essential in the sequel to have an appropriate generalization of it,
+which we establish in the following lemma.
+
+\begin{alphlemma}\label{app-2-lemA2.5}%[A2.5]
+Let the index $0 \leq j \leq k$ be fixed. If the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to $\widetilde{\varphi}$ in the
+space $C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$ (which is
+  already known for $j = 0$) there is no loss of generality in
+  assuming that
+\begin{equation*}
+||\frac{\partial \Phi_{j}}{\partial \lambda_{j}} (\widetilde{x},
+\lambda_{0}, \cdots, \lambda_{j})|| \leq \beta,\tag{A2.35}\label{app-2-eqA2.35}
+\end{equation*}
+for every $(\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j}) \epsilon
+\overline{\mathscr{O}} \times \Lambda_{0} \times \cdots \times
+\Lambda_{j}$.\footnote{For $j = 0$, (\ref{app-2-eqA2.35}) is nothing but (\ref{app-2-eqA2.34}) for the elements $(\widetilde{x}, \lambda_{0}) \epsilon
+\overline{\mathscr{O}} \times \Lambda_{0}$, thus a weak form of (\ref{app-2-eqA2.34}).}
+\end{alphlemma}
+
+\begin{proof}
+First from the previous lemma, the set $\overline{\mathscr{O}} \times
+\Lambda_{0} \times \cdots \times \Lambda_{j}$ is compact and the
+restriction of the continuous mapping $(\partial \Phi_{j} / \partial
+\lambda_{j})$ to $\overline{\mathscr{O}} \times \Lambda_{0} \times
+\cdots \times \Lambda_{j}$\pageoriginale is then {\em uniformly
+  continuous}. Next, since the mappings $\widetilde{\varphi}$ and
+$\widetilde{\varphi}_{\ell}, \ell \geq 0$, take their values in the
+ball $\overline{B}(0, \rho)$, one has $\Lambda_{0} \subset
+\overline{B}(0, \rho)$. Due to Lemma \ref{app-2-lemA2.3}, and the uniform continuity
+of the mapping $(\partial \Phi_{j} / \partial \lambda_{j})$, there is
+a neighbourhood $\mathscr{O}' \subset \mathscr{O}$ of the origin in
+$\mathbb{R}^{n+1}$ and $0 < \rho' \leq \rho$ such that (\ref{app-2-eqA2.35}) holds
+for
+$(\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j}) \epsilon
+\overline{\mathscr{O}}' \times \left[\Lambda_{0} \cap \overline{B} (0,
+  \rho')\right] \times \Lambda_{1} \times \cdots \times
+\Lambda_{j}$. Let then $\rho'$ be fixed. Arguing as in $\S 6$ of
+Chapter \ref{chap4}, we can shrink the neighbourhood
+$\overline{\mathscr{O}}'$ so that the mappings $\widetilde{\varphi},
+\ell \geq 0$, take their values in the ball $\overline{B}(0, \rho')$
+for $x \epsilon \overline{\mathscr{O}}'$. Of course, the sequence
+$(\widetilde{\varphi}_{\ell})$ still tends to $\widetilde{\varphi}$ in
+the space $C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$ and the sets
+$\Lambda'_{i} = \overline{\bigcup\limits_{\ell \geq 0}
+  D^{i}\widetilde{\varphi}_{\ell} (\overline{\mathscr{O}}')}, 0 \leq i
+\leq j$, are compact (Lemma \ref{app-2-lemA2.4}) with $\Lambda'_{i} \subset
+\Lambda_{i}$. Also, $\Lambda'_{0} \subset \overline{B}(0, \rho')$ so
+that inequality (\ref{app-2-eqA2.35}) is a fortiori valid with $(\widetilde{x},
+\lambda_{0}, \cdots, \lambda_{k}) \epsilon \overline{\mathscr{O}}'
+\times \Lambda'_{0} \times \cdots \times \Lambda'_{j}$. In other
+words, none of the properties we have proved is affected if we
+restrict ourselves to the neighbourhood $\mathscr{O}'$ instead of
+$\mathscr{O}$ and, in addition, inequality (\ref{app-2-eqA2.35}) holds.
+\end{proof}
+
+For $0 \leq j \leq k-1$ and $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$, we shall set
+\begin{align*}
+b^{j}(\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \widetilde{x}} (\widetilde{x}, \widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}(\widetilde{x})),\tag{A2.36}\label{app-2-eqA2.36}\\
+b_{\ell}^{i}(\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \widetilde{x}} (\widetilde{x}, \widetilde{\varphi}_{\ell}
+(\widetilde{x}), D\widetilde{\varphi}_{\ell}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x})) \text{ for } \ell \geq
+0.\tag{A2.37} \label{app-2-eqA2.37}
+\end{align*}
+
+Similarly, for $0 \leq j \leq k-1$, $0 \leq i \leq j$ and
+$\widetilde{x} \epsilon \overline{\mathscr{O}}$, set
+\begin{align*}
+B_{i}^{j}(\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \lambda_{i}} (\widetilde{x}, \widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}(\widetilde{x})),\tag{A2.38}\label{app-2-eqA2.38}\\
+B_{i \ell}^{j}(\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \lambda_{i}} (\widetilde{x}, \widetilde{\varphi}_{\ell}
+(\widetilde{x}), D\widetilde{\varphi}_{\ell}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x})) \text{ for } \ell \geq
+0.\tag{A2.39} \label{app-2-eqA2.39}
+\end{align*}
+For\pageoriginale every $\widetilde{x} \epsilon
+\overline{\mathscr{O}}, b^{j}(\widetilde{x})$
+(resp. $b_{\ell}^{j}(\widetilde{x}))$ is an element of the space
+$\mathscr{L} (\mathbb{R}^{n+1}$, $\mathscr{L}_{j} (\mathbb{R}^{n+1},
+\widetilde{Z}))$ and $B_{i}^{j}(\widetilde{x})$ (resp. $B_{i \ell}^{j}
+(\widetilde{x})$) is an element of the space
+$\mathscr{L}(\mathscr{L}_{i} $ $ (\mathbb{R}^{n+1}, \widetilde{Z}),
+\mathscr{L}_{j} (\mathbb{R}^{n + 1}, \widetilde{Z}))$.
+
+\begin{alphlemma}\label{app-2-lemA2.6}%[A2.6]
+(i) Assume that $k \geq 2$ and $0 \leq j \leq k-2$. Then, if the
+  sequence $(\widetilde{\varphi}_{\ell})$ tends to
+  $\widetilde{\varphi}$ geometrically in the space
+  $C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$, the sequence
+  $(b_{\ell}^{j})_{\ell \geq 0}$ tends to $b^{j}$ geometrically in the
+  space\break $C^{0}(\overline{\mathscr{O}}, \mathscr{L}(\mathbb{R}^{n+1},
+  \mathscr{L}_{j}(\mathbb{R}^{n+1},  \widetilde{Z})))$ and the
+  sequence $(B_{i\ell}^{j})_{\ell \geq 0}$ tends to $B_{i}^{j}$
+  geometrically in the space $C^{0}(\overline{\mathscr{O}},
+  \mathscr{L}(\mathscr{L}_{i}(\mathbb{R}^{n+1},  \widetilde{Z}),
+  \mathscr{L}_{j}(\mathbb{R}^{n+1},  \widetilde{Z})))$.
+
+(ii) Assume only $k \geq 1$ and $0 \leq j \leq k - 1$ and that the
+  sequence $( \widetilde{\varphi}_{\ell})$ tends to $
+  \widetilde{\varphi}$ in the space $C^{j}(\overline{\mathscr{O}},
+  \widetilde{Z})$. Then, the sequence $(b_{\ell}^{j})_{\ell \geq 0}$
+  tends to $b^{j}$ in the space $C^{0}(\overline{\mathscr{O}},
+  \mathscr{L}(\mathbb{R}^{n+1}, \mathscr{L}_{j} (\mathbb{R}^{n+1},
+  \widetilde{Z})))$ and the sequence $(B_{i\ell}^{j})_{\ell > 0}$
+  tends to $B_{i}^{j}$ in the space $C^{0}(\overline{\mathscr{O}},
+  \mathscr{L}(\mathscr{L}_{i}(\mathbb{R}^{n+1},  \widetilde{Z}),
+  \mathscr{L}_{j} (\mathbb{R}^{n+1},  \widetilde{Z})))$.
+  \end{alphlemma}
+
+\begin{proof}
+First, as the mapping $\Phi_{j}$ is of class $C^{k-j}$, the mappings
+$b^{j}, b_{\ell}^{j}, B_{i\ell}^{j}$ and $B_{i}^{j}$ are of class
+$C^{1}$ in the case (i) and of class $C^{0}$ in the case
+(ii). Throughout this proof and for the sake of conveience, we shall
+set for $ \widetilde{x} \epsilon \overline{\mathscr{O}}$
+\begin{equation*}
+V^{j} ( \widetilde{x}) = ( \widetilde{\varphi}( \widetilde{x}), D
+\widetilde{\varphi}( \widetilde{x}), \cdots , D^{j} \widetilde{\varphi}( \widetilde{x}))\tag{A2.40}\label{app-2-eqA2.40}
+\end{equation*}
+and
+\begin{equation*}
+V_{\ell}^{j}( \widetilde{x}) = ( \widetilde{\varphi}_{\ell}(
+\widetilde{x}), D \widetilde{\varphi}_{\ell}( \widetilde{x}), \cdots ,
+D^{j} \widetilde{\varphi}_{\ell}( \widetilde{x})).\tag{A2.41}\label{app-2-eqA2.41}
+\end{equation*}
+
+This allows to write the relations (\ref{app-2-eqA2.36}) - (\ref{app-2-eqA2.39}) in the form
+\begin{align*}
+b^{j}( \widetilde{x}) & = \frac{\partial \varphi_{j}}{\partial
+  \widetilde{x}} (\widetilde{x}, V^{j} (
+\widetilde{x})),\tag{A2.42}\label{app-2-eqA2.42}\\
+b_{\ell}^{j} (\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \widetilde{x}} (\widetilde{x}, V_{\ell}^{j}
+(\widetilde{x})),\tag{A2.43}\label{app-2-eqA2.43}\\
+B_{i}^{j} (\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \lambda_{i}} (\widetilde{x}, V^{j} (\widetilde{x})),\tag{A2.44}\label{app-2-eqA2.44}\\
+B_{i\ell}^{j} (\widetilde{x}) & = \frac{\partial \Phi_{j}}{\partial
+  \lambda_{i}} (\widetilde{x}, V-{\ell}^{j} (\widetilde{x})).\tag{A2.45}\label{app-2-eqA2.45}
+\end{align*}\pageoriginale
+
+Before proving (i), note that, for $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ and $0 \leq s \leq 1$, the combinations
+$$
+V^{j}(\widetilde{x}) + s(V_{\ell}^{j}(\widetilde{x}) - V^{j}(\widetilde{x})),
+$$
+belong to the product $\Lambda_{0}^{c} \times \cdots \times
+\Lambda_{j}^{c}$ of the closed convex hulls \footnote{Recall that the
+  closed convex hull of a set is defined as the closure of its convex
+  hull.} $\Lambda_{i}^{c}$ of the compact sets $\Lambda_{i}$
+(cf. Lemma \ref{app-2-lemA2.4}). As the closed convex hull of a compact set is by a
+classical result from topology, the product $\Lambda_{0}^{c} \times
+\cdots \times \Lambda_{j}^{c}$ is compact. On the other hand, sinced
+the mappings $\widetilde{\varphi}$ and $\widetilde{\varphi}_{\ell}$
+for $\ell \geq 0$ take their values in the ball $\overline{B}(0,
+\rho)$, we deduce that $\Lambda_{0}$ and hence $\Lambda_{0}^{c}$ is
+contained in $\overline{B}(0, \rho)$. Therefore, for every $0 \leq i
+\leq j \leq k-2$, an expression such as
+$$ 
+\frac{\partial^{2} \Phi_{j}}{\partial \widetilde{x} \partial
+  \lambda_{i}} (\widetilde{x}, V^{j} (\widetilde{x}) +
+s(V_{\ell}^{j}(\widetilde{x}) - V^{j}(\widetilde{x}))),
+$$
+is well defined for $\widetilde{x} \epsilon \overline{\mathscr{O}}$
+and $0 \leq s \leq 1$. For $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ and due to the Taylor formula (which can be
+used in view of the above observation) we get
+{\fontsize{10}{12}\selectfont
+$$
+b_{\ell}^{j}(\widetilde{x}) - b^{j}(\widetilde{x}) =
+\sum\limits_{i=0}^{j} \int_{0}^{1} \frac{\partial^{2}
+  \Phi_{j}}{\partial \widetilde{x} \partial \lambda_{j}}
+(\widetilde{x}, V^{j} (\widetilde{x}) + s(V_{\ell}^{j}
+(\widetilde{x})- V^{j}(\widetilde{x}))) \cdot
+(D^{i}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{i}\widetilde{\varphi}(\widetilde{x})) ds.
+$$}
+
+From the compacteness of the set $\overline{\mathscr{O}} \times
+\Lambda_{0}^{c} \times \cdots \times \Lambda_{j}^{c}$, the quantities
+$||\frac{\partial^{2} \Phi_{j}}{\partial \widetilde{x} \partial
+  \lambda_{i}} (\widetilde{x}, \lambda_{0}, \cdots,
+\lambda_{j})||$\pageoriginale are bounded by a constant $K > 0$ for
+$(\widetilde{x}, \lambda_{0}, \ldots,\break \lambda_{j}) \epsilon
+\overline{\mathscr{O}} \times \Lambda_{0}^{c} \times \cdots \times
+\Lambda_{j}^{c}$ and $0 \leq i \leq j$. Thus
+$$
+||b_{\ell}^{j}(\widetilde{x}) - b^{j}(\widetilde{x})|| \leq K
+\sum\limits_{i=0}^{j} ||D^{i}\widetilde{\varphi}_{\ell}(\widetilde{x})
+- D^{i}\widetilde{\varphi}(\widetilde{x})||.
+$$
+
+As the sequence $(D^{i} \varphi_{\ell})_{\ell \geq 0}$ tends to
+$D^{i}\widetilde{\varphi}$ geometrically in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{i} (\mathbb{R}^{n+1},
+\widetilde{Z}))$ for every $0 \leq i \leq j$ by hypothesis, there
+exist q with $0 < q < 1$ and a constant $C > 0$  such that
+$$
+||D^{i}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{i}\widetilde{\varphi}(\widetilde{x})|| \leq Cq^{\ell},
+$$
+for every $0 \leq i \leq j$ and every $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$. Hence
+$$
+||b_{\ell}^{j}(\widetilde{x}) - b^{j}(\widetilde{x})|| \leq (j+1)KCq^{\ell},
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$ and then
+$$
+\sup_{\widetilde{x} \epsilon \mathscr{O}}
+||b_{\ell}^{j}(\widetilde{x}) - b^{j}(\widetilde{x})|| \leq (j+1) KCq^{\ell}.
+$$
+
+The above inequality proves that the sequence $(b_{\ell}^{j})_{\ell
+  \geq 0}$ tends to $b^{j}$ geometrically in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}(\mathbb{R}^{n+1},
+\mathscr{L}_{i}(\mathbb{R}^{n+1}, \widetilde{B}))$. Similar arguments
+can be used for showing that the sequence $(B_{i \ell}^{j})_{\ell \geq
+0}$ tends to $B_{i}^{j}$ geometrically in the space
+$C^{0}(\overline{\mathscr{O},
+  \mathscr{L}}(\mathscr{L}_{i}(\mathbb{R}^{n+1}, \widetilde{Z}),
+\mathscr{L}_{j}(\mathbb{R}^{n+1}, \widetilde{Z}))), 0 \leq i \leq j$.
+
+Now, we prove part (ii) of the statement. Here, the Taylor formula is
+not available because of the lack of regularity for $j =
+k-1$. Actually, as we no longer interested in the rate of convergence,
+the resulta can be easily deducaed from the {\em uniform continuity}
+of the continuous mapping $(\partial \Phi_{j} / \partial
+\widetilde{x})$ and $(\partial \Phi_{j} / \partial \lambda_{i}), 0
+\leq i \leq j$ on the compact set $\overline{\mathscr{O}} \times
+\Lambda_{0} \times \cdots \times \Lambda_{j}$ together with the {\em
+  uniform convergence} (i.e.\pageoriginale in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{i}(\mathbb{R}^{n+1},
+\widetilde{Z}))$ of the sequence
+$(D^{i}\widetilde{\varphi}_{\ell})_{\ell \geq 0}$ to the mapping
+$D^{i}\widetilde{\varphi}$ for $0 \leq i \leq j$ from which the
+uniform convergence of the sequence $(V_{\ell}^{j})_{\ell \geq 0}$ to
+the mapping $V^{j}$ is derived.)
+\end{proof}
+
+$\S \qquad$ We are now in a position to prove an important part of the
+results announced before. 
+ 
+\begin{alphtheorem}\label{app-2-thmA2.2}%[A2.2]
+After shrinking the meighbourhood $\mathscr{O}$ is necessary, the
+sequence $(\widetilde{\varphi}_{\ell})$ tends to the mapping
+$\widetilde{\varphi}$ geometrically in the space
+$C^{k-1}(\overline{\mathscr{O}}, \widetilde{Z})$.
+\end{alphtheorem}
+
+\begin{proof}
+Equivalently, we have to prove for $0 \leq j \leq k-1$ the sequence
+$(D^{j}\widetilde{\varphi}_{\ell})_{\ell \geq 0}$ tends to
+$D^{j}\widetilde{\varphi}$ geometrically in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{j}(\mathbb{R}^{n+1},
+\widetilde{Z}))$. This result has already been proved for $j = 0$ in
+Lemma \ref{app-2-lemA2.2} and we can thus assume $j \geq 1$ and $k \geq 2$. We
+proceed by induction and therefore assume that the sequemce
+$(D^{i}\widetilde{\varphi}_{\ell})_{\ell \geq 0}$ tends to
+$D^{i}\widetilde{\varphi}$ geometrically in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{i}(\mathbb{R}^{n+1},
+\widetilde{Z}))$ for $0 \leq i \leq j-1$.
+
+Let $\ell \geq 0$ be fixed. From (\ref{app-2-eqA2.29}) and (\ref{app-2-eqA2.30}), one has for
+$\widetilde{x} \epsilon \overline{\mathscr{O}}$
+\begin{align*}
+D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x}) &= \Phi_{j}(\widetilde{x},
+\widetilde{\varphi}_{\ell} (\widetilde{x}),
+D\widetilde{\varphi}_{\ell} (\widetilde{x}), \ldots,
+D^{j}\widetilde{\varphi}_{\ell} (\widetilde{x}))\\ 
+&- \Phi_{j}
+(\widetilde{x}, \widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \ldots,
+D^{j}\widetilde{\varphi}(\widetilde{x})). 
+\end{align*}
+
+By definition of the mapping $\Phi_{j}$ (cf. (\ref{app-2-eqA2.48})) and in the
+notations (\ref{app-2-eqA2.42}) - (\ref{app-2-eqA2.45}), this identity can be rewritten as
+\begin{align*}
+D^{j}\widetilde{\varphi}_{\ell + 1} (\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x}) &= b_{\ell}^{j-1}
+(\widetilde{x}) - b^{j-1} (\widetilde{x})\\ 
+&+ \sum\limits_{i=0}^{j-1}
+\left[B_{i \ell}^{j-1} (\widetilde{x})
+  D^{i+1}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+  B_{i}^{j-1}(\widetilde{x}) D^{i+1}\widetilde{\varphi}(\widetilde{x})\right]. 
+\end{align*}
+
+Recall in this formula that the element
+$D^{i+1}\widetilde{\varphi}_{\ell}(\widetilde{x})$ (resp. $D^{i+1}
+\widetilde{\varphi}(\widetilde{x})$) is considered as an element of
+$\mathscr{L}(\mathbb{R}^{n+1}, \mathscr{L}_{i}(\mathbb{R}^{n+1},
+\widetilde{Z}))$ and the operation $B_{i\ell}^{j-1}(\widetilde{x})
+D^{i+1}\widetilde{\varphi}_{\ell}(\widetilde{x})$\pageoriginale
+(resp. $B_{i}^{j-1} (\widetilde{x})
+D^{i+1}\widetilde{\varphi}(\widetilde{x})$) denotes composition of
+{\em linear} mappings. Thus, we can as well write
+\begin{align*}
+D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x}) &= b_{\ell}^{j-1}
+(\widetilde{x}) - b^{j-1}(\widetilde{x})\\ 
+&+ \sum\limits_{i=0}^{j-1}
+(B_{i\ell}^{j-1} (\widetilde{x}) - B_{i}^{j-1}(\widetilde{x}))
+D^{i+1}\widetilde{\varphi}(\widetilde{x})\\
+& + \sum\limits_{i=0}^{j-1} B_{i\ell}^{j-1}  
+(\widetilde{x}) (D^{i+1} \widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{i+1}\widetilde{\varphi}(\widetilde{x})). 
+\end{align*}
+
+We deduce the inequality
+\begin{align*}
+||D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| &\leq
+||b_{\ell}^{j-1}(\widetilde{x}) - b^{j-1}(\widetilde{x})||\\ 
+&+\sum\limits_{i=0}^{j-1} ||B_{i \ell}^{j-1}(\widetilde{x}) -
+B_{i}^{j-1} (\widetilde{x})||
+||D^{i+1}\widetilde{\varphi}(\widetilde{x})|| \tag{A2.46} \label{app-2-eqA2.46}\\
+& + \sum\limits_{i=0}^{j-1} ||B_{i\ell}^{j-1} (\widetilde{x})||
+||D^{i+1} \widetilde{\varphi}_{\ell} (\widetilde{x}) - D^{i+1}\widetilde{\varphi}(\widetilde{x})||.
+\end{align*}
+
+It is essential to pay special attention to the term corresponding
+with $i = j-1$ in the last sum, namely $||B_{j-1, \ell}^{j-1}
+(\widetilde{x})|| ||D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})||$. From (\ref{app-2-eqA2.39})
+$$
+B_{j-1,\ell}^{j-1} (\widetilde{x}) = \frac{\partial
+  \Phi_{j-1}}{\partial \lambda_{j-1}} (\widetilde{x},
+\widetilde{\varphi}_{\ell} (\widetilde{x}),
+D\widetilde{\varphi}_{\ell}(\widetilde{x}), \cdots,
+D^{j-1}\widetilde{\varphi}_{\ell}(\widetilde{x})). 
+$$
+
+As the sequence $(\widetilde{\varphi}_{\ell})$ tends to
+$\widetilde{\varphi}$ in the space $C^{j-1}(\overline{\mathscr{O}},
+\widetilde{Z})$ by hypothesis, we can apply Lemma \ref{app-2-lemA2.5} with $j-1$
+(which amount to shrinking the neighbourhood $\overline{\mathscr{O}}$
+if necessary) and hence
+$$
+||B_{j-1, \ell}^{j-1} (\widetilde{x})|| \leq \beta,
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$. Inequality
+(\ref{app-2-eqA2.46}) becomes
+\begin{align*}
+||D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| &<
+||b_{\ell}^{j-1}(\widetilde{x}) - b^{j-1}(\widetilde{x})||\\ 
+&{} +\sum\limits_{i=0}^{j-1} ||B_{i\ell}^{j-1}(\widetilde{x}) -
+B_{i}^{j-1}(\widetilde{x}) - B_{i}^{j-1}(\widetilde{x})||
+||D^{i+1}\widetilde{\varphi}|| \tag{A2.47} \label{app-2-eqA2.47}\\
+&{} + \sum\limits_{i=0}^{j-2} ||B_{i\ell}^{j-1} (\widetilde{x})||
+||D^{i+1}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{i+1}\widetilde{\varphi} \widetilde{x} || + \\
+&{} + \beta ||D^{j}\widetilde{\varphi}_{\ell} - D^{j}\widetilde{\varphi}(\widetilde{x})||.
+\end{align*}
+
+Now,\pageoriginale since $j \leq k - 1$, we can apply Lemma \ref{app-2-lemA2.6} (i)
+with $j-1$: There are constant $q$ with $0 < q < 1$ and $C > 0$ such
+that
+\begin{align*}
+& ||b_{\ell}^{j-1}(\widetilde{x}) - b^{j-1}(\widetilde{x})|| \leq
+Cq^{\ell},\\
+& ||B_{i\ell}^{j-1}(\widetilde{x}) - B_{i}^{j-1}(\widetilde{x})|| \leq
+Cq^{\ell}, 0 \leq i \leq j-1,
+\end{align*}
+for every $\ell \geq 0$ and every $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$. As $\widetilde{\varphi} \epsilon
+C^{k}(\overline{\mathscr{O}}, \widetilde{Z}) \subset
+C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$, there is a constant $K
+> 0$ such that
+$$
+||D^{i+1} \widetilde{\varphi}(\widetilde{x})|| \leq K,
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$ and $0 \leq
+i \leq j-1$. Together with (\ref{app-2-eqA2.47}), these observations give
+\begin{align*}
+||D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| &< (jK + 1)Cq^{\ell}\\  
+&+\sum\limits_{i=0}^{j-2} ||B_{i\ell}^{j-1}(\widetilde{x})||
+||D^{i+1}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{i+1}\widetilde{\varphi}(\widetilde{x})|| \tag{A2.48}\label{app-2-eqA2.48}\\
+& + \beta ||D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x}) - D^{j}\widetilde{\varphi}(\widetilde{x})||.
+\end{align*}
+
+From the convergence of the sequence $(\widetilde{\varphi}_{\ell})$ to
+$\widetilde{\varphi}$ geometrically in the space
+$C^{j-1}(\overline{\mathscr{O}}, \widetilde{Z})$, it is not
+restrictive to assume that $q$ with $0 < q < 1$ and $C > 0$ are such
+that
+$$
+||D^{i+1}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{i+1}\widetilde{\varphi}(\widetilde{x})|| \leq Cq^{\ell},
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}, 0 \leq i
+\leq j-2$. Besides, we can suppose the constant $K$ large enough for the
+inequality
+$$
+||B_{i\ell}^{j-1}(\widetilde{x})|| \leq K,
+$$
+to hold for every $\widetilde{x} \epsilon \overline{\mathscr{O}}, 0
+\leq i \leq j-2$ and $\ell \geq 0$. Indeed, this follows from the
+definition (\ref{app-2-eqA2.39}), namely
+$$
+B_{i\ell}^{j-1}(\widetilde{x}) = \frac{\partial \Phi_{j-1}}{\partial
+  \lambda_{i}} (\widetilde{x},
+\widetilde{\varphi}_{\ell}(\widetilde{x}),
+D\widetilde{\varphi}_{\ell}(\widetilde{x}), \cdots,
+D^{j-1}\widetilde{\varphi}_{\ell}(\widetilde{x})) 
+$$
+and\pageoriginale the compactness of the set $\overline{\mathscr{O}}
+\times \Lambda_{0} \times \cdots \times \Lambda_{j-1}$ (Lemma \ref{app-2-lemA2.4}
+with $j-1$). Inequality (\ref{app-2-eqA2.48}) then tales the simpler form 
+$$
+||D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| \leq [(2j-1)K+1]Cq^{\ell} +
+\beta ||D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})||. 
+$$
+
+Replacing $q$ by $\max(q, \beta) < 1$ and setting
+$$
+K_{0} = \frac{1}{q}[(2j-1)K + 1]C,
+$$
+the above inequality becomes
+$$
+||D^{j}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| < K_{0}q^{\ell + 1} + q
+||D^{j}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{j}\widetilde{\varphi}(\widetilde{x})|| 
+$$
+and yields
+\begin{equation*}
+|D^{j}(\widetilde{\varphi}_{\ell + 1} - \widetilde{\varphi})|_{\infty,
+\overline{\mathscr{O}}} \leq K_{0}q^{\ell + 1} +
+q|D^{j}(\widetilde{\varphi}_{\ell}-\widetilde{\varphi})|_{\infty,
+  \overline{\mathscr{O}}}.\tag{A2.49}\label{app-2-eqA2.49} 
+\end{equation*}
+
+Let us define the sequence $(a_{\ell})_{\ell \geq 0}$ by
+\begin{equation*}
+\begin{cases}
+a_{0} & = |D^{j}\widetilde{\varphi}|_{\infty,
+  \overline{\mathscr{O}}},\\
+a_{\ell + 1} & = K_{0}q^{\ell+1} + qa_{\ell}, \ell \geq 0
+\end{cases}
+\end{equation*}
+
+It is immediately checked that
+\begin{equation*}
+|D^{j}(\widetilde{\varphi}_{\ell} - \widetilde{\varphi})|_{\infty,
+  \overline{\mathscr{O}}} \leq a_{\ell},\tag{A2.50}\label{app-2-eqA2.50}
+\end{equation*}
+for every $\ell \geq 0$ (recall that $\widetilde{\varphi}_{0} =
+0$). On the other hand, the sequence $(a_{\ell})$ is equivalently
+defined by 
+$$
+a_{\ell} = (K_{0}\ell + a_{0})q^{\ell}, \ell \geq 0.
+$$
+
+Choosing $q < q' < 1$, this is the same as
+$$
+a_{\ell} = (K_{0}\ell + a_{0}) \left(\frac{q}{q'}\right) (q')^{\ell},
+\ell \geq 0.
+$$
+
+As $0 < q/q' < 1$, the term $(K_{0}\ell + a_{0})(q/q')^{\ell}$ tends
+to 0 and hence is uniformly\pageoriginale bounded by a constant $K_{1}
+> 0$. Thus, 
+$$
+a_{\ell} \leq K_{1}(q')^{\ell}, \ell \geq 0
+$$
+and our assertion follows from (\ref{app-2-eqA2.50}).
+\end{proof}
+
+Replacing $k$ by $k + 1$ in Theorem \ref{app-2-thmA2.2}, we get
+
+\begin{alphcorollary}\label{app-2-coroA2.1}%[A2.1]
+Assume that the mapping $\Phi$ is of class $C^{k+1}$. Then, after
+shrinking the neighbourhood $\mathscr{O}$ is necessary, the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to the mapping
+$\widetilde{\varphi}$ geometrically in the space
+$C^{k}(\overline{\mathscr{O}}, \widetilde{Z})$.
+\end{alphcorollary}
+
+Oue nect theorem shows that even when the mapping $\Phi$ is only of
+class $C^{k}$, the sequence $(\widetilde{\varphi}_{\ell})$ tends to
+$\widetilde{\varphi}$ in the space $C^{k}(\overline{\mathscr{O}},
+\widetilde{Z})$ but the rate of convergence is not known in general
+(compare with Corollary \ref{app-2-coroA2.1} above).
+
+\begin{alphtheorem}\label{app-2-thmA2.3}%[A2.3]
+After shrinking the neighbourhood $\mathscr{O}$ if necessary, the
+sequence $(\widetilde{\varphi}_{\ell})$ tends to the mapping
+$\widetilde{\varphi}$ in the space $C^{k}(\overline{\mathscr{O}},
+\widetilde{Z})$. 
+\end{alphtheorem}
+
+\begin{proof}
+From Theorem \ref{app-2-thmA2.2}, we know that the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to $\widetilde{\varphi}$ in the
+space $C^{k-1}(\overline{\mathscr{O}}, \widetilde{Z})$ and it remains
+to prove the convergence of the  sequence
+$(D^{k}\widetilde{\varphi}_{\ell})_{\ell \geq 0}$ to
+$D^{k}\widetilde{\varphi}$ in the space $C^{0}(\overline{\mathscr{O}},
+\mathscr{L}_{k}(\mathbb{R}^{n+1}, \widetilde{Z}))$. To do this, we can
+repeat a part of the proof of Theorem \ref{app-2-thmA2.2}. Replacing $j$ by $k$, the
+observations we made up to and including formula (\ref{app-2-eqA2.47}) are still
+valid and we then find
+\begin{align*}
+||D^{k}\widetilde{\varphi}_{\ell + 1}(\widetilde{x})  -
+D^{k}\widetilde{\varphi}(\widetilde{x})|| &\leq
+||b_{\ell}^{k-1}(\widetilde{x}) - b^{k-1}(\widetilde{x})||\\ 
+&{}+\sum\limits_{i=0}^{k-1} ||B_{i\ell}^{k-1} (\widetilde{x}) -
+B_{i}^{k-1}(\widetilde{x})|| ||D^{i+1}
+\widetilde{\varphi}(\widetilde{x})|| \tag{A2.51}\label{app-2-eqA2.51}\\
+&{} + \sum\limits_{i=0}^{k-2} ||B_{i\ell}^{k-1}(\widetilde{x})||
+||D^{i+1}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{i+1}\widetilde{\varphi}(\widetilde{x})||\\ 
+&{}+ \beta||D^{k}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{k}\widetilde{\varphi}(\widetilde{x})||, 
+\end{align*}
+for\pageoriginale every $\widetilde{x} \in
+\overline{\mathscr{O}}$ and every $\ell \geq 0$. Here, we can no
+longer use Lemma \ref{app-2-lemA2.6} (i) for finding an estimate of the terms
+$||b_{\ell}^{k-1} (\widetilde{x}) - b^{k-1}(\widetilde{x})||$ or
+$||B_{i\ell}^{k-1} (\widetilde{x}) - B_{i}^{k-1}(\widetilde{x})||$ but
+Lemma \ref{app-2-lemA2.6} (ii) applies with $j = k-1$: Given $\epsilon > 0$ and
+$\ell$ large enough, say $\ell \geq \ell_{0}$, one has
+\begin{align*}
+& ||b_{\ell}^{k-1}(\widetilde{x}) - b^{k-1}(\widetilde{x})|| \leq
+\epsilon,\\
+& ||B_{i\ell}^{k-1} (\widetilde{x}) - B^{k-1}(\widetilde{x})|| \leq
+\epsilon, 0 \leq i \leq k-1,
+\end{align*}
+for every $\widetilde{x} \in \overline{\mathscr{O}}$. By the same
+arguments as in Theorem \ref{app-2-thmA2.2} and from the regularity
+$\widetilde{\varphi} \in C^{k}(\overline{\mathscr{O}},
+\widetilde{Z})$, we get the existence of a constant $K > 0$ such that
+$$
+||D^{i+1}\widetilde{\varphi}(\widetilde{x})|| \leq K,
+$$
+for every $\widetilde{x} \in \overline{\mathscr{O}} \leq i \leq
+k-1$ and 
+$$
+||B_{i\ell}^{k-1} (\widetilde{x})|| \leq K,
+$$
+for every $\widetilde{x} \in \overline{\mathscr{O}}, 0 \leq i
+\leq k-2$ and $\ell \geq 0$ and $\ell_{0}$ can be taken large enough
+for the inequality
+$$
+||D^{i+1}\widetilde{\varphi}_{\ell}(\widetilde{x}) -
+D^{i+1}\widetilde{\varphi}(\widetilde{x})|| \leq \epsilon
+$$
+to hold for every $\widetilde{x} \in \overline{\mathscr{O}}, 0
+\leq i \leq k-2$. Together with (\ref{app-2-eqA2.51}), we arrive at
+$$
+||D^{k}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{k}\widetilde{\varphi}(\widetilde{x})|| \leq [(2k-1)K+1] \epsilon +
+\beta ||D^{k}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{k}\widetilde{\varphi}(\widetilde{x})||. 
+$$
+
+Setting 
+$$
+K_{0} = (2k-1)K + 1,
+$$
+the above inequality becomes
+$$
+||D^{k}\widetilde{\varphi}_{\ell + 1}(\widetilde{x}) -
+D^{k}\widetilde{\varphi}(\widetilde{x})|| \leq K_{0} \epsilon
+\beta||D^{k}\widetilde{\varphi}_{\ell} (\widetilde{x}) -
+D^{k}\widetilde{\varphi}(\widetilde{x})|| 
+$$
+and\pageoriginale yields
+$$
+|D^{k} (\widetilde{\varphi}_{\ell + 1} -
+\widetilde{\varphi})|_{\infty, \overline{\mathscr{O}}} < K_{0}
+\epsilon + \beta |D^{k} (\widetilde{\varphi}_{\ell} -
+\widetilde{\varphi})|_{\infty, \overline{\mathscr{O}}}.
+$$
+
+Let us define the sequence $(a_{\ell})_{\ell \geq \ell_{0}}$ by
+\begin{equation*}
+\begin{cases}
+& a_{\ell_{0}} = |D^{k}(\widetilde{\varphi}_{\ell_{0}} -
+\widetilde{\varphi})|_{\infty, \overline{\mathscr{O}}},\\
+& a_{\ell + 1} = K_{0}\epsilon + \beta a_{\ell}, \ell \geq \ell_{0}.\\
+\end{cases}
+\end{equation*}
+
+It is immediately checked that
+\begin{equation*}
+|D^{k} (\widetilde{\varphi}_{\ell} - \widetilde{\varphi})|_{\infty,
+  \overline{\mathscr{O}}} \leq a_{\ell},\tag{A2.52}\label{app-2-eqA2.52}
+\end{equation*}
+for every $\ell \geq \ell_{0}$. On the other hand, the sequence
+$(a_{\ell})_{\ell \geq \ell_{0}}$ is equivalently defined by
+$$
+a_{\ell} = K_{0} \frac{1 - \beta^{\ell - \ell_{0}}}{1 - \beta}
+\epsilon + \beta^{\ell - \ell_{0}} a_{\ell_{0}}, \ell \geq \ell_{0} + 1.
+$$
+
+For $\ell \geq \ell_{0}$ large enough, say $\ell \geq \ell_{1}$, one
+has $\beta^{\ell - \ell_{0}} a_{\ell_{0}} \leq \epsilon$.
+
+Thus
+$$
+a_{\ell} \leq \left[\frac{K_{0}}{1 - \beta} + 1\right] \epsilon,
+$$
+for $\ell \geq \ell_{1}$ and our assertion follows from (\ref{app-2-eqA2.52}).
+\end{proof}
+
+Here is now a result of a different kind that we shall use later on.
+
+\begin{alphlemma}\label{app-2-lemA2.7}%[A2.7]
+For every $\ell \geq 0$, one has
+\begin{equation*}
+D^{i} \widetilde{\varphi}_{\ell + k} (0) =
+D^{i}\widetilde{\varphi}(0),\tag{A2.53} \label{app-2-eqA2.53}
+\end{equation*}
+for $0 \leq i \leq k$.
+\end{alphlemma}
+
+\begin{proof}
+Again,\pageoriginale we shall proceed by induction and show for $0
+\leq j \leq k$ and every $\ell \geq 0$
+\begin{equation*}
+D^{i}\widetilde{\varphi}_{\ell + j} (0) = D^{i}\widetilde{\varphi}(0),\tag{A2.54}\label{app-2-eqA2.54}
+\end{equation*}
+for $0 \leq i \leq j$. This result is true for $j = 0$ since
+$\widetilde{\varphi}(0) = 0$ and $\widetilde{\varphi}_{\ell}(0) = 0$
+as it follows from the definition. Assume then that $j \geq 1$ and the
+result is true up to ranke $j - 1$, namely, that
+\begin{equation*}
+D^{i}\widetilde{\varphi}_{\ell + j-1} (0) =
+D^{i}\widetilde{\varphi}(0),\tag{A2.55} \label{app-2-eqA2.55}
+\end{equation*}
+for $0 \leq i \leq j-1$. From the relations (\ref{app-2-eqA2.29}) and (\ref{app-2-eqA2.30})
+\begin{align*}
+& D^{i}\widetilde{\varphi}_{\ell + j}(0) = \Phi_{i} (0,
+\widetilde{\varphi}_{\ell + j-1} (0), \cdots,
+D^{i}\widetilde{\varphi}_{\ell + j - 1}(0)),\tag{A2.56}\label{app-2-eqA2.56}\\
+& D^{i}\widetilde{\varphi}(0) = \Phi_{i} (0, \widetilde{\varphi}(0),
+\cdots , D^{i}\widetilde{\varphi}(0)),\tag{A2.57}\label{app-2-eqA2.57}
+\end{align*}
+for $0 \leq i \leq k$ and hence for $0 \leq i \leq j$. Clearly, from
+(\ref{app-2-eqA2.55}), the relation (\ref{app-2-eqA2.54}) holds for $0 \leq i \leq j-1$ but we must show that it also holds for $i = j$.
+
+The fact that $\widetilde{\varphi}(0) = \widetilde{\varphi}_{\ell + j
+  - 1}(0) = 0$ is essentail here because taking $i = j$ in (\ref{app-2-eqA2.56}) and
+(\ref{app-2-eqA2.57}) and coming back to the definition (cf. (\ref{app-2-eqA2.28})), we get
+\begin{align*}
+& D^{j}\widetilde{\varphi}_{\ell + j}(0) = \frac{\partial
+    \Phi_{j-1}}{\partial \widetilde{x}} (0, 0,
+  D\widetilde{\varphi}_{\ell + j - 1}(0), \cdots,
+  D^{j-1}\widetilde{\varphi}_{\ell + j - }(0)) + \tag{A2.58}\label{app-2-eqA2.58}\\
+& + \sum\limits_{i=0}^{j-1} \frac{\partial \Phi_{j-1}}{\partial
+    \lambda_{i}} (0, 0, D \widetilde{\varphi}_{\ell + j - 1} (0),
+  \cdots, D^{j-1} \widetilde{\varphi}_{\ell + j - 1} (0))
+  D^{i+1}\widetilde{\varphi}_{\ell + j - 1}(0)
+\end{align*}
+and
+\begin{align*}
+& D^{j}\widetilde{\varphi}(0) = \frac{\partial \Phi_{j-1}}{\partial
+    \widetilde{x}} (0, 0, D\widetilde{\varphi}(0), \cdots,
+  D^{j-1}\widetilde{\varphi}(0)) + \tag{A2.59}\label{app-2-eqA2.59}\\
+& + \sum\limits_{i = 0}^{j-1} \frac{\partial \Phi_{j-1}}{\partial
+    \lambda_{i}} (0, 0, D\widetilde{\varphi}(0), \cdots,
+  D^{j-1}\widetilde{\varphi}(0)) D^{i+1}\widetilde{\varphi}(0).
+\end{align*}
+
+But,\pageoriginale in view of Lemma \ref{app-2-lemA2.3}, the term corresponding with
+$i = j - 1$ vanishes in both expressions (\ref{app-2-eqA2.58}) and (\ref{app-2-eqA2.59}). It
+follows that $D^{j}\widetilde{\varphi}_{\ell + j}(0)$ and
+$D^{j}\widetilde{\varphi}(0)$ are given by the same formula involving
+the derivatives of order $\leq j - 1$ of the mappings
+$\widetilde{\varphi}_{\ell + j - 1}$ and $\widetilde{\varphi}$
+respectively. As these derivatives coincide by the hypothesis of
+induction, relation (\ref{app-2-eqA2.54}) at rank $j$ is established and the proof is complete.
+\end{proof}
+
+let us now consider the mapping $F \epsilon C^{k}
+(\overline{\mathscr{O}} \times \overline{B}(0, \rho), \mathbb{R}^{n})$
+introduced in $\S 6$ of Chapter \ref{chap4} verifying $F(0) = 0$. So
+as to fully prove the results we used in $\S 6$ of Chapter
+\ref{chap4}, we still have to show that the sequence of mapping
+$$
+\widetilde{x} \epsilon \overline{\mathscr{O}} \to
+f_{\ell}(\widetilde{x}) = F(\widetilde{x}, \widetilde{\varphi}_{\ell +
+k}(\widetilde{x})),
+$$
+of class $C^{k}$ from $\overline{\mathscr{O}}$ to $\mathbb{R}^{n}$
+tends to the mapping
+$$
+\widetilde{x} \epsilon \overline{\mathscr{O}} \to f(\widetilde{x}) =
+F(\widetilde{x}, \widetilde{\varphi}(\widetilde{x})),
+$$
+in the space $C^{k}(\overline{\mathscr{O}}, \mathbb{R}^{n})$, the
+convergence being geometrical in the space
+$C^{k-1}(\overline{\mathscr{O}}, \mathbb{R}^{n})$ (and also
+geometrical in the space $C^{k}(\overline{\mathscr{O}},
+\mathbb{R}^{n})$ if both mappings $\Phi$ and $F$ are of class
+$C^{k+1}$). Besides, we used the relation
+$$
+D^{j}f_{\ell}(0) = D^{j}f(0), 0 \leq j \leq k,
+$$
+which is now immediate from Lemma \ref{app-2-lemA2.7} because, for a given index $0
+\leq j \leq k$, the derivatives of order $j$ of the mappings $f_{\ell}$
+and $f$ are given by the same formula involving the derivatives of order
+$\leq j$ of the mappings $F$ and $\widetilde{\varphi}_{\ell + k}$ on the
+one hand those of $F$ and $\widetilde{\varphi}$ on the other hand.
+
+Still\pageoriginale denoting by $\lambda_{0}$ the generic element of
+the space $\widetilde{Z}$ and setting $F_{0} = F$, define for $1 \leq
+j \leq k$ the mappings
+$$ 
+F_{j} : \overline{\mathscr{O}} \times \overline{B}(0, \rho) \times
+\prod_{i=1}^{j} \mathscr{L}_{i} (\mathbb{R}^{n+1}, \widetilde{Z}) \to
+\mathscr{L}_{j} (\mathbb{R}^{n+1}, \mathbb{R}^{n}),
+$$
+by
+\begin{align*}
+F_{j}(\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j}) & =
+\frac{\partial F_{j-1}}{\partial \widetilde{x}} (\widetilde{x},
+\lambda_{0}, \cdots, \lambda_{j-1}) + \tag{A2.60}\label{app-2-eqA2.60}\\
+& + \sum\limits_{i=0}^{j-1} \frac{\partial F_{j-1}}{\partial
+  \lambda_{i}} (\widetilde{x}, \lambda_{0}, \cdots, \lambda_{j-1}) \lambda_{i+1}.
+\end{align*}
+
+Of course, the mappping $F_{j}$ play with $F$ the role that the mappings
+$\Phi_{j}$ play with $\Phi$ and have similar properties. For instance,
+the mapping $F_{j}$ is of class $C^{k-j}$ and for $\widetilde{x}
+\epsilon \overline{\mathscr{O}}$,
+\begin{equation*}
+D^{j}f_{\ell}(\widetilde{x}) = F_{j}(\widetilde{x},
+\widetilde{\varphi}_{\ell + k}(\widetilde{x}),
+D\widetilde{\varphi}_{\ell + k} (\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}_{\ell + k}(\widetilde{x}))\tag{A2.61}\label{app-2-eqA2.61}
+\end{equation*}
+for every $\ell \geq 0$, while
+\begin{equation*}
+D^{j}f(\widetilde{x}) = F_{j}(\widetilde{x},
+\widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}(\widetilde{x})).\tag{A2.62} \label{app-2-eqA2.62}
+\end{equation*}
+
+For $0 \leq j \leq k-1$ and $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$, we shall set
+\begin{align*}
+c^{j}(\widetilde{x}) &   = \frac{\partial F_{j}}{\partial \widetilde{x}}
+(\widetilde{x}, \widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{j}\widetilde{\varphi}(\widetilde{x})),\tag{A2.63}\label{app-2-eqA2.63}\\
+c_{\ell}^{j}(\widetilde{x}) & = \frac{\partial F_{j}}{\partial
+  \widetilde{x}} (\widetilde{x}, \widetilde{\varphi}_{\ell +
+  k}(\widetilde{x}), D\widetilde{\varphi}_{\ell + k} (\widetilde{x}),
+\cdots, D^{j}\widetilde{\varphi}_{\ell + k}(\widetilde{x})) \text{ for
+} \ell \geq 0.\tag{A2.64}\label{app-2-eqA2.64}
+\end{align*}
+
+Similarly, for $0 \leq j \leq k-1$, $0 \leq i \leq j$ and
+$\widetilde{x} \epsilon \overline{\mathscr{O}}$, set
+\begin{align*}
+C_{i}^{j}(\widetilde{x}) & = \frac{\partial F_{j}}{\partial
+  \lambda_{i}} (\widetilde{x}, \widetilde{\varphi}(\widetilde{x}),
+D\widetilde{\varphi}(\widetilde{x}), \cdots,
+D^{i}\widetilde{\varphi}(\widetilde{x})),\tag{A2.65}\label{app-2-eqA2.65}\\
+C_{i\ell}^{j}(\widetilde{x}) & = \frac{\partial F_{j}}{\partial
+  \lambda_{j}} (\widetilde{x}, \widetilde{\varphi}_{\ell +
+  k}(\widetilde{x}), D\widetilde{\varphi}_{\ell + k}(\widetilde{x}),
+\cdots, D^{i}\widetilde{\varphi}_{\ell + k}(\widetilde{x})) \text{ for
+} \ell \geq 0\tag{A2.66}\label{app-2-eqA2.66}
+\end{align*}
+
+In what follows, we assume that the neighbourhood $\mathscr{O}$ has
+been chosen so that Theorem \ref{app-2-thmA2.2} and \ref{app-2-thmA2.3} apply
+
+\begin{alphlemma}\label{app-2-lemA2.8}%[A2.8]
+(i) Assume\pageoriginale $k \geq 2$ and $0 \leq j \leq k-2$. Then, the
+  sequence $(c_{\ell}^{j})_{\ell \geq 0}$ tends to $c^{j}$
+  geometrically in the space $C^{0}(\overline{\mathscr{O}},
+  \mathscr{L}(\mathbb{R}^{n+1}, \mathscr{L}_{j}(\mathbb{R}^{n+1},\break
+  \mathbb{R}^{n})))$ and the sequence $(C_{i\ell}^{j})_{\ell \geq 0}$
+  tends to $C_{i}^{j}$ in the space $C^{0} (\overline{\mathscr{O}},\break
+  \mathscr{L}(\mathscr{L}_{i}(\mathbb{R}^{n+1}, \mathbb{R}^{n})$,
+  $\mathscr{L}_{j}(\mathbb{R}^{n+1}, \mathbb{R}^{n})))$.
+
+(ii) Assume only $k \geq 1$ and $0 \leq j \leq k-1$. Then, the
+  sequence $(c_{\ell}^{j})_{\ell \geq 0}$ tends to $c^{j}$ in the
+  space $C^{0}(\overline{\mathscr{O}}, \mathscr{L}(\mathbb{R}^{n+1},
+  \mathscr{L}_{j}(\mathbb{R}^{n+1}, \mathbb{R}^{n})))$ and the
+  sequence $(C_{i\ell}^{j})_{\ell \geq 0}$ tends to $C_{i}^{j}$ in
+  the space $C^{0}(\overline{\mathscr{O}},
+  \mathscr{L}(\mathscr{L}_{i}(\mathbb{R}^{n+1}, \mathbb{R}^{n}),
+  \mathscr{L}_{i}(\mathbb{R}^{n+1}, \mathbb{R}^{n})))$.
+  \end{alphlemma}
+
+\begin{proof}
+The proof of this lemma parallels that of Lemma \ref{app-2-lemA2.6}. Note only that
+the (geometrical) convergence of the sequence
+$(\widetilde{\varphi}_{\ell + k})$ to $\widetilde{\varphi}$ in the
+space $C^{j}(\overline{\mathscr{O}}, \widetilde{Z})$ need not be
+listed in the assumption since it is known from Theorem \ref{app-2-thmA2.2}
+\end{proof}
+
+\begin{alphtheorem}\label{app-2-thmA2.4}%[A2.4]
+The sequence $(f_{\ell})$ tends to $f$ in the space
+$C^{k}(\overline{\mathscr{O}}, \mathbb{R}^{n})$ and the convergence is
+geometrical in the space $C^{k-1} (\overline{\mathscr{O}}, \mathbb{R}^{n})$.
+\end{alphtheorem}
+
+\begin{proof}
+Once again, it is enough to prove equivalently that the sequence
+$(D^{j} f_{\ell})_{\ell \geq 0}$ tends to $D^{j}f$ in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{j}(\mathbb{R}^{n+1},
+\mathbb{R}^{n}))$ for $0 \leq j \leq k$, the convergence being
+geometrical for $0 \leq j \leq k-1$. We shall distinguish the case $j
+= 0$ and $j \geq 1$.
+
+When $j = 0$, we must prove that the sequence $(f_{\ell})$ tends to $f$
+geometrically in the space $C^{0}(\overline{\mathscr{O}},
+\mathbb{R}^{n})$. By definition and with the Taylor formula (since $F$
+is at least $C^{1}$), one has for $\widetilde{x} \epsilon
+\overline{\mathscr{O}}$ and $\ell \geq 0$
+{\fontsize{10}{12}\selectfont
+\begin{align*}
+f_{\ell} (\widetilde{x}) - f(\widetilde{x}) & = F(\widetilde{x},
+\widetilde{\varphi}_{\ell + k}(\widetilde{x})) - F(\widetilde{x},
+\widetilde{\varphi}(\widetilde{x})) \\
+& = \int_{0}^{1} \frac{\partial F}{\partial \lambda_{0}}
+(\widetilde{x}, \widetilde{\varphi}(\widetilde{x}) +
+s(\widetilde{\varphi}_{\ell + k} (\widetilde{x}) -
+\widetilde{\varphi}(\widetilde{x}))) \cdot (\widetilde{\varphi}_{\ell
+  + k}(\widetilde{x}) - \widetilde{\varphi}(\widetilde{x})) ds.
+\end{align*}}
+
+By\pageoriginale the continuity of the mapping $(\partial F / \partial
+\lambda_{0})$ on the compact set $\overline{\mathscr{O}} \times
+\Lambda_{0}^{c}$, where $\Lambda_{0}^{c} \subset \overline{B}(0,
+\rho)$ denotes the closed convex hull of the compact set $\Lambda_{0}$
+(cf. Lemma \ref{app-2-lemA2.4}), there is a constant $K > 0$ such that
+$$
+||\frac{\partial F}{\partial \Lambda_{0}} (\widetilde{x},
+\widetilde{\varphi}(\widetilde{x}) + s(\widetilde{\varphi}_{\ell +
+  k}(\widetilde{x}) - \widetilde{\varphi}(\widetilde{x})))|| \leq K,
+$$
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$ and $\ell
+\geq 0$. Hence
+$$
+|f_{\ell} - f|_{\infty, \overline{\mathscr{O}}} \leq
+K|\widetilde{\varphi}_{\ell + k} - \widetilde{\varphi}|_{\infty,
+  \overline{\mathscr{O}}} 
+$$
+and the geometrical rate off convergence of the sequence $(f_{\ell})$
+to $f$ in the space $C^{0}(\overline{\mathscr{O}}, \mathbb{R}^{n})$
+follows from Theorem \ref{app-2-thmA2.2}.
+
+When $1 \leq j \leq k$ and with (\ref{app-2-eqA2.60}) - (\ref{app-2-eqA2.62}) and the notation
+(\ref{app-2-eqA2.63})-(\ref{app-2-eqA2.66}), the method we used in Theorem \ref{app-2-thmA2.2} and \ref{app-2-thmA2.3} leads to
+the inequality
+\begin{align*}
+||D^{j}f_{\ell}(\widetilde{x}) - D^{j}f(\widetilde{x})|| &\leq
+||c_{\ell}^{j-1} (\widetilde{x}) -C^{j-1}(\widetilde{x})||\\ 
+&{}+||\sum\limits_{i=0}^{j-1} ||c_{i\ell}^{j-1} (\widetilde{x}) -
+||C_{i}^{j-1}(\widetilde{x})|| ||D^{i+1}
+||\widetilde{\varphi}(\widetilde{x})|| \\
+& + \sum\limits_{i=0}^{j-1} ||C_{i\ell}^{j-1} (\widetilde{x})||
+||||D^{i+1}\widetilde{\varphi}_{\ell + k}(\widetilde{x}) -
+||D^{i+1}\widetilde{\varphi}(\widetilde{x})||, 
+\end{align*}
+for every $\widetilde{x} \epsilon \overline{\mathscr{O}}$. Due to the
+compactness of the set $\overline{\mathscr{O}} \times \Lambda_{0}
+\times \cdots \times \Lambda_{j-1}$ (Lemma \ref{app-2-lemA2.4}) and the regularity
+$\widetilde{\varphi} \epsilon C^{k}(\overline{\mathscr{O}},
+\widetilde{Z})$, there is a constant $K > 0$ such that
+\begin{align*}
+& ||D^{i+1} \widetilde{\varphi}(\widetilde{x})|| \leq K,\\
+& ||C-{\i\ell}^{j-1} (\widetilde{x})|| \leq K,
+\end{align*}
+for $\widetilde{x} \epsilon \overline{\mathscr{O}}, 0 \leq i \leq j-1$
+and $\ell \geq 0$. Thus, we first obtain
+\begin{align*}
+&||D^{j}f_{\ell}(\widetilde{x}) - D^{j}f(\widetilde{x})|| <
+||c_{\ell}^{j-1} (\widetilde{x})-c^{j-1}(\widetilde{x})\\ 
+&\qquad{}+ K\left[\sum\limits_{i=0}^{j-1} ||C_{i\ell}^{j-1} (\widetilde{x}) -
+  C_{i}^{j-1}(\widetilde{x})|| + ||D^{i+1} \widetilde{\varphi}_{\ell +
+k}(\widetilde{x}) - D^{i + 1} \widetilde{\varphi}(\widetilde{x})||\right]
+\end{align*}
+and\pageoriginale next
+\begin{align*}
+|D^{j}(f_{\ell} - f)|_{\infty, \overline{\mathscr{O}}} &\leq
+|c_{\ell}^{j} - c^{j-1}|_{\infty, \overline{\mathscr{O}}}\\ 
+&{}+ K|\left[\sum\limits_{i=0}^{j-1} |C_{i\ell}^{j-1} -
+ C_{i}^{j-1}|_{\infty, \overline{\mathscr{O}}} + D^{i+1}
+(\widetilde{\varphi}_{\ell + k} - \widetilde{\varphi})|_{\infty,
+|\overline{\mathscr{O}}}\right].\tag{A2.67} \label{app-2-eqA2.67}
+\end{align*}
+
+For $k \geq 2$ and $1 \leq j \leq k-1$ (i.e. $0 \leq j-1 \leq
+k-2$). this inequality yields the geometrical convergence of the
+sequence $(D^{j}f_{\ell})_{\ell \geq 0}$ to $D^{j}f$ in the space
+$C^{0}(\overline{\mathscr{O}}, \mathscr{L}_{j}(\mathbb{R}^{n+1},
+\mathbb{R}^{n}))$ by applying Theorem \ref{app-2-thmA2.2} and Lemma \ref{app-2-lemA2.8} (i). For $k
+\geq 1$ and $j = k$, convergence of the sequence
+$(D^{k}f_{\ell})_{\ell \geq 0}$ to $D^{k}f$ (with no rate of
+convergence in the space $C^{0}( \overline{\mathscr{O}},
+\mathscr{L}_{k}(\mathbb{R}^{n+1}, \mathbb{R}^{n}))$ also follows from
+(\ref{app-2-eqA2.67}) by applying Theorem \ref{app-2-thmA2.3} and Lemma \ref{app-2-lemA2.8} (ii).
+\end{proof}
+
+\begin{alphcorollary}\label{app-2-coroA2.2}%[A2.2]
+Assume that both mappings $F$ and $\Phi$ are of class  $C^{k+1}$. Then,
+the sequence $(f_{\ell})$ tends to the maping f geometrically in the
+space $C^{k}(\mathscr{O}, \mathbb{R}^{n})$.
+\end{alphcorollary}
+
+\begin{proof}
+When the mapping $F$ is of class $C^{k-1}$, the mappings $F_{j}$ $0 \leq
+j \leq k$, are of class $C^{k+1-j}$and hence the mappings $c^{j},
+c_{\ell}^{j}, C_{i}^{j}$ and $C_{i\ell}^{j}$ are of class $C^{1}$ at
+least. This allows us to prove Lemma \ref{app-2-lemA2.8} (i) for the indices $0 \leq j
+\leq k-1$ (instead of $0 \leq j \leq k-2$). On the other hand, if the
+mapping $\Phi$ is of class $C^{k+1}$ too, the sequence
+$(\widetilde{\varphi}_{\ell})$ tends to the mapping
+$\widetilde{\varphi}$ geometrically in the space
+$C^{k}(\overline{\mathscr{O}}, \widetilde{Z})$ (Corollary \ref{app-2-coroA2.1}) and so
+does the sequence $(\widetilde{\varphi}_{\ell + k})$. The result
+follows now from inequality (\ref{app-2-eqA2.67}) for $1 \leq j \leq k$ (i.e. $0
+\leq j-1 \leq k-1$), the geometrical convergence of the sequence
+$(f_{\ell})$ to $f$ in the space $C^{0}(\overline{\mathscr{O}},
+\mathbb{R}^{n})$ having been already proved in Theorem \ref{app-2-thmA2.3}.
+\end{proof}
+
+
+\begin{thebibliography}{99}
+\bibitem{1} {BERGER, M.S. :}\pageoriginale {\textit Nonlinearity and Functional
+  Analysis},   Acad. Press (1977).
+
+\bibitem{2} {BEREGER, M.S. - WESTRETICH, D. :} A Convergent Iteration
+  Scheme for Bifurcation Theory in Banach Spaces, {\textit
+    J. Math. Anal. Appl.,} 43, 136-144 (1973).
+
+\bibitem{3} {BERS, L. :} {\textit Introduction to Several Complex
+  Variables,} Courant Institute Lect. Notes (1964).
+
+\bibitem{4} {BREZIS, H. :} {\textit Analyse Fonctionnelle,}  Masson
+  (1983).
+
+\bibitem{5} {BUCHNER, M. -MARSDEN, J. - SCHECTER, S. :} Application of
+  the Blowing - Up Construction and Algebraic Geometry to Bifurcation
+  Probelms, {\textit J. Diff Eq.,} 48, 404-433 (1983).
+
+\bibitem{6} {CIARLET, P.G. - RABIER, P. :} {\textit Les Equations de
+  von K\'{a}rm\'{a}n}, Lect. Notes in Math., 826, Springer (1980).
+
+\bibitem{7} {CRANDAL, M, - RABINOWITZ, P. :} Bifurcation from Simple
+Eignevalues, {\textit J. Funct. Anal.,} 8, 321-340 (1971).
+
+\bibitem{8} {DANCER, E. :} Bifurcation Theory in Real Banach Spaces,
+        {\textit Proc. London Math. Soc.,} 23, 699-734 (1971).
+
+\bibitem{9} {DIEUDONN\'{E}, J. :} {\textit Foundations of Modern
+  Analysis}, Acad. Press (1960).
+
+\bibitem{10} {EL HAJJI, S. :} {\textit Th\'{e}se de 3eme Cycle},
+Univ. P. et M. Curie, Paris (1983).
+
+\bibitem{11} {GIRAUD, J. :} {\textit G\'{e}om\'{e}trie Alg\'{e}brique
+  El\'{e}mentaire,} Publications Math\'{e}matiques d'Urasy (1977).
+
+\bibitem{12} {GOLUBITSKY, M. -GUILLEMIN, V. :}\pageoriginale {\textit
+  Stable Mappings and Their Singularities,} G.T.M. 14, Springer (1973).
+
+\bibitem{13} {GOLUBITSKY, M. - KEYFITZ, B. :} A Qualitative Study of
+Steady - State Solutions for a Continuous Flow Stirred Tank Chemical
+Reactor,  {\textit STAM J. Math. Anal}., 11, 316-339 (1980).
+
+\bibitem{14} {GOLUNITSKY, M. -MARSDEN, J. :} The Morse Lemma in
+Infinite Dimensions vias Singularity Theorey (Preprint).
+
+\bibitem{15} {GOLUBITSKY, M. - SCHAEFFER, D. :} A Theory for Imperfect
+Bifurcation via Singularity Theorey, {\textit Comm. Pure Appl. Math.,}
+32, 21-98 (1979).
+
+\bibitem{16} {HODGE, W.V.D. - PEDOE, D. :} {\textit Methods of
+  Algebraic Geometry,} Vol. I Cambridge University Press (1968).
+
+\bibitem{17} {KATO, T. :} {\textit Perturbation Theory far Linear
+  Operators,} Springer (1976).
+
+\bibitem{18} {KENDIG, K. :} {\textit Elementary Algebraic Geometry,}
+  GTM 44, Springer (1977).
+
+\bibitem{19} {KRASNOSELSKII, M.A. :} {\textit Topological Methods in
+  the Theory of Nonlinear Integral Equations}, The Macmillan Co.,
+  Pergamon Press (1964).
+
+\bibitem{20} {KREIN. M.G. - RUTMAN, M. A. :} Linear Operators Leaving
+  a Cone in a Banach Space Invariant, {\textit Amer. Math. Soc
+    Trans.,} Ser 1 (10) (1950).
+
+\bibitem{21} {KUIPER, N.H. :} $C^{1}$ Equivalence of Functions Near
+  Isolated Critical Points, in {\em Symposium on Infinite -
+    Dimensional Topology}, R.D. Anderson Ed. Ann. of Math. Studies,
+  69, Princerton University Press (1972).
+
+\bibitem{22} {LUUSTERNIK, L.A. - SOBOLEV, V.J. :} {\textit Elements of
+Functional Analysis}, Gordon and Breach (1961).
+
+\bibitem{23} {Mc LEOD, J.B.-SATTINGER, D. :}\pageoriginale Loss of
+  Stability and Bifurcation at Double Eigenvalues, {\textit J. Funct,
+    Anal.,} 14, 62-84 (1973).
+
+\bibitem{24} {MAGNUS, R.J. :} On the Local Structure of the Zero Set
+  of a Banach Space Valued Mapping, {\textit J. Funct. Anal.,} 22,
+  58-72 (1976).
+
+\bibitem{25} {MARSDEN, J. :} Qualitative Methods in Bifurcation
+  Theory, {\textit Bull. Amer. Math. Soc.,} 84, 1125-1148 (1978).
+
+\bibitem{26} {MUMFORD, D. :} {\em Algebraic Geometry I. Complex
+  Projective Varieties,} Frundlehren der Math. Wiss., 221, Springer (1976).
+
+\bibitem{27} {NIRENBERG, L. :} {\textit Topics in Nonlinear Functional
+Analysis}, Courant Institute Lecture Notes (1974).
+
+\bibitem{28} {PALAIS, R. :} The Morse Lemma on Banach Spaces, {\textit
+Bull. Amer. Math Soc.,}75, 968-971 (1969).
+
+\bibitem{29} {RABIER, P. :} A Generalization of the Implicit Function
+  Theorem for Mappings from $\mathbb{R}^{n+1}$ into $\mathbb{R}^{n}$
+  and its Applications, {\textit J. Funct. Anal.,} 56, 145-170 (1984).
+
+\bibitem{30} {RABIER, P. : } A Necessary and Sufficient Condition for
+  the Coerciveness of Certain Functionsl, {\textit STAM
+    J. MAth. Anal.,} Vol. 15, no.2, 367-388 (1984).
+
+\bibitem{31} {RABIER, P. :} A Synthetic Study of One-Parameter
+  Nonlinear Problems (Preprint).
+
+\bibitem{32} {RABIER, P. :} A Desingularization Process in Degenerate
+  Bifurcation Problems, Parts I and II (Preprint).
+
+\bibitem{33} {RABIER, P.-EL HAJJI, S. :}\pageoriginale  New Algorithms for the
+  Computation of the Branches in One-Parameter Nonlinear Problems (To
+  appear in {\textit Num. Mat.}).
+
+\bibitem{34} {SATTINGER, D. H. :} {\textit Group Theoretic Methods in
+  Bifurcation Theory,} Lect, Notes in Math., 762, Springer (1979).
+
+\bibitem{35} {SCHAEFFER, H. :} {\em Topological Vector Spaces,}
+  Springer, 2nd ed. (1971).
+
+\bibitem{36} {SCHECTER, M. :} {\textit Principles of Functional
+  Analysis,} Acad. Press (1971).
+
+\bibitem{37} {SEIDENBERG, A. :} A New Decision Method in Elementary
+  Algebra, {\textit Ann. of Math.,} 60, 365-374 (1954).
+
+\bibitem{38} {SHAFAREVICH, J. R. :} {\textit Basic Algebraic Geometry,
+} Springer (1974).
+
+\bibitem{39} {SHAERER, M. :} Bifurcation from a Multiple Eigenvalue in
+  {\textit Ordinary and Partial Differentail Equation} (Dundee 1976),
+  Lect. Notes in Math., 564, 417-427, Springer (1976).
+
+\bibitem{40} {SZULKIN, A. :} Local Structure of the Zero Set of a
+  Differentaible Mapping and Application to Bifurcation Theorey,
+  {\textit Math, Scand.,} 45, 232-242 (1979).
+
+\bibitem{41} {TROMBA, A. J. :} A Sufficient Condition for a Critical
+  Point of a Functional to be a Minimum and its Application to
+  Plateau's Problem (To appear in Math. Ann.).
+
+\bibitem{42} {BEYN, W. J.} A Note on the Lyapunov-Schmidt Reduction
+  (Private communcation).
+\end{thebibliography}
+
+
+ 
