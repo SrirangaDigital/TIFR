@@ -1,0 +1,1362 @@
+\chapter{Linear mapping in cones}
+
+If $A$\pageoriginale is a linear operator in $R^{(n)}$ with a matrix
+$(a_{ij})$ with 
+non-negative elements, $a_{ij}\geq 0$, then, by a famous theorem of
+Perron and Frobenius (see for example Gantmacher, The theory of
+matrices), there exists an eigen vector of $A$ with non-negative
+coordinates and with eigenvalue $\rho$, such that all other
+eigenvalues satisfy $|\lambda| \leq \rho$. 
+
+If we take $E=R^{(n)}$ and $C$ to be the set of all vectors in $E$
+with non-negative coordinates, then $C$ is a positive cone in $E$,
+and $n\times n$ matrices with non-negative elements correspond to
+linear operators in $E$ that map $C$ into itself. Then theorems of the
+present chapter may be regarded as generalizations of the
+Perron-Frobenius Theorem. $A$ great many such generalizations with
+various methods of proof have been published during recent years, and
+our list of references is far from complete.  
+
+The idea of the method of proof adopted here is the use of the simple
+concept of 'topological divisor of zero'. 
+
+Let $\mathcal{U}$ be a Banach algebra with a unit element $e$, and
+let $a$ be a frontier point of the set of invertible elements. Then a is a
+topological divisor of zero, i.e., there exists a sequence $(x_n)$
+with $||x_n|| = 1 (n = 1,2,\ldots)$ such that  
+$$
+\lim_{n \to \infty} ax_n = 0
+$$\pageoriginale
+
+\begin{proof}
+  There exists a sequence $(a_n)$ of invertible elements such that 
+  $$
+  \lim_{n \to \infty} a_n = a
+  $$
+  Then the sequence $(|| a^{-1}_n ||)$ is unbounded. For otherwise
+  $$
+  \displaylines{\hfill 
+  \lim_{n \to \infty}(a_n - a) a_n^{-1} = 0\hfill \cr
+  \text{i.e.,} \hfill \lim \limits_{n \to \infty} (e - a a_n^{-1}) =0
+  \hfill }
+  $$
+  But this implies that  $a a_n^{-1}$ is invertible for some $n$, and
+  therefore $a$ has a right inverse. Similarly $a$ has a left inverse, and
+  $a$ is invertible, which is absurd since the set of invertible
+  elements is open. 
+\end{proof}
+
+We may therefore suppose that $|| a_n^{-1} || \to \infty$, and take
+$x_n = || a_n^{-1} ||^{-1}\break a_n^{-1}$. Then $|| x_n || = 1$, and 
+$$
+\lim_{n \to \infty} ax_n = \lim\limits_{n \to \infty} (a -a_n) x_n +
+a_n x_n = 0. 
+$$
+
+In particular, if $\lambda$ is a frontier point of the spectrum of an
+element $b$, then $\lambda e - b$ is a frontier point of the set of
+invertible elements of $\mathcal{U}$ and so there exists $(x_n)$, with
+$|| x_n || = 1$ and  
+$$
+\lim_{n \to \infty} (\lambda e - b) x_n = 0
+$$
+
+If further\pageoriginale we know that $\lambda \neq 0$, and $b x_{n_k}
+\to u$ for some subsequence $(x_{n_k})$. Then  
+\begin{align*}
+  \lambda x_{n_k} & \to u ,\\
+  \lambda b x_{n_k} & \to bu ,
+\end{align*}
+so that $bu = \lambda u$ and $u \neq 0$, since $|| u || = \lambda$.
+
+Actually, our method is not quite so simple as this, for our Banach
+algebra is a Banach algebra of operation on a Banach space $X$, and we
+have to replace the sequence $(x_n)$ of operators by a sequence of
+elements of $X$. 
+
+Until we reach the statement of our main theorem (Theorem
+\ref{chap5:thm5.1}) we 
+shall use the following notation. 
+
+$E$ will denote a normed and partially ordered vector space with norm
+$|| x ||$ and positive cone $C$. We suppose that $C$ is complete with
+respect to $|| x ||$, and that 
+$$
+E = C - C
+$$
+We do not suppose that $E$ is complete with respect to $|| x ||$. We
+denote by $B$ the intersection of $C$ and the closed unit of $E$,
+i.e., 
+$$
+B = \{ x : x \in C ~ \text{ and } ~ || x || \leq 1\}
+$$
+We denote by $B^0$ the convex symmetric hull of $B$, i..e.
+$$
+B^0 = \{ \alpha x - \beta y : x, y \in B, \alpha \geq 0, \beta \geq 0,
+\alpha + \beta = 1 \}, 
+$$\pageoriginale
+and by $|| x ||_c$ the Mindowski functional of $B^0$, i.e.,
+$$
+|| x ||_c = \inf \{ \lambda : \lambda > 0, x \in \lambda B^0 \}
+$$
+
+\setcounter{section}{5}
+\setcounter{lemma}{0}
+\begin{lemma}% lemma 5.1
+  \begin{enumerate}
+  \item[$(\alpha)$] $ || x ||_c$ is a norm on $E$ and satisfies 
+    $$
+    || x ||_c = || x || \; (x \in C) , || x ||_c \geq || x || \qquad (x \in E)
+    $$
+
+  \item[$(\beta)$] $E$  is complete and $C$ is a closed subset of $E$
+    with respect to $|| x ||_c$. 
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  $(\alpha)$~ since $E = C - C, B^0$ is an absorbing set for
+    $E$, and so the Mindowski functional $|| x ||_c$ is defined on
+    $E$. Since $B^0$ is convex and symmetric, $|| x ||_c$ is a
+    seminorm on $E$. If $z \in E$ and $|| z ||_c < 1$, then $z \in
+    B^0$ i.e. $z = \alpha x - \beta y$ with $x, y \in B$ and $\alpha
+    \geq 0$, $\beta \geq 0$, $\alpha + \beta = 1$. Therefore 
+    $$
+    || z || = || \alpha x - \beta y || \leq \alpha || x || + \beta ||
+    y || \leq \alpha + \beta =  1.
+    $$
+    This proves that
+    $$
+    || x || \leq || x ||_c \qquad (x \in E)
+    $$
+    and completes the proof that $|| x ||_c$ is a norm. Since $B
+    \subset B^0$, we have  
+    $$
+    || x ||_c \leq ~ 1  \qquad (x \in B),
+    $$
+    and therefore
+    $$
+    || x ||_c \leq || x || \qquad (x \in C)
+    $$\pageoriginale
+    This completes the proof of $(\alpha)$.
+
+$(\beta)$~ Let $(z_n)$ be a Cauchy sequence in $E$ with
+    respect to $x_c$. Then there exists a strictly increasing sequence
+    $(n_k)$ of positive integers such that 
+    $$
+    p, q \geq n_k \Rightarrow || z_p - z_q ||_c < 2^{-k}
+    $$
+
+  Let $w_k = z_{n_k} \; (k = 1, 2, \ldots)$. Then, in particular,
+  $$
+  || w_{k+1} - w_k ||_c < 2^{-k} \; (k = 1, 2, \ldots)
+  $$
+  Therefore
+  $$
+  w_{k + 1} - w_k \in 2^{-k} B^0,
+  $$
+  and so $w_{k+1} - w_k = \alpha_k x_k - \beta_k y_k$, with
+  $$
+  \alpha_k \geq 0 , \beta \geq 0, \alpha_k + \beta_k = 1 , x_k , y_k
+  \in 2^{-k} B 
+  $$
+  Let
+  $$
+  s_n = \sum^n_{k=1} \alpha_k x_k, \; t_n = \sum^n_{k=1} \beta_k y_k .
+  $$
+\end{proof}
+
+Then $p > q$ gives
+$$
+|| s_p - s_q || \leq \sum^p_{q+1} \alpha_k || x_k || \le \sum^p_{k = q
+  + 1} 2^{-k} < 2^{-q}, 
+$$
+and similarly
+$$
+|| t_p - t_q || < 2^{-q}.
+$$
+Since\pageoriginale $C$ is complete, there exist $s$, $t$ in $C$ such
+that 
+$$
+\lim_{n \to \infty} || s - s_n || = 0, \quad \lim\limits_{n \to
+  \infty} || t-t_n || = 0 
+$$
+Also, $\lim\limits_{p \to \infty}  s_p - s_q = s - s_q$, and $s_p -
+s_q \in C$ whenever $p > q$. Hence $s - s_n \in C ~ (n=1, 2,
+\ldots)$. Therefore 
+$$
+\displaylines{\hfill 
+  || s - s_n ||_c = || s-s_n || \quad (n = 1, 2, \ldots), \hfill \cr
+  \text{and so}\hfill 
+  \lim_{n \to \infty} || s - s_n ||_c = 0.\hfill }
+$$
+
+Similarly, $\lim\limits_{n \to \infty} || t - t_n ||_c = 0$, and so
+$(w_n)$ converges with respect to $|| x ||_c$ to $w_1 + s - t$. It is
+now easily seen that $(z_n)$ converges with respect to $|| x ||_c$,
+and so $E$ is complete with respect to $|| x ||_c$. That $C$ is a
+closed subset of $E$ with respect to $|| x ||_c$ is a simple
+consequence of the inequality 
+$$
+|| x || \leq || x ||_c \qquad (x \in E)
+$$
+and the closeness of $C$ with respect to $|| x ||$, (in fact a larger
+norm gives a stronger topology). 
+
+
+\begin{Definition}%definition 5.1
+  A linear operator in $E$ is said to be {\em positive } if it maps
+  $C$ into $C$ and to be {\em partially bounded } if it maps $B$ into
+  a bounded set. The {\em partial bound } $p(T)$ of a partially
+  bounded linear operator $T$ is defined by 
+  $$
+  p(T) = \sup \{ || T || : x \in B\}
+  $$
+  Given\pageoriginale partially bounded positive linear operators $S$
+  and $T$, we have 
+  $$
+  p(ST) \leq p(S) p(T),
+  $$
+  and therefore the limit
+  $$
+  \lim _{n \to \infty} \left\{ p(T)^n \right\}^{\frac{1}{n}}
+  $$
+  exists. It is called the \textit{ partial spectral radius } of $T$.
+\end{Definition}
+
+\begin{lemma} %lemma 5.2
+  A positive linear operator $T$ is partially bounded if and only if
+  it is a bounded linear operator in the Banach space $(E, ||
+  x\ ||_c)$. For such an operator $T$, 
+  $$
+  p(T) = || T ||_c = \sup \left\{ || Tx ||_c : x \in E ~ \text{ and }
+  ~ || x ||_c \leq ~ 1 \right\}, 
+  $$
+  and the partial spectral radius $\mu$ of $T$ is equal to its
+  spectral radius as an operator in $(E, || x ||_c)$, i.e. 
+  $$
+  \mu = \lim_{n \to \infty} \{|| T^n ||_c\}^{\frac{1}{n}}
+  $$
+  Finally, if $\lambda > \mu$, there exists a partially bounded
+  positive linear operator $R_\lambda$, such that 
+  $$
+  (\lambda I - T) R_ \lambda = R_ \lambda (\lambda I - T) = I,
+  $$
+  where $I$ is the identity operator in $E$.
+\end{lemma}
+
+\begin{proof}
+  Let $T$ be a partially bounded positive linear operator in $E	$ and
+  let $x \in E$ with $|| x ||_c < 1$. Then $x \in B^0$, and so  
+  $$
+ x = \alpha y - \beta z
+$$\pageoriginale
+with $\alpha \geq 0$, $\beta \geq 0$, $\alpha + \beta = 1$,
+    $y$, $z \in B$. Then 
+  $$
+  Tx = \alpha Ty - \beta Tz,
+  $$
+  and so 
+  \begin{align*}
+    || Tx ||_c & \leq \alpha || Ty ||_c + \beta ||Tz||_c\\
+    & = \alpha ||Ty || + \beta ||Tz || \\
+    & \leq (\alpha+ \beta) p(T) = p(T)
+  \end{align*}
+  Thus $T$ is a bounded linear operator in $(E, ||x ||_c)$ and
+  $$
+  || T ||_c \leq p(T)
+  $$
+  For the converse and the reversed inequality it is enough to note that 
+  \begin{align*}
+    ||T||_c \geq  & \sup \left\{ ||Tx ||_c : x \in C ~ \text{ and } ~
+    ||x ||_c \leq 1 \right\}\\ 
+    & \sup \left\{ || Tx || : x \in B \right\} = p(T).
+  \end{align*}
+\end{proof}
+
+That $\mu = \lim\limits_{n \to \infty}\left\{ || T^n
+||_c\right\}^{\dfrac{1}{n}}$ is an obvious consequence of the fact
+that $|| T ||_c = p(T)$ for each partially bounded linear operator. 
+
+If $\lambda > \mu$, the series
+$$
+\frac{1}{\lambda} I + \frac{1}{\lambda 2} T + \frac{1}{\lambda^3} T^2
++ \cdots 
+$$
+converges\pageoriginale with respect to the operator norm for bounded
+linear operators in the Banach space $(E, ||x||_c)$ to a bounded
+linear operator $R_ \lambda$, and   
+$$
+(\lambda I - T) R_ \lambda = R_ \lambda (\lambda I - T) = I.
+$$
+
+Since $C$ is closed with respect to $|| x ||_c$, and the partial sums
+of the series are obviously positive operators, it follows that $R_
+\lambda $ is a positive operator. 
+
+\begin{Definition}%definition 5.2
+  A positive linear operator $T$ is said to be a {\em normalising
+    operator} if it satisfies the following condition: 
+  $$
+  \alpha_n \geq 0, y_n \in B, \alpha_n x \geq Ty_n, \; \lim_{n \to
+    \infty} \alpha_n = 0 \qquad \lim_{n \to \infty} || Ty_n || = 0 
+  $$
+\end{Definition}
+
+If $C$ is a normal cone, then every positive linear operator is
+obviously a normalising operator. We shall see later that a certain
+compactness condition on $T$ suffices to make $T$ a normalising
+operator (without restriction on $C$). 
+
+\begin{lemma}\label{chap5:lem5.3}%lemma 5.3
+  Let $T$ be a normalizing partially bounded positive linear operator
+  with partial spectral radius $\mu$. Then 
+  $$
+  \lim_{\lambda \to \mu + 0} p(R_ \lambda) = \infty
+  $$
+\end{lemma}
+
+\begin{coro*}%coro 0
+  For each such operator $T$, the partial spectral radius $\mu$ is in
+  the spectrum of $T$ regarded as an operator in the Banach space $(E,
+  || x ||_c)$. 
+\end{coro*}
+
+Suppose that the conditions of the lemma are satisfied but that $p (R_
+\lambda)$ does not tend to infinity as $\lambda$ decreases to
+$\mu$. Then\pageoriginale there exists a positive constant $M$ such
+that $p(R_\nu) \leq M$ for some $\nu$ gather than and arbitrarily
+close to $\mu$.  
+
+The case $\mu = 0$ is easily settled. For if $\mu = 0$, then, from the
+formula $(\lambda I - T) R_ \lambda = I$, it follows that 
+\begin{equation*}
+  \lambda R- \lambda x \geq x \qquad (\lambda > 0, x \in C)
+  \tag{1}\label{chap5:eq1} 
+\end{equation*}
+
+If we let $\lambda$ tend to zero through values for which $p(R_
+\lambda) \leq M$, the left hand side of (\ref{chap5:eq1}) tends to
+zero, and, since $C$ is closed, we obtain  
+$$
+- x \in C \qquad (x \in C).
+$$
+But this implies that $C=(0)$ which was excluded by our axioms on
+$C$. 
+
+Suppose now that $\mu > 0$. Then we may choose $\lambda, \nu$ with 
+$$
+0 < \lambda < \mu < \nu < \lambda + M^{-1},
+$$
+and with $p(R_\nu) \leq M$. Since $|| R ||_c = p(R_\nu)$, it follows
+that the series 
+$$
+R_\nu + (\nu - \lambda) R^2_\nu (\nu - \lambda)^2 R^3_\nu + \cdots
+$$
+converges with respect to the operator norm $||~ ||_c$ to a partially
+bounded positive linear operator $S$ which is easily seen to satisfy 
+$$
+S(\lambda I - T)  = (\lambda I - T) S = I
+$$\pageoriginale
+This gives
+$$
+Sx = \lambda^{-1} x + \lambda^{-1} T Sx \qquad (x \in C),
+$$
+from which it follows by induction that
+\begin{equation}
+  Sx \geq \lambda^{-(n+1)} T^n x \qquad (x \in C , n = 0, 1, 2,
+  \ldots) \tag{2}\label{chap5:eq2} 
+\end{equation}
+since $\lambda < \mu$ and $ \lim \limits_{n \to \infty} || T^n ||_c^{\dfrac{1}{n}} = \mu $, we have 
+$$
+\lim_{n \to \infty} || \lambda^{-(n+1)} T^n ||_c ~ = ~ \infty
+$$
+By the principle of uniform boundedness, there exists a point $x$ in
+$E$ for which the sequence $|| \lambda^{-(n+1)} T^n x ||_c$ is
+unbounded. Since $E = C - C$, it follows that there exists a point $w$
+in $C$ for which the sequence $|| \lambda^{-(n+1)} T^n w ||$ is
+unbounded. But given any unbounded sequence $\{ a_n \}$ of
+non-negative real numbers, there exists a subsequence $(a_{n_k})$ such
+that 
+\begin{align*}
+  a_{n_k} > k   & \qquad (k = 1, 2, \ldots) \tag{3}\label{chap5:eq3}\\
+  a_{n_k} > a_j & \qquad (j < n_k , k = 1, 2, \ldots)
+  \tag{4}\label{chap5:eq4} 
+\end{align*} 
+
+This\pageoriginale is easily proved by induction. For if $n_1, \ldots , n_{r-1}$
+have been chosen so that (\ref{chap5:eq3}) and (\ref{chap5:eq4}) are
+satisfied for $k = 1, 2, \ldots , r-1$, we take $n_r$ to be the
+smallest positive integer $s$ for which 
+$$
+a_s > a_{n_{r-1}} + r
+$$
+Hence we see that there exists a strictly increasing sequence $(n_k)$
+of positive integers for which 
+\begin{equation*}
+  \lim_{k \to \infty} \lambda^{-(n_k + 1)} T^{n_k} = \infty
+  \tag{5}\label{chap5:eq5} 
+\end{equation*} 
+and
+\begin{equation*}
+  ||\lambda^{-(n_k + 1)} T^{n_k} || \geq ~ || \lambda^{-n_k} T^{n_k -
+    1} w|| \tag{6}\label{chap5:eq6}
+\end{equation*} 
+since
+$$
+|| T^{n_k} w || \leq p(T) || T^{n_k -1} w ||,
+$$
+we also have
+\begin{equation*}
+  \lim_{k \to \infty} || \lambda^{-n_k} T^{n_k - 1} w || = \infty
+  \tag{7}\label{chap5:eq7}
+\end{equation*} 
+
+By (\ref{chap5:eq7}), there is no loss of generality in supposing that
+$T^{n_k - 1} 
+\neq 0$ for all $k$, and we may take 
+\begin{equation}
+  y_k = || T^{n_k - 1} w || ^{-1} T^{n_k - 1} w \tag{8}\label{chap5:eq8}
+\end{equation} 
+ 
+ Then, by (\ref{chap5:eq2}),
+ \begin{equation}
+   \lambda^{n_k} || T^{n_k - 1} w ||^{-1} S w \geq \lambda^{-1} Ty_k
+   \tag{9}\label{chap5:eq9} 
+ \end{equation} 
+ 
+ Since\pageoriginale $y_k \in B$, and $T$ is a normalizing operator,
+ it follows from (\ref{chap5:eq7}) and (\ref{chap5:eq9}) that  
+ \begin{equation}
+   \lim_{k \to \infty} \lambda^{-1} ||Ty_k || ~ = ~ 0
+   \tag{10}\label{chap5:eq10} 
+ \end{equation} 
+ 
+ But, by (\ref{chap5:eq6}), 
+ $$
+ \lambda^{-1} || T^{n_k} w || \geq || T^{n_k -1} w || ,
+ $$
+ which obviously contradicts (\ref{chap5:eq10}). This contradiction
+ proves the lemma. 
+ 
+ To deduce the corollary, it is enough to appeal to the continuity of
+ the resolvent operator on the resolvent set. 
+ 
+\begin{Definition}%definition 5.3
+  Let $\tau_N$ denote the given norm topology in $E, \tau$ a second
+  linear topology in $E$, and $A$ a subset of the positive cone
+  $C$. We say that $\tau$ is sequentially {\em stronger than $\tau_N$
+    at $0$ relative to} $A$ if $0$ is a $(\tau_N)$-cluster point of
+  each sequence of point of $A$ of which $0$ is a $\tau$-cluster
+  point. 
+\end{Definition} 
+ 
+We recall that to say that $0$ is a $\tau$-cluster point of a sequence
+$(a_n)$ means that each $\tau$-neighbourhood of $0$ contains points
+$a_n$ which \textit{arbitrarily large} $n$. 
+ 
+\begin{thmm}\label{chap5:thm5.1} % theorem 5.1
+  Let $E$ be a normed and partially ordered vector space with norm
+  topology $\tau_N$, positive cone $C$ complete with respect to the
+  norm, and let $B = \{ x : x \in C, || x || \leq 1 \}$. Let $T$ be a
+  partially bounded positive linear operator in $E$ with partial
+  spectral radius $\mu$, and let $\tau$ be a linear topology in $E$
+  with respect to which\pageoriginale $C$ is closed and $T$ is
+  continuous.  
+\end{thmm} 
+ 
+Let $A$ be a subset of $C$ that is contained in a countably
+$\tau$-compact subset of $C$, and let $\tau$ be sequentially stronger
+than $\tau_N$ at $0$ relative to $A$. If either 
+\begin{enumerate}[(i)]
+\item $A = TB$ ~ and ~ $\mu > 0$,
+  
+  or 
+\item $A = B$,
+ 
+  then there exists a non-zero vector $u$ in $C$ with $Tu = \mu u$.
+  \begin{proof}
+    Since we can restrict our consideration to $C - C$, we shall
+    suppose that in fact $E = C - C$. 
+  \end{proof}
+  
+  Since $TB \subset p(T) B$, both (i) and (ii) imply
+
+\item $TB$ is contained in a subset of $C$ that is countably compact
+  with respect to $\tau$, and $\tau$ is sequentially stronger than
+  $\tau_N$ at 0 relative to $TB$. 
+\end{enumerate} 
+
+We prove that under condition (iii), $T$ is a normalizing operator. Let
+$$
+\alpha_n x = Ty_n + z_n
+$$
+with $\alpha_n \geq 0, \lim \limits_{n \to \infty} \alpha_n = 0$, $y_n
+\in B$ and $z_n \in C$. If $|| Ty_n ||$ does not converge to zero, we
+may select a subsequence $(Ty_{n_k})$ such that 
+\begin{equation}
+  || Ty_{n_k} || \geq \varepsilon > 0 \qquad (k = 1, 2, \ldots)
+  \tag{1}\label{chap5:eqq1} 
+\end{equation}
+
+We have
+$$
+Ty_{n_k} + z_{n_k} \to 0 \qquad (\tau),
+$$
+and\pageoriginale $(Ty_{n_k})$ has a $\tau$-cluster point, $v$ say, in
+$C$. It follows that $-v$ is a $\tau$-cluster point of $(z_{n_k})$,
+and, since $C$ is $\tau$-closed, $-v \in C, ~  ~ v = 0 $. This now
+implies that $0$ is a $\tau$-cluster point of $(Ty_{n_k})$ and
+therefore is a $\tau_N$-cluster point of $(Ty_{n_k})$, which
+contradicts (\ref{chap5:eqq1}).   
+
+Thus, by Lemma \ref{chap5:lem5.3}, we have
+$$
+\displaylines{\hfill 
+  \lim_{\lambda \to \mu + 0} p(R_\lambda)   =  \infty ,\hfill \cr
+  \text{i.e.,} \hfill  \lim_{\lambda \to \mu + 0} || R_ \lambda ||_c
+  =  \infty.\hfill \phantom{i.e.,}}
+$$ 
+
+Applying the principle of uniform boundedness, we see that there
+exists a sequence $(\lambda_n)$ converging decreasingly to $\mu$ and a
+vector $w$ in $C$ with $|| w || = 1$ such that 
+$$
+\lim_{n \to \infty} R_{\lambda_n} w = \infty,
+$$
+and we may suppose that $|| R_{\lambda_n} w || \neq 0 ~ (n=1, 2,
+\ldots)$. Let $\alpha_n = || R_{\lambda_n} w ||^{-1}$ and $u_n =
+\alpha_n R_{\lambda_n} w$. Then $u_n \in B, || u_n || = 1 , \lim
+\limits_{n \to \infty} \alpha_n = 0$, and $\mu u_n - Tu_n = (\mu -
+\lambda_n) u_n + (\lambda_n I - T) u_n = (\mu - \lambda_n) u_n +
+\alpha_n w$. 
+
+Suppose that condition (ii) in the statement of the theorem  is
+satisfied. Since $B$ is $\tau$-countably compact and $u_n \in B$, it
+follows from (2) that 
+\begin{equation}
+  \lim_{n \to \infty} \mu u_n - Tu_n = 0 \qquad (\tau)
+  \tag{3}\label{chap5:eqq3}
+\end{equation}\pageoriginale
+
+Also $(u_n)$ has a $\tau$-cluster point $u$ in $C$, and
+(\ref{chap5:eqq3}) shows that $\mu u - Tu = 0$. 
+
+We have $u \neq 0$, for otherwise $a$ is 0 $\tau_N$-cluster point of
+$(u_n)$, which contradicts $|| u_n || = 1$. 
+
+Finally suppose that the condition (i) is satisfied. Then by (2).
+$$
+(\mu - I - T) Tu_n = T(\mu I - T) u_n = (\mu - \lambda_n) Tu_n + \alpha_n Tw
+$$ 
+Since $TB$ is contained in a $\tau$-countably-compact subset of $C$,
+this shows that 
+$$
+\lim_{n \to \infty} (\mu I - T) Tu_n = 0 \qquad (\tau)
+$$
+and that $(Tu_n)$ has a $\tau$-cluster point $v$ in $K$. By the
+$\tau$-continuity of $(\mu I - T)$, we have therefore 
+$$
+(\mu I - T)v = 0
+$$
+If $v = 0$, then $0$ is a $\tau_N$-cluster point of $(Tu_n)$. But, by (2),
+$$
+\lim_{n \to \infty} \mu u_n - Tu_n = 0 \qquad (\tau_N)
+$$
+and therefore $0$ is a $\tau_N$-cluster point of $(\mu u_n)$. But
+since $\mu > 0$, and $|| u_n || = 1$, this is absurd. 
+
+The statement of Theorem \ref{chap5:thm5.1} is somewhat complicated in
+that it seeks to combine generally and precision. A number of less
+complicated\pageoriginale but also less general theorems are easily
+deduced from it.   
+
+\begin{thmm}\label{chap5:thm5.2}%theorem 5.2
+  Let $C$ be a complete positive cone in a normed space $E$, let $B =
+  \{ x : x \in C ~ \text{ and } ~ || x || \le 1\}$, and let $T$ be a
+  positive linear operator which is continuous in $C$, and maps $B$
+  into a compact set and has a positive partial spectral radius
+  $\mu$. Then there exists a non-zero vector $u$ in $C$ with 
+  $$
+  Tu = \mu u.
+  $$
+\end{thmm}
+
+\begin{proof}
+In Theorem \ref{chap5:thm5.1}, take $\tau = \tau_N$.
+\end{proof}
+
+\begin{exam} %example 1
+  Let $E = C_R [0, 1]$ with the uniform norm, and let $C$ be the
+  positive cone in $E$ consisting of those functions $f$ belonging to
+  $E$ that are increasing, convex in $[0, 1]$ and satisfy $f(0) = 0
+  $. 
+\end{exam} 
+ 
+ Let $0 < k < 1$, and let $T$ denote the operator in $E$ defined by 
+ $$
+ (Tf) (x) = f(kx) \qquad (f \in E, 0 \leq x \leq 1)
+ $$
+ Plainly $T$ is a bounded linear operator in $E$ and maps $C$ into itself.
+ 
+ For $f$ in $C$ we have $|| f || = f(1)$, and also since $x = (1-x) 0 + x 1$,
+ $$
+ f(x) \leq (1-x) f(0) + x f(1) = x f (1) \qquad (0 \leq x \leq 1)
+ $$
+ since $T^n f (x) = f(K^n x)$, it follows that
+ $$
+ || T^n f|| = f(k^n) \leq k^n f(1) = k^n || f || \qquad (f \in C)
+ $$
+ and\pageoriginale equality is attained with the function $f(x) =
+ x$. Thus 
+ $$
+ p(T^n) = k^n,
+ $$
+ and the partial spectral radius of $T$ is $k > 0$. Also $T$ maps $B$
+ into a compact set, for given a convex function $f$ and  $0 < x_1 <
+ x_2 \leq y_1 < y_2 \leq 1$, we have 
+ $$
+ \frac{f(x_2) - f(x_1)} {x_2 - x_1} \leq \frac{f(y_2) - f(y_1)} {y_2 - y_1}
+ $$
+ Given $f \in B$, and $0 \leq s < t \leq 1$, we therefore have
+ $$
+ \displaylines{\hfill 
+ 0 \leq \frac{f(kt) - f(ks)}{kt - ks} \leq \frac {f(1) - f(k)} {1-k}
+ \leq \frac{1}{1-k}, \hfill \cr  
+ \text{i.e.,} \hfill 0 \leq (Tf) (t) - (Tf) (s) \leq \frac{k}{1-k}
+ (1-s) \hfill }
+ $$
+  
+ This proves that $TB$ is an equicontinuous set of functions, and,
+ since $TB$ is also bounded, it is contained in a compact set. 
+  
+  For this particular operator $T$ the conclusion of Theorem
+  \ref{chap5:thm5.2} is 
+  of course trivial since the function $u$ given by $u(x) = x (0 \leq
+  x \leq 1)$ plainly satisfies $Tu = ku$. 
+  
+The example is however of interest in that it provides a simple
+example of a bounded linear operator completely continuous in a cone
+that is not a compact linear operator in any subspace of $E$ that
+contains $C$. In fact let $g_n, h_n, f_n$ be defined by
+\begin{align*}
+    g_n (x) &= k^{-n} x  \quad (0 \leq x \leq 1) ,\\
+    h_n(x)  &= 
+    \begin{cases}  
+      0 & (0 < x < k^n)\\ 
+      k^{-n}(x-k^n) & (k^n \leq x \leq 1) 
+    \end{cases}\hspace{2.5cm} \\
+    \text{and}\quad  f_n & = g_n - h_n.
+\end{align*}\pageoriginale
+ Then $g_n, h_n \in C, f_n \in C - C$ and since
+ $$
+ \displaylines{\hfill 
+ f_n(x) = 
+ \begin{cases}  
+   k^{-n} x & (0 < x < k^n) \\
+   1 & (k^n \leq x \leq 1) 
+ \end{cases} \hfill \cr
+ \text{we have}\hfill  
+ || f_n || = 1  \qquad (n = 1, 2, \ldots).\phantom{we have} \hfill }
+ $$
+ 
+ Also,
+ $$
+ Tf_n = f_{n-1} \qquad (n = 1, 2, \ldots), 
+ $$
+ and for $r > s$,
+ $$
+ || f_r - f_s || \geq f_r (k^r) - f_s (k^r) = 1 - k^{r-s} > 1 -k .
+ $$
+ It follows that no subsequence of $(Tf_n)$ converges.
+ 
+ \begin{exam}%example 2
+   A slight modification of the last example yields a less trivial
+   application of Theorem \ref{chap5:thm5.2}. Let $C$ denote the class
+   of continuous, increasing, convex functions $f$ on $[0, 1]$ with
+   $f(0) = 0$, and let $\phi$ be an element of $C$ that satisfies 
+   $$
+   \phi (1) < 1, ~  ~ \phi^1_+ (0) > 0.
+   $$
+ \end{exam} 
+ 
+ Then there exists an element $g$ of $C$ such that $g \circ \phi =
+ \phi^1_+ (0) g$. ($f \circ g$ denotes the composition $(f \circ g) (x) =
+ f(g(x))$). As before we take\pageoriginale $E = C_R [0 , 1]$, and
+ consider the linear operator $T$ given by   
+ $$
+ Tf = f \circ \phi \qquad (f \in E)
+ $$
+ That Theorem \ref{chap5:thm5.2} is applicable is proved as in the
+ last example, except for showing that the partial spectral radius
+ $\mu$ is given by   
+ $$
+ \mu = \phi'_+ (0)
+ $$
+ To prove this we consider the sequence $(\phi_n)$ of functions
+ defined by  
+ $$
+ \phi_n = T^n \phi \qquad (n = 1, 2, \ldots).
+ $$
+ Let $k = \phi$ (1). Then, for $f$ in $C$,
+ $$
+ || Tf (x)|| = (Tf) (1) = f (\phi (1)) \leq \phi (1) f(1), 
+ $$
+ and so $p(T) \leq k < 1$.
+ $$
+ \lim_{n \to \infty} \phi_n (1) = 0.
+ $$
+ Hence
+ $$
+ \lim_{n \to \infty} \frac{|| t^n \phi ||} {|| T^{n-1} \phi ||}=
+ \lim_{n \to \infty} \frac{\phi_n(1)}{\phi_{n-1} (1)} = \lim_{n \to
+   \infty} \frac{\phi(\phi_{n-1}(1))}{\phi_{n-1} (1)} = \phi'_+ (0),  
+ $$
+ and therefore $\lim\limits_{n \to \infty} || T^n \phi ||
+ ^{\dfrac{1}{n}} = \phi'_+ (0)$, 
+ $$
+ \mu \geq \phi'_+ (0).
+ $$
+ Finally $(T^nf) (x) = f (\phi_n (x))$, so that
+ $$
+ p(T^n) \leq \phi_n (1),
+ $$
+ and\pageoriginale so $\mu \leq \phi'_+ (0)$. This completes the proof
+ that Theorem \ref{chap5:thm5.2} is applicable. 
+ 
+ In this particular example, we can calculate an eigenvector $g$ by an
+ iterative process. In fact, if we take $g_n$ defined by 
+ $$
+ g_n (x) = \frac{\phi_n(x)}{\phi_{n} (1)} \qquad (0 \leq x \leq 1 ,
+ \qquad n =1, 2, \ldots) 
+ $$
+ Then the sequence $(g_n)$ converges decreasingly to a function $g$
+ with the required properties. 
+ 
+\begin{exam}\label{chap5:exam3} %example 3
+  Let $E$, $C$ and $\phi$ be defined as in the last example, and let
+  $K(x, y)$ be a function continuous on the square 
+  $$
+  [0 , 1] \times [0 , 1]
+  $$
+  which belongs to $C$ as a function of $x$ for each fixed $y$ in $[0
+    , 1]$. Let $T$ be the operator defined on $E$ by 
+  $$
+  (Tf) (x) = f(\phi (x)) + \int^1_0 K(x, y) f(y) dy \qquad (0 \leq x \leq 1).
+  $$
+\end{exam} 
+
+Then $T$ is a bounded linear operator mapping $C$ into itself. $T$
+maps $B$ into a compact set, and its spectral radius $\mu$ satisfies  
+$$
+\mu \geq \phi'_+ (0) > 0 .
+$$
+Thus Theorem \ref{chap5:thm5.2} is again applicable. 
+
+\begin{exam} %example 4
+  A variant on Example \ref{chap5:exam3} is given by
+  $$
+  (Tf) (x) = f(\phi (x)) + \int^x_0 k(y) f(y) dy
+  $$
+  where\pageoriginale $k$ is increasing non-negative and continuous in
+  $[0,1]$. Again Theorem \ref{chap5:thm5.2} is applicable and so there
+  exists a non-zero function $f$ in $C$ with 
+  $$
+  \mu f (x) -f (\phi (x)) = \int^x_0 k (y) f (y) dy \qquad (0 \le x \le 1),
+  $$
+  where $\mu$ is the partial spectral radius of $T$. From this we see
+  that $\mu f (x) - f (\phi (x))$ is differentiable and we have a
+  solution of the functional equation 
+  $$
+  \frac{d}{dx} \left\{ \mu f (x) - f (\phi (x))\right\} = k (x) f (x)
+  $$
+\end{exam} 
+
+\begin{exam}%exam 5
+  That the conclusion of Theorem \ref{chap5:thm5.2} need not hold if
+  $\mu =0$ is 
+  seen by taking the following example. Let $K (x,y)$ be continuous
+  and non-negative in the square $[0,1] \times [0,1]$, and suppose
+  that   
+  $$
+  K (1,y) > 0 \quad (0 \le y \le 1).
+  $$
+\end{exam}
+
+Let $E = C_R [0,1]$, let $C$ consist of all $f \in E$ with
+$$
+f (x) \ge 0 \quad (0 \le x \le 1),
+$$
+and let $T$ be the Volterra operator defined by
+$$
+(Tf) (x) = \int^x_0 K (x,y) f (y) dy.
+$$
+
+Then $T$ satisfies the condition of Theorem \ref{chap5:thm5.2} except that its
+spectral radius is zero (and hence its partial spectral radius is
+zero). 
+
+Also,\pageoriginale if $f \in C$ and $Tf =0$, we have 
+$$
+\int^1_0 K (1,y) f (y) dy =0,
+$$
+and so $f=0$.
+
+\begin{Definition}%def 5.4
+  Given a normed and partially ordered vector space $X$ with positive
+  cone $K$, a non zero linear functional $f$ such that $f (x) \ge 0\;  (x
+  \in K)$ is called a {\em positive continuous linear
+    functional.} 
+\end{Definition}
+
+The following theorem is quite easily deduced from Theorem
+\ref{chap5:thm5.1}.
+
+\begin{thmm}\label{chap5:thm5.3}%theo 5.3
+  Let $X$ be a normed and partially ordered vector space with a closed
+  positive cone $K$, and suppose that there exists a subset $H$ of $K$
+  with the properties: 
+  \begin{enumerate}[(i)]
+  \item Given $x \varepsilon X$ with $|| x || \le 1$, there exists $h
+    H$ with $-h x h$, 
+  \item $H$ is contained in a compact set.
+  \end{enumerate}
+
+    Let $T$ be a partially bounded positive linear operator in $X$
+    with partial spectral radius $\mu$. 
+ \end{thmm} 
+
+Then there exists a positive continuous linear functional $f$ and a
+real number $\mu^*$ with $0 \le \mu^* \le \mu$ such that 
+$$
+f (Tx) = \mu^* f (x) \quad (x \in X).
+$$
+
+If also $K$ is a normal cone, then $\mu = \mu^*$
+
+\begin{proof}
+  Let $X^*$ be the dual space of $X$, and let $C$ be the dual cone
+  $K^*$ consisting of all $f$ in $X^*$ that satisfy 
+  $$
+  f (x) \ge 0 \quad (x \in K)
+  $$\pageoriginale
+  We have seen in Lemma \ref{chap4:lem4.1} (chapter \ref{chap4})
+  that since $K$ is closed, 
+  $K^* \neq 0$. By condition (i) in the theorem, $X =K-K$, and
+  therefore $K^* \cap (-K^*) = (0)$. This proves that $C=K^*$ is
+  indeed a positive cone. It is clearly a closed, and therefore
+  complete, subset of the Banach space $X^*$. We take $E =C-C$. 
+\end{proof}
+
+Let $M=\sup \left\{ ||h|| : h \in H\right\}$, and as usual,
+let $B= \{ f : f \in C $ and $ ||f|| \le 1\}$.  Given $f
+\in B$ and $x \in X$ with $||x|| \le 1$, there exists
+$h \in H$ with  
+$$
+-h \le x \le h,
+$$
+and therefore $-Th \le Tx \le Th$,
+\begin{gather*}
+  - f (Th) \le f (Tx) \le f (Th),\\
+  |f (Tx)| \le f (Th) \le ||Th|| \le  p(T) ||h|| \le p (T). M,
+\end{gather*}
+where $p(T)$ denotes the partial bound of $T$. Thus for each $f
+\in E$ we have an element $T^* f$ of $E$ given by 
+$$
+(T^* f) (x) = f (Tx) \quad (x \in X),
+$$
+and we obtain a partially bounded positive linear operator $T^*$ in
+$E$ with partial bound $p(T^*)$ satisfying 
+$$
+p (T^*) \le M p(T).
+$$
+similarly\pageoriginale 
+$$
+p(T^{* n}) \le M p(T^n),
+$$
+and therefore 
+$$
+\mu^* \le \mu
+$$
+where $\mu^*$ denotes the partial spectral radius of $T^*$. We take
+$\tau$ to be the weak topology in $E$. Plainly $C$ is $\tau$-closed,
+$B$ is $\tau$-compact and $T^*$ is $\tau$-continuous. In order to
+apply Theorem \ref{chap5:thm5.1} it only remains to prove that $\tau$ is
+sequentially stronger than $\tau_N$ at 0 relative to $B$. To prove
+this, suppose that $f_n \in B (n=1,2\ldots)$ and that 0 is
+a $\tau$-cluster point of the sequence $(f_n)$.  
+
+Since $H$ is contained in a (norm) compact set, given $\varepsilon >
+0$. there exists $h_1 ,\ldots,h_r$ in $H$ such that for each $h
+\in H$ there is some $k (1 \le k \le r)$ with  
+\begin{equation}
+  ||h-h_k|| <\frac{\varepsilon}{2} \tag{1}\label{chap5:equa1}
+\end{equation} 
+ 
+Since 0 is a weak $*$-cluster point of $(f_n)$, there exists an
+infinite set $\Lambda$ of positive integers such that 
+ \begin{equation*}
+   |f_n (h_k)| < \frac{\varepsilon}{2} \quad (k=1,2,\ldots, r; n
+   \in \Lambda) \tag{2}\label{chap5:equa2} 
+ \end{equation*} 
+ 
+ Therefore by (\ref{chap5:equa1}) and (\ref{chap5:equa2}) and the fact
+ that $||f_n|| \le 1$, 
+ \begin{equation*}
+   |f_n (h)|< \varepsilon \quad (h \in H, n \in \Lambda)
+   \tag{3}\label{chap5:equa3} 
+ \end{equation*} 
+ 
+ Given $x \in X$ with $||x|| < 1$, there exists $h \in
+ H$ with $-h \le x \le h$, and so,\pageoriginale by (\ref{chap5:equa3}), 
+ $$
+ |f_n (x)| \le |f_n(h)| < \varepsilon \quad (n \in \Lambda)
+ $$
+ 
+ Therefore
+ $$
+ ||f_n|| \le \varepsilon \quad (n \in \lambda),
+ $$
+ and 0 is a $\tau_N$-cluster point of the sequence $(f_n)$.
+ 
+ Suppose now that $K$ is a normal cone, i.e. for some $\gamma > 0$, 
+ $$
+ ||x + y|| \ge \gamma ||x|| \quad (x, \; y \in K).
+ $$
+ 
+ Then, for each point $x$ in $K$,
+ $$
+ d (x,-K) = \inf_{y \in K} ||x + y|| > \gamma ||x||
+ $$
+ 
+ Therefore, for each $x$ in $K$, there exists $f \in K^*$ with
+ $||f|| \le 1$ and 
+ $$
+ f (x) \ge \gamma ||x||
+ $$
+ 
+ In particular, given $\varepsilon > 0$, there exists $x_0 \in
+ K$ with $||x_0|| \le 1$, and 
+ $$
+ ||Tx_0|| > p (T)-
+ $$
+ 
+ Then there exits $f_0 \in B$ with
+ $$
+ f_0 (Tx_0) \ge \gamma ||Tx_0|| > \gamma (p(T)- \varepsilon).
+ $$
+ 
+ Therefore
+ $$
+ \displaylines{\hfill 
+   ||T^* f_0|| > \gamma (p(T) - \varepsilon), \hfill \cr
+   \text{and}\hfill p(T^*) \ge \gamma p(T). \hfill }
+ $$\pageoriginale
+ 
+ Since, similarly,
+ $$
+ \displaylines{\hfill p(T^{*{n}}) \ge \gamma p (T^n), \hfill \cr
+   \text{we have} \hfill  \mu^* \ge \mu, \hfill }
+ $$
+ and the proof is complete.
+ 
+ As a special case of Theorem \ref{chap5:thm5.3}, we have
+
+ \begin{thmm}[Krein and Rutman ]%theo 5.4
+   Let $X$ be a normed and partially ordered over space with a closed
+   normal positive cone $K$ with non-empty interior. Let $T$ be a
+   positive linear operator in $X$. Then 
+   \begin{enumerate}[\rm(i)]
+   \item $T$ is a bounded linear operator in $X$. 
+   \item There exists a positive continuous linear functional $f$ such that
+   \end{enumerate}
+   $$
+   f (Tx) = \rho f(x) \quad (x \in X),
+   $$
+   where $\rho$ is the spectral radius of $T$.
+ \end{thmm} 
+
+\begin{proof}
+  Since $K$ has non-empty interior, there exists a point $e$ of $K$
+  such that  
+$$
+||x|| \le 1 \Rightarrow e + x \in K
+$$
+since\pageoriginale $||-x|| \leq ||x||$, we have
+\begin{equation*}
+||x|| \le 1 \quad e \pm x \in K \Rightarrow -e \le x \le e
+\tag{1}
+\end{equation*}
+Thus conditions (i) and (ii) of Theorem \ref{chap5:thm5.3} are
+satisfied with \break 
+$H=(e)$. 
+\end{proof}
+
+Give a positive linear operator $T$ and $||x|| \le 1$, we have $-e \le
+x \le e$, and so $-Te \le Tx \le Te$. Since $K$ is a normal cone,
+there exists a positive constant $\gamma$ with 
+ \begin{equation*}
+   ||y + z|| \ge \gamma ||y|| \quad (y,z \in K )\tag{2}
+ \end{equation*} 
+ 
+ We have $Te \pm Tx \varepsilon K$, and so
+ $$
+ \displaylines{\hfill 
+   2 ||Te|| = ||(Te + Tx) + (Te -Tx)|| \ge \gamma ||Te -Tx|| \ge
+   \left\{||Tx||-||Te||\right\},\hfill \cr 
+   \text{and so} \hfill 
+   ||Tx|| \leq \frac{2+\gamma} {\gamma} ||Te||,\hfill }
+ $$
+ which proves that $T$ is bounded, and also gives
+ \begin{equation}
+   ||T|| \le \frac{2+\gamma} {\gamma} ||Te|| \tag{3}
+ \end{equation} 
+ 
+ It follows from (3) that
+ $$
+ ||T|| \le \frac{2+\gamma}{\gamma} ||e|| \; p(T),
+ $$
+ and similarly, for any positive integer $n$,
+ $$
+ ||T^n|| \le \frac{2+\gamma}{\gamma} ||e|| \; p (T^n),
+ $$
+ 
+ Therefore\pageoriginale
+ $$
+ \rho = \lim_{n \to \infty} ||T^n||^{1/n} \leq \lim_{n \to \infty}
+ p(T^n)^{1/n} = \mu 
+ $$
+ On the other hand it is obvious that $\mu \le \rho$, and so the
+ theorem now follows from Theorem \ref{chap5:thm5.3}. 
+ 
+ As a special case of Theorem \ref{chap5:thm5.2} we have the following
+ theorem. 
+ 
+ \begin{thmm}[Krein and Rutman theorem
+     \ref{chap6:thm6.1}]\label{chap5:thm5.5}%theo 5.5 
+   Let $X$ be a partially ordered Banach space with a positive cone
+   $K$ such that $X$ is the closed linear hull of $K$. Let $T$ be a
+   compact linear operator in $X$ that maps $K$ into itself and has a
+   positive spectral radius $\rho$. Then there exists a non-zero
+   vector $u$ in $K$ and a positive continuous linear functional $f$
+   such that 
+   $$
+   Tu = \rho u, T^* f = \rho f.
+   $$
+ \end{thmm} 
+ 
+ The proof depends on the following lemma concerning  compact liner
+ operators. 
+ 
+ \begin{lemma}\label{chap5:lem5.4}%lemm 5.4
+   Let $T$ be compact linear operator in a normed space $X$, and let
+   $T$ have a positive spectral radius. Then there exists a vector $x$
+   in $X$ such that 
+   $$
+   \underset{n \to \infty}{\text{\rm limsup} } \; ||T^n||^{-1} ||T^n x|| > 0.
+   $$
+ \end{lemma} 
+
+ \begin{proof}
+   Let $\varepsilon > 0$, and suppose that the lemma is
+   false. Then,for each $x$ in $X$ there exists a positive integer
+   $N_x$ such that  
+   $$
+   n \ge N_x \Rightarrow ||T^n x|| <\frac{\varepsilon}{2} ||T^n||
+   $$\pageoriginale
+
+   Also
+   $$
+   \displaylines{\hfill 
+     ||x'-x|| < \frac{\varepsilon}{2} \Rightarrow ||T^n x' -T^n x||
+     <\frac{\varepsilon}{2} ||T^n||, \hfill \cr 
+     \text{and so} \hfill 
+     ||T^n x'|| <\varepsilon ||T^n|| \; (n \ge N_x,|| x' -x|| <
+     \frac{\varepsilon}{2})\hfill } 
+   $$
+Let $S$ denote the closed unit ball in $X$.Then $\overline{TS}$ is
+compact and so has a finite covering by open balls of radius
+$\frac{\varepsilon}{2}$ and centers $x_1,\ldots x_m$ say. Let 
+$$
+N \max (N_{x{_1}},\ldots,N_{x{_m}}).
+$$
+
+Then
+\begin{gather*}
+  ||T^n x|| < \varepsilon ||T^n|| \; (n \ge N, x \in TS),\\
+  ||T^{n+1} x|| \le \varepsilon ||T^n|| \; (n \ge N, x \in S),
+\end{gather*}
+and so
+$$
+||T^{n+1}|| \le \varepsilon ||T^n|| \; (n \ge N),
+$$
+from which it follows that $\lim\limits_{n \to \infty} ||T^n||^{1/n}
+\leq \varepsilon$. 
+ \end{proof} 
+
+\setcounter{proofofthm}{4}
+ \begin{proofofthm}%%% 5.5
+By Lemma \ref{chap5:lem5.4} and the fact that $X=\overline{K-K}$,
+there exists a vector $x$ in $C$ with 
+$$
+\lim_{n \to \infty} \sup ||T^n||^{-1} ||T^n x|| > 0.
+$$
+\end{proofofthm} 
+
+It easily\pageoriginale follows from this that
+$$
+\mu \lim_{n \to \infty} p(T^n)^{1/n} = \lim_{n \to \infty} ||T^n||^{1/n} = \rho
+$$
+Applying Theorem \ref{chap5:thm5.2} with $E=X$ and $C =X$ we see that
+there exists a non-zero vector $u$ in $K$ with  
+ $$
+ Tu = \rho u
+ $$
+ As in the beginning of the proof of Theorem \ref{chap5:thm5.3}, the
+ set $K^*$ of  continuous linear functions $f$ with 
+ $$
+ f (x) \ge 0 \quad (x \in K)
+ $$
+is a positive cone in the dual space $X^*$. Also, $T^*$ is a compact
+linear operator in $X^*$ and maps $K^*$ into itself. Applying Theorem
+\ref{chap5:thm5.2} with $E =X^*$ and $C=K^*$, we conclude that there
+exists a positive continuous linear functional $f$ with 
+ $$
+ T^* f = \mu^* f,
+ $$ 
+ where $\mu^*$ is the partial spectral radius of $T^*$. Since the
+ spectral radius of $T^*$ is equal to that of $T$, we have $\mu^* \le
+ \rho$. It only remains to prove that $\mu^* \ge \rho$. There exists
+ $u \in K$ with $||u|| =1$ and $Tu =\rho u$. We have 
+ $$
+ T^n_u = \rho^n u \quad (n=1,2,\ldots).
+ $$
+ 
+ Since $\delta = d (u,-K) >0$, there exists $\phi$ in $K^*$ with
+ $||\phi|| \le |$ and\pageoriginale $\phi (u) = \delta$. Then 
+ $$
+ \phi (T^n u) = \phi (\rho^n u) = \rho^n \delta,
+ $$
+ and so we have in turn $(T^{*^{n}} \phi) (u) = \rho^n \delta$,
+ \begin{gather*}
+   ||T^{*^{n}} \phi|| \ge \rho^n \delta,\\
+   p(T^{*^{n}}) \ge \rho^n \delta, \qquad (n =1,2,\ldots)\\
+   \mu^* \ge \rho
+ \end{gather*}
+ 
+\begin{remark*}
+  It is in fact enough in Theorem \ref{chap5:thm5.5} that $K$ be a
+  complete cone in a normed space (rather than a closed cone in a
+  complete space).  
+\end{remark*}
+  
+In our next theorem we give a formula for the calculation of positive
+eigenvectors corresponding to $\rho$ valid under the conditions of
+Theorem \ref{chap5:thm5.5}. For its proof we shall need some result from the
+classical Riesz Schauder theory of compact operators in Banach
+spaces. We shall state these results without proof (see Dunford and
+Schwartz \cite{key14}). 
+ 
+ Let $T$ be a compact linear operator in a complex Banach space
+ $X$. The spectrum $\sigma (T)$ is the set of all complex numbers
+ $\lambda$ for which $\lambda I -T$ is not a one-to-one mapping of $X$
+ onto itself. Then $\sigma (T)$ is a countable set contained in the
+ disc $| \zeta|| \le \rho$ where $\rho = \lim\limits_{n \to \infty}
+ ||T^n||^{1/n}$. Also each element of $\sigma (T)$ other than $0$ is
+ an eigenvalue, and is an isolated point of $\sigma (T), i.e$. has
+ a\pageoriginale  neighbourhood containing no other point of $\sigma
+ (T)$.  
+ 
+ Let $\lambda$ be a non-zero point of $\sigma (T)$. Then there is a
+ positive integer $\gamma = \gamma (\lambda)$ called the \textit{index} of
+ $\lambda$ which is the smallest integer $n$ with the property that 
+ $$
+ (T -\lambda I)^{n+1} x=0 \Rightarrow (T -\lambda I)^n x =0.
+ $$
+ [The null space of $(T -\lambda I)^n$ increases with  $n$, but
+   eventually we come to an integer after which it remains constant.]
+ Let 
+$$N=\left\{ x: (T-\lambda I)^\gamma x=0\right\},$$ and let 
+ $$
+ M=(T-\lambda I)^\gamma X.
+ $$
+ 
+ Then $N$ and $M$ are closed subspaces of $X$ and
+ \begin{equation}
+   X=N \oplus M \tag{1}
+ \end{equation} 
+ (i.e., each vector is $x$ has a unique expression $x=y+z$ with $y
+ \in N$ and $z \in M$.) 
+ 
+ Also $M$ and $N$ are invariant subspaces for $T$,
+ $$
+ T (M) \subset M, \quad TN \subset N.
+$$
+
+There exist bounded linear projections $P$ and $Q$ orthogonal to each
+other and with ranges $M$ and $N$ respectively. 
+\begin{align*}
+  & I = P + Q , P Q = Q P = 0, P^2 = P, Q^2 = Q \tag{2}\\
+  & P X = M , Q X =N.
+\end{align*}
+
+Let\pageoriginale $T_M$ denote the restriction of $T$ to $M$. Then
+$T_M$ is a compact linear operator in $M$ and  
+\begin{equation}
+  \alpha \neq \lambda, \alpha \in \sigma (T)
+  \Longleftrightarrow  \alpha \in \sigma (T_M)\tag{3} 
+\end{equation}
+
+\begin{thmm}\label{chap5:thm5.6}%the 5.6
+  Let $X, K,  T, \rho$ satisfy the conditions of Theorem
+  \ref{chap5:thm5.5} and let $\gamma$ be the index of $\rho$. Let $Q$
+  be the projection onto the null space of $(T - \rho I)^\gamma$ which
+  is orthogonal to the range of $(T -\rho I)$. Then  
+  \begin{enumerate}[\rm(i)]
+  \item $\lim\limits_{n \to \infty} (1+ \rho)^{-n} \begin{pmatrix} n
+    \\\gamma-1\end{pmatrix}^{-1} (I+T)^n = (1+\rho)^{1-\nu} (T-\rho I)^{-1}
+    Q$, 
+  \item $ \lim\limits_{n \to \infty} ||(I + T)^n||^{-1} (I+T)^n =
+    ||(T-\rho I)^{\nu-1} Q ||^{-1} (T-\rho I)^{-1} Q$, 
+  \end{enumerate}
+  the convergence being with respect to the operator norm.
+\end{thmm}
+
+\begin{proof}
+  Since there is a natural isometry between bounded linear operator in
+  a real Banach space and their complexifications, and since this
+  isometry preserves compactness of operators, there is no loss of
+  generality in supposing that $X$ is a complex Banach space. 
+\end{proof}
+
+Taking $\lambda = \rho$ in the above considerations, we have
+continuous linear projections $P,Q$ on to the range $M$ and null space
+$N$ of $A^\gamma, \gamma$ being the index of $\rho$, where $A = T -\rho I$,
+and (1), (2), (3) hold. 
+
+Suppose $\alpha$ is a non-zero point in the spectrum of $P+TP$. We
+prove that $\alpha -1$ is in the spectrum of $T_M$ (the restriction of
+$T$ to the subspace $M$.) In fact 
+$$
+S = \alpha I - (P + T P)
+$$\pageoriginale
+is not a $(1-1)$ mapping of $X$ onto itself. Either
+\begin{enumerate}[i)]
+\item the mapping $S$ is not $(1-1)$, 
+
+or
+\item the range of the mapping $S$ in not the whole of $X$.
+\end{enumerate}
+
+In case (i) there exists a non-zero vector $x$ in $X$ with 
+$$
+(P + TP)x = \alpha x.
+$$
+
+It follows that $x \in PX = M$, $x = Px$, and so
+$$
+(I+T)x = \alpha x, \; Tx = (\alpha -1)x, \; \alpha-1 \in \sigma 
+(T_M). 
+$$
+
+In case (ii), since $SM \subset M,SN \subset N$ and $X = M+N$,
+either $SM \neq M$ or $SN \neq N$. But as $P$ is zero on $N$, and
+$\alpha \neq 0$, we have $SN = N$. Hence $SM \neq M$. But 
+$$
+Sx = \{(\alpha-1) I -T \}x, \quad (x \in M)
+$$
+and so $\alpha-1 \in \sigma (T_M)$. It follows from this and
+(3) that if $\alpha$ is a non-zero point of the spectrum of $P+TP$,
+then 
+$$
+\alpha -1 \in \sigma (T) \ (\rho).
+$$
+
+Therefore
+$$
+\lim_{n \to \infty} || (P+TP)^n ||^{1/n} \le \sup \left\{ |1+\zeta| |
+\zeta \in \sigma (T), \zeta \neq \rho\right\} 
+$$
+Since all points $\zeta$ of $\sigma(T)$ satisfy $|\zeta| \le \rho$,
+and since $\rho$ is as isolated\pageoriginale point of $\sigma (T)$,
+it follows that   
+$$
+\lim_{n \to \infty} ||(P+TP)^n||^{1/n} = k < 1 + \rho
+$$
+since $TM \subset M$, we have $PTP = TP$, and so 
+$$
+\lim_{n \to \infty} ||(I+T)^n P ||^{1/n} = k.
+$$
+
+We choose $\eta$ with $k < \eta < 1 + \rho$. Then there exists $n_0$ with
+\begin{equation}
+||(I + T)^n P || < \eta^n \quad (n \ge n_0) \tag{1}
+\end{equation}
+
+We have
+\begin{align*}
+  I+T & = (1+ \rho) I+A \hspace{3cm}\\
+  \text{and} \hspace{3cm} A^n Q &  = 0 \; (n \ge \nu).
+\end{align*}
+
+Hence
+{\fontsize{10}{12}\selectfont
+$$
+(I + T)^n Q = \left\{ (1 +\rho)^n I + 
+\begin{pmatrix} n\\  1 \end{pmatrix} 
+(1+\rho)^{n-1} A + \cdots + 
+\begin{pmatrix} n\\-1 \end{pmatrix} 
+(1+\rho)^{n - \nu +1} A^{\nu-1}\right\} Q 
+$$}\relax
+
+It follows that
+\begin{equation*}
+  \lim_{n \to \infty} (1+\rho)^{-n} 
+  \begin{pmatrix} n \\ \nu-1\end{pmatrix}^{-1} 
+    (I + T)^n Q = (1+ \rho)^{1-\nu} A ^{\nu-1} Q \tag{2}
+\end{equation*}
+
+Also (1) gives,
+\begin{equation*}
+  \lim_{n \to \infty} (1+\rho)^{-n} 
+  \begin{pmatrix} n \\ \nu-1\end{pmatrix}^{-1} 
+    (I + T)^n P = 0\tag{3}
+\end{equation*}
+and,\pageoriginale since $(I + T)^n = (I+T)^n P + (I +T)^n Q$, (2) and
+(3) give 
+\begin{equation*}
+  \lim_{n \to \infty} (1+\rho)^{-n} 
+  \begin{pmatrix} n \\ \nu-1\end{pmatrix}^{-1} 
+    (I + T)^n  = (1+ \rho)^{1-\nu} A^{\nu-1} Q \tag{4}
+\end{equation*}
+
+Taking norms, we have
+\begin{equation*}
+  \lim_{n \to \infty} (1+\rho)^{-n} 
+  \begin{pmatrix}
+ n \\ 
+\nu-1\end{pmatrix}^{-1} 
+    ||(I +T)^n || = (1+\rho)^{1-\nu} ||A^{\nu-1} Q || \tag{5}
+\end{equation*}
+
+By definition of $\nu$, the null space of $A^{\nu-1}$ is not the whole
+of $N$, and so $A^{\gamma-1} Q \neq 0$. Thus (4) and (5) combine to
+give (ii). 
+
+Further results connected with Theorem \ref{chap5:thm5.5} are given by
+Krein and Rutman \cite{key20}. In particular very precise results are
+proved (Theorem \ref{chap6:thm6.3} \cite{key20}) for an operator $T$
+which satisfies 
+the conditions of Theorem \ref{chap5:thm5.5} and also maps each
+non-zero point of $K$ into the  interior of $K$. In this case $\nu=1$,
+and the result of Theorem \ref{chap5:thm5.6} takes the specially simple from   
+$$
+\lim_{n \to \infty} (1+\rho)^{-n} (I+T)^n = Q.
+$$
+
+Here $Q$ is a dimensional operator
+$$
+Qx = f (x) u ,
+$$
+where $u$ is a positive eigenvector of $T, f$ a positive eigenvector
+of $T^*$ normalized by taking $f(u) = 1$. 

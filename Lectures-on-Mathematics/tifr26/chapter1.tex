@@ -1,0 +1,549 @@
+\chapter{The contraction mapping theorem}\label{chap1}
+
+ Given\pageoriginale a mapping $T$ of a set $E$ into itself, an
+ element $u$ of $E$ 
+ is called a fixed point of the mapping $T$ if $Tu= u$. Our problem is
+ to find conditions on $T$ and $E$ sufficient to ensure the existence
+ of a fixed point of $T$ in $E$. We shall also be interested in
+ uniqueness and in procedures for the calculation of fixed points. 
+ 
+ \begin{Definition}%def 1.1
+  Let $E$ be a nonempty set. A real valued function $d$ defined on $E
+  \times E$ is called a distance function or metric in $E$ if it
+  satisfies the following conditions 
+ \begin{enumerate}[i)]
+ \item $d(x,y)\geq 0$, $x$, $y \varepsilon E$
+
+ \item $d(x,y ) = 0 \Longleftrightarrow x=y$
+
+ \item $d(x,y) = d(y,x)$
+
+ \item $d(x,z) \leq d(x,y)+ d(y,z)$
+ \end{enumerate} 
+ A nonempty set with a specified distance function is called a metric
+ space.
+ \end{Definition}
+
+\begin{example*}%exa
+ Let $X$ be a set and $E$ denote a set of bounded real valued
+ functions defined on $X$. Let $d$ be defined on $E \times E$ by  
+ $$
+ d (f,g) = \sup \bigg\{ |f(t) - g(t)| : t \varepsilon X \bigg \}, f,g \varepsilon E.
+ $$
+ \end{example*}
+ 
+ Then $d$ is a metric on $E$ called the uniform metric or uniform
+ distance function. 
+ 
+ \begin{Definition}%def 1.2
+ A sequence\pageoriginale $\{x_n \}$ in a metric space $(E,d)$ is said
+ to converge 
+ to an element $x$ of $E$ if  
+ $$
+ \lim_{n \to \infty} d (x_n, x) =0
+ $$
+ A sequence $x_n$ of elements of a metric space $(E,d)$ is called a
+ Cauchy sequence if given $\epsilon > 0$, there exists $N$ such that for
+ $p,q \geq N$, $d(x_p , x_q)< \epsilon$. 
+ \end{Definition} 
+ 
+ A metric space $(E,d)$ is said to be complete if every Cauchy
+ sequence of its elements converges to an element of $E$. It is easily
+ verified that each sequence in a metric space converges to at most
+ one on point, and that every convergent sequence is a Cauchy
+ sequence. 
+ 
+\begin{example*}%exa 0
+ The space $C_R [0,1]$ of all continuous real valued functions on the
+ closed interval $[0,1]$ with the uniform distance is a complete
+ metric space. It is not complete in the metric $d'$ defined by  
+ $$
+ d'(f,g) = \int_{0}^{1} |f (x) -g (x) |dx f, \;\; g \varepsilon C_R [0,1].
+ $$
+ \end{example*}
+ 
+\begin{Definition}%def 1.3
+  A mapping $T$ of a metric space $E$ into itself is said to satisfy a
+  Lipschitz condition with Lipschitz constant $K$ if  
+  $$
+  d (Tx , Ty) \leq K d(x,y)\;  (x,y \varepsilon E )
+  $$
+  If this conditions is satisfied with a Lipschitz constant $K$ such
+  that $0 \leq K < 1$ then $T$ is called a contraction mapping. 
+\end{Definition} 
+
+\begin{thmm}[The contraction mapping theorem]\label{chap1:thm1.1}%the 1.1
+  Let $T$ be a contraction mapping
+  of a complete metric space $E$ into itself. Then 
+  \begin{enumerate}[i)]
+  \item $T$ has\pageoriginale a unique fixed point $u$ in $E$
+
+  \item If $x_o$ is an arbitrary point of $E$, and $(x_n)$ is defined
+    inductively by 
+  $$
+  x_{n+1} = Tx_n \; (n=0, 1,2,\ldots),
+  $$
+  then $\lim\limits_{n \to \infty} x_n = u$ and
+  $$
+  d(x_n, u) \leq \frac{K^n }{1-K} d (x_1, x_o)
+  $$
+  where $K$ is a Lipschitz constant for $T$.
+  \end{enumerate}
+\end{thmm} 
+
+\begin{proof}
+  Let $K$ be a Lipschitz constant for $T$ with $0 \leq K < 1$. Let
+  $x_o \varepsilon E$ and let $x_n$ be the sequence defined by 
+  $$
+  x_{n+1} = Tx_n \; (n=0 , 1,2,\ldots)
+  $$
+  We have 
+  \begin{equation*}
+    d(x_{r+1}, x_{s+1}) = d(Tx_r , Tx_s) \leq Kd (x_r, x_s)
+    \tag{1}\label{chap1:eq1} 
+  \end{equation*} 
+  and so
+  \begin{equation*}
+    d(x_{r+1} , x_r) \leq K^r (x_1, x_o) \tag{2}\label{chap1:eq2}
+  \end{equation*} 
+  Given $p ~~q$, we have by (\ref{chap1:eq1}) and (\ref{chap1:eq2}),
+  \begin{align*}
+    d(x_p , x_q ) & \leq K^q d (x_{p-q}, x_o)\\
+    &\leq K^q \bigg \{ d (x_{p-q}, x_{p-q-1}) + d(x_{p-q-1},x_{p-q-2}
+    ) + \cdots + d(x_1, x_o)\bigg \}\\ 
+    & \leq K^q \bigg \{ K^{p-q-1} + K^{p-q-2} + \cdots + K +  1 \bigg
+    \} d(x_1, x_o)\\ 
+    & \leq \frac{K^q}{1-K} d (x_1, x_o) \tag{3}\label{chap1:eq3} 
+  \end{align*} 
+  since\pageoriginale the right hand side tends to zero as $q \to \infty$, it
+  follows that $(x_n)$ is a Cauchy sequence, and since $E$ is
+  complete, $(x_n)$ converges to an element $u$ of $E$. Since
+  $d(x_{n+1}, Tu) \leq K d(x_n , u) \to 0 $ as $n \to \infty$, 
+  $$
+  Tu = \lim_{n \to \infty} x_{n+1} = u.
+  $$
+  $d(u,x_n ) \leq d (u, x_p) + d(x_p, x_n) \leq d(u,x_p) +
+  \dfrac{K^n}{1-K} d(x_1, x_o)$ for $n< p$, by
+  (\ref{chap1:eq3}). Letting $p \to 
+  \infty$, we obtain   
+  $$
+  d(u, x_n) \leq \frac{K^n}{1-K} d (x_1, x_o)
+  $$
+\end{proof}
+
+\begin{example*}%exam 0
+  As an example of the applications of the contraction mapping
+  theorem, we prove Picard's theorem on the existence of solution of
+  ordinary differential equation. 
+\end{example*}
+
+Let $D$ denote an open set in $R^2, (x_o, y_o) \varepsilon D$. Let $f(x,y)$ be
+a real valued function defined and continuous in $D$, and let it
+satisfy  the Lipschitz condition: 
+$$
+|f(x,y_1) - f (x, y_2)| \leq M |y_1 - y_2| \; ((x,y_1), (x, y_2) \varepsilon D) 
+$$
+Then there exists a $t > 0$, and a function $\phi (x)$ continuous and
+differentiable in $[x_o - t, x_o + t]$ such that $i) \phi (x_o) = y_o$,
+(ii) $y = \phi (x)$ satisfies the differential equation  
+$$
+\frac{dy}{dx} = f (x,y) \text{~ for~ } x \varepsilon [x_o - t, x_o +t]
+$$
+
+We show first that there exists an $\epsilon > 0$ and a function $\phi (x)$
+continuous\pageoriginale in $[x_o - t, x_o + t]$ such that iii) $\phi
+(x) = y_o + 
+\int_{x_o}^{x} f (t, \phi (t)) dt \; (x_o - t \leq x \leq x_o +t)$, and
+$\epsilon (x, \phi (x)) \varepsilon D (x_o - \leq x \leq x_o + t)$. Then it
+follows from the continuity of $f(t, \phi (t))$ that $\phi(x)$ is
+in fact  differentiable in $[x_o - t, x_o + t]$ and satisfies (i)
+and (ii). 
+
+Let $\mathcal{U}$ denote a closed disc of centre $(x_o, y_o)$ with
+positive radius and contained in the open set $D$, and let $m$ denote
+the least upper bound of the continuous function $|f|$ on the compact
+set $\mathcal{U}$. We now choose $t$, $\delta$ such that $0 < t <
+M^{-1}$, the rectangle $|x-x_o| \leq \delta$ is contained  in
+$\mathcal{U}$, and $m t < \delta$. Let $E$ denote the set of all
+continuous functions mapping $[x_o - t, x_o + t]$ into $[y_o- \delta,
+  y_o + \delta]$. With respect to the uniform distance function $E$ is
+a  closed subset of the complete metric  space $C_R [x_o - t , x_o+t]$
+and is therefore complete. We define a mapping $T \phi = \psi $ for
+$\phi \in E$ by 
+$$
+\psi (x) = y_o + \int_{x_{o}}^{x} f(t,\phi (t))dt
+$$ 
+
+Clearly $\psi (x)$ is continuous in $[x_o -t, x_o + t]$. Also $|\psi
+(x) - y_o| \leq m |x-x_o|\leq m t < \delta$ whenever $|x-x_o |\leq
+t$. Thus $T$ maps $E$ into it self. Finally, $T$ is a contraction
+mapping, for if $\phi _i \in E, \psi _i = T \phi)i (i=1,2)$, then 
+\begin{align*}
+  |\psi _1 (x)- \psi_2 (x)| & = |\int_{x_{o}}^{x} \bigg\{ f (t', \phi_1
+  (t')) - f (t', \phi_2 (t'))\bigg \} \; dt' |\\
+  & \leq |x- x_o| M \sup|\phi_1
+  (t')| - \phi_2(t') | \; (x_o - t \leq t \leq x_o + t)|\\ 
+  & \leq t M d (\phi_1, \phi_2)
+\end{align*}
+Hence\pageoriginale 
+$$
+d (\psi_1, \psi_2) \leq t M d (\phi_1, \phi_2)
+$$
+As $t M < 1$, this proves that $T$ is a contraction mapping. By the
+contraction mapping theorem, there exists $\phi \varepsilon E$ with $T \phi =
+\phi$ i.e., with 
+$$
+\phi (x) = y_o + \int_{x_{o}}^{x} f (t, \phi(t)) dt
+$$
+This complete the proof of Picard's theorem.  
+
+A similar method may be applied to prove the existence of solutions of
+systems of ordinary differential equations of the form 
+$$
+\frac{dy_i}{dx}= f_i (x,y_1, \ldots , y_n) (i=1, 2, \ldots, n)
+$$
+with given initial conditions. Instead of considering real valued
+functions defined on $[x_o - t , x_o +t]$, one considers vector valued
+functions mapping $[x_o - t, x_o +t]$ into $R^n$. 
+
+In the following theorem we are concerned with the continuity of the
+fixed point. 
+
+\begin{thmm}%the 1.2
+  Let $E$ be a complete metric space, and let $T$ and $T_n (n=1,
+  2,\ldots)$ be contraction mappings of $E$ into itself with the same
+  Lipschitz constant $K<1$, and with fixed points $u$ and $u_n$
+  respectively. Suppose that $\lim\limits_{n \to \infty} T_nx = Tx$
+  for every $x \varepsilon E$. Then $\lim\limits_{n \to \infty} u_n = u$. By
+  the inequality in Theorem \ref{chap1:thm1.1}, we have for each $r=1,
+  2,\ldots$,  
+  $$
+  d (u_r , T_r^n x_o) \leq \frac{K^n}{1-K} d (T_r x_o, x_o), \;\; x_o
+  \varepsilon E 
+  $$
+  setting\pageoriginale $n=0$ and $x_o = u$, we have
+  $$
+  d (u_r, u) \leq \frac{1}{1-K} d(T_r u, u) = \frac{1}{-1} d (T_r u, Tu)
+  $$
+But $d(T_r u, Tu) \to 0$ as $r \to \infty$. Hence
+$$
+\lim_{r \to \infty} d(u_r, u) =0
+$$
+\end{thmm}
+
+\begin{example*}
+  In the notation of the last example, suppose that $y_n$ is a real
+  sequence converging to $y_o$ and let $T_n$ be the mapping defined on
+  $E$ by 
+  $$
+  (T_n \phi)(x) = y_n + \int_{x_{o}}^{x}f (t, \phi (t)) dt
+  $$
+\end{example*}
+
+Then $|(T_n \phi) (x) - y_o| \leq |y_n - y_o| + m \varepsilon < \delta$ for
+$n$ sufficiently large i.e. $T_n$ map $E$ into itself for $n$
+sufficiently large. Also the mapping $T_n, T$ have the same Lipschitz
+constant $\varepsilon M < 1$. Obviously for each $\phi \varepsilon E, \lim\limits_{n
+  \to \infty} T_n \phi = T \phi $. Hence if $\phi_n$ is the unique
+fixed point of $T_n (n =1, 2, \ldots)$ then $\lim\limits_{n \to
+  \infty} \phi_n = \phi$. In other words, if $\phi_n$ is the solution
+of the differential equation 
+$$
+\frac{dy}{dx} = f(x,y)
+$$
+in $[x_o -t, x_o +t]$ with the initial condition $\phi_n (x_o) = y_n$,
+then $\phi_n$ converges uniformly to the solution $\phi$ with $\phi
+(x_o) = y_o$.  
+
+\begin{remark*}
+  The contraction mapping theorem is the simplest of the fixed point
+  theorems that we shall consider. It is concerned with mappings of a
+  complete metric space into itself and in this respect is very
+  general.\pageoriginale The theorem is also satisfactory in that the
+  fixed point is 
+  always  unique and is obtained by an explicit calculation. Its
+  disadvantage is that the condition that the mapping be a contraction
+  is a somewhat severe restriction. In the rest of this chapter we
+  shall obtain certain extension of the contraction mapping theorem in
+  which the conclusion is obtained under modified conditions.  
+\end{remark*}
+
+\begin{Definition}%def 1.4
+  A mapping $T$ of a metric space $E$ into a metric space $E'$ is said
+  to be continuous if for every convergent sequence $(x_n) $ of $E$,  
+  $$
+  \lim_{n \to \infty} T_{x_{n}} = T (\lim_{n \to \infty} x_n).
+  $$
+\end{Definition}
+
+\begin{thmm}%the 1.3
+  Let $T$ be a continuous mapping of a complete metric space $E$ into
+  itself such that $T^{k}$ is a contraction mapping of $E$ for some
+  positive integer $k$. Then $T$ has a unique fixed point in $E$. 
+\end{thmm}
+
+\begin{proof}
+  $T^k$ has a unique fixed point $u$ in $E$ and $u = \lim\limits_{n
+    \to \infty} (T^k)^n x_o$, $x_o \varepsilon E$ arbitrary. 
+\end{proof}
+
+Also $\lim\limits_{n \to \infty} (T^k)^n Tx_o = u$. Hence 
+\begin{align*}
+  u & = \lim_{n \to \infty}(T^k)^n Tx_o = \lim_{n \to \infty} T (T^k)^n x_o\\
+  & = T \lim_{n \to \infty} (T^k)^n x_o  \text{ (by the continuity of
+    ) T}\\ 
+  & = Tu.
+\end{align*}
+
+The uniqueness of the fixed point of $T$ is obvious, since each fixed
+point of $T$ is also a fixed point of $T^k$. 
+
+\begin{example*}
+  We\pageoriginale consider the non-linear integral equation
+  \begin{equation*}
+    f(x) = \lambda \int^{x}_{a} K (x,y, f(y))dy + g(x)
+    \tag{1}\label{chap1:exameq1} 
+  \end{equation*}
+where $g$ is continuous in $[a,b]$ and $K (x,y,z)$ is continuous in
+the region $[a,b]\times [a,b] \times R$ and satisfies the Lipschitz
+condition. 
+$$
+|K (x,y,z_1) - K (x,y,z_2)| \leq M |z_1 - z_2|.
+$$
+\end{example*}
+(The classical Volterra equation is obtained by taking $K(x,y,z)= H
+(x,y).z$, with $H$ continuous in $[a,b] \times [a,b]$). Let $E= C_K
+[a,b]$ and $T$ be the mapping of $E$ into itself given by  
+$$
+(Tf) (x) = \lambda \int^{x}_{a} K (x,y,f(u)) dy + g(x)\;  (f \varepsilon E, a
+\leq x \leq b). 
+$$
+
+Given $f_1$, $f_2$ in $E$ it is easy to prove by induction on $n$ that
+$$
+|(T^n f_1) (x) - (T^n f_2) (x)| \leq \frac{1}{n !} |\lambda|^n M^n d
+(f_1, f_2) (x-a)^n , \; (a \leq x \leq b) 
+$$
+
+Then 
+$$
+d(T^n f_1 , T^n f_2 ) \leq \frac{1}{n!} |\lambda|^n M^n (b-a)^n d
+(f_1, f_2) 
+$$
+
+This proves that all $T^n$ and in particular $T$, are continuous and,
+for $n$ sufficiently large $\dfrac{1}{n!} |\lambda|^n M^n (b-a)^n <
+1$, so that $T^n$ is a contraction mapping for $n$ large. Applying the
+theorem, we have a unique $f \varepsilon E$ with $Tf = f$ which is the
+required unique solution of the equation (\ref{chap1:exameq1}).  
+
+\begin{Definition}%def 1.5
+  Let\pageoriginale $(E, d)$ be a metric space and $\varepsilon >
+  0$. A finite sequence 
+  $x_o, x_1, \ldots, x_n$ of points of $E$ is called an $\varepsilon$ - chain
+  joining $x_0$ and $x_n$ if  
+  $$
+  d (x_{i-1}, x_i) < \varepsilon \; (i=1, 2, \ldots, n)
+  $$
+\end{Definition}
+
+The metric space $(E, d)$ is said to be $\varepsilon$-\textit{chainable} if
+for each pair $(x,y)$ of its points there exists an $\varepsilon$- chain
+joining $x$ and $y$. 
+
+\begin{thmm}[Edelstein]\label{chap1:thm1.4}%the 1.4
+  Let $T$ be a mapping of a complete $\varepsilon$- chainable
+  metric space $(E, d)$ into itself, and suppose that there is a real
+  number $K$ with $0 \leq K < 1$ such that 
+  $$
+  d(x,y) < \varepsilon \Rightarrow d (Tx , Ty) \leq K d(x,y)
+  $$
+\end{thmm}
+
+Then $T$ has a unique fixed point $u$ in $E$, and $u =  \lim\limits_{n
+  \to \infty} T^n x_o$ where $x_o $ is an arbitrary element of $E$. 
+
+\begin{proof}
+  $(E,d)$ being $\varepsilon$ chainable we define for $x,y \varepsilon E$,
+  $$
+  d_{\varepsilon} (x,y) = \inf \sum_{i=1}^{n} d (x_{i-1}, x_i)
+  $$
+  where the infimum is taken over all $\varepsilon$-chains $x_0, \ldots,
+  x_n$ joining $x_0 = x$ and $x_n = y$. Then $d$ is a distance
+  function on $E$ satisfying  
+  \begin{enumerate}[i)]
+  \item $d (x,y) \leq d_{\varepsilon} (x,y)$
+  \item $d (x,y) = d_{\varepsilon} (x,y) \text{ for } d (x,y) < \varepsilon$
+  \end{enumerate} 
+  From (ii) it follows that a sequence $(x_n)$, $x_n \varepsilon E$ is a Cauchy
+  sequence with respect to $d_{\varepsilon}$ if and only if it is a Cauchy
+  sequence with\pageoriginale respect to $d$ and is convergent with respect to
+  $d_{\varepsilon}$ if and only if it converges with respect with respect to
+  $d$. Hence $(E,d)$ being complete, $(E, d_{\varepsilon})$ is also a complete
+  metric space. Moreover $T$ is a contraction mapping with respect to
+  $d_{\varepsilon}$. Given $x$, $y \varepsilon E$, and any
+  $\varepsilon$-chain $x_o, \ldots, 
+  x_n$ with $x_o = x,x_n = y$, we have  
+  $$
+  d (x_{i-1}, x_i) < \varepsilon \; (i=1, 2, \ldots, n),
+  $$
+  so that
+  $$
+  d (Tx_{i-1}, Tx_i)\leq K d(x_{i-1}, x_i) < \varepsilon \; (i=1, 2, \ldots, n)
+  $$
+  Hence $Tx_o, \ldots, Tx_n$ is an $\varepsilon$- chain joining $T_x$
+  and $T_y$ and  
+  $$
+  d_{\varepsilon} (Tx, Ty) \leq \sum_{i=1}^{n} d (Tc_{i-1}, Tx_i) \leq K
+  \sum_{i=1}^{n} d(x_{i-1}, x_i) 
+  $$
+  $x_o, \ldots, x_n$ being an arbitrary $\varepsilon$- chain, we have
+  $$
+  d_{\varepsilon}(Tx, Ty) \leq K d_{\varepsilon} (x,y)
+  $$
+  and $T$ has a unique fixed point $u \varepsilon E$ given by 
+  \begin{equation}
+    \lim_{n \to \infty} d_\varepsilon (T^n x_0 , u)=0 \text{ for } x_o
+    \varepsilon E \text{ arbitrary } \tag{1}\label{chap1:proofeq1} 
+  \end{equation}
+  But in view of the observations made in the beginning of this proof,
+  (\ref{chap1:proofeq1}) implies that 
+  $$
+  \lim_{n \to \infty} d (T^n x_o, u)=0
+  $$
+\end{proof}
+
+\begin{example*}
+  Let $E$ be a connected compact subset of a domain $D$ in the complex
+  plane. Let $f$ be a complex holomorphic function in $D$
+  which\pageoriginale maps 
+  $E$ into itself and satisfies $|f' (z)| < 1 \;  (z, \varepsilon E)$. Then
+  there is a 
+  unique point $z$ in $E$ with $f(z) =z$. Since $f'$ is continuous in
+  the compact set $E$, there is a construct $K$ with $0 < K < 1$ such
+  that $|f'(z)| < K \; \varepsilon E)$. For each point $\omega
+  \varepsilon E$ there 
+  exists $\rho_{\omega} > 0$ such that $f(x)$ is holomorphic in the
+  disc $S (\omega, 2 \rho_{\omega})$ of center $\omega$ and radius $ 2
+  \rho_{\omega}$ and satisfies $|f' (z)|< K$ there. $E$ being compact,
+  we can choose $\omega_1, \ldots, \omega_n \varepsilon E$ such that $E$ is
+  covered by 
+  $$
+  S(\omega_1, 2 \rho_{\omega_{1}}), \ldots, S (\omega_n, 2 \rho_{\omega_{n}})
+  $$  
+\end{example*}
+
+Let $\varepsilon = \min \{ \rho \omega_i, i=1, 2, \ldots, n \}$. If 
+$z,z'\varepsilon E$ and $|z-z'|< \varepsilon$ then $z,z' \varepsilon
+S(\omega_i, 2 \rho_{\omega_{1}})$ for some $i$ and so  
+$$
+|f(z)- f(z')| = |\int_{z'}^{z} f' (\omega) d \omega |\leq K |z-z'|.
+$$
+
+This proves that Theorem \ref{chap1:thm1.4} is applicable to the
+mapping $z \to f(z)$ and we have a unique fixed point.  
+
+\begin{Definition}% def 1.6
+  A mapping $T$ of a metric space $E$ into itself is said to be {\em
+    contractive} if  
+  $$
+  d(Tx, Ty)< d(x,y) \; (x \neq y, x,y \varepsilon E)
+  $$
+  and is said to be $\varepsilon$-contractive if
+  $$
+  0< d (x,y)< \varepsilon \; \Rightarrow d(Tx, Ty)< d(x,y)
+  $$
+\end{Definition}
+
+  \begin{remark*}
+    A contractive mapping of a complete metric space into itself need
+    not have a fixed point. e.g. let $E= \{x/ x \geq 1 \}$ with the
+    usual\pageoriginale distance $d (x,y) = |x-y|$,let $T :E \to E$ be
+    given by $Tx  = x + \dfrac{1}{x}$. 
+  \end{remark*}
+
+  \begin{thmm}[Edelsten]\label{chap1:thm1.5}%the 1.5
+    Let $T$ be an $\varepsilon$-contractive mapping of a metric space $E$
+    into itself, and let $x_o$ be a point of $E$ such that the
+    sequence $(T^n x_o)$ has a subsequence convergent  to a point $u$
+    of $E$. Then $u$ is a periodic point of $T$, i.e. there is a
+    positive integer $k$ such that 
+    $$
+    T^k u = u
+    $$
+  \end{thmm}
+
+\begin{proof}
+  Let $(n_i)$ be a strictly increasing sequence of positive integers
+  such that $\lim\limits_{i \to \infty} T^{n_{i}} x_o = u$ and let
+  $x_i = T^{n_{i}}x_o$. There exists $N$ such that $d(x_i, u) < \; \varepsilon/4$
+  for $i \geq N$. Choose any $i \geq N$ and let $k = n_{i+1} -
+  n_i$. Then 
+  $$
+  d(x_{i+1}, T^k u) = d(T^k x_i , T^k u) \leq d(x_i, u) <
+  \varepsilon/4 
+  $$
+  and 
+  $$
+  d (T^k u, u) \leq d(T^k u, x_{i+1}) + d(x_{i+1}, u) < \varepsilon/2
+  $$
+\end{proof}
+
+Suppose that $v = T^k u \neq u$. Then $T$ being $\varepsilon$-contractive, 
+$$
+d(Tu, Tv)< d(u,v) \text{ or } \frac{d(Tu, Tv)}{d(u,v)}< 1.
+$$
+
+The function $(x,y) \to \dfrac{Tx, Ty}{d(u,v)}$ is continuous at
+$(u,v)$. So there exist $\delta, K> 0$ with $0 < K < 1$ such that
+$d(x, u)< \delta, d(y,v) < \delta$ implies that $d (Tx, Ty) < K
+d(x,y)$. As $\lim\limits_{r \to \infty} T^K x_r = T^K u = v$, there
+exists $N' \geq N$ such that $d (x_r, u) < \delta , d (T x_r , v)<
+\delta$ for $r \geq N'$\pageoriginale and so 
+\begin{gather*}
+  d(Tx_r, T T^K x_r) < K d (x_r, T^K x_r) \tag{1}\label{chap1:eqq1}\\
+  d (x_r, T^K x_r) \leq d(x_r, u) + d(u, T^K u) + d(T^K u, T^K x_r)\\
+  <\frac{\varepsilon}{4} + \frac{\varepsilon}{2}+
+  \frac{\varepsilon}{4} = \varepsilon \text{ for } r\geq 
+  N' > N \tag{2}\label{chap1:eqq2} 
+\end{gather*}
+From (\ref{chap1:eqq1}) and (\ref{chap1:eqq2})
+$$
+d(Tx_r , T T^K x_r) < K d(x_r , T^K x_r)< \varepsilon \text{ for } r \geq N'
+$$
+and so $T$ being $\varepsilon$-contractive,
+\begin{equation*}
+  d(T^p x_r, T^p T^k x_r) < K d(x_r , T^K x_r) \text{ for } n \geq N' ,
+  p> 0 \tag{3}\label{chap1:eqq3} 
+\end{equation*}
+Setting $p = n_{r+1} - n_r $ in (\ref{chap1:eqq3})
+$$
+d(x_{r+1}, T^k x_{r+1}) < Kd(x_r , T^k x_r) \text{ for any } r \geq N' 
+$$
+Hence $d (x_s, T^k x_s) < K^{s-r} d(x_r , T^k x_r) < K^{s-r}
+\varepsilon$ and $d(u,v) < d (u,x_s)+ d(x_s, T^k x_s) +d (T^k x_s , v)
+\to 0$ as $s \to \infty$ This contradicts the assumption that $d(u,v)
+> 0$. Thus $u = v=T^k u$. 
+
+\begin{thmm}[Edelstein ]%the 1.6
+  Let $T$ be a contractive mapping of a metric space $E$ into itself,
+  and let $x_o$ be a point of $E$ such that the sequence $T^n x_o$ has
+  a subsequence convergent to a point $u$ of $E$. Then $u$ is a fixed
+  point of $T$ and is unique. 
+\end{thmm}
+
+\begin{proof}
+  By\pageoriginale Theorem \ref{chap1:thm1.5}, there exists an integer
+  $k > 0$ such that $T^k u = 
+  u$. Suppose that $v = Tu \neq, u$. Then $T^k u = u$, $T^k v=v$ and
+  $d(u,v) = d(T^k u, T^k v) < d(u,v)$, since $T$ is contractive. As
+  this is impossible, $u=v$ is a fixed point. The uniqueness is also
+  immediate. 
+\end{proof}
+
+\begin{coro*}%coro 0
+  If $T$ is a contractive mapping of a metric space $E$ into a compact
+  subset of $E$, then $T$ has a unique fixed point $u$ in $E$ and $u = 
+  \lim\limits_{n \to \infty} T^n x_o$ where $x_o$ is an arbitrary
+  point of $E$. 
+\end{coro*}

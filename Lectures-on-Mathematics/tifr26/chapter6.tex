@@ -1,0 +1,731 @@
+\chapter{Self-adjoint linear operator in a Hilbert space}
+
+It would\pageoriginale be foolish of me to attempt to give in these
+lectures an 
+account of the many methods that have been developed for the study of
+the spectral resolution of a self adjoint operator. I shall limit
+myself to giving an account of a certain explicit formula for  the
+projections belonging to the spectral resolution. In general this is a
+theorem about projections; in the case of a compact operator it
+becomes a theorem about eigenvectors. 
+
+\begin{Definition}\label{chap6:def6.1}%def 6.1
+  A complex (real) Hilbert space is a vector space over $C(R)$ with a mapping
+  $$
+  H \times H \to C (R)
+  $$
+  called the scalar product and denoted by $(x,y)$ which satisfies the
+  following axioms 
+  \begin{enumerate}[i)]
+  \item $(x,y) = \overline{(y,x)}$
+
+  \item $(x_1 + x_2,y) = (x_1,y) + (x_2,y) \; (x_1,x_2, y \in H)$
+
+  \item $(\alpha x,y) = \alpha (x,y)\; (x,y \in H, \alpha
+    \in C ( R))$
+
+  \item $(x,y) > 0 $ for $x \neq 0$; $(x,x) =0$ for $x=0$ \; $(x \in H)$ 
+
+  \item $H$ is a Banach space with the norm $||x|| = (x,x)^{\frac{1}{2}}$.
+  \end{enumerate}
+\end{Definition}
+
+Let $H$ be a real or complex Hilbert space, and let $\mathscr{S}$
+denote the class of all \textit{ bounded symmetric} operators in
+$H$, i.e., bounded linear mappings of $T$ into itself such that  
+$$
+(Tx,y) = (x,Ty) \quad (x,y \in H)
+$$ 
+$\mathscr{S}$ is\pageoriginale the class bounded self adjoint
+operators, $T =T^*$. A 
+relation $\le$ is introduced into $\mathscr{S}$ by writing $A \le B$
+or $B \ge A$ to denote that  
+$$
+(Ax,x) \le (Bx,x) \quad (x \in H).
+$$
+
+In particular, the operators $T$ belonging to $\mathscr{S}$ that satisfy
+$$
+T \ge 0
+$$
+are called \textit{ positive operators }.
+
+Note that this definition of `positive' has nothing to do with the
+property of mapping a cone into itself that we have considered in
+earlier chapters. 
+
+We establish a few elementary properties of the relation. First we
+recall a few obvious properties of commutants. 
+
+Let $B$ denote the class of all bounded linear operators in $H$, and
+given $E \subset B$, let 
+$$
+E' = \{ T : T \in B \text{ and } AT=TA (A \in E)\}
+$$
+$E'$ is called the \textit{commutant} of $E$.
+\begin{enumerate}[(i)]
+\item $E_1 \subset E_2 \Rightarrow E'_2 \subset E'_1$ \qquad (obvious)
+\item $E'$ is strongly closed.
+
+Let $T_n \in E'$ converge strongly towards $T \in B$. Then $T_n A = A
+T_n \quad (n=1,2, \ldots)$ 
+$$
+TA_x=\lim_{n \to \infty} T_n Ax= \lim_{n \to \infty} A T_n x = AT_x
+\quad (x \in H) 
+$$\pageoriginale
+
+\item $E$ self-adjoint $\Rightarrow E'$ self-adjoint.
+\begin{align*}
+  T \subset E' \Rightarrow & AT = TA \quad (A \in E)\\
+  & A^* T = TA^* \quad(A \in E)\\
+  & T^* A = AT^* \quad (A \in E)
+\end{align*}
+
+\item $E'$ is a complex linear algebra $\qquad$(obvious)
+
+\item $E = (T) \Rightarrow E''$ is a strongly closed commutative
+  algebra containing $T$. 
+  \begin{gather*}
+    (T) \subset (T)' \Rightarrow (T)'' \subset (T)'\\
+    A_1, A_2 \in (T)' \Rightarrow A_1 \in (T)'', \quad A_2 \in (T)'
+    \quad A_1 A_2 = A_2 A_1. 
+  \end{gather*}
+\end{enumerate}
+
+We next establish some well known elementary propositions concerning
+positive operators. 
+\begin{enumerate}[(a)]
+\item For any positive operator $T$, the \textit{generalized Schwartz
+  inequality} holds i.e., 
+  $$
+  |(Tx,y)|^2 \leq (Tx,x) (Ty,y)
+  $$
+
+  \begin{proof}
+    $B(x,y)= (Tx,y)$ is a positive semi-definite symmetric bi-linear
+    form and so the generalized Schwarz inequality for this form. 
+  \end{proof}
+
+\item If $T$ is a positive operator, then
+  $$
+  || T || = \sup \{(Tx,x): || x|| \leq 1 \}
+  $$
+
+  \begin{proof}
+    Let\pageoriginale $T$ be a positive operator and let
+    $$
+    M =\sup \{(Tx,x) : || x || \leq 1 \}
+    $$
+    By the Schwarz inequality
+    $$
+    | (Tx,x)| \leq || Tx|| ~ ||x||,
+    $$
+    and so $M \leq || T||$. On the other hand putting $y=Tx$ in the
+    generalized Schwarz inequality, we have 
+    $$
+    ||Tx ||^4 =(Tx,Tx)^2 = |(Tx,y)|^2 \leq (Tx,x)(Ty,y) \leq M^2 ||
+    x||^2 ||Tx||^2, 
+    $$
+    and so $|| T|| \leq M$.
+  \end{proof}
+
+\item The set of positive operators is a positive cone in
+  $\mathscr{S}$.
+
+  \begin{proof}
+    If $T$ and $-T$ are both positive, we have
+    $$
+    (Tx,n) = 0 \quad (x \in H)
+    $$
+    
+    By $(b)$, this gives $T =0$. The other properties of the cone are obvious. 
+  \end{proof}
+
+\item Let $(T_n)$ be a bounded increasing sequence of elements of
+  $\mathscr{S}$, i.e., 
+  $$
+  T_n \leq T_{n+1} \leq M.I \quad (n=1,2,\ldots)
+  $$
+  Then $(T_n)$ converges strongly to an element $T$ of $s$ i.e.
+  $$
+  \lim_{n \to \infty} T_n x = Tx \quad (x \in H)
+  $$
+\end{enumerate}
+
+\begin{proof}
+  For\pageoriginale $m < n$, let $A_{m,n} = T_n -T_m$. By the
+  generalized Schwartz 
+  inequality $(a)$ with $T= A_{m,n}$ and $y= A_{m,n} x$, we have $||
+  A_{m,n} x ||^4 =  ( A_{m,n} x, ~ A_{m,n} x)^2 ~ = | (A_{m,n} x,y)
+  |^2 \leq (A_{m,n} x,x) (A_{m,n} y,y)$. Since $0 \leq A_{m,n} \leq M
+  I$, we have $(A_{m,n} y,y) \leq M^3 || x ||^2$. Hence $|| T_n x -
+  T_m x ||^4 \leq M^3 || x ||^2\break \big \{ T_n x,x ) - T_m x,x ) \big
+  \}$. Since the sequence $\big \{ (T_n x,x ) \big \}$ is a bounded
+  increasing sequence of real numbers, it follows that $(T_n x)$ is a
+  Cauchy sequence which converges to an element $Tx \in H$ in view of
+  the axiom $(v)$ in definition \ref{chap6:def6.1}. 
+  \begin{enumerate}[(e)]
+  \item $T \ge 0 \Rightarrow T^n \ge 0 ~ ( n=1,2,\ldots )$.
+  \end{enumerate}
+\end{proof}
+
+\begin{proof}
+ $(T^{2K} x,x ) = ( T^K x, T^K x ) \ge 0$
+ $$
+ ( T^{2k+1} x,x )  = ~ ( T. T^x, T^k x ) \ge 0. 
+ $$
+  \begin{enumerate}[(f)]
+\item Each positive operator $T$ is the square of a positive operator
+  $T^{\frac{1}{2}}$, and $T^{\frac{1}{2}}$ belongs to the second
+  commutant $(T)''$ of $T$. 
+  \end{enumerate}
+\end{proof}
+
+\begin{proof}
+  Suppose that $0 \leq A \leq I$, and let $B = I -A$, so that also 
+  $$
+  0 \leq B \leq I.
+  $$
+\end{proof}
+
+Let $Y_n$ be the sequence defined inductively by 
+$$
+Y_0 = 0, ~ Y_{n+1} = \frac{1}{2} (B + Y_n^2) \; (n = 0,1,2, \ldots ).
+$$
+By induction we have $|| Y_n || \leq 1$, and so 
+$$
+0 \leq Y_n \leq I.
+$$
+
+Also,\pageoriginale since
+$$
+Y_{n+1} -Y_n = \frac{1}{2} (Y^2_n - Y^2_{n-1}) = \frac{1}{2} (Y_n +
+Y_{n-1}) (Y_n - Y_{n-1}), 
+$$
+we see by induction that $Y_{n+1} -Y_n$ is a polynomial in $B$ with
+non-negative real coefficients. Since $B^n \ge 0$, for every $n$, it
+follows that $(Y_n)$ is an increasing sequence. Hence $(Y_n)$
+converges strongly to a positive operator $Y$, and we have 
+$$
+0 \leq Y \leq I,~ Y = \frac{1}{2} (B + Y^2)
+$$
+Let $X= I- Y$. Then $X$ is a positive operator and 
+$$
+X^2 = A.
+$$
+
+If a bounded linear operator commutes with $A$, it commutes with each
+polynomial in $A$, hence it commutes with $Y_n$, and therefore with
+$X$. If $0 \leq T \leq M I$, $A = \dfrac{1}{M}.T$ satisfies $0 \leq A
+\leq I$ and so the proposition holds for $T$. 
+
+The positive square root $T^{\frac{1}{2}}$ is in fact unique but we
+do not need this fact. 
+
+\begin{enumerate}[(g)]
+\item $A \ge 0, ~ B\ge 0, ~ AB = BA \Rightarrow AB \ge 0$.
+\end{enumerate}
+
+\begin{proof}
+  Since $A \in (B')$, we have $B^{\frac{1}{2}} \in (A)'$ and so 
+  $$
+  AB = AB^{\frac{1}{2}} B^{\frac{1}{2}} = B^{\frac{1}{2}} AB^{\frac{1}{2}}.
+  $$
+\end{proof}
+
+Finally, $( B^{\frac{1}{2}}  AB^{\frac{1}{2}} x,x ) = ~ (
+AB^{\frac{1}{2}} x, B^{\frac{1}{2}} x) \ge 0$. 
+
+$(h) ~ T \ge 0 \; ~I + T$ is invertible, $(I + T^{-1}) \ge 0$, and 
+$$
+(I + T)^{-1} \in  (T)''.
+$$\pageoriginale
+
+\begin{proof}
+  We have  
+  \begin{align*}
+    & I  \leq I + T \leq (1 + M)I, \\
+    & \frac{1}{1+M} \leq A \leq I, \\
+  \end{align*}
+  where $A = \dfrac{1}{1+M} (I + T)$. Therefore
+  $$
+  || I - A || \leq || \left(1- \frac{1}{1+M} \right) I || =
+  \frac{M}{1+M} < 1. 
+  $$
+\end{proof}
+
+Therefore the Neumann series
+$$
+I +  (I- A) + (I - A)^2 + \cdots
+$$
+converges in operator norm and since $(I- A)^k \ge 0$ its sum is a
+positive operator $B$. We have  
+$$
+I = B (I -A) = I + (I -A) B = B,
+$$
+and so $AB = BA = I$.
+
+Finally $( 1 + M)^{-1} B$ is the required positive inverse of $I +
+T$. By a \textit{ projection } we mean an operator $P$ belonging to
+$\mathscr{S}$ with $P^2 = P$. 
+\begin{enumerate}[(i)]
+\item Each projection $P$ satisfies $0 \leq P \leq I$.
+\end{enumerate}
+
+\begin{proof}
+  Since $P \in \mathscr{S}$ and $P = P^2$, we have $P \ge 0$.
+\end{proof}
+
+Since $I - P \in \mathscr{S}$ and $(I - P)^2 = I -P$ we have $I - P \ge 0$.
+
+\begin{enumerate}[(j)]
+\item For projections $P_1, P_2$
+  $$
+  P_1 \ge P_2 \Longleftrightarrow P_2 = P_2 P_1 \Longleftrightarrow
+  P_2 = P_1 P_2  
+  $$\pageoriginale
+\end{enumerate}
+
+\begin{proof}
+  $P_1 P_2 = P_2 \Rightarrow P_2 = P^*_2 = ( P_2 P_1)^*  = P^*_1 P^*_2
+  = P_1 P_2$ 
+  $$
+  P_1 P_2 = P_2 ~ P_2 = P^*_2 = (P_2 P_1)^* = P^*_2 P^*_1 = P_2 P_1 .
+  $$
+\end{proof}
+
+Thus, if $P_2 = P_2 P_1$, we also have  $P_1 P_2 = P_2$, and so 
+$$
+(P_1-P_2)^2 = P^2_1 -P_1 P_2 -P_2 P_1 + P^2_2 = P_1 -P_2,
+$$
+and therefore \qquad $P_1 \ge P_2$.
+
+Finally suppose that $P_1 \ge P_2$. If $P_1 x = 0$, then $P_2 x = 0$,
+for  
+$$
+(P_2 x, ~ P_2 x) = (P^2_2 x,x) = (P_2 x,x ) ~ \leq (P_1 x,x) = 0.
+$$
+Since $P_1 (I - P_1) = 0$,
+$$
+\displaylines{\hfill 
+  P_2 (I -P_1) = 0 ,\hfill \cr
+  \text{i.e.,} \hfill  P_2 = P_2 P_1.\hfill }
+$$
+
+\setcounter{section}{6}
+\setcounter{lemma}{0}
+\begin{lemma}%lemma 6.1
+  Let $A \ge 0$, and let $B = 2 A^2 (I + A^2)^{-1}$. Then
+  \begin{enumerate}[\rm i)]
+  \item $B \in A''$,
+
+  \item $0 \leq B \leq A$,
+
+  \item $I -B = (I -A) (I + A) (I + A^2)^{-1}$,
+
+  \item  if $P$ is a projective permutable with $A$ and $P \leq A$, 
+    then $P \leq B$. 
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Proposition $(h)$ implies $(i)$.
+\end{proof}
+
+That $B \ge 0$ is clear since $A^2$ and $(I + A^2)^{-1}$ are
+permutable.\pageoriginale Also 
+$$
+(I + A^2) (A-B) = A+A^3 -2A^2 = A (I -A)^2 \ge 0,
+$$
+and so, using the permutability of the operators,
+$$
+A-B = (I+A^2)^{-1} (I+A^2) (A-B) \ge 0 
+$$
+This proves (ii), and (iii) is straight forward.
+
+Let $P$ be a projection such that $P \in A'$ and $P \leq A$. We have
+$$
+P = P^2 \leq PA ~ \leq A^2,
+$$
+and therefore
+$$
+P = P^2 \leq A^2 P.
+$$
+
+Therefore 
+\begin{align*}
+  (I+A^2) (B-P) & = 2A^2 - ~ (I+A^2) P \ge 2A^2 ~ - 2A^2 P\\ 
+  & = 2A^2 (I - P) \ge 0
+\end{align*}
+Finally, since $(I + A^2)^{-1}$ is permutable with all the operators
+concerned, 
+$$
+B - P \ge (I + A^2)^{-1} 2A^2 (I - P) \ge 0.
+$$
+
+\begin{thmm}\label{chap6:thm6.1} %theorem 6.1
+  Let $A$ be a positive operator, and let the sequence $(A_n)$ be
+  defined inductively by  
+  $$
+  A_1 = A, ~  A_{n+1} = 2A^2_n (I + A^2_n)^{-1} ~ \; (n=1, 2, \ldots)
+  $$
+  Then\pageoriginale
+  \begin{enumerate}[\rm i)]
+  \item $0 \leq A_{n+1} \leq A_n$  \; $ (n=1,2, \ldots)$,
+
+  \item the sequence $(A_n)$ converges strongly to a projection $Q$
+    belonging to $A''$. 
+
+  \item $Q \leq A$,
+
+  \item $(I-A) (I-Q) \ge 0$,
+
+  \item $Q$ is maximal in the sense if $P$ is a projection permutable
+    with $A$ and satisfying $P \leq A$, then $P \leq Q$. 
+  \end{enumerate}
+\end{thmm}
+
+\begin{proof}
+  (i) This follows at once from Lemma 1. (ii) and (iii). It
+  follows from (i) and Proposition $(d)$ that $(A_n)$ converges
+  strongly to a positive operator $Q$ with $Q \le A$, and that $Q \in
+  (A)''$. It remains to prove that $Q$ is a projection.  
+\end{proof}
+
+Since $0 \leq A_n \leq A$, we have
+$$
+|| A_n ||\leq || A || \;  (n = 1,2,\ldots);
+$$
+and therefore, since
+$$
+\lim_{n \to \infty} ~ A_n x = Qx \;  (x \in H),
+$$
+we have in turn, 
+\begin{gather*}
+  \lim_{n \to \infty} A^2_n x = Q^2 x \;  (x \in H),\\
+  \lim_{n \to \infty} A_{n+1} \big \{ (I + Q^2) x - (I + A^2_n) x \big
+  \} ~ = 0  \;  ~ ~(x \in H),\\ 
+  \lim_{n \to \infty} A_{n+1} (I + Q^2) x = \lim_{n \to \infty} 2A^2_n
+  x ~ = 2Q^2 x  \; ~ ~ (x \in H). 
+\end{gather*}
+
+But\pageoriginale 
+$$
+\displaylines{\hfill 
+  \lim _{n \to \infty} A_{n+1} (I + Q^2) x = Q (I + Q^2)x ~ \; ~ (x \in
+  H),\hfill \cr
+  \text{and so} \hfill  Q (I + Q^2)= 2Q^2. \hfill }
+$$
+Therefore
+$$
+(Q -Q^2)^2 = 0.
+$$
+But since $Q - Q^2$  is symmetric, this gives
+$$
+(Q -Q)^2 = 0,
+$$
+i.e.,  $Q$ is a projection.
+
+(iv)~ By Lemma 1 (iii),
+\begin{align*}
+  (I - A_n) & = (I - A_{n-1}) (I + A_{n-1}) (I + A^2_{n-1})^{-1}, \\
+  & = (I -A) \prod^{n-1}_{k = 1} (I + A_k) (I + A^2_k)^{-1};
+\end{align*}
+$$
+\displaylines{\text{and so}\hfill 
+  (I - A) (I- A_n) \ge 0 ~ \; ~ (n = 1,2,\ldots), \hfill \cr
+  \text{which gives}\hfill 
+  (I - A) (I - Q) \ge 0. \hfill }
+$$
+
+(v)~ Let $P$ be a projection permutable with $A$ such that $P \leq A$.
+
+By\pageoriginale repeated application of Lemma 1  (iv),  $P$ is
+permutable with $A_n$ and $P \leq A_n$. In the limit we have $P \leq
+Q$.   
+
+\begin{thmm} % theorem 6.2.
+  Let $T$ be a bounded symmetric operator with 
+  $$
+  m I \leq T \leq M I.
+  $$
+\end{thmm}
+
+Let $E_M = I$, and for $\lambda < M$ let $E_\lambda $ be the
+projection $Q$ of Theorem $1$ corresponding to $A$ given by  
+$$
+A = \frac{1}{M- \lambda} (MI - T)
+$$
+Then
+\begin{enumerate}[i)]
+\item the projections $E$ belongs to $(T)''$;
+\item $E_\lambda = 0 ~ ( \lambda < m)$, $E_M = I$; 
+\item $E_\lambda \leq ~ E_\mu ~ ( \lambda \leq \mu)$;
+\item $\lambda (E_\mu ~ -E_\lambda ) \leq T (E_\mu -E_\lambda)  \leq
+  \mu (E_\mu - E_\lambda) ~ (\lambda \leq \mu)$; 
+\item the maily $(E_\lambda)$ is strongly continuous on the right.
+\end{enumerate}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+  \item follows from Theorem 1 ~ (ii).
+  \item If $E_\lambda \neq 0$, there exists a non-zero $x_0$ with
+    $E_\lambda x_0 = x_0$. 
+  \end{enumerate} 
+\end{proof}
+
+By Theorem 1 (iii), we have 
+$$
+E_\lambda \leq \frac{1}{M- \lambda} (MI - T),
+$$
+and so 
+$$
+(x_0,x_0) = (E_\lambda x_0, x_0) \leq \frac{1}{M - \lambda} (( MI -T )
+x_0,x_0). 
+$$
+
+Since $MI -T ~ \leq (M- m)I$, this gives
+$$
+(x_0,x_0) \leq \frac{M- m}{M- \lambda} (x_0, x_0),
+$$\pageoriginale
+and so $\lambda \ge m$. This proves (ii).
+\begin{enumerate}[(iii)]
+\item This is obvious except when $\lambda < \mu < M$. In this case,
+  since $E_\lambda$ is a projection permutable with $\dfrac{1}{M-\mu}
+  (MI-T)$, and  
+\end{enumerate}
+$$
+E_\lambda \leq \frac{1}{M -\lambda} (MI - T) \leq \frac{1}{M - \mu}
+(MI - T), 
+$$
+Then 1 (v) shows that 
+$$
+E_\lambda ~ \leq ~ E_\mu
+$$
+\begin{enumerate}[(iv)]
+\item Suppose that $\lambda < \mu \leq M$. By Theorem 1 ~ (iv),
+  $$
+  \displaylines{\hfill 
+  \left(I - \frac{1}{M - \lambda} (MI - T)\right) (I - E_\lambda) \ge
+  0,\hfill \cr 
+  \text{i.e.,} \hfill 
+    (I - \lambda I) (I - E_\lambda) \ge 0. \hfill }
+  $$
+\end{enumerate}
+
+Since $E_\lambda \leq E_\mu$, we have $E_\lambda E_\mu = E_{\lambda}$,
+and so this gives  
+$$
+(T - \lambda I) (E_\mu - E_\lambda) \ge 0,
+$$
+which is the left hand inequality in (iv). The right hand inequality
+is obvious if $\mu = M$ (since $T \leq MI$); and if $\mu < M$ we
+have  
+$$
+\displaylines{\hfill 
+  E_\mu \leq \frac{1}{M - \mu} (MI - T), \hfill \cr
+  \text{i.e.,} \hfill T \leq MI - (M - \mu) E_\mu. \hfill }
+$$
+
+Since $E_\mu (E_\mu -E_\lambda) = E_\mu - E_\lambda$, this gives.
+$$
+T (E_\mu - E_\lambda) ~ \leq \mu (E_\mu - E_\lambda),
+$$\pageoriginale
+and (iv) is proved.
+
+\begin{enumerate}[(v)]
+\item Suppose $\mu < M$. If $(E_\lambda)$ is not strongly continuous
+  on the right at $\mu$, there exists a sequence $( \lambda_n )$
+  convergent decreasing to $\mu$ but such that $E_{\lambda_{n}}$ does
+  not converge strongly to $E_\mu$. 
+\end{enumerate}
+
+Since $(E_{\lambda_{n}})$ is a decreasing sequence of operators, with
+$E_{\lambda_{n}} \ge E_\mu$, there exists a positive operator $J$ such
+that $J \ge E_\mu$ and $(E_{\lambda_{n}})$ converges strongly to
+$J$. Then $J$ is a projection, permutable with $T$, and 
+$$
+E_\mu \leq J \leq E_{\lambda_{n}} ~ \leq \frac{1}{M - \lambda_n} (MI-
+T) ~ \; (n=1,2,\ldots) 
+$$
+It follows that 
+$$
+E_\mu \leq J \leq \frac{1}{M - \mu} (MI- T),
+$$
+and so by the maximal property of $E_\mu$,
+$$
+J \leq E_\mu.
+$$
+This completes the proof of the theorem.
+
+\begin{coro*}{\em(The spectral theorem).}
+  $$
+  T= \int \limits^{M}_{M- \varepsilon} \lambda d E_\lambda \; ~ (
+  \varepsilon > 0) 
+  $$ 
+  The integral being the uniform limit of its Riemann-Stieltjes
+  sums. In fact let 
+  $$
+  m - \varepsilon = \lambda_0 < \lambda_1 < \cdots ~ < \lambda_n = M.
+  $$\pageoriginale
+\end{coro*}
+
+Then
+$$
+\lambda_{k-1} ( E_{\lambda_{k}} -E_{\lambda_{k-1}} ) \leq T	 (
+E_{\lambda_{k}} - E_{\lambda_{k-1}} ) \leq \lambda_k (E_{\lambda_{k}}
+- E_{\lambda_{k-1}}) 
+$$
+and so since $E_{\lambda_{n}} = I$ and $E_{\lambda_{0}} = 0$,
+\begin{gather*}
+  \sum^{n}_{k=1} \lambda_{k-1} ( E_{\lambda_{k}} - E_{\lambda_{k-1}} )
+  \leq T  \leq \sum^{n}_{k=1} \lambda_k (E_{\lambda_{k}}
+  -E_{\lambda_{k-1}}), \\ 
+  0 \leq T - \sum^{n}_{k=1} \lambda_{k-1} (E_{\lambda_{k}}
+  -E_{\lambda_{k-1}}) \leq \sum^{n}_{k=1} (\lambda_k - \lambda_{k-1})
+  E_{\lambda_{k}} -E_{\lambda_{k-1}} ) \\ 
+  \leq \max (\lambda_k -\lambda_{k-1}) I 
+ \end{gather*} 
+Hence 
+$$
+|| T - \sum^{n}_{k=1} \lambda_{k-1} (E_{\lambda_{k}} -
+E_{\lambda_{k-1}}) || \to 0 ~\text{ as }~ \max (\lambda_k
+-\lambda_{k-1}) \to 0  
+$$
+Moreover 
+$$
+T^r = \int \limits^{M}_{m- \varepsilon} \lambda^r d E_\lambda ~ \; (r=0,1,2,
+\ldots) 
+$$
+To see this we rewrite (iv) in the form
+$$
+(M-\mu) (E_\mu - E_\lambda ) \leq (MI- T) (E_\mu - E_\lambda ) \leq
+(M-\lambda) (E_\mu - E_\lambda) 
+$$
+since $MI - T \ge 0, ~ M - \lambda \ge 0$, and $M- \mu \ge 0$, it
+follows that  
+$$
+(M-\mu)^r(E_\mu -E_\lambda) \leq (MI -T)^r (E_\mu - E_\lambda)  
+ \leq (M-\lambda)^r  (E_\mu -E_\lambda) 
+$$\pageoriginale
+Therefore, as in the preceeding argument,
+$$
+(MI -T)^r = \int \limits^{M}_{m- \varepsilon} ~ (M- \lambda)^r
+~dE_\lambda ~ ~ \; (r=0,1,2,\ldots) 
+$$
+and the required result follows by induction.
+
+In the next theorem we $\infty$nsider the special simplification which
+occurs when the operator is also compact. We need a simple lemma. 
+
+\begin{lemma} %lemma 6.2
+  Let $A$ be a positive operator, and let $(A_n)$ be the sequence
+  constructed as in Theorem 7. Then $A_n = A^2 B_n \; (n=2,3,\ldots)$,
+  where each $B_n$ belongs to $(A)''$ and  
+  $$
+  0 \leq B_{n+1} \leq B_n ~ ~ (n=2,3,\ldots)
+  $$
+\end{lemma}
+
+\begin{proof}
+  We have 
+  $$
+  A_2 = 2A^2 (I + A^2)^{-1} = A^2 B_2,
+  $$
+  with $B_2 = 2 (I + A^2)^{-1}$. If $A_n = A^2 B_n$ with $B_n \ge 0$
+  and $B_n \in (A)''$, then 
+  \begin{align*}
+    A_{n+1} &= 2A^4 B^2_n (I + A^4 B^2_n)^{-1}\\
+    &= A^2 B_{n+1},
+  \end{align*}
+  with $B_{n+1} = 2A^2 B^2_n (I + A^4 B^2_n)^{-1}$. Then
+  \begin{align*}
+    B_n - B_{n+1} &= (I + A^4 B^2_n)^{-1} \big \{ B_n (I + A^4 B^2_n)
+    -2A^2 B^2_n \big \} \\ 
+    &= (I + A^4 B^2_n)^{-1} ~ B_n ~ (I - A^2 B_n)^2,
+  \end{align*}\pageoriginale
+  so that \qquad $0 \leq B_{n+1} \leq B_n$.
+\end{proof}
+
+\begin{thmm}\label{chap6:thm6.3} % theorem 6.3
+  Let $A$ be a compact positive operator, and let $(A_n)$ and  $Q$ be
+  the corresponding and projection defined as in Theorem 1. Then  
+  \begin{enumerate}[(i)]
+  \item $(A_n)$ converges uniformly to $Q$;
+
+  \item $Q$ has finite rank;
+
+  \item the range of $Q$ is spanned by eigenvectors of $A$
+    corresponding to eigenvalues $\lambda$ with $\lambda \ge 1$, and
+    all such eigenvectors lie in the range of $Q$. 
+  \end{enumerate}
+\end{thmm}
+
+\begin{proof}
+  Let $B_n$ be the sequence defined in Lemma 2. Then $(B_n)$
+  converges strongly to an operator $B$ in $(A)''$. Since $A_n = A^2
+  B_n$ and $A_n$ converges strongly to $Q$, we have 
+  $$
+  Q = A^2 B.
+  $$
+\end{proof}
+
+Let $K$ be the unit ball in the Hilbert space $H$, and let $E = ~
+\overline{(AK)}$. Then $E$ is  a norm compact set. Since $\lim
+\limits_{n \to \infty} ~ B_n x = Bx \; (x \in H)$, we have  
+$$
+\lim_{n \to \infty} (B_n x, x) = (Bx,x) \; ~ (x \in E).
+$$
+
+With respect to the norm topology in $E$, the functions $(B_n x ,x)$
+are continuous real functions converging decreasingly to the
+continuous\pageoriginale real function $(Bx,x)$. Therefore, by Dini's
+theorem, the convergence is uniform on $E$. Since 
+$$
+(A_n x,x) = (A^2 B_n x,x) = (B_n Ax, Ax)
+$$
+It follows that  $(A_n x,x)$ converges uniformly on $K$ to $(BAx, Ax)
+=$ \break  $(A^2 ~ Bx,x) = (Qx,x)$. Therefore $A_n \to Q$ uniformly
+(i.e., with respect to the operator norm). 
+
+Since $Q = A^2 B$ and $A$ is compact, we know that $Q$ is compact, and
+therefore has finite rank, i.e., its range $H_Q$ is finite  dimensional;
+for $Q$ is the identity operator in the Banach space $H_Q$ and a
+Banach space in which a ball is compact is finite -dimensional.  
+
+The rang $H_Q$ of $Q$ is a finite dimensional Hilbert space and $A$
+maps $Q$ into itself (since $QA = AQ$). By the elementary theory of
+symmetric matrices, $H_Q$ is spanned by eigenvectors $u_1, \ldots,u_r$
+with real eigenvalues $\lambda_1, \ldots,\lambda_r$, 
+$$
+A_i ~ u_i = \lambda_i ~ u_i
+$$
+
+Since $Qu_i = u_i$, and  $A \ge Q$, we have
+$$
+\lambda_i (u_i,u_i) = (Au_i , ~ u_i) \ge (Qu_i , ~u_i) = (u_i,~ u_i),
+$$
+and so  $\lambda_i \ge 1$.
+
+Conversely, let $u$ be an eigenvector of $A$ with $Au = \lambda u,
+\lambda \ge 1$. We may suppose that $|| u || = 1$ and then define a
+projection $P$ by\pageoriginale taking  
+$$
+Px = (x,u)u.
+$$
+$APx = (x,u)Au  = \lambda (x,u)u = (x, \lambda u)u = (x, Au)u = (Ax,u)
+= PAx$. Also $P \leq A$, for given  $x \in H$, we have $x = H$, we
+have $x = \xi u+v$ with  $(u,v) = 0$. Then $Ax = ~ \lambda \xi u +
+Av$, and  
+$$
+(u, Av) = (Au,v) = \lambda (u,v) = 0. \text{ So }
+$$
+$(Ax,x) = ~ \lambda | \xi |^2 ~ (u,u) + (Av,v)^2 $
+$$
+\ge \lambda |\xi|^2 (u,u) = \lambda (Px,x) \ge  (Px,x).
+$$
+By the maximal property of $Q$, $P \leq Q$. Hence $P = QP$, $u \in H_Q$. 
+
+The iterative method, given here can also be applied to construct the
+projections belonging to the spectral family of an unbounded
+self-adjoint operator, and details of this may be found in my paper. 

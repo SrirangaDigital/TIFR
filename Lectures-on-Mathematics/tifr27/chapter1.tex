@@ -1,0 +1,787 @@
+\part{Classical Theory of Valuated Fields}\label{part1}
+
+\chapter{Theory of Valuations-I}\label{part1:chap1}
+
+In\pageoriginale this and the next chapter we give a short account of the classical
+theory of valuated fields. Unless otherwise stated by a ring we mean a
+commutative ring with the unit element $1$ and without zero
+divisors. 
+
+\section{}\label{part1:chap1:sec1}
+
+\begin{defi*}
+  Let $A$ be a ring and $\Gamma$ a totally ordered comutative group
+  \cite{1}. A valuation $v$ of the ring $A$ is a mapping from $A^*$ (the
+  set of non-zero elements of $A$) into $\Gamma$ such that  
+  \begin{enumerate}[\rm(I)]
+  \item $ v(xy) = v(x) + v(y)$ for every $x$, $y$ in $A^*$.
+  \item $v(x + y ) \geq \inf (v(x)$, $v(y))$ for every $x$, $y$  in $A*$.
+  \end{enumerate}
+  We extend $v$ to $A$ by setting $v(0)=\infty$; where $\infty$ is an
+  abstract element added to the group $\Gamma$ satisfying the equation  
+  $$
+  \infty + \infty = \alpha + \infty = \infty + \alpha = \infty ~\text{
+  for }~ \alpha ~\text { in }~ \Gamma.  
+  $$
+  We assume that $\alpha < \infty $ for every $\alpha$ in
+  $\Gamma$. The valuation $v$ is said to be improper if $v(x)=0$ for
+  all $x$ in $A^*$, otherwise $v$ is said to be proper. 
+\end{defi*}
+
+The  following are immediate consequences of our definition. 
+\begin{enumerate}[(a)]
+\item $v(1) = 0$. For, $v (x.1)=v(x)=v(x)+v(1)$, therefore $v(1)=0$ 
+\item If\pageoriginale for $x$ in $A$, $x^{-1}$ is also in $A$, we have $v(x^{-1}) =
+  -v(x)$, because $v(1)= v (x x^{-1})= v(x)+v(x^{-1})=0$ 
+\item If $x$ is a root of unity, then $v(x) = 0$. In particular
+  $v(-1)=0$, which implies that $v(-x) = v (x)$ 
+\item Por $n$ in $Z$ (the ring of integers)
+  $$
+  v(n) = v(1+ ---+1) \geq \inf (v(1)) = 0.
+  $$
+\item If for $x$, $y$ in  $A$ $v (x)\neq v (y)$, then $v(x+y)= \inf (v(x),
+  v(y))$. Let us assume that $v(x) > v (y)$ and $v(x +y )> v
+  (y)$. Then $v(y)=v(x + y - x ) \geq \geq \inf (v(x+y), v(-x))>
+  v(y)$, which is impossible.  
+\end{enumerate}
+
+If $x_i$ belongs to $A$ for $i =n, 1, 2, \ldots, n$, then one can prove
+by induction on $n$ that $v(\sum\limits^n_{i=1} x_i) \geq
+\inf\limits_{1\leq i \leq n}(v(x_i))$ and that the equality holds if
+there exists only one $j$ such that $v(x_j)= \inf\limits_{1\leq i
+  \leq n}(v(x_i))$. In particular if $\sum\limits^n_{i = 1} x_i = 0 \,(n
+\geq 2)$ then $v(x_i)= v(x_j)= \inf\limits_{1\leq k \leq n}(v(x_k))$
+for at least one pair of unequal indices $i$ and $j$. For, let $x_i$
+be such that $v(x_i)\leq v(x_l)$ for $i \neq l$. Then $v(x_i) \geq
+\inf\limits_{1\leq k \leq n~ k \neq i} (v (x_k)) = v(x_j)$, which
+proves that $v(x_i)= v(x_j)$. 
+
+Obviously we have  
+\begin{prop}\label{part1:chap1:sec1:prop1}
+  Let $A$ be a ring with a valuation $v$. Then there exists one and
+  only one valuation $w$ of the quotient field $K$ of $A$ which
+  extends $v$. 
+
+  It is seen immediately that $w\left(\dfrac{x}{y}\right)= v (x)-v(y)$
+  for $x,y$ in $A$. 
+\end{prop}
+
+So\pageoriginale without loss of generality we can confine ourselves
+to a field. The 
+image of $K^*$ (the set of non-zero elements of field $K$) by $v$ is a
+subgroup of $\Gamma$ which we shall denote by $\Gamma_v$ 
+\begin{prop}\label{part1:chap1:sec1:prop2}
+  Let $K$ be a field with a valuation $v$. Then 
+  \begin{enumerate}[\rm (a)]
+  \item The set $\mathscr{O} = \{x | x \in \,K, v (x) \geq 0 \}$ is a
+    subring of $K$, which we shall call the ring of integers of $K$
+    with respect to the valuation $v$. 
+  \item The set $\mathscr{Y} = \{x | x \in\, K, v (x) > 0 \}$ is an ideal
+    in $\mathscr{O}$ called the ideal of valuation $v$. 
+  \item $\mathscr{O}* = \mathscr{O} - \mathscr{Y}= \{x | x \in\,K, v (x) =
+    0 \}$ is the set of inversible elements of $\mathscr{O}$ 
+  \item $\mathscr{O}$ is a local ring (not necessarily Noetherian) and
+    $\mathscr{Y}$ is the unique maximal ideal of $\mathscr{O}$. 
+  \end{enumerate}
+  We omit the proof of this simple proposition. The field $k =
+  \mathscr{O}/ \mathscr{Y}$ is called the residual field of the valuation $v$. 
+\end{prop}
+
+It is obvious form the proposition \ref{part1:chap1:sec1:prop2} that
+the valuation $v$ of $K$ 
+which is a homomorphism form $K^*$ to $\Gamma $ can be
+split up as follows  
+$$
+K^* \xrightarrow{v_1} K^* / \mathscr{O}^* \xrightarrow{v_2} \Gamma_v
+\xrightarrow{v_3} \Gamma. 
+$$
+where $v_1$ is the canonical homomorphism, $v_2$ the map carrying an
+element $x \mathscr{O}^* $ to $v (x)$ and $(v_3)$  the inclusion map
+of $\Gamma_v$ into $\Gamma$. 
+
+\begin{defi*}
+  Two valuations $v$ and $v'$  of a field $K$ are said to be
+  equivalent if there exists an order preserving isomorphism $\sigma$
+  of $\Gamma_v$ onto $\Gamma_V'$ such that 
+  $$
+  v' = \sigma ~\circ~ v.
+  $$
+\end{defi*}
+
+From\pageoriginale the splitting of the homomorphism $v$ it is obvious that a
+valuation of a field $K$ is completely characterised upto an
+equivalence by any one of $\mathscr{O}$, or $\mathscr{Y}$. 
+
+A valuation of a field $K$ is said to be \textit{real} if $\Gamma_v$
+is contained in $R$ (the field fo real numbers). Since any subgroup of
+$R$ is either discrete \iec  isomorphic to a subgroup of integers or
+dense in $R$, either $\Gamma_v$ is contained in $Z$ or $\Gamma_v$ is
+dense in $R$. In the former case we say that $v$ is a discrete
+valuation and in the latter non-discrete. Moreover $v$ is completely
+determined upto a real constant factor, because if $v$ and $v'$ are
+two non-discrete equivalent valuations of $K$, the isomorphism of
+$\Gamma_v$ onto $\Gamma_v'$ can be extended to $R$ by continuity,
+which is nothing but multiplication by a element of $R$. If $v$ and
+$v'$ are discrete and equivalent, the assertion is trivial. If
+$\Gamma_v = z$ we call $v$ a normed discrete valuation.  
+
+\begin{defi*}
+  Let $K$ be a field with a normed discrete valuation $v$. In $K$ we
+  can find an element $\pi$ with $v(\pi)=1$. The element $\pi$ is
+  called a uniformising parameter for the valuation $v$. 
+\end{defi*}
+
+Let $K$ be a field with a normed discrete valuation $v$ and
+$\mathscr{O} \neq (0)$ an ideal in $\mathscr{O}$.  Let $\alpha =
+\inf\limits_{x \in \mathscr{O}} (v(x))$. Such an $\alpha$ exists
+because $v(x) > 0 $ for every $x$ in $\mathscr{O}$. Moreover there
+exists an element $x_0$ in $\mathscr{O}$ such that $v
+(x_\circ)= \alpha$, because the valuation is discrete. Then
+$\mathscr{O} = \mathscr{O}x_0 = \mathscr{O} 
+\pi^\alpha$ For,\pageoriginale $x$ belongs to $\mathscr{O}
+\Longleftrightarrow v(x) 
+\geq v(x_0)\Longleftrightarrow v (\dfrac{x}{x_0}) \geq 0
+\Longleftrightarrow x/x_0$ belongs to $\mathscr{O} \Longleftrightarrow
+x $ belongs to $\mathscr{O}x_0$. Since $v (\dfrac{x_o}{\pi^\alpha}) =
+v(x_0)- \alpha v (\pi )= 0 $, we get that $x_0$ is in $\mathscr{O}
+\pi^\alpha$, conversely $\pi^\alpha$ belongs to $\mathscr{O} x_0$ is
+obvious. Therefore $\mathscr{O} = \mathscr{O} \pi^\alpha $. In
+particular $\mathscr{Y}= \mathscr{O} \pi $. In general let $v$ be any
+valuation of a field $K$.  Let $\mathscr{O}$ be any ideal of
+$\mathscr{O}$ and $H_\mathscr{O} = \{ \alpha | \alpha \in
+\Gamma_\vartheta$, such that there exists $x$ in $\mathscr{O}$ with
+$v(x)= \alpha \}$. Then the map $\mathscr{O} \to H_{\mathscr{O}}$ is a
+$1 - 1$ correspondence between the set of ideals $\mathscr{O}$ in
+$\mathscr{O}$ and the subsets $H_{\mathscr{O}}$ of $\Gamma_v$ having
+the property that if $\alpha$ belongs to $H_{\mathscr{O}}$ and $\beta$
+belonging to $\Gamma_v$ is such that $\beta \geq \alpha$, then $\beta$
+belongs to $H_\mathscr{O}$. In particular if $\Gamma_v$ is contained
+in $R$, then the ideals of $\mathscr{O}$ are of one of the two  kinds 
+\begin{enumerate}[(i)]
+\item $I'_\alpha = \{ x | x \in \mathscr{O}, v (x) \geq \alpha \}$
+\item $I_\alpha = \{ x | x \in \mathscr{O}, v (x) > \alpha \}$
+\end{enumerate}
+for any $\alpha > 0$.
+
+\begin{examples*}
+  (1)  Let $Q$ be the field of rational numbers. For any $m$ in $Q$
+  we have $m = \pm p^{\alpha_1}_1 \cdots p^{\alpha_r}_r$ uniquely,
+  where $\alpha_1, \ldots, \alpha_r$ are in $Z$ and $p_1, \ldots, p_r$
+  are distinct primes. If $v$ is any valuation of $Q$, we have $v (m)
+  = \sum\limits^r_{j=1} \alpha_j v (p_j)$. Therefore it is sufficient
+  to define a valuation for primes in $Z$. We note that for a
+  valuation $v$ there exists atmost one $p$ for which $v(p)> 0$. If
+  possible let us suppose that there exist two primes $p_1$ and $p_2$
+  such that $v(p_i)> 0$ for $i = 1, 2$. 
+  
+  Since\pageoriginale $(p_1, p_2)=1$, there exist two integers $a$ and
+  $b$ such that 
+  $ap_1 + bp_2 =1$. This implies that $0=v (1) \geq \inf (v(ap_1))$, $v
+  (bp_2))>0$, which is impossible. Thus our assertion is proved, If
+  there does not exist any prime $p$ for which $v(p)>0$, then $v$ is
+  improper.  
+  
+  For  a prime $p$ we define $v_p(p) =1$ and $v_p(m)= \alpha$, where
+  $\alpha$ is the highest power of $p$ dividing $m$. It is easy to
+  verify that this is a valuation of $Q$ and any valuation of $Q$ for
+  which $v(p)>0$ is equivalent to this valuation. It is a discrete normed
+  valuation of $Q$. One can take $p$ as a uniformising parameter and
+  prove that the residual field is isomorphic to $Z/(p)$   
+  
+  (2)  Let $K$ be any field, $K((x))$ the field of formal power series
+  over $K$. For any element $f(x) = \sum\limits^\infty_{r = m} a_r x^r$
+  of $K ((x))$ we define $v (f(x)) = t$, if $a_t$ is the first non-zero
+  coefficient in $f(x)$. One an easily verify that $v$ is a normed discrete
+  valuation of $K ((x))$. The ring of integers of  the valuation is the
+  ring of formal power series with non-negative exponents and the ideal
+  is the set of those elements in the ring of integers for which the
+  constant term is zero. One can take $x$ as a uniformising parameter.  
+\end{examples*}
+
+\section{Valuation Rings and Places}\label{part1:chap1:sec2}
+
+This section is added for the sake of completeness. The results
+mentioned here will not be used in the sequel. 
+
+\begin{remark*}
+  Let\pageoriginale $K$ be a field with a valuation $v$ and ring of integers
+  $\mathscr{O}$. Then for any $x$ in $K$, either $x$ belongs to
+  $\mathscr{O}$ or $x^{-1}$ belongs to $\mathscr{O}$. 
+\end{remark*}
+
+Motivated by this we define
+
+A subring $A$ of a field $K$ is called a \textit{valuation ring} of
+$K$ if for any $x$ in $K$ either $x$ belongs to $A$ or $x^{-1}$
+belongs to $A$. In general a ring $A$ is said to be a valuation ring
+if it is a valuation ring for its quotient field. 
+
+\begin{prop}\label{part1:chap1:sec2:prop3}
+  A ring $A$ is a valuation ring if and only if the set of principle
+  of $A$ is totally ordered by inclusion. 
+\end{prop}
+
+\begin{proof}
+  Let $A$ be a valuation ring. Let $Ax$  and $Ay$ be two proper
+  principle ideals of $A$. Consider $z = \dfrac{x}{y}$ belonging to $K$
+  the quotient field of $A$. Since $A$ is a valuation ring, either $z$
+  or $z^{-1}$ belongs $A$. But this implies that either $Ax \subset
+  Ay$ or $Ay \supset Ax$. Therefore the set of principal ideals is
+  totally ordered conversely let $x = \dfrac{y}{z}$, where $y$ and $z$
+  belong to $A$ and $x \neq 0$, be an element of $K$ which is
+  not in $A$. $x \notin A$ implies that $y$ does not belong to $Az$. But
+  the set of principle ideals of $A$ is totally ordered, therefore we
+  get $Az \subset Ay$ implying $z = ay$ for some a in $A$. But  $a =
+  x^{-1}$, therefore $A$ is a valuation ring.  
+\end{proof}
+
+\begin{coro*}
+  A valuation ring is a local ring.  
+
+  If possible let $\mathcal{M}_1 \neq \mathcal{M}_2 $ be two maximal
+  ideals in a valuation ring $A$. $\mathcal{M}_1 \neq \mathcal{M}_2 $
+  implies that there exists  $x_1 \in \mathcal{M}_1$, $x_1 \notin
+  \mathcal{M}_2$ and $x_2 \in \mathcal{M}_2$, $x_2 \notin
+  \mathcal{M}_1$. 
+  
+  $x_1 \notin \mathcal{M}_2 \Longrightarrow Ax_1$\pageoriginale is not contained
+  in $\mathcal{M}_2$ which implies that $Ax_1 $ is not contained in
+  $Ax_1$. Similarly $x_2$ not belonging to $\mathcal{M}_1$ implies
+  that $Ax_1$. But this is impossible, therefore $\mathcal{M}_1 =
+  \mathcal{M}_2$. 
+\end{coro*}
+
+\begin{prop}\label{part1:chap1:sec2:prop4} 
+  A ring $A$ is a valuation ring if and only if $A$ is the ring of a
+  valuation of its quotient field $K$ determined upto an equivalence. 
+\end{prop}
+
+\begin{proof}
+  Let $\mathcal{M}$ be the unique maximal ideal of the valuation ring
+  $A$ and $A^* = A /\mathcal{M}$. For  $x,y$ in $K^*$ we define $x \geq
+  y$ if and only if $x$ belongs to $Ay$. It is easy to verify that
+  this relation among the elements of $K^*$ induces a total order in
+  the group $K^* / A^*$ and the canonical homomorphism $K^*$ onto $K^*
+  / A^*$ is a valuation of $K$ for which the ring of integers is
+  $A$. The ring of integers of a valuation is a valuation ring has
+  already been proved. 
+\end{proof}
+
+Let $k$ be a fields. By $k \cup \infty$ we mean the set of elements of $k$
+together with an element $\infty$. We extend the laws of $k$ to (not
+everywhere defined) laws in $k \cup \infty$ in this way  
+\begin{enumerate}[(i)]
+\item $\infty + a = a + \infty = \infty $ for a in $k^*$ 
+\item $\infty \times a = a \times \infty = \infty \times \infty =
+  \infty$, for a in $k^*$
+
+  $0 \times \infty$ and $\infty + \infty$ are not defined.
+\end{enumerate}
+
+Let $K$ be a field with a valuation $v$ and let $k = \mathscr{O} /
+\mathscr{Y}$ be the residual fields of $v$. Then the canonical
+homomorphism $\rho$ of $ \mathscr{O}$ onto $k$ extended to $K$ by
+setting $\rho (x) = \infty$ for $x$ not in $\mathscr{O}$ gives rise to
+a map of $K$ onto $k \cup \infty$ called a place of $K$. 
+
+In\pageoriginale general, we define 
+
+A place of a field $K$ is a mapping $\rho$ form $K$ to $k \cup \infty$
+such that  
+\begin{enumerate}[(i)]
+\item $\rho (a + b ) = \rho (a) + \rho (b)$
+\item $\rho (a  b ) = \rho (a)  \rho (b)$
+\end{enumerate}
+for $a, b$ in $K$ and whenever the right hand side is meaningful. 
+
+It is easy to prove that $\mathscr{O} = \rho^{-1} (K)$ is a valuation
+ring with the maximal ideal $\mathscr{Y} = \rho^{-1}(0)$. 
+
+Thus there exists a $1-1$ correspondence between the set of valuation
+rings and the set of inequivalent places of a field (Two places $\rho_1$
+and $\rho_2$ of a field $K$ carrying $K$ into $k \cup \infty$ and $k' \cup
+\infty $) respectively are said to be equivalent if there exists an
+isomorphism $\sigma$ of $k$ onto $k'$ such that $\rho_2 = \sigma \circ
+\rho_1$, with $\sigma (\infty ) = \infty$. 
+
+\section{Topology Associated with a Valuation}\label{part1:chap1:sec3}
+
+Let $K$ be a field with a valuation $v$. For any $\alpha \geq 0$ in
+$\Gamma_v$ consider the ideal 
+$$
+I_\alpha = \{ x | x \in K, v(x) > \alpha\}
+$$
+
+Then there exists one and only topology on $K$ for which 
+\begin{enumerate}[(1)]
+\item $I_\alpha$ for different $\alpha$ in $\Gamma_v$ form
+  a fundamental system fo neighbourhoods of $0$.  
+\item $K$ is a topological group for addition. 
+\end{enumerate}
+
+We see immediately that the operation of multiplication in $K$ is
+continuous in topology. $I_\alpha$ for any $\alpha \geq 0$ in $\Gamma
+_v$ is an open subgroup and hence a closed subgroup of $K$. Thus the  
+residual\pageoriginale field $k$ is discrete for the quotient
+topology. The topology 
+of $K$ is discrete if and only if the valuation $v$ is improper ( if
+$\Gamma_{v} = \{o\}$). In particular $K$ with a discrete and proper
+valuation is not discrete as a topological space. The topology of $K$
+is always Hausdorff, because if $x \neq 0$, then $x$ does note belong
+to $I_{\alpha}$ with $\alpha = v(x)$, therefore
+$\bigcup\limits_{\alpha \in \Gamma_v} I_\alpha {}_\alpha
+  > 0 = (0)$ which proves our assertion.  
+
+\begin{remark}\label{part1:chap1:sec3:rem1}% REM 1
+  If $v$ is not improper, then the ideals $I'_{\alpha}$ for $\alpha
+  \ge o$ in $\Gamma_{v}$ also constitute a fundamental system of
+  neighbourhoods of $0$ for the topology of $K$. For, $I'_{\alpha}$
+  and for $\alpha > 0~ I_{\alpha}$ contains $I'_{2 \alpha}$. 
+\end{remark}
+
+\begin{remark}\label{part1:chap1:sec3:rem2} %REM 2.
+  Let $A$ be a ring a with a decreasing filtration by ideals
+  i.e. there exists a sequence $(A_{n})_{n \geq 0}$ of ideals such
+  that $A_{n} \supset A_{n + 1}$ and $A_{n} A_{m} \subset
+  A_{m+n}$. Then there exists one and only one topology for which $A$
+  is an additive topological group and $(A_{n})_{n \ge o}$ constitute
+  a fundamental system of neighbourhoods of $0$. $A$ is a topological
+  ring this topology. 
+\end{remark}
+
+Let $\mathcal{M}$ be any ideals of a ring $A$. Then $A$ can be made
+into a topological ring by taking $A_{n} = \mathcal{M}^{n}$. We call
+the topology defined by $\mathcal{M}$ on $A$ the $\mathcal{M}-$ adic
+topology. In particular the ring of integers of a field $K$ which a
+real valuation $v$ has the $\mathcal{M}-$ adic topology for every
+$\mathcal{M} = \{x / v(x) \ge \alpha > 0\}$ We shall speak of this
+topology of $K$ as the $\mathcal{M}-$adic topology.   
+
+If\pageoriginale the valuation $v$ is discrete and normed. We can take $\alpha = 1$
+and $\mathcal{M} = \mathscr{Y}$. 
+
+\begin{remark}\label{part1:chap1:sec3:rem3} %REM 3.
+  If $K$ is a field with a real valuation $v$, then the
+  $\mathscr{Y}-$adic topology completely characterises the valuation
+  upto a constant factor, because $x$ belongs to $\mathscr{Y}$ if and
+  only if $x^{n}$ tends to zero as $n$ tends to infinity.     
+\end{remark} 
+
+\section{Approximation Theorem}\label{part1:chap1:sec4} % SEC 4
+ 
+For the sake of simplicity we confine ourselves in this section to
+real valuations though analogous results could be prove for any
+valuation. In this section we deal with the question whether there
+exists any connection between various inequivalent valuations of a
+field. We first prove:-   
+ 
+\begin{Lemma}\label{part1:chap1:sec4:lem1} % LEM1
+  Let $K$ be a field with two valuations $v_{1}$ and $v_{2}$. Then
+  $v_{1}$ and $v_{2}$ are inequivalent if an only if
+  $\mathscr{O}_{1}$, the ring of integers of $v_{1}$, is not contained
+  in $\mathscr{O}_{2}$, the ring of integers of $v_{2}$.  
+\end{Lemma} 
+ 
+\begin{proof}
+  If $\mathscr{O}_{1} \subset \mathscr{O}_{2}$, then
+  $K-\mathscr{O}_{1}$ contains $K-\mathscr{O}_{2}$ implying
+  $\mathscr{Y}_{2} \subset\mathscr{Y}_{1} \subset \mathscr{O}_{1}
+  \subset \mathscr{O}_{2}$. Therefore $\mathscr{Y}_{2}$ is a prime
+  ideal in $\mathscr{O}_{1}$. Assume $\mathscr{Y}_{2} \neq
+  \mathscr{Y}_{1}$, then there exists $x$ in $\mathscr{Y}_{1}$ which
+  does not belong to $\mathscr{Y}_{2}$. Since $\mathscr{Y}_{2}$ is an
+  ideal in $\mathscr{O}_{1}$, there exists $\alpha > 0$ in
+  $\Gamma_{v_{1}}$ such that $\mathscr{Y}_{2}$ contains
+  $I_{\alpha}$. Let $v_{1}(x) =\beta$.
+\end{proof} 
+ 
+ Then for large enough $q$ we have 
+ $$
+ v_{1}(x^{q}) = qv_{1}(x) = q \beta > \alpha, 
+ $$
+ which means that $x^{q}$ belongs to $\mathscr{Y}_{2}$, but
+ $\mathscr{Y}_{2}$is a prime ideal, therefore $x$ belongs to
+ $\mathscr{Y}_{2}$. Hence our assumption is wrong. 
+ 
+ Therefore\pageoriginale $\mathscr{Y}_{2} = \mathscr{Y}_{1}$ and $v_{1}$ is
+ equivalent to $v_{2}$. The converse is obvious. 
+ 
+\begin{Lemma}\label{part1:chap1:sec4:lem2}%LEM 2.
+  Let $K$ be a field with $v_{1},\ldots, v_{n}(n \ge 2)$ proper
+  valuations such that $v_{i}$ is inequivalent to $v_{j}$ for $i \neq
+  j$. Then there exists an element $z$ in $K$ such that $v_{1} (z) >
+  0, v_{2}(z)< 0$ and $v_{i}(z) \neq 0$ for $i = 1, 2, \ldots,  n$.   
+\end{Lemma} 
+ 
+\begin{proof}
+   We shall prove the results by induction on $n$. When $n = 2, v_{1}$
+   inequivalent to $v_{2}$implies that $\mathscr{O}_{1}$ is not
+   contained in $\mathscr{O}_{2}$ (lemma
+   \ref{part1:chap1:sec4:lem1}). Therefore there exists 
+   $x$ in $\mathscr{O}_{1}$ and not in $\mathscr{O}_{2}$. Moreover
+   $\mathscr{O}_{2}$ not contained in $\mathscr{O}_{1}$ implies that
+   $\mathscr{Y}_{1}$ is not contained in $\mathscr{Y}_{2}$.   
+\end{proof} 
+ 
+ Therefore there exists $y$ in $\mathscr{Y}_{1}$ and not in
+ $\mathscr{Y}_{2}$. Then $z = xy$ is the required element.  
+ 
+ When $n > 2$. By induction there exists an element $x$ in $K$ such
+ that $v_{1}(x) > 0, v_{2}(x) < 0$ and $v_{i}(x) \neq 0$ for $i = 1,2,
+ \ldots, n-1$. 
+ If $v_{n}(x) \neq 0$, we have nothing to prove. If $v_{n}(x) = 0$, we
+ take an element $y$ with $v_{n}(y) \neq 0$. Let $z = y x^{s}$, $s$ a
+ positive integer. Then for sufficiently large $s,z$ fulfills the
+ requirements of the lemma. 
+ 
+\begin{theorem}\label{part1:chap1:sec4:thm1}
+  Let $K$ be a field with $v_{1}, \ldots,  v_{r}$ proper valuations
+  such that $v_{i}$ is inequivalent to $v_{j}$ for $i \neq j$. Let
+  $K_{i}$ be the field $K$ with the topology defined by $v_{i}$ and
+  $\rho$ the canonical map from $K \to  \prod\limits^{r}_{i=1} K_{i} = P$
+  i.e. $\rho (a) = (a, a,\ldots,a)$. Then $\rho(K) = D$ is dense in $P$.  
+\end{theorem}  
+
+Equivalently stated if $a_{1}, \ldots, a_{r}$ are any $r$ elements in
+$K$, then for every $\alpha_{1}, \ldots, \alpha_{r}$ in $R$ there
+exists an element $x$ in $K$ such\pageoriginale that  
+$$
+v(x - a_{i}) > \alpha_{i} \text { for } i = 1, 2, \ldots,  r.
+$$
+\begin{proof}
+  The theorem is trivial for $r = 1$. Let us assume that it is true in
+  case the number of valuations is less then $r$.  
+\end{proof}
+
+By lemma \ref{part1:chap1:sec4:lem2} there exists an elements $x$ in $K$ such that $v_{1}(x) >
+0, v_{r}(x) < 0$ and $v_{i}(x) \neq 0$ for $1 \le i \le r$, then
+$y_{n} = \dfrac{x^{n}}{1 + x^{n}}$ tends to $0$ in $K_{1}$, to $1$ in
+$K_{r}$ and to $0$ or $1$ in others as $n$ tends to infinity. Let the
+notation be so chosen that $\rho (y_{n}) \to (0, 0, \ldots,  0, 1,
+\ldots, 1)$ as $n$ tends to infinity, $0$ occurring in $s$ places where
+$1 \le s \le r - 1$. Now $D$ is a subspace of $P$ over $K$, therefore   
+$$
+\lt_{ n \to \infty} x \rho (y_{n}) =  \lt_{ n \to \infty} \rho (x y_{n}) =
+(0, \ldots0, ~x,\ldots,x) 
+$$
+and $(0,0,\ldots, 0, x, x,\ldots, x)$ is in $\bar{D}$. Consider the
+product $\prod\limits^{r}_{i=s+1} K_{i}$, by induction assumption the
+diagonal of $\prod\limits^{r}_{i=s+1} K_{i}$ which is imbedded in
+$\bar{D}$ is dense in the product which implies that $(0, \ldots, 0,
+a_{s+1}, \ldots, a_{r})$ belongs to $\bar{D}$ for $a_{i}$ in $K, s + 1
+\le i \le r$. Similarly $(a_{1,}a_{2}, \ldots,  a_{s}, 0, \ldots, 0)$
+belongs to $\bar{D}$. But $\bar{D}$ is a vector space over $K$,
+therefore $(a_{1}, a_{2}, \ldots,  a_{r})$ is in $\bar{D}$. Hence
+$\prod\limits^{r}_{i=1} K_{i} = \bar{D}$. 
+
+\begin{coro*}%nonu
+  Under the assumptions of the theorem for $\alpha_{j} \in
+  \Gamma_{v_{j}} (j = 1, 2, \ldots,  r)$ there exists $x$ in $K$ such
+  that $v_{j}(x) = \alpha_{j}$. 
+\end{coro*}
+
+For\pageoriginale $\alpha_{j}$ in $\Gamma_{v_{j}}$, there exists $a_{j} \in K$ such
+that $v(a_{j}) = \alpha_{j}$. By approximation theorem there exists an
+element $x$ in $K$ such that $v(x-a_{j}) > \alpha_{j}$. By definition
+we have $v(x) = v(x - a_{j}+ a_{j}) = \inf v((x-a_{j}), v(a_{j})) =
+v(a_{j}) = \alpha_{j}$. 
+
+\section{Completion of a field with a valuation}\label{part1:chap1:sec5} %SEC 5
+
+Let $K$ be a field with a valuation $v$. Since $K$ is a commutative
+topological group for the topology defined by $v$, it is a uniform
+space. Let $\hat{K}$ denote the completion $K$. The composition laws
+of addition and multiplication can be extended by continuity to
+$\hat{K}$, for which $\hat{K}$ is a topological ring. In fact
+$\hat{K}$ is a topological field, because if $\Phi$ is a Cauchy filter
+on $K$ converging to $ a \neq 0$, then $\Phi^{-1}$(the image of $\Phi$
+by the map $x \to x^{-1}$ in $K$) is a Cauchy filter. For $\Phi$ not
+converging to $0$ implies that there exists $\alpha \ge 0$ in
+$\Gamma_{v}$ and a set $A$ in $\Phi$ such that $v(x) < \alpha$ for
+every $x$ in $A$. Since $\Phi$ is a Cauchy filter, for every $\beta$
+in $\Gamma_{v}$, there exists a set $B$ in $\Phi$ contained in $A$
+such that 
+$$
+v(x-y) > 2 \alpha+ \beta ~~\text{for}~ x, y~ \text{in}~ B.
+$$   
+
+Then
+$$
+v(x^{-1}-y^{-1}) = v(x^{-1}y^{-1}(y-x)) = -v(x)-v(y)+v(y-x) > -\alpha
+- \alpha +2 \alpha + \beta 
+$$
+which implies that $\Phi^{-1}$ is a Cauchy filter converging to
+$a^{-1}$ in $\hat{K}$. The valuation $v$ can also be extended to be
+valuation $\hat{v}$ of $\hat{K}$, in fact it is a continuous
+representation of $K^{*}$ onto $\Gamma_{v}$ considered as a discrete
+topological group, so $v$ can be extended as a continuous
+representation $\hat{v}$ of $\hat{K^{*}}$ in $\Gamma$ and we get
+$\hat{v} (x+y) \ge \inf (\hat{v} (x), \hat{v}(y))$\pageoriginale by
+continuity. Moreover $\mathscr{O}_{\hat{K}}$ (the ring of integers of
+$\hat{K})= \hat{\mathscr{O}}_{K} = \bar{\mathscr{O}}_{K}$, since
+$\mathscr{O}_{\hat{K}}$ is open in $\hat{K}$ and $K$ is hence in
+$\hat{K},\mathscr{O}_{\hat{K}} \cap K = \mathscr{O}_{K}$ is dense in
+$\mathscr{O}_{\hat{K}}$, this implies that $\mathscr{O}_{\hat{K}}
+\supset \bar{\mathscr{O}_{K}}$. But $\bar{\mathscr{O}_{K}} \supset
+\mathscr{O}_{\hat{K}}$, therefore our result is proved. More generally  
+$$
+\hat{I}_{\alpha} = \bigg\{ x | \hat{v}(x) > \alpha,  x \in
+\hat{K}\bigg\} = \bar{I}_{\alpha} = \overline{\bigg\{ x | v(x) >
+  \alpha,  x \in K \bigg\}} 
+$$
+In particular $\mathscr{Y}_{\hat{K}} = \bar{\mathscr{Y}_{K}}$. We have
+$\mathscr{Y}_{K} = \mathscr{O}_{K} \cap \mathscr{Y}_{\hat{K}}$, so we
+may identify $\mathscr{O}_{K}/{_{\mathscr{Y}_{K}}}$ with a subset of
+$\mathscr{O}_{\hat{K}}/_{\mathscr{Y}_{\hat{K}}}$, and
+$\mathscr{O}_{K}/_{\mathscr{Y}_{K}}$ is dense in
+$\mathscr{O}_{\hat{K}}/_{\mathscr{Y}_{\hat{K}}}$. But
+$\mathscr{O}_{\hat{K}}/_{\mathscr{Y}_{\hat{K}}}$ is discrete,
+therefore $\mathscr{O}_{\hat{K}}/_{\mathscr{Y}_{\hat{K}}} =
+\mathscr{O}_{K}/_{\mathscr{Y}_{K}}$. 
+
+\begin{remark*}
+  Let $K$ be a field with a real valuation $v$, with $v$ we associate
+  a map from $K$ to $R$. We defined for any $x$ in $K$ the absolute
+  value $|x| = a^{-v(x)}$, where a is a real number $> 1$. The map $|
+  |$ satisfies the following properties 
+  \begin{enumerate}[(1)]
+  \item $|x| = 0$ ~if and only if~ $x = 0$
+  \item $|xy| = |x| ~~|y|$
+  \item $|x + y| \le ~\sup ~( |x|, |y| ) \le |x| + |y|$.
+  \end{enumerate}
+
+  The absolute value of elements of $K$, which defines the same
+  topology on $K$ as the valuation $v$. 
+\end{remark*}
+
+By $Q_{p}$ we shall always denote the completions of the field $Q$ for
+$p$-adic valuation and by $Z_{p}$ the ring of integers in $Q_{p}$. For\pageoriginale
+the absolute value associated to the $p$-adic valuation. We take $a=p$
+so that $|x|_{p} = p^{-v}p^{(x)}$ 
+
+\section{Infinite Series in a Complete Field}\label{part1:chap1:sec6}
+
+Let $K$ be a complete field for a real valuation $v$. Since every
+Cauchy sequence in $K$ has a limit in $K$, the definition of
+convergence of infinite series and Cauchy criterium can be given in
+the same way as in the case of real numbers. However in this case we
+have the following. 
+
+\begin{theorem}\label{part1:chap1:sec6:thm2}%THM 2
+  A family $(u_{i})_{i \in I}$ of an infinite number of elements of
+  $K$ is summable if and only if $u_{i}$ tends to $0$ following the
+  filter of the complements of finite subsets of $I$. 
+\end{theorem} 
+
+\begin{proof}
+  The condition is clearly necessary. Conversely for any $\alpha$ in
+  $\Gamma_{v}$ we can find a finite subset $J$ of $I$ such that for
+  $i$ not in $J, v(u_{i})>\alpha$, then for $i_{1}, \ldots,  i_{r}$
+  not in $J$ we have $v \left(\sum \limits_{j=1}^{r}
+  \cup_{i_j}\right)>\alpha$ which is 
+  nothing but Cauchy Criterium. Hence the family is summable.
+\end{proof} 
+
+\begin{coro*}
+  Let $\sum \limits_{n=0}^{\infty} u_{n}$ be infinite series of
+  elements of $K$ Then the following conditions are equivalent. 
+  \begin{enumerate}[\rm (a)]
+  \item $\sum \limits_{n=0}^{\infty} u_{n}$ is convergent.
+  \item $\sum \limits_{n=0}^{\infty} u_{n}$ is commutatively convergent.
+  \item $u_{n}$ tends to $0$ as $n$ tends to infinity.
+  \end{enumerate}
+\end{coro*} 
+
+\noindent \textbf{Application.}
+  Let\pageoriginale $K$ be a complete field for a normed discrete real valuation $v,
+  \pi$ a uniformising parameter for $K, \mathscr{R}$ a fixed system of
+  representatives in $\mathscr{O}$ for the elements of the residual
+  field $K$. Then the series $\sum \limits_{q=m}^{\infty} r_{q}
+  \pi^{q}$, where $r_{q}$   belongs to $\mathscr{R}$ is convergent to
+  an element $x$ in $K$ and conversely every $x$ in $K$ can be
+  represented in this form in one and only one way. The series is
+  convergent because $v(r_{q}\pi^{q})\ge q$ for $q \neq 0$ and
+  therefore tends to infinity as $q$ tends to infinity. Conversely by
+  multiplying with a suitable power of $\pi$  we can take $x$ in
+  $\mathscr{O}$, then there exists a unique $r_{0} \in \mathscr{R}$
+  such that $x \equiv r_{0} \pmod {\mathscr{Y}}$.
+  
+  This implies that $(x-r_{0}) \pi^{-1}$ is in $\mathscr{O}$. Therefore
+  there exists unique $r_{1}$ in $\mathscr{R}$ such that 
+  $$
+  \displaylines{\hfill 
+    (x - x_{0}) \pi^{-1} \equiv r_{1} \pmod {\mathscr{Y}}.\hfill \cr
+    \text{or}\hfill  x \equiv r_{0} + r_{1} \pi \pmod
+         {\mathscr{Y}^{2}}.\hfill }
+  $$
+  Proceeding in this way we prove by induction that 
+  $$
+  x \equiv r_o + r_1 \pi \cdots + r_m \pi^m \pmod {\mathscr{Y}^{m + 1}}
+  $$ 
+  Now it is obvious that the series $\sum\limits^{\infty}_{r = 0}r_m
+  \pi^m$, is convergent and that $x = \sum\limits^{\infty}_{q = 0}
+  r_q \pi^q$. The uniqueness of the series is obvious from the
+  construction. 
+
+In particular if, $K =Q_P$ then any $x$ in $Q_p$ can be represented in
+the form $\sum\limits^{\infty}_{q = m}r_q p^q$, where $r_q \in \{0,
+1,2 \ldots, p-1\}$. 
+
+\section{Locally Compact Fields}\label{part1:chap1:sec7}%\sec 7
+
+In\pageoriginale this section we give certain equivalent conditions for valuated
+fields to be locally compact. Later on we shall completely
+characterise the locally compact valuated fields. 
+
+\begin{theorem}\label{part1:chap1:sec7:thm3}
+  Let $K$ be a field with a proper valuation $v$. Then the following
+  conditions are equivalent. 
+  \begin{enumerate}[\rm(a)]
+  \item $K$ is locally compact.
+  \item $\mathscr{O}$ is compact.
+  \item $K$ is complete, $v$ is a discrete valuation and $k$ is a finite field.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  (a) $\Longrightarrow$ (b). Since $(I'_\alpha)_{\alpha \in \Gamma _v}$
+  form a fundamental system of closed neighbourhoods for $0$, there
+  exists an $\alpha$ such that $I'_\alpha$ is compact. But $m$
+  $I'_\alpha=\mathscr{O}_{x_o}$, if $v(x_0)=\alpha$, therefore
+  $\mathscr{O}=x^{-1}_{0} I_\alpha$ is compact. 
+
+  (b) $\Longrightarrow$ (a) is trivial, as $\mathscr{O}$ is a compact
+  neighbourhood of $0$.  
+  
+  (a) $\Longrightarrow$ (c) $K$ is complete because it is a locally
+  compact commutative group. For any $\alpha > 0$ in $\Gamma_v
+  \,\mathscr{O}/I_{\alpha}$ is compact because $\mathscr{O}$ is
+  compact. But $\mathscr{O}/I_\alpha$ is a discrete space, therefore
+  it contains only a finite number of elements. In particular
+  $k=\mathscr{O}/\mathscr{Y}$ is finite field. For any $\beta$ in
+  $\Gamma_v, 0 < \beta < \alpha$, we have $I_\alpha \subset I_\beta
+  \subset \mathscr{O}$, therefore $I_\beta / I_\alpha$ is a nontrivial
+  ideal of $\mathscr{O}/I_\alpha$ and distinct elements give rise to
+  distinct ideals. But $\mathscr{O}/I_\alpha$ is a finite set,
+  therefore there exist only a\pageoriginale finite number of $\beta$ with $0 <
+  \beta < \alpha$, so we get that  
+  \begin{enumerate}[(i)]
+  \item $\Gamma_v$ has a smallest positive element
+  \item $\Gamma_v$ is Archimedian.
+  \end{enumerate}
+
+  Thus $\Gamma_v$ is isomorphic to $Z$ and the valuation $v$ is
+  discrete. (c) $\Longrightarrow$ (b). We shall prove that discreteness
+  of the valuation $v$ and finiteness of $k$ implies that $\mathscr{O}$
+  is precompact, which together with the fact that $K$ is complete
+  implies that $\mathscr{O}$ is compact. Let $V$ be any neighbourhood of
+  $0$. Since $v$ is discrete, for some $n > 0~V$ contains
+  $\mathscr{Y}^n$. We shall show by induction on $n$ that
+  $\mathscr{O}/\mathscr{Y}^n$ is finite for $n > 0$. The result is true
+  for $n=1 ;$ let us assume it to be true for all $r < n$. We have
+  $\mathscr{O} / \mathscr{Y}^{n-1} \simeq \mathscr{O}/\mathscr{Y}^n
+  / \mathscr{Y}^{n-1} / \mathscr{Y}^n$ But $\mathscr{O} /
+  \mathscr{Y}^{n-1}$ is finite by induction hypothesis and
+  $\mathscr{Y}^{n-1} / \mathscr{Y}^n$ is finite because it is isomorphic
+  to $\mathscr{O}/\mathscr{Y}$, therefore $\mathscr{O}/\mathscr{Y}^n$ is
+  finite. Hence there exist a finite number of elements $x_1 - -- x_r$
+  in $\mathscr{O}$ such that $\mathscr{O}\subset \bigcup\limits^{r}_{i
+    =1}(x_i + \mathscr{Y}^n) \subset \bigcup\limits^{r}_{i= 1}(x_i + V)$
+  and since this is true for every neighbourhood of $0, \mathscr{O}$ is
+  precompact. 
+\end{proof}
+
+\section{Convergent Power Series}\label{part1:chap1:sec8}%\sec 8
+
+Let $K$ be complete field with a real valuation $v$. Then the power
+series $f(x)=\sum\limits^{\infty}_{n = 0}a_n x^n$ with coefficients
+from $K$ is said to be convergent at a point $x$ of $K$ if the series
+$\sum\limits^{\infty}_{n = 0}a_n x^n$ is convergent. It has already
+been proved that the series $\sum\limits^{\infty}_{n = 0}a_n x^n$\pageoriginale
+converges if and only if 
+\begin{equation*}
+  v(a_{n}x^{n}) = v(a_{n}) + nv(x) \to \infty~ as ~n \to
+  \infty\tag{1}\label{part1:chap1:sec8:eq1} 
+\end{equation*} 
+From (\ref{part1:chap1:sec8:eq1}) it is obvious that if take $t
+=\lim\limits_n \inf 
+\dfrac{1}{n} (v (a_{n}))$, then the series $f$ converges for all $x$
+which $v(x)> -t$ and does not converge for those $x$ for which
+$v(x)<-t$ and for those $x$ for which $v(x)= -t $ either the series
+converges for all $x$ or does not converge at all. The number $-t$ is
+called the order of convergence of the power series $f$ and the set
+$\{x| v(x) > -t\}~ \text{or}~ \{x |v(x) \ge -t, $ if the series
+converges at a point $x$ with $v(x) = -t\}$ is called the disc of
+convergence, which we shall denote by $D_{f}$. If we consider the
+absolute value associated to $v$ then the radius of convergence is  
+$$
+\displaylines{\hfill 
+  \rho = a^{-t} = \left\{\lim_{n\to\infty}\sup
+  (|a|_{n})^{1/n}\right\}^{-1} \hfill \cr 
+  \text{and}\hfill D_{f} = \left\{x|~|x|< \rho\right\} \quad  \text{or} \quad
+  \left\{x |~|x| \le \rho \right\}\hfill } 
+$$
+The mapping $x\to f(x)$ from $D_{f}$ to $K$ is continuous because it
+is a uniform limit of polynomials namely the partial sums of the
+series $\sum \limits_{n=0}^{\infty} a_{n} x^{n}$ in the disc $\{x |
+v(x) \ge -t_1$, for all $t_{1} > t\}$ or in the disc $\{x | v(x)
+\ge -t\}$ if the series converges on the disc. The classical results
+about addition and multiplication, $\ldots$ of power series can be
+carried over to the power series with coefficient in a complete
+valuated field. For instance if $f(x) = \sum \limits_{n=0}^{\infty}
+a_{n}x^{n}$ and $g(x) = \sum \limits_{n=0}^{\infty} b_{n} x^{n}$ are
+two power series with $D_{f}$ and $D_{g}$ as their discs of
+convergence respectively; then if\pageoriginale for one $x$  in $D_f$,  $a_i x^i$
+belongs to $D_g$ for every $i$, $f(x)$ also belongs to $D_g$ and we
+have 
+\begin{align*}
+   g(f(x)) & = \sum_{r=0}^{\infty} c_r x^r,  ~\text{where}\\
+  c_r & = \sum_{q=0}^{\infty} b_q \sum_{i_1 + i_2 + \cdots +i_q =r}
+  a_{i_1} a_{i_2}\ldots a_{i_q},
+\end{align*}
+all the series being convergent.
+
+\setcounter{remark}{0}
+\begin{remark}
+If $k=\mathscr{O}/ \mathscr{Y}$ is an infinite field, then
+$$
+\inf_i (v(a_i x^i))= \inf_{v(y) = v(x)} (v(f(y))).
+$$
+\end{remark}
+
+For, $v(f(x))\geq \inf_i (v(a_i x^i))$. We get equality, if there does
+not exist any two terms of the same valuation. In the exceptional case
+as the series as the series $\sum\limits_{n=0}^{\infty} a_n y^n$ is
+convergent, we have 
+
+$f(y) = \sum\limits_{r=i_\circ}^{j_\circ}a_r y^r+$ terms of higher valuation,
+where $i_\circ \leq r \leq j_\circ < \infty$.
+
+and without loss of generality we can assume that $v(x)=0$ and $\inf_i
+v(a_i x^i)=0$. Now $v(f(y))>0$ if and only if
+$\sum\limits_{r=i_\circ}^{j_\circ} a_r y^r$ belongs to
+$\mathscr{Y}$\iec  if and only if the polynomial
+$\sum\limits_{r=i_\circ}^{j_\circ} \bar{a}_r \bar{y}^r$ (the image in
+$k)=0$. But $k$ has infinite  number of elements and the above
+polynomial not being identically zero has only a finite number of
+zeros, therefore there exists  
+atleast\pageoriginale one $y$ for which $v(f(y))=0$ and  $v(x) = v(y)$. Thus in this
+case whenever $x$ is in $D_f$ and $f(y)$ belongs to $D_g$ for all
+those $y$ for which $v(x) = v(y)$, we have 
+$$
+\inf_i v(a_i x^i)= \inf_{v(y) = v(x)} v(f(y)).
+$$
+
+Then $f(g(x)) = \sum\limits_{r=0}^{\infty} c_r x^r$ with
+$$
+c_r = \sum_{r=0}^{\infty} b_q \sum_{v_1 + --+v_q=r} a_{v_1}\cdots a_{v_q}.
+$$
+
+\begin{remark}%rem
+  Let $A$ be a ring with a topology defined by a decreasing filtration
+  $(A_n)_{n \geq 0}$ of ideals for which $A$ is Hausdorff and complete
+  space. Then the formal power series $\sum\limits_{n=0}^{\infty} a_n
+  x^n$ converges at $x$ in $A$ if and only if $a_n x^n \to 0$ as $n$
+  tends to infinity and obviously the series converges everywhere in
+  $A$ if and only if $a_n$ tends to $0$ as $n$ tends to infinity. 
+\end{remark}

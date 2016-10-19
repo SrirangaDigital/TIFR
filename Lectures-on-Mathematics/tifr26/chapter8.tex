@@ -1,0 +1,1782 @@
+\chapter{A class of abstract semi-algebras}
+
+The\pageoriginale present chapter is somewhat of an intruder in this
+course of lectures. It has some incidental bearing on the
+Perron-Frobenius theorem, but our main purpose is to establish some
+algebraic properties of a certain class of semi-algebras.  
+
+\begin{Definition}%8.1
+  A real Banach algebra is a linear associative algebra over
+  $\mathbb{R}$ together with a norm under which it is a Banach space
+  and which satisfies  
+  $$
+  ||xy || \leq || x || ~ || y || \qquad (x, y \in B)
+  $$
+\end{Definition}
+
+\begin{Definition}%8.2
+  A non-empty subset $A$ of a real Banach algebra $B$ is called a
+  semi-algebra if  
+  \begin{itemize}
+  \item[(i)] $x, y \in A$, $\alpha \geq 0 \Rightarrow x + y$, $\alpha x \in
+    A$ and $xy \in A$. 
+    
+    A semi-algebra $A$ is called a \textit{locally compact}
+    semi-algebra if it satisfies the additional axioms  
+
+  \item[(ii)] $A$ contains non zero vectors;
+
+  \item[(iii)] the set of elements $x$ of $A$ with $||x || \leq 1$ is a
+    compact subset of $B$. 
+
+    It is easily seen that if $A$ is a locally compact semi-algebra,
+    then the intersection of $A$ and each closed ball in $B$ with its
+    center at the zero vector is compact, and hence that $A$ is a
+    closed subset of $B$, and that each closed bounded subset of $A$
+    is compact.\pageoriginale It is easily seen that axioms (i), (ii)
+    and (iii)  are equivalent to (i), (ii) and  
+
+  \item[(iii)$'$] A with the relative topology induced from the norm
+    topology in $B$ is a locally compact space.  
+  \end{itemize}
+\end{Definition}
+
+This is our justification for the use of the term locally compact in
+the present sense. Axiom (ii) of course merely excludes trivial
+exceptional cases. 
+
+If the Banach algebra $B$ has finite dimensions, then its closed unit
+ball is compact, and therefore every nontrivial closed semi-algebra in
+$B$ is locally compact. In particular, each closed semi-algebra of $n
+\times n$ real matrices is of this kind. However, the axioms do not
+imply that every locally compact semi-algebra is contained in a finite
+dimensional algebra, as the following example shows. 
+
+\begin{example*}
+  Let $E$ be the subset of the closed unit interval $[0,1]$ consisting
+  of the closed interval $[0, \dfrac{1}{2}]$ together with the point
+  1, and let $E$ be given the topology induced form the usual
+  topology in $[0, 1]$, so that $E$ is a compact Hausdorff space. 
+\end{example*}
+
+Let $A'$ denote the class of all functions belonging to $C_R[0, 1]$
+that are non-negative, increasing, and convex in $[0, 1]$; and let $A$
+denote the class of all functions on $E$ that are restrictions to $E$
+of functions belonging to $A'$. 
+
+It is obvious that $A'$ is a semi-algebra in $C_R[0, 1]$. We prove
+that $A$ is a closed subset of $C_R(E)$. Each element $f$ of $A$
+has\pageoriginale a unique extension $f' \in A'$ which is linear in $[
+  \dfrac{1}{2}, 1]$ defined by   
+\begin{align*}
+  f'(x) & = f(x) , 0 \leq x \leq \frac{1}{2}\\
+  f'(x) & = \alpha f\left(\frac{1}{2}\right) +(1-\alpha) f(1) \text{
+    for } x =  \alpha. \frac{1}{2}+ (1- \alpha)^1, 0 \leq \alpha \leq 1  
+\end{align*}
+
+Let $f_n$ be a sequence of elements of $A$ that converges in norm to
+an element $f$ of $C_R(E)$. Then the sequence $\{ f'_n \}$, where $f'_n
+\in A'$ is the extension of $f_n$ to $[0, 1]$ which is linear in $[
+  \dfrac{1}{2}, 1]$, converges uniformly in $[0, 1]$ and since $A'$ is
+a closed subset of $C_R[0, 1]$, the limit function $f'$ belongs
+$A'$. But $f$ is the restriction of $f'$ to $E$, and so $f \in
+A$. Hence $A$ is a closed semi-algebra in $C_R(E)$. To prove that it
+is locally compact it is enough to prove that $A$ intersects the unit
+ball of $C_R(E)$ in an equicontinuous set. 
+
+If $f \in A$, and $|| f || \leq 1$, then
+$$
+0 \leq f \left(\frac{1}{2}\right) \leq f(1) \leq 1;
+$$
+and so, for any pair of points $x_1, x_2$ with 
+$$
+0 \leq x_1 < x_2 \leq \frac{1}{2},
+$$
+we have, by the $\infty$nvexity of $f$,
+$$
+0 \leq \frac{f(x_2) - f(x_1)}{x_2 - x_1} \leq \frac{f(1)-
+  f\left(\frac{1}{2}\right)}{1 - \frac{1}{2}} \leq 2 
+$$
+Thus\pageoriginale the set of all such $f$ is equi-continuous, and $A$
+is a locally compact semi-algebra. Finally it is obvious that $A$ is
+not contained in any finite dimensional subspace of $C_R(E)$.  
+
+Our principal results are concerned with the existence and properties
+of idempotents in a locally compact semi-algebra, and may be regarded
+as analogues of classical theorems of Wedderburn. As biproducts we
+obtain an abstract characterization of the semi-algebra of all $n
+\times n$ matrices with non-negative entries, and some results
+related to the Perron-Frobenius theorems. 
+
+Throughout this chapter we will denote by $S_A$ the intersection of
+$A$ with the surface of the unit ball in $B$, i.e., 
+$$
+S_A = \{ x : x \in A \text{ and } || x || \leq 1 \}.
+$$
+
+Obviously the set $S_A$ is compact.
+
+\begin{Definition}%8.3.
+  Given a subset $E$ of a semi-algebra $A, E_r$ will denote the
+  \textit{right annihilator} of $E$ in $A$, i.e. 
+  $$
+  E_r = \{ x : x \in A \text{ and } ux = 0 \; ( u \in E)\}.
+  $$
+
+  In particular $(a)_r$ denotes the right annihilator of the set
+  consisting of $a$ only; and the left annihilators $E_l$ and $(a)_l$
+  are similarly defined. 
+\end{Definition}
+
+\begin{Definition}%defi 8.4
+  Given subsets $P$ and $Q$ of $A, PQ$ will denote the set of all finite sums 
+  $$
+  p_1 q_1 + \cdots + p_n q_n
+  $$
+  with\pageoriginale $p_i \in P$ and $q_i \in Q$; and $P^2$ will denote $PP$.
+\end{Definition}
+
+\begin{Definition}%8.5
+  A semi-algebra $J$ contained in $A$ is called a \textit{right
+    ideal} of $A$ if  
+  $$
+  a \in A, j \in J \Rightarrow ja \in J
+  $$
+  Left ideals are similarly defined with ja replaced by $aj$, and
+  semi-algebra contained in $A$ is called a \textit{two sided ideal}
+  if it is both a left ideal and right ideal. 
+\end{Definition}
+
+A closed right ideal $J$ is called a \textit{minimal closed right
+  ideal} if $J \neq (0)$ and if the only closed right ideals contained
+in $J$ are $(0)$ and $J$. Similar definitions apply for minimal closed
+left and two-sided ideals. (Closed ideal means an ideal which is a
+closed subset of $A$ in relative topology.) 
+
+\begin{thmm}\label{chap8:thm8.1}%8.1.
+  Each non-zero closed right ideal of a locally compact semi-algebra
+  contains a minimal closed right ideal. 
+\end{thmm}
+
+A similar statement holds for left and two-sided ideals.
+
+\begin{proof}
+  Given a non-zero closed right ideal $J$, there exists, by Zorn's
+  lemma, a maximal family $\Delta$ of non zero closed right ideals
+  contained in $J$ and totally ordered by the relation of set
+  theoretic inclusion. The sets $I \cap S_A$ with $I \in \Delta$ are
+  compact and have the finite intersection property. Hence their
+  intersection is non-empty and therefore the intersection $I_0$ of
+  the ideals $I$ in $\Delta$ is non-zero. Clearly $I_0$ is a minimal
+  closed right ideal. 
+\end{proof}
+
+It is clear that similar results hold for left and two
+sided\pageoriginale closed ideals.   
+
+\setcounter{section}{8}
+\setcounter{lemma}{0}
+\begin{lemma}\label{chap8:lem8.1}%8.1
+  Let $E$ be a closed subset of a locally compact semi-algebra $A$
+  such that $\alpha x \in E$ whenever $\alpha \geq 0$ and $x \in
+  E$. Let a be an element of $A$ such that $(a)_r \cap E= (0)$. Then
+  aE is closed. 
+\end{lemma}
+
+\begin{proof}
+  Let $y = \lim\limits_{n \to \infty} a x_n$, $(x_n \in E)$.
+\end{proof}
+
+If $y = 0$ there is nothing to prove since $0 \in E$ and so $0 \in a
+E$. Let $y \neq 0$. Then we can assume that $x_n \neq 0 \; (n = 1, 2,
+\ldots)$. The sequence $s_n = \dfrac{x_n}{|| x_n||}$ in the compact
+set $E \cap S_A$ has a subsequence $(s_{n_{i}})$ that converges to an
+element $s \in E \cap S_A$. We have  
+$$
+\displaylines{\hfill 
+  as_{n_{i}} \neq 0 ~\text{ and }~ \lim_{i \to \infty} as_{n_{i}} = as
+  \neq 0,\hfill \cr
+  \text{since}\hfill  
+  s_{n_{i}} \neq 0, s \neq 0 \text{ and } (a)_r \cap E = (0).\hfill }
+$$
+
+Hence
+$$
+|| \,\text{as}_{n_{i}}|| > m> 0 \qquad (i = 1,2, \ldots).
+$$
+
+Also since 
+$$
+\lim_{i \to \infty} || x_{n_{i}} || as_{n_{i}} = \lim_{i \to \infty}
+ax_{n_{i}} = y, 
+$$
+$||x_n||as_{n_{i}}$ is a bounded sequence. It follows that the
+sequence $(||x_{n_{i}}||)$ is bounded, and therefore has a subsequence
+convergent to $\lambda > 0$ say. Then  
+$$
+y = \lambda \text{ as } = a(\lambda s) \in aE
+$$
+and the lemma is proved.
+
+\begin{thmm}\label{chap8:thm8.2}%8.2.
+  Let\pageoriginale $M$ be a minimal closed right ideal of a locally compact
+  semi-algebra $A$ with $M^2 \neq (0)$. Then $M$ contains an
+  idempotent $e$ and $M = e A$. 
+\end{thmm}
+
+\begin{proof}
+  The proof begins on familiar algebraic lines. As $M^2 \neq (0)$,
+  there exists $a \in M$ with $a M \neq (0)$. Hence  
+  $$
+  M \cap (a)_r \neq M
+  $$
+  Since $M \cap (a)_r$ is a closed right ideal contained in $M$, the
+  minimal property of $M$ implies that  
+  \begin{equation*}
+    M \cap (a)_r = (0) \tag{1}\label{chap8:eq1}
+  \end{equation*}
+\end{proof}
+
+Hence, by Lemma 1, aM is a closed right ideal. We have 
+$$
+0 \neq aM \subset M
+$$
+and therefore 
+$$
+aM =M.
+$$
+
+In particular, there exists an element $e \in M$ with 
+\begin{equation*}
+  ae = a \tag{2}\label{chap8:eq2}
+\end{equation*}
+
+The complication of the rest of the argument is forced on us by the
+fact that we cannot assert at this point that $e^2 - e$ belongs to
+$A$. Our next is to prove that  
+\begin{equation*}
+  \lim_{n \to \infty} || e^n ||^{1/n} = 1 \tag{3}\label{chap8:eq3}
+\end{equation*}
+
+By (\ref{chap8:eq2}),\pageoriginale we have 
+\begin{gather*}
+  ae^n = a \qquad (n = 1, 2, \ldots)\\
+  || a || ||e^n|| \geq || ae^n || = || a ||,\\
+  || e^n || \leq 1 \qquad (n= 1, 2, \ldots )
+\end{gather*}
+so that 
+$$
+\lim_{n \to \infty} || e^{n}||^{1/ n} \geq 1
+$$
+In order to prove that $\lim \limits_{n \to \infty} || e^{n}||^{1/ n}
+\leq 1$, it suffices to show that $(||e^n||)$ is bounded. 
+
+Let $K = \inf \{ ||am||: m \in M \cap S_A \}$.
+
+Since $M \cap S_A$ is compact, this infimum is attained; there exists
+$m_0 \in M \cap S_A$ with $||am_0|| = K$. Therefore, by
+(\ref{chap8:eq1}), $K \neq 0$. Thus $K > 0$, and we have  
+$$
+|| ax || \geq K|| x || \qquad ( x \in M)
+$$
+
+In particular $|| e^n || \leq \dfrac{1}{2}|| ae^n || = \dfrac{1}{2}
+||a|| \; (n=1,2, \ldots)$. This completes the proof of
+(\ref{chap8:eq3}).  
+
+Suppose that $\lambda > 1$, and let 
+$$
+b_{\lambda} = \frac{1}{\lambda} e+ \frac{1}{\lambda^2} e^2 + \ldots
+$$
+
+The convergence of the series is established by (\ref{chap8:eq3}), and we have
+$b_{\lambda} \in M$. Also, 
+$$
+\lambda b_{\lambda}- e b_{\lambda}= e \in M,
+$$\pageoriginale
+and therefore $b_{\lambda} \neq 0$. Let $\lambda_n > 1 (n =1, 2,
+\ldots)$ and $\lim \limits_{n \to \infty} \lambda_n = 1$. By what we
+have just proved, there exists for each $n$, an element $m_n $ of $M
+\cap S_A$ such that  
+$$
+\lambda_n m_n - e m_n \in M
+$$
+Therefore, by the compactness of $M \cap S_A$, there exists an element
+$m$ of $M \cap S_A$ such that  
+$$
+m - e m \in M
+$$
+Let 
+$$
+J = \{ x : x \in M, x-e x \in M \}.
+$$ 
+
+We have $J \neq (0)$ since $m \in J$. Also, $J$ is a closed right
+ideal contained in $M$, and therefore $J = M$ i.e., 
+$$
+x- ex \in M \qquad (x \in M) 
+$$
+But, by (\ref{chap8:eq2})
+$$
+a(x-ex) = 0 \qquad (x \in M),
+$$
+and so
+$$
+x- ex \in M \cap (a)_r \qquad (x \in M)
+$$
+
+Therefore, by (\ref{chap8:eq1}),
+$$
+x-ex = 0 \qquad (x \in M)
+$$
+
+In particular\pageoriginale $e=e^2$, and also
+$$
+M = e M = e A.
+$$
+
+\begin{Definition}% Defintn 8.6
+  An idempotent $e$ in a semi-algebra $A$ for which $eA$ is a minimal
+  closed right ideal is called {\em minimal idempotent.}  
+\end{Definition}
+
+A semi-algebra $A$ is called a {\em division semi-algebra} if it
+contains a unit element different from zero and if every non-zero
+element of $A$ has an inverse in $A$. 
+
+\begin{thmm}\label{chap8:thm8.3}% Thm 8.3
+  Let $e$ be a minimal idempotent in a locally compact semi-algebra
+  $A$. Then $eAe$ is a closed division semi-algebra. 
+\end{thmm}
+
+\begin{proof}
+  Let $A_0 = eAe$. Then $A_0$ is a semi-algebra with unit element $e$,
+  and is closed since 
+  $$
+  A_0=\{ x : x \in A \text{~ and~ } x = e x = e x \}.
+  $$
+\end{proof}
+
+Let $eae$ e a non-zero element of $A_0$. Then
+$$ 
+e \notin (eae)_r \cap eA, \quad e \in e A.
+$$
+Since $eA$ is a minimal closed right ideal and $(eae)_r \cap eA$ is a
+closed right ideal properly contained in it, we have 
+$$
+(eae)_r \cap eA = (0).
+$$
+
+It follows, by Lemma 1, that $(eae)_r \cap eA$ is a closed right ideal. Since
+it contained $eae$ and is contained in $eA$ it coincides with $eA$,
+and therefore 
+$$
+(aea) A_0 = A_0.
+$$
+
+This\pageoriginale proves that every non-zero element of $A_0$ has a
+right inverse, and a routine argument now completes the proof.  
+
+Given $x \neq A_0$, with $x \neq 0$, there exists $y \in A_0$ with
+$xy=e$. It follows that $y \neq 0$, and so there exists $z \in A_0$
+with $yz=e$. But then 
+$$
+x = x(yz) = (xy)z,
+$$
+and so $yx = e$ and $x$ has an inverse $y$.
+
+\begin{Definition}% defntn 8.7
+  A semi-algebra $A$ is said to be {\em strict} if $x,y \in A, x + y =
+  0 \Rightarrow x = 0$. 
+\end{Definition}
+
+\begin{thmm}\label{chap8:thm8.4} %The 8.4
+  Let $A$ be a closed strict division semi-algebra. Then
+  $$
+  A=R^+e,
+  $$
+  where $e$ is the unit element of $A$ and $R^+$ is the set of all
+  non-negative real numbers. 
+\end{thmm}
+
+\begin{proof}
+  We prove first that if $x,y \in A,y \neq 0$, and $\parallel x
+  \parallel$ is sufficiently small then $y - x \in A$. 
+\end{proof}
+
+Since $y \neq 0$, it has an inverse $y^{-1}$ in $A$ and for
+sufficiently small $\parallel x \parallel$, we have $\parallel z
+\parallel < 1$, where $z = y^{-1}x$. Since $A$ is a closed
+semi-algebra in a Banach algebra, the series 
+$$
+e + z + z^2 + \cdots 
+$$
+converges to an element a of $A$, and $(e-z)=e$. This shows that $a
+\neq 0$, and it therefore has an inverse $b$ in $A$ therefore 
+$$
+e-z=(e-z)ab=b \in A.
+$$\pageoriginale
+
+Finally
+$$
+y - x = y(e-y^{-1}x ) = y(e-z)\in A.
+$$
+
+Suppose now that $u \in A,u \neq 0$, and let
+$$
+\mu= \sup \{ \lambda : e - \lambda u \in A \}.
+$$
+
+By what we have just proved, we have $\mu >0$. Also, the strictness of
+$A$ implies that $\mu$ is finite, for otherwise we have 
+$$
+\frac{1}{n}e-u \in A \qquad (n=1,2, \ldots),
+$$
+and so $-u \in A$, since $A$ is closed; and then $u=0$ (as $A$ is
+strict) which is not true. 
+
+Let $y=e-\mu u$. Since $A$ is closed we have $y \in A$. If $y \neq 0$,
+then, for sufficiently small $\lambda > 0$, we have 
+\begin{gather*}
+  (e-\mu u)- \lambda u \in A,\\
+  \text{i.e.,} \qquad e-(\mu + \lambda) u \in A,
+\end{gather*}
+which is absurd. Therefore $e- \mu u=0$,
+$$
+A = R^+e.
+$$
+
+\begin{remark*}%rem 0
+  It is of interest to consider what other division semi-algebras
+  there are besides $R^+$. In any semi-algebra $A,A \cap (-A)$ is an
+  ideal. Hence if $A$ is a division semi-algebra {\em either} $A \cap
+  (-A)=(0)$ and $A$ is strict, or $A \cap (-A)=A$ and $A$ is a
+  division\pageoriginale 
+  algebra. Thus the only non-strict division semi-algebras are the
+  familiar division algebras. On the other hand there are many strict
+  (nonclosed) semi-algebras. For example, let $E$ be a compact
+  Hausdorff space and let $A$ be the subset of $C_R(E)$ consisting of
+  those functions $f$ $\in C_R(E)$ such that either  
+  $$
+  \displaylines{\hfill 
+  f(t)=0 \; (t \in E),\hfill \cr
+  \text{or}  f(t)>0 \; (t \in E).\hfill }
+  $$
+\end{remark*}
+
+It is easily seen that each such $A$ is a strict division
+semi-algebra.
+
+\begin{Definition} % Dfntn 8.8
+  A semi-algebra $A$ is said to be {\em semi-simple} if the zero ideal
+  is the only closed two-sides ideal $J$ with $J^2=(0)$. 
+\end{Definition}
+
+\begin{lemma}\label{chap8:lem8.2} %%%lemma 8.2
+  Let $A$ be a semi-simple semi-algebra, and let $I$ be an ideal
+  (left, right, or two-sided) of $A$ such that $I^n=(0)$ for some
+  positive integer $n$. Then $I=(0)$. 
+\end{lemma}
+
+\begin{proof}
+  We first show that if $J$ is any left ideal with $J^2=(0)$ then
+  \begin{equation*}
+    J=(0) \tag{1}\label{chap8:eqq1}
+  \end{equation*}
+  Let $H=(JA)$. Then $H$ is a closed two-sides ideal, and since 
+  $$
+  (JA)(JA)=J(AJ)A \subset J^2 A= (0), 
+  $$
+  we have $H^2=(0)$ and so $H=(0),JA=(0)$. This gives $J \subset A_1$,
+  and\pageoriginale since $A_1$ is a closed two-sides ideal with 
+  $$
+  \displaylines{\hfill 
+  A^2_1 \subset A_1 A= (0), \hfill \cr
+  \text{we have} A_1 =(0), J =(0) \hfill }
+  $$
+
+  If now $I$ is a left ideal and $n$ is the least positive integer with
+  $I^n=(0)$, then $I^{n-1}I=0$, and so $n>1$ would give
+  $(I^{n-1})^2=(0)$, and so by (\ref{chap8:eqq1}) 
+  $$
+  I^{n-1}=0
+  $$
+  Hence $n=1$, \qquad $I=(0)$.
+  
+  A similar argument applies to right ideals.
+\end{proof}
+
+\begin{thmm} % \thm 8.5
+  Let $A$ be a semi-simple locally compact semi-algebra, and let $e$
+  be an idempotent in $A$. Then $e$ is a minimal idempotent if and
+  only if $eAe$ is a division semi-algebra. 
+\end{thmm}
+
+\begin{coro*}%coro 0
+  $eA$ is a minimal closed right ideal if and only if $Ae$ is a
+  minimal closed left ideal. 
+\end{coro*}
+
+\begin{proof}
+  That $eAE$ is a  division-algebra if $e$ is a minimal idempotent was
+  proved in Theorem \ref{chap8:thm8.3}. To prove the converse suppose
+  that $eAe$ is a division semi-algebra. Since  
+  $$
+  eA= \{ x:x \in A \text{ and } x=ex \},
+  $$
+  $eA$ is a closed right ideal. Since it contains $e$ it is non-zero,
+  and it therefore contains a minimal closed right ideal $M$. Since
+  $A$ is semi-simple,\pageoriginale Lemma 2 shows that $M^2 \neq (0)$;
+  and therefore, by Theorem \ref{chap8:thm8.2}, $M$ contains an
+  idempotent $f$ with  
+  $M=fA$. Since  
+  $$
+  (fA)^2 \subset (fA) (eA),
+  $$
+  and $A$ is semi-simple, we have
+  $$
+  f Ae \neq 0
+  $$
+  Let $a$ be an element of $A$ with $fae \neq 0$. Then $fae$ is non-zero
+  element of $eAe$ and therefore has an inverse $b$ in $eAe$, 
+  $$
+  fae b=e.
+  $$
+  It now follows that $eA \subset fA$; and so by the minimal properly
+  of $fA,eA$ is a minimal closed right ideal. 
+\end{proof}
+
+The Corollary is evident from the symmetry of the conditions on $A$
+and $eAe$. 
+
+\begin{thmm} %Thm 8.6
+  Let $A$ be a semi-simple locally compact semi-algebra, and let
+  $\mathscr{I}$ be the set of all minimal idempotents in $A$. If $e
+  \in \mathscr{I}$ and $a \in A$, then there exists $f \in
+  \mathscr{I}$ and $b \in A$ with $ae=fb$. 
+\end{thmm}
+
+\begin{coro*}%coro 0
+  $\mathscr{I}A$ is a two-sides ideal.
+\end{coro*}
+
+\begin{proof}
+  Let $e \in \mathscr{I}$ and $a \in A$. If $ae=0$, we take $f=e$ and $b=0$.
+\end{proof}
+
+Suppose $ae \neq 0$. Then $e \notin (ea)_r$, and therefore the closed
+right ideal 
+$$
+(ea)_r \cap eA
+$$
+is a\pageoriginale proper subset of $eA$. Therefore, by the minimal
+property of $eA$, 
+$$
+(ae)_r \cap eA=(0)
+$$
+By Lemma \ref{chap8:lem8.1}, it follows that
+$$
+aeA=(ae)(eA)
+$$
+is closed right ideal. It is a minimal closed right ideal, for if $J$
+is non-zero closed ideal properly contained in $aeA$, then $\{ ex:aex
+\in J \}$ is a non-zero closed right ideal properly contained in
+$eA$. Since $A$ is semi-simple and locally compact, there exists $f
+\in \mathscr{I}$ with $aeA=fA$. In particular 
+$$
+ae=fb \text{ for some } b \in A.
+$$
+The corollary is obvious.
+
+\begin{thmm}\label{chap8:thm8.7} % The 8.7
+  Let $A$ be a semi-simple locally compact semi-algebra. Then the set
+  of minimal closed two-sides ideals of $A$ is finite and non-empty. 
+\end{thmm}
+
+\begin{proof}
+  By Theorem \ref{chap8:thm8.1} and the fact that $A$ is a non-zero
+  closed two-sided ideal of itself, A has at least one minimal closed 
+  two-sided ideal. 
+\end{proof}
+
+Suppose that $A$ has an infinite set $\{ M_ \alpha : \alpha \in \Delta
+\}$ of minimal closed two-sides ideals. Then 
+$$
+\displaylines{\hfill 
+  M_ \alpha \cap M_ \beta =(0) \; (\alpha \neq \beta),\hfill \cr 
+  \text{and so}\hfill M_ \alpha M_ \beta (0) \; (\alpha \neq
+  \beta). \hfill } 
+$$\pageoriginale
+
+For each $\alpha \in \Delta$, choose $m_ \alpha \in M_ \alpha \cap
+S_A$. By the compactness of $S_A$, there exists a sequence $(\alpha_
+n)$, of distinct elements of $\Delta$ such that $(m_{\alpha _n})$
+converges to an element $m$ say of $S_A$. Given $\alpha \in \Delta$,
+we have 
+$$
+\displaylines{\hfill 
+M_ \alpha m_{\alpha_n}=(0) \text{ for all } n \text{ such that }
+\alpha \neq \alpha_n  \hfill \cr 
+\text{and therefore}\hfill M_ \alpha m=(0) \; (\alpha \in \Delta) \hfill}
+$$
+Let \qquad $J = \bigcap\limits_{\alpha \in \Delta}(M_ \alpha )_r$
+
+Since $M_\alpha$ is a two-sided ideal, $(M_\alpha)_r$ is a closed
+two-sided ideal and so $J$ is a closed two-sided ideal and is non-zero
+since $m \in J$. By Theorem \ref{chap8:thm8.1},  $J$ contains a minimal closed
+two-sided ideal $M_ \beta$, say. But $M_ \beta^2=(0)$, contradicting
+the semi-simplicity of $A$. 
+
+\begin{thmm}\label{chap8:thm8.8}%Thm 8.8
+  Let $A$ be a semi-simple locally compact semi-algebra and let its
+  minimal closed two-sided ideals be denoted by $M_1, M_2, \ldots
+  ,M_n$. Let $\mathscr{I}$ be the set of all minimal idempotent in $A$
+  and let $\mathscr{I}_k= \mathscr{I} \cap M_k \; (k=1,2, \ldots
+  ,n)$. Then 
+  \begin{enumerate}[\rm i)]
+  \item the sets $\mathscr{I}_k$ are disjoint and their union is $\mathscr{I}$,
+  \item For each $k, \mathscr{I}_k A$ is a two-sided ideal,
+    $$
+    \mathscr{I}_k A=A\mathscr{I}_k=\mathscr{I}_k A \mathscr{I}_k,
+    $$
+  \item $M_k =d (\mathscr{I}_k A)$.\pageoriginale
+  \end{enumerate}
+\end{thmm}
+
+\begin{proof}
+  Given $e \in \mathscr{I}$, either $eA \cap M_k=eA$ or $eA \cap
+  M_k=(0)$. In the first case $e \in M_k$, $e \in \mathscr{I}_k$. In the
+  second case, since 
+  $$
+  eA M_k \subset eA \cap M_k,
+  $$
+  we have $eA M_k =(0),e \in (M_k)_l$. Thus if $e \in \mathscr{I}$ but
+  $e \notin \bigcup\limits_{k=1}^n \mathscr{I}_k$, then 
+  $$
+  e \in \bigcap _{k=1}^n (M_k)_l=J.
+  $$
+  Since $J$ is a non-zero closed two-sided ideal, it contains one of
+  the minimal closed two-sided, $M_j$ say. But this lead to
+  $M_j^2=(0)$, which is impossible as $A$ is semi-simple. Thus  
+  $$
+  \mathscr{I}= \bigcup _{k=1}^n \mathscr{I}_k.
+  $$
+  The disjointness of the $\mathscr{I}_k$ follows from the fact that
+  $M_j\cap M_k=(0) \; (j \neq k)$. 
+\end{proof}
+
+Given $e \in \mathscr{I}_k$, and $a \in A$, we have $ae=fb$ with $f
+\in \mathscr{I}$ and $b \in A$. If $ae=0$, we can take $f=e \in
+\mathscr{I}_k$. Since $ae \in M_k$, we have $fb \in M_k$, and so if
+$ae \neq 0$, 
+$$
+fA \cap M_k \neq (0).
+$$
+
+But this gives $fA \cap M_k=fA$, and so $f \in M_k$. This proves that
+$\mathscr{I}_k A$ is a two-sided ideal, and it is plainly the smallest
+two-sided ideal containing $\mathscr{I}_k$. Similarly $A \mathscr{I}_k
+$ and $\mathscr{I}_k A \mathscr{I}_k$ are both this smallest two-sides
+ideal, and so (ii) holds. 
+
+Finally,\pageoriginale each $\mathscr{I}_k$ is non-empty, for $M_k$
+being a non-zero 
+closed right ideal contains a minimal idempotent. Therefore
+$d(\mathscr{I}_k A)$ is non-zero closed two-sided ideal containing
+$M_k$; and the minimal property of $M_k$ gives (iii). 
+
+\begin{thmm}% Thm 8.9
+  Let $e$ be a minimal idempotent in a semi-simple locally compact
+  semi-algebra $A$. Then $eA$ is a minimal right ideal and $Ae$ is a
+  minimal left ideal. 
+\end{thmm}
+
+\begin{remark*}%rema 0
+  Of course, we know that $eA$ and $Ae$ are minimal closed right and
+  left ideals. But, a priori, they might contain smaller non-closed
+  ideals. 
+\end{remark*}
+
+\begin{proof}
+  With the notation of Theorem \ref{chap8:thm8.8}, $e \in
+  \mathscr{I}_k$ for some $k$. Let $J$ be a non-zero right ideal
+  contained in $eA$, and choose $u \in J$ with $u \neq 0$.  
+\end{proof}
+
+If $\mathscr{I}_k \subset (u)_r$, then $M_k \subset (u)_r$ by Theorem
+\ref{chap8:thm8.8}, and so $u \in (M_k)_l$. But since $u \in eA
+\subset M_k$, this implies that 
+$$
+M_k \cap (M_k)_l \neq (0),
+$$
+and therefore $M^2_k=(0)$, which impossible. Therefore there exists $f
+\in \mathscr{I}_k$ with $uf \neq 0$. Since $fA$ is a minimal closed
+right ideal, it follows that 
+$$
+(u)_r \cap fA=(0)
+$$
+Therefore, by Lemma \ref{chap8:lem8.1}, $ufA$ is a closed right
+ideal. It is non-zero 
+since it contains $uf^2=uf$, and is containing in $eA$ since $u \in
+eA$.\pageoriginale Therefore 
+\begin{gather*}
+  eA=ufA \subset J,\\
+  J=eA
+\end{gather*}
+
+\begin{lemma}\label{chap8:lem8.3} %Lemma 8.3
+  Let $e$ be a minimal idempotent in a strict locally compact
+  semi-algebra $A$. Then 
+  $$
+  eAe = R^+ e.
+  $$
+\end{lemma}
+
+\begin{proof}
+  This is an immediate consequence of Theorem \ref{chap8:thm8.3}
+ and \ref{chap8:thm8.4} 
+\end{proof}
+
+\begin{lemma}\label{chap8:lem8.4} %Lemma 8.4
+  Let $A$ be a semi-simple strict, locally compact semi-algebra, and
+  let $e,f$ be minimal idempotent for which $f A e \neq (0)$. Then
+  there exists an element $\omega$ of $eAf$ such that 
+  $$
+  eAf=R^+ \omega,
+  $$
+  and either $\omega^2=\omega$ or $\omega^2=0$.
+\end{lemma}
+
+\begin{proof}
+  Choose a non-zero element $v$ of $fAe$, say $v=fae$. since $ve=v
+  \neq 0$, we have $e \notin (v)_r$. Using Lemma 1 and the fact that
+  $eA$ is a minimal closed ideal, we deduce that $veA$ is closed right
+  ideal. Since it contains $v$ and is contained in $fA$, we have 
+  \begin{gather*}
+    veA = fA,\\
+    veAf=fAf.
+  \end{gather*}
+  Thus there exists $u \in e A f$ for which $vu=f$. Given $x \in A$,
+  Lemma \ref{chap8:lem8.3}, gives 
+  $$
+  exfv=exfae=\lambda e
+  $$
+  for\pageoriginale some $\lambda \in R^+$. Therefore
+  $$
+  exf=exfvu= \lambda eu=\lambda u
+  $$
+  If $u^2=0$, we $\omega=u$. If $u^2 \neq 0$, then $u^2 =\alpha u$
+  with $\alpha >0$, and we take $\omega=\dfrac{1}{\alpha}u$. 
+\end{proof}
+
+\begin{lemma}\label{chap8:lem8.5} %\Lemma 8.5.
+  Let $e,f$ be minimal idempotents in a semi-simple locally compact
+  semi-algebra $A$. Then $f A e \neq (0)$ if and only if $e$ and $f$
+  belong to the same closed two-sided ideal. 
+\end{lemma}
+
+\begin{proof}
+  Suppose that $e \in M_i$ and $f \in M_j$ with $M_i$ and $M_j$
+  minimal closed two-sides ideals. Then 
+  $$
+  \displaylines{\hfill 
+  fA \subset M_j \hfill \cr
+  \text{and so, if}\hfill M_i \neq M_j, \hfill \cr
+  \hfill fAe \subset M_j M_i =(0)}
+  $$
+  On the other hand, suppose $fAe=(0)$. Then $f\in(Ae)_l$  since
+  $(Ae)_l$ is closed two-sided ideal and its intersection with $M_j$
+  contains $f$, it follows that 
+  $$
+  M_j \subset (Ae)_l
+  $$
+  Therefore $M_je=(0)$, and so $e \notin M_j$.
+\end{proof}
+
+\begin{thmm} %The 8.10
+  Let $A$ be a semi-simple, strict, locally compact semi-simple, and
+  let $M_k$ and $\mathscr{I}_k$ be defined as in Theorem
+  \ref{chap8:thm8.8}. For each 
+  pair $e,f$ of minimal idempotent belonging to $\mathscr{I}_k$, there
+  exists an element $\omega_{e,f}$ of $eAf$ such that $eAf=R^+
+  \omega_{e,f}$ and either\pageoriginale $\omega^2
+  _{e,f}=\omega_{e,f}$ or $\omega_{e,f}^2 =0$. Also  
+  $$
+  J= \sum_{e,f \in \mathscr{I}_k} R^+ \omega_{e,f}
+  $$
+  is a two-sided ideal contained in $M_k$, and $M_k=clJ$. Finally, for
+  all idempotents $e,f,g,h$ in $\mathscr{I}_k$, 
+  $$
+  \omega_{e,f} \omega_{g,h}=\lambda \omega_{e,h}, \text{ for some }
+  \lambda \in R^+. 
+  $$
+\end{thmm}
+
+\begin{proof}
+  Let $e,f$ be idempotent belonging to $\mathscr{I}_k$. By Lemma
+  \ref{chap8:lem8.5}, 
+  $fAe \neq 0$, and so Lemma \ref{chap8:lem8.4}, there exists
+    $\omega_{e,f}$ in $eAf$ 
+  such that 
+  $$
+  eAf=R^+ \omega_{e,f},
+  $$
+  and $\omega_{e,f}^2 = \omega_{e,f}$, or $\omega_{e,f}=0$. That $J$
+  is a two-sided ideal the closures of which is $M_k$, now follows
+  from Theorem \ref{chap8:thm8.8}. Finally 
+  $$
+  \omega_{e,f} \omega_{g,h}=e a f gh k \in eAh =R^+ \omega_{e,h}
+  $$
+\end{proof}
+
+We now consider the question: when does a semi-algebra contain exactly
+one minimal closed two-sided ideal? 
+
+\begin{Definition} %Defitn 8.9
+  We say that a semi-algebra $A$ is {\em prime} if $IJ \neq (0)$
+  whenever $I$ and $J$ are closed non-zero two-sided ideals. 
+\end{Definition}
+
+A prime semi-algebra is obviously semi-simple. It is also clear that in
+a prime semi-algebra, if $J$ is a non-zero left ideal, then $J_l=(0)$,
+and if $J$ is a non-zero right ideal, then $J_r=(0)$.\pageoriginale 
+
+\begin{thmm} % Thm 8.11
+  Let $A$ be a locally compact semi-algebra. If $A$ is prime, then $A$
+  has exactly one minimal closed two-sided ideal. Conversely, if $A$
+  is semi-simple and has exactly one minimal closed two-sided ideal,
+  then $A$ is prime. 
+\end{thmm}
+
+\begin{proof}
+  Minimal closed two-sided ideals annihilate each other, and therefore
+  if $A$ is prime there is exactly one such ideal. 
+\end{proof}
+
+Suppose on the other hand that $A$ is semi-simple and has exactly one
+minimal closed two-sided ideal, and let $H,J$ be closed two-sided
+ideals with $HJ=(0)$. Then $(H \cap J)^2=(0)$ and so, by
+semi-simplicity of $A$, 
+$$
+H \cap J=(0)
+$$
+Then either $H=(0)$ or $J=(0)$, for otherwise by Theorem
+\ref{chap8:thm8.1}, they 
+contain minimal closed two-sided ideals which are distinct since they
+have zero intersection. 
+
+Our next theorem is concerned with an abstract characterization of
+the semi-algebra of all $n \times n$ matrices with non-negative real
+entries. 
+
+\begin{Definition} % Defitn 8.10
+  We say that a semi-algebra $A$ is {\em simple} if it has no
+  two-sided ideals other than $(0)$ and $A$. 
+\end{Definition}
+
+\begin{thmm} % The 8.12
+  A simple, strict, locally compact semi-algebra with a unit element
+  is isomorphic to the semi-algebra $M_n(R^+)$ of all $n \times n$
+  matrices with non-negative real entries where $n$ is some
+  positive\pageoriginale 
+  integer. Conversely, for each positive integer $n$, the semi-algebra
+  $M_n(R^+)$ is simple, strict, locally compact and has a unit
+  element. 
+\end{thmm}
+
+\begin{proof}
+  Since $A$ has a unit element, $A^2 \neq (0)$. But $A$ is the only
+  non-zero two-sided ideal, and therefore $A$ is semi-simple and
+  indeed prime. Let $\mathscr{I}$ denote the class of all minimal
+  idempotents, and let 1 be the unit element. Then $\mathscr{I} A$ is
+  a non-zero, two-sided ideal in $A$, and so 
+  $$
+  A= \mathscr{I} A.
+  $$
+\end{proof}
+
+In particular there exist $e_1, e_2, \ldots ,e_n \in \mathscr{I}$ and
+$a_1,a_2, \ldots, a_n \in A$ such that 
+\begin{equation*}
+  1=e_1a_1+e_2a_2+ \cdots +e_na_n, \tag{1}\label{chap8:equa1}
+\end{equation*}
+and we may suppose that the expression (\ref{chap8:equa1}) has been
+chosen so that 
+$n$ is as small as possible. From (\ref{chap8:equa1}), we obtain 
+\begin{equation*}
+  e_1=e_1a_1e_1+e_2a_2e_1+ \cdots +e_n a_n e_1 \tag{2}\label{chap8:equa2}
+\end{equation*}
+By Lemma \ref{chap8:lem8.3}, $e_1a_1e_1=\lambda e_1$ with $\lambda \in
+R^+$. We have 
+$\lambda \geq 1$; for if $\lambda <1$, then (\ref{chap8:equa2}) gives 
+$$
+(1-\lambda)e_1=e_2a_2 e_1 + \cdots + e_n a_ne_1,
+$$
+and we could rewrite (\ref{chap8:equa1}) in the form,
+$$
+1=e_2 b_2 + \cdots + e_n b_n,
+$$
+contradicting\pageoriginale our hypothesis that $n$ was as small as
+possible. Therefore $\lambda \geq 1$; and rewriting
+(\ref{chap8:equa2}) in the form  
+$$
+(\lambda-1)e_1 + e_2 a_2 e_1 + \cdots + e_n a_n e_1 = 0
+$$
+and using the strictness of $A$, we obtain
+$$
+\lambda = 1, e_j a_j e_1 = 0 (j \neq 1).
+$$
+
+By applying a similar argument with $e_i$ in place of $e_1$, we obtain
+the formula 
+\begin{equation*}
+  e_i a_i e_i = e_i,  \; \; e_j a_j e_i = 0 \quad (i \neq j)
+  \tag{3}\label{chap8:equa3} 
+\end{equation*}
+We take $u_i = e_i a_i~(i=1, 2, \ldots, n)$. Then (\ref{chap8:equa3}) gives
+\begin{equation*}
+  u^2_i = u_i~(i=1, \ldots,n) , \;\; u_i u_j = 0 \quad (i \neq j),
+  \tag{4}\label{chap8:equa4} 
+\end{equation*}
+and we also have
+\begin{equation*}
+  1 = u_1 + \cdots + u_n \tag{5}\label{chap8:equa5} 
+\end{equation*}
+Since $u_i A = e_i A $ each $u_i$ is a minimal idempotent. And for
+each $i, j, u_i A u_j $ is non-zero and is of the form 
+$$
+u_i A u_j = R^+ e_{ij}
+$$
+for some element $e_{ij}$ of $u_i A u_j$. We choose the elements
+$e_{ij}$ in such a way that 
+\begin{align*}
+  e_{ii} &= u_i \quad (i = 1, 2, \ldots,n) \tag{6}\label{chap8:equa6} \\
+  e_{ij} e_{jk} & = e_{ik} \quad (i, j, k = 1,\ldots,n),
+  \tag{7}\label{chap8:equa7} \\ 
+  e_{ij} e_{kl} & = 0 \quad (j \neq k) \tag{8}\label{chap8:equa8} 
+\end{align*}\pageoriginale
+
+In the first place we have $u_i A u_i = R^+ u_i $, and so we can take
+$e_{ii} = u_i ~(i=1, 2, \ldots, n)$. Next, for $j=2, \ldots,n$ we take
+$e_{ij}$ to be an arbitrary non-zero element of $u_1 A u_j$. Then we
+have 
+$$
+u_1 A u_j = R^+ e_{ij}\quad (j=1, \ldots, n).
+$$
+
+Since $e_{ij} \neq (0), (Au_k)_l = (0)$, we have
+$$
+\displaylines{\hfill 
+  e_{ij} u_j Au_k = e_{1j} Au_k \neq (0),\hfill \cr
+  \text{and so}\hfill 
+  e_{1j} u_j Au_k = u_1 Au_k = R^+ e_{ik} \quad (j, k=1,
+  \ldots,n). \hfill }
+$$
+
+Therefore, for $j =2, \ldots,n$ and $k=1, \ldots,n$, we can select
+$e_{jk}$ such that 
+$$
+e_{1j} e_{jk} = e_{1k}
+$$
+Since $e_{11} = u_1$, this holds also for $j=1$~ i.e.
+\begin{equation*}
+  e_{1j} e_{jk} = e_{1k} \qquad (j,k = 1, \ldots,n)
+  \tag{9}\label{chap8:equa9}  
+\end{equation*}
+
+We have now chosen $e_{jk}$ for all $j, k$ with $u_i~Au_j =
+R^+~e_{jk}$, and with (\ref{chap8:equa6}) and (\ref{chap8:equa9})
+holding. To prove (\ref{chap8:equa7}), we note 
+that 
+$$
+\displaylines{\hfill 
+  e_{ij} e_{jk} \in u_i Au_k \hfill  \cr
+  \text{ and so}\hfill  
+  e_{ij} e_{jk} = \lambda e_{ik} ~ \text{ with } \lambda \geq 0.\hfill }
+$$\pageoriginale
+multiplying by $e_{1i}$, we obtain by (\ref{chap8:equa9}),
+$$
+e_{1k} = e_{1j} e_{jk} = e_{1i} e_{ij} e_{jk} = \quad e_{1i}e_{ik} =
+\lambda e_{1k} 
+$$
+Therefore $\lambda = 1$ and (\ref{chap8:equa7}) is proved. Finally
+(\ref{chap8:equa8}) is obvious since $u_j u_k = 0 ~(j \neq k)$.  
+
+Given $x \in A$, we have 
+\begin{align*}
+  x = 1.x.1 & = \sum^n_{i,j=1} u_i x u_j \\
+  & = \sum^n_{i, j=1} \xi_{ij} e_{ij},
+\end{align*}
+with $\xi_{ij} \geq 0$. Similarly, for $y \in A$,
+\begin{align*}
+  y & = \sum^n_{i, j} \eta_{ij} e_{ij} \\
+  \text{ and } \hspace{3cm} xy & = \sum^n_{i,l=1} \left\{ \sum^n_{j=1}
+  \xi_{ij} \eta_{jl} \right \} ~ e_{il}.
+\end{align*}
+
+It is now easily seen that the mapping $x \to (\xi_{ij})$ gives an
+isomorphism between the semi-algebra $A$ and $M_n(R^+)$. 
+
+Conversely, with a given positive integer $n$, let $A= M_n (R^+)$. $A$
+is a closed semi-algebra in the Banach algebra $M=M_n(R)$ of all $n
+\times n$ real matrices (with an arbitrary Banach algebra norm), and
+is locally compact since $B$ has finite dimension. That $A$ is strict
+and has unit element is obvious. 
+
+Let\pageoriginale $u^{rs}$ be the matrix with $(i, j)$ the element
+$u^{rs}_{ij}= \delta^r_i \delta ^s_j$, where  
+\begin{equation*}
+  \delta^\alpha_\beta =
+  \begin{cases}
+    ^1 \text{ if } & \alpha = \beta \\
+    0 \text{ if } & \alpha \neq \beta
+  \end{cases}
+\end{equation*}
+
+The matrix $u^{rs}$ belongs to $A$, and if $a=(\alpha_{ij})$ is an
+arbitrary element of $A$, we have 
+\begin{align*}
+  (u^{rs} a u^{lm})_{ij} & = \sum \delta^r_i \delta^s_\mu \alpha_{\mu
+    \gamma} \delta^l_\gamma \delta^m_j \\ 
+  & = \delta^r_i \alpha_{sl} \delta^m_j \\
+  & = \alpha_{sl} u^{rm}_{ij},
+\end{align*}
+so that
+$$
+u^{rs} a u^{lm} = \alpha_{sl} u^{r^m}.
+$$
+
+It follows that every non-zero two-sided ideal of $A$ contains all the
+matrices $u^{rs}$, and so is the whole of $A$. Thus $A$ is simple and
+the proof is complete. 
+
+In the case when $A$ is commutative our theorems on idempotents take a
+particularly simple form. In the first place we can determine
+semi-simple and prime commutative semi-algebras by annihilation
+properties of individual elements. 
+
+\begin{lemma}\label{chap8:lem8.6} % lemma 8.6
+  Let $A$ be a closed commutative semi-algebra. If $A$ is semi-simple, then
+  $$
+  a \in A, a \neq 0 \Rightarrow a^n \neq 0 \quad (n=2, 3, \ldots)
+  $$\pageoriginale
+  Conversely if
+  $$
+  a \in A , ~a^2 = 0 \Rightarrow a = 0, 
+  $$
+  Then $A$ is semi-simple.
+\end{lemma}
+
+Also, $A$ is prime if and only if it has no divisors of zero $ie.~ a,
+b \in A, ~ ab = 0 \Rightarrow a= 0, b=0$. 
+
+\begin{proof}
+  Entirely straight-forward using Lemma \ref{chap8:lem8.2}. In fact we
+  can prove a stronger result than Lemma \ref{chap8:lem8.6}, that is
+  analogous to a well-known fact about semi-simple commutative Banach
+  algebras.  
+\end{proof}
+
+\begin{thmm}\label{chap8:thm8.13}  % thm 8.13
+  Let $a$ be $a$ non-zero element of a semi-simple commutative locally
+  compact semi-algebra. Then 
+  $$
+  \lim_{n \to \infty} || a^n ||^{1/n} > 0
+  $$
+\end{thmm}
+
+\begin{proof}
+  Given a non-zero closed ideal $J$, let
+  $$
+  K_J = \inf \bigg\{ || ax || : x \in J \cap S_A \bigg\}.
+  $$
+ \end{proof}
+
+By the compactnes of ~ $J \cap S_A$, this infimum is attained, and so 
+$$
+K_J = 0 \Rightarrow J \cap (a)_r \neq (0)
+$$
+For some $J$, we have $K_J > 0$. For otherwise every non-zero closed
+ideal $J$ satisfies $J \cap (a)_r \neq (0)$, and therefore 
+$$
+M \cap (a)_r = M.
+$$
+for\pageoriginale every minimal closed ideal $M$ i.e., $aM = (0)$ for
+every such 
+$M$. Let $I= cl(aA)$. Then $I$ is a non-zero closed ideal and
+$IM=(Q)$. for every minimal closed ideal $M$. Since $I$ contains a
+minimal closed ideal, this would contradict the semi-simplicity of
+$A$. 
+
+Let $J$ be a closed ideal with $K_J > 0$. Then
+$$
+|| ax || \geq K_J || x || \qquad (x \in J),
+$$
+and, since $ax^{n-1} \in J$, 
+$$
+|| a^n x || \geq K_J || a^{n-1} x || \qquad (x \in J, n=1, 2, \ldots)
+$$
+Therefore 
+$$
+\displaylines{\hfill 
+  || a^n|| \;\; || x || \geq K^n_J || x || \qquad (x \in J),\hfill \cr
+  \text{and so}\hfill \lim \limits_{n \to \infty} || a^n ||^{1/n} \geq
+  K_J > 0. \hfill }
+$$
+
+\begin{thmm}\label{chap8:thm8.14} %thm 8.14
+  Let $A$ be a semi-simple, commutative locally compact
+  semi-algebra. Then the set $\mathscr{I}$ of minimal idempotents of
+  $A$ is a finite non-empty set $e_1, \ldots,e_n$. Each ideal $e_k A$
+  is a closed division semi-algebra with unit element $e_k$, and $e_k
+  e_j = 0 ~ (k \neq j)$. If also $A$ is strict, then 
+  $$
+  e_k A = R^+ e_k \qquad (k = 1, 2, \ldots, n)
+  $$
+\end{thmm}
+
+\begin{remark*}
+  The elements $e_k$ are simultaneous eignvectors for $A$,
+  $$
+  a e_k = \lambda_a e_k \qquad (a \in A)
+  $$
+\end{remark*}
+
+\begin{proof}
+  All ideals of $A$ are two-sided, and so, by Theorem
+  \ref{chap8:thm8.7} $A$ has only\pageoriginale finitely many minimal
+  closed ideals $M_1, \ldots, M_n$ and we have   
+  $$
+  M_i M_j = (0) \quad i \neq j.
+  $$
+\end{proof}
+
+Since $M_i$ is a minimal closed right ideal, it is of the form $e_i A$
+with $e_i \in \mathscr{I}$. Since $e_i A = e_i e_i A = e_i A e_i$,
+($A$ being commutative), $e_i A$ is a closed division semi-algebra
+with unit element $e_i$. 
+
+Suppose now that $e$ is a minimal idempotent. Then $eA$ is a minimal
+closed ideal, and so $eA = M_i = eA_i$ for some $i$. Then $e$ and
+$e_i$ are both unit elements for $M_i$, and so $e = e_i$. 
+
+\begin{thmm}%thm 8.15
+  Let $A$ be a semi-simple, strict, commutative, locally compact
+  semi-algebra, and let $e_1, \ldots,e_n$ be the minimal idempotents
+  of $A$. Then, for each element $a$ of $A$ there exists non-negative
+  real numbers $\lambda_1 , \ldots , \lambda_n$ such that 
+  $$
+  \displaylines{\hfill 
+  ae_i = \lambda_i e_i \quad (i = 1, 2, \ldots,n), \hfill \cr
+  \text{and}\hfill \max \left\{ \lambda_i : 1 \leq i \leq n \right\} =
+  \rho _a \hfill \cr 
+  \text{where} \hfill 
+  \rho_a = \lim_{k \to \infty}|| a^k ||^{1/k},~ \text{ and }~ \rho_a >
+  0 \quad (a \neq 0)\hfill } 
+  $$
+\end{thmm}
+
+\begin{coro*}
+  If also $A$ is prime then there exists exactly one minimal
+  idempotent $e$ and 
+  $$
+  ae = \rho_a e \quad (a \in A).
+  $$
+\end{coro*}
+ 
+\begin{proof}
+  We have already proved in Theorem \ref{chap8:thm8.13} and
+  \ref{chap8:thm8.14} everything except\pageoriginale that  
+  $$
+  \max \lambda_i = \rho_a.
+  $$
+\end{proof}
+
+Let $e = e_1 + \cdots e_n$. Since $A$ is strict, we have
+$$
+(e)_l = \bigcap ^n_{i=1} (e_i)_l
+$$
+
+Also $\bigcap \limits^n_{i=1} (e_i)_l$ is a closed ideal, and so if it
+were non-zero it would contain one of the minimal idempotents $e_i$,
+which is absurd. Therefore $(e)_l = (0)$. 
+
+Let $a \in A$,
+\begin{gather*}
+  K = \inf  \{ || xe || : x \in S_A \}, \lambda = \max (\lambda_1,
+  \ldots , \lambda_n), \\ 
+  \mu = || e_1 || + \ldots + || e_n ||
+\end{gather*}
+Since $K$ is attained and $(e)_l = (0)$, we have $K > 0 $, and so 
+$$
+|| x || \leq K^{-1} || xe || \quad (x \in A)
+$$
+For every positive integer $k$, we have
+$$
+\displaylines{\hfill 
+  a^k e = \lambda^k_1 e_1 + \cdots + \lambda^k_n e_n,\hfill \cr
+  \text{and so}\hfill 
+  || a^k e || \leq \lambda^k \mu.\hfill }
+$$
+Therefore
+$$
+|| a^k || \leq K^{-1} \lambda^k \quad (k = 1, 2, \ldots)
+$$
+On the\pageoriginale other hand, for some $i$ we have $\lambda =
+\lambda_i$, 
+$$
+\displaylines{\hfill a^k e_i = \lambda^k e_i,\hfill \cr
+  \text{and therefore}\hfill 
+  || a^k || \geq \lambda^k\hfill }
+$$
+Therefore $\lambda = \rho_a$, and the proof is complete.
+
+We now consider some concrete semi-algebras. First some semi-algebras
+of matrices. 
+
+Let $n$ be a positive integer, $M_n (R)$ the Banach algebra of all $n
+\times n$ real matrices, $M_n(R^+)$ the semi-algebra of all matrices
+belonging to $M_n(R)$ with all their entries non-negative. Let $X =
+R^{(n)}$ and let $C$ be the positive cone in $R^{(n)}$ consisting of
+all $x = ( \xi_1 , \ldots, \xi_n)$ such that $\xi_i \geq 0~ (i = 1, 2,
+\ldots, n)$. Let $u_i$ be the vector $(0, 0, \ldots, 1, 0, \ldots, 0)$
+with 1 in this $i^{th}$ place and $0$ elsewhere. 
+
+Given a subset $\Delta$ of $(1, 2, \ldots, n)$, let $C_\Delta$ be the
+set of all vectors 
+$$
+x = (\xi_1, \ldots, \xi_n) = \xi_1 u_1 + \cdots + \xi_n u_n,
+$$
+with $\xi_i \geq 0 \; (i=1, 2, \ldots,n), \xi_i = 0(i \notin \Delta)$. We
+call each such cone $C_\Delta$ a \textit{basic cone}, and call $C$ a
+\textit{proper basis cone} if $\Delta$ is a non-empty proper subset of
+$(1, 2, \ldots, n)$. 
+
+Each matrix $a \in M_n (R^+)$ may be regarded as a linear operator in
+$X$ that maps $C$ into itself. Such a matrix is said to be
+\textit{reducible} if there\pageoriginale exists a proper basic cone
+$C$ with  
+$$
+a C_\Delta \subset C_\Delta.
+$$
+
+In term of the entries $\alpha_{ij}$ in the matrix $a$, this is
+equivalent to  
+$$
+i \notin  \Delta, j \in \Delta \quad \alpha_{ij} = 0,
+$$
+for it is equivalent to  
+$$
+au_j \in C \quad (j \in \Delta),
+$$
+and $au_j$ is the vector $(\alpha_{ij}, \alpha_{2j} , \ldots,
+\alpha_{nj})$. For example, if $\Delta = (1, 2, \ldots, r)$, then
+$(\alpha_{ij})$ is of the form 
+$$
+\begin{pmatrix}
+  b & c \\ 
+  o & d 
+\end{pmatrix}
+$$
+where $b$ is an $r \times r$ matrix.
+
+A matrix $a \in M_n (R^+)$ is said to be irreducible if it is not reducible.
+
+Given a subset $E$ of $M_n (R^+)$, let
+$$
+N(E) = \{ x : x \in C \quad \text{ and }~ E_x = (0)\}.
+$$
+
+It follows that if $a$ is an irreducible matrix and $A$ is a
+semi-algebra with 
+$$
+a \in A \subset M_n (R^+),
+$$
+then\pageoriginale $A$ is prime.
+
+For, let $I$, $J$ be non-zero two-sided ideals of $A$ with
+$$
+I J = (0)
+$$
+Since $J \subset N(I)$, we have $N(I) \neq (0)$. Since $I \neq (0)$,
+we have $N(I) \neq C$. Therefore $N(I)$ is a proper basic cone. But
+since $I a \subset I$, we have $a N(I)\bigg\{ N(I)$, so that this
+would imply that a is reducible. \bigg\}
+
+\begin{thmm}%thm 8.16
+  Let $a_0$ be an irreducible matrix belonging to $M_n (R^+)$, and let
+  $A(a_0)$ denote the smallest closed semi-algebra in $M_n (R^+)$ that
+  contains $a_0$. Then there exists an idempotent $e$ of rank $1$ in
+  $A(a_0)$, such that 
+  $$
+  ae = \rho_a e,
+  $$
+  with $\rho_a = \lim \limits _{n \to \infty} || a^n ||^{1/n}$, for
+  every element $a$ of $M_n(R^+)$ that is permutable with $a_0$. 
+\end{thmm}
+
+\begin{proof}
+  Let $A$ be a closed commutative semi-algebra with
+  $$
+  a_0 \in A \subset M_n (R^+).
+  $$
+\end{proof}
+
+Then $A$ is a strict, prime, commutative, locally compact
+semi-\break algebra, and therefore there exists a unique minimal idempotent
+$e_A$ in $A$ and 
+$$
+ae_A = \rho_a e_A \quad (a \in A)
+$$
+In particular 
+$$
+a_0 e_A = \rho_{a_0} e_A.
+$$\pageoriginale
+By a theorem of Function (Gantmacher, Theory of matrices, Vol. 2),
+$\rho_{a_0}$ is a simple eigenvalue of the irreducible matrix
+$a_0$. Therefore 
+$$
+X = (u) + Y
+$$
+where $(u)$ is the one-dimensional null-space of $a_0 - \rho_{a_0}.1$,
+and $Y$ is the range of this matrix. By a straight-forward argument,
+using the fact that the restriction of $a_0 - \rho_{a_0}.1$ to $Y$ is
+nonsingular, we have 
+$$
+e_A u = u, e_A Y = (0)
+$$
+
+In fact
+$$
+\displaylines{\hfill (a_o - \rho_{a_o}.1) e_A = 0\hfill \cr
+  \text{and so}\hfill 
+  (a_0 - \rho_{a_0}.1) e_A X = (0)\hfill \cr
+  \hfill e_A X \subset (u)\hfill }
+$$
+Since $e_A \neq 0$, this gives $e_A X =(u), (u)$ being one
+dimensional. Also, since 
+$$
+\displaylines{\hfill 
+  e_A (a_0 - \rho_{a_o}.1) = 0, \text{ and }~ (a_0 - \rho_{a_0}.1)Y =
+  Y,\hfill \cr
+  \text{we have}\hfill 
+  e_A Y = e_A (a_0 - \rho_{a_0}.1) Y = (0). \hfill }
+$$
+
+This\pageoriginale proves that $e_A$ is the unique projection with
+$e_A u =u $ and $e_A Y =(0)$.  
+
+Therefore $e_A$ is independent of the choice of the commutative
+semi-algebra $A$ containing $a_o$, and so 
+$$
+e_A \in A(a_0).
+$$
+
+Finally given any matrix $a$ in $M_n(R^+)$ with $aa_0 = a_0 a$, there
+exists a closed commutative semi-algebra $A$ in $M_n(R^+)$ that
+contains a and $a_0$. 
+
+\begin{example*}
+  For $n= 2$, if
+  $$
+  a_0 = 
+  \begin{pmatrix}
+    1 & 1 \\
+    1 & 1
+  \end{pmatrix}
+  $$
+  then $e = \dfrac{1}{2} a_0$ is a minimal idempotent in $A(a_0),
+  A(a_0) = R^+ a_0$. 
+\end{example*}
+
+$a = \begin{pmatrix} \alpha_{11} & \alpha_{12} \\ \alpha_{21} &
+  \alpha_{22}\end{pmatrix}$ commutes with $a_0$ if and only if
+$\alpha_{11} = \alpha_{22}$ and $\alpha_{12} = \alpha_{12}$, i.e., if
+and only if 
+$$
+a = 
+\begin{pmatrix}
+  \alpha & \beta\\
+  \beta & \alpha
+\end{pmatrix}
+$$
+Then $ae = (\alpha + \beta)e$. (Note all such $a$ are in $A(a_0)$).
+
+
+\medskip
+\noindent\textbf{Examples of semi-algebras of functions.}
+
+Let $E$ denote a topological space, $B(E)$ the Banach algebra of all
+bounded continuous real functions on $E$, and let $A$ be a locally
+compact semi-algebra in $B(E)$. At the beginning of this chapter we
+saw an example of such a semi-algebra $A$ that had infinite
+dimension. In this particular example $E$ was not connected and $A$
+was a type 2 semi-algebra.\pageoriginale (We say that a semi-algebra $A$ in
+$B(E)$ is of type $n$ if $f \in A \Rightarrow \dfrac{f^n}{1+f} \in
+A$.) 
+
+In both these respects our example was as simple as possible. Such an
+example cannot have $E$ connected and cannot be of type $1$. In fact
+we can prove that the following propositions hold for any locally
+compact semi-algebra $A$ in $B(E)$. 
+\begin{enumerate}[a)]
+\item If $A$ contains a non-constant function, then $E$ is not connected.
+\item If $A$ is of type 1, then each element of $A$ is constant on
+  each connected subset of $E, A$ contains a finite set $\chi_1
+  ,\ldots, \chi_n$ of characteristic functions of subsets of $E$, and
+  each element $f$ of $A$ is a linear combination of these
+  characteristic functions with non-negative coefficients. 
+\end{enumerate}
+$$
+f = \sum^n_{i=1} \lambda_i ~ \chi_i , \quad (i = 1, 2, \ldots, n).
+$$
+
+It is obvious that any semi-algebra in $B(E)$ is semi-simple and
+commutative. Let $A$ contain a non-constant function. Since $A$ is
+semi-simple it contains a minimal idempotent $\chi$, and is the
+characteristic function of a set that is both open and closed. We have
+$\chi \neq 0$, and so if $\chi \neq 1$, then $E$ is not connected. 
+
+Suppose that $\chi = 1$ and that $E$ is connected. Then
+$$
+A = A \chi
+$$
+is a\pageoriginale division semi-algebra. If $f \in A$ and $f$ is not
+constant, then 
+$f$ has an inverse in $A$, and so, for every $t, f(t)\neq 0$. Since
+$E$ is connected, we have either $f(t) > 0 $, for all $t$ or $f(t) <
+0$ for all $t$. The second possibility cannot occur since $f+ \lambda
+\chi \in A \; (\lambda \geq 0)$. Therefore all non-constant functions in
+$A$ are contained in $B^+(E)$. Since $A$ contains a non-constant
+function, it follows that in fact $A \subset B^+ (E)$, for if $A$
+contains a negative constant function it also contains a non-constant
+function that is not in $B^+(E)$. 
+
+Since $A \subset B^+ (E), \quad A$ is strict, and so
+$$
+A = A \chi = R^+ \chi,
+$$
+i.e., $A$ contains only constant functions and (a) is proved.
+
+b)~ Suppose $A$ is of type 1. Given $ f \in A$, and $\alpha > 0$, let
+$$
+E(f, \alpha) = \{ x : f(x) \geq \alpha \},
+$$
+and let $\chi_{f, \alpha}$ denote the characteristic function $f$ of
+$E(f, \alpha)$. 
+
+We prove that $\chi_{f, \alpha} \in A$. Let $g_1 = \dfrac{1}{\alpha}f$, and
+$$
+\displaylines{\hfill 
+  g_{n+1} = \frac{2g^2_n}{1+g^2_n} \qquad (n= 1, 2, \ldots) \hfill \cr
+  \text{ Then } \hfill \lim_{n \to \infty} g_n (t) = \chi_{f,
+    \alpha}(t) \quad (t \in E) \hfill } 
+$$
+
+Since $(g_n)$ is a bounded sequence of elements of $A$, it has a
+uniformly convergent subsequence, and so $\chi_{f, \alpha} \in A$. 
+
+Let\pageoriginale $E_0$ be a subset of $E$, and $f$ an element of $A$
+that is not 
+constant on $E_0$, then we can choose points $s$, $t$ in $E_0$ and a
+real number $\alpha$ with 
+$$
+f(s) < \alpha < f (t).
+$$
+We have $\alpha > 0$, and since $\chi_{f, \alpha} \in A$, $E(f,
+\alpha)$ is both open and closed. But $t \in E (f, \alpha)$ and $s
+\notin E(f, \alpha)$, and so $E_0$ is not connected. 
+
+Let $\triangle$ denote the set of all characteristic functions that
+belongs to $A$. Then $\triangle$ is a finite set, for if $(\chi_n)$ were
+an infinite sequence of distinct elements of $\triangle$, it would
+have a uniformly convergent subsequence which is absurd, since 
+$$
+|| \chi_p - \chi_q || = 1 \; (p \neq q)
+$$
+We show that each element of $A$ is a non- negative linear combination
+of the elements of  
+
+Give $f \in A$, we have $\chi_{f, \alpha} \in \triangle$ for every
+$\alpha > 0$, and so $f$ takes only a finite set of different values
+$\alpha_1, \ldots , \alpha_n$ say with $0 < \alpha_1 < \cdots <
+\alpha_n$, and perhaps also the value 0. Let  
+$$
+h_i = \chi_{f, \alpha_i} \; (i =1, \ldots , n),
+$$
+and consider the function	
+$$
+h = \alpha_1 h_1 \sum^n_{i = 2} (\alpha_i - \alpha_{i -1}) h_i
+$$
+If\pageoriginale $f (t) = \alpha_k $, then
+$$
+\displaylines{\hfill 
+  h_i (t) =
+  \begin{cases}
+    0 & (i > k) \\ 1 & (i \leq k)
+  \end{cases} \hfill \cr
+  \text{and so}\hfill  
+  h(t) = \alpha_1 + \sum^k_{i = 2} (\alpha_i - \alpha_{i-1}) =
+  \alpha_k.\hfill } 
+$$
+
+Also, if $f(t) = 0$, then $h_i(t) =0 \; (i = 1, 2, \ldots , )$, and so
+$h(t) = 0$. Thus $f = h$, and we have proved (b) 
+
+
+
+\chapter*{Appendix The Schauder theorem for locally convex spaces}
+
+In Chapter \ref{chap3},\pageoriginale I asked whether the
+Schauder fixed point in its full generality (Theorem
+\ref{chap2:thm2.2}) is true for locally convex spaces, and 
+pointed out that this question did not seem to be answered in the
+literature. I am very much indebted to $B. V$. Singbal who showed that
+this question could be settled affirmatively by using a technique due
+to Nagumo. The resulting proof of the general Schauder fixed point
+theorem is in my view the simplest proof even for the special case of
+normed spaces. 
+
+\begin{lemma*}{\rm(Nagumo \cite{key24}).}
+  Let A be a compact subset of a locally convex l.t.s $E$, and $V$ be
+  a neighbourhood of 0 in $E$. Then there exists a finite set $a_1,
+  \ldots, a_m$ of points of A and continuous mapping $S$ of $A$ into
+  the convex hull of $a_1, \ldots , a_m$ such that  
+  $$
+  Sx - x \in V \; (x \in A).
+  $$
+\end{lemma*}
+
+\begin{proof}
+  Let $W$ be an open convex symmetric neighbourhood of 0 with $W \subset
+  V$. Since $A$ is compact, there exists a finite set $a_1, \ldots ,
+  a_m$ in A such that  
+  \begin{equation*}
+    A \subset \bigcup^n_{i = 1} (a_i + W). \tag{1}\label{chap8:appen1}
+  \end{equation*}
+\end{proof}
+
+Let\pageoriginale $P_W$ denote the Minkowski functional of $W$. Since
+$W$ is open,  
+\begin{equation*}
+  x \in W \Leftrightarrow p_W (x) < 1 \tag{2}\label{chap8:appen2}
+\end{equation*}
+By (\ref{chap8:appen1}) and (\ref{chap8:appen2}), for each $x \in A$,
+there exists some $i$ with 
+$$
+P_W (x - a_i) < 1.
+$$
+
+Let $S$ be the mapping of $A$ into $E$ defined by 
+$$ 
+\displaylines{\hfill 
+  Sx = \left[ \sum^m_{i = 1}q_i (x) \right]^{-1} \sum^m_{i = 1} q_i (x)
+  a_i \;\; (x \in A), \hfill \cr
+  \text{where}\hfill 
+  q_i (x) = \max \{1 - p_w (x - a_i), 0 \}.\hfill }
+$$
+
+For each $x$ in A, there is at least one $i$ with $q_i(x) > 0$. Since
+also $q_i (x) \geq 0$ for all $i$, it follows that $S$ is defined and
+continuous on $A$ and that it maps $A$ into the convex hull of $a_1,
+\ldots, a_m$. For any $i$ with $p_w (a_i - x) \geq 1$, we have $q_i
+(x) = 0$, and therefore 
+$$
+\displaylines{\hfill 
+  p_W (Sx - x) < 1 \; (x \in A),\hfill \cr
+  \text{i.e.,}\hfill 
+  Sx - x \in W \subset V \; (x \in A).\hfill }
+$$
+
+The mapping $S$ constructed in the above Lemma serves essentially the
+purpose for which we used the metric projection in Chapter
+\ref{chap2}.  
+
+\begin{theorem*}{\rm (Singbal).}
+  Let\pageoriginale $E$ be a locally convex Hausdorff l.t.s., $K$ a
+  non empty closed 
+  convex subset of $E, T$ a continuous mapping of $K$ into a compact
+  subset of $K$. Then $T$ has a fixed point in $K$.  
+\end{theorem*}
+
+\begin{proof}
+  Let $T$ map $K$ into $A \subset K$, with A compact. For each
+  neighbourhood $V$ of 0, there exists a convex hull $K_V$ of a
+  finite subset of $A$ and a continuous mapping $S_V$ of $A$ into
+  $K_V$ such that 
+  \begin{equation}
+    S_V x - x \in V \; (x \in A). \tag{1}\label{chap8:proof1}
+  \end{equation}
+\end{proof}
+
+Since $K$ is convex and $A \subset K$, we have $K_V \subset K$. Let
+$T_V$ be the mapping 
+$$
+T_V = S_V o T
+$$
+of  $K_V$ into itself. By the Brower fixed point theorem $T_V$ has a
+fixed point $x_V$ in $K_V$, 
+\begin{equation}
+  T_V x_V = x_V \tag{2}\label{chap8:proof2}
+\end{equation}
+Since $x_V \in K_V \subset K$, we have $Tx_V \in A$. Since A is
+compact, there exists a point u of $A$ such that every neighbourhood
+of $u$ contains points $x_V$ corresponding to \textit{ arbitrarily
+  small } $V$, i.e. given neighbourhoods $G, H$ of $0$, there exists a
+neighbourhood $V$ of $0$ such that 
+\begin{equation}
+  (i) V \subset G, (ii) x_V \in u + H \tag{3}\label{chap8:proof3}
+\end{equation}
+
+Since\pageoriginale $u \in K$ and $T$ is continuous in $K$, given an
+arbitrary neighbourhood $G$ of $0$, there exists a neighbourhood $H$
+of $0$ such that   
+\begin{equation}
+  x \in (u + H) \cap K \Rightarrow T x \in Tu + G ,
+  \tag{4}\label{chap8:proof4} 
+\end{equation}
+and by (\ref{chap8:proof3}) there exists a neighbourhood $V$ of 0 such that
+\begin{equation}
+V \subset G, x_V \in u + (H \cap G). \tag{5}\label{chap8:proof5}
+\end{equation}
+Since $x_V \in K_V \subset K$, it follows from (\ref{chap8:proof4})
+that we then have, for such $V$, 
+\begin{equation}
+  T x_V \in Tu + G. \tag{6}\label{chap8:proof6}
+\end{equation}
+
+Since $T K \subset A$, (\ref{chap8:proof1}) gives 
+$$
+S_V Tx - Tx \in V \; (x \in K),
+$$
+and, in particular,
+\begin{equation*}
+  x_V - Tx_V = T_V x_V - Tx_V = S_V Tx_V - Tx_V \in V \subset G
+  \tag{7}\label{chap8:proof7} 
+\end{equation*}
+
+Since
+$$
+  u - Tu = (u - x_V) + (x_V - Tx_V) + (Tx_V - Tu),
+$$
+(\ref{chap8:proof5}), (\ref{chap8:proof6}) and (\ref{chap8:proof7}) give
+$$
+u - Tu \in - G + G + G.
+$$
+
+Since $G$ is an arbitrary neighbourhood of 0, it follows that $u -
+Tu = 0$. 
+ 
+\begin{thebibliography}{99}
+\bibitem{key1} {P. Alexandroff\pageoriginale and H. Hopf}, Topologie.
+
+\bibitem{key2} {N. Aronszajn}, Le correspondant topologique de l'
+  unicite dans las theorie des equations differentialles, Ann. of
+  Math. (2), 43 (1942), 730-738. 
+
+\bibitem{key3} {F. F. Bonsall}, Sublinear functionals and ideals in
+  partially ordered vector spaces, Proc. London Math. Soc. 4 (1954),
+  402 - 418. 
+
+\bibitem{key4} {-----------}, Endomorphisms of partially ordered vector
+  spaces, J. London Math. Soc 30 (1955), 133-144. 
+
+\bibitem{key5} {-----------}, Endomorphisms of partially ordered vector
+  spaces without order unit, J. London Math. Soc. 30 (1955),
+  144-153. 
+
+\bibitem{key6} {-----------}, Linear operators in complete positive
+  cones, Proc. London Math. Soc. (3) 8 (1958), 53 - 75. 
+
+\bibitem{key7} {-----------}, The iteration of operator mapping a
+  positive cone into itself, J. London Math. Soc. 34 (1959),
+  364-366. 
+
+\bibitem{key8} {-----------}, A formula for the spectral family of an
+  operator, J. London Math. Soc. 35 (1960), 321-333. 
+
+\bibitem{key9} {-----------}, Positive operators compact in an auxiliary
+  topology, Pacific J. Math. 1960, 1131 - 1138. 
+
+\bibitem{key10} {M. S. Brodsku\pageoriginale and D. P. Milman}, On the
+  centre of a   convex set, Doklady Akad. Nauk S. S. S. R (N.S),  59
+  (1948), 837-840. 
+
+\bibitem{key11} {F. E. Browder}, On a generalization of the Schauder
+  fixed point theorem, Duke Math. J., 26 (1959), 291-303. 
+
+\bibitem{key12} {J.A. Clarkson}, Uniformly convex spaces,
+  Trans. Amer. Math. Soc., 40 (1936), 396-414 
+
+\bibitem{key13} {M. M. Day}, Normed lineat spaces, Berlin (1958). 
+
+\bibitem{key14} {N. Dunford and J.T. Schwartz}, Linear operators, Part
+  I, New York (1958). 
+
+\bibitem{key15} {M. Edelstein}, An extension of Banach contraction
+  principle, Proc. Amer. Math. Soc (1961). 
+
+\bibitem{key16} {M. Edelstein}, On fixed points and periodic points
+  under contraction mappings, J. London Math. Soc.,  37, 74-79. 
+
+\bibitem{key17} {R. V. Kadison}, A representation theory for a
+  commutative topological algebra, Memoirs Amer. Math. Soc 7 (1951). 
+
+\bibitem{key18}{S. Karlin}, Positive operators, J. Math. Mech 8 (1959),
+  907-937. 
+
+\bibitem{key19}{ M.A. Krasnoselsku}, Two remarks on the method of
+  successive	approximations, Uspehi, Math. Nauk (N.S), 10, No 1
+  (63), (1955), 123 - 127 (Russian). 
+
+\bibitem{key20} {M.G. Krein and M.A. Rutman}, Linear operators leaving
+  invariant a cone in a Banach space, Uspehi, Math - Nauk (N.S) 3,
+  No. 1 (23), (1943), 3-95, Russian (English Translation:
+  Amer. Math. Soc. Tran. no 26). 
+
+\bibitem{key21} {M. Krein\pageoriginale and V}. Smulian, On regularly
+  convex sets in  the space conjugate to a Banach space, Ann. of
+  Math. 41 (1940), 556 - 583. 
+
+\bibitem{key22} {A.C. Mewborn}, Generalization of sometheorems on
+  positive matrices to completely continuous linear transformations in
+  a normed linear space, Duke Math. Journal, 27 (1960), 273 -
+  281. 
+
+\bibitem{key23} {D. Morgenstern}, Thesis (T. U Berlin 1952, quoted in
+  Algebraische Integral gleichugen II, by W. Schmeidler,
+  Math. Nachr. 10 (1953), 247-(255) 
+
+\bibitem{key24} {M. Nagumo}, Degree of mapping in convex linear
+  topological spaces, Amer. J. Math. 73, 497-511 (1951).  
+
+\bibitem{key25} {H.H. Schaefer}, Positive transformationen in
+  halbgeordneten lokalkonvexen vekorraumen, Math. Ann. 129, (1955)
+  323-329. 
+
+\bibitem{key26} {----------}, Uber die Methode Sukzessver approximation,
+  Jahres Deutsch Math. Verein 59 (1957), 131-140. 
+
+\bibitem{key27} {----------}, Halbeordnete lokalkonvexe Vektorraume,
+  Math. Ann. 135 (1958), 115-141. 
+
+\bibitem{key28} {----------}, Halbgeordnete lokalkonvexe Vktorraume
+  II, Math. Ann. 138 (1959), 259-286. 
+
+\bibitem{key29} {----------}, On nonlinear positive operators, Pacific
+  J. Math. 9 (1959), 847-860. 
+
+\bibitem{key30} {----------}, Some spectral properties of positive
+  linear operators, Pacific J. Math. (1960), 1009-1019. 
+
+\bibitem{key31} {J. Schauder},\pageoriginale Zur Theorie stetiger
+  Abbildun gen in  Function alraumen, Math. Z. 26 (1927), 47-65,
+  417-431.  
+
+\bibitem{key32} {---------}, Der fixpunktsatz in Funktionalramen, Studia
+  Math. 2 (1930), 171-180. 
+
+\bibitem{key33} {K. L. Stepaniuk}, uelques generalisations du principe
+  du point stationnarire, Ukrain Mat. Z. 9 (1957), 105-110 (Russian). 
+\end{thebibliography}
+

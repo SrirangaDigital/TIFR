@@ -1,0 +1,813 @@
+\chapter{Fixed point theorems in normed linear spaces}\label{chap2}
+
+In Chapter\pageoriginale \ref{chap1}, we proved fixed  point
+theorems in 
+metric spaces 
+without any algebraic structure. We now consider spaces with a linear
+structure but non-linear mappings in them. In this chapter we restrict
+our attention to normed spaces, but our main result will be extended to
+general locally convex spaces in Chapter \ref{chap3}. 
+
+\begin{Definition}%def 2.1
+  Let $E$ be a vector space over. A mapping of $E$ into $R$ is called
+  a norm on $E$ if it satisfies the following axioms. 
+\end{Definition}
+
+\begin{enumerate}[i)]
+\item $p(x) \geq 0 \; (x \in E)$
+
+\item $p(x) = 0$ if and only if $x=0$
+
+\item $p(x+y) \leq p(x) + p(y) \; (x,y \in E)$.
+\end{enumerate}
+
+A vector space $E$ with a specified norm on it called a normed
+space. The norm of an element $x \in E$ will usually be denoted by
+$|| x||$. A normed space is a metric space with the metric $d(x,y)=
+x-y \; (x,y \varepsilon E)$ and the corresponding metric topology is
+called the 
+normed topology. A normed linear space complete in the metric defined
+by the norm is called a Banach space. We now recall some definitions
+and well known properties of linear spaces. Two norms $p_1$ and $p_2$
+on a vector  space $E$ are said to be equivalent if there exist
+positive constants $k$, $k'$ such that 
+$$
+p_1 (x) \leq k p_2 (x) , \; p_2 (x) \leq k' p_1 (x)\; (x \in E)
+$$
+Two\pageoriginale norms are equivalent if and only if they define the
+same topology. 
+
+\begin{Definition}%def 2.2
+  A mapping $f$ of a vector space $E$ into $R$ is called a linear
+  functional on $E$ if it satisfies 
+\begin{enumerate}[i)]
+\item $f(x+y) = f(x) + f(y)\; (x,y \in E)$
+
+\item $f (\alpha x)  = \alpha f (x) \; (x \in E, \alpha\in R )$. 
+\end{enumerate}
+
+\noindent
+A mapping $p : E \to R$ is called a sublinear functional if 
+
+\begin{enumerate}[i)$'$]
+\item $p (x + y ) \leq p(x) + p(y) \; (x,y \in E)$
+
+\item $p(\alpha x ) = \alpha p (x) \; (x \in E, \alpha \geq 0)$.
+\end{enumerate}
+\end{Definition}
+
+\noindent
+\textbf{Hahn-Banach Theorem}. Let $E_0$ be a subspace of a vector
+space $E$ over $R$; let $p$ be a sublinear functional on $E$ and let 
+$f_0$ be a linear functional on $E_0$ that satisfies 
+$$
+f_0 (x) \leq p (x)\; (x \in E_0).
+$$
+
+Then there exists a linear functional $f$ on $E$ that satisfies
+\begin{enumerate}[i)]
+\item $f(x) \leq p(x) \; (x \in E)$,
+
+\item $f(x) = f_0 (x) \; (x \in E_0)$.
+\end{enumerate}
+
+\noindent
+[For the proof refer to Dunford and Schwartz  (\cite{key14}, p. 62) or  Day
+  \cite[p.9]{key13}]. 
+
+\begin{coro*}%coro 0
+  Given a sublinear functional on $E$ and $x_0 \in E$, there exists a
+  linear functional $f$ such that 
+  $$
+  f (x_0) = p(x_0), \; f(x) \leq p(x) \; (x \in E).
+  $$
+\end{coro*}
+
+In particular, a norm being a sublinear functional, given a point
+$x_0$ of a\pageoriginale normed space $E$, there exists a linear
+functional $f$ on $E$ such that  
+$$
+|f(x)| \leq ||x || \; (x \in E) \text{~ and~ } f(x_0) = x_0
+$$
+
+\begin{defi*}%def 0
+  A norm $p$ on a vector space $E$ said to be strictly convex if $p
+  (x+y) = p(x) + p(y)$ only when $x$ and $y$ are linearly dependent. 
+\end{defi*}
+
+\setcounter{thmm}{0}
+\begin{thmm}[Clarkson]\label{chap2:thm2.1}%the 2.1
+  If a normed space $E$ has a countable everywhere dense subset, then
+  there exists a strictly  convex norm on $E$ equivalent to the given
+  norm. 
+\end{thmm}
+
+\noindent \textit{Proof.}
+  Let $S$ denote the surface of the unit ball in $E$,
+  $$
+  S = \{ x : ||x|| = 1 \}
+  $$
+  Then there exists a countable set $(x_n)$ of points of $S$ that is
+  dense in $S$. For each $n$, there exists a linear functional $f_n$
+  on $E$ such  that
+  \begin{equation*}
+  f_n (x_n) = || x_n|| =1 \text{~ and~ } |f_n (x)| \leq || x|| \; (x \in
+  E).\tag*{$\Box$} 
+  \end{equation*}
+
+If $x\neq 0$, then $f_n (x) \neq 0$ for some $n$. For, by
+homogeneity, it is enough to consider $x$ with $||x|| =1$, and for such
+$x$ there exists $n$ with $|| x - x_n || < \dfrac{1}{2}$. But then 
+\begin{gather*}
+  f_n (x) = f_n (x_n) + f_n (x-x_n) \geq 1-f_n (x-x_n)\\
+  \geq 1- || x-x_n|| > \frac{1}{2}
+\end{gather*}
+
+We now\pageoriginale take $p(x) = || x || + \left\{
+\sum\limits_{n=1}^{\infty} 
+2^{-n} (f_n (x))^2 \right\}^{\frac{1}{2}}$. It is easily verified
+that $p$ is a norm on $E$ and that 
+$$
+||x|| \leq p (x) \leq 2 || x||.
+$$
+
+Finally $p$ is strictly convex. To see this, suppose that 
+$$
+p (x + y) = p(x) + p(y),
+$$
+and write $\xi _n = f_n (x), y_n = f_n (y)$. Then
+$$
+\left\{\sum_{n=1}^{\infty} 2^{-n} (\xi_n + \eta_n)^2 \right\}
+^{\frac{1}{2}}= \left\{\sum_{n=1}^{\infty} s^{-n} \xi ^2_n \right\}
+^{\frac{1}{2}}+\left\{\sum_{n=1}^{\infty} 2^{-n} \eta^2_n \right\}^{\frac{1}{2}} 
+$$
+and we have the case of equality in Minkowsiki's inequality. It
+follows that the sequence $(\xi_n)$ and $(\eta_n)$ are linearly
+dependent. Thus there exist $\lambda, \nu$, not both zero, such that 
+$$
+\lambda \xi _{n}+ \mu \eta _n = 0 \; (n=1, 2, \ldots)  
+$$
+But this implies that 
+$$
+f_n (\lambda x + \mu y) = 0 \; (n=1, 2, \ldots),
+$$
+and so $\lambda x + \mu y = 0$. This completes the proof.
+
+\setcounter{section}{2}
+\begin{lemma}\label{chap2:lem2.1}%lem 2.1x
+  Let $K$ be a compact convex subset of a normed space $E$ with a
+  strictly convex norm. Then to each point $x$ of $E$ corresponds a
+  unique point $Px$ of $K$ at $K$ at minimum distance from $x$,
+  i.e., with 
+  $$
+  || x - Px || = \inf \{ || x-y || : y \varepsilon K \}
+  $$ 
+  and the\pageoriginale mapping $x \to Px$ is continuous in $E$.
+\end{lemma}
+
+\begin{proof}
+  Let $x \in E$, and let the function $f$ be defined on $K$ by $f (y)
+  = || x-y||$. Then $f$ is a continuous mapping of the compact set $K$
+  into $\mathbb{R}$ and therefore attains its minimum at a point $z$
+  say of $K$ 
+  \begin{equation*}
+  || x - z || = \inf \{ || x-y || : y \in  K \}.\tag*{$\Box$}
+  \end{equation*}
+
+Evidently for $x \in K$, $z = x$ is uniquely determined. If $x \not\in
+K$, suppose that $z'$ is such that 
+\begin{equation*}
+  0 \neq || x-z|| = || x-z'|| \tag{1}
+\end{equation*}
+since $K$ is convex, $y = \dfrac{1}{2} (z+z') \in K$ and therefore 
+$$
+|| x-y|| \geq || x-z|| = || x-z'|| = \frac{1}{2} || x-z|| +
+\frac{1}{2} || x-z'|| 
+$$
+But 
+$$
+\displaylines{\hfill 
+  (x - y) = \dfrac{1}{2} (x-z) + \dfrac{1}{2} (x-z'),\hfill \cr 
+  \text{so that}\hfill 
+  || x-y|| \leq \frac{1}{2}|| x-z'|| + \frac{1}{2} || x-z'||\hfill }
+$$
+Hence $|| x-y|| = || \dfrac{1}{2} (x-z) + \dfrac{1}{2} (x-z') || =
+||\dfrac{1}{2} (x-z)|| + || \dfrac{1}{2} (x-z')||$ 
+
+As the norm is strictly convex,
+$$
+\lambda (x-z) + \mu (x-z') = 0
+$$
+for $\lambda, \mu$ not both zero. By $(1), | \lambda | = | \mu|$ and
+so $x-z = \pm (x-z')$. If $x-z = - (x-z')$, then $x= \dfrac{z+z'}{2}
+\in K$, which is not true. Hence $x-z = x-z'$ or $z = z'$. This proves
+that the mapping $x \to Px = z$ is uniquely on $E$. Given $x,x'\in E$, 
+$$
+|| x - Px || \le || x - Px' || \le || x - x' || + || x' - Px'||,
+$$\pageoriginale
+and similarly $|| x'- Px' | | \le || x -x' || + || x - Px ||$. So
+\begin{equation*}
+  |~~ || x - Px || - ||  x' - Px' ||~~ | \le  ||x - x'|| \tag{2}
+\end{equation*}
+
+Let $x_n \in E (n = 1,2, \ldots)$ converge to $x \in E$. Then the
+sequence $Px_n$ in the compact metric space $K$ has a subsequence
+$Px_{n_k}$ converging to $y \in K$. Then 
+\begin{equation*}
+  \lim\limits_{k \to \infty} || x_{n_k} - Px_{n_k} || = || x - y || \tag{3}
+\end{equation*}
+
+By (2) $|~~ || x_n - Px_n || - || x - Px ||~~| \le || x_n - x || \to
+0$ as $n \to \infty$, and so $||x -y || = || x - Px ||$. Hence $Px = y
+i.e. \lim\limits_{k \to \infty}  Px_{n_k} = Px$. Thus if $(x_n)$
+converges to $x, (Px_n)$ has a subsequence converging to $Px$ ans so
+every subsequence of $(Px_n)$ has a subsequence converging to
+$Px$. Therefore $(Px_n)$ converges to $Px$ and $P$ is continuous. 
+\end{proof}
+
+\begin{Definition}%def 2.3
+  The mapping $P$ of Lemma \ref{chap2:lem2.1} is called the metric
+  projection onto $K$. 
+\end{Definition}
+
+\begin{Definition}%defi 2.4
+  A subset $A$ of a normed space is said to be bounded if there exists
+  a constant $M$ such that $||x|| \le M\; (x \in A)$. 
+\end{Definition}
+ 
+ We now state without proof three properties of finite dimensional
+ normed spaces. 
+ 
+ \begin{lemma}%2.2
+ Every finite dimensional normed space is complete.
+ \end{lemma} 
+
+ \begin{lemma}\label{chap2:lem2.3}%lem 2.3
+ Every bounded closed subset of a finite dimensional norm\-ed space is compact.
+ \end{lemma} 
+
+\begin{lemma}[Brouwer fixed point theorem]%lemm 2.4
+  Let $K$ be a non-empty compact\pageoriginale convex subset of a
+  finite dimensional normed space, and let $T$ be a continuous mapping
+  of $K$ into itself. Then $T$ has a fixed point in $K$.  
+\end{lemma} 
+
+The proofs of the first two of these Lemmas are elementary. (Refer to
+Dunford and Schwartz \cite[p. 244-245]{key14}.) The Brouwer fixed point
+theorem on the other hand is far from trivial. For a proof using some
+elements of algebraic topology refer to P. Alexandroff and H. Hopf
+(\cite{key1}, p.376-378). A proof of a more analytical kind is given by
+Dunford ans Schwartz (\cite{key14}, p.467). 
+
+\begin{thmm}[Schauder]\label{chap2:thm2.2}%the 2.2
+  Let $K$ be a non-empty closed convex subset of a normed space. Let
+  $T$ be a continuous mapping of $K$ into a cumpact subset of
+  $K$. Then $T$ has fixed point in $K$. 
+\end{thmm} 
+
+\begin{proof}
+  Let $E$ denote the normed space and let $T K \subset A$, a compact
+  subset of K. A is contained in a closed convex bounded subset of
+  $E$. 
+ $$
+ T(B \cap K) \subset T (K) \subset A \subset B
+ $$
+ so $T(B \cap K)$ is contained in a compact subset of $B$, $K$ and there
+ is no loss of generality in supposing that $K$ is bounded. If $A_0$
+ is a countable dense subset of the compact metric space $A$, then the
+ set of all rational linear combinations of elements of $A_0$ is a
+ countable dense subset of the closed linear subspace $E_0$ spanned by
+ $A_0$ and $A \subset E_0$ . Then $T (K \cap E_0) \subset T (K)
+ \subset A$, a compact subset of $E_0$, and $K \cap E_0$ is closed and
+ convex. Hence without loss of generality we may assume that $K$ is a
+ bounded closed convex subset of a separable normed space $E$ with a
+ strictly convex norm (Theorem \ref{chap2:thm2.1}). 
+\end{proof}
+
+ Given\pageoriginale a positive integer $n$, there exists a $\dfrac{1}{n}$-net
+ $Tx_1, \ldots, Tx_m$ say in $T K $, so that 
+\begin{equation}
+  \min\limits_{1 \le k \le n} || Tx - Tx_k || < \frac{1}{n} \; (x \in K)
+  \label{chap2:tag1} 
+\end{equation} 
+ 
+Let $E_n$ denote the linear hull of $Tx_1,\ldots, Tx_m$. $K_n = K \cap
+E_n$ is a closed bounded subset of $E_n$ and therefore compact (Lemma
+\ref{chap2:lem2.3}). Since the norm is strictly convex, the metric
+projection $Pn$ of 
+$E$ onto the convex compact subset $Kn$ exists. $T_n = P_n T$ is a
+continuous mapping of the non-empty convex compact subset $Kn$ into
+itself, and therefore by the Brouwer fixed point theorem, it has a
+fixed point $u_n \varepsilon  K_n$, 
+\begin{equation}
+  T_n u_n = u_n \label{chap2:tag2}
+\end{equation}
+ 
+By (\ref{chap2:tag1}), since $Tx _k \in K_n \; (k = 1, 2, \ldots, m)$, we have
+\begin{equation*}
+  || Tx - T_n x || < \frac{1}{n} \tag{3}\label{chap2:tag3}
+\end{equation*} 
+ 
+The sequence $\{Tu_n\}$ of $T K $ has a subsequence $Tu_{n_k}$
+converging to a point $v \in K$. By (\ref{chap2:tag2}) and
+(\ref{chap2:tag3}), $|| u_{n_k} - v || 
+= || T_{n_k} u_{n_k} - v|| \le || T_{n_k} u_{n_k} - Tu_{n_k} || + ||
+Tu _{n_k} - v || < \dfrac{1}{n} + || Tu_{n_k} - v|| $. Therefore,
+$\lim\limits_{k \to \infty} u_{n_k} = u$, and by continuity of $T,
+\lim\limits_{k \to \infty} Tu_{n_k} = Tv$ or $Tv = v$. 
+
+\begin{example*}%exam 0
+  Suppose that a function $f(x, y)$ of two real variables is
+  continuous on a neighbourhood of $(x_0, y_0)$. Then we can choose
+  $\varepsilon > 0$ such that $f$ is continuous in the rectangle 
+ $$
+ |x -x_0| \le \varepsilon, |y - y_0| \le m \varepsilon
+ $$\pageoriginale
+ and satisfies there the inequality 
+ $$
+ |f (x, y)| \le m.
+ $$
+\end{example*}
+
+ Let $E$ denote the Banach space $C_R [x_0 - \varepsilon$, $x_0 +
+   \varepsilon]$, which is a Banach space with the 
+ uniform norm 
+ $$
+ || \varphi || = \sup \bigg\{ | \Phi (t) | : |t - x_0| \le \varepsilon
+ \bigg\} 
+ $$ 
+ 
+ Let $K$ be the subset of $E$ consisting of all continuous mappings of
+ $[x_0 - \varepsilon, x_0 + \varepsilon]$ into $[y_0- m \varepsilon,
+   y_0 + m \varepsilon]$. Then $K$ is a bounded closed convex subset
+ of $E$. Let $T$ be the mapping defined on $K$ by 
+ $$
+ (T \phi) (x) = y_0  + \int^x_{xo} f (t, \phi (t)) dt \qquad (|x -x_0|
+ \le \varepsilon) 
+ $$
+ 
+ Then $T K \subset K$. Also since
+ $$
+ \bigg| (T \phi) (x) - (T \phi) (x') \bigg| \le \bigg| \int^x_{x'}
+ f(t, (t)) dt \bigg| \le m | x - x' |\; (\phi \in K), 
+ $$
+$T K$ is an equicontinuous set. Since also $T K $ is bounded, $T K$
+ is contained in a compact set by the Ascoli - Arzela
+ theorem. Therefore, by Theorem \ref{chap2:thm2.2}, $T$ has a fixed
+ point $\phi$ in $K$ i.e., 
+$$
+\phi (x) = y_0 + \int^x_{x_0} f (t, \phi (t)) \, dt \; (|x - x_0| \le
+\varepsilon). 
+$$
+
+Then $\phi$ is differentiable in $[x_0 - \varepsilon, x_0  +
+  \varepsilon]$ and provides a solution $y = \phi (x)$ there of the
+differential equation 
+$$
+\frac{dy}{dx} = f(x, y)
+$$\pageoriginale
+with $\phi (x_0) = y_0$. This is Peano's theorem. As a particular case
+of Schauder's theorem, we have 
+
+\begin{thmm}\label{chap2:thm2.3}%theo 2.3
+  Let $K$ be a non-empty compact convex subset of a normed space, and
+  let $T$ be a continuous mapping of $K$ into itself. Then $T$ has a
+  fixed point in $K$. 
+\end{thmm}
+
+\begin{remark*}%rema 0
+  Theorem \ref{chap2:thm2.2} and \ref{chap2:thm2.3} are almost
+  equivalent, in the sense that Theorem 
+  \ref{chap2:thm2.2}, with the additional hypothesis that $K$ be
+  complete, follows 
+  from Theorem \ref{chap2:thm2.3}. For, if $K$ is a complete convex
+  set and $T K $ is 
+  contained in a compact subset $A$ of $K$, then the closed convex
+  hull of $A$ is a compact convex subset $K_0$ of $K$, and $T K_0
+  \subset K_0$. 
+\end{remark*}
+
+\begin{Definition}%def 2.5
+  A mapping $T$ which is continuous and maps each boun\-ded set into a
+  compact set is said to be completely continuous. 
+\end{Definition}
+
+\begin{thmm}\label{chap2:thm2.4}%the 2.4
+  Let $T$ be a completely continuous mapping of a normed space $E$
+  into itself and let $T E$ be bounded. Then $T$ has a fixed point. 
+\end{thmm}
+
+\begin{proof}
+  Let $K$ be the closed convex hull of $T E$. Then $K$ is bounded and
+  so $T K$ is contained in a compact subset of $K$. By Theorem
+  \ref{chap2:thm2.2}, 
+  $T$ has a fixed point in $K$. 
+\end{proof}
+
+The Theorem \ref{chap2:thm2.4} implies Theorem \ref{chap2:thm2.3} is
+seen as follows. Let $K$ be a 
+compact convex set and let $T$ be continuous mapping of $K$ into
+itself. There is no loss of generality is supposing that the norm in
+$E$ is strictly convex. Let $P$ be the metric projection of $E$
+onto\pageoriginale $K$, and let $\tilde{T} = TP$. Then $\tilde{T}$
+satisfies the 
+conditions of theorem 24, and so there exists $u$ in $E$ with $T u =
+u$. Since $T$ maps $E$ into $K$, we have $u \in K$ and so $Pu = u Tu =
+TRu = u$. 
+
+\begin{lemma}\label{chap2:lem2.5}%lemm 2.5
+  Let $K$ be a non-empty complete convex subset of a normed space $E$,
+  let $A$ be a continuous mapping of $K$ into a compact subset of $E$,
+  and let $F$ be a mapping of $K  \times K$ into $K$ such that 
+\begin{enumerate}[(i)]
+\item $|| F (x, y) - F (x, y) || \le k || y - y' || \; (x, y, y' \in
+  K)$, where $k$ is a constant with $0 < k < 1$, 
+
+\item $||F (x, y) - F(x', y)|| \le ||Ax - Ax'|| \; (x, x', y \in
+  K)$. Then there exists a point $u$ in $K$ with 
+  $$
+  F(u, u) = u.
+  $$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  For each fixed $x$, the mapping $y \to F (x, y)$ is a contraction
+  mapping of the complete metric space $K$ into itself, and it
+  therefore has a unique fixed point in $K$ which we denote by $Tx$, 
+  \begin{align*}
+    Tx & = F(x, Tx) \qquad (x \in K).\\
+    \text{We have}\, || Tx - Tx' || &= || F (x, Tx) - F(x', Tx')||\\
+    & \le || F(x, Tx) - F(x', Tx)||\\
+    &\qquad{}+ || F(x', Tx) - F(x', Tx') ||\\
+    & \le || Ax - Ax' || + k || Tx - Tx'|| \tag*{$\Box$}
+\end{align*}
+
+Therefore $||Tx - Tx'|| \le \dfrac{1}{1 - k} || Ax - Ax' ||$, 
+(1) which shows that $Tk$ is continuous and that $TK \subset K$ is
+precompact since $AK$ is compact, since $K$ is complete,
+$\overline{TK} \subset K$ is compact. By the Schander theorem, $T$ has
+fixed point $u$ in $K$, 
+$$
+Tu = u.
+$$\pageoriginale
+But then
+$$
+F(u, u) = F(u, Tu) = Tu = u
+$$
+\end{proof}
+
+\begin{thmm}[Kranoselsk\u{u}]%theo 2.5
+  Let $K$ be a non-empty complete convex subset of  a normed space
+  $E$, let $A$ be a continuous mapping of $K$ into a compact subset of
+  $E$, let $B$ map $K$ and satisfy a Lipschitz condition 
+  $$
+  || Bx - Bx' || \le k || x - x' || \qquad (x, x' \in k)
+  $$
+  with $0 < k < 1$ and let $Ax + By \in K$ for all $x, y$ in $K$. Then
+  there is a point $u \in K$ with 
+  $$
+  Au + Bu = u
+  $$
+\end{thmm}
+
+\begin{proof}
+  Take $F(x, y) = Ax + By$ and apply Lemma \ref{chap2:lem2.5}.
+\end{proof}
+
+\begin{coro*}%coro
+  Let $K$ be a non-empty complete convex subset of a normed space, let
+  $A$ be a continuous of $K$ into a compact subset of $K$, let $B$ map
+  $K$ into itself ans satisfy the Lipschitz condition 
+  $$
+  || Bx - Bx' || \le || x - x' || \quad (x, x' \varepsilon K),
+  $$
+  and let $0 < \alpha < 1$. Then there exists a point $u \in K$ with
+  $$
+  \alpha Au + (1 - \alpha) Bu = u
+  $$ 
+\end{coro*}
+
+In general, under the condition of Schauder's theorem, we have no
+method for the calculation of a fixed point of a mapping. However
+there is a special case in which this can be done using a method due
+to Krasnoselsk\u{u}. 
+
+\begin{Definition}%defi 2.5
+  A norm $p$ is uniformly convex if it satisfies
+  \begin{align*}
+  & p (x_n) = p(y_n) = 1\;  (n = 1,2, \ldots), \lim\limits_{n \to \infty} 
+  p(x_n + y_n)= 2\\ 
+   \Longrightarrow & \lim\limits_{n \to \infty} p (x_n-y_n) =0. 
+  \end{align*}\pageoriginale
+\end{Definition}
+
+\begin{lemma*}
+  Let $p$ be a uniformly convex norm, and let $\varepsilon M$ be positive
+  constants. Then there exists a constant $\delta$ with $0 < \delta <
+  1$ such that 
+  $$
+  p(x) \le M, p(y) \le M, p(x - y) \ge \varepsilon \Rightarrow p (x + y) \le 2
+  \delta \max (p(x), p (y)). 
+  $$
+\end{lemma*}
+
+\begin{proof}
+  For all $x$, $y$, we have
+  \begin{equation*}
+    p \left(\frac{1}{2} (x + y)\right) \le \frac{1}{2} p (x) +
+    \frac{1}{2} p(y) \le \max (p(x), p(y)). \tag{1}\label{chap2:equ1} 
+  \end{equation*}
+  
+  If there is no constant $\delta$ with the stated properties, there
+  exist sequences $(x_n), (y_n)$ with $p(x_n) \le M$, $p(y_n) \le M$, 
+\begin{equation*}
+    p(x_n - y_n) \ge \varepsilon, \tag{2}\label{chap2:equ2} 
+\end{equation*}
+and
+\begin{equation*}
+ p \left(\frac{1}{2} (x_n + y_n)\right) > \left(1 - \frac{1}{n}\right)
+ \max (p(x_n), p(y_n)).  \tag{3}\label{chap2:equ3}  
+\end{equation*}
+
+Let $\alpha_n = p (x_n)$, $\beta_n = p (y_n)$, $\gamma_n = \max (\alpha_n,
+\beta_n)$. By (\ref{chap2:equ1}) and (\ref{chap2:equ2}), 
+\begin{equation*}
+  \gamma_n \ge \frac{1}{2}, \tag{4}\label{chap2:equ4}
+\end{equation*}
+and so, by (\ref{chap2:equ1}) and (\ref{chap2:equ3})
+\begin{equation*}
+  \lim_{n \to \infty} \frac{1}{\gamma_n} p \left(\frac{1}{2} (x_n +
+  y_n)\right) = 1.  \tag{5}\label{chap2:equ5} 
+\end{equation*}
+
+It follows from (\ref{chap2:equ1}) and (\ref{chap2:equ5}), that
+\begin{equation*}
+\lim_{n \to \infty} \frac{\alpha_n + \beta_n}{2 \gamma_n} =
+1. \tag{6}\label{chap2:equ6} 
+\end{equation*}
+
+Since $(\gamma_n)$ is bounded, there exists a convergent sequence
+$(\gamma_{n_k})$, and by (\ref{chap2:equ4}) 
+\begin{equation*}
+  \lim_{k \to \infty} \gamma_{n_k} = \gamma \ge \varepsilon_{\gamma_2}
+  \tag{7}\label{chap2:equ7} 
+\end{equation*}
+$$
+\lim\limits_{k \to \infty} (\gamma_{n_k} - \alpha_{n_k}) +
+(\gamma_{n_k} - \beta_{n_k}) = 0, 
+$$\pageoriginale
+and, since each bracket is non-negative, each tends to zero. Therefore
+\begin{equation*}
+  \lim_{k \to \infty} \alpha_{n_k} = \lim_{k \to \infty}
+  \beta_{n_\alpha} = \gamma \tag{8}\label{chap2:equ8} 
+\end{equation*}
+
+By discarding some terms of the subsequence if necessary, we may
+suppose that $\alpha_{n_k} \ge 0$ and $\beta_{n_k} \ge 0$ for all
+$k$. Since 
+\begin{align*}
+\bigg| p \left(\frac{1}{\alpha_{n_k}} x_{n_k} + \frac{1}{\beta_{n_k}} y_{n
+  _k} \right) & - p \left(\frac{1}{\gamma_{n_k}} x_{n_k} + \frac{1}{\gamma_{n_k}}
+y_{n_k} \right) \bigg| \\
+  & \le p \left(\frac{1}{\alpha_{n_k}} - \frac{1}{\gamma_{n_k}} \right) x_{n_k} +
+  \left(\frac{1}{\beta_{n_k}} - \frac{1}{\gamma_{ n_k}}\right) y_{n_k}\\ 
+  & \le M \left\{ \frac{1}{\alpha_{n_k}} - \frac{1}{\gamma_{n_k}} +
+  \frac{1}{\beta_{n_k}} - \frac{1}{\gamma_{n_k}} \right\}, 
+\end{align*}
+it follows from (\ref{chap2:equ5}), (\ref{chap2:equ7}),
+(\ref{chap2:equ8}), that 
+$$
+\lim_{k \to \infty} p \left(\frac{1}{\alpha_{n_k}} x_{n_k} +
+\frac{1}{\beta_{n_k}} y_{n_k} \right) = 2. 
+$$
+
+Therefore,
+$$
+\lim_{k \to \infty} p \left(\frac{1}{\alpha_{n_k}} x_{n_k} -
+\frac{1}{\beta_{n_k}} y_{n_k} \right) = 0.
+$$
+and so
+$$
+\lim_{k \to \infty} \frac{1}{\gamma_{n_k}} p(x_{n_k} - y_{n_k}) = 
+0, 
+$$
+which contradicts (\ref{chap2:equ2}).
+\end{proof}
+
+\begin{thmm}[Krashoselsk\u{u}]\label{chap2:thm2.6}%theo 2.6
+  Let\pageoriginale $K$ be a bounded closed convex set in a Banach
+  space $E$ with a 
+  uniformly convex norm. Let $T$ be a mapping of $K$ into a compact
+  subset of $K$ that satisfies a Lipschitz condition with Lipschitz
+  constant 1, and let $x_0$ be an arbitrary point of $K$. Then the
+  sequence defined by  
+  $$
+  x_{n + 1} = \frac{1}{2} (x_n + Tx_n) \qquad (n =0, 1,2, \ldots )
+  $$
+  converges to a fixed point of $T$ in $K$.
+\end{thmm}
+
+\begin{proof}
+  By Schauder's theorem, there is a nonempty set $F$ of fixed points
+  of $T$ in $K$. We prove first that 
+  $$
+  || x_{n + 1} - y || \le || x_n - y || \quad (y \in F, n = 0, 1,2, \ldots)
+  $$
+  In fact if $y = T_y$, then
+  \begin{align*}
+  || x_{n + 1} - y || & = || \frac{1}{2} (x_n + Tx_n) - \frac{1}{2} (y
+  + Ty) ||\\ 
+    & = || \frac{1}{2} (x_n - y) + \frac{1}{2} (Tx_n - Ty) ||\\
+    & \le \frac{1}{2} || x_n - y || + \frac{1}{2} || Tx_n - Ty ||\\
+    & \le || x_n - y ||
+  \end{align*}
+  which is (1).
+\end{proof}
+
+Suppose that there exist an $\varepsilon > 0$ and $N$, such that
+\begin{equation}
+|| x_n - Tx_n || \ge \varepsilon \text{ for all } n \ge N \tag{2}
+\end{equation}
+
+Then $|| x_n - y - (Tx_n - T_y) || \ge \varepsilon$ for all $n \ge N, y \in F$.
+
+Also $|| Tx_n - T_y || \le || x_n - y || \le || x_0 - y ||$, by \qquad (1).
+
+Since the norm is uniformly convex, this implies that there exists a
+constant $\delta, 0 < \delta < 1$, such that 
+\begin{align*}
+  || x_{n + 1} - y || & = || \frac{1}{2} (x_n + Tx_n) - \frac{1}{2} (y
+  + Ty) ||\\ 
+  & = || \frac{1}{2} (x_n - y) + \frac{1}{2} (Tx_n - Ty)||\\
+  & \le \max \left\{ ||x_n - y ||, || Tx_n - Ty || \right\}\\
+  & \le || x_n - y || \text{ for } n \ge N.
+\end{align*}
+Therefore\pageoriginale $\lim\limits_{n \to \infty} x_n = y$ where
+$T_y = y$. 
+
+If there does not exist an $\varepsilon > 0$ for which (2) holds, there
+exists a sequence $n_k$ of integers such that $\lim\limits_{k \to
+  \infty} (x_{n_k} - Tx_{n_k}) = 0$, and such that $(Tx_{n_k})$
+converges. But this implies that $\lim\limits_{k \to \infty} x_{n_k} =
+u = \lim\limits_{k \to \infty} Tx_{n_k}$ and so $Tu = u$. 
+
+Hence $|| x_{n + 1} - u || \le || x_n - u||$, by (1). Since
+$\lim\limits_{k} || x_{n_k} - u || = 0$, we have $\lim\limits_{n \to \infty}
+|| x_n - u || = 0$ and the theorem is proved. 
+
+The following theorem was proved by Altam by means of the concept of
+`degree of a mapping', but we can easily deduce it from schander's
+theorem. 
+
+\begin{thmm}[Altman]%theo 2.7
+  Let $E$ be a normed space, let $Q$ be the closed ball of radius $r > 0$,
+  $$
+  Q = \left\{ x : || x || \le r \right\}
+  $$
+  and let $T$ be a continuous mapping of $Q$ into a compact subset of
+  $E$ such that 
+  $$
+  || Tx - x||^2 \ge || Tx ||^2 - || x ||^2 \quad ( || x || = r) 
+  $$
+Then $T$ has fixed point in $Q$.
+\end{thmm}
+
+\begin{proof}
+  Suppose $T$ has no fixed point in $Q$, then
+  \begin{equation*}
+    || Tx - x || + || x || > || Tx || \qquad ( || x || = r) \tag{1}
+  \end{equation*}
+  For
+  \begin{gather*}
+    (|| Tx - x || + || x ||)^2 - || Tx ||^2 = || Tx - x ||^2 + || x ||^2
+    - || Tx ||^2\\ 
+    + 2 || x || \; || Tx - x || \ge 2r || Tx - x || > 0
+  \end{gather*}
+  
+  Let\pageoriginale $P$ be the mapping defined by 
+  $$
+  Px = 
+  \begin{cases}
+    x  \qquad (x \in Q)\\
+    \frac{r}{ || x ||} x \quad (x \notin Q)
+  \end{cases}
+  $$  
+Plainly $P$ is a continuous projection of $E$ onto $Q$.
+\end{proof}
+
+Let $\tilde{T} = PT$
+
+Then $T$ maps $Q$ continuously into a compact subset of $Q$. Hence, by
+the Schauder theorem, $\tilde{T}$ has a fixed point $u$ in $Q$, 
+$$
+PTu = u
+$$
+If $Tu \in Q$, then $PTu = Tu$, and 
+$$
+Tu = u 
+$$
+If $Tu \not\in Q$, then $||Tu || > r$ and 
+$$
+u = PTu = \frac{r}{ || Tu ||} Tu
+$$
+If follows that $|| u || = r$, and we have
+\begin{gather*}
+  || Tu - u || + || u || = || \frac{|| Tu ||}{r} u - u || + || u ||\\
+  = \left( \frac{|| Tu ||}{r} - 1 + 1 \right) || u || = || Tu ||
+\end{gather*}
+which contradicts (1)
+
+\medskip
+\begin{center}
+\textbf{supplementary results and exercises}
+\end{center}
+
+\begin{enumerate}[(1)]
+\item For further results connected with Theorem \ref{chap2:thm2.6},
+  see \cite{key19} 
+
+\item Let $A$ be a continuous mapping of a normed space $E$ into
+  itself which maps bounded sets into compact sets and satisfies 
+  $$
+  \lim_{|| x || \to \infty} \frac{|| Ax ||}{|| x ||} = 0
+  $$
+  Then given arbitrary real $\lambda > 0$ and $y$ in $E$, the equation
+  $$
+  x = \lambda Ax + y
+  $$
+  has a\pageoriginale solution $x$ in $E$
+  
+  Consider the mapping $Tx = \lambda Ax + y$
+  
+  Clearly $T$ has all the properties of $A$
+  
+  Let $S_n = \{x : x \in E, || x || \le n \} \quad (n = 1, 2, \ldots)$ 
+
+Then
+\begin{equation*}
+T S_n \subset S_n\text{~~ for some $n$ }\tag{1}\label{eq1}
+\end{equation*}
+
+Otherwise $||Tx_n|| > n$, for some 
+\begin{equation*}
+x_n \in S_n ~~ n = 1,2, \ldots\tag{2}\label{eq2}
+\end{equation*}
+
+ If $\{x_n\}$ were bounded, then $\{Tx_n\}$ will be contained in a
+ compact set and therefore $||T x_n ||$ will be bounded which
+ contradicts (2). Hence $|| x_n || \to \infty$ as $n \to \infty$ But  
+ $$
+ \frac{|| Tx_n ||}{|| x_n ||} > 1 \text { so } \lim\limits_{|| x_n ||
+   \to \infty} \frac{|| Tx_n ||}{|| x _n ||} \ge  1 
+ $$
+ 
+ As this is not true, $T$ maps some $S_n$ into its compact subset;
+ Schau\-der's theorem then $a$ gives a fixed point $x$ which is the
+ required solution. 
+
+ \item Let $\sum\limits^{\infty}_{k = 1} a_k$ be a convergent series
+   of non-negative real numbers and let $(f_k)$ be a sequence of
+   continuous mappings of the real line $R$ into itself such that 
+   $$
+   |f_k (t) | \le a_k \qquad (t \in R, k = 1,2, \ldots)
+   $$
+   Given $\alpha \in R$, there exists a convergent real sequence
+   $(\xi_k)$ such that 
+   \begin{enumerate}[(i)]
+   \item $\xi = \alpha$
+   \item $\xi_{k + 1} - \xi_k = f_k (\xi_k) \quad (k = 1,2, \ldots)$
+   \end{enumerate} 
+   consider the mapping $T$ of $(c)$ into itself given by
+   $$
+   (Tx)_1 = \alpha
+   $$
+   $$
+   (Tx)_{n + 1} = \alpha + \sum^{n}_{k = 1} f_k (\xi_k) \quad (n = 1,2, \ldots)
+   $$\pageoriginale
+   where $x = (\xi_k)$.
+
+ \item Let $E$ be a Banach space with a uniformly convex norm, and let
+   $K$ be a bounded closed convex subset of $E$. Then the metric
+   projection $E \xrightarrow{\text{ onto }}K$ exists and is
+   uniformly continuous on each bounded subset of $E$. 
+
+ \item Brodsku and Milman \cite{key10}, give conditions under which a convex
+   set in a Banach space has a point invariant under all isometric
+   self mappings. In this connection see also Dunford and Schwartz
+   (\cite{key14}, p.459).  
+
+ \item Browder (11) gives some generalization of the Schauder theorem
+   which appear to lie rather deep. Perhaps the most striking of these
+   results is the following generalization of theorem
+   \ref{chap2:thm2.4}. Let $T$ be 
+   a continuous mapping of a Banach space $E$ into itself that maps
+   bounded sets into compact sets. If, for some positive integer $m,
+   T^m E$ is bounded, then $T$ has a fixed point. For a generalization
+   of the Schauder theorem of a different kind see Stepaneek (32). 
+
+ \item Aronszajn \cite{key2} gives general regularity condition on $T$
+   sufficient to establish that the set of its fixed points is an
+   $R_\delta$ i.e. is a homeomorphic image of the intersection of
+   decreasing sequence of absolute retracts. 
+\end{enumerate}

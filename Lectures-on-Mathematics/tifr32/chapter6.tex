@@ -1,0 +1,855 @@
+\chapter{}\label{chap6}%%%% 6 
+
+Discrete\pageoriginale linear groups acting properly on convex open cones in real
+vector spaces are of special interest for the applications. In that
+case, the existence of a stable lattice or, more generally, of
+certain stable discrete subsets gives rise to special methods of
+constructing fundamental domains. The material here is due to Koecher
+\cite{key1} and Siegel \cite{key1}. 
+
+\section{}%sec 1
+
+Let $E$ be a real vector space, of dimension $n \geq 2$. A subset
+$\Omega $ of $E$ is called a \textit{ cone } if $t \Omega \subset
+\Omega $ for every real $t > 0$. The cone $\Omega^*$ in the dual $E^*$
+of $E$, defined by  
+$$
+\Omega^* = \bigg \{ X^* \in E^* \big | \langle x^*, x \rangle > 0 ~\text { for all }~
+x \in \Omega - \{ 0 \}\bigg \} 
+$$
+is called the \textit{ dual cone} of $\Omega . \Omega^*$ is always
+open in $E^*$; in fact, if $\sum$ denotes the unit sphere in $E$ (with
+respect to some norm on $E$), we have  
+$ \Omega^* = \bigg \{ X^* \in E^* \bigg | \langle x^*, x \rangle > 0$ for all 
+$x \in \bar{\Omega}\cap \sum - \bigg \} $. 
+
+Assume $E$ to be a Euclidean vector space with scalar product $\langle
+, \rangle $. If, under the canonical identification of $E^*$ with $E$,
+we have $\Omega^* =  \Omega$, we say that $\Omega$ is a \textit{self-
+  dual} cone (or a \textit{positivity domain}). Clearly, $\Omega$ is
+self - dual if and only if $\Omega  = \bigg\{ x \in E \bigg | \langle
+x, y \rangle > 0$ for all $y \in \bar{\Omega} - \{ 0\}\bigg\}$. 
+
+\begin{examples*}
+\begin{itemize}
+\item[{\rm(i)}] % Examples 1
+  In $\mathbb{R}^n$ (with the usual Euclidean structure), 
+  $$
+  \displaylines{\hfill 
+  \Omega = \bigg\{ (t_1, \ldots, t_n )\big|t_i > 0  ~\text{for all}~
+  i \bigg\}\hfill \cr 
+  \text{and}\hfill  
+  \Omega \bigg\{(t_1, \ldots, t_n ) |t^2_1 +\cdots + t^2_{n-1}  \langle
+  t^2_n, t_n \rangle 0 \bigg\} \hfill }
+$$ 
+  are selfdual cones.  
+
+\item[{\rm(ii)}] Let\pageoriginale $E$ be the vector of real $n \times
+  n $ symmetric matrices, 
+with the scalar product $ \langle A, B\rangle = T_r (AB)$. Then the
+set $\Omega$ of positive definite matrices of $E$ is a selfdual
+cone. To see this, we note first that $\Omega^* \subset \Omega $. In
+fact, let $A \in \Omega^*$, and let $e_1, \ldots, e_n $ be an
+orthonormal basis of $\mathbb{R}^n $ such that $Ae_i = \lambda_i e_i
+, \lambda_i \in \mathbb{R}, i = 1. \ldots, n$. Let $P_i \in
+E $  be defined by $P_i e_j = \delta _{ij} e_i$. Then $P_i \in
+\bar{\Omega}- \{ 0 \}$, and $\langle A, P_i\rangle = \lambda _i$. Hence
+$\lambda_i > 0$ for all $i$, thus $A \in \Omega$. Conversely, let $A
+\in \Omega$, and $B \in
+\bar{\Omega} -\{ 0\}$. Let $\sqrt{A} \in \Omega$ and $\sqrt{B} \in
+\Omega - \{ 0 \}$ be the positive square roots of $A$ and $B$
+respectively. Then  
+\begin{align*}
+  \langle A, B \rangle & = T_r (AB) = T_r (\sqrt{A}\sqrt{A}\sqrt{B}\sqrt{B}) \\
+  & =  T_r (\sqrt{B}\sqrt{A}\sqrt{A}\sqrt{B}) \\
+  & =  T_r ((\sqrt{A}\sqrt{B})' (\sqrt{A}\sqrt{B})) > 0.
+\end{align*}
+\end{itemize}
+\end{examples*}
+
+\section{}%Section 2
+
+We now state elementary properties of cones and their duals. 
+\begin{enumerate} [(i)]
+\item For any cone $\Omega, \Omega^*$ is convex. 
+\item If the cone $\Omega$ in $E$ contains a basis of $E$ the
+  $\overline{\Omega^*}$ is a non-degenerate convex cone (A convex set
+  \textit{non- degenerate} if it does not contain any straight
+  line). In fact, let $x^*, y^* \in E^*$, and suppose $x^* +ty^* \in
+  \Omega^*$ for every $t \in \mathbb{R}$. Then, for every $z \in
+  \bar{\Omega} - \{ 0\}$, we have $0 \leq \langle x^* + ty^*, z \rangle =
+  \langle x^*, z \rangle + t \langle y^*, z \rangle $, for every $t
+  \in \mathbb{R}$.  
+
+  Hence\pageoriginale $\langle y^*, z \rangle = 0$ for every $z \in \bar{\Omega} -
+  \{ 0\}$, hence $y^* =0 $. 
+\end{enumerate}
+
+Using (i) and (ii) we have 
+(iii) If $\Omega $ contains a basis of $E$, then 
+$$
+x^* \in \bar{\Omega^*}, -x^* \in \bar{\Omega^*} \textit{ imply } x^* = 0.
+$$
+
+\setcounter{lem}{0}
+\begin{lem}\label{chap6:lem1} %Lemma 1
+  Given any compact subset $K$ of $\Omega^*$, we have $\rho (K) > 0$
+  such that $\langle x^*, y\rangle \geq \rho (K) |y|$ for every $x^*
+  \in K$ and $y \in \bar{\Omega}$. Here $| |$ denotes some norm on $E$.  
+\end{lem}
+
+\begin{proof}
+  Let $\sum$ be the unit sphere in $E$. Then the function $(x^*,
+  y)\rightsquigarrow \langle x^*, y\rangle$ on $K x (\bar{\Omega} \cap \sum )$
+  is continuous and $> 0$. We can take $\rho (K)$ to be the infimum
+  of this function. 
+\end{proof}
+
+\begin{remark*}
+  If $\Omega$ is open, the statement analogous to that of Lemma \ref{chap6:lem1},
+  with the roles of $\Omega$ and $\Omega^*$ interchanged, is also true;
+  the proof is the same.  
+\end{remark*}
+
+\section{} %SEction 3
+
+Let $\Omega \subset E$ be a non-degenerate cone; we then have $\Omega^*
+\neq \phi $.  Let $D$ be a discrete subset of $E$ contained in
+$\bar{\Omega} - \{0\}$.  For any $x^* \in \Omega^*$, we define  
+$$
+\mu (x^*) = \inf_{d \in D} \langle x^*, d \rangle .
+$$
+
+We see by lemma \ref{chap6:lem1} that $\mu (x^*) < 0$, and that the set 
+$$
+M(x^*) = \bigg\{ d \in D \big| \langle x^*, d \rangle = \mu (x^*)\bigg\}
+$$
+is non-empty and finite. 
+
+\begin{lem}\label{chap6:lem2} %Lemma 2
+  For\pageoriginale any $x^* \in \Omega^*$ and $\in > 0$, there exists a
+  neighbourhood $U \subset \Omega^*$ of $x^*$ such that, for any $y^*
+  \in U, \big| \mu (y^*) - \mu (x^*) \big| < \in$ and $M (Y^*)
+  \subset M (x^*)$. 
+\end{lem}
+
+\begin{proof}
+  Let $K \subset \Omega^*$ be a compact neighbourhood of $x^*$. Let
+  $\rho = \rho (K)$ be as in Lemma \ref{chap6:lem1}. Let $D' = \bigg\{\ d \in D
+  \big| |d| \leq (\mu (x^*) + \in) / \rho \bigg\}$. Clearly $D'$ is
+  finite, and for any $y^* \in K$ and $d \in D - D'$, we have  
+  $$
+  \langle y^*, d\rangle  \mu (x^*) + \in .
+  $$
+  
+  In particular, we have $M(x^*) \subset D'$. Clearly there exists $a
+  > 0$ such that  
+  $$
+  \langle x^*, d \rangle > \mu (x^*) + \frac{a}{2}
+  $$
+  for $d \in D'- M(x^*)$. (We may suppose that $\dfrac{a}{2} < \in $.)
+  Thus, there exists a neighbourhood $V_i \subset \Omega ^*$ of $x^*$
+  such that $y^* \in V_i$ implies  
+  $$
+  \langle y^* , d \rangle > \mu (x^* )+ \frac{a}{2} , d \in D' - M(x^*).
+  $$
+
+  Finally there exists  neighbourhood $V_2 \subset \Omega^*$ of $x^*$
+  such that $y^* \in V_2$ implies 
+  $$
+  | \langle y^* , d \rangle - \mu (x^*) \big| < \frac{a}{2}; d \in M (x^*). 
+  $$
+  
+  Clearly, $U = K \cap V_1 \cap V_2$ satisfies conditions of the lemma. 
+\end{proof}
+
+A point $x^*$ of $\Omega^*$ is called \textit{perfect} it $M(x^*)$
+contains a basis of $E$. Since, for any $\lambda > 0, M( \lambda x^* ) =
+M(x^*)$, we shall assume that, for a perfect point $x^*, \mu (x^*) =
+1$.
+ 
+\begin{lem}\label{chap6:lem3} %Lemma 3
+  Let\pageoriginale $y^* \in \Omega^* $ be not perfect, and let $M
+  \subset M (y^*) , M 
+  \neq \phi$. Then, for every $x^* \in E^*$ with $\langle x^* , M(y^*)
+  \rangle \geq 0$ and $\langle x^*,  M \rangle = 0$, we have either  
+  \begin{enumerate} [\rm (i)]
+  \item $\mu (y^* + tx^*) = \mu (y^*)$ for every $t \geq 0$ such that
+    $y^*+ t x^* \in \Omega^*$, or 
+  \item there exists $t_o > 0 $ such that 
+    \begin{enumerate}[\rm (a)]
+    \item $y^* + t_o x^* \in \Omega^*$
+    \item $\mu (y^* + t_o x^*) = \mu(y^*)$
+    \item $M \subset M (y^* + t_o x^*)$ 
+    \item $\dim M(y^* + t_o x^*) > \dim M$,
+    \end{enumerate} 
+  \end{enumerate}
+  (where, for any subset $S$ of $E, \dim ~ S$ denotes the dimensions of
+  the subspace generated by $S$). 
+\end{lem}
+
+\begin{proof}
+  Suppose that ($i$) does not hold. Since, for any $d \in M$ and any $t
+  \in \mathbb{R}$, we have $\langle y^* + tx^* , d \rangle = \mu (y^*)$,
+  it follows that $\mu (y^* + tx^*)\leq \mu (y^*)$ if $ y^* + tx^* \in
+  \Omega^*$. Hence there exists $\theta > 0$ such that $ y^* + \theta x^*
+  \in \Omega^*$, and $\mu (y^* + \theta x^*) < \mu (y^*)$. Let $\mathfrak{B} =
+  \Bigg\{ d \in D \langle x^*, d\rangle < 0\Bigg\}$. $\mathfrak{B}$ is
+  non-empty, since $ \mathfrak{B} \supset M(y^* + \theta x^*)$. For $d
+  \in \mathfrak{B}$, we set  
+  $$
+  \varphi (d) = (\mu (y^*) - \langle y^* , d \rangle )/ \langle x^*, d
+  \rangle \cdot 
+  $$
+  
+  Clearly, $\varphi (d) > 0$, and for $d \in M(y^* + \theta x^*
+  )$, we have $\varphi(d) < \theta$. On other hand, if $\varphi(d) <
+  \theta $, we have $ \mu (y^*) - \langle y^* + \theta x^* , d\rangle
+  >0$. Hence if $\rho = \rho (K)$ of Lemma \ref{chap6:lem1} with $K = \Big\{ y^*
+  + x^* \Big\}$, we have $|d|\leq \mu(y^*)/\rho $. Hence $\varphi <
+  \theta$ only on a (non-empty) finite subset of $\mathfrak{B}$. Hence
+  $\varphi$ attaints its infimum in $\mathfrak{B}$, let $t_o=
+  \inf\limits_{d \in \mathfrak{B}}\varphi (d)$, and\pageoriginale let
+  $\varphi (d_o) =  t_0$. We assert $t_o$ has the properties stated in
+  (ii) of the lemma.  
+\end{proof}
+
+Since $\Omega^*$ is convex, and $0 < t_0 < \theta$, we have $y^* +
+t_o x^*\in \Omega^*$. We observe that for $d \in M, \langle y^* + t_o
+x^* , d \rangle = \mu (y^*)$. Hence ($b$) and ($c$) of ($ii$) will be
+proved if we show that  
+\begin{equation*}
+  \langle y^* + t_o x^* \rangle \geq \mu (y^*) \tag{I}
+\end{equation*}
+for every $d \in D$. This is obvious for $d \in D - \mathfrak{B}$. For
+$d \in \mathfrak{B}$, we have $\varphi (d)\geq t_o$, i.e., $\mu (y^*)
+- \langle y^* , d \rangle \leq t_o \langle x^*$, $d \rangle$. Hence ($I$)
+follows, and (b), (c) are proved. Finally, it is clear that $d_o
+\in M(y^* + t_o x^*)$; since $\langle x^*, M \rangle = 0$, while
+$\langle x^*, d_\circ \rangle <0$, (d) follows.  
+
+From now on, we shall suppose that $\Omega$ is an open non-degenerate
+convex cone; we then have $(\Omega^*)^* = \Omega$. For any finite
+subset $S$ of $\Omega$, the set $PS = \bigg\{ \sum t_i s_i | s_i \in
+S, t_i \geq 0 \bigg \}$ is called the \textit{pyramid on} $S$. If $x^*
+\in \Omega^*$ is a perfect point, then $PM(x^*)$ is called a 
+\textit{perfect pyramid}. 
+
+\begin{lem}\label{chap6:lem4} %Lemma 4
+  For any $x^* , y^* \in \Omega^* $, we have 
+  $$
+  PM(x^*)\cap PM (y^*) = P(M(x^*)\cap M (y^*)) 
+  $$
+  and 
+  $$
+  \langle \mu (x^*) y^* - \mu (y^*) x^*, PM (x^*) \cap PM(y^*)\rangle = 0.
+  $$
+\end{lem}
+
+\begin{proof}
+  Obviously, $P(M(x^*)\cap M(y^*))\subset PM (x^*)\cap PM
+  (y^*)$. Conversely, let $z \in PM (x^*)\cap PM (y^*)$. Let $z = \sum
+  a_i x_i; x_i \in M(x^*), a_i >0$. Similarly, let\pageoriginale $z = \sum b_j y_j ;
+  y_j \in M(y^*), b_j > 0$. We have  
+  \begin{align*}
+    \langle x^*, z \rangle &= \sum_i a_i \langle x^*, x_i \rangle = \mu
+    (x^*) \sum_i a_i\\ 
+    &= \sum_j b_j \langle x^*, y_j \rangle \geq (x^*) \sum_j b_j
+  \end{align*}
+
+  Since $\mu (x^*)\neq 0$, we have $\sum  a_i \geq \sum  b_j $, hence,
+  by symmetry $\sum  a_i = \sum  b_j $. It follows that $\langle x^* ,
+  y_j \rangle = \mu(x^*)$, i.e. $y_j \in M(x^*)$ for every
+  $j$. Similarly, $x_i \in M(y^*)$ for every $i$, i.e. $z \in PM
+  (x^*)\cap PM(y^*)$. The first assertion of the lemma is therefore
+  proved. The second is then clear.  
+\end{proof}
+
+\section{}%Section 4
+
+\begin{defi*}
+  The discrete set $D$ in $E$ (contained in $\bar{\Omega} -\{0\}$) is
+  said to satisfy the \textit{density condition} if, for each $z^* \in
+  \bar{\Omega^*} -{\Omega^*} , \mu (x^*) \to 0 \text{ as } x^* (\in
+  \Omega^*) \to z^*$.  
+\end{defi*}
+
+\begin{examples*}
+  \begin{itemize}
+  \item[{\rm(i)}] Let $\Omega C \mathbb{R}^2 $ be the (self - dual) cone defined
+    by $\Omega = \left\{ (t_1, t_2) \big| t_1 , t_2 > 0 \right\}$. Then $D =
+    \left\{(1, 0)\cup (0, 1) \right\}$ also
+    satisfies the density condition. The set $D= \left\{ (\exp n, \exp
+    \,(-n) \big| n \in \mathbb{Z} \right\}$ also satisfies the density
+    condition.  
+ 
+  \item[{\rm(ii)}] Let $\Omega$ be the (self - dual) cone of positive definite
+    matrices in the space $E$ of real $n \times n$ symmetric
+    matrices. Let $D$ be the set $\{ U U' | U \in \mathbb{Z}^n, U
+    \neq 0 \}$. Clearly $D$ is a discrete set in $E$, and $D
+    \subset \Omega - \{0\}$. $D$ satisfies the density condition. We
+    shall prove in fact that for any $A \in \Omega $,  
+    $$
+    \mu (A)^n \leq (2^{2n}. \det A)/_{\rho^2_n}, 
+    $$
+    where\pageoriginale $\rho_n$ is the volume of the unit ball in
+    $\mathbb{R}^n$. Let 
+    $A \in \Omega$, and $U \in \mathbb{Z}^n - \{ 0 \}$. We have  
+    $$
+    \mu (A) \leq Tr (A U U' ) = Tr U' A U = U'B B U = |BU|^2,  
+    $$
+    where $B \in \Omega$ is the square root of $A$. Thus, the convex
+    symmetric set $C = \Big\{ x \in \mathbb{R}^n\big| |B x|^2 <
+    \rho(A) \Big\}$ does
+    not contain any non-zero integral point. Hence, by a theorem of
+    Minkowski, vol $C \leq 2^n$. However, the volume of $C$ is easily seen
+    to be $\rho_n \mu (A)^{n/2}/(\det A)^{\frac{1}{2}}$, and we get the
+    required inequality.  
+  \end{itemize}
+\end{examples*}
+
+\begin{remark*}
+  If $D$ satisfies the density condition, then 
+  \begin{equation*}
+    \bar{\Omega^*} = \Bigg\{ x^* \in E^* \big| \langle x^* , d \rangle
+    \geq 0
+    \text{ for all } d \in D  \Bigg  \}. \tag{I} 
+  \end{equation*}
+  
+  In fact, it is clear that $\Omega$ is contained in the right hand side
+  of ($I$). Now let $x^* \in E^* - \Omega^*$. Then, for any $y^* \in
+  \Omega^*$, there exists $t_o, 0 < t_o < 1$, such that $t_o x^* + (
+  1-t_o) y^* \in \bar{\Omega^*} - \Omega^*$. For any $d \in D$, we have  
+  \begin{align*}
+    \langle t_o x^* + ( 1- t_0) y^* , d \rangle & = t_o \langle x^* , d
+    \rangle  + ( 1 -t_o) \langle y^* ,d \rangle \\ 
+    & \geq t_o \langle x^* , d \rangle + (1- t_o) \mu (y^*).
+  \end{align*}
+  
+  Since $\mu (tx^* + (1-t)y^* )\to 0$ as $t$ increases to $t_0$, it
+  follows that $\langle x^*, d \rangle < 0$ for some $d \in D$, and
+  (I) is proved. However, the density condition is not necessary for
+  (I) to hold.  
+\end{remark*}
+
+\begin{lem}\label{chap6:lem5}%lemma 5
+  If $D$ satisfies the density condition, then the set $\mathscr{P}$
+  of perfect points is discrete in $E^*$. 
+\end{lem}
+
+\begin{proof}
+  Let\pageoriginale $(x^*_i)$ be a sequence in $\mathbb{P}$ converging to $x^* \in
+  E^*$. Clearly $x^* \in \bar{\Omega^*}$, and in view of the density
+  condition, we must have $x^* \in \Omega^*$. Then $\mu (x^*)=1$, and
+  $M(x^*_i) \subset M(x^*)$ for large $i$ (Lemma \ref{chap6:lem2}). Since $x^*_i$ is
+  perfect, it follows by Lemma \ref{chap6:lem4} that $x^*=x^*_i$. 
+\end{proof}
+
+\begin{lem}\label{chap6:lem6}%lem 6
+  If $D$ satisfies the density condition, every point of $\Omega$
+  belongs to a perfect pyramid. 
+\end{lem}
+
+\begin{proof}
+  We first note that, since $D$ satisfies the density condition, the
+  first alternative of Lemma \ref{chap6:lem3} can never hold if $x^* \notin
+  \bar{\Omega}^*$. Hence we see by Lemma \ref{chap6:lem3} that $\mathbb{P}\neq \phi
+  $. Now let $z \in \Omega$, and let $y^*$ be any perfect point. If $z
+  \in PM(y^*)$, there is nothing to prove. Let $z \notin PM(y^*)$. 
+\end{proof}
+
+Then there exists $x^* \in E^*$ such that (a) $\langle x^*,PM
+(y^*)\rangle \geq O, (b) \langle x^*,z \rangle < O, (c)x^*$ vanishes
+on a subset $M$ of $M(y^*)$ containing $n-1$ linearly independent
+points. On account of (b), $x^* \notin \bar{\Omega}^*$. Hence the
+second alternative of Lemma \ref{chap6:lem3} holds, and there exists $t_o > O$ such
+$y^* +t_o x^* \in \Omega^*, \mu(y^* +t_o x^*) = 1,M \subset M(y^* +
+t_o x^*)$ and $\dim M (y^* +t_o x^*) > \dim M$. Clearly $y^*_1 =y^* +
+t_o x^*$ is perfect. Moreover, $\langle y^*_1,z \rangle < \langle
+y^*z, \rangle$. 
+
+If $z \in PM (y^*_1)$ we are through. Otherwise, we repeat the above
+procedure with $y^*_1$, and obtain $y^*_2 \in \mathbb{P}$ such that
+$\langle y^*_2,z \rangle < \langle y^*_1,z \rangle$. This process must
+terminate after a finite number of steps, since $\mathbb{P}$ is
+discrete, and since (Remark following Lemma \ref{chap6:lem1}) there is a constant
+$\varrho = \varrho (z)$ such that 
+$$
+|y^*_i | \leq \varrho \langle y^*_i,z \rangle < \varrho \langle y^*,z \rangle
+$$
+for any $i$. We thus obtain a perfect pyramid containing $z$.
+
+\begin{lem}\label{chap6:lem7}%lemma 7.
+  Any\pageoriginale compact set $K$ in $\Omega$ is met by only
+  finitely many perfect pyramids. 
+\end{lem}
+
+\begin{proof}
+  Let $x^* \in \mathbb{P}$, and let $y \in K \cap PM (x^*)$. Then if
+  $\varrho (K)$ is as in Lemma \ref{chap6:lem1}, we have $ \langle
+  x^*,y \rangle \geq 
+  \varrho (K) | x^*|, i.e.|x^*| \leq \dfrac{ \langle
+    x^*,y\rangle}{\varrho (K)}$. On the other hand, the convex closure
+  of $D$ does not contain $O$, and hence there exists $\varrho'(K) > O$
+  such that for every $x^* \in \mathbb{P}, \langle x^*,y \rangle <
+  \varrho' (K)$ on $K \cap PM (x^*)$. Since $\mathbb{P}$ is discrete,
+  the lemma follows. 
+\end{proof}
+
+\begin{remark*}
+  It follows from the above lemma that, for any $x^* \in \mathbb{P}$,
+  the set $\{ y^* \in \mathbb{P}|PM (x^*) \cap PM(y^*) \cap \Omega
+  \neq \phi \}$ is finite: in view of Lemma \ref{chap6:lem4}, this set is the set
+  of $y^* \in \mathbb{P}$ such that $PM(y^*) \cap K \neq \phi $, where
+  $K$ is, for instance the (finite) set in $\Omega$ consisting of
+  those of the barycentres of the subsets of $M(x^*)$ which lie in
+  $\Omega$. 
+\end{remark*}
+
+\section{}%sec 5
+
+Let $\Omega$ be an open non-degenerate convex cone in a real vector
+space $E$.  Let $G(\Omega)=G$ be the subgroup of $GL(E)$ which maps
+$\Omega$ into itself. Then $G$ is a closed subgroup of $GL(E)$. For
+any $x \in \Omega, G(x)$ is compact. In fact, the set $\Omega \cap \{
+x-z|z \in \Omega \}$ is stable under the action of $G(x)$.  Since
+$\Omega$ is non-degenerate, this is a bounded open set. Hence $G(x)$
+is compact. 
+
+$G=G(\Omega)$ also acts on $\Omega^*$: for $s \in G$ and $x^* \in
+\Omega^*$, we define $sx^*$ by $\langle sx^* ,y \rangle =\langle
+x^*,s^{-1}y \rangle $; this identifies $G$ with $G(\Omega^*)$. Let $D$
+be a discrete subset of $\bar{\Omega} - \{O\}$, and let $\Gamma$ be a
+subgroup of $G$ such that $\Gamma D =D$. Then clearly $\mu(sx^*)=\mu
+(x^*)$ and $M(sx^*)=sM(x^*)$ for any $x^* \in \Omega^*$ and $s \in
+\Gamma$. Thus $\Gamma $ also acts on the\pageoriginale set of perfect
+points and the 
+set of perfect pyramids. Note that if $x^* \in \mathbb{P}, \Gamma
+(x^*)=\{ s \in \Gamma | PM (x^*)=s PM (x^*)\}$. 
+
+Assume now that $D$ satisfies the density condition. Then for any
+compact set $K$ in $\Omega$, we can find a finite subset $\mathbb{R}$
+of $\mathbb{P}$ such that $K \subset \bigcup \limits_{x^* \in
+  \mathbb{R}} PM(x^*)$ (Lemma \ref{chap6:lem6} and \ref{chap6:lem7}), thus 
+
+
+$\Gamma (K|K) \subset \bigcup \limits_{x^*,y^* \in \mathbb{R}}
+\Gamma(K \cap PM(x^*)|PM (y^*))$. Since, for any $x^* \in \mathbb{P},
+\bigg\{y^* \in \mathbb{P}|K \cap PM(x^*)\cap PM(y^*) \neq \phi
+\bigg\}$ is finite, it follows that $\Gamma (K \cap PM (x^*)|PM\break (y^*
+))$ is finite for $x^*,y^*\in \mathbb{P})$; hence $\Gamma (K|K)$ is
+finite. Thus $\Gamma$ is a discrete subgroup of $G(\Omega)$, and acts
+properly on $\Omega$.  
+
+\begin{remark*}
+  It can be proved that $G(\Omega)$ itself acts properly on $\Omega$.
+\end{remark*}
+
+Also there is a natural $G(\Omega)$-invariant Riemannian metric on $\Omega$.
+For any $ x \in \Omega $, we define
+$$
+(N(x))^{-1}= \int \limits_{\Omega^*} \exp (- \langle y^*,x \rangle ) dy^*.
+$$
+
+Then integral is finite, in view of Lemma \ref{chap6:lem1}. It is easy to verify
+that for $s \in G(\Omega), (N(sx))^{-1} = | \det s | (N(x))^{-1}$. The
+2-form $- \dfrac{\partial^2 \log N}{\partial x_i \partial x_j} dx_i dx_j$
+gives a $G(\Omega)$-invariant Riemannian metric on $\Omega$. 
+
+\setcounter{thm}{0}
+\begin{thm}\label{chap6:thm1}%tthe 1
+  Let $\Omega$ be an open convex non-degenerate cone in a real vector
+  space $E, D \subset \bar{\Omega}- \{\circ\}$a discrete subset of $E$
+  satisfying the density condition, and $\Gamma$ a discrete subgroup of
+  $G(\Omega)$ such that $\Gamma D=D$. Let $\mathbb{P}(\subset \Omega^*)$
+  be the set perfect points. Assume that there\pageoriginale exists a finite subset
+  $L$ of $\mathbb{P}$ such that $\Gamma L =\mathbb{P}$. Then, if  
+  $$
+  A = \Omega \cap \bigcup_{x^* \in L}PM(x^*),
+  $$
+  we have 
+  \begin{enumerate}[\rm (a)]
+  \item $\Gamma A = \Omega$,
+  \item $\Gamma (A|A)$ is finite,
+  \item $\Gamma (A|A)A$ is a neighbourhood of $A$ in $\Omega$,
+  \item $\Gamma $ is finitely presentable.
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  Using Lemma \ref{chap6:lem6} and the fact that $\Gamma L = \mathbb{P}$ (and since
+  $sM(x^*)=M(sx^*), x^* \in \mathbb{P}, s \in \Gamma)$, it is easy to
+  see that $\Gamma A = \Omega$. The proof of (b) is similar to that of
+  the fact that the action of $\Gamma$ on $\Omega$ is proper; we have
+  only to use the remark following Lemma \ref{chap6:lem7}. Since $
+  \Gamma A = \Omega$, 
+  (c) follows. (Note that $\bigg\{sA | s \in \Gamma \bigg\}$ is a
+  locally finite family of closed sets in $\Omega$.) Since $\Omega$ is
+  convex, it is connected, locally connected and simply connected. Hence
+  the conditions of Theorem \ref{chap3:thm1}, Chapter \ref{chap3} are
+  satisfied, and the   assertion (d) follows.  
+\end{proof}
+
+\begin{remark*}
+  The condition in the above theorem that $_\Gamma\backslash\mathbb{P}$
+  be finite is satisfied if we assume the following: there exists a
+  finite subset $B$ of $D$ such that, for every $y^* \in \mathbb{P}$,
+  there exists $s \in \Gamma$ such that convex envelope of $M(sy^*)\cap
+  B$ meets $\Omega$. In fact, let $y^* \in \mathbb{P}$, and let $s$ be
+  as above. Then $b = \dfrac{1}{r} \sum \limits_{ a \in M(sy^*) \cap B}
+  a \in \Omega$, where $r=$number of elements of $M(sy^*)\cap B$. Now, 
+  $$
+  \langle sy^*,b \rangle = \frac{1}{r} \sum \langle sy^*,a\rangle =1.
+  $$
+\end{remark*}
+
+Hence\pageoriginale $|sy^*| \leq \dfrac{1}{\varrho_b}$, where $\varrho_b =
+\varrho(K)$ of Lemma \ref{chap6:lem1} with $K= \{b\}$. 
+
+The number of points $b$ is finite. Since $\mathbb{P}$ is discrete,
+our assertion follows. 
+
+\section{}%sec 6
+
+We now apply the preceding  results to the case of $GL(n, \mathbb{Z})$
+acting on the space of symmetric positive definite matrices. Thus let
+$E$ be the vector space of all real $n \times n$ symmetric matrices
+with the scalar product $\langle A,B \rangle = Tr \,(AB)$, and let
+$\Omega$ be the (self-dual) cone of positive definite matrices in
+$E$. $\Gamma =GL(n,\mathbb{Z})$ acts on $\Omega : (S,A)\rightsquigarrow
+SAS' =S[A]$. 
+
+Let $D=\bigg\{UU'|U \in \mathbb{Z}^n,U \neq \circ \bigg\}$. We have seen
+that $D$ satisfies the density condition. It is clear that $\Gamma
+[D]=D$. 
+
+For any $A \in \Omega$, let $\tilde{M}(A)=\bigg\{U \in
+\mathbb{Z}^n|UU'\in M(A) \bigg\}$. For $S \in \Gamma $, we clearly
+have $\tilde{M}(S[A])=S^* \tilde{M}(A)$, where $S^*=(S')^{-1}$. 
+
+\begin{lem}\label{chap6:lem8}%lem 8
+  If $A$ is perfect, then $\tilde{M}(A)$ contains $n$ linearly
+  independent elements. 
+\end{lem}
+
+\begin{proof}
+  Let $B$ be any matrix such that $BU=O$ for every $U \in
+  \tilde{M}(A)$. Then $\langle B, UU' \rangle =Tr (BUU')=U'BU=O$ for
+  every $U \in \tilde{M}(A)$, $i.e. \langle B, M(A) \rangle =O$. Since
+  $A$ is perfect, this implies $B=O$. 
+\end{proof}
+
+\begin{lem}\label{chap6:lem9}%lem 9
+  Let $A$ be perfect, and let $U_1, \ldots , U_n \in \tilde{M}(A)$ be
+  linearly independent. Let $C=(U_1, \ldots , U_n)$ be the matrix whose
+  $i$-th column is $U_i$. Then $| \det C| \leq 2^n/\varrho_n$, where
+  $\varrho_n$ is the volume of the unit ball in $\mathbb{R}^n$. 
+\end{lem}
+
+\begin{proof}
+  We\pageoriginale have $C'A C \in \Omega$, and the diagonal elements of $C'A C$ are
+  equal to $1$. Hence by a known lemma we have $\det C' A \leq 1$,
+  $i.e.(\det C)^2 \leq (\det A)^{-1}$. However, we have seen (Example
+  (ii), p.82) that $(\det A)^{-1} \leq 2^{2n}/\varrho ^2_n$. 
+\end{proof}
+
+\begin{lem}\label{chap6:lem10}%lemm 10
+  There exists a finite subset $L$ of $\mathbb{Z}^n$ such that, for any
+  $A \in \mathbb{P}$, there exists $S \in \Gamma$ such that $\dim (L
+  \cap S \tilde{M}(A))=n$. 
+\end{lem}
+
+\begin{proof}
+  Let $L= \bigg\{(v_1,\ldots ,v_n) \in \mathbb{Z}^n-\{O\}|\circ \leq v_i
+  \leq 2^n/_{\varrho_n}\bigg \}$.  Let $A \in \mathbb{P}$.  By Lemma
+  \ref{chap6:lem8}, $\tilde{M}(A)$ contains $n$ independent elements $U_1 \, \ldots ,
+  U_n$. 
+\end{proof}
+
+Now there exists $S \in \Gamma $ such that, for $1 \leq i \leq n$,
+\begin{equation*}
+  SU_i =
+  \begin{pmatrix}
+    a^1_i \\ \vdots \\ a^i_i \\ O \\ \vdots \\ O
+  \end{pmatrix}
+  ,O \leq a^j_i < a^i_i \text{ for }1 \leq  j < i
+\end{equation*}
+
+The proof of this fact is analogous to the Elementary Divisor Theorem
+(see van der Waerden \cite{key1}). Clearly the $SU_i$ are independent. Since
+$SU_i \in S \tilde{M}(A)= \tilde{M}(S^* [A])$, we have bu Lemma \ref{chap6:lem9}, 
+$$
+\det (SU_1, \ldots , SU_n)=a_{11} a_{12} \cdots a_{1n} \leq 2^n/{\rho_n}.
+$$
+
+Thus $a^j_i \leq 2^n/_{\varrho_n}, 1 \leq i,j \leq n$. Thus $SU_i \in
+L$, and the lemma is proved. 
+
+\begin{lem}\label{chap6:lem11}%lem 11
+  There exists a finite subset $\mathbb{B}$ of $D$ such that for every
+  $A \in \mathbb{P}$. there exists $S \in \Gamma$ such that the convex
+  envelope of $\mathbb{B}\cap M(S^*[A])$ meets $\Omega$. 
+\end{lem}
+
+\begin{proof}
+  Let\pageoriginale $\mathbb{B}=\bigg \{ UU'|U \in L \bigg\}$, where $L$ is as in
+  Lemma \ref{chap6:lem10}. Let $A \in \mathbb{P}$. By Lemma
+  \ref{chap6:lem10}, there exists $S \in 
+  \Gamma$ such that $L \cap S \tilde {M}(A)$ contains $n$ independent
+  elements $V_1, \ldots,V_n$. Then $V_i V'_i \in \mathbb{B} \cap M(S^*
+  [A]), 1 \leq i \leq n$.
+  Clearly $\dfrac{1}{n} \sum V_i V'_i$ is positive definite, and belongs 
+  to the convex closure of $\mathbb{B} \cap M(S^*[A])$. 
+\end{proof}
+
+\begin{remark*}
+  The above lemma and the remark following Theorem \ref{chap6:thm1}
+  show that Theorem \ref{chap6:thm1} is applicable to the case of
+  $GL(n, \mathbb{Z})$  acting on the positive definite matrices. It
+  follows in particular that $GL(n, \mathbb{Z})$ is finitely
+  presentable.  
+\end{remark*}
+
+\section{}%sec 7
+
+Let $\Omega$ be an open non-degenerate convex cone in a real vector
+space $E$. Let $G$ be a subgroup of $G(\Omega)$, and let $\chi : G \to
+\mathbb{R}^+$ be a homomorphism ($\mathbb{R}^+$denotes the group of
+real numbers $> O$). 
+
+\begin{defi*}
+  A {\em norm} on $\Omega$ (with respect to $\chi : G \to \mathbb{R}^+$)
+  is a continuous map $\gamma : \Omega \to \mathbb{R}^+$ such that 
+  \begin{enumerate}[\rm (i)]
+  \item $ \nu  (sx) = \chi (s)\nu (x)$ for $s \in G, x \in \Omega$,
+  \item $\nu (x)\to \circ$ as $x \to \bar{\Omega}-\Omega$
+  \item for every $x \in \Omega $and $r \geq O$,
+  \end{enumerate}
+  $(x +\bar{\Omega}) \cap \bigg \{ x \in \Omega | \nu (x) \leq r \bigg
+  \}$ is compact. 
+\end{defi*}
+
+\begin{examples*}
+  \begin{enumerate}[i)]
+  \item If $\Omega $ is the cone of positive definite real $n \times n$
+    matrices and $G = GL(n, \mathbb{R})$, then $\nu (A)=\det A, A \in
+    \Omega$, is a norm on $\Omega$ for $\chi : G \to \mathbb{R}^+$
+    defined by $\chi (S) = (\det S)^2$. 
+
+  \item For any $\Omega$, and $G =G (\Omega)$
+  \end{enumerate}
+  $$
+  \nu (x)=\left(~ \int \limits_{\Omega^*} e^{- \langle
+    x,y^*\rangle} dy^*\right)^{-1} 
+  $$
+  is\pageoriginale a norm for $\chi(s)= |\det s | $.
+\end{examples*}
+
+\begin{thm}\label{chap6:thm2}%the 2
+  Let $\Omega$ be an open non-degenerate convex cone in a real vector
+  space $E$ of dimension $n$. Let $L$ be a lattice in $E$, and let $D$
+  be a subset of $L \cap (\bar{\Omega}- \{O\})$ satisfying the density
+  condition. Let $\Gamma$ be a discrete subgroup of $G(\Omega)$ such
+  that $\Gamma D=D$, and assume that ${}_\Gamma \backslash \mathbb{P}$ is
+  finite. Then the subset $A$ of $\Omega$ constructed in Theorem
+  \ref{chap6:thm1} has 
+  the property: for any norm $\nu$ on $\Omega$ and any $r > \circ, A \cap L$
+  contains only finitely many points $x$ with $\nu (x) \leq r$. 
+\end{thm}
+
+We first prove the following
+
+\begin{lem}\label{chap6:lem12}%lem 12
+  For any $y^* \in \mathbb{P}$, there exists $a \in \Omega$ such that
+  $PM (y^*) \cap \Omega \cap L \subset a+ \bar{\Omega}$. 
+\end{lem}
+
+\begin{proof}
+  We first remark that for any compact set $K \subset \Omega$, there
+  exists $\vartheta \in \Omega$ such that $K \subset \vartheta +
+  \Omega$. Now, for any $y^* \in \mathbb{P}, PM(y^*)$ is a finite union
+  of pyramids $PM_i$, where the $M_i \subset M(y^*)$ consists of
+  precisely $n$ independent elements. It is sufficient to find each $i$
+  precisely $n$ independent elements. It is sufficient to find for each
+  $i$ an $a_i \in \Omega $ such that $PM_i \cap \Omega \cap L \subset
+  a_i + \bar {\Omega}$; for, by the remark above, there exists $a \in
+  \Omega $ such that $a_i \in a+ \Omega $ for each $i$, and clearly a
+  will satisfy the condition of the lemma. 
+\end{proof}
+
+Let $M=\bigg \{a_1,\ldots ,a_n \bigg \}$ be any one of the $M_i$. We
+have $M \subset L$; let $L_o$ be the sublattice of $L$ generated by
+$M$. Let $p>O$ be an integer such that $p L \subset L_o$. For any $ x
+\in PM \cap \Omega \cap L$, let $px =\sum \lambda_i a_i, \lambda_i \in
+\mathbb{Z}$. Since $x \in PM$, and the $a_i$ are independent,
+we\pageoriginale have 
+$\lambda_i \geq O$ for every $i$. Let $a_x =\dfrac{1}{p} \sum
+\limits_{\lambda_i \neq O}a_i$. Since $x \in \Omega$, we see easily
+that $a_x \in \Omega$. Also, $x-a_x = \dfrac{1}{p}(\sum \lambda_i a_i-
+\sum \limits_{\lambda_i \neq O}a_i) \in PM \subset \bar{\Omega}$. The
+set $\bigg \{ a_x | x \in PM \cap \Omega \cap L \bigg \}$ is clearly
+finite. Hence we have $a \in \Omega $ such that $a_x \in a+\Omega$ for
+every $x$. Clearly $PM \cap \Omega \cap L \subset a+ \Omega $, and
+this proves the lemma.
+ 
+
+\setcounter{proofofThm}{1}
+\begin{proofofThm} %proof of theorem 2
+  Let $A = \Omega \cap \bigcup \limits_{i \in I}PM (y^*_i)$ be as in
+  Theorem \ref{chap6:thm1}. Let $a_i \in \Omega$ be such that $\Omega \cap
+  PM(y^*_i)\cap L \subset a_i + \bar{\Omega}$. For any $r$, let $V_r =
+  \bigg \{ z \in \Omega | \nu (z) \leq r \bigg \}$. Then $V_r \cap (a_i
+  + \bar{\Omega)}$ is compact. Hence $V_r \cap (a_i + \bar{\Omega})\cap
+  L$ is finite. It follows that $A \cap L \cap V_r$is finite. 
+\end{proofofThm}
+
+\begin{examples*}
+  \begin{enumerate}[(i)]
+  \item Let $\Omega$ be the cone or real positive definite $n \times n$
+    matrices, $\Gamma=GL(n,\mathbb{Z}), D=\bigg \{ UU' | U \in
+    \mathbb{Z}^n - \{\circ\}\bigg \},L=$ the lattice of all integral $n
+    \times n$ matrices, $\nu (A)= (\det A)^2$ for $A \in \Omega$. Since
+    $\nu $is constant on the orbits of $\Gamma$, Theorem
+    \ref{chap6:thm2} implies in 
+    particular that the number of orbits of $\Gamma$ in $A \cap L$ with
+    determinant less than a given $r$ is finite. 
+
+  \item Let $\Omega= \bigg \{ (x,y,z) \in \mathbb{R}^3 | z > O \text{
+    and } x^2 + y^2 -3z^2 < O \bigg \}$. 
+    Let $L =\mathbb{Z}^3$, and let $\Gamma$ be the subgroup of
+    $GL(\mathbb{R}^3)$ generated by the matrices 
+    \begin{equation*}
+      \begin{pmatrix}
+        0 & 1 & 0\\-1 & 0 & 0 \\0 & 0 & 1 
+      \end{pmatrix}
+      \text{and}
+      \begin{pmatrix}
+        2 & 0 & 3\\0 & 1 & 0 \\1 & 0 & 2 
+      \end{pmatrix}
+    \end{equation*}
+    
+    It\pageoriginale is easy to verify that $\Gamma \Omega = \Omega$. Let $D=\Gamma
+    \{(0,0,1\}.D$ satisfies the density condition. The fact that $_\Gamma
+    \backslash \mathbb{P}$ is finite is a consequence of the following
+    remark: if $D \subset \Omega$ satisfies the density condition and $
+    \Gamma\backslash D$ is finite, then $\Gamma \backslash \mathbb{P}$ is
+    finite. In fact let $B$ be a finite subset of $D$ such that $\Gamma B
+    =D$. Then for any $y^* \in \mathbb{P}$, there exists an $s \in \Gamma
+    $ such that $M (sy^*)\cap A \neq \phi $. The remark follows, since $PM
+    (z^*)\cap A \neq \phi $ for only finitely many $z^* \in
+    \mathbb{P}$-note that by assumption, $A \subset \Omega$. 
+
+  \item Let $K$ be a totally real extension of $\mathbb{Q}$ of degree $n$.
+  \end{enumerate}
+  
+  Let $\Gamma $ be the group of totally positive units of $K$.  Let
+  $\sigma_1, \ldots, \sigma_n$ be $n$ distinct isomorphisms of $K$ into
+  $\mathbb{R}$. We make $\Gamma$ act on the self dual cone $\Omega =
+  \bigg \{(t_1,\ldots,t_n) \in \mathbb{R}^n|t_i >O \text{ for all }i
+  \bigg \}$ by setting 
+  $$
+  \varepsilon (t_1,\ldots ,t_n)=(\sigma_1 (\varepsilon)
+  t_1,\ldots,\sigma_n(\varepsilon)t_n), 
+  $$
+  Let $D=\Gamma\bigg \{ (1,\ldots,1\bigg\}$. It is a classical result
+  that for any $i, 1 \leq i \leq n$, there exists $\in \in \Gamma$ such
+  that $\sigma_i(\varepsilon) > 1$, and $\sigma_j (\varepsilon)<1$ for
+  $j \neq i$.  
+  
+  Using this, we verify that $D$ satisfies the density condition. Let
+  $(t_1, \ldots,t_n)\in \bar{\Omega}$; let $t_i =\circ$. Let $\varepsilon$
+  be chosen as above. Then  
+  $$
+  \langle \varepsilon^p (1, \ldots,1), (t_1,\ldots ,t_n)\rangle =\sum_{j
+    \neq i} t_j (\sigma_j (\varepsilon))^p 
+  $$
+  which tends to zero as $p \to \infty$. It follows as in Example (ii)
+  that $_\Gamma \backslash\mathbb{P}$ is finite. 
+\end{examples*}
+
+
+\begin{thebibliography}{99}
+\bibitem{key1} H. Behr :   \"Uber\pageoriginale die endliche
+  Defininerbarketit von Gruppen  J. f\"ur reine und
+  angew. Math. 211 (1962) pp.116-122.   
+
+\bibitem{key2} H. Behr : \"Uber die endliche Definierbarkeit verallgemeinerter
+  Eineheitengruppen J. f\"ur reine und angew. Math.211 (1962) pp.123-135. 
+
+\bibitem{key3} {A. Borel} : Seminar on Transformation groups Ann. of
+  Math. Studies, $N^\circ$46, Princeton Un. Press (1960). 
+
+\bibitem{key4} {N. Bourbaki} : Topologie G\'en\'erale, Chap. III, 3
+  \`eme \'edition (1960). 
+
+\bibitem{key5} {P. Buisson} : Lois d op\'eration propres (These 3 \`eme
+  cycle, Strasbourg, 1964). 
+
+\bibitem{key6} {H.S.M. Coxeter} : Regular Polytopes, Methuen \& C. London (1948).
+
+\bibitem{key7} {M. Eichler} : Quadratische Formen und orthogole Grupper,
+  (Springer, 1952).   
+
+\bibitem{key8} {H. Freudenthal} : \"Uber die Enden diskreter Ra\.ume und Gruppen,
+  Comm. Math. Helv. 17(1944) pp.1-38. 
+
+\bibitem{key9} {M. Geretenhaber} : On the algebraic structure of
+  discontinuous groups, Proe. of the
+  Amer. Math. Soc. 4(1953) pp.745-750. 
+
+\bibitem{key10} {H. Hopf} : Enden of fener R\"aume und endliche
+  diskontinuierliche Gruppen, Comm. Math. Helv. 16(1943) pp.81-100. 
+
+\bibitem{key11} {M. Koecher-R. Roelke} : Discontinuierliche und discrets
+  Gruppen von Isometrien metrischer Raumen,
+  Math. Zeit. 71(1959) pp.258-267. 
+
+\bibitem{key12} {M. Koecher} : Beitr\"age zu einer reductionstheorie in
+  Positivitatsbereichen, Math. Ann. 141(1960) pp.384-432.  
+
+\bibitem{key13} {J.L.Koszul} : Sur certains espaces de transformation de Lie
+  Coll. de Geometrie Diff. Strasbourg 1953, C.N.R.S. 
+
+\bibitem{key14} {D Montgomery, H.Samelson, C.T. Yang} :  Exceptional
+  orbits of Highest dimension, Ann. of Math., 64(1956) pp.131-141.  
+
+\bibitem{key15} {D. Montgomery, C.T. Yang} : The\pageoriginale existence
+  of slices Ann. of Math. 65(1957) pp.108-116. 
+
+\bibitem{key16} {D. Montgomery, L. Zippin} : Topological transformation groups
+  Interscience 1955. 
+
+\bibitem{key17} {G.D. Mostow} : Equivariant embeddings in euclidean spaces
+  Ann. of Math. 65(1957) pp.432-446. 
+
+\bibitem{key18} {K. Nomizu} : Lie group and Differential Geometry
+  Math. Soc. Japan Pub. Vol. 2(1956). 
+
+\bibitem{key19} {R.S. Palais} : On the existence of slices for actions of non
+  compact Lie group, Ann. of Math. 73(1961) pp.295-323. 
+
+\bibitem{key20} {W. Roelke} : \"Uber Fundamentalbereiche diskontinuierlicher
+  Gruppen Math. Nachr. 20(1959) pp.329-355. 
+
+\bibitem{key21} {C.L Siegel} : Einheiten quadratischer Formen,
+  Abh. Math. sem. Hansis. Univ. 13(1940), pp.209-239. 
+
+\bibitem{key22} {C.L Siegel} : Discontinuous groups, Ann. of
+  Math. 44(1943) pp.674-689. 
+
+\bibitem{key23} {C.L Siegel} : Quadratic forms (TIFR Notes, 1957).  
+
+\bibitem{key24} {Van der Waerden} : Moderne Algebra
+
+\bibitem{key25} {A. Weil} : Discrete subgroups of Lie groups I, Ann. of Math.
+
+\bibitem{key26} {A. Weil} : Discrete subgroups of Lie groups II Ann. of
+  Math. 75(1962), pp.578-602. 
+
+\bibitem{key27} {E. Witt} : Spiegelungsgruppen und Aufz\"ahlung halb-einfacher
+  Lie' scher Ringe, Abh. Math. Sem. Univ. Hamburg 14
+  (1941), pp.289-322. 
+
+\bibitem{key28} {E. Witt} : \"Uber die Konstruktion von fundamental Bereichen
+  Ann. Mat. Pura e Appl. 36(1954) pp. 215-221.      
+\end{thebibliography}
