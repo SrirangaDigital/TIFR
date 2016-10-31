@@ -26,5 +26,463 @@ In this paper we shall not consider the general problem but only a very special 
 
 Actually we have much more general results. We have a clear picture for those arithmetic groups which come from the group $\GL_{2}$ over an arbitrary algebraic number field. It is planned to write a paper in which we treat this more general situation. But it is clear that this paper will be very long, very difficult to write and certainly also not easy to read. For instance we shall have to use adeles, we have to introduce coefficient systems and so on. That paper will contain proofs of the results announced in \cite{art2-key7} and the results in there have to be generalized. Therefore I made up my mind and decided to write a paper where all this is discussed in a special case. I tried to give many details which will cause some repetition and overlap with older papers and the one planned. But the degree of complexity in the general situation is very high and I think it might be useful to discuss one special case.
 
-During the preparation of this paper here I became aware that also the theory of Eisenstein classes which has been announced in \cite{art2-key7} has some interesting arithmetic aspects. We shall devote a large part of this paper to\pageoriginale
-%page 0043
+During the preparation of this paper here I became aware that also the theory of Eisenstein classes which has been announced in \cite{art2-key7} has some interesting arithmetic aspects. We shall devote a large part of this paper to\pageoriginale recall the theory of these Eisenstein classes and to discuss these arithmetic aspects which also concern values of some $L$-series. Therefore the title of the paper is not quite appropriate.
+
+I want to thank D. Zagier for several discussions and for pointing to me how to compute the period integrals by a method that goes back to E. Hecke. (\cite{art2-key10}, 200).
+
+\setcounter{section}{1}
+\setcounter{subsection}{-1}
+\subsection{Some Notations.}\label{art2-sec1.0}
+If $R$ is any commutative ring with identity we denote its group of invertible elements by $R^{x}$.
+
+The field $\mathbb{Q}[i]$ will be denoted by $F$, throughout this paper we consider $F$ as a subfield of $\mathbb{C}$, i.e. we fix an embedding of $F$ into $\mathbb{C}$. The ring of Gaussian integers $\bZ[i]\subset \mathbb{Q}(i)$ will be denoted by $\mathscr{O}$. More general if $E$ is any algebraic number field, we denote by $\mathscr{O}_{E}$ its ring of algebraic integers.
+
+The finite places of $F$ will be denoted by $\sfp,\sfq\ldots$. The finite places of an extension $E/F$ will be denoted by capital letters $\sfP,\sfQ\ldots$. We denote by $E_{P}$ the completion at $\sfP$, by $\mathscr{O}_{\sfp}\subset F_{\sfp}$ the ring of $\sfp$-adic integers and by $\mathscr{O}_{E,\sfP}=\mathscr{O}_{\sfP}$ the ring of $\sfP$-adic integers. We drop the index $E$ if it is clear which filed we refer to.
+
+We put $U_{P}=\mathscr{O}^{x}_{\sfP}$ and $U_{\sfP}=\mathscr{O}^{x}_{\sfP}$. The place of $F$ at infinity will be denoted by $\infty$ and the completion $F_{\infty}$ is canonically identified with $\mathbb{C}$.
+
+The ring of adeles of $F$ is denoted by $\bA$ and by the letter we denote the group ideles of $F$. If we refer to another filed $E$ we write $\bA_{E}$, $I_{E}$. Elements of adele rings or idele groups will be denoted by underlined latin letters $\underline{x}$, $\underline{a}$, $\underline{u},\ldots$. If $\underline{x}\in \bA$ then we write
+$$
+\underline{x}=(x_{\infty},\ldots,x_{p},\ldots,x_{q},\ldots)
+$$
+i.e. $x_{\sfp}$, $x_{\sfq}$ are the $\sfp$, $\sfq$ components. By $\bA^{f}$ (resp $I^{f}$) we denote the ring (resp. group) of finite adeles (finite ideles) where we drop the component at $\infty$. Therefore
+$$
+\bA=\mathbb{C}\times \mathbb{A}^{f}, \ I=\mathbb{C}^{x}\times I^{f}
+$$
+and for $\underline{x}\in \bA$ we write $\underline{x}^{f}$ for its finite component, so that we have $\underline{x}=(x_{\infty},\underline{x}^{f})$.
+
+By\pageoriginale $\sfU^{f}$ we denote the maximal compact subgroup of units in $I^{f}$, i.e. $\sfU^{f}=\Pi_{\sfp}U_{\sfp}$ and then $\sfU=U_{\infty}\times \sfU^{f}$ is the maximal compact subgroup in $I$, where $U_{\infty}$ is the circle group.
+
+We start from the group $G_{o}/F=\PGL_{2}/F$. Then $B_{o}/F$, $U_{o}/F$ and $T_{o}/F$ will be the standard Borelsubgroup of upper triangular matrices, its unipotent radical and the standard diagonal torus. Sometimes it will be convenient to look at $G_{o}/F$ as a group over $\mathbb{Q}$, this means we put $G/\mathbb{Q}=R_{F/\mathbb{Q}}(G_{o}/F)$ where $R_{F/\mathbb{Q}}$ is the functor of restriction of scalars. (\cite{art2-key27}, 1.3.).
+
+For any group scheme $H/A$ over any ring and any extension $A\to A_{1}$, we denote the group of points of $H$ with values in $A_{1}$ by $H(A_{1})$.
+
+\subsection{The Cohomology of $\Gamma$ and the space $\Gamma\backslash X$.}\label{art2-sec1.1}
+~
+
+Let us put
+$$
+\Gamma_{o}=\PGL_{2}(\mathscr{O})=\PGL_{2}(Z[i])=\GL_{2}(\mathscr{O})/Z
+$$
+where $Z=\left\{\left(\begin{smallmatrix} i^{m} & 0\\ 0 & i^{m}\end{smallmatrix}\right)|m\in \bZ/4\bZ\right\}$. We have $\Gamma_{o}\subset \PGL_{2}(\mathbb{C})$ and the group $\Gamma_{o}$ acts on the three dimensional hyperbolic space $X=\PGL_{2}(\mathbb{C})/K_{\infty}$ where $K_{\infty}$ is the projective unitary group $\SU(2)/$centre = $\SO(3)$. We choose the standard embedding
+$$
+\SU(2)_=\left\{\left(\frac{\alpha}{-\beta}\frac{\beta}{\alpha}\right) \Big| \alpha\beta\in \mathbb{C}, \alpha\overline{\alpha}+\beta\overline{\beta}=1\right\}\subset \SL_{2}(\mathbb{C})
+$$
+We choose an ideal $\sfa\in \mathscr{O}$ which has to satisfy one of the following conditions
+\begin{align}
+\sfa &= ((1+i)^{3})\label{art2-eq1.1.1}\\
+\text{or}\qquad \sfa & \text{~is an odd prime where $N(\sfa)=p$}\notag\\
+                     & \text{~is a prime in $\bZ$ and $p\nequiv 1\mod 8$.}\notag
+\end{align}
+This condition \eqref{art2-eq1.1.1} implies that the group $W=\mathscr{O}^{x}=\{i,i^{-1},1,-1\}$ injects into the quotient $(\mathscr{O}/\sfa)^{x}$ and that $i$ is not a square in $(\mathscr{O}/\sfa)^{x}$.
+
+Our main object of study are the congruence subgroups
+$$
+\Gamma=\Gamma (\sfa)=\left\{\left(\begin{matrix}a & b\\ c & d\end{matrix}\right)\in \Gamma_{o}\Big| \left(\begin{matrix} a & b\\ c & d\end{matrix}\right)=\text{Id~}\mod \sfa\right\}
+$$
+this\pageoriginale means that $\Gamma$ is the kernel of the natural homomorphism
+$$
+\Gamma_{o}=\PGL_{2}(\mathscr{O})\xrightarrow{p}\PGL_{2}(\mathscr{O}/\sfa)
+$$
+
+\smallskip
+\noindent
+{\bf Lemma \thnum{1.1.2}.\label{art2-lem1.1.2}}~{\em The homomorphism $p$ is surjective.}
+
+\begin{proof}
+It is very easy to see that the map
+$$
+\SL_{2}(\mathscr{O})\to \SL_{2}(\mathscr{O}/\sfa)
+$$
+is surjective. The image of $\SL_{2}(\mathscr{O}/\sfa)$ in $\PGL_{2}(\mathscr{O}/\sfa)$ is of index $2$ and the factor group is $(\mathscr{O}/\sfa)^{x}/((\mathscr{O}/\sfa)^{x})^{2}$. Then we see that $p\left(\left(\begin{smallmatrix} i & 0\\ 0 & 1\end{smallmatrix}\right)\right)\not{\in}$ image of $\SL_{2}(\mathscr{O}/\sfa)$ and this proves the lemma.
+
+Let $R$ be any ring in $\mathbb{C}$. We want to assume always that the primes which divide the order of the finite group $\PGL_{2}(\mathscr{O}/\sfa)$ are invertible in $R$. We are interested in the cohomology group $H^{\nu}(\Gamma,R)$ and we can identify
+$$
+H^{\nu}(\Gamma,R)\simeq H^{\nu}(\Gamma\backslash X,R)
+$$
+since $\Gamma$ has no torsion, as one easily checks.
+
+First of all we want to summarize some basic facts and definitions of the cohomology theory. If $M$ is a projective $R$-module on which we have an action of the finite group $\overline{G}=\Gamma_{o}/\Gamma=\PGL_{2}(\mathscr{O}/\sfa)$ we can define the cohomology groups
+$$
+H^{\nu}(\Gamma_{o},M)
+$$
+We will mainly be concerned with $H^{1}(\Gamma_{o},M)$ and we recall the definition in this case:
+
+We write the action of $\overline{G}$ on $M$ by $(\overline{g},m)\to \overline{g}\cdot m$ and define
+$$
+Z^{1}(\Gamma_{0},M)=\{\Phi:\Gamma_{o}\to M|\Phi(\gamma_{1}\gamma_{2})=\Phi(\gamma_{1})+\gamma_{1}\Phi(\gamma_{2})\}
+$$
+This is the module of $1$-cocycles. We have a map
+\begin{align*}
+& M \xrightarrow{\delta_{o}}Z^{1}(\Gamma_{o},M)\\
+& \delta : m\to \{\gamma\to (m-\gamma m)\}
+\end{align*}
+and $H^{1}(\Gamma_{o},M)=Z^{1}(\Gamma_{o},M)/\delta_{o}(M)$. 
+
+There\pageoriginale is another way to define these cohomology groups: We look at the projection
+$$
+\overline{\pi}:X\to \Gamma_{o}\backslash X
+$$
+and we define a sheaf $\widetilde{M}$ on $\Gamma_{o}\backslash X$ as follows. For any open set $U\subset \Gamma_{o}\backslash X$ we define
+$$
+\widetilde{M}(U)=\left\{m : \overline{\pi}^{-1}(U)\to M 
+\left|\begin{tabular}{l}
+$m(\gamma u)=\gamma\cdot m(u)\text{~ and}$\\
+$m\text{~ is locally constant.}$
+\end{tabular}\right.\right\}
+$$
+It is well known that under the given assumptions we have (\cite{art2-key21}, 1.6).
+$$
+H^{\nu}(\Gamma_{o}\backslash X,\widetilde{M})\simeq H^{\nu}(\Gamma_{o},M)
+$$
+
+Let us look at the special case where $M=R[\overline{G}]$ is the group ring of the finite group $\overline{G}$. In this case we have two actions of $\overline{G}$ on $M$ namely by right and left multiplication
+$$
+(g_{1},g_{2}):\sum\limits_{\gamma\in G}a_{\gamma}\gamma\to \sum a_{\gamma}g_{1}\gamma g_{2}^{-1}
+$$
+
+We define the cohomology groups
+$$
+H^{1}(\Gamma_{o},R[\overline{G}])
+$$
+by the module structure given by right multiplication; so if $m=\sum\limits_{\gamma\in \overline{G}}a_{\gamma}\gamma\in R[\overline{G}]$ and $\gamma_{1}\in \overline{G}$ we have
+$$
+\gamma_{1}m=\sum\limits_{\gamma}a_{\gamma}\gamma\gamma^{-1}_{1}=\sum\limits_{\gamma}a_{\gamma\gamma_{1}}\gamma
+$$
+The well known Lemma of Shapiro tells us that
+\setcounter{equation}{2}
+\begin{equation}
+H^{1}(\Gamma,R)\simeq H^{1}(\Gamma_{o},R[\overline{G}])\label{art2-eq1.1.3}
+\end{equation}
+and it is very easy to make this isomorphism explicit. If $\Phi:\Gamma_{o}\to R[G]$ is a 1-cocycle and if we write $\Phi(\gamma)=\sum\limits_{\sigma\in \overline{G}}\Phi_{\sigma}(\gamma)\sigma$. Then the cocycle relation tells us that $\Phi_{\sigma}(\gamma_{1})+\Phi_{\sigma\gamma_{1}}(\gamma_{2})=\Phi_{\sigma}(\gamma_{1}\gamma_{2})$ for all $\gamma_{1}$, $\gamma_{2}\in \Gamma$ and all $\sigma\in \overline{G}$. If we restrict $\Phi$ to the subgroup $\Gamma$ all the $\Phi_{\sigma}$ are homomorphisms. It follows from the cocycle relation that for $\gamma\in \Gamma$, $\eta\in \Gamma_{o}$ and $\overline{\eta}=\eta\mod \Gamma$
+$$
+\Phi_{\sigma}(\eta\gamma\eta^{-1})=\Phi_{\sigma\overline{\eta}}(\gamma)
+$$
+This\pageoriginale tells us that $\Phi_{1}$ determines the $\Phi_{\sigma}$ for $\sigma\neq 1$ and it is easy to see that $\Phi_{1}:\Gamma\to R$ is the image of the class represented by $\Phi$ and the Shapiro isomorphism \eqref{art2-eq1.1.3}.
+
+The group $\overline{G}$ acts on the cohomology groups $H^{1}(\Gamma,R)=H^{1}(\Gamma\backslash X,R)$ where the action is induced by conjugation. On the other hand the action of $\overline{G}$ by left multiplication induces an action of $\overline{G}$ on $H^{1}(\Gamma_{o},R[\overline{G}])$ and it is not hard to check that \eqref{art2-eq1.1.3} commutes with these actions.
+
+This isomorphism \eqref{art2-eq1.1.3} allows us to decompose the cohomology, we have
+$$
+R[\overline{G}]=\bigoplus\limits_{\theta}M_{\theta}
+$$
+where the $M_{\theta}$ are irreducible $\overline{G}\times \overline{G}$-modules. (Here we use our assumption that $1/|\overline{G}|\in R$). Then we get a decomposition
+$$
+H^{1}(\Gamma,R)=H^{1}(\Gamma_{o},R[\overline{G}])=\bigoplus\limits_{\theta}H^{1}(\Gamma_{o},M_{\theta})
+$$
+If we assume in addition that $R$ contains enough roots of unity, then the $M_{\theta}$ will be absolutely irreducible and we get
+$$
+M_{\theta}=M_{\widehat{\delta}}\otimes M_{\delta}
+$$
+where $\delta$ runs over the irreducible $\overline{G}$-modules and $\widehat{\delta}$ is the contragriedient module. Therefore we get
+$$
+H^{1}(\Gamma,R)=\bigoplus\limits_{\delta\in \widehat{\overline{G}}}H^{1}(\Gamma_{o},M_{\delta})\otimes M_{\widehat{\delta}}
+$$
+and the action of $\overline{G}$ on the right hand side is trivial on the first factor and the given action on $M_{\widehat{\delta}}$.
+\end{proof}
+
+\subsection{The Compactification of $\Gamma\backslash X$ and the Cohomology at Infinity}\label{art2-sec1.2}
+It is well known that in this case the space $\Gamma\backslash X$ is not compact. It has a finite number of cusps which are in one-to-one correspondence with the $\Gamma$-conjugacy classes of Borel subgroups $B\subset G/F$. (\cite{art2-key1}) Borel and Serre developed a general theory of compactification of such spaces $\Gamma\backslash X$. They proved in \cite{art2-key3} that we have a homotopy equivalence
+$$
+\Gamma\backslash X\hookrightarrow \Gamma\backslash \overline{X}
+$$
+where in this special case $\Gamma\backslash \overline{X}$ is a compact manifold with a boundary. The\pageoriginale boundary components are in one-to-one correspondence with the $\Gamma$-conjugacy classes of Borel subgroups, i.e. they correspond to the cusps. We want to give a precise description of all this in our special situation.
+
+Let $B$ be any Borel subgroup defined over the group field $F$. Let $U\subset B$ be its unipotent radical. It follows from the Iwasawa decomposition that the group $B(\mathbb{C})$ acts transitively on $X$. The positive root defines a homomorphism
+$$
+\alpha : B\to G_{m}
+$$
+and from this we get a homomorphism
+$$
+\alpha : B(\mathbb{C})\to G_{m}(\mathbb{C})=\mathbb{C}^{x}
+$$
+We put
+$$
+B^{(1)}(\mathbb{C})=\{b\in B(\mathbb{C})|~|\alpha (b)|_{\mathbb{C}}=1\}
+$$
+where $|z|_{\mathbb{C}}=z\overline{z}$ for $z\in \mathbb{C}^{x}$. The group
+$$
+B(\mathbb{C})\cap K_{\infty}=B^{(1)}(\mathbb{C})\cap K_{\infty}=K^{B}_{\infty}
+$$
+is a one dimensional circle and it is clear that we have a semidirect product 
+$$
+B^{(1)}(\mathbb{C})=U(\mathbb{C})\cdot K^{B}_{\infty}
+$$
+Therefore we have with $x_{o}=K_{\infty}\in G/K_{\infty}$
+$$
+X^{(1)}_{B}=B^{(1)}(\mathbb{C})\cdot x_{o}=U(\mathbb{C})\cdot x_{o}\subset X
+$$
+and $X^{(1)}_{B}\simeq U(\mathbb{C})\simeq \mathbb{C}$. If we put $\Gamma_{B}=B(\mathbb{C})\cap \Gamma$ then we get a homotopy equivalence
+$$
+\Gamma_{B}\backslash X_{B}^{(1)}=\Gamma_{B}\backslash U(\mathbb{C})\hookrightarrow \Gamma_{B}\backslash X
+$$
+and the Borel-Serre theory gives us that $\Gamma_{B}\backslash X^{(1)}_{B}$ is diffeomorphic to the boundary component $Y_{B}$ of $\Gamma\backslash \overline{X}$ which corresponds to $B$ (\cite{art2-key3}). Since $\Gamma_{B}\simeq \bZ\oplus \bZ$ we get that $Y_{B}$ is a product of two circles.
+
+\bigskip
+\noindent
+{\bf Remarks}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Our congruence condition guarantees that $\Gamma\cap B(\mathbb{C})=\Gamma\cap U(\mathbb{C})$ since the image of $\Gamma\cap B(\mathbb{C})$ in $B(\mathbb{C})/U(\mathbb{C})$ has to consist of units in $\mathscr{O}$.
+
+\item To\pageoriginale give the reader a better feeling for the Borel-Serre compactification we add a few more comments.
+\end{enumerate}
+
+We mentioned already that $B(\mathbb{C})$ acts transitively on $X$, we use this fact to define the function
+\begin{align*}
+& h_{B}:X\to IR^{x}_{t}\\
+& h_{B}:x=bx_{o}\to |\alpha(b)|_{\mathbb{C}}
+\end{align*}
+We introduce the sets
+$$
+X^{B}(c)=\{x\in X|h_{B}(x)\geq c\}
+$$
+and the reduction theory tells us (\cite{art2-key1}, and \cite{art2-key5}, 1.2.) that for $c$ sufficiently large we have an embedding
+$$
+\Gamma_{B}\backslash X^{B}(c)\hookrightarrow \Gamma\backslash X
+$$
+and using the geodesic action or the vector field $dh^{B}$ we find
+$$
+\Gamma_{B}\backslash X^{B}(1)=\Gamma_{B}\backslash X^{(1)}_{B}\times [1,\infty)
+$$
+The Borel-Serre compactification in this case simply consists of adding $\infty$ in the second factor
+$$
+\Gamma_{B}\backslash X^{B}(1)=\Gamma_{B}\backslash X^{(1)}_{B}\times [1,\infty]\hookrightarrow \Gamma_{B}\backslash X^{(1)}_{B}\times [1,\infty]
+$$
+and $Y_{B}=\Gamma_{B}\backslash X^{(1)}_{B}\times \{\infty\}$.
+
+The first part of the paper is devoted to the study of the map
+$$
+H^{1}(\Gamma\backslash X,R)\xrightarrow{\sim}H^{1}(\Gamma\backslash \overline{X},R)\to H^{1}(\partial (\Gamma\backslash \overline{X}),R)\xrightarrow{\sim}\bigoplus\limits_{B}H^{1}(Y_{B},R)
+$$
+where $B$ runs over a set of representatives for the $\Gamma$ conjugacy classes of Borel subgroups. The group $\Gamma_{B}$ is free abelian of rank $2$ and therefore we have
+$$
+H^{1}(Y_{B},R)=\Hom (\Gamma_{B},R)=R^{2}
+$$
+
+If we want to describe the cohomology of the boundary we have to describe the set of cusps or the set of $\Gamma$-conjugacy classes of Borel subgroups. This is very simple in this case since $\mathscr{O}$ has class number one. Actually we shall do a little bit better. We know that $H^{1}(\mathscr{O}(\Gamma\backslash \overline{X}), R)$ is a $\Gamma_{o}/\Gamma=\overline{G}$-module and we give a description of this $\overline{G}$-module.
+
+Since\pageoriginale $\mathscr{O}$ has class number one it follows that the group $\Gamma_{o}$ acts transitively on the set of boundary components. It is easy to see (and will also follow from considerations in section \ref{art2-sec1.3}) that the stabilizer of the boundary component $Y_{B_{o}}$ is the group
+$$
+\overline{U}_{+}=\overline{U}_{o}\cdot W=\left\{\left(\begin{matrix} i^{m} & \overline{u}\\ 0 & 1\end{matrix}\right) \Big| \overline{u}\in \mathscr{O}/\sfa, i=i\mod \sfa\right\}
+$$
+where $W=\left\{\left(\begin{smallmatrix} i^{m} & 0\\ 0 & 1\end{smallmatrix}\right)\Big| m\in \bZ\right\}$. The group $\overline{U}_{+}$ acts on $H^{1}(Y_{B_{o}},R)$ and it follows from general principles of representation theory that we have an $\overline{G}$-module isomorphism
+$$
+H^{1}(\partial (\Gamma\backslash \overline{X}), R)\xrightarrow{\sim}\Ind^{\overline{G}}_{\overline{U}_{+}}H^{1}(Y_{B_{o}},R)
+$$
+where the induced module is the space of functions
+$$
+\left.
+\begin{array}{r}
+\Ind^{\overline{G}}_{\overline{U}_{+}}H^{1}(Y_{B_{o}},R)=\{h:\overline{G}\to H^{1}(Y_{B_{o}},R)|h(\overline{g}\overline{u}^{-1})=\overline{u}h(\overline{g})\\
+\text{for~ } \overline{g}\in \overline{G}\text{~and~} \overline{u}\in\overline{U}_{+}
+\end{array}
+\right\}
+$$
+The group $\overline{G}$ acts on these functions by left translations.
+
+It is easy to decompose this module into irreducible modules. We assume that $R$ contains the $|(\mathscr{O}/\sfa)^{*}|$-roots of unity. The group $\overline{U}_{+}=\overline{U}_{o}\cdot W$ and $U_{o}$ acts trivially on $H^{1}(Y_{B_{o}},R)$. Under the action of $W$ we have a decomposition $H^{1}(Y_{B_{o}},R)=\Hom(\Gamma_{B_{o}},R)=L_{+}\oplus L_{-}$ where $\left(\begin{smallmatrix} i & 0\\ 0 & 1\end{smallmatrix}\right)$ acts on $L_{+}$ by multiplication by $i$ and on $L_{-}$ by multiplication by $-i$.
+$$
+\left(
+\begin{matrix}
+i & 0\\
+0 & 1
+\end{matrix}
+\right)
+1_{+}=i1_{+};\quad \left(
+\begin{matrix}
+i & 0\\
+0 & 1
+\end{matrix}
+\right)1_{-}=-i 1_{-}
+$$
+We look at the characters $\phi:(\mathscr{O}/\sfa)^{x}\to S^{1}$ for which $\phi(i)=i$. For each such character we have a subspace
+$$
+\left.
+\begin{array}{r}
+M^{*}_{\phi}=\{h:\overline{G}\to L_{+}|h(\overline{g}\overline{b}^{-1})=\phi(\overline{b})h(\overline{g})\\
+\text{for~ } \overline{b}\in \overline{B}_{o}\text{~ and~ } \overline{g}\in \overline{G}
+\end{array}
+\right\}
+$$
+and $\Ind^{\overline{G}}_{\overline{U}_{+}}L_{+}$ and analogously we define $M^{*}_{\overline{\phi}}\subset \Ind^{G}_{\overline{U}_{+}}L_{-}$. This gives us a decomposition
+\setcounter{equation}{0}
+\begin{equation}
+\Ind^{\overline{G}}_{\overline{U}_{+}}H^{1}(Y_{B_{o}},R)=H^{1}(\partial (\Gamma\backslash \overline{X}),R)=\bigoplus\limits_{\substack{\phi:(\mathscr{O}/\sfa)^{x}\to S^{1}\\ \phi(i)=i}}(M^{*}_{\phi}\oplus M^{*}_{\overline{\phi}})\label{art2-eq1.2.1}
+\end{equation}\pageoriginale
+where the $M^{*}_{\phi}$ and $M^{*}_{\overline{\phi}}$ are irreducible $\overline{G}$-modules. (\ref{art2-sec1.2.2} and \cite{art2-key25}, Cor. 4.11.) Here we profit from the fact that $\phi$ cannot be a trivial or a quadratic character.
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\label{art2-sec1.2.2}
+ At this point I want to give an idea of one of the main questions of this paper. As we have seen already we can study the restriction map
+$$
+H^{1}(\Gamma\backslash \overline{X},R)\to H^{1}(\partial (\Gamma\backslash \overline{X}),R)
+$$
+and we have decomposed the right hand side into irreducible modules \eqref{art2-eq1.2.1}. Let us assume that we have selected generators $e_{+}\in L_{+}$ and $e_{-}\in  L_{-}$ (We shall see later that we have a rather canonical choice, see \ref{art2-sec1.6.1}) then we can identify $M^{*}_{\phi}$ with the induced representation
+$$
+M_{\phi}=\{\psi :\overline{G}\to R|\psi(\overline{g}\overline{b}^{-1})=\phi(\overline{b})\psi(\overline{g})\}
+$$
+by mapping $\psi\to \{g\to \psi(g)\cdot g\cdot e_{+}\}$. One knows that $M_{\phi}$ and $M_{\overline{\phi}}$ are irreducible $\overline{G}$-modules and they are isomorphic. The operator
+\begin{align*}
+& T_{\phi}:M_{\phi}\to M_{\overline{\phi}}\\
+& T_{\phi}:\psi\to T_{\phi}\psi(\overline{g})=\sum\limits_{u\in U_{o}}\psi(w\overline{ug})
+\end{align*}
+with $w=\left(\begin{smallmatrix} 0 & 1\\ -1 & 0\end{smallmatrix}\right)$ is a non zero interwining operator (\cite{art2-key25}, \S5).
+
+Since there are no other isomorphisms among these induced representations the decomposition \eqref{art2-eq1.2.1} is isotypical.
+
+Let us denote the quotient field of $R$ by $K$. For any $\phi$ we pick the isotypical component of $M_{\phi}$ in $H^{1}(\Gamma\backslash X,K)$ and get a map
+$$
+H^{1}(\Gamma\backslash X,K)_{\phi}\to M_{\phi}\otimes K\oplus M_{\overline{\phi}}\otimes K
+$$
+
+It follows from topological reasons that the image of the restriction map is of multiplicity one (namely $\frac{1}{2}\times$ the multiplicity of $M_{\phi}\otimes K\oplus M_{\overline{\phi}}\otimes K$ which is two) (comp. \cite{art2-key20} 3.4). Therefore the image is of the form (Schur's lemma)
+$$
+\{(\psi,c_{\phi}T_{\phi}\psi)|\psi\in M_{\phi}\otimes K\}\subset M_{\phi}\otimes K\oplus M_{\overline{\phi}}\otimes K
+$$
+where\pageoriginale $c_{\phi}\in K$ or $c_{\phi}=\infty$ in which case the image would be the second component. What is the value of $c_{\phi}$?
+
+This problem will be attacked by transcendental methods, the theory of Eisenstein series will give us an expression for $c_{\phi}$ in terms of values of $L$-functions.
+
+\subsubsection{}\label{art2-sec1.2.3}
+Before I conclude this section I want to translate the questions and assertions \ref{art2-eq1.2.1} and \ref{art2-sec1.2.2} in the language of cohomology groups with coefficients.
+
+We have the isomorphism \eqref{art2-eq1.1.3} and we put $\Gamma_{o,B_{o}}=B_{o}(F)\cap \Gamma_{o}$. Now we want to give a detailed description of the different isomorphisms in the following commutative diagram
+\begin{equation*}
+\vcenter{\xymatrix{
+\Sh : H^{1}(\Gamma_{o},R[\overline{G}])\ar[r]^-{\sim} \ar[d]^{\res} & H^{1}(\Gamma,R)\simeq H^{1}(\Gamma\backslash X,R)\ar[d]\\
+\partial \Sh:H^{1}(\Gamma_{o,B_{o}},R[\overline{G}])\ar[r]^-{\sim} & H^{1}(\partial(\Gamma\backslash \overline{X}),R)\ar[d]\\
+ & \bigoplus\limits_{\substack{\phi:(\partial/\sfa)^{x}\to S^{1}\\ \phi(i)=i}}(M^{*}_{\phi}\oplus M^{*}_{\overline{\phi}})
+}}\tag{1.2.3.1}\label{art2-eq1.2.3.1}
+\end{equation*}
+
+In this context it is convenient to identify the group ring $R[\overline{G}]$ with the ring of $R$ valued functions on $\overline{G}$ which is denoted by $\sfC(\overline{G})$ and
+\begin{align*}
+& \sfC(\overline{G})\xrightarrow{\sim}R[\overline{G}]\\
+\text{by}\qquad & f\to \sum\limits_{\sigma\in \overline{G}}f(\sigma)\cdot \sigma
+\end{align*}
+Now let us assume that
+$$
+\Phi :\Gamma_{o}\to \sfC(\overline{G})
+$$
+is a 1-cocycle. Then for $\gamma\in \Gamma_{o}$ the value $\Phi(\gamma)$ is a function of $\overline{G}$ and the value of this function at $\sigma\in \overline{G}$ will be denoted by
+$$
+\Phi(\gamma) \ (\sigma)
+$$
+If we restrict $\Phi$ to $\Gamma$ then the map $\gamma\to \Phi(\gamma)(\sigma)$ is a homomorphism for any\pageoriginale $\sigma\in\overline{G}$ and we have seen that $\Sh$ is given by
+$$
+[\Phi]\to \{\gamma\to \Phi(\gamma)(1)\}
+$$
+where $[\Phi]$ is the class defined by $\Phi$. The class $[\Phi]$ defines a class on the boundary and we get a family of homomorphisms
+\begin{align*}
+& \phi_{B}:\Gamma_{B}=\Gamma\cap B(F)\to R\\
+& \phi_{B}(\gamma_{B})=\Phi(\gamma_{B})(1)
+\end{align*}
+where $B$ runs over a set of $\Gamma$ conjugacy classes of Borel subgroups. If we write $\Gamma_{B}=\eta\Gamma_{B_{o}}\eta^{-1}$ with $\eta\in \Gamma_{o}$ then we get a homomorphism
+\begin{gather*}
+\Gamma_{B_{o}}\to R\\
+\gamma_{o}\to \phi_{B}(\eta\gamma_{o}\eta^{-1})=\Phi(\eta\gamma_{o}\eta^{-1})(1)
+\end{gather*}
+
+But for $\gamma_{o}\in \Gamma_{B_{o}}=B_{o}(F)\cap \Gamma$ we have
+$$
+\Phi(\eta\gamma_{o}\eta^{-1})=\eta\Phi(\gamma_{o})=\overline{\eta}\Phi(\gamma_{o})
+$$
+where $\overline{\eta}$ is the image of $\eta\in \Gamma_{o}$ in $\overline{G}$. Therefore we have
+$$
+\Phi(\eta\gamma_{o}\eta^{-1})(1)=\Phi(\gamma_{o})(\overline{\eta})
+$$
+and this tells us that the cocycle $\Phi$ defines a map
+\begin{align*}
+& h_{\Phi}:\overline{G}\to \Hom(\Gamma_{B_{o}},R)\\
+& h_{\Phi}:\sigma\to \{\gamma_{o}\to (\gamma_{o})(\sigma)\}
+\end{align*}
+
+This map is also defined for cocycles on $\Gamma_{o,B_{o}}$ with values in $R[\overline{G}]$ and the map $[\Phi]\to h_{\phi}$ gives us a direct realisation of $\partial \Sh$ and makes the commutativity of the diagram clear.
+
+This means that the study of our restriction map can be reduced to the inverstigation of maps
+$$
+H^{1}(\Gamma_{o},M)\to H^{1}(\Gamma_{o,B_{o}},M)
+$$
+where $M$ is a projective $R$-module on which we have an irreducible $\overline{G}$-action, i.e. $M\bigotimes\limits_{R}K$ is an irreducible $\overline{G}$-module. Again we want to assume that $R$ contains enough roots of unity.
+
+We\pageoriginale consider $H^{1}(\Gamma_{o,B_{o}},M)$. We have
+$$
+\Gamma_{o,B_{o}}=\left\{\left(\begin{matrix} t & u\\ 0 & 1\end{matrix}\right)|t\in \mathscr{O}^{x},u\in \mathscr{O}\right\}=\Gamma_{o,U_{o}}\cdot W
+$$
+where $\Gamma_{o,U_{o}}=\left\{\left(\begin{smallmatrix} 1 & u\\ 0 & 1\end{smallmatrix}\right)|u\in \mathscr{O}\right\}$ and $W$ is cyclic of order four generated by $\left(\begin{smallmatrix} i & 0\\ 0 & 1\end{smallmatrix}\right)$.
+
+We always identify $W\subset \Gamma_{o,B_{o}}$ with its image in $\overline{B}_{o}=\left\{\left(\begin{smallmatrix} t & u\\ 0 & 1\end{smallmatrix}\right) | t\in (\mathscr{O}/\sfa)^{x}, \overline{u}\in \mathscr{O}/\sfa\right\}$.
+
+Since we assume that $|\overline{G}|$ is invertible in our ring $R$ we see that the action of $\overline{U}_{o}$ on $M$ is semisimple and it is obvious that
+$$
+H^{1}(\Gamma_{o,U_{o}},M)=\Hom (\Gamma_{o,U_{o}},M^{\overline{U}_{o}})
+$$
+where we have to take into account that $M^{\overline{U}_{o}}=M^{\Gamma_{o},U_{o}}$. (The notation $M^{\overline{U}_{o}}$ means of course that we take the invariants). Therefore we can restrict our attention to those modules where $M^{\overline{U}_{o}}\neq (0)$. It is well known that in this case $M$ has to be a submodule of an induced module $N_{\chi}$ where $\chi$ is a character $\chi:\overline{B}_{o}\to \overline{B}_{o}/\overline{U}_{o}\to S^{1}$ and
+$$
+N_{\chi}=\{f:\overline{G}\to R|f(\overline{b}\overline{g})=\chi(\overline{b})f(\overline{g})\}
+$$
+The module $N^{\overline{U}_{o}}_{\chi}$ is easy to compute. We have the Bruhat decomposition $\overline{G}=\overline{B}_{o}w\overline{U}_{o}\cup \overline{B}_{o}$ with $w=\left(\begin{smallmatrix} 0 & 1\\ -1 & 0\end{smallmatrix}\right)$ and we put
+\begin{align*}
+f_{o} &= 
+\begin{cases}
+\overline{b}w\overline{y} &\to \chi(\overline{b})\\
+\overline{b} &\to 0
+\end{cases}\\
+f_{\infty} &= 
+\begin{cases}
+\overline{b}w\overline{u} & \to 0\\
+\overline{b} & \to \chi(\overline{b})
+\end{cases}
+\end{align*}
+Then $N^{\overline{U}_{o}}_{\chi}=Rf_{o}\oplus Rf_{\infty}$. The group $\overline{G}$ acts on $N_{\chi}$ by right translations, if we restrict this action to $\overline{B}_{o}$, then $N^{\overline{U}_{o}}_{\chi}$ is an invariant subspace and
+$$
+\overline{b}f_{o}=\chi(\overline{b})^{-1}f_{o}, \ \overline{b}f_{\infty}=\chi(\overline{b})f_{\infty}
+$$
+Since $\Gamma_{o,B_{o}}=\Gamma_{o,U_{o}}\cdot W$ we have obviously
+$$
+H^{1}(\Gamma_{o,B_{o}},M)=\Hom(\Gamma_{o,U_{o}},M^{\overline{U}_{o}})^{W}
+$$
+
+The group $W$ acts on $\Gamma_{o,U_{o}}$ by means of the adjoint action and the module\pageoriginale $\Gamma_{o,U_{o}}\otimes \mathscr{O}$ decomposes into two spaces on which $\left(\begin{smallmatrix} i & 0\\ 0 & 1\end{smallmatrix}\right)\in W$ acts by the eigenvalues $i$, $-i$. Then it becomes clear, that $H^{1}(\Gamma_{o,B_{o}},M)\neq 0$ if and only if $\chi(i)=\pm i$. We assume $\chi(i)=i$ ans we call this character $\phi$ again. So $\phi=\chi$, then we have that $N_{\phi}$ is irreducible (\cite{art2-key25} 4.11.) and $M=N_{\phi}$.
+
+We find
+$$
+\Hom (\Gamma_{o,U_{o}},N^{\overline{U}_{o}}_{\phi})^{W}=\Hom(\Gamma_{o,U_{o}},Rf_{o})^{W}\oplus \Hom(\Gamma_{o,U_{o}},Rf_{\infty})^{W}
+$$
+and
+\begin{align*}
+&\Hom(\Gamma_{o,U_{o}},Rf_{o})=\Hom(\Gamma_{o,U_{o}},R)=\Hom(\Gamma_{B_{o}},R)\\
+&\Hom(\Gamma_{o,U_{o}},Rf_{\infty})=\Hom(\Gamma_{o,U_{o}},R)=\Hom(\Gamma_{B_{o}},R)
+\end{align*}
+But we have to keep in out mind that $W$ acts {\em non trivially} on $Rf_{o}$, $Rf_{\infty}$ and it acts trivially on $R$. If we take up our earlier notations we find
+\begin{align*}
+&\Hom(\Gamma_{o,U_{o}},Rf_{o})^{W}=L_{+}\subset \Hom(\Gamma_{B_{o}},R)\\
+&\Hom(\Gamma_{o,U_{o}},Rf_{\infty})^{W}=L_{-}\subset \Hom(\Gamma_{B_{o}},R)
+\end{align*}
+We constructed an identification
+$$
+H^{1}(\Gamma_{o,B_{o}},N_{\phi})=L_{-}\oplus L_{-}=Re_{+}\oplus Re_{-}
+$$
+if we take up the notations in \ref{art2-sec1.2.2}.
+
+We look again at our restriction map
+$$
+H^{1}(\Gamma_{o},N_{\phi})\to H^{1}(\Gamma_{o,B_{o}},N_{\phi})=Re_{+}\oplus Re_{-}
+$$
+and we want to relate this to \ref{art2-sec1.2.2}.
+
+Let us pick the isotypical component $R[\overline{G}]_{\phi}$ in $R[\overline{G}]$ then we get
+$$
+\xymatrix{
+H^{1}(\Gamma_{o},R[\overline{G}]_{\phi})\ar@{=}[d] &\\
+H^{1}(\Gamma,R)_{\phi}\ar[r] & M^{*}_{\phi}\oplus M^{*}_{\overline{\phi}}=M_{\phi}\oplus M_{\overline{\phi}}
+}
+$$
+On the other hand we realized our given induced representation as a submodule of $R[\overline{G}]_{\phi}$ namely
+$$
+N_{\phi}\hookrightarrow R[\overline{G}]_{\phi}
+$$
+
+Therefore\pageoriginale
+%page 56
