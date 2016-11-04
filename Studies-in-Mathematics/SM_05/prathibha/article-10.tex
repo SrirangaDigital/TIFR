@@ -1,0 +1,362 @@
+\chapter{EISENSTEIN SERIES AND THE RIEMANN ZETA-FUNCTION}
+
+
+\begin{center}
+{\large By~ D. Zagier\footnote{\textit{Supported by the Sonderforschungsbereich ``Theoretische Mathematik'' at the University of Bonn.}}}
+\end{center}
+
+\bigskip
+
+\setcounter{pageoriginal}{274}
+
+\textsc{In this paper}\pageoriginale we will consider the functions $E(z, \rho)$ obtained by setting the complex variable $s$ in the Eisenstein series $E(z,s)$  equal to a zero of the Riemann zeta-function and will show that these functions satisfy a number of remarkable relations. Although many of these relations are consequences of more or less well known identities, the interpretation given here seems to be new and of some interest. In particular, looking at the functions $E(z, \rho)$ leads naturally to the definition of a certain representation of $SL_2 (R)$ whose spectrum is related to the set of zeroes of the zeta-function.
+
+We recall that the Eisenstein series $E(z,s)$ is defined for $z = x + iy \in \sfH$ (upper half-plane) and $s \in \bbC$ with $\re (s) > 1$ by
+\begin{equation*}
+E (z,s) = \sum\limits_{ \gamma \in \Gamma_\infty /\Gamma} \Iim (\gamma z)^s = \frac{1}{2} \sum\limits_{\substack{c, d \varepsilon Z\\ (c,d)=1}} \frac{y^s}{|cz + d|^{2s}} \tag{1}\label{art10-eq1}
+\end{equation*}
+where $\Gamma = PSL_2 (\bZ)$, $\Gamma_\infty = \left\{\pm \left(\begin{matrix}1 & n \\0 & 1 \end{matrix}\right) \big| n \in \bZ \right\} \subset \Gamma$. If we multiply both sides of \eqref{art10-eq1} by $\zeta(2s) = \sum\limits^\infty_{r =1} r^{-2s}$ and write $m = rc$, $n = rd$, we obtain 
+\begin{equation}
+\zeta (2s) E (z,s) = \frac{1}{2} \sum\limits_{m,n}' \frac{y^2}{|mz+n|^{2s}},  \label{art10-eq2}
+\end{equation}
+where $\sum'$ indicates summation over all $(m,n) \in \bZ^2 / \{(0,0)\}$. The function $\zeta(2s) E (z,s)$ has better analytic properties than $E(z,s)$; in particular, it has a holomorphic continuation to all $s$ except for a simple pole at $s =1$.
+
+There is thus an immediate connection between the Eisenstein series at $s$ and the Riemann zeta-function at $2s$. This relationship has been made use of by many authors and has several nice consequences, two of which will be mentioned in $\S 1$. Our main theme, however, is that there is also a relationship between the Eisenstein series and the zeta function at the \textit{same} argument. We will give several examples of this in $\S 2$. Each takes the form that a certain linear operator on the space of functions on $\Gamma/H$, when applied to $E(\cdot, s)$, yields a function of $s$ which is divisible by $\zeta(s)$. Then this operator annihilates all the $E (\cdot, \rho)$, and it is natural to look for a space $\sE$ of functions of $\Gamma / H$ which contains all the $E(\cdot, \rho)$ and which is annihilated by the operators in question. Such a space is defined in \S 3. In \S 4 we show that $\sE$ is the set of $K$-fixed vectors of a certain $G$-invariant subspace $\sV$ of the space of functions on $\Gamma / G$ (where $G = PSL_2 (\bR)$, $K = PSO(2)$). Then $\sV$ is a representation of $G$ whose spectrum with respect to the Casimir operator contains $\rho (1-\rho)$  discretely with multiplicity (at least) $n$ if $\rho$ is an $n$-fold zero of $\zeta(s)$. In particular, if (as seems very unlikely) one could show that $\sV$ is unitarizable, \ie if one could construct a positive definite $G$-invariant scalar product on $\sV$, then the Riemann hypothesis would follow.
+
+The paper ends with a discussion of some other representations of $G$ related to $\sV$ and reformulation in the language of adeles. 
+
+\smallskip
+\S~1. We begin by reviewing the most important properties of Eisenstein series. 
+
+a) \textit{Analytic continuation and functional equation.}
+
+The function $E(z,s)$ has a meromorphic continuation to all $s$, the only singularity for $\re (s) > \frac{1}{2}$ being a simple pole at $s =1$ whose residue is independent of $z$:
+\begin{equation*}
+\res_{s=1} E(z,s) = \frac{3}{\pi} (\forall z \in \sfH). \tag{3}\label{art10-eq3}
+\end{equation*}
+
+The modified function
+\begin{equation*}
+E^\ast (z,s) = \pi^{-s} \Gamma (s) \zeta(2s) E (z,s) \tag{4}\label{art10-eq4} 
+\end{equation*}
+is regular except for simple poles at $s =0$ and $s =1$ and satisfies the functional equation 
+\begin{equation*}
+E^{\ast} (z,s) = E^\ast (z, 1 - s). \tag{5}\label{art10-eq5}
+\end{equation*}
+
+These statements are proved in a way analogous to Riemann's proof of the\pageoriginale analytic continuation and functional equation of $\zeta(s)$; we rewrite \eqref{art10-eq2} as
+\begin{equation*}
+E^\ast (z, s) = \frac{1}{2} \pi^{-s}  \Gamma (s) \sum\limits'_{m,n} Q_z (m,n)^{-s} = \frac{1}{2} \int\limits^\infty_{o} (\Theta_z (t) -1)^{s-1} dt, \tag{6}\label{art10-eq6}
+\end{equation*}
+where $Q_z (m,n) (z \in \sfH)$ denotes the quadratic form 
+\begin{equation*}
+Q_z (m,n) = \frac{|mz+n|^2}{y } \tag{7} \label{art10-eq7}
+\end{equation*}
+of discriminant $-4$ and $\Theta_z (t) = \sum\limits_{m,n \in z} e^{-\pi t Q_z(m,n)}$ the corresponding theta-series; then the Poisson summation formula implies $\Theta_z (\frac{1}{t}) = t \Theta_z (t)$ and the functional equation and other properties of $E(z,s)$ follow from this and equation \eqref{art10-eq6}.
+
+b) ``\textit{Rankin-Selberg method}''.
+
+Let $F : \sfH \to \bbC$ be a $\Gamma$-invariant function which is of rapid decay as $y \to \infty$ (\ie. $F (x+ iy) = 0(y^{-N})$ for all $N$). Let
+\begin{equation*}
+C (F; y) = \int\limits^1_0 F (x + iy) d x \qquad (y>0) \tag{8} \label{art10-eq8}
+\end{equation*}
+be the constant term of its Fourier expansion and 
+\begin{equation*}
+I (F; s) = \int\limits^\infty_o C (F; y) y^{s-2} dy \; (\re (s) >1) \tag{9} \label{art10-eq9}
+\end{equation*}
+the Mellin transform of $C (F; y)$. From \eqref{art10-eq1} we obtain
+\begin{equation*}
+I(F;s) = \int\limits_{\Gamma_\infty/ \sfH} F (z) y^s d z = \int\limits_{\Gamma / \sfH} F (z) E (z,s) dz, \tag{10}\label{art10-eq10}
+\end{equation*}
+where $dz$ denotes the invariant volume element $\dfrac{dxdy}{y^2}$. Therefore the properties of $E (z,s)$ given in a) imply the corresponding properties of $I(F;s)$: it can be meromorphically continued, has a simple pole at $s =1$ with 
+\begin{equation*}
+\res_{s=1} I(F;s) = \frac{3}{\pi} \int\limits_{\Gamma/ \sfH} F (z) d z, \tag{11}\label{art10-eq11}
+\end{equation*}
+and the function
+\begin{equation*}
+I^\ast (F;s) = \pi^{-s} \Gamma (s) \zeta (2s) I (F;s)\tag{12}\label{art10-eq12}
+\end{equation*}
+is regular\pageoriginale for $s \neq 0$, 1 and satisfies 
+\begin{equation}
+I^\ast (F;s) = I^\ast (F; 1-s) \tag{13}\label{art10-eq13}
+\end{equation}
+
+c) \textit{Fourier development.}
+
+The function $E^\ast(z,s)$ defined by \eqref{art10-eq4} has the Fourier expansion
+\begin{gather*}
+E^\ast (z,s) = \zeta^\ast (2s) y^s + \zeta^\ast (2s -1 ) y^{1-s} \tag{14}\label{art10-eq14}\\
++ 2 \sqrt{y} \sum\limits^\infty_{n=1} n^{s-1/2} \sigma_{1-2s} (n) K_{s-1/2} (2 \pi n y) \cos 2 \pi n x,
+\end{gather*}
+where 
+\begin{align*}
+\zeta^\ast (s) & = \pi^{-s/2} \Gamma (\frac{s}{2}) \zeta(s) \qquad (s \in \bbC), \tag{15}\label{art10-eq15}\\
+\sigma_v (n) & = \sum\limits_{d |n} d^v \qquad (n\in N, \; v \in \bbC),\\
+K_v (t) & = \int\limits^\infty_o e^{-t \cosh u} \cosh v u \; du \qquad (v \in \bbC, \; t > 0).
+\tag{16}\label{art10-eq16}
+\end{align*}
+
+The expansion \eqref{art10-eq14}, which can be derived without difficulty from \eqref{art10-eq2}, gives another proof of the statements in a); in particular, the functional equation \eqref{art10-eq5} follows from \eqref{art10-eq14} and the functional equations 
+$$
+\zeta^\ast (s) = \zeta^\ast (1-s) , \sigma_v (n) = n^v \sigma_{-v} (n), K_v (t) = K_{-v} (t). 
+$$
+
+Because of the rapid decay of the $K$-Bessel functions \eqref{art10-eq16}, equation \eqref{art10-eq14} also implies the estimates
+\begin{align*}
+\frac{\partial^n}{\partial s^n} E (z,s) = O (y^{\max (\sigma , 1 -\sigma)} \log^n y) (n = 0, 1, 2,\ldots , \sigma &= \re (s), \tag{17} \label{art10-eq17}\\
+y & = \Iim (z) \to \infty)
+\end{align*}
+for the growth of the Eisenstein series and its derivatives. Finally, it follows from \eqref{art10-eq14} or directly from \eqref{art10-eq1} or \eqref{art10-eq2} that the Eisenstein series $E (z,s)$ are eigenfunctions of both the Laplace operator 
+$$
+\Delta = y^2 \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2 }{\partial y^2} \right)
+$$
+and the Hecke operators 
+$$
+T (n): F (n) \to \sum\limits_{\substack{ad = n \\ a, d >0}} \sum\limits_{\substack{b (\mod d)}} F (\frac{az+b}{d}) \quad (n>0), 
+$$
+namely\pageoriginale
+\begin{equation*}
+\Delta E (z,s) = s (s-1) E (z,s), \quad T (n) E (z,s) = n^s \sigma_{1-2s} (n) E (z,s) . \tag{18}\label{art10-eq18}
+\end{equation*}
+
+We now come to the promised applications of the relationship between $E (z,s)$ and $\zeta(2s)$. The first (which has been observed by several authors and greatly generalized by Jacquet and Shalika \cite{art10-eq3}) is a simple proof of the non-vanishing of $\zeta(s)$ on the line $\re (s) =1$. Indeed, if $\zeta (1+it) = 0$, the \eqref{art10-eq14} implies that the function $F(z) = E (z, \frac{1}{2} + \frac{1}{2}$ it) is of rapid decay, does not vanish identically, and has constant term $C(F;y)$ identically equal to 0. But then $I(F;s) =0$ for all $s$, and takings $s = \dfrac{1}{2} - \dfrac{1}{2}$ it in \eqref{art10-eq10} we find $\int\limits_{\Gamma / \sfH} |F(z)|^2 d z = 0$, a contradiction.
+
+The second ``application'' is a direct but striking consequence of the Rankin-Selberg method. Let $\sC_y \subset \Gamma / \sfH$ be the horocycle $\Gamma_\infty/ (\bR+ iy)$; it is a closed curve of (hyperbolic) length $\dfrac{1}{y}$. The claim is that, as $y \to 0$, the curye $\sC_y$ ``fills up'' $\Gamma / \sfH$ in a very uniform way: not only does $\sC_y$ meet any open set $U \subset \Gamma / \sfH$ for $y$ sufficiently small, but the fraction of $\sC_y$ contained in $U$ tends to $\vol (U)/ \vol (\Gamma / \sfH)$ as $y \to 0$ and in fact
+$$
+\frac{\text{length }(\sC_y \cap U)}{\text{length} (\sC_y)} = \frac{\vol (U)}{\vol (\Gamma/ \sfH)} + 0 (y^{\frac{1}{2} - \varepsilon}) \quad (y \to 0);
+$$
+moreover, if the error term in this formula can be replaced by $0(y^{3/4 - \varepsilon})$ for all $U$, then the Riemann hypothesis is true! To see this, take $F (z)$ in b) to be the characteristic function $\chi_U$ of $U$. Then $C (F; y) = \dfrac{\text{length} (\sC_y \cap U)}{\text{length } (\sC_y)}$ and the Mellin transform $I (F, s)$ of this is holomorphic in $\re (s) > \frac{1}{2} \Theta$ (where $\Theta$ is the supremum of the real parts of the zeroes of $\zeta (s)$) except for a simple pole of residue $\kappa = \frac{3}{4} \int\limits_{\Gamma / \sfH} F (z) d z = \dfrac{\vol (U)}{\vol (\Gamma / \sfH)}$ at $s =1$. If $F$ were sufficiently smooth (say twice differentiable) we could deduce that $I(F; \sigma + it) = 0 (t^{-2})$ on any vertical strip $\re(s) = \sigma > \frac{1}{2} \Theta$, and the Mellin inversion formula would give $C (F; y) = \kappa + 0 (y^{1-\frac{1}{2} \Theta -\varepsilon})$. For $F = \chi_U$ we can\pageoriginale prove only $C (F; y) = \kappa + 0 (y^{\frac{1}{2} - \varepsilon})$; conversely, however, if $C (F; y) = \kappa + 0(y^\alpha)$ then $I (F; s) - \dfrac{\kappa}{s-1}$ is holomorphic for $\re(s) >1-\alpha$, and if this holds for all $F = \chi_U$ we obtain $\Theta \leqslant 2 (1-\alpha)$.
+
+\S 2. In this section we give examples of special properties of the functions $E^\ast(z, \rho)$ or, more generally, of the functions 
+\begin{equation*}
+\left. F(z) = F_{\rho, m} (z) = \frac{\partial^m}{\partial s^m} E^\ast (z,s) \right|_{s = \rho} \quad (0 \leq m \leq n_\rho -1), 
+\tag{19}\label{art10-eq19}
+\end{equation*}
+where $\rho$ is a non-trivial zero of $\zeta(s)$ of order $n_\rho$.
+
+\medskip
+\noindent
+{\bfseries Example \thnum{1}:\label{art10-exam1}}
+
+
+Let $D < 0 $ be the discriminant of an imaginary quadratic field $K$. To each positive definite binary quadratic form $Q(m,n)= am^2 + b mn+ cn^2$ of discriminant $D$ we associate the root $z_Q  = \dfrac{-b+ \sqrt{D}}{2a} \in \sfH$. The $\Gamma$-equivalence class of $Q$ determines uniquely an ideal class $A$ of $K$ such that the norms of the integral ideals of $A$ are precisely the integers represented by $Q$. Also, the form $Q_{z_Q}$ defined by \eqref{art10-eq7} equals $\dfrac{2}{\sqrt{|D|}} Q$. Therefore \eqref{art10-eq6} gives 
+\begin{align*}
+E^\ast (z_Q , s) & = \frac{1}{2} \left(\dfrac{|D|}{4} \right)^{s/2} \pi^{-s} \Gamma (s) \sum\limits'_{m,n} Q (m,n)^{-s} \\
+& = \frac{w}{2} \left(\frac{|D|}{4} \right)^{s/2} \pi^{-s} \Gamma (s) \zeta (A, s), 
+\end{align*}
+where $w (= 2, 4$ or 6) is the number of roots of unity in $K$ and $\zeta (A, s) = \sum\limits_{\fa}^{-s}$  is the zeta-function of $A$. (Note that this equation makes sense because $E^\ast (z_Q, s)$ depends only on the $\Gamma$-equivalence class of $z_Q$ and hence of $\bQ$.) Thus if $Q_1, \ldots, Q_{h(D)}$ are representatives for the equivalence classes of forms of discriminant $D$, we have 
+\begin{align*}
+\sum\limits^{h(D)}_{i=1} E^\ast (z_{Q_i}, s) & = \frac{w}{2} \left(\frac{|D|}{4} \right)^{s/2} \quad \pi^{-s} \Gamma (s) \sum\limits^{h(D)}_{i=1} \zeta (A_i,s)\\
+& = \frac{w}{2} \left(\frac{|D|}{4} \right)^{s/2} \quad \pi^{-s} \Gamma (s) \zeta_K (s) \\
+& = \frac{w}{2} \left(\frac{|D|}{4} \right)^{s/2} \quad \pi^{-s} \Gamma (s) \zeta (s) L(s, D),
+\end{align*}
+where\pageoriginale $\zeta_K (s)$ is the Dedekind zeta-function of $K$ and $L(s,D)$ the $L$-series $\sum\limits^\infty_{n=1}\left(\dfrac{D}{n}\right) n^{-s}$. Since the latter is holomorphic, we deduce that the function $\sum\limits^{h(D)}_{i=1} E^{\ast} (z_{Q_i}, s)$ is divisible by $\Gamma (s) \zeta (s)$, \ie that it vanishes with multiplicity $\geq n_\rho$ at a non-trivial zero $\rho$ of $\zeta (s)$. A similar statement holds for any negative integer $D$ congruent to 0 or 1 modulo 4 (not necessarily the discriminant of a quadratic field) if we replace $\zeta_K (s)$ in the equation above by the function 
+\begin{equation}
+\zeta(s, D) = \sum\limits^{h(D)}_{i =1} \sum\limits_{\substack{(m,n) \varepsilon Z^2 / \Gamma_{Q_i}\\ Q_i (m,n)>0}} \frac{1}{Q_i (m, n)^s}
+\tag{20}\label{art10-eq20}
+\end{equation}
+where $Q_i(i=1,\ldots, h (D))$ are representatives for the $\Gamma$-equivalence classes of binary quadratic forms of discriminant $D$ and $\Gamma_{Q_i}$ denotes the stabilizer of $Q_i$ in $\Gamma$. Again the quotient $L (s, D) = \zeta (s, D) / \zeta(s)$ is entire (\cite{art10-11}, Prop. 3, ii), p. 130). This proves
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{1}:\label{art10-prop1}}
+\textit{Each of the functions \eqref{art10-eq19} satisfies}
+\begin{equation}
+\sum\limits^{h(D)}_{i=1} F(z_{Q_i}) = 0 \tag{21}  \label{art10-eq21}
+\end{equation}
+\textit{for all integers $D <0$, where $z_{Q_1}, \ldots, z_{Q_{j(D)}}$ are the points in $\Gamma / \sfH$ which satisfy a quadratic equation with integral coefficients and discriminant $D$.}
+
+Notice how strong condition \eqref{art10-eq21} is: the points satisfying some quadratic equation over $\bZ$ (``points with complex multiplication'') lie dense in $\Gamma/ \sfH$, so that it is not at all clear $a$ priori that there exists any non-zero continuous function $F: \Gamma / \sfH \to \bbC$ satisfying eq. \eqref{art10-eq21} for all $D <0$.
+
+\medskip
+\noindent
+{\bfseries Example \thnum{2}:\label{art10-exam2}}
+
+This is the analogue of Example \ref{art10-exam1} for positive discriminants. Let  $D > 0$ be the discriminant of a real quadratic field $K$ and $Q_1, \ldots, Q_{h(D)}$ representatives for the $\Gamma$-equivalence classes of quadratic forms of discriminant $D$. To each $Q_i$  we associate, not a point $z_{Q_i} \in \Gamma / \sfH$ as before, but a closed curve $C_{Q_i} \subset \Gamma / \sfH$ as follows: Let $w_i$, $w'_i \in \bR$ be the roots of the quadratic\pageoriginale equation $Q_i(x,1) = a_i x^2 + b_i x + c_i = 0$ and let $\Omega_i$ be the semicircle in $\sfH$ with endpoints $w_i$ and $w'_i$. The subgroup
+\begin{equation*}
+\Gamma_{Q_i} = 
+\left\{
+\left.  \pm 
+\left(\begin{matrix} 
+\frac{1}{2} (t - b_i u) & -c_i u \\
+a_i u & \frac{1}{2} (t + b_i u)   
+\end{matrix}\right) 
+\right|
+t, u \in \bZ , t^2 - D u^2  = 4 \right\}\tag{22}
+\label{art10-eq22}
+\end{equation*}
+of $\Gamma$, which is isomorphic to $\{$units of $K\} / \{\pm 1\}$  and hence to $\bZ$, maps $\Omega_i$ to itself, and $C_{Q_i}$ is the image $\Gamma_{Q_i} / \Omega_i$ of $\Omega_i$ in $\Gamma / \sfH$. On $C_{Q_i}$ we have a measure $|d_{Q_i} z|$, unique up to a scalar factor, which is invariant under the operation of the group $\Gamma_{Q_i} \otimes \bR$  obtained by replacing $\bZ$ by $\bR$ in \eqref{art10-eq22}; if we parametize $\Omega_i$ by
+$$
+z = \frac{w_i i p + w'_i }{i p+1} \qquad (0 < p < \infty), 
+$$
+then $\Gamma_{Q_i}$ acts by $p \to \varepsilon^2 p$ ($\varepsilon = \dfrac{t + u \sqrt{D}}{2}$ a unit of $K$)  and $|d_{Q_i} z| = \dfrac{dp}{p}$. A theorem of Hecke (\cite{art10-2}, p. 201) asserts that the zeta-function of the ideal class $A_i$ of $K$ corresponding to $Q_i$ is given by 
+$$
+\zeta(A_i, s) = \frac{\pi^s}{\Gamma (\frac{s}{2})^2} D^{-s/2}\int\limits_{C_{Q_i}} E^\ast (z,s) |d_{Q_i} z|
+$$
+(\cf \cite{art10-eq10},  \S 3 for a sketch of the proof). Thus
+$$
+\sum\limits^{h(D)}_{i=1} \int\limits_{C_{Q_i}} E^\ast (z,s) |d_{Q_i} z| = \pi^{-s} D^{s/2} \Gamma (\frac{s}{2})^2 \zeta_K (s),
+$$
+which again is divisible by $\zeta(s)$, and as before we can take for $D$ any positive non-square congruent to 0 or 1 modulo 4 and get a similar identity with $\zeta_K(s)$ replaced by the function \eqref{art10-eq20}. Thus we obtain
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{2}:\label{art10-prop2}}
+\textit{Each of the functions \eqref{art10-eq19} satisfies}
+\begin{equation}
+\sum\limits^{h(D)}_{i=1} \int_{C_{Q_i}} F (z) |d_{Q_i} z| = 0 \tag{23}\label{art10-eq23} 
+\end{equation}
+\textit{for all non-square integers $D < 0$, where $Q_i (m,n) = a_i m^2 + b_i mn + c_i n^2$ $(i=1,\ldots, h(D))$\pageoriginale are representatives for the $\Gamma$-equivalence classes of binary quadratic forms of discriminant $D$, $C_{Q_i}$ is the image of $\{\left.z = x+ iy \in \sfH \right| a_i |z|^2 +  b_i x+ c_i =0\}$ in $\Gamma / \sfH$, and}
+$$
+|d_{Q_i} z| = \frac{\sqrt{D}}{|a_i z^2 + b_i z + c_i|} ((dx)^2 + (dy)^2)^{1/2}.
+$$
+
+\medskip
+\noindent
+{\bfseries Example \thnum{3}:\label{art10-exam3}}
+The third example comes from the theory of modular forms. Let $f(z)$ be a cusp form of weight $k$ on $SL_2 (\bZ)$ which is a normalized eigenfunction of the Hecke operators, \ie $f$ satisfies 
+$$
+f\left(\frac{az+b}{cz+d} \right) = (cz + d)^k f(z) \quad (\forall z \in \sfH, \quad \left(\begin{matrix} a & b \\c & d 
+\end{matrix}\right) \in SL_2 (\bZ))
+$$
+and has a Fourier development of the form 
+$$
+f(z) = \sum\limits^\infty_{n=1} a_n e^{2 \pi in  z}
+$$
+with $a_1 = 1$ and $a_{nm} = a_n a_m$ if $(n,m) =1$. Define $D_f (s)$ by 
+$$
+D_{f} (s) = \prod\limits_p \frac{1}{(1-\alpha^2_p p^{-s}) (1-\alpha_p \beta_p p^{-s})(1-\beta^2_p p^{-s})}  (\re (s) >> 0),
+$$
+where $\alpha_p$ and $\beta_p$ are the roots of $X^2 - a_p X + p^{k-1} = 0$; it is easily checked that 
+$$
+D_f (s) =\frac{\zeta (2s - 2k + 2)}{\zeta (s-k +1)} \sum\limits^\infty_{n=1} |a_n|^2 n^{-s}.
+$$
+
+Applying the Rankin-Selberg method \eqref{art10-eq10} to the $\Gamma$-invariant function $F(z) = y^k |f(z)|^2$ with constant term $C(F: y^k) = \int\limits^\infty_{n=1} |a_n|^2 e^{-4 \pi n y}$, we find $\int\limits_{\Gamma/ \sfH} y^k |f(z)|^2 E^\ast (z, s) d z = I^\ast (F;s)$
+\begin{align*}
+& = \pi^{-s} \Gamma (s) \zeta (2s) \cdot (4 \pi)^{-s-k+1} \Gamma (s+k -1) \sum\limits^\infty_{n=1} \frac{|a_n|^2}{n^{s+k-1}}\\
+& = 4^{-s-k+1} \pi^{-2s -k +1} \Gamma (s) \Gamma (s+k-1) \zeta (s) D_f (s+k-1).
+\end{align*}
+
+This\pageoriginale formula, which was the original application of the Rankin-Selberg method (\cite{art10-5}, \cite{art10-6}), shows that the product $\zeta(s) D_f (s+k-1)$ is holomorphic except for a simple pole at $s =1$. It was proved by Shimura \cite{art10-7} and also by the author \cite{art10-11} that in fact $D_f (s)$ is an entire function of $s$. Thus the above integral is divisible by $\Gamma (s) \Gamma (s+ k -1) \zeta(s)$, and we obtain
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{3}:\label{art10-prop3}}
+\textit{Each of the functions \eqref{art10-eq19} satisfies}
+\begin{equation*}
+\int\limits_{\Gamma/ \sfH} y^k |f(z)|^2 F (z) dz = 0 \label{art10-eq24}
+\end{equation*}
+\textit{for every normalized Hecke eigenform $f$ of level 1 and weight $k$.}
+
+The statement of Proposition \ref{art10-prop3} remains true if $f$ is allowed to be a non-holomorphic modular form (Maass wave-form); the proof for $k=0$ is given in \cite{art10-12} in this volume and the general case is included in the results of \cite{art10-1} or \cite{art10-4}.
+
+Finally, we can extend our list of special properties of the functions \eqref{art10-eq19} by observing that each of these functions is an eigenfunction of the Laplace and Hecke operator (eq. \eqref{art10-eq18}) and hence (trivially) has the property that
+\begin{equation*}
+\Delta^i F (z) \text{ and } T (n) F (z) \text{ satisfy Proposition \ref{art10-prop1}-\ref{art10-prop3} for all } i \geqslant 0, \; n \geqslant 1. \tag{25}\label{art10-eq25}
+\end{equation*}
+
+Note that for general functions $F: \Gamma / \sfH \to \bbC$ (not eigenfunctions), eq. \eqref{art10-eq25} expresses a property no contained in Proposition \ref{art10-prop1} to \ref{art10-prop3}: for example, eq. \eqref{art10-eq21} for $D = - 4$ says that $F (i) =0$, and this does not imply $\Delta F(i) =0$.
+
+\S~3. In \S~2 we proved that the functions $E^\ast (z, \rho)$, and more generally the functions \eqref{art10-eq19}, satisfy a number of special properties. In this section we will both explain and generalize these results by defining in a natural way a space $\sE$ of functions in $\Gamma / \sfH$ which contains the functions $\eqref{art10-eq19}$ and has the same special properties. 
+
+Let $D$ be an integer congruent to 0 or 1 modulo 4. For $\Phi: \bR \to \bbC$ a function satisfying certain restrictions (e.g. \eqref{art10-eq27} and \eqref{art10-eq29} below) we define a new function $\sL_D \Phi: \sfH \to \bbC$ by
+\begin{equation*}
+\sL_D \Phi (z) = \frac{1}{2} \sum\limits_{\substack{a, b, c \in Z\\ b^2- 4 a c = D}} \Phi \left(\frac{a|z|^2 + b z +c}{y} \right) \quad (z = x + iy \in \sfH), \tag{26}\eqref{art10-26}
+\end{equation*}
+where the summation extends over all integral binary quadratic forms $Q(m,n) = am^2 + bmn + cn^2$ of discriminant $D$. Since $Q$ and $-Q$ occur together in the sum, we may assume that $\phi$ is an even function; the factor $\frac{1}{2}$ has then been included in the definition to avoid counting each term twice. 
+
+The sum \eqref{art10-eq26} converges absolutely for all $z \in \sfH$ if we assume that 
+\begin{equation*}
+\Phi (X) = O(|X|^{-1-\varepsilon}) \quad (|X| \to \infty) \tag{27}\label{art10-eq27}
+\end{equation*}
+for some $\varepsilon > 0$. Moreover, the expression $\dfrac{a|z|^2 + bx +c}{y}$ is unchanged if one acts simultaneously on $x + iy \in \sfH$ and $Q(m,n) = am^2 + bmn + cn^2$ by an element $\gamma \in \Gamma$. Hence $\sL_D \Phi (\gamma z) = \sL_D \Phi (z)$, so $\sL_D$ is an operator from functions on $\bR$ satisfying \eqref{art10-eq27} to functions on $\Gamma / \sfH$.
+
+Before going on, we need to know something about the growth of $\sL_D\Phi$ in $\Gamma / \sfH$. If $D$ is not a perfect square, then $a \neq 0$ in \eqref{art10-eq26}, so (for $\Phi$ even)
+\begin{align*}
+\sL_D \Phi (z)  & = \sum\limits^\infty_{a=1} \sum\limits^\infty_{\substack{b = -\infty\\ b^2 \equiv D (\mod 4a)}} \Phi \left(ay + \frac{a(x+ b/ 2 a)^2 - D / 4a}{y} \right)\\
+& = \sum\limits^\infty_{a=1} \sum\limits^\infty_{\substack{b = - \infty\\ b^2 \equiv D (\mod 4a)}} O \left(\left(ay+ \frac{a(x + b / 2 a)^2 - D / 4a}{y} \right)^{-1-\varepsilon}\right)\\
+& = \sum\limits^\infty_{a=1} O \left(n_D (a) \int\limits^\infty_{-\infty} \left(ay + \frac{ax^2}{y} \right)^{-1-\varepsilon} dx\right)
+\end{align*}
+as $y = \Iim (z) \to \infty$, where 
+\begin{equation*}
+n_D (a) = \neq \left\{\left. b (\mod 2 a) \right| b^2 \equiv D (\mod 4 a) \right\}. \tag{28} \label{art10-eq28}
+\end{equation*}
+Since the integral is $O(a^{-1-\varepsilon} y^{-\varepsilon})$ and $\sum\limits^\infty_{a=1} \dfrac{n_D (a)}{a^{1+\varepsilon}}$ converges, we find $\sL_D \Phi (z) = O (y^{-\varepsilon})$.\pageoriginale If $D$ is a square, then the same argument applies to the terms in \eqref{art10-eq26} with 
+$a \neq 0$ and we are left with the sum 
+$$
+\frac{1}{2} \sum\limits_{b^2 =D} \sum\limits^\infty_{c = - \infty} \Phi (\frac{bx+c}{y})
+$$
+to estimate. If $\Phi$ is sufficiently smooth (say twice differentiable), then the inner sum differs by a small amount from the corresponding integral 
+$$
+\int\limits^\infty_{-\infty} \Phi (\frac{c}{y}) dc = y \cdot \frac{\infty}{-\infty} \Phi (X) d X,
+$$
+and this will be small as $y \to \infty$ only if $\int\limits^\infty_{-\infty} \Phi (X) dX$ vanishes. Thus with the requirement
+\begin{equation*}
+\Phi \text{ is } C^2 \text{ and } \int\limits^\infty_{-\infty} \Phi (X) d X = 0 \text{ if } D \text{ is a square } \tag{29}\label{art10-eq29}
+\end{equation*}
+as well as \eqref{art10-eq27} we have $\sL_D \Phi (z) = O(y^{-\varepsilon})$ as $y \to \infty$ for all $D$, and so the scalar product of $\sL_D \Phi$ with $F$ in $\Gamma / \sfH$ converges for any $F :\Gamma / \sfH \to \bbC$ satisfying $F(z) = O(y^{1-\varepsilon})$ for some $\varepsilon > 0$ (or even $F(z) - O(y)$). Therefore the definition of $\sE$ in the following theorem makes sense. 
+
+\begin{theorem*}
+\textit{For each integer $D \in Z$, $D \equiv 0$ or 1 ($\mod 4$), let }
+$$
+\sL_D \left\{\begin{aligned}
+& \text{even functions } \Phi: \bR \to\bbC\\
+& \text{satisfying \eqref{art10-eq27} and \eqref{art10-eq29}}
+\end{aligned}
+\right\} \longrightarrow \{\text{functions } \Gamma /\sfH \to \bbC \}
+$$
+\end{theorem*}
+\textit{be the operator defined by \eqref{art10-eq26}}. Let $\sE$ be the set of functions $F: \Gamma / \sfH \to \bbC$ such that 
+\begin{itemize}
+\item[a)] \textit{$F(z) = O(y^{1-\varepsilon})$ for some  $\varepsilon > 0$}
+
+\item[b)] \textit{$F (z)$  is orthogonal to  $\sum\limits_D \Iim (\sL_D)$, \ie $\int\limits_{\Gamma / \sfH} \sL_D \Phi (z) F(z) d z = 0$ for all $D \in \bZ$ and all $\Phi$ satisfying \eqref{art10-eq27} and \eqref{art10-eq29}.}
+\end{itemize}
+
+\textit{Then }
+\begin{itemize}
+\item[i)] \textit{$\sE$ contains the functions \eqref{art10-eq19};}
+
+\item[ii)] \textit{$\sE$ is closed under the action of the Laplace and Hecke operators;}
+
+\item[iii)] \textit{Any $F \in \sE$ satisfies \eqref{art10-eq21}, \eqref{art10-eq23} (for all $D$) and \eqref{art10-eq24} (for all $f$).}
+\end{itemize}
+
+\begin{proof}
+i) The functions \eqref{art10-eq19} satisfy a) because of equation \eqref{art10-eq17}, since $0< \re (\rho)<1$. To prove b), we must show that the integral of any function\pageoriginale $\sL_D \Phi (z)$ against $E^\ast (z,s)$ is divisible by $\zeta(s)$. Consider first the case when $D$ is not a square. Let $\Phi$ be any function satisfying \eqref{art10-eq27} and $F : \Gamma / \sfH \to \bbC$ a function which is $O(y^\alpha)$ as $y \to \infty$ for some $\alpha \leqslant 1 + \varepsilon$. If $Q_i (m, n) = a_i m^2 + b_i mn + c_i n^2 (i = 1, \ldots, h (D))$ are representatives for the classes of binary quadratic forms of discriminant $D$, then any form of discriminant $D$ equals $Q_i \circ \gamma$ for a unique $i$ and $\gamma \in \Gamma_{Q_i} / \Gamma$ ($\Gamma_{Q_i} =$ stabilizer of $Q_i$ in $\Gamma$). Hence
+$$
+\sL_D \Phi (z) = \sum\limits^{h(D)}_{i=1} \sum\limits_{\gamma \in \Gamma_{Q_i}/ \Gamma} \Phi \left(\frac{a_i |\gamma z|^2+ b_i \re (\gamma z) + c_i}{\Iim (\gamma z)} \right)
+$$
+and so 
+$$
+\int\limits_{\Gamma/\sfH} \sL_D \Phi (z) F (z) dz = \sum\limits^{h(D)}_{i=1} \int\limits_{\Gamma_{Q_i}/ \sfH} \Phi \left(\frac{a_i |z|^2 + b_i x +c_i}{y} \right) F (z) dz.
+$$ 
+Taking $F(z) = \zeta(2s) E (z,s)$ with $1 \leqslant \re (s) < 1 + \varepsilon$ and using \eqref{art10-eq2}, we find that the right-hand side of this equations equals
+$$
+\frac{1}{2} \sum\limits^{h(D)}_{i=1} \sum\limits_{(m,n) \in Z^2 / \Gamma_{Q_i}} \int\limits_{\sfH} \Phi \left(a_i |z|^2+ b_i x + c_i \right)  \frac{y^s}{|mz + n|^2{2s}} d z.
+$$
+
+Since $D$ is not a square, $Q_i (n, -m)$ is different from 0 for all $(m,n) \neq (0,0)$, so, since $\Phi$ is an even function, we can restrict the sum to $(m,n) \in Z^2$ with $Q_i (n, -m)>0$ if we drop the factor $\frac{1}{2}$. Then the substitution $z \to \dfrac{nz - \frac{1}{2} b_i n + c_i m}{-mz+ a_i n - \frac{1}{2} b_i m}$ introduced in \cite{art10-11}, p. 127, maps $\sfH$ to $\sfH$ and gives 
+\begin{multiline*}
+\int\limits_H \Phi \left(\frac{a_i |z|^2 + b_i x + c_i}{y} \right) \frac{y}{|mz+ n|^{2s}} dz\\
+=Q_i (n, -m)^{-s} \int_\sfH \Phi \left(\frac{|z|^2 -D/4}{y} \right) y^s dz. 
+\end{multiline*}
+Therefore we have 
+\begin{equation}
+\zeta(2s) \int\limits_{\Gamma / \sfH} \sL_D \Phi (z) E (z, s) dz = \zeta (s, D) \int\limits_\sfH \Phi   \label{art10-eq30}
+\end{equation}
+
+
+
+\end{proof}
+
+
+%%%% 287 page
+
+
+%\medskip
+%\noindent
+%{\bfseries Lemma \thnum{1}:\label{art10-lem1}}
+
+
