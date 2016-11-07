@@ -126,12 +126,431 @@ where\pageoriginale the first summation runs over all $SL_2 (\bZ)$-equivalence c
 & \zeta_{Q (\sqrt{D})} (s) \cdot \text{(finite Dirichlet series)}& & \text{if } D \neq \text{square,}
 \end{aligned}
 \right.
-\tag{1.13}\label{art11-eq1.13}
+x\tag{1.13}\label{art11-eq1.13}
 \end{equation*}
 where $\zeta_{\bQ(\sqrt{D})} (s)$  denotes the Dedekind zeta-function of $\bQ (\sqrt{D})$ (for precise formulas see \cite{art11-10}, Proposition 3, p. 130). In particular, $\zeta(s,D)$ has a meromorphic continuation in $s$ and $\zeta(s,D)/ \zeta(s)$ is holomorphic except for a simple pole at $s =1$ when $D$ is a square. 
 
 Now let $h : \bR \longrightarrow \bC$ be a function satisfying 
+\begin{equation*}
+\left\{
+\begin{aligned}
+& h(r) = h(-r);\\
+& h(r) \quad \text{ has a holomorphic continuation to the strip } |\Iim(r)|< \frac{1}{2} A \\
+& \quad \quad~~ \text{ for some } A > 1;\\
+& h(r) \text{ is of rapid decay in this strip}
+\end{aligned}
+\right. \tag{1.14}\label{art11-eq1.14}
+\end{equation*}
+(``rapid decay'' means $O(|r|^{-N})$ for all $N$). The object of this paper is to compute $\sum\limits^\infty_{j=1} \dfrac{h(r_j)}{(f_j , f_j)} R_{f_j} (s)$. In \S \S 2 and 3 we will show that this function equals the function $I(s)$ of \S 0 and compute it in the strip $1 < \re (s) < A$ by the Rankin-Selberg method; \S\S 4 and 5 give the analytic continuation in $s$, computation of the residue at $s=1$ (Selberg trace formula), and generalization to $\sum\limits^\infty_{j=1} a_j (m) \dfrac{h(r_j)}{(f_j, f_j)} \bR_{f_j} (s)$, where the $a_j(m)$ are the Fourier coefficients defined by \eqref{art11-eq1.4}. We state here the final result for $0< \re (s) <1$ and $m>0$ in a form which makes the functional equation apparent. 
+
+\medskip
+\noindent
+{\bfseries Theorem \thnum{1}:\label{art11-thm1}}
+\textit{Let $h : \bR \longrightarrow \bC$ be a function satisfying the conditions \eqref{art11-eq1.14} and $m \geqslant 1$ an integer. Then for $s \in\bC$ with $0 <\re (s) <1$ we have the identity}
+\begin{equation*}
+\sum\limits^\infty_{j =1} a_j(m) \frac{h(r_j)}{(f_j, f_j)} R^\ast_{f_j} (s) = \sR(s) + \sR(1-s)
+\tag{1.15}\label{art11-eq1.15}
+\end{equation*}
+\textit{with\pageoriginale $\sR(s) = \sR (s; m,h)$ given by }
+\begin{align*}
+\sR (s) & = - \frac{1}{8 \pi} \zeta^\ast (s)^2 \int\limits^\infty_{-\infty} \frac{\zeta^\ast (s+ 2 ir) \zeta^\ast (s-2ir)}{\zeta^\ast (1+ 2 ir ) \zeta^\ast (1-2 ir)} \left(\sum\limits_{\substack{a, d \geq 1\\ ad =m}} \left(\frac{a}{d} \right)^{ir}  \right) h (r) dr \\
+&- \frac{1}{2} \frac{\zeta^\ast (s) \zeta^\ast (2s)}{\zeta^\ast (s+1)} \left(\sum\limits_{\substack{a, d \geq 1\\ ad =m}} \left(\frac{a}{d} \right)^{s/2}  \right) h (\frac{is}{2}) \\
+&+ \frac{m^{\frac{s-1}{2}}}{4\pi^2} \frac{\Gamma (s) \Gamma (s - \frac{1}{2})}{\Gamma \left(\frac{1+s}{2} \right) \Gamma \left(\frac{2-s}{2} \right)} \sum\limits^\infty_{t = - \infty} \zeta(s, t^2 - 4 m) \times \tag{1.16}\label{art11-eq1.16}\\
+& \times \int\limits^\infty_{-\infty} \frac{\Gamma \left(\frac{1-s}{2} + ir \right) \Gamma\left(\frac{1-s}{2} - ir \right) }{\Gamma (ir) \Gamma (-ir)}\\
+& \times F \left(\frac{1-s}{2} + ir, \frac{1-s}{2} - ir; \frac{3}{2} - s ; 1 - \frac{t^2}{4 m} \right) h (r) dr, 
+\end{align*}
+\textit{where $\zeta^\ast(s)$ and $\zeta (s, t^2 - 4 m)$ are defined by equations \eqref{art11-eq1.9} and \eqref{art11-eq1.12} and $F(a, b; c; z)$ denotes the hypergeometric function (defined by analytic continuation if $z<0$) and can be expressed in terms of Legendre functions for the special values of the parameters $a, b, c$ occurring in \eqref{art11-eq1.16}.}
+
+\textit{For $m<0$ there is a similar formula with $m$ replaced by $|m|$ in the first two terms and the function $m^{\frac{s-1}{2}} F \left(\dfrac{1-s}{2} + ir, \dfrac{1-s}{2} -ir ; \dfrac{3}{2} - s; 1 - \dfrac{t^2}{4m} \right)$ in the third term replaced by a different hypergeometric function.}
+
+\begin{coro*}
+The Rankin zeta-function $R^\ast_{f_j} (s)$ is divisible by $\zeta^\ast (s)$ for all $j$.
+\end{coro*}
+
+\medskip
+\noindent
+Proof of the Corollary: Every term on the right-hand side of equation \eqref{art11-eq1.16} (and of the corresponding formula for $m < 0$) is divisible by $\zeta^\ast (s)$; since the series converges absolutely, we deduce that $\sR(s)$ (and hence, by the functional equation \eqref{art11-eq1.9}, also $\sR (1-s)$) is divisible by $\zeta^\ast (s)$. Therefore the expression on the left-hand side of equation \eqref{art11-eq1.15}, vanishes (with the appropriate multiplicity) at every zero of the Riemann zeta-function, and the linear independence of the eigenvalues $a_j(m)h(r_j) (m \in \bZ - \{0\}$, $h$ satisfying \eqref{art11-eq1.14}) for different $j$ implies that the same holds for each $R^\ast_{f_j} (s)$. A more formal argument is as follows: For $z \in \sfH$ define 
+$$
+\Phi (s,z) = \sum\limits^\infty_{j=1} \frac{1}{(f_j , f_j)} f_j  (z) R^\ast_{f_j} (s);
+$$
+then \eqref{art11-eq1.14} and \eqref{art11-eq1.15} imply the identity
+$$
+\Phi (s, z) = \sqrt{y} \sum\limits^\infty_{\substack{m = - \infty\\ m \neq 0}} [\sR (s; m, h_{my}) + \sR (1-s; m, h_{my})] e^{2 \pi  i m x},
+$$
+where $h_{m,y} (r) = K_{ir} (2 \pi |m|y)$. Therefore $\Phi (s, z)$ is divisible by $\zeta^\ast(s)$ and the corollary follows because $R^\ast_{f_j} (s)$ equals the scalar product ($\Phi (s,\cdot), f_j$).
+
+As mentioned in the introduction, the above Corollary, which is the analogue of the result for holomorphic forms proved in \cite{art11-8} and \cite{art11-10}, is included in the results of Jacquet-Gelbart \cite{art11-2}. We also observe that, up to gamma factors, the quotient $R^\ast_{f_j} (s)/ \zeta^\ast(s)$ equals 
+$$
+\frac{\zeta(2s)}{\zeta(s)} \sum\limits^\infty_{n=1} \frac{|a_j(n)|^2}{n^s}.
+$$
+Using the usual relations among the eigenvalues $a_j(n)$ of a Hecke eigenform, we see that this Dirichlet series has the Euler product
+$$
+\prod\limits_p \frac{1}{(1-\alpha^2_p p^{-s})(1-\alpha_p \beta_p p^{-s}) (1-\beta^2_p p^{-s})} . 
+$$
+where $\alpha_p, \beta_p$ are defined by
+$$
+\sum\limits^\infty_{n=1} \frac{a_j(n)}{n^s} = \prod\limits_p \frac{1}{(1-\alpha_p p^{-s}) (1-\beta_p p^{-s})}
+$$
+(\ie $\alpha_p + \beta_p = a_j (p)$, $\alpha_p \beta_p=1$). Thus the corollary is the case $n =2$ of the conjecture that the ``symmetric power $L$-functions''
+$$
+L_n (f_j , s) = \prod\limits_p \prod\limits^n_{m=0} \frac{1}{(1-\alpha^m_p \beta^{n-m}_p p^{-s})}
+$$
+are entire functions of $s$ for all $n \geqslant 1$.
+
+\section{Eisenstein series and the spectral decomposition of $L^2 (\Gamma / \sfH)$.}\label{art11-sec2}
+In this section we review the definitions and main properties of Eisenstein series, the Rankin-Selberg method, the spectral decomposition formula for $L^2 (\Gamma / \sfH)$, the Selberg transform, and the Selberg kernel function. All of this material is standard and may be skipped by the expert reader. We will try to give at least a rough proof of all of the statements; for a more detailed exposition the reader is referred to Kubota's book \cite{art11-4}.
+
+\medskip
+\noindent
+\text{Eisenstein Series.}
+For $z \in \sfH$ and $s \in \bC$ with $\re (s) >1$ we set
+\begin{equation*}
+E(z,s ) = \sum\limits_{ \gamma \in \Gamma_\infty/ \Gamma} \Iim (\gamma z)^s \quad (\re (s) >1), \tag{2.1}\label{art11-eq2.1}
+\end{equation*}
+where $\Gamma_\infty = \left\{ \left(\begin{matrix}
+a & b \\
+0 &d
+\end{matrix}
+\right) \in SL_2(\bZ) \right\} / \{\pm 1\} \cong\bZ$ is the group of translations in $\Gamma$. The series converges absolutely and uniformly and therefore defines a function which is holomorphic in $s$ and real-analytic and $\Gamma$-invariant with respect to $z$. Using the $1:1$ correspondence between $\Gamma_\infty/ \Gamma$ and pairs of relatively prime integers (up to sign) given by $\Gamma_\infty \left(\begin{matrix}
+a & b \\ c & d
+\end{matrix}\right) \longleftrightarrow \pm (c,d)$, we can rewrite \eqref{art11-eq2.1} as 
+$$
+E(z, s) = \frac{1}{2} \sum\limits_{\substack{c , d \in \bZ\\ (c,d) =1}} \frac{y^s}{|cz+d|^{2s}} \quad (\re z > 1)
+$$
+and hence 
+\begin{equation*}
+\zeta(2s) E (z,s) =\frac{y^s}{2} \sum\limits'_{m,n} \frac{1}{|mz+n|^{2s}} \quad  (\re (s) >1), \tag{2.2}\label{art11-eq2.2}
+\end{equation*}
+where $\sum'$ denotes a summation over all pairs of integers $(m,n) \neq (0,0)$. This latter function has better analytic properties than $E(z,s)$, namely:
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{1}.\label{art11-prop1}} 
+\textit{The function \eqref{art11-eq2.2} can be continued meromorphically to the whole complex $s$-plane, is holomorphic except for a simple pole at $s =1$, and\pageoriginale satisfies the functional equation}
+\begin{equation*}
+E^{\ast} (z,s) = E^\ast (z, 1-s), \tag{2.3}\label{art11-eq2.3}
+\end{equation*}
+\textit{where}
+\begin{equation*}
+E^\ast (z,s) = \pi^{-s} \Gamma (s) \zeta(2s) E (z,s) = \zeta^\ast (2s) E (z,s). \tag{2.4} \label{art11-eq2.4}
+\end{equation*}
+\textit{The residue at $s =1$ is independent of $z$:}
+\begin{equation*}
+\res_{s=1} E(z,s) = \frac{6}{\pi} \res_{s =1} E^\ast (z,s) = \frac{3}{4} \quad (z \in \sfH). \tag{2.5} \label{art11-eq2.5}
+\end{equation*}
+
+We will deduce these properties from the Fourier development of $E(z,s)$, which itself will be needed in the sequel. Separating the terms $m=0$ and $m \neq 0$ in \eqref{art11-eq2.2} gives 
+$$
+\zeta(2s) E (z,s) = y^s [\zeta (2s) + \sum\limits^\infty_{m=1} \varphi_s (mz)] \qquad (\re (s) > 1), 
+$$
+where 
+$$
+\varphi_s (z) = \sum\limits^\infty_{n = - \infty} \frac{1}{|z+n|^{2s}} \qquad (z \in \sfH, \re (s) > \frac{1}{2}).
+$$
+The function $\varphi_s(x + iy)$ is periodic in $x$ for fixed $y$ and hence has a Fourier development $\sum\limits^\infty_{\pi = - \infty} a(n, s,y) e^{2 \pi in x}$ with 
+\begin{align*}
+a(n, s, y) & = \int\limits^\infty_{-\infty} \frac{e^{-2 \pi in x}}{(x^2 + y^2)^s} dx\\
+& = \left\{ 
+\begin{aligned}
+& \frac{\Gamma (\frac{1}{2} \Gamma (s - \frac{1}{2}))}{\Gamma (s)} y^{1-2s} \qquad (n=0)\\
+& 2 \left(\frac{\pi |n|}{y} \right)^{s-\frac{1}{2}} \frac{\Gamma (\frac{1}{2})}{\Gamma (s)} K_{s - \frac{1}{2}} (2 \pi |n| y) (n \neq 0)
+\end{aligned}
+\right.
+\end{align*}
+[GR 3.251.2 and /8.432.5]. Hence 
+\begin{gather*}
+\zeta (2 s) E (z, s) = \zeta (2s) y^s  + \frac{\Gamma (\frac{1}{2}) \Gamma (s - \frac{1}{2})}{\Gamma (s)} \zeta (2 s - 1) y^{1-s} \\
+ + 2 \frac{\pi^s y^{\frac{1}{2}}}{\Gamma (s)} \sum\limits^\infty_{m=1} \sum\limits^\infty_{\substack{n = - \infty\\ n \neq 0}} \left(\frac{|n|}{m} \right)^{s  - \frac{1}{2}} K_{s - \frac{1}{2}} (2 \pi |n| my) e^{2 \pi in m x}
+\end{gather*}
+or, multiplying\pageoriginale both sides by $\pi^{-s} \Gamma (s)$,
+\begin{align*}
+& E^\ast (z,s) = \zeta^\ast (2s) y^s + \zeta^\ast (2s -1) y^{1-s} \tag{2.6}\label{art11-eq2.6}\\
+& + 2 \sqrt{y} \sum\limits^\infty_{\substack{n = - \infty\\ n \neq 0}} \tau_{s - \frac{1}{2}} K_{s - \frac{1}{2}} (2 \pi |n|y)e^{2 \pi in x}, 
+\end{align*}
+where $\zeta^\ast(s)$ is defined by \eqref{art11-eq1.9} and $\tau_v (n)$ by 
+\begin{equation*}
+\tau_v (n) = |n|^v \sum\limits_{\substack{d|n}\\d >0} d^{-2v} = \sum\limits_{\substack{ad = |n|\\ a, d>0}} (\frac{a}{d})^v  \quad (n \in \bZ -\{0\}, v \in \bC). \tag{2.7}\label{art11-eq2.7}
+\end{equation*}
+The infinite sum in \eqref{art11-eq2.6} converges absolutely and uniformly for all $s$ and $z$, so \eqref{art11-eq2.6} implies that $E^\ast(z,s)$ can be continued meromorphically to all $s$, the only poles being simple poles at $s=0$ and $s =1$ with residue $\pm \frac{1}{2}$ (the poles of $\zeta^\ast (2s)$ and $\zeta^\ast (2s-1)$ at $s = \frac{1}{2}$ cancel). Also, it is clear from \eqref{art11-eq1.3} and the second formula of \eqref{art11-2.7} that $K_v (z)$ and $\tau_v (n)$ are even functions of $v$, so the functional equation of $E^\ast(z,s)$ follows from \eqref{art11-eq2.6} and \eqref{art11-eq1.9}. Another consequence of \eqref{art11-eq2.6} is the estimate 
+\begin{equation*}
+E(z,s) = O(y^{\max (\sigma, 1 -\sigma)})\quad (y \to \infty), \tag{2.8}\label{art11-eq2.8}
+\end{equation*}
+where $\sigma = \re(s)$; this follows because the sum of Bessel functions is exponentially small as $y \to \infty$. 
+
+\medskip
+\noindent
+\textsc{The rankin-selberg method.} We use this term to designate the general principle that the scalar product of a function $f: \Gamma / \sfH \to \bC$ with an Eisenstein series equals the Mellin transform of the constant term in the Fourier development of $f$. More precisely, we have:
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{2}:\label{art11-prop1}}
+\textit{Let $f(z)$ be a $\Gamma$-invariant function in the upper half-plane which is of sufficiently rapid decay that the scalar product}
+\begin{equation*}
+(f, E(.,\bar{s})) = \int\limits_{\Gamma / \sfH} \quad f(z) E (z,s) dz \tag{2.9}\label{art11-eq2.9}
+\end{equation*}
+converges absolutely for some $s$ with $\re (s) >1$. Then for such $s$
+\begin{equation*}
+(f, E (.,\bar{s})) = \int\limits^\infty_{0} y^{s-2} A_\circ (f;y) dy \tag{2.10}\label{art11-eq2.10}
+\end{equation*}
+\textit{where $A_\circ (f,y)$ is defined by equation \eqref{art11-eq1.1}.}
+
+\begin{proof}
+Substituting \eqref{art11-eq2.1} into \eqref{art11-2.9} we find 
+\begin{align*}
+(f, E (., \bar{s})) & = \int\limits_{\Gamma / \sfH} f(z) \sum\limits_{\gamma  \in\Gamma_\infty/ \Gamma} \Iim (\gamma z)^s dz \\
+& =\int\limits_{\Gamma_\infty/ \sfH} f(z) \Iim (z)^s dz\\
+& = \int\limits^\infty_{0} \int\limits^1_0 f (x + iy) y^s \frac{dx dy}{y^2}
+\end{align*}
+which is equivalent to \eqref{art11-eq2.10}.
+
+Note that the growth condition on $f$ in the proposition is satisfied if $f(z) = O (y^{-\epsilon})$ as $y \to \infty$ for some $\epsilon >0$, for then \eqref{art11-eq2.8} implies that the scalar product \eqref{art11-eq2.9} converges absolutely in the strip $-\epsilon < \re (s) < 1+ \epsilon$.
+
+One of the main applications of Proposition \eqref{art11-prop2} is the one obtained by choosing $f(z) = |f_j(z)|^2$, where $f_j$ is a Maass eigenform. (This was the original application made by Ranking \cite{art11-5} and Selberg \cite{art11-6}, except that they were looking at holomorphic cusp forms.) From \eqref{art11-eq1.4} we find that the constant term of $f$ is given by 
+$$
+A_\circ (f; y) = y \sum\limits_{n \neq 0} |a_j (n)|^2 K_{ir_j} (2\pi|n|y)^2
+$$
+(notice that $K_{ir_j} (2\pi|n|y)$ is real by \eqref{art11-eq1.3}, since $r_j$ is either real or pure imaginary). Hence \eqref{art11-eq2.10} gives 
+\begin{align*}
+\int\limits_{\Gamma / \sfH} |f_j(z)|^2 E (z,s) dz & = \int\limits^\infty_0 y^{s-1} \sum\limits_{n \neq 0} |a_j(n)|^2 K_{ir_j} (2 \pi |n| y)^2 dy\\
+& = \sum\limits_{n \neq 0} \frac{|a_j(n)|^2}{|n|^s} \int\limits^\infty_{0} y^{s-1} K_{ir_j} (2\pi y)^2 dy \tag{2.11}\label{art11-eq2.11}\\
+& = R_{f_j}(s) \qquad (\re (s) > 1)
+\end{align*}
+(the integral is evaluated in [ET 6.8 (45)] and equals the gamma factor in \eqref{art11-eq1.7}). The analytic properties of $R_{f_j}(s)$ given in \S 1 (meromorphic continuation, position of poles, residue formula \eqref{art11-eq1.10}, functional equation \eqref{art11-eq1.11}) follow from \eqref{art11-eq2.11} and the corresponding properties of $E(z,s)$.
+\end{proof}
+
+\medskip
+\noindent
+\textsc{Spectral decomposition.} We now give a rough indication, ignoring analytic\pageoriginale problems, of how the Rankin-Selberg method implies the spectral decomposition formula for $L^2 (\Gamma / \sfH)$. This formula states that any $f \in L^2 (\Gamma / \sfH)$ has an expansion
+\begin{equation*}
+f(z) = \sum\limits^\infty_{j=0} \frac{(f, f_j)}{(f_j, f_j)} f_j(z) + \frac{1}{4\pi} \int\limits^\infty_{-\infty} (f, E (., \frac{1}{2} + ir)) E (z, \frac{1}{2} + ir) dr, \tag{2.12} \label{art11-eq2.12}
+\end{equation*}
+where $\{f_j\}_{j \geq 1}$ is an orthogonal basis for $L^2_\circ (\Gamma / \sfH)$ and $\{f_\circ\}$ for the space of constant functions (we will choose $f_j(j \geq 1)$ to be the normalized Maass eigenforms and $f_\circ (z) \equiv 1$). We prove it under the assumption that $f$ is of sufficiently rapid decay, say $f(z) = O(y^{-\epsilon})$ with $\epsilon >0$. Let $\Psi (s)$  be the scalar product \eqref{art11-eq2.9}. Proposition \ref{art11-prop1} shows that $\Psi (s)$ is a meromorphic function of $s$, is regular in $0  < \re (s) <1 +\epsilon$ except  for a simple pole at $s =1$ with 
+\begin{equation*}
+\res_{s=1} \Psi (s) = \frac{3}{\pi} \int\limits_{\Gamma / \sfH} f(z) dz = \frac{(f, f_\circ)}{(f_\circ, f_\circ)}  f_\circ,
+\tag{2.13}\label{art11-eq2.13}
+\end{equation*}
+and satisfies the functional equation 
+\begin{equation*}
+\Psi (s) = \frac{\zeta^\ast (2s -1)}{\zeta^\ast(2s)} \Psi (1-s). \tag{2.14}\label{art11-eq2.14}
+\end{equation*}
+On the other hand, \eqref{art11-eq2.10} says that $\Psi (s)$ is the Mellin transform of $\dfrac{1}{y}A_\circ (f;y)$, so by the Mellin inversion formula
+$$
+A_\circ (f;y) = \frac{1}{2 \pi i} \int\limits^{C + i \infty}_{C - i \infty} \Psi (s) y^{1-s} ds \quad  (1< C < 1+ \epsilon) .
+$$
+Moving the path of integration from $\re (s) = C$ to $\re (s) = \dfrac{1}{2}$ and using \eqref{art11-eq2.13} and \eqref{art11-eq2.14} we find 
+\begin{align*}
+A_\circ (f;y) & = \frac{f, f_\circ}{f_\circ, f_\circ} f_\circ + \frac{1}{2\pi} \int\limits^\infty_{-\infty} \Psi (\frac{1}{2} - ir) y^{\frac{1}{2}  + ir} \quad dr\\
+& = \frac{(f, f_\circ)}{(f_\circ, f_\circ)}  f_\circ + \frac{1}{4\pi} \int\limits^\infty_{-\infty}  \Psi (\frac{1}{2} - ir) (y^{\frac{1}{2} + ir} + \frac{\zeta^\ast (1-2ir)}{\zeta^\ast (1+ 2 ir)} y^{\frac{1}{2} - ir}) dr. \tag{2.15}\label{art11-eq2.15}
+\end{align*}
+On the other hand, equation \eqref{art11-eq2.6} implies that $y^{\frac{1}{2} + ir} + \dfrac{\zeta^\ast (1-2 i r)}{\zeta^\ast(1+ 2 ir)} y^{\frac{1}{2} - ir}$ is the constant term of $E(z, \frac{1}{2} + ir )$, so \eqref{art11-eq2.15}  tells us that the $\Gamma$-invariant function 
+$$
+\tilde{f}(z) = f(z) - \frac{(f, f_\circ)}{(f_\circ, f_\circ)} f_\circ (z)  -\frac{1}{4\pi} \int\limits^\infty_{-\infty} \Psi (\frac{1}{2} -ir ) E (z, \frac{1}{2} + ir) dr
+$$
+has zero constant term. It is also square integrable, because $f(z)$ is and the non-constant terms in the Fourier expansion of $E(z, \frac{1}{2} + ir)$ are exponentially small. Hence $\tilde{f} \in L^2_\circ (\Gamma / \sfH)$, so $\tilde{f}(z) = \sum\limits^\infty_{j=1} \dfrac{(\tilde{f}, f_j)}{(f_j , f_j)} f_j (z)$, and this proves \eqref{art11-eq2.12} since $(\tilde{f}, f_j) = (f, f_j)$ for all $j \geq 1$. 
+
+\medskip
+\noindent
+\textsc{Selberg transform.} As in the introduction, let $\varphi$ be a function on $G$ of sufficiently rapid decay and $T_\varphi$  the operator given by convolution with $\varphi$. Since we are interested only in functions on the upper half-plane $\sfH = G / K$ (where $K = SO(2)$ and the identification is given by 
+$\left.\left( 
+\begin{matrix}
+a & b \\
+c & d
+\end{matrix}
+\right) K \leftrightarrow \dfrac{ai + b}{ci + d} \right)$ we can assume that $\varphi$ is left and right $K$-invariant. But the map
+$$
+t : K \left(\begin{matrix}
+a & b \\
+ c & d 
+\end{matrix}
+\right) K \longmapsto a^2 + b^2 + c^2 + d^2 -2
+$$
+gives an isomorphism between $K \backslash G / K$ and $[0, \infty)$ (Cartan decomposition), so we can think of $\varphi$ as a map
+$$
+\varphi : [0, \infty) \to  \bC. 
+$$
+An easy calculation shows that 
+$$
+t (g^{-1} g') = \frac{|z-z'|^2}{yy'} \qquad (g, g' \in G), 
+$$
+where $z, z' \in \sfH$ are the images of $g$ and $g'$. Therefore $T_\varphi$  acts on functions $f: \sfH \to \bC$ by
+\begin{equation*}
+T_\varphi f(z) =\int\limits_{H} k(z, z') f(z') dz' \quad (z \in \sfH), \tag{2.16} \label{art11-eq2.16}
+\end{equation*}\pageoriginale 
+where
+\begin{equation*}
+k(z, z') =\varphi \left(\frac{|z-z'|^2}{yy'} \right) \qquad (z, z' \in \sfH). \tag{2.17}\label{art11-eq2.17}
+\end{equation*}
+The growth condition we want to impose on $\varphi$ is that 
+\begin{equation*}
+\varphi (x) = O \left(x^{\frac{1+A}{2}} \right) \qquad (x \to \infty) \tag{2.18}\label{art11-eq2.18}
+\end{equation*}
+for some $A >1$; then \eqref{art11-eq2.16} converges for any $f$ in the vector space
+$$
+V = \{f ;\sfH \longrightarrow \bC |f \text{ is continuous, } f(z) = O \left(y^{-\frac{1+A}{2}} \right)\}. 
+$$
+Because $k(z,z') =k (gz, gz')$ for any $ g \in G$, the operator $T_\varphi$ commutes with the action of $G$. A general argument (\cf \cite{art11-7}, p. 55 or \cite{art11-4}, Theorem 1.3.2) then shows that any eigenfunction of the Laplace operator is also an eigenfunction of $T_\varphi$. More precisely, 
+\begin{equation*}
+f\in V, \Delta f= -\left(\frac{1}{4} + r^2 \right) f \Rightarrow T_\varphi f = h (r) f,
+\tag{2.19} \label{art11-eq2.19}
+\end{equation*}
+where $h(r)$, the \textit{Selberg transform} of $\varphi$, is an even function of $r$, depending on $\varphi$ but not on $f$. To compute it, we choose $f(z) = y^{\frac{1}{2} + ir}$, which satisfies the conditions is \eqref{art11-eq2.19} if $r \in \bC$ with $|\Iim (r)| <\dfrac{A}{2}$. Then 
+$$
+T_\varphi f(z) = \int\limits^\infty_0 y'^{-\frac{3}{2} + ir} \int\limits^\infty_{-\infty} \varphi  \left(\frac{(x-x')^2 + (y-y')^2}{yy'} \right) dx' \; dy'. 
+$$
+Making the change of variables $x' = x + \sqrt{yy'} v$ in the inner integral gives 
+$$
+T_\varphi f(z) = \int\limits^\infty_0 y'^{-\frac{3}{2} + ir} \sqrt{yy'} Q \left(\frac{(y-y')^2}{yy'} \right) dy',
+$$
+where\pageoriginale the function $Q$ is defined by 
+\begin{equation*}
+Q(w) = \int\limits^\infty_{-\infty} \varphi (w + v^2) dv = \int\limits^\infty_{w}  \frac{\varphi (t) dt}{\sqrt{t -w}} \quad (w \geqslant 0). 
+\tag{2.20}\label{art11-eq2.20}
+\end{equation*}
+The further change of variables $y' = ye^u$ then gives 
+$$
+T_\varphi f(z) = y^{\frac{1}{2} + ir} \int\limits^\infty_{-\infty} e^{ir u} Q (e^u -2 + e^{-u}) du. 
+$$
+Hence, setting
+\begin{equation*}
+g(u) = Q(e^u - 2 + e^{-u}) \qquad (u \in \bR), \tag{2.21}\label{art11-eq2.21}
+\end{equation*}
+we have 
+\begin{equation*}
+h(r) = \int\limits^\infty_{-\infty} g (u) e^{iru} du \quad (r \in \bC, |\Iim (r)| < \frac{A}{2}). 
+\tag{2.22}\label{art11-eq2.22}
+\end{equation*}
+Formulas \eqref{art11-eq2.20}-\eqref{art11-eq2.22} describe the Selberg transform (the notations $Q, g, h$, due to Selberg, are by now standard and we have retained them). The inverse transform is easily seen to be 
+\begin{equation*}
+\left\{
+\begin{aligned}
+& g (u) = \frac{1}{2 \pi} \int\limits^\infty_{-\infty} h (r) e^{ir u} du, \\
+& Q (w) = g (2 \sinh^{-1\frac{\sqrt{w}}{2}}),\\
+& \varphi (x) = \frac{-1}{\pi} \int\limits^\infty_{-\infty} Q' (x +
+  v^2) dv.
+\end{aligned}
+\right.
+\end{equation*}
+We can also combine these three integrals, obtaining 
+\begin{align*}
+\varphi (x) & = \frac{1}{2 \pi^2} \int\limits^\infty_{-\infty} r h (r)
+\int\limits^\infty_{\cosh^{-1} (1+\frac{x}{2})} \frac{\sin  ru
+}{\sqrt{e^u+ e^{-u - 2 -x}}} du \;dr \\
+& = \frac{1}{4 \pi} \int\limits^\infty_{-\infty} P_{-\frac{1}{2} + ir}
+(1+ \frac{x}{2}) \quad r \tan h \pi r \; h (r) dr,  \tag{2.24} \label{art11-eq2.24}
+\end{align*}
+where\pageoriginale $P_v (z) (v \in\bC, z \in \bC - (- \infty, 1])$
+denotes a Legendre function of the first kind. (For properties of
+Legendre functions we refer the reader to \cite{art11-EH}, Chapter 3;
+in particular, the integral representation of $P_{-\frac{1}{2} + ir}$
+just used follows from formulas 3.7 (4) and 3.3.1 (3) there.) The
+inversion formula of Mehler and Fock (\cite{art11-EH}, p. 175) then gives 
+\begin{equation*}
+h(r) = 2 \pi \int\limits^\infty_0 P_{\frac{1}{2} +ir} (1+ \frac{x}{2}) \varphi (x) dx ~~ (|\Iim (r) |<\frac{A}{2}).
+\tag{2.25}\label{art11-eq2.25}
+\end{equation*}
+From \eqref{art11-eq2.20} - \eqref{art11-eq2.23} we see easily that the conditions 
+\begin{align*}
+& \varphi (x) = O \left(x^{-\frac{1+A}{2}} \right), \\
+& Q (w) = O(w^{-\frac{A}{2}}), \\
+& g (u) = O(e^{-\frac{A}{2}|u|}),\\
+& h(r) \text{ holomorphic in } |\Iim (r)| <\frac{A}{2}
+\end{align*}
+are equivalent; this also follows from \eqref{art11-eq2.24} and \eqref{art11-2.25} since $P_{-\frac{1}{2} + ir} (x)$ grows like $x^{-\frac{1}{2} + |\Iim (r)|}$ as $x \to \infty$ [EH 3.9.2 (19), (20)]. Thus the growth condition \eqref{art11-eq2.18} is equivalent to a holomorphy condition on $h$, while the condition that $\varphi$ be smooth is equivalent to the requirement that $h$ be of rapid decay.
+
+\medskip
+\noindent
+\textsc{Selberg kernel function.} Now suppose that the function $f$ in \eqref{art11-eq2.16} is $\Gamma$-invariant. Then $T_\varphi f$  is also $\Gamma$-invariant and clearly
+\begin{equation*}
+T_\varphi f(z) = \int\limits_{\Gamma / \sfH} K(z, z') f(z') dz' \tag{2.26}\label{art11-eq2.26}
+\end{equation*}
+with 
+\begin{equation*}
+K(z, z') = \sum\limits_{\gamma \in \Gamma} k (z, \gamma z'),  \tag{2.27}\label{art11-eq2.27}
+\end{equation*}
+\ie the action of $T_\varphi$ on $\Gamma$-invariant functions is given by the kernel function \eqref{art11-eq2.27}. We claim that 
+\begin{equation*}
+K(z,z') = O(y'^{\frac{1-A}{2}}) \quad  (z \text{ fixed, }y' \longrightarrow \infty) \label{art11-eq2.28}
+\end{equation*}
+if $\varphi$ satisfies \eqref{art11-eq2.18}. To see this, write 
+$$
+K(z,z') =  \sum\limits_{n\in Z} k (z + n, z') + \sum\limits_{\substack{\gamma \in \Gamma_\infty / \Gamma \\ \gamma \not\in \Gamma_\infty}} \sum\limits_{n\in Z} k(z+n, \gamma z').
+$$
+The\pageoriginale first term is easily seen to be $O(y'^{\frac{1-A}{2}})$. In the second term, $\Iim (\gamma z')$ is uniformly small as $y' \to \infty$ and from this one easily sees that the inner sum is uniformly $O(\Iim (\gamma z')^{\frac{A+1}{2}})$. Therefore the second term is 
+$$
+O\left(\sum\limits_{\substack{\gamma \in \Gamma_\infty/ \Gamma\\ \gamma \not\in \Gamma_\infty}}  \Iim (\gamma' z)^{\frac{A+1}{2}} \right) = O \left(E(z' , \frac{A+1}{2})  - y'^{\frac{A+1}{2}}) \right)
+$$
+which by \eqref{art11-eq2.6} is $O(y'^{\frac{1-A}{2}})$.
+
+From \eqref{art11-eq2.28} is follows that $K(z, z')$ is in $L^2 (\Gamma / \sfH)$ with respect to each variable separately and that the scalar product $(K(\cdot, z'), E (\cdot, s))$ converges for $\dfrac{1-A}{2} < \re (s) < \dfrac{1+A}{2}$. Using \eqref{art11-eq2.26} and \eqref{art11-eq2.19} we find 
+\begin{equation*}
+(K(\cdot, z'), f_j) = h  (r_j ) \bar{f_j(z')} \quad (j \geq 0), \tag{2.29}\label{art11-eq2.29}
+\end{equation*}
+where $r_j$ is given by \eqref{art11-eq1.2} for $j \geq 1$ and $r_\circ = \dfrac{i}{2}$, and similarly
+$$
+(K(\cdot, z'), E (\cdot, \frac{1}{2} + ir)) = h (r) E (z', \frac{1}{2} - ir)
+$$
+since $\Delta E(z, \frac{1}{2} + ir) = - \left(\frac{1}{4} + r^2 \right) E (z, \frac{1}{2} + ir)$. Therefore the spectral decomposition formula \eqref{art11-eq2.12} applied to $K(\cdot, z')$ gives 
+$$
+K(z, z') = \sum\limits^\infty_{j=0} \frac{h(r_j)}{(f_j , f_j)} f_j (z) \overline{f_j(z')} + \frac{1}{4 \pi} 
+\int\limits^\infty_{-\infty} E (z,\frac{1}{2} + ir) E (z' , \frac{1}{2} - ir) h (r) dr. 
+$$
+We restate this formula as 
 
 
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%5
+
+
+\begin{thebibliography}{99}
+\bibitem[1]{art11-1} dhfjdh f
+
+\bibitem[2]{art11-2} dfjdfkjk 
+
+\bibitem[3]{art11-3} kdjfkdjf 
+
+
+\begin{center}
+{\bf Tables}
+\end{center}
+
+\bibitem[EH]{art11-EH} kdjfkdjfk 
+\end{thebibliography}
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{3}:\label{art11-prop3}}
+\textit{Let $h(r)$ be a function satisfying \eqref{art11-eq1.14} and set}
+\begin{equation*}
+K_\circ (z, z') = \sum\limits^\infty_{j=1} \frac{h(r_j)}{(f_j, f_j)} f_j (z) \overline{f_j (z')} \quad (z, z' \in H), 
+\tag{2.30}\label{art11-eq2.30}
+\end{equation*}
+\textit{where $\{f_j\}$ is an orthogonal basis of $L^2_\circ (\Gamma / \sfH)$ satisfying \eqref{art11-eq1.2}. Let $k(z,z') (z, z' \ion \sfH)$ be the function defined by \eqref{art11-eq2.17}, where $\varphi$ is given by \eqref{art11-eq2.23} or \eqref{art11-eq2.24}. Then}  
+\begin{align*}
+& K_\circ (z,z') =\sum\limits_{\gamma \in \Gamma} k (z, \gamma z') - \frac{3}{\pi} h (\frac{i}{2}) \tag{2.31} \label{art11-2.31}\\
+& -\frac{1}{4\pi} \int\limits^\infty_{-\infty} E (z, \frac{1}{2} + ir) E (z', \frac{1}{2} - ir) h (r) dr. 
+\end{align*}
+
+We remark that \eqref{art11-eq2.31} can be proved directly, without recourse to the spectral decomposition formula \eqref{art11-eq2.12}: Using the formulas for the Selberg transform and Mellin inversion, one can check directly that the expression on the right-hand side of \eqref{art11-eq2.31} has constant term zero with respect to both variables and hence (using the estimate \eqref{art11-eq2.28}) is a cusp form; equation \eqref{art11-eq2.29} then implies the desired identity. We leave the details as an exercise for the reader. 
+
+\section{Computation of $I(s)$ for $\Re (s) >1$.}\label{art11-sec3}
+Let $h(r)$ be a function satisfying \eqref{art11-eq1.14} and define 
+
+%%% 322
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\medskip
+%\noindent
+%{\bfseries Theorem \thnum{1}:\label{art11-thm1}}
 
 
