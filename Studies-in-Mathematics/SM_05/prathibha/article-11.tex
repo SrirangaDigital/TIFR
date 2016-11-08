@@ -532,7 +532,7 @@ We restate this formula as
 K_\circ (z, z') = \sum\limits^\infty_{j=1} \frac{h(r_j)}{(f_j, f_j)} f_j (z) \overline{f_j (z')} \quad (z, z' \in H), 
 \tag{2.30}\label{art11-eq2.30}
 \end{equation*}
-\textit{where $\{f_j\}$ is an orthogonal basis of $L^2_\circ (\Gamma / \sfH)$ satisfying \eqref{art11-eq1.2}. Let $k(z,z') (z, z' \ion \sfH)$ be the function defined by \eqref{art11-eq2.17}, where $\varphi$ is given by \eqref{art11-eq2.23} or \eqref{art11-eq2.24}. Then}  
+\textit{where $\{f_j\}$ is an orthogonal basis of $L^2_\circ (\Gamma / \sfH)$ satisfying \eqref{art11-eq1.2}. Let $k(z,z') (z, z' \in \sfH)$ be the function defined by \eqref{art11-eq2.17}, where $\varphi$ is given by \eqref{art11-eq2.23} or \eqref{art11-eq2.24}. Then}  
 \begin{align*}
 & K_\circ (z,z') =\sum\limits_{\gamma \in \Gamma} k (z, \gamma z') - \frac{3}{\pi} h (\frac{i}{2}) \tag{2.31} \label{art11-2.31}\\
 & -\frac{1}{4\pi} \int\limits^\infty_{-\infty} E (z, \frac{1}{2} + ir) E (z', \frac{1}{2} - ir) h (r) dr. 
@@ -542,9 +542,335 @@ We remark that \eqref{art11-eq2.31} can be proved directly, without recourse to 
 
 \section{Computation of $I(s)$ for $\Re (s) >1$.}\label{art11-sec3}
 Let $h(r)$ be a function satisfying \eqref{art11-eq1.14} and define 
+\begin{equation*}
+I(s) = \int\limits_{\Gamma \sfH} K_\circ (z, z) E (z, s) dz,  \tag{3.1}\label{art11-eq3.1}
+\end{equation*}
+where $K_\circ (z,z')$ is defined by \eqref{art11-eq2.30}. Since $K_\circ (z,z)$ is of rapid decay, the integral converges for all $s(\neq 1)$, and from \eqref{art11-eq2.11} we have 
+\begin{equation*}
+I(s) = \sum\limits^\infty_{j=1}  \frac{h(r_j)}{(f_j , f_j)} R_{f_j} (s) . \tag{3.2}\label{art11-eq3.2}
+\end{equation*}
+The object of this section is to compute $I(s)$ for $1 < \re (s) < A$. 
 
-%%% 322
+By the Rankin-Selberg method (eq. \eqref{art11-eq2.10}) we have 
+\begin{equation*}
+I(s) = \int\limits^\infty_0 \sK (y) y^{s-2} dy \quad (\re (s) >1), \tag{3.3} \label{art11-eq3.3}
+\end{equation*}
+where $\sK(y)$ is the constant term of $K_\circ (z,z)$, which we will compute using Proposition \eqref{art11-prop3} above. From \eqref{art11-eq2.6} we find that the constant term of $E(z, \frac{1}{2} +ir) E (z, \frac{1}{2} - ir)$ equals 
+\begin{align*}
+\left[y^{\frac{1}{2} + ir} + \frac{\zeta^{\ast} (1-2 ir)}{\zeta^\ast (1+ 2 ir)} y^{\frac{1}{2}  - ir} \right] \; \left[y^{\frac{1}{2} - ir} + \frac{\zeta^\ast(1+ 2 ir)}{\zeta^\ast (1-2i r)} y^{\frac{1}{2} + ir}\right]\\
++ \frac{8y}{\zeta^\ast (1+ 2 ir) \zeta^\ast (1-2 ir)} \sum\limits_{n =1}^\infty \tau_{ir} (n)^2 K_{ir} (2 \pi n y)^2.
+\end{align*}
+Of the\pageoriginale four terms obtained by multiplying the expressions in square brackets, two are obtained from the other two by replacing $r$ by $-r$ and hence will give the same contribution when integrated against the even function $h(r)$. As to the first term in \eqref{art11-eq2.31}, we separate the terms with $\gamma \in \Gamma_\infty$ and $\gamma \not\in \Gamma_\infty$; the former are their own constant terms since $k(z,z+n) = \varphi \left(\dfrac{n^2}{y^2} \right)$ is independent of $x$. We thus obtain the decomposition 
+$$
+\sK(y) = \int\limits^1_0 K_\circ (x+ iy, x + iy) dx = \sum\limits^4_{i=1} \sK_i(y)
+$$
+with 
+\begin{align*}
+\sK_1 (y) &= \int\limits^1_0  \cdot \sum\limits^\infty_{\substack{\gamma \in \Gamma \\ \gamma \not\in \Gamma_\infty}} k (x+ iy, \; \gamma (x+ iy)) dx, \\
+\sK_2 (y) & = \sum\limits^\infty_{n = - \infty} \varphi \left(\frac{n^2}{y^2} \right) -\frac{y}{2\pi}
+ \int\limits^\infty_{-\infty} h(r) dr,\\
+\sK_3 (y) & = -\frac{y}{2\pi} \int\limits^\infty_{-\infty} y^{2ir} \frac{\zeta^\ast (1+2 ir)}{\zeta^\ast (1-2ir)} h(r) dr - \frac{3}{\pi} h(\frac{i}{2}), \\
+\sK_4 (y) & = -  \frac{2y}{\pi} \int\limits^\infty_{-\infty} \frac{1}{\zeta^\ast (1+ 2 ir) \zeta^\ast (1+ 2 ir)} \times \\
+& \quad \times \left(\sum\limits^\infty_{n=1} \tau_{ir} (n)^2 K_{ir}(2 \pi n y)^2 \right) h(r) dr. 
+\end{align*}
+This gives a corresponding decomposition of $I(s)$ as $\sum\limits^4_{i=1} I_i(s)$ with 
+$$
+I_i (s) = \int\limits^\infty_0 \sK_i (y) y^{s-2} dy \quad (i=1, \ldots, 4).
+$$
 
+\medskip
+\noindent
+{\bfseries Theorem \thnum{2}.\label{art11-thm2}} 
+\textit{The integrals $I_i (s)$ converge for $1 < \re (s) < A$ and are given in that region by the formulas}
+\begin{align*}
+I_1 (s) & = \sum\limits^\infty_{t = - \infty} \frac{\zeta(s, t^2 - 4)}{\zeta(2s)} \int\limits_{\sfH} \varphi 
+\left(\frac{|z^2 + 1-t^2 |4|^2|}{y^2} \right) y^s \; dz,\\
+I_2 (s) & = - \frac{i \Gamma (\frac{s}{2}) \Gamma (\frac{1-s}{2})}{2^{s+1} \pi^{s+3/2}} \zeta(s) \int\limits^\infty_{-\infty} \frac{\Gamma (\frac{s}{2}-ir)}{\Gamma (1-\frac{s}{2} -ir)} rh(r) dr,\\
+I_3 (s)  & = - \frac{\pi^{\frac{1}{2}} \Gamma (\frac{s}{2})}{2 \Gamma (\frac{s+1}{2})} \frac{\zeta(s)}{\zeta(s+1)} h(\frac{is}{2}),\\
+I_4 (s) & = - \frac{\pi^{1-s} \Gamma (\frac{s}{2})^2}{4 \Gamma (s)} \frac{\zeta(s)^2}{\zeta(2s)} \times \\
+& \times \int\limits^\infty_{-\infty} \frac{\Gamma (\frac{s}{2} + ir) \Gamma (\frac{s}{2} - ir)}{\Gamma (\frac{1}{2} + ir) \Gamma (\frac{1}{2} - ir)} \frac{\zeta (s+ 2 ir) \zeta (s - 2 ir)}{\zeta (1+ 2 i r) \zeta (1-2 ir)} h (r) dr. 
+\end{align*}
+
+\begin{proof}
+We begin with $I_4 (s)$ since it is, despite appearances, the easiest of the four integrals. The very rapid decay of the Bessel functions allows us to interchange the order of the integrations and summation, obtaining 
+\begin{gather*}
+I_4 (s) = - \frac{2}{\pi} \left(\sum\limits^\infty_{n =1} \frac{\tau_{ir} (n)^2}{n^s} \right) \left(\int\limits^\infty_0 y^{s-1} K_{ir} (2 \pi y)^2 dy  \right) \times\\
+\times \frac{h(r)}{\zeta^\ast (1+ 2ir) \zeta^\ast (1-2ir)}  dr. 
+\end{gather*}
+The first expression in parentheses equals $\dfrac{\zeta(s)^2}{\zeta(2s)} \zeta (s + 2ir) \zeta(s-2 ir)$ for $\re (s) >1$, as one checks by expanding the Dirichlet series as an Euler product. The second expression in parentheses equals $\dfrac{1}{8 \pi^s} \dfrac{\Gamma \left(\frac{s}{2} \right)^2}{\Gamma (s)} \Gamma \left(\frac{s}{2} + ir \right) \Gamma \left(\frac{s}{2}  - ir \right)$  (this is the same integral as was used in \eqref{art11-eq2.11}). Putting this together we obtain the formula for $I_4 (s)$ given in the theorem; it is valid for $\re (s) >1$. (The integral converges for all $s$ with $\re (s) \neq 0, 1$, as one sees by using Stirling's formula and standard estimates of $\zeta(s)$ and $\zeta(1+it)^{-1}$\pageoriginale as well as the fact that $h(r)$ is of rapid decay.) Since the gamma factors in the formula are exactly those corresponding to the zeta-functions occurring, we can write the result in the nicer form 
+\begin{align*} 
+& I_4 (s)  = - \frac{1}{4 \pi} \frac{\zeta^\ast (s)^2}{\zeta^\ast (2s)} \times \tag{3.4}\label{art11-eq3.4}\\
+& \times \int\limits^\infty_{-\infty} \frac{\zeta^\ast (s+2 ir) \zeta^\ast (s - 2 ir)}{\zeta^\ast (1+ 2 ir) \zeta^\ast (1-2ir)} h(r) dr \quad (\re (s) >1). 
+\end{align*}
+
+The integral $I_3$ is also quite easy to compute. Since $\zeta^\ast (1 - 2 ir)$ is nonzero for $\Iim (r)\geq 0$ and since the poles of $\zeta^\ast (1+ 2 ir)$ and $\zeta^\ast (1-2ir)$ at $r =0$ cancel, the integrand in $\sK_3 (y)$ is holomorphic in $0 \leq \Iim (r) < \dfrac{A}{2}$ except for a simple pole of residue 
+$$
+\frac{1}{\zeta^\ast (2)} y^{-1} h \left( \frac{i}{2}\right) \res_{r = \frac{i}{2}} (\zeta^\ast (1+ 2 ir)) = \frac{3 i}{\pi y} h (\frac{i}{2})
+$$
+at $\dfrac{i}{2}$. Hence we can move the path of integration to $\Iim (r) = \dfrac{C}{2} (1 < C < A)$, obtaining 
+$$
+\sK_3 (y) = \frac{iy}{4 \pi} \int\limits^{C + i \infty}_{C - i \infty}  y^{-s} \frac{\zeta^\ast(s)}{\zeta^\ast(s+1)} h (\frac{is}{2}) ds \quad (1 < C < A). 
+$$
+The Mellin inversion formula then gives 
+\begin{equation*}
+I_3 (s) = -\frac{1}{2} \frac{\zeta^\ast (s)}{\zeta^\ast (s+1)} h (\frac{is}{2}) \quad (1< \re (s) < A), \tag{3.5}\label{art11-eq3.5}
+\end{equation*}
+in agreement with the formula in Theorem \eqref{art11-thm2}. 
+
+We now turn to $I_2 (s)$, which is somewhat harder. From \eqref{art11-eq2.23} and \eqref{art11-eq2.20} we have 
+$$
+\frac{1}{2 \pi} \int\limits^\infty_{-\infty} h(r) dr = g (0) = Q(0) =\int\limits^\infty_{-\infty} \varphi (v^2) d v = \frac{1}{y} \int\limits^\infty_{-\infty} \varphi \left(\frac{u^2}{y^2} \right) du, 
+$$
+so
+$$
+\sK_2 (y) = \sum\limits^\infty_{n = - \infty} \varphi \left(\frac{n^2}{y^2} \right) - \int\limits^\infty_{-\infty} \varphi \left(\frac{u^2}{y^2} \right) du. 
+$$
+By the\pageoriginale  Poisson  summation formula this equals 
+$$
+\sum\limits_{n\neq 0} \int\limits^\infty_{-\infty} \varphi \left(\frac{u^2}{y^2} \right) e^{2 \pi in u} du = 2 y \sum\limits^\infty_{n=1} \psi (ny), 
+$$
+where 
+\begin{equation*}
+\psi (y) = \int\limits^\infty_{-\infty} \varphi (u^2) e^{2 \pi iu y} du. \tag{3.6}\label{art11-eq3.6}
+\end{equation*}
+Since $\varphi$ is smooth, $\psi$ is of rapid decay, so we may interchange summation and integration to get 
+\begin{equation*}
+I_2 (s) = 2 \sum\limits^\infty_{n=1} \int\limits^\infty_0 \psi (ny) y^{s-1} dy = 2 \zeta (s) \int\limits^\infty_0 \psi (y) y^{s-1} dy (\re (s) >1). \tag{3.7} \label{art11-eq3.7}
+\end{equation*}
+To calculate the integral we begin by substituting the third equation of \eqref{art11-eq2.23} into \eqref{art11-eq3.6}. This gives 
+$$
+\psi (y) = - \frac{1}{\pi} \int\limits^\infty_{-\infty} e^{2 \pi i u y} \int\limits^\infty_{-\infty} Q' (u^2 + v^2) d v \; du.
+$$
+Changing to polar coordinates $u+iv = re^{i \theta}$ and using the standard integral representation 
+$$
+\cdot J_\circ (x) =\frac{1}{2 \pi} \int\limits^{2 \pi}_0 e^{ix \cos \theta} d \theta
+$$
+of the Bessel function of order 0 [GR 3.915.2] we find 
+$$
+\psi (y) = -2 \int\limits^\infty_0 J_\circ (2 \pi y r) Q' (r^2) r \; dr 
+$$
+or, making the substitution $r =2 \sinh \dfrac{u}{2}$ and using \eqref{art11-eq2.21},
+$$
+\psi (y) = - \int\limits^\infty_0 J_\circ (4 \pi y \sinh \frac{u}{2}) g' (u) du. 
+$$
+Using the formula 
+$$
+\int\limits^\infty_{0} J_\circ (2 ay) y^{s-1} dy = \frac{\Gamma (\frac{s}{2})}{ 2a^s \Gamma (1 - \frac{s}{2})} (0 < \re (s) <\frac{3}{2}, a> 0)
+$$
+[ET 6.8 (1)]\pageoriginale we find
+\begin{align*} 
+& \int\limits^\infty_{-\infty} \psi (y) y^{s-1} dy =  - \frac{(2\pi)^{-s} \Gamma (\frac{s}{2})}{2 \Gamma (1-\frac{s}{2})} \int\limits^\infty_{-\infty} (\sinh \frac{u}{2})^{-s} g' (u) du \tag{3.8}\label{art11-eq3.8}\\
+& (0 <\re (s) <\frac{3}{2})
+\end{align*}
+(the integral converges at $\infty$ because $g'(u) = O \left(e^{-\frac{A}{2} |u|} \right)$ and at 0 because $g'(u)$ is an odd function and hence $O(u)$). Substituting 
+$$
+g'(u) = \frac{-1}{2 \pi} \int\limits^\infty_{-\infty} rh (r) \sin ru \; dr
+$$
+and using the Fourier sine transform formula
+$$
+\int\limits^\infty_{0} \frac{\sin r u}{\left(\sin h \frac{u}{2} \right)^s}  du = - 2^{s-1} i \Gamma (1-s)
+\left\{\frac{\Gamma \left(\frac{s}{2} - ir \right)}{\Gamma \left(1-\frac{s}{2}  - ir \right)} - \frac{\Gamma \left(\frac{s}{2} + ir \right)}{\Gamma \left(1-\frac{s}{2} + ir \right)} \right\}
+$$
+([ET 2.9 (30)]; the conditions for validity are misstated there) gives
+$$
+\int\limits^\infty_0 \psi (y) y^{s-1} dy  = - \frac{i\Gamma \left(\frac{s}{2} \right) \Gamma \left(\frac{1-s}{2} \right)}{2^{s+2} \pi^{s+3/2}} \int\limits^\infty_{-\infty} \frac{\Gamma \left(\frac{s}{2} -ir \right)}{\Gamma \left(1-\frac{s}{2} -ir \right)} r h (r) dr, 
+$$
+where we have used the fact that $h(r)$ is an even function, and substituting this into \eqref{art11-eq3.7} we obtain the formula stated in the theorem. Since the integral converges for all $s$ with positive real part, the formula is valid for all $s$ with $\re (s) >1$ (not just $1 < \re (s) \frac{3}{2}$); we can use the elementary identity
+$$
+\frac{r}{2 \pi i} 
+\left(\frac{\Gamma \left(\frac{s}{2} - ir \right)}{\Gamma \left(1-\frac{s}{2} - ir \right)} - \frac{\Gamma \left(\frac{s}{2} + ir \right)}{\Gamma \left(1-\frac{s}{2} + ir \right)} \right) = \frac{\Gamma \left(\frac{s}{2} + ir \right) \Gamma \left(\frac{s}{2} - ir \right)}{\Gamma \left(\frac{1-s}{2} \right) \Gamma \left(\frac{1+s}{2} \right) \Gamma (ir) \Gamma (-ir)}
+$$
+to write\pageoriginale it in the more elegant form 
+\begin{align*}
+&I_2 (s) = \frac{\zeta^\ast (s)}{(4 \pi)^{\frac{s+1}{2}} \Gamma \left(\frac{s+1}{2} \right) }  \int\limits^\infty_{-\infty} \frac{\Gamma \left(\frac{s}{2} + ir \right) \Gamma \left(\frac{s}{2} - ir \right)}{\Gamma (ir) \Gamma (-ir)} h (r) dr\tag{3.9}\label{art11-eq3.9} \\
+& (\re (s) >1).
+\end{align*}
+
+The proof of \eqref{art11-eq3.9} was rather complicated and required introducing the extraneous function $J_\circ (x)$. We indicate a more natural and somewhat simpler derivation which, however, would require more work to justify since it involves non-absolutely convergent integrals. Interchange the order of integration in 
+$$
+\int\limits^\infty_0 \psi (y) y^{s-1} dy = \int\limits^\infty_0  \int\limits^\infty_{-\infty} \varphi (u^2) \cos 2 \pi u y d u y^{s-1} dy.
+$$
+Then the inner integral $\int\limits^\infty_0 y^{s-1} \cos 2 \pi u y d y$ converges (conditionally) for $0< \re (s) <1$ (thus in a region of validity disjoint from that of \eqref{art11-eq3.7}!) and equals $(2 \pi |u|)^{-s} \Gamma (s) \cos \dfrac{\pi s}{2}$ there [ET 6.5 (21)]. Using \eqref{art11-eq2.24} we then find 
+\begin{multline*}
+\int\limits^\infty_0 \psi (y) y^{s-1} dy = \\
+= \frac{\Gamma (s) \cos \frac{\pi s}{2}}{2 (2\pi)^{s+1}} \int\limits^\infty_0 x^{-\frac{s+1}{2}} \int\limits^\infty_{-\infty} P_{-\frac{1}{2} + ir} \left(1+ \frac{x}{2} \right) h(r) r \tanh \pi r dr \;dx
+\end{multline*}
+for $0 < \re (s) <1$. Interchanging the order of integration again and using the formula 
+\begin{align*}
+& \int\limits^\infty_0 x^{-\frac{s+1}{2}} P_{-\frac{1}{2} + ir} \left(1+ \frac{x}{2} \right) dx = \\
+&\quad  = 2^{1-s} \frac{\Gamma \left(\frac{1-s}{2} \right) \Gamma \left(\frac{s}{2} +ir \right) \Gamma \left(\frac{s}{2} -ir \right)}{\Gamma \left(\frac{1+s}{2} \right) \Gamma \left(\frac{1}{2} + ir \right) \Gamma \left(\frac{1}{2} - ir \right)} \quad (0 < \re (s) < 1)
+\end{align*}
+[GR 7.134]\pageoriginale we find 
+\begin{multline*}
+\int\limits^\infty_0 \psi (y) y^{s-1} dy = \\
+\frac{2^{-s-2} \Gamma \left(\frac{s}{2} \right)}{\pi^{s+ \frac{3}{2}} \Gamma \left(\frac{1+s}{2} \right)} \int\limits^\infty_{-\infty} \Gamma \left(\frac{s}{2} - ir \right) \Gamma \left(\frac{s}{2} + ir \right) h (r) r \sin h \pi r d r, 
+\end{multline*}
+and this now holds whenever $\re (s) >0$ (not just $0 <\re (s) <1$) since both sides are holomorphic in that range. Substituting into \eqref{art11-eq3.7} again gives \eqref{art11-eq3.9}.
+
+
+To complete the proof of Theorem \ref{art11-thm2} we must still compute $I_1 (s)$ \ie the contribution from the main term $\sum\limits_{\gamma \not\in \Gamma_\infty} k (z, \gamma z)$ of $K_\circ (z,z)$. For each $\gamma \in \Gamma$ denote by $[\gamma]$ the conjugacy class of $\Gamma$ in $\Gamma$. Its elements are of the form $\sigma^{-1} \Gamma \sigma$ where $\sigma \in \Gamma$ is well-defined up to left multiplication with an element of the stabilizer $\Gamma_\gamma$ of $\gamma$ in $\Gamma$. Hence 
+$$
+\sum\limits_{\substack{\gamma \in \Gamma \\ \gamma \not\in \Gamma_\infty}} k (z, \gamma z) = \sum\limits'_{[\gamma]} \sum\limits_{\substack{\sigma \in \Gamma_\gamma / \Gamma \\ \sigma^{-1} \Gamma \sigma \not\in \Gamma_\infty}} k (z, \sigma^{-1} \gamma \sigma z), 
+$$
+where $\sum\limits'_{[\gamma]}$ denotes a summation over all non-trivial conjugacy classes (each such class contains at least one element $\not\in\Gamma_\infty$) and we have chosen a representative $\gamma$ for each class. Multiplying $\sigma $ on the right by an element $\pm
+\left(\begin{matrix}
+1 & n \\
+0 & 1
+\end{matrix} \right) \in \Gamma_\infty$ does not affect the condition $\sigma^{-1} \gamma \sigma \not\in \Gamma_\infty$ and replaces $k(z, \sigma^{-1} \gamma \sigma z)$ by $k(z+ n, \sigma^{-1} \gamma \sigma (z+n))$. Hence 
+$$
+\sum\limits_{\substack{\gamma \in \Gamma\\ \gamma \not\in \Gamma_\infty}} k (z, \gamma z) = \sum\limits'_{[\gamma]} \sum\limits_{\substack{\sigma \in \Gamma_\gamma / \Gamma / \gamma_\infty\\\sigma^{-1} \gamma \sigma \not\in \Gamma_\infty}} \sum\limits^\infty_{n=-\infty} k (z + n, \sigma^{-1} \gamma \sigma (z+n))
+$$
+(for this one has to check that $\sigma^{-1} \Gamma_\gamma \sigma \cap \Gamma_\infty =\{1\}$, but this follows easily from $\sigma^{-1} \gamma \sigma \not\in \Gamma_\infty$ and the fact that the centralizer of any non-trivial element of $\Gamma_\infty$ is $Gamma_\infty$). Since the constant term in the Fourier expansion of a sum $\sum\limits^\infty_{n = - \infty} f(x + n)$ is the integral $\int\limits^\infty_{-\infty} f(x) \; dx$, we find 
+$$
+\sK_1 (y) =\sum\limits'_{[\gamma]} \sum\limits_{\substack{\sigma \in \Gamma_\gamma \backslash \Gamma / \Gamma_\infty\\ \sigma^{-1} \gamma \sigma \not\in \Gamma_\infty}} \int\limits^\infty_{-\infty} k(x+ iy, \sigma^{-1} \gamma \sigma (x+ iy)) dx 
+$$\pageoriginale
+and hence 
+$$
+I_1 (s) = \sum\limits'_{[\gamma]}  \sum\limits_{\substack{\sigma \in \Gamma_\gamma \backslash \Gamma / \Gamma_\infty\\ \sigma^{-1} \gamma \sigma \not\in \Gamma_\infty}}
+\int\limits_{\sfH} k (z, \sigma^{-1} \gamma \sigma z) y^s \; d z. 
+$$
+
+Now for any element $\tau =\left(\begin{matrix}
+a & b\\
+c & d
+\end{matrix} \right) \in \Gamma$ with $\tau \not\in \Gamma_\infty$ (\ie $c \neq 0$) we have 
+$$
+\int\limits_{\sfH} k (z, \tau z)y^sdz = \frac{1}{|c|^s} V(s,t) \qquad (t = tr (\tau))
+$$
+where 
+\begin{equation*}
+V(s,t) = \int\limits_{\sfH} \varphi \left(\frac{|z^2+ 1 - t^2/4|^2}{y^2} \right) y^s dz. 
+\tag{3.10}\label{art11-eq3.10}
+\end{equation*}
+(To prove this, substitute \eqref{art11-eq2.17} for $k(z,z')$ and make the change of variable $z \to \dfrac{z}{|c|} + \dfrac{a-d}{2c}$.) Hence 
+$$
+I_1 (s) = \sum\limits^\infty_{t = - \infty} \left(\frac{1}{2} \sum\limits'_{\substack{[[\gamma]]\\ tr \gamma = t}} \sum\limits_{\substack{\sigma \in \Gamma_\gamma \backslash \Gamma / \Gamma_\infty\\ \sigma^{-1} \gamma \sigma \not\in \Gamma_\infty}} \frac{1}{|c(\sigma^{-1} \gamma \sigma)|^s}
+\right) V(s,t),
+$$
+where $\sum\limits'_{[[\gamma]]}$ denotes a sum over conjugacy classes in
+$SL_2 (\bZ) - \left\{\pm 
+\left(
+\begin{matrix}
+1&0\\
+0&1
+\end{matrix}
+\right) \right\}$ and $c(\sigma^{-1} \gamma \sigma)$ the element in the lower left-hand corner of $\sigma^{-1} \gamma \sigma$ (we must work in $SL_2 (\bZ)$ rather than $\Gamma$ in order to have a well-defined trace; notice that $\Gamma_\gamma \subset \Gamma$ and $\sigma^{-1} \gamma \sigma \in SL_2 (\bZ)$ make sense for $\gamma \in SL_2 (\bZ)$, $\sigma \in \Gamma$). Since $V(s,t) = V (s, -t)$, we have 
+$$
+I_1 (s) =\sum\limits^\infty_{t = -\infty} \left(\sum\limits'_{\substack{[[\gamma]]\\ tr y = t}}  \sum\limits_{\substack{\sigma \in \Gamma_\gamma \backslash \Gamma / \Gamma_\infty\\ c(\sigma^{-1} \gamma \sigma) >0}} \frac{1}{c(\sigma^{-1} \gamma \sigma)^s} \right) V(s,t). 
+$$
+There is a (1:1) correspondence between conjugacy classes $[[\gamma]]$ of trace $t$ and $SL_2 (\bZ)$-equivalence classes of binary quadratic forms of dis criminant\pageoriginale $t^2 - 4$ given by 
+$$
+\gamma = 
+\left(
+\begin{matrix}
+a & b \\c &d
+\end{matrix}
+ \right) \leftrightarrow Q (m,n) = cm^2 + (d-a) mn - bn^2. 
+$$
+There is also a bijection between $\Gamma / \Gamma_\infty$ and the set of relatively prime pass of integers $\pm (m,n) \in \bZ^2 / \{\pm 1\}$ given by mapping an element $\sigma \in \Gamma / \Gamma_\infty$ to its first column, and under this bijection we have $c(\sigma^{-1} \gamma \sigma) = Q (m,n)$ and $\Gamma_\gamma = \Aut (Q) /\{\pm 1\}$. Hence
+$$
+\sum\limits_{\substack{[[\gamma]]\\ tr \gamma = t}} \sum\limits_{\substack{\sigma \in \Gamma_\gamma \backslash \Gamma / \Gamma_\infty}\\ c(\sigma^{-1} \gamma \sigma) > 0} \frac{1}{c(\sigma^{-1} \gamma \sigma)^s} = \frac{\zeta(s, t^2 -4)}{\zeta (2s)}
+$$
+where $\zeta(s, t^2 -4)$ is defined by \eqref{art11-eq1.12}. To complete the proof of the formula
+\begin{equation*}
+I_1 (s) = \frac{1}{\zeta(2s)} \sum\limits^\infty_{t = - \infty} \zeta (s, t^2 -4) V (s,t) \quad (1 < \re (s) < A)\tag{3.11}\label{art11-eq3.11}
+\end{equation*}
+given in the theorem, it remains only to verify the convergence and justify the various interchanges of summation and integration made. Since the integrals $I_2$, $I_3$ and $I_4$ have already been shown to be convergent for $1 < \re (s) < A$ (eqs. \eqref{art11-eq3.4}, \eqref{art11-eq3.5}, \eqref{art11-eq3.7}) and the function $\sK(y)$ is of rapid decay at infinity, the integral $I_1 (s)$ is certainly convergent in the same range. By choosing $s$ real and $\varphi$ positive, we see that this convergence is absolute, and this gives an \textit{a posteriori} proof of the convergence of \eqref{art11-eq3.11} in the range stated and of the validity of the steps leading up to its proof.
+\end{proof}
+
+\section{Analytic continuation of $I(s)$,}\label{art11-sec4}
+In this section we will give the analytic continuation of $I(s)$ to the critical strip $0< \re (s) <1$ and compute the residue at $s=1$ (Selberg trace formula). We will also want to study the functional equations of the various terms in the formula for $I(s)$. From the definition \eqref{art11-eq3.1} of $I(s)$ it is clear that $I(s)$ is holomorphic for all $s \neq 1$ and satisfies the functional equation $I^\ast (s) = I^\ast (1-s)$ where
+$$
+I^\ast (s) = \pi^{-s} \Gamma (s) \zeta (2s) I (s) =\int\limits_{\Gamma \backslash \sfH} K_0 (z, z) E^\ast (z,s) dz.
+$$
+On the other hand, Theorem \ref{art11-thm2} says that $I^\ast (s)$ is the sum of the functions 
+\begin{gather*}
+\pi^{-s} \Gamma(s) \zeta (s, t^2 - 4) V (s,t ) \quad (t \in Z , \; t \neq \pm 2) , \tag{4.1}\label{art11-eq4.1}\\
+\pi^{-s} \Gamma (s) \zeta (s, 0) [V(s,2) + V(s,-2)] + I^\ast_2 (s), \tag{4.2} \label{art11-eq4.2}\\
+I^\ast_3(s) + I^\ast_4 (s ) \tag{4.3}\label{art11-eq4.3}
+\end{gather*}\pageoriginale 
+for $1 < \sigma = \re (s) < A$, where $I^{\ast}_i(s)  =\zeta^\ast (2s) I_i(s)$. We will show that each of the functions \eqref{art11-eq4.1}-\eqref{art11-eq4.3} has a meromorphic continuation to the strip $1 - A <\sigma < A$ with poles at most at 0 and 1 and is invariant under $s \to 1 -s$. 
+
+We begin by performing one of the integrations in the double integral \eqref{art11-eq3.10} to write $V(s,t)$ as a simple integral, thus obtaining the analytic continuation and functional equation of $V(s,t)$.
+
+\medskip
+\noindent
+{\bfseries Proposition \thnum{4}.\label{art11-prop4}}
+\textit{Let $\varphi$ be a function satisfying \eqref{art11-eq2.18}, $s \in \bC$, $t \in bR$, $\Delta = t^2 -4$. If $\Delta \neq 0$, the the integral \eqref{art11-eq3.10} converges for $-A < \sigma < 1+ A$ and is given by }
+\begin{align*}
+V (s,t) & = 2 \pi \left| \frac{\Delta}{4}\right|^{s/2} \int\limits^\infty_1 \varphi \left(|\Delta| (u^2 -1) \right) P_{-s} (u) du\\
+& \qquad \qquad (-A < \sigma < 1+ A) \tag{4.4}\label{art11-eq4.4}
+\end{align*}
+if $\Delta < 0$ \textit{and by }
+\begin{gather*}
+V(s,t) = \frac{1}{2} \frac{\Gamma \left(\frac{s}{2} \right)^2}{\Gamma (s)} \Delta^{s/2} \times \tag{4.5}\label{art11-eq4.5}\\
+\times \int\limits^\infty_{-\infty} \varphi (\Delta (u^2 + 1)) (1+u^2)^{\frac{1}{2}s} F \left(\frac{s}{2}, \frac{s}{2}; \frac{1}{2}; \frac{u^2}{u^2+1} \right) du (-A < \sigma < 1 + A)
+\end{gather*}
+\textit{if $\Delta > 0$, where $F(a, b; c;z)$ and $P_v (z)$ denote hypergeometric and Legendre functions, respectively. In particular, $V(s,t)$ satisfies the functional equation}
+\begin{equation*}
+\frac{\pi^{-s} \Gamma (s)}{\gamma (s,\Delta)} V(s,t) = \frac{\pi^{-1+s} \Gamma (1-s)}{\gamma (1-s, \Delta)} V(1-s,t) (\Delta \neq 0),
+\tag{4.6}\label{art11-eq4.6}
+\end{equation*}
+\textit{where }
+$$
+\gamma (s, \Delta) =
+\left\{
+\begin{aligned}
+& (2\pi)^{-s} |\Delta|^{s/2} \Gamma (s) \quad && \text{ if } \Delta < 0,\\
+&  \pi^{-s} \Delta^{s/2} \Gamma \left(\frac{s}{2} \right)^2 && \text{ if } \Delta > 0.
+\end{aligned}
+\right.
+$$
+\textit{For\pageoriginale $\Delta =0$, $V(s,t)$ converges for $\frac{1}{2} < \sigma < 1+ A$ and has a meromorphic continuation to $0 < \re (s) < 1+ A$ given by}
+\begin{equation*}
+V(s , \pm 2) =  \frac{\Gamma (\frac{1}{2}) \Gamma (s - \frac{1}{2})}{\Gamma (s)} \int\limits^\infty_{0} \varphi (u^2) u^{s-1} ds (0< \sigma <1 +A).\tag{4.7} \label{art11-eq4.7}
+\end{equation*}
+
+We observe that the functions $\zeta(s,\Delta)$ defined by \eqref{art11-eq1.12} satisfy the functional equations
+$$
+\gamma (s, \Delta) \zeta(s, \Delta) = \gamma (1 -s , \Delta) \zeta (1-s, \Delta)
+$$
+for $\Delta \neq 0$ (\cite{art11-10}, Prop. 3, ii), p. 130), so \eqref{art11-eq4.6} tells us that each of the functions \eqref{art11-eq4.1} is invariant under $s \to 1 -s$.
+
+\begin{proof}
+We consider first the case $\Delta < 0$. Mapping the upper half-plane to the unit disc bu $z \to \dfrac{z - i \sqrt{|\Delta|\backslash 4}}{z+ i \sqrt{|\Delta| \backslash 4}} = re^{i\theta}$, we find 
+\begin{align*}
+V(s,t) &= \int \int\limits_{\sfH} \varphi \left(\frac{|z^2 - \Delta \backslash 4|^2}{y^2} \right) y^s dz\\
+& = 4|\frac{\Delta}{4}|^{s/2} \iint\limits_{\substack{0 \leqslant r \leqslant 1\\ 0 \leqslant \theta \leqslant 2 \pi}} \varphi \left(\frac{4|\Delta|r^2}{(r^2-1)^2} \right) \left(\frac{1-r^2}{1-2 r \cos \theta +r^2} \right)^s \frac{r dr \; d \theta}{ (1-r^2)^2},
+\end{align*}
+and this is equivalent to \eqref{art11-eq4.4} because
+$$
+\frac{1}{2\pi} \int\limits^{2 \pi}_0 \left(\frac{1-\cdot r^2}{1-2 r \cos \theta + r^2} \right)^s d \theta = P_{-s} \left(\frac{1+r^2}{1-r^2} \right) (0 \leqslant r < 1, s \in \bC)
+$$
+[EH 3.7(6)]. The functional equation follows since $P_{-s} (z) = P_{s-1} (z)$. If $\Delta >0$, then we transform the upper half-plane to itself by $z \to \dfrac{z - \sqrt{\Delta/4}}{z+ \sqrt{\Delta /4}} = \xi + i \eta$, obtaining
+$$
+V(s,t) = \Delta^{s/2} \int\int\limits_{\sfH} \varphi \left(\Delta \frac{\xi^2 + \eta^2}{\eta^2} \right) \frac{\eta^s}{|1-\xi - i \eta|^{2s}} \frac{d\xi d \eta}{\eta^2}
+$$
+$$
+= \Delta^{s/2} \int\limits^\infty_{-\infty} \frac{\varphi (\Delta (1+u^2))}{(1+u^2)^{s/2}} \int\limits^\infty_0 \frac{v^{s-1} dv}{\left(1-\frac{2u}{\sqrt{u^2 +1}} v + v^2 \right)^s} du
+$$\pageoriginale 
+($u = \xi / \eta$, $v = \sqrt{\xi^2 + \eta^2}$). Substituting $v = e^x$ we find 
+\begin{align*}
+& \int\limits^\infty_0 \frac{v^{s-1} dv}{ \left(1 - \frac{2u}{\sqrt{u^2 +1}} v + v^2 \right)^s} = 2^{-s} \int\limits^\infty_{-\infty} \frac{dx}{\left(\cosh x - \frac{u}{\sqrt{u^2+1}} \right)^s}\\
+& = \frac{\Gamma (s) \Gamma (\frac{1}{2})}{2^{2s-1} \Gamma (s+ \frac{1}{2})} F \left(s, s; s+ \frac{1}{2} ;\frac{1}{2} \left(1+ \frac{u}{\sqrt{u^2 +1}} \right) \right) \; (\re (s) > 0)\\
+& = \frac{\pi}{2^{2s-1}} \frac{\Gamma (s)}{\Gamma \left(\frac{s+1}{2} \right)^2} F \left(\frac{s}{2}, \frac{s}{2}; \frac{1}{2} ; \frac{u^2}{u^2+1} \right)\\
+& + \frac{u}{\sqrt{u^2 +1}} \frac{\pi}{2^{2s-2}} \frac{\Gamma (s)}{\Gamma \left(\frac{s}{2} \right)^2} F \left(\frac{s+1}{2}, \frac{s+1}{2}; \frac{3}{2} ; \frac{u^2}{u^2 +1} \right)
+\end{align*}
+[EH 2.12 (10), 2.1.5 (28)]. Since the second term is an odd function of $u$, we find the formula 
+$$
+V(s,t) = \Delta^{\frac{s}{2}} \frac{\pi}{2^{2s-1}} \frac{\Gamma (s)}{\Gamma \left(\frac{s+1}{2} \right)^2} \int\limits^\infty_{-\infty} \frac{\varphi (\Delta (1+u^2))}{(1+u^2)^{s/2}} F\left(\frac{s}{2} , \frac{s}{2}; \frac{1}{2} ;\frac{u^2}{u^2+1}\right) du, 
+$$
+which is equivalent to \eqref{art11-eq4.5}; the functional equation follows because 
+$$
+(1+u^2)^{-s/2} F \left(\frac{s}{2}, \frac{s}{2}; \frac{1}{2}; \frac{u^2}{u^2+1} \right) = F \left(\frac{s}{2}, \frac{1-s}{2}; \frac{1}{2} ; - u^2 \right) \quad [EH 2.1.4(22)].
+$$
+Finally, if $\Delta =0$ then the substitution $z \to -1/z$ gives
+$$
+V(s, \pm 2) =  \iint\limits_\sfH \varphi \left(\frac{|z|^4}{y^2} \right) y^s  dz = \iint\limits_{\sfH} \varphi \left(\frac{1}{y^2} \right) \frac{y^2 }{|z|^{2s}} dz; 
+$$
+\end{proof}
+
+%%% 335 page
 
 
 
