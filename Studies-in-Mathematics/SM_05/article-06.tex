@@ -33,4 +33,216 @@ Consider a projective, smooth and geometrically connected variety $X$, say of di
 $$
 Z(X/\bF_{q},T)=\exp \left(\sum\limits_{n\geq 1}\frac{T^{n}}{n}\sharp X(\bF_{q^{n}})\right).
 $$
-Thanks\pageoriginale %page no. 168
+Thanks\pageoriginale to Deligne \cite{art6-key6}, we know that this zeta function has a unique expression as a finite alternating product of polynomials $P_i (T) \in \bZ [T]$, $i = 0, \ldots, 2d$:
+$$
+Z (X/ \bF_q, T) = \prod\limits^{2d}_{i=0} P_i (T)^{(-1)^{i+1}} = \frac{P_1 P_3 \ldots P_{2d-1}}{P_0 P_2 \ldots P_{2s}}
+$$
+in which each polynomial $P_i (T) \in\bZ[T]$ is of the form 
+$$
+P_i (T) = \prod\limits^{\deg P_i}_{j=1} (1 -\alpha_{i,j} T)
+$$
+with $\alpha_{i,j}$ algebraic integers such that 
+$$
+|\alpha_{i,j}| = \sqrt{q}^i
+$$
+for \textit{any} archimedean absolute value $|\;|$ on the field $\bar{\bQ}$ of all algebraic numbers. The extreme polynomials $P_0$, $P_{2d}$ are given explicitly:
+$$
+P_0 (T) = (1-T) , P_{2d} (T) = (1 - q^d \cdot T)
+$$
+
+Despite this apparently ``elementary'' characterization of the polynomials $P_i (T)$, their true genesis is cohomological. Let us recall this briefly.
+
+For each prime number $l$ different from the characteristic $p$ of $\bF_q$, let us denote by $H^i_l(X)$ the finitely generated $\bZ_l$-module defined as 
+$$
+H^i_l (X) =  \varprojlim_n H^i_{\text{etale}} (X \otimes \bar{\bF}_q, \bZ / l^n \bZ ).
+$$
+Corresponding to the prime $p$ itself, we denote by $W(\bF_q)$ the ring of $p$-Witt vectors of $\bF_q$, and by $H^i_{\text{cris}} (X)$ the finitely generated $W(\bF_q)$-module defined as 
+$$
+H^i_{\text{cris}} (X) = \varprojlim_n H^i_{\text{cris}} (X / W_n (\bF_q)).
+$$
+The Frobenius endomorphism $F$ of $X$ relative to $\bF_q$ acts, by functoriality, on these various cohomology groups $H^i_l(X)$ for $l\neq p$, and $H^i_{\text{cris}} (X)$; and $F$ induces automorphisms of the corresponding vector spaces $H^i_l(X) \bigotimes_{Z_l} Q_l$, $H^i_{\text{cris}} (X) \bigotimes_{W(\bF_q)} K$ ($K$ denoting the fraction field of $W(\bF_q)$). The polynomial $P_i (T) \in \bZ [T]$ which occurs in the factorization of the zeta function is then given cohomologically by the formulas 
+\begin{gather*}
+P_i(T) = \det (1 - T F \big| H^i_l(X) \otimes \bQ_l) \text{ for } l \neq p\\
+P_i (T) = \det (1 - T F \big| H^i_{\text{cris}} (X) \otimes K).
+\end{gather*}\pageoriginale 
+
+The resulting formula for zeta as the alternating product of characteristic polynomials of $F$ on the $H^i$, in each of the cohomology theories $H^i_l (X) \otimes Q_l$ for $l \neq p$, $H^i_{\text{cris}} (X) \otimes K$, is equivalent, via logarithmic differentiation, to the identities in those theories 
+$$
+\neq X (\bF_{q^n}) = \sum (-1)^i \text{ trace } (F^n \big| H^i). \text{ for all } n \geq 1.
+$$
+By viewing the set $X(\bF_{q^n})$ as the set of fixed points of $F^n$ acting on $X(\bar{\bF}_q)$, this identity becomes a Lefschetz trace formula
+$$
+\# \text{ Fix } (F^n ) =\sum(-1)^i \text{ trace } (F^n \big| H^i) \text{ all } n \geq 1
+$$
+for $F$ and its iterates in each of our cohomology theories. If we take as \textit{given} these Lefschetz trace formulas, then the identification of $P_i$ with $\det (1 - F T \big| H^i)$ is equivalent to the assertion:
+\begin{align*}
+&\text{On any of the groups $H^i_l(X) \otimes Q_l$ with $l \neq p$,}\\
+&\text{$H^i_{\text{cris}} (X) \otimes K$, the eigenvalues of $F$ are alge-}\\
+&\text{braic integers all of whose archimedean absolute}\\
+&\text{values are $\sqrt{q}^i$.}
+\end{align*}
+In fact, there is not a great deal more that is known about the action of $F$ on the $H^i_l(X) \otimes Q_l$ for $l \neq p$, and on $H^i_{\text{cris}} (X)  \otimes K$. It is still \textit{not} known, for example, whether the action of $F$ on these cohomology groups is always semi-simple when $i>1$. (That it is when $i =1$ results from the theory of abelian varieties).
+
+Suppose that a finite group $G$ operates on $X$ by $\bF_q$-automorphisms. Let us choose a number field $E$ big enough that all complex representations of $G$ are realizable over $E$, and whose residue fields at all $p$-adic places contain $\bF_q$. (For example, the field $Q(\zeta_{q-1}, \zeta_N)$, where $N$ is the $l$.c.m. of the orders of elements of $G$, is such an $E$). We denote by $\lambda$ an $l$-adic place of $E$, $l \neq p$, and by $\sfP$ a $p$-adic place of $E$. Thus $E_\lambda$ is a finite extension of $Q_l$, and $E_\sfP$ is a finite extension of $K$.
+
+Let $M$ be a finite dimensional $E$-vector space given with an action of $G$, say $\rho : G \to \Aut_E (M)$. The associated $L$-function $L(X/\sF_q, \rho, T)$ is the formal power series with $E$-coefficients defined as 
+$$
+L(X/\sF_q, \rho, T) = \exp \left(\sum\limits_{n \geq 1} \frac{T^n}{n} \cdot \frac{1}{\# G} \sum\limits_{g \in G} tr (\rho (g^{-1})) \# Fix (F^n g) \right)
+$$\pageoriginale
+where Fix $(F^n g)$ denotes the finite set of fixed points of $F^ng$ acting on $X(\bar{\bF}_q)$. We recover the zeta function of $X/\bF_q$ by taking for $\rho$ the regular representation of $G$. The usual formalism of zeta and $L$-functions gives 
+$$
+Z(X/ \bF_q, T) = \prod\limits_{\rho \text{ irred}} L (X / \bF_q, \rho, T)^{\deg (\rho)}
+$$
+
+It follows from Deligne's results that for any representation $\rho$, we have a unique expression for the corresponding $L$-function as an alternating product of polynomials $P_{i,\rho}(T) \in E [T]$,
+$$
+L(X/ \bF_{q}, \rho, T) =\prod\limits^{2d}_{i=0} P_{i,\rho} (T)^{(-1)^{i+1}},
+$$
+which are of the form 
+$$
+P_{i,\rho} (T) = \prod\limits^{\deg P_{i,\rho}}_{j=1} (1 - \alpha_{i, j, \rho} T)
+$$
+with algebraic integers $\alpha_{i, j,\rho}$ such that 
+$$
+|\alpha_{i, j, \rho}| = \sqrt{q}^i
+$$
+for any archimedean absolute value $|\;|$ on the field $\bar{Q}$ of all algebraic numbers. 
+
+The cohomological expression of there $P_{i,\rho}$ is straighforward  (\cf\cite{art6-key18}). Because the action of $G$ is ``defined over $\bF_q$'' it commutes with $F$, and therefore the induced action of $G$ on the cohomology commutes with the action of $F$. Therefore $G$, acting by composition, induces automorphisms of the $E_\lambda$-vector spaces,$l \neq \rho$,
+$$
+\Hom_{E_\lambda [G]} (M\bigotimes\limits_E E_\lambda, H^i_l (X) \bigotimes\limits_{Z_l} E_\lambda).
+$$
+and of the $E_\sfP$-vector spaces
+$$
+\Hom_{E_{\sfP} [G]} (M \bigotimes\limits_{E} E_\sfP, H^i_{\text{cris}} (X) \bigotimes\limits_{W(\sF_q)} E_\sfP). 
+$$
+The polynomials $P_{i, \rho} (T) \in E [T]$ are given by the formulas 
+\begin{align*}
+P_{i,\rho} (T) & = \det (1 - T F \big| \Hom_{E_\lambda [G]} (M \bigotimes\limits_{E} E_\lambda, H^i_l (X) \bigotimes\limits_{Z_l} E_\lambda )) \text{ for } l \neq \rho \\
+P_{i, \rho} (T) & = \det (1 - TF \big| \Hom_{E_\sfP [G]} (M\bigotimes\limits_E E_\sfP, H^i_{\text{cris}} (X) \bigotimes\limits_{W (\sF_q)} E_\sfP)).
+\end{align*}
+
+Let us\pageoriginale recall the derivation of these formulas. We first observe that the characteristic polynomial of $F$ on $\Hom_G (M, H^i) \simeq ({\displaystyle{\mathop{M}^v}} \otimes H^i)^G \subset {\displaystyle{\mathop{M}^v}} \otimes H^i$ \textit{divides} $\det (1-F T \big| H^i)^{\dim {\displaystyle{\mathop{M}^v}}}$, and hence the eigenvalues of $F$ on $\Hom_G (M, H^i)$ are algebraic integers, all of whose archimedean absolute values are $\sqrt{q}^i$. So it remains only to verify that the alternating product of those characteristic polynomials is indeed the $L$-function, \ie. that 
+$$
+L(X \backslash \bF_q, \rho, T) = \prod \det (1 - F T \big| ({\displaystyle{\mathop{M}^v}} \otimes H^i)^{G} )^{(-1)^{i+1} },
+$$
+Equivalently, we must check that 
+\begin{align*}
+\frac{1}{\# G} \sum \text{ trace }\rho  (g^{-1}) &\;\# \text{ Fix } (F^n g)\\
+& = \sum (-1)^i \text{ trace } (1 \otimes F^n \big| ({\displaystyle{\mathop{M}^v}} \otimes H^i)^G)\\
+& = \sum (-1)^i \frac{1}{\# G} \sum\limits_{g \in G} \text{ trace } (g \otimes F^n g \big|{\displaystyle{\mathop{M}^v}} \otimes H^i)\\
+& = \sum (-1)^{i} \frac{1}{\# G} \sum\limits_{g \in G} \text{ trace } {\displaystyle{\mathop{\rho}^v}} (g) \cdot \text{ trace } (F^n g \big| H^i)\\
+& = \frac{1}{\# G} \sum\limits_{g \in G}  \text{ trace } \rho (g^{-1}) \sum (-1)^i \text{ trace } (F^n g \big| H^i). 
+\end{align*}
+To check this last equality, we would like to invoke the Lefschetz trace formula, not for $F^n$, but for $F^ng$, with $g$ an automorphism of \textit{finite order} which commutes with $F$; this amounts to invoking the Lefschetz trace formula for $Fg$ on $X$ and on all its ``extensions of scalars'' $X \otimes \bF_{q^n}$. But an elementary descent argument shows that given an automorphism $g$ of finite order which commutes with $F$, there is \textit{another} variety $X'/ \bF_q$ together with an isomorphism $X \otimes \bar{\bF}_q \simeq X' \otimes \bar{\bF}_q$ under which $F g \otimes 1$ corresponds to $F \otimes 1$. Because this isomorphism also induces isomorphisms of cohomology groups 
+\begin{gather*}
+H^i_l (X)^{\text{dfn}} H^i_{\text{et}} (X' \otimes \bar{\bF}_q, \bZ_l) \simeq H^i (X \otimes \bar{\bF}_q, \bZ_l)^{\text{dfn}} H^i_l(X),\\
+H^i_{\text{cris}} (X') \otimes W (\bar{\bF}_q) \simeq H^i_{\text{cris}} (X' \otimes \bar{\bF}_q) \simeq H^i_{\text{cris}} (X \otimes \bar{\bF}_q) \simeq\\
+\simeq H^i_{\text{cris}} (X) \otimes W (\bar{\bF}_q),
+\end{gather*}
+the truth\pageoriginale of the Lefschetz formula for $Fg$ on $X$ results from its truth for $F$ on $X'$.
+
+Let us now consider in greater detail the case of an irreducible $\rho$. Then $P_{i, \rho}$ is a polynomial whose degree is the common \textit{multiplicity} of $\rho$ in any of the $H^i_l(X) \otimes E_\lambda$, $l \neq \rho$, or in $H^i_{\text{cris}} (X) \otimes E_\sfP$. Decomposing the regular representation leads to the factorization
+$$
+P_i (T) = \prod\limits_{\rho \text{ irred}} P_{i, \rho} (T)^{\deg (\rho)}
+$$
+The coarser factorization 
+$$
+P_i (T) = \prod\limits_{ \rho \text{irred}} (P_{i,\rho} (T)^{\deg(\rho)})
+$$
+corresponds to the decomposition of $H^i_l(X) \otimes E_\lambda$, $\resp H^i_{\text{cris}} (X) \otimes E_\sfP$, into $\rho$-isotypical components
+\begin{gather*}
+H^i_l (X) \otimes E_\lambda \simeq \bigotimes\limits_{\text{irred} \rho } \left(H^i_l(X) \times E_\lambda \right)^\rho\\
+H^i_{\text{cris}} (X) \otimes E_\sfP \simeq \bigotimes\limits_{\text{irred} \rho} \left(H^i_{\text{cris}} (X) \otimes E_\sfP \right)^\rho
+\end{gather*}
+Indeed the corresponding identities, for $\rho$ irreducible, are 
+\begin{align*}
+P_{i,\rho} (T)^{\deg(\rho)}  & = \det (1 - TF \big| (H^i_l (X) \otimes E_\lambda)^\rho) l \neq p\\
+P_{i, \rho} (T)^{\deg (\rho)} & = \det (1 - TF \big| (H^i_{\text{cris}} (X) \otimes E_\sfP)^\rho).
+\end{align*}
+
+Let us denote by $S(X/ \bF_q, \rho, n)$ the exponential sums used to define the $L$-function:
+$$
+S (X/ \sF_q , \rho, n) = \frac{1}{\# G} \sum\limits_{g \in G} tr (\rho (g)) \# \text{ Fix }(F^n g^{-1}). 
+$$
+The following lemma gives the cohomological meaning of theorems of Hasse-Davenport type (\cf \cite{art6-key20}).
+
+\medskip
+\noindent
+{\bfseries Lemma \thnum{1.1}:\label{art6-lem1.1}}
+\textit{Let $X/\bF_q$ be projective and smooth. Let a finite group $G$ operate on $X$ by $\bF_q$-automorphisms, and let $p$ be an irreducible complex representation of $G$. Fix an integer $i_\circ$, and denote by $H^{i_\circ}$ any one of the cohomology groups $H^{i_\circ}_l(X) \bigotimes_{Z_l} E_\lambda$ with $l \neq p$, or $H^{i_\circ}_{\text{cris}}(X) \bigotimes\limits_{W(\bF_q)} E_\sfP$. Let $|\;|$ be any archimedean absolute value on the filed $\bar{Q}$ of all algebraic numbers. The following conditions are equivalent:}
+\begin{enumerate}
+\item[(1)] \textit{The\pageoriginale multiplicity of $\rho$ in $H^{i_\circ}$ is one, and the multiplicity of $\rho$ in $H^i$ is zero if $i \neq i_\circ$.}
+
+\item[(2)] \textit{For all $n \geq 1$, we have }
+\begin{gather*}
+(-1)^{i_\circ} S (X / \bF_q, \rho,n) = ((-1)^{i_\circ} S (X / \bF_q, \rho, 1))^n,\\
+\text{and } \hspace{3cm}|S (X / \bF_q, \rho, 1)| = \sqrt{q}^{i_\circ} \hspace{3cm}
+\end{gather*}
+
+\item[(3)] \textit{For all $n \geq 1$, we have}
+$$
+|S(X/ \bF_q, \rho, n)| = \sqrt{q}^{i_\circ n}
+$$
+
+\item[(4)] \textit{For all $n \geq 1$, we have }
+\begin{gather*}
+|S (X/ \bF_q, \rho, n)| = |S(X/ \bF_q,  \rho, 1)|^n\\
+\text{and } \hspace{3cm} \sqrt{q}^{i_\circ} \leq |S (X / \bF_q, \rho, 1)| < \sqrt{q}^{1+ i_\circ}\hspace{3cm}
+\end{gather*}
+
+\item[(5)] \textit{The polynomial $P_{i_{\circ, \rho}} (T)$ is given by}
+$$
+P_{i_{\circ, \rho}} (T) = 1 - (-1)^{i_\circ} S (X / \bF_q, \rho, 1) T 
+$$
+\textit{and for $i \neq i_\circ$, we have $P_{i,\rho} (T) =1$.}
+
+\item[(6)] \textit{The $\rho$-isotypical component $(H^i)^\rho =0$ for $i \neq i_\circ$, $(H^{i_\circ})^\rho$ has dimension $ = \deg (\rho)$, and $F$ operates on $(H^{i_\circ})^\rho$ as the scalar $(-1)^{i_\circ} S (X/ \bF_q, \rho, 1)$.}
+\end{enumerate}
+
+\begin{proof}
+This is an easy exercise, using the basic identities:
+$$
+\left\{
+\begin{aligned}
+&\exp \left(\sum \frac{T^n}{n}  S (X / \bF_q, \rho, n)\right) = L (X/ \bF_q, \rho, T) = \prod\limits_{i} P_{i,\rho} (T)^{(-1)^{i+1}}\\
+& \quad P_{i,\rho} (T) = \prod\limits_j (1 - \alpha_{i,j,\rho} T), |\alpha_{i,j,\rho}| = \sqrt{q}^i\\
+& \deg P_{i,\rho} = \textit{ multiplicity of $\rho$ in } H^i = \frac{1}{\deg (\rho)} \cdot \dim ((H^i)\rho).
+\end{aligned}
+\right.
+$$
+
+Suppose, first, that (1) holds, or equivalently that for $i \neq i_\circ$, $P_{i,\rho} (T) =1$, while $P_{i_{\circ, \rho}}$ is a linear polynomial $P_{i_{\circ,\rho}} (T) = (1-A T)$ with $|A| = \sqrt{q}^{i_\circ}$. The cohomological expression for $L$ then becomes 
+$$
+\exp \left(\sum \frac{T^n}{n} S (X/ \bF_q, \rho, n) \right) = \left(\frac{1}{1-AT} \right)^{(-1)^{i_\circ}}.
+$$
+Taking\pageoriginale logarithms and equating coefficients, we find 
+$$
+(-1)^{i_\circ} S (X/ \bF_q, \rho, n) = A^n \quad \text{ for all } n \geq 1. 
+$$
+ 
+In particular (2) and (5) hold.
+
+The implications (5) $\Rightarrow$ (1), (6) $\Rightarrow$ (1) are obvious. Also (5) $\Rightarrow$ (6), for if $P_{i_{\circ, \rho}}$ is linear, then $\rho$ has multiplicity one in $H^{i_\circ}$, so that $(H^{i_\circ})^\rho$ is $G$-irreducible, and hence $F$ must operate on $(H^{i_\circ})^\rho$ as a \textit{scalar}, which we compute by the formula
+$$
+P_{i_{\circ, \rho}} (T)^{\deg (\rho)} = \det (1 - TF \big| (H^{i_\circ})^\rho).
+$$
+
+Clearly we have (2) $\Rightarrow$ (3) $\Rightarrow$ (4). We must show that if (4) holds, then exactly \textit{one} of the $P_{i,\rho}$ is $\neq 1$, and that one is linear. Logarithmically differentiating the cohomological formula for $L$, we find 
+$$
+S(X/ \bF_q, \rho, n) = \sum\limits_i (-1)^i \sum\limits^{\deg P_{i, \rho}}_{j=1} (\alpha_{i, j, \rho})^n, \quad |\alpha_{i,j,\rho}| = \sqrt{q}^i.
+$$
+We must show that if (4) holds, then the double sum has only a single term in it. Separating the $\alpha_{i, j, \rho}$ according to the \textit{parity} of $i$, we get two disjoint sets of non-zero complex numbers (disjoint because their absolute values are disjoint), to which we apply the following lemma.
+
+
+\end{proof}
+
+
+%%%% 174 page
+
+
+
+%%%%%%%%%%
+\medskip
+\noindent
+{\bfseries Theorem \thnum{1}:\label{art11-thm1}}
