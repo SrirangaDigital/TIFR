@@ -1,0 +1,1357 @@
+\chapter{ON SHIMURA'S CORRESPONDENCE FOR MODULAR FORMS OF HALF-INTEGRAL WEIGHT$^{*}$}
+\footnotetext[1]{Talk presented by S.G.}
+
+\begin{center}
+{\large By~ S. Gelbart and I. Piatetski-Shapiro}
+\end{center}
+
+\bigskip
+
+\section*{Introduction}\pageoriginale
+
+G. Shimura has shown how to attach to each holomorphic cusp form of half-integral weight a modular form of even integral weight. More precisely, suppose $f(z)$ is a cusp form of weight $k/2$, level $N$, and character $\chi$.\pageoriginale Suppose also that $f$ is an eigenfunction of all the Hecke operators $T^{N}_{k,\chi}(p^{2})$, say $T(p^{2})f=\omega_{p}f$. If $k\geq 5$, then the $L$-function
+$$
+\sum\limits^{\infty}_{n=1}A(n)n^{-s}=\prod\limits_{p<\infty}\left(1-\omega_{p}p^{-s}+\chi(p)p^{2k-2-2s}\right)^{-1}
+$$
+is the Mellin transform of a modular cusp form of weight $k-1$, level $N/2$, and character $\chi^{2}$. for further details, see \cite{Shim} or \cite{Niwa}.
+
+Our purpose in this paper is to establish a Shimura correspondence for any (not necessarily holomorphic) cusp form of half-integral weight defined over a global field $F$(not necessarily $\mathbb{Q}$). Our approach is similar to Shimura's in that we use $L$-functions. Out point of view is new in that we use the theory of group representations.
+
+Roughly speaking, suppose $\overline{\pi}=\bigotimes\limits_{v}\overline{\pi}_{v}$ is an automorphic cuspidal representation of the metaplectic group which doesn't factor through $\GL_{2}$. Then we introduce an $L$-factor $L(s,\overline{\pi}_{v})$ for each $v$ and we prove that the $L$-function
+$$
+L(s,\overline{\pi})=\prod\limits_{v}L(s,\overline{\pi}_{v})
+$$
+belongs to an automorphic representation of $\GL_{2}(\mathbb{A}_{F})$ in the sense of \cite{Jacquet-Langlands}. Since we characterize those $\overline{\pi}$ which correspond to cuspidal (as opposed to just automorphic) representations of $\GL_{2}(\mathbb{A}_{F})$ we refine as well as generalize Shimura's results.
+
+Let us now describe our correspondence in more detail. Suppose $\overline{\pi}$ is an automorphic cuspidal representation of the metaplectic group. Since $\overline{\pi}$ is determined by its local components $\overline{\pi}_{v}$, we want to describe its ``Shimura image'' $S(\overline{\pi})$ in purely {\em local} terms. Thus we construct a local correspondence
+$$
+S:\overline{\pi}_{v}\to \pi_{v}
+$$
+by ``squaring'' the representation $\overline{\pi}_{v}$; if $\overline{\pi}_{v}$ is an induced representation, this means squaring the characters of $F^{x}_{v}$ which parametrize $\overline{\pi}_{v}$. In general, this process of ``squaring'' tends to smooth out representations, as we shall now explain.
+
+Suppose\pageoriginale we consider the theta-representations of the metaplectic group. These representations generalize the classical modular forms of half-integral weight given by the theta-series
+$$
+\theta_{\chi}(z)=\sum\limits^{\infty}_{n=-\infty}\chi(n)e^{2\pi in^{2}_{z}}
+$$
+where $\chi$ is an (even) Dirichlet character of $Z$. Since these representations arise by pasting together a grossencharacter $\chi$ of $F$ with the ``even or odd'' part of the canonical metaplectic representation constructed in \cite{Weil}, we denote these representations by $r_{\chi}$ and call them Weil representations. Locally, $r_{\chi_{v}}$ is supercuspidal when $\chi_{v}(-1)=-1$. Almost everywhere, however, $\chi_{v}(-1)=1$, $r_{\chi_{v}}$ is the class $1$ quotient of a reducible principal series representation at $s=1/2$, and the global representation
+$$
+r_{\chi}=\bigotimes\limits_{v}r_{\chi_{v}}
+$$
+is ``distinguished'' from several different points of view. Most significantly, these $r_{\chi}$ exhaust the automorphic forms of half-integral weight which are determined by just one Fourier coefficient; this is the principal result of \cite{Ge PS2}.
+
+Now if $\overline{\pi}_{v}$ is an even Weil representation $r_{\chi_{v}}$ (i.e. $\chi_{v}(-1)=1$), its Shimura image will be the one-dimensional representation $\chi_{v}$ of $\GL_{2}(F_{v})$, whereas if $\overline{\pi}_{v}$ is an ``odd'' Weil representation, $S(\overline{\pi}_{v})$ will be the special representation $\Sp(\chi_{v})$; cf. \S\ref{art1-sec7}. The Shimura correspondence thus takes cuspidal $r_{\chi}$ to automorphic representations of $\GL(2)$ which almost everywhere are one-dimensional and hence {\em not} cuspidal. The main result of this paper, however, guarantees that these representations are the only cuspidal $\overline{\pi}$ which map to non-cuspidal automorphic forms of $\GL(2)$. This explains the restriction $k\geq 5$ in \cite{Shim} and ultimately resolves ``Open question (C)'' of that paper; cf. \S\ref{art1-sec16}.
+
+We mention also that the cuspidal representations $r_{\chi}$ contradict the Ramanujan-Petersson conjecture, in complete analogy to the counter-examples of \cite{Ho PS} for $\Sp(4)$. In particular, the $L$-function we attach to a supercuspidal component $r_{\chi_{v}}$ {\em can have a pole}; cf. \S\ref{art1-sec6}. Thus these\pageoriginale representations $r_{\chi}$ distinguish themselves in yet another way, and the regularizing nature of the local correspondence $S$ evidence itself (by ``lifting'' a supercuspidal representation to a non-supercuspidal one).
+
+For a leisurely account of how classical modular forms of half-integral weight can be defined as representations of Weil's metaplectic group the reader is referred to \cite{Ge}. Most of the results described in the present paper were first announced in \cite{Ge PS}.
+
+We note Chapter \ref{art1-chap-I} is purely local: after describing the local metaplectic group, and the notion of Whittaker models for its irreducible admissible representations, we introduce $L$ and $\epsilon$ factors and describe the local Shimura correspondence. In Chapters \ref{art1-chap-II} and \ref{art1-chap-III} we piece together these notions to obtain a global correspondence. In the process of doing so, we develop a Jacquet-Langlands theory for the metaplectic group. Details and related results are to be found in \cite{Ge}, \cite{GeHPS}, and \cite{GePS 2}. The principal contribution of the present paper is the proof of the global Shimura correspondence in Chapter \ref{art1-chap-III}.
+
+It is with pleasure that we acknowledge our indebtedness to G. Shi\-mura and R. P. Langlands. Shimura had already suggested the possibility of a representation-theoretic and adelic approach to his results in \cite{Shim}. On the other hand, the concrete suggestions and inspiration of Langlands first brought one of us close to the metaplectic group and got this project started. Langlands also suggested how the Selberg trace formula could be used to obtain (and in fact go beyond) our present results; this suggestion has just recently been developed by Flicker, whose results---improvements of our own---will appear in a forthcoming paper [Flicker].
+
+\bigskip
+\begin{center}
+{\large\bfseries Chapter \thnum{I}.\label{art1-chap-I} Local Theory}
+\end{center}
+\smallskip
+
+Throughout this Chapter $F$ will denote a local field of characteristic not equal to two. By $Z_{2}$ we shall denote the group of square roots of unity.
+
+\section{The Metaplectic Group}\label{art1-sec1}
+
+\subsection{}\label{art1-sec1.1} Let $H^{2}(\SL_{2}(F).Z_{2})$ denote the two-dimensional continuous cohomology group of $\SL_{2}(F)$ with coefficients in $Z_{2}$. From \cite{Weil} and \cite{Moore} it follows that if $F\neq \mathbb{C}$, $H^{2}(\SL_{2}(F),Z_{2})=Z_{2}$.
+
+If\pageoriginale $F=\mathbb{C}$, let $\overline{\SL}_{2}(F)$ denote the group $\SL_{2}(F)\times Z_{2}$. If $F\neq \mathbb{C}$, let $\overline{\SL}_{2}(F)$ denote the non-trivial central extension of $\SL_{2}(F)$ by $Z_{2}$ determined by the non-trivial element of $H^{2}(\SL_{2}(F),Z_{2})$.
+
+In all cases, we have an exact sequence of topological groups
+$$
+1\to Z_{2}\to \overline{\SL}_{2}(F)\to \SL_{2}(F)\to 1.
+$$
+
+\subsection{}\label{art1-sec1.2}
+We want to extend Weil's metaplectic group to $\GL_{2}$. To do this, we use the fact that any automorphism of $\SL_{2}(F)$ lifts uniquely to an automorphism of $\overline{SL}_{2}(F)$.
+
+Let $D$ denote the group
+$$
+D=\left\{\left(\begin{matrix} a & 0\\ 0 & 1\end{matrix}\right): a\in F^{x}\right\}
+$$
+Each element of $D$ operates on $\SL_{2}(F)$ by conjugation, hence lifts to an automorphism of $\overline{SL}_{2}$. If $\overline{G}$ denotes the resulting semi-direct product of $D$ and $\overline{\SL}_{2}(F)$, we obtain an exact sequences of locally compact groups
+\begin{equation}
+1\to Z_{2}\to \overline{G}\to \GL_{2}(F)\to 1.\label{art1-eq1.2.1}
+\end{equation}
+Note $\overline{G}$ is a non-trivial extension of $\GL_{2}(F)$ unless $F=\mathbb{C}$.
+
+\subsection{}\label{art1-sec1.3}
+The sequence \eqref{art1-eq1.2.1} splits over the following subgroups of $\GL_{2}(F)$:
+\begin{align*}
+N &= \left\{ \left(\begin{matrix} 1 & x\\ 0 & 1\end{matrix}\right):x\in F\right\}\\[4pt]
+D &= \left\{ \left(\begin{matrix} a & 0\\ 0 & 1\end{matrix}\right):a\in F^{x}\right\}\\[4pt]
+Z^{2} &= \left\{ \left(\begin{matrix} \lambda & 0\\ 0 & \lambda\end{matrix}\right):\lambda\in (F^{x})^{2}\right\}
+\end{align*}
+and (if $F$ is non-archimedean, of odd residual characteristic, and $O_{F}$ is the ring of integers of $F$),
+$$
+K=\GL_{2}(O_{F}).
+$$
+
+If $H$ is any subgroup of $\GL_{2}(F)$, let $\overline{H}$ denote its full inverse image in $\overline{G}_{F}$. If $H$ is such that the sequence \eqref{art1-sec1.2.1} splits over it, then $\overline{H}$ is the direct product of $Z_{2}$ with a subgroup of $\overline{G}$ which we again denote by $H$.
+
+\subsection{}\label{art1-sec1.4}
+The {\em center} of $\overline{G}_{F}$ is
+$$
+\overline{Z}^{2}=Z^{2}\times Z_{2}.
+$$
+On\pageoriginale the other hand, if
+$$
+Z=\left\{\left(\begin{matrix} \alpha & 0\\ 0 & \alpha\end{matrix}\right):\alpha\in F^{x}\right\},
+$$
+the group $\overline{Z}$ is abelian but {\em not} central in $\overline{G}$. When convenient, we confuse $Z$ with the group $F^{x}$, and $Z^{2}$ with the subgroup $(F^{x})^{2}$.
+
+\subsection{}\label{art1-sec1.5}
+If $\varphi : \overline{G}\to W$ is any function on $\overline{G}$, with values in a vector space $W$, we say $\varphi$ is {\em genuine} (or {\em doesn't factor through} $\GL_{2}$) if 
+$$
+\varphi(g\zeta)=\zeta\varphi(g),\quad\text{for all}\quad g\in \overline{G}, \ \zeta\in Z_{2}.
+$$
+Unless specified otherwise, we henceforth deal only with genuine objects on $\overline{G}_{F}$.
+
+\section{Admissible Representations}\label{art1-sec2}
+
+\subsection{}\label{art1-sec2.1}
+By modifying the definitions in \cite{Jacquet-Langlands}, we can define, for each local $F$, the notion of an irreducible admissible representation $\overline{\pi}$ of $\overline{G}_{F}$.
+
+\subsection{}\label{art1-sec2.2}
+If $F$ is archimedean, we shall assume $\pi$ is actually irreducible unitary, or perhaps the restriction of such a representation to ``smooth'' vectors. Since $\overline{G}_{\mathbb{C}}=\GL_{2}(\mathbb{C})\times Z_{2}$ we shall have little to say about the case when $F$ is complex.
+
+\subsection{Induced Representations.}\label{art1-sec2.3}
+Let $B$ denote the Borel subgroup of\break $\GL_{2}(F)$. Although $\overline{B}$ is not abelian, it contains a convenient subgroup of finite index which {\em is} abelian, and even ``splits'' in $\overline{G}$. Indeed let $B_{0}$ denote the subgroup of $B$ consisting of matrices $\left(\begin{smallmatrix} a_{1} & x\\ 0 & a_{2}\end{smallmatrix}\right)$ where $a_{1}$ and $a_{2}$ have even $p$-adic order. If $F$ has even residual characteristic we also require that $a_{1}$ be a square modulo $1+4O_{F}$. If $F$ is real we simply require that $a_{1}>0$. In any case, $\overline{B}_{0}=B_{0}\times Z_{2}$, and the index of $\overline{B}_{0}$ in $\overline{B}$ is the index of $(F^{x})^{2}$ in $F^{x}$.
+
+For any pair of quasi-characters $\mu_{1}$, $\mu_{2}$ of $F^{x}$, let $\mu_{1}\mu_{2}$ denote the (genuine) character of $\overline{B}_{0}/N$ whose restriction to $B_{0}/N$ is given by the formula
+$$
+\mu_{1}\mu_{2}\left(\left(\begin{matrix} a_{1} & 0\\ 0 & a_{2}\end{matrix}\right)\right)=\mu_{1}(a_{1})\mu_{2}(a_{2}).
+$$
+The\pageoriginale induced representation
+\setcounter{equation}{0}
+\begin{equation}
+\overline{\rho}(\mu_{1},\mu_{2})=\Ind (\overline{G}_{F},\overline{B}_{0},\mu_{1}\mu_{2})\label{art1-eq2.3.1}
+\end{equation}
+is admissible and
+$$
+\overline{\rho}(\mu_{1},\mu_{2})\approx \overline{\rho}(\nu_{1},\nu_{2})
+$$
+not only if $\mu_{1}=\nu_{2}$ and $\mu_{2}=\nu_{1}$, but also if
+\begin{equation}
+\mu^{2}_{i}=\nu^{2}_{i}, \ i=1,2.\label{art1-eq2.3.2}
+\end{equation}
+cf. \S2 of \cite{GePS2} and \S5 of \cite{Ge}. Moreover, $\overline{\rho}(\mu_{1},\mu_{2})$ is irreducible unless $\mu^{2}_{1}\mu^{-2}_{2}(x)=|x|^{1}$ or $|x|^{-1}$ (or all integral points in the real case). In any case, the composition series has length at most 2; cf. \cite{Moen} and \cite{GeSa}.
+
+\subsection{Classification of Representations}\label{art1-sec2.4}
+If $\overline{\rho}(\mu_{1},\mu_{2})$ is irreducible, we denote it by $\overline{\pi}(\mu_{1},\mu_{2})$ and call it a {\em principal series} representation. If $\overline{\rho}(\mu_{1},\mu_{2})$ is reducible, we let $\overline{\pi}(\mu_{1},\mu_{2})$ denote its unique irreducible subrepresentation. In all cases, $\overline{\pi}(\mu_{1},\mu_{2})$ defines an infinite-dimensional irreducible admissible representation of $\overline{G}_{F}$. If $\mu^{2}_{1}\mu^{-2}_{2}(x)=|x|^{1}$ we call $\overline{\pi}(\mu_{1},\mu_{2})$ a {\em special} representation; it is equivalent to the unique quotient of $\overline{\rho}(\mu_{2},\mu_{1})$.
+
+Suppose $(\overline{\pi},V)$ is any irreducible admissible (genuine) representation of $\overline{G}_{F}$. Then $\overline{\pi}$ is automatically infinite-dimensional. If it is not of the form $\overline{\pi}(\mu_{1},\mu_{2})$ for some pair $(\mu_{1},\mu_{2})$, we say $\overline{\pi}$ is {\em supercuspidal}. If $F$ is archimedean, no such representations exist. On the other hand, if $F$ is non-archimedean, $\overline{\pi}$ is supercuspidal if and only if for every vector $v$ in $V_{\overline{\pi}}$,
+$$
+\int\limits_{U}\overline{\pi}(u)v\ du = 0
+$$
+for some open compact subgroup $U$ of $N\subset \overline{G}_{F}$; cf. \cite{Ge}, \S5.
+
+The construction and analysis of such supercuspidal representations is carried out in \cite{RS} and \cite{Meister}.
+
+From \cite{Ge} Section 5, and \cite{Meister}, it follows that:
+
+\subsubsection{}\label{art1-sec2.4.1}
+An irreducible admissible representation $\overline{\pi}$ is class 1 if and only\pageoriginale if it is of the form $\overline{\pi}(\mu_{1},\mu_{2})$ with $\mu^{2}_{1}$ and $\mu^{2}_{2}$ unramified and $\mu^{2}_{1}\mu^{-2}_{2}(x)\neq |x|$, i.e., $\overline{\pi}$ is not special.
+
+\subsection{Class 1 Representations}\label{art1-sec2.5}
+Suppose $F$ is non-archimedean and of odd residual characteristic. If $\overline{\pi}$ is an admissible representation of $\overline{G}_{F}$, recall $\overline{\pi}$ is {\em class 1}, or spherical, if its restriction to $K_{F}$ contains the identity representation (at least once). If $\overline{\pi}$ is also irreducible, it can be shown that $\overline{\pi}$ then contains the identity representation {\em exactly} once; cf. \cite{Ge} and \cite{Meister}.
+
+In particular, suppose $\overline{1}_{K}$ denotes the idempotent of the Hecke algebra of $\overline{G}_{F}$ belonging to the trivial representation of $K_{F}$, i.e.,
+$$
+1_{K}(g)=
+\begin{cases}
+1 & \text{if~ } g\in K\\
+-1 & \text{if~ } g\in K\times \{-1\}\\
+0  & \text{if otherwise}
+\end{cases}
+$$
+Then $\overline{\pi}$ class 1 implies $\overline{\pi}(\overline{1}_{K})$ has non-zero range, and $\overline{\pi}$ class 1 irreducible implies the range is one-dimensional.
+
+\section{Whittaker Models}\label{art1-sec3}
+
+Fix once and for all a non-trivial additive character $\psi$ of $F$.
+
+\subsection{Definition}\label{art1-defi3.1}
+Suppose $\overline{\pi}$ is an irreducible admissible representation of $\overline{G}_{F}$. By a $\psi$-{\em Whittaker model for} $\overline{\pi}$ we understand a space $W(\overline{\pi},\psi)$ consisting of continuous functions $W(g)$ on $\overline{G}$ satisfying the following properties:
+
+\subsubsection{}\label{art1-sec3.1.1}
+$W\left(\left(\begin{smallmatrix} 1 & x\\ 0 & 1\end{smallmatrix}\right)g\right)=\psi(x)W(g)$;
+
+\subsubsection{}\label{art1-sec3.1.2}
+If $F$ is non-archimedean, $W$ is locally constant, and if $F$ is archi\-medean, $W$ is $C^{\infty}$;
+
+\subsubsection{}\label{art1-sec3.1.3}
+The space $W(\overline{\pi},\psi)$ is invariant under the right action of $\overline{G}_{F}$, and the resulting representation in $W(\overline{\pi},\psi)$ is equivalent to $\overline{\pi}$.
+
+\subsection{}\label{art1-sec3.2}
+In \cite{GeHPS} we prove that a $\psi$-Whittaker model always exists. If $W(\overline{\pi},\psi)$ is unique, we say $\overline{\pi}$ is {\em distinguished}. Note that if $\overline{\pi}$ is not genuine, i.e., if $\overline{\pi}$ defines an ordinary representation of $\GL_{2}(F)$, then $\overline{\pi}$ is always distinguished: this is the celebrated ``uniqueness of Whittaker models'' result of \cite{Jacquet-Langlands}.
+
+In\pageoriginale general, if $\overline{\pi}$ is genuine (as we are assuming it is), it is not distinguished. To recapture uniqueness, we need to refine our notion of Whittaker model.
+
+\subsection{}\label{art1-sec3.3}
+Let $\omega_{\overline{\pi}}$ denote the {\em central character of} $\overline{\pi}$. This is the genuine character of $(F^{x})^{2}xZ_{2}$ determined by the formula
+\setcounter{equation}{0}
+\begin{equation}
+\overline{\pi}\left(\begin{matrix} a^{2} & 0\\ 0 & a^{2}\end{matrix}\right)=\omega_{\overline{\pi}}(a^{2})I.\label{art1-eq3.3.1}
+\end{equation}
+
+Let $\Omega(\omega_{\overline{\pi}})$ denote the (finite) set of genuine characters of $\overline{Z}$ whose restriction to $\overline{Z}^{2}$ agrees with $\omega_{\overline{\pi}}$.
+
+\subsection{Definition.}\label{art1-sec3.4}
+For each $\mu$ in $\Omega(\omega_{\overline{\pi}})$, let $\mathscr{W}(\overline{\pi},\psi,\mu)$ denote the space of continuous functions $W(g)$ on $\overline{G}_{F}$ which, in addition to satisfying conditions \eqref{art1-sec3.1.1}-\eqref{art1-sec3.1.3}, also satisfy the condition
+\setcounter{equation}{0}
+\begin{equation}
+W\left(\overline{z}\left[\begin{smallmatrix} 1 & x\\ 0 & 1 \end{smallmatrix}\right]g\right)=\mu(\overline{z})\psi(x)W(g),\quad\text{for}\quad \overline{z}\in \overline{Z}.\label{art1-eq3.4.1}
+\end{equation}
+
+In \cite{GeHPS} we prove that {\em such} a Whittaker model {\em is} unique. More precisely, there is {\em at most one} such model, and {\em for at least one} $\mu$ in $\Omega(\omega_{\overline{\pi}})$, a $(\psi,\mu)$-Whittaker model always exists.
+
+\subsection{}\label{art1-sec3.5}
+Let $\Omega(\pi)=\Omega(\overline{\pi},\psi)$ denote the set of $\mu$ in $\Omega(\omega_{\overline{\pi}})$ such that $\mathscr{W}(\overline{\pi},\psi,\mu)$ exists. This set depends on $\psi$, but its cardinality does not. Indeed if $\lambda\in F^{x}$, and $\psi^{\lambda}$ denotes the character
+\setcounter{equation}{0}
+\begin{equation}
+\psi^{\lambda}(x)=\psi(\lambda x),\label{art1-eq3.5.1}
+\end{equation}
+then $\mathscr{W}(\overline{\pi},\psi,\mu)$ is mapped isomorphically to $\mathscr{W}(\overline{\pi},\psi^{\lambda},\mu^{\lambda})$ via the map
+\begin{equation}
+W(g)\to W^{\lambda}(g)=W\left(\left[\begin{matrix} \lambda & 0\\ 0 & 1\end{matrix}\right]g\right).\label{art1-eq3.5.2}
+\end{equation}
+Here $\mu^{\lambda}$ denotes the character
+\begin{equation}
+\mu^{\lambda}(\overline{z})=\mu\left(\left(\begin{matrix} \lambda & 0\\ 0 & 1\end{matrix}\right)^{-1}\overline{z}\left(\begin{matrix} \lambda & 0\\ 0 & 1\end{matrix}\right)\right)\label{art1-eq3.5.3}
+\end{equation}
+with the conjugation carried out in $\overline{G}$. The existence of the isomorphism \eqref{art1-eq3.5.2} means that $\mu\in \Omega(\overline{\pi},\psi)$ iff $\mu^{\lambda}\in \Omega(\overline{\pi},\psi^{\lambda})$.
+
+\subsection{Remark.}\label{art01-sec3.6}
+$\Omega(\overline{\pi},\psi)$ is a singleton set if and only if $\overline{\pi}$ is distinguished.
+
+All possible examples of distinguished $\overline{\pi}$ are described in the next Section.
+
+\section{The Theta-Representations $r_{\chi}$}\label{art1-sec4}\pageoriginale
+
+These representations are indexed by characters of $F^{x}$ and treated in complete detail in \cite{Ge PS2}. We simply recall their definition and basic properties.
+
+\subsection{}\label{art1-sec4.1}
+In \cite{Weil} there was constructed a genuine admissible representation of $\overline{\SL}_{2}(F)$. We call this representation the basic Weil representation and denote it by $r^{\psi}$; it depends on the non-trivial additive character $\psi$ and splits into two irreducible pieces, one ``even'', one ``odd''.
+
+If $\chi$ is an even (resp. odd) character of $F^{x}$, we can ``tensor'' $\chi$ with the even (resp. odd) piece of $r^{\psi}$ to obtain a representation $r^{\psi}_{\chi}$ of $\overline{G}_{F}^{*}$, the semi-direct product of $\overline{\SL}_{2}(F)$ with $\left\{\left(\begin{smallmatrix} 1 & 0\\ 0 & a^{2}\end{smallmatrix}\right):a\in F^{x}\right\}$. Inducing up to $\overline{G}_{F}$ produces an irreducible admissible representation which is independent of $\psi$ and denoted $r_{\chi}$. The restriction of $r_{\chi}$ to $\overline{\SL}_{2}(F)$ is the direct sum of a finite number of inequivalent representations, namely
+$$
+\{r^{\psi^{\lambda}}\}_{\lambda\in \Lambda},
+$$
+with $\Lambda$ an index set for the cosets of $(F^{x})^{2}$ in $F^{x}$.
+
+\subsection{Each $r_{\chi}$ is a distinguished representation of $\overline{G}_{F}$.}\label{art1-sec4.2}
+In particular, for each non-trivial character $\psi$ of $F$, let $\gamma(\psi)$ denote the eighth root of unity introduced in \cite{Weil}, Section 14.
+
+Then
+$$
+\Omega(r_{\chi},\psi)=\{\chi_{\mu_{\psi}}\},
+$$
+with $\mu_{\psi}$ the projective character of $F^{x}$ defined by
+\setcounter{equation}{0}
+\begin{equation}
+\mu_{\psi}(a)=\dfrac{\gamma(\psi)}{\gamma(\psi^{a})}\label{art1-eq4.2.1}
+\end{equation}
+
+We note that the restriction of $\mu_{\psi}$ to $(F^{x})^{2}$ is trivial. Moreover, if $\psi$ has conductor $O_{F}$, and $F$ is of odd residual characteristic, $\mu_{\psi}$ is also trivial on units.
+
+\subsection{}\label{art1-sec4.3}
+{\em When $\chi$ is unramified, and $F$ has odd residue characteristic, $r_{\chi}$ is class 1.} More generally, if $\chi$ is an even character, $r_{\chi}$ is the unique irreducible subrepresentation of $\overline{\pi}(\chi^{1/2}|~|^{-1/4}_{F},\chi^{1/2}|~|_{F}^{1/4})$.
+
+\subsection{}\label{art1-sec4.4}\pageoriginale
+If $\chi$ is an odd character, i.e., $\chi(-1)=-1$, then $r_{\chi}$ is super-cuspidal; cf. \cite{Ge}.
+
+\subsection{}\label{art1-sec4.5}
+Having observed that each $r_{\chi}$ is distinguished, we conjectured that the family $\{r_{\chi}\}_{\chi}$ exhausts the irreducible admissible distinguished representations of $\overline{G}$.
+
+When $F$ is non-archimedean and of odd residue characteristic, the supercuspidal part of this conjecture is established in \cite{Meister}; the non-supercuspidal part is treated in \cite{Ge PS2}.
+
+\section{A Functional Equation of Shimura Type}\label{art1-sec5}
+
+As always, $F$ is a local field of characteristic not equal to 2 and $\psi$ is a fixed non-trivial character of $F$.
+
+\subsection{}\label{art1-sec5.1}
+Suppose $\overline{\pi}$ is any irreducible admissible representation of $\overline{G}_{F}$, and $\chi$ is any quasi-character of $F^{x}$. Recall the sets $\Omega(\overline{\pi},\psi)$ and $\Omega(r_{\chi},\psi)$ introduced in \eqref{art1-sec3.5}. In general, $\Omega(\overline{\pi},\psi)=\Omega(\omega_{\overline{\pi}})$. However, $\Omega(r_{\chi},\psi)=\{\chi \mu_{\psi}\}$.
+
+To attach an $L$-factor to $\overline{\pi}$ and $\chi$, we fix some $\mu$ in $\Omega(\pi,\psi)$ and introduce the zeta-functions
+\setcounter{equation}{0}
+\begin{equation}
+\Psi (s,W,W_{\chi},\Phi)=\int\limits_{N\backslash G} W(g)W_{\chi}(g)|\det (g)|^{s}\Phi((0.1)g)dg.\label{art1-eq5.1.1}
+\end{equation}
+
+Here $W(g)$ is any element of $\mathscr{W}(\pi,\psi,\mu)$, $W_{\chi}$ is any element of\break $\mathscr{W}(r_{\chi},\psi^{-1},\chi_{\mu_{\psi-1}})$, $\Phi\in \mathscr{S}(F\times F)$, and $s\in \mathbb{C}$. Since $W$ and $W_{x}$ are genuine, and transform contravariantly under $N$, their product actually defines a function on $N\backslash G$.
+
+Similarly, we define
+\begin{equation}
+\widetilde{\Psi}(s,W,W_{\chi},\Phi)=\int\limits_{N\backslash G}W(g)W_{\chi}(g)|\det g|^{s}\omega^{-1}_{*}(\det g)\Phi((0,1)g)dg\label{art1-eq5.1.2}
+\end{equation}
+with 
+\begin{equation}
+\omega_{*}=\mu \chi \mu_{\psi^{-1}}.\label{art1-eq5.1.3}
+\end{equation}
+Note that $\omega_{*}$ is an ordinary character of $F^{x}$ whose restriction to $(F^{x})^{2}$ is $\chi \omega_{\overline{\pi}}$.
+
+\subsection{}\label{art1-sec5.2}\pageoriginale
+For $\rRe(s)$ sufficiently large, and $g$ in $\GL_{2}(F)$, the integrals
+\setcounter{equation}{0}
+\begin{equation}
+|\det g|^{s}\int\limits_{F^{x}}\Phi ((0.,t)g)|t|^{2s}\omega_{*}(t)\dt=f_{s}(g)\label{art1-eq5.2.1}
+\end{equation}
+and
+\begin{equation}
+|\det g|^{s}\omega^{-1}_{*}(\det g)\int\limits_{F^{x}}\Phi((0,t)g)|t|^{2s}\omega^{-1}_{*}(t)\dt = h_{s}(g)\label{art1-eq5.2.2}
+\end{equation}
+converge and define elements in the space of the induced representations $\rho(s-1/2, (1/2-s)\omega^{-1}_{*})$ and $\rho(\omega^{-1}_{*}(s-1/2),1/2-s)$ respectively. Cf. \cite{Ja}, 14. Moreover, for such $s$, the integrals defining $\Psi$ and $\widetilde{\Psi}$ converge.
+\begin{equation}
+\Psi(s,W,W_{\chi},\Phi)=\int\limits_{NZ\backslash G}W(g)W_{\chi}(g)f(g)dg\label{art1-eq5.2.3}
+\end{equation}
+and
+$$
+\widetilde{\Psi}(s,W,W_{\chi},\Phi)=\int\limits_{NZ\backslash G}W(g)W_{\chi}(g)h(g)dg
+$$
+Modifying the methods of \cite{Ja} we obtain :
+
+\setcounter{theorem}{2}
+\begin{theorem}\label{art1-thm5.3}
+\begin{itemize}
+\item[(a)] The functions $\Psi(s,W,W_{\chi},\Phi)$ and $\widetilde{\Psi}(s,W,W_{\chi},\Phi)$ extend meromorphically to $\mathbb{C}$;
+
+\item[(b)] There exist Euler factors $L(s,\overline{\pi},\chi)$ and $\widetilde{L}(s,\overline{\pi},\chi)$ such that for any $W$, $W_{\chi}$, $\Phi$, $\psi$, and $\mu$, the functions
+$$
+\frac{\Psi(s,W,W_{\chi},\Phi)}{\widetilde{L}(s,\overline{\pi},\chi)}\quad\text{and}\quad \dfrac{\widetilde{\Psi}(s,W,W_{\chi},\Phi)}{\widetilde{L}(s,\overline{\pi},\chi)}
+$$
+are entire;
+
+\item[(c)] There is an exponential factor $\epsilon(s,\overline{\pi},\chi,\psi)$ such that for all $W$, $W_{\chi}$ and $\Phi$ as above,
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+\begin{equation}
+\dfrac{\widetilde{\Psi}(1-s,W,W_{\chi},\widehat{\Phi})}{\widetilde{L}(1-s,\overline{\pi},\chi)}=\epsilon(s,\overline{\pi},\chi,\psi)\dfrac{\Psi(s,W,W_{\chi},\Phi)}{L(s,\overline{\pi},\chi)},\label{art1-eq5.3.1}
+\end{equation}
+with
+$$
+\widehat{\Phi}(x,y)=\iint \Phi (u,v)\psi(uy-vx)dudv.
+$$
+\end{itemize}
+\end{theorem}
+
+\setcounter{subsection}{3}
+\subsection{}\label{art1-sec5.4}
+The factor $\epsilon(s,\overline{\phi},\chi,\psi)$ might depend on the choice of $\mu$ as well as\pageoriginale $\psi$. Therefore, to be precise, we should write $\epsilon(s,\overline{\pi},\chi,\psi,\mu)$ in place of $\epsilon(s,\overline{\pi},\chi,\psi)$. However, a straightforward computation shows that
+\setcounter{equation}{0}
+\begin{equation}
+\epsilon(s,\overline{\pi},\chi,\mu^{\lambda})=\omega_{\overline{\pi}}(\lambda^{-2})\chi^{-2}(\lambda)|\lambda|^{2-4s}\epsilon (s,\overline{\pi},\chi,\psi^{\lambda},\mu).\label{art1-eq5.4.1}
+\end{equation}
+Also, as we shall see, {\em globally} $\epsilon(s,\overline{\pi},\chi,\psi,\mu)$ is easily seen to be independent of both $\psi$ and $\mu$; cf. Remark \ref{art1-rem13.4}.
+
+\subsection{}\label{art01-sec5.5}
+If we introduce the ``gamma factor''
+$$
+\gamma(s,\overline{\pi},\chi,\psi)=\dfrac{\epsilon(s,\overline{\pi},\chi,\psi)\widetilde{L}(1-s,\overline{\pi},\chi)}{L(s,\overline{\pi},\chi)}
+$$
+then the functional equation \eqref{art1-eq5.3.1} takes the simpler form
+$$
+\widetilde{\Psi}(1-s,W,W_{\chi},\widehat{\Phi})=\gamma(s,\overline{\pi},\chi,\psi)\Psi(s,W_{1},W_{2},\Phi).
+$$
+
+\section{$L$ and $\epsilon$-Factors}\label{art1-sec6}
+
+Let $\overline{\pi}$, $\chi$ and $\psi$ be as in the last section. In this section we collect together the values of $L(s,\overline{\pi},\chi)$, $\widetilde{L}(s,\overline{\pi},\chi)$, and $\epsilon(s,\overline{\pi},\chi,\psi)$ for most representations $\overline{\pi}$. To compute the factors $L$ and $\widetilde{L}$ we need to analyze the possible poles of $\Psi(s,W,W_{\chi},\Phi)$ and $\widetilde{\Psi}(s,W,W_{\chi},\Phi)$. To compute $\epsilon(s,\overline{\pi},\chi,\psi)$ we need to compute the functions $\Psi$ and $\widetilde{\Psi}$ explicitly, for judicious choices of $W$, $W_{\chi}$ and $\Phi$.
+
+Suppose first that $F$ is non-archimedean.
+
+\subsection{}\label{art1-sec6.1}
+Suppose $\overline{\pi}$ is a supercuspidal. If $\overline{\pi}$ is not of the form $r_{\nu}$ for any quasi-character $\nu$, then
+$$
+L(s,\pi,\chi)=1=\widetilde{L}(s,\overline{\pi},\chi),\quad\text{for all}\quad \chi.
+$$
+On the other hand, if $\overline{\pi}=r_{\nu}$, then
+$$
+L(s,\overline{\pi},\chi)=L(2s,\chi\nu),
+$$
+and
+$$
+\widetilde{L}(s,\overline{\pi},\chi)=L(2s,\chi^{-1}\nu^{-1})
+$$
+
+If $\chi\nu$ is unramified,
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\frac{\epsilon(2s,\chi\nu,\psi)\epsilon(2s-1,\chi\nu,\psi)L(1-2s,\nu^{-1}\chi^{-1})}{L(2s-1,\nu\chi)}
+$$
+whereas\pageoriginale if $\chi\nu$ is ramified
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(2s,\chi\nu,\psi)\epsilon(2s-1,\chi\nu,\psi).
+$$
+
+Here, as throughout, the factors $L(s,\omega)$ and $\epsilon(s,\omega,\psi)$ are the familiar $L$ and $\epsilon$ factors attached to each quasi-character $\omega$ of $F^{x}$; cf. \cite[pp. 108-109]{Jacquet-Langlands}.
+
+\subsection{}\label{art1-sec6.2}
+Suppose $\overline{\pi}$ is of the form $\overline{\pi}(\mu_{1},\mu_{2})=\overline{\phi}(\mu_{1},\mu_{2})$. Then
+$$
+L(s,\overline{\pi},\chi)=L(2s-1/2,\mu^{2}_{1}\chi)L(2x-1/2,\mu^{2}_{2}\chi),
+$$
+and
+\setcounter{equation}{0}
+\begin{equation}
+\widetilde{L}(s,\overline{\pi},\chi)=L(2s-1/2,\mu^{-2}_{1}\chi)L(2s-1/2,\mu^{-2}_{2}\chi)\label{art1-eq6.2.1}
+\end{equation}
+If we set $s'=2s-1/2$, then
+\begin{equation}
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(s',\mu^{2}_{1}\chi,\psi)\epsilon(s',\mu^{2}_{2}\chi,\psi)\label{art1-eq6.2.2}
+\end{equation}
+
+In particular, suppose $F$ is class 1, $\chi$(also $\mu$) is trivial on units, $\psi$ has conductor $O_{F}$, $\Phi$ is the characteristic function of $O_{F}\times O_{F}$, and $W$ and $W_{\chi}$ are normalized $K_{F}$-fixed vectors in $W(\overline{\pi},\psi,\mu)$ and $W(r_{\chi},\psi^{-1})$. Then
+\begin{equation}
+\begin{cases}
+\Psi(s,W_{1},W_{2},\Phi)=L(s,\overline{\pi},\chi)\\
+\widetilde{\Psi}(s,W_{1},W_{2},\widetilde{\Phi})=\widetilde{L}(s,\overline{\pi},\chi)
+\end{cases}\label{art1-eq6.2.3}
+\end{equation}
+and
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=1.
+$$
+
+\subsection{}\label{art1-sec6.3}
+Suppose $\overline{\pi}$ is the special representation
+$$
+\overline{\pi}=\overline{\pi}(\mu_{1},\mu_{2}),\text{~ with~ }\mu^{2}_{1}\mu^{-2}_{2}(x)=|x|^{1}_{F},\text{~ and~ } \mu_{1}(x)=\nu(x)|x|^{1/4}_{F}
+$$
+
+Then
+$$
+\begin{cases}
+L(s,\overline{\pi},\chi)=L(2s,\chi\nu^{2}),\\
+\widetilde{L}(s,\overline{\pi},\chi)=L(2s,\nu^{-2}\chi^{-1}),
+\end{cases}
+$$
+and-if $\pi(\nu^{2})$ denotes the special representation $\pi(\nu^{2}|~|^{1/2},\nu^{2}|~|^{-1/2})$ of $\GL_{2}(F)$,
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(s',\pi(\nu^{2})\otimes \chi,\psi).
+$$
+
+\subsection{}\label{art1-sec6.4}
+If $\overline{\pi}$ is of the form $r_{\nu}$, with $\nu(-1)=1$, then
+$$
+\begin{cases}
+L(s,\overline{\pi},\chi)=L(2s-1,\chi\nu)L(2s,\chi\nu),\\
+\widetilde{L}(s,\overline{\pi},\chi)=L(2s-1,\chi^{-1}\nu^{-1})L(2s,\chi^{-1}\nu^{-1}),
+\end{cases}
+$$
+and
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(2s-1,\chi\nu,\psi)\in (2s,\chi\nu,\psi)
+$$\pageoriginale
+
+\subsection{}\label{art1-sec6.5}
+Suppose now that $F$ is archimedean. Then each $\overline{\pi}$ occurs as the subrepresentation of some $\overline{\rho}(\mu_{1},\mu_{2})$, with each $\mu_{i}$ determined up to a character of order $2$. Let $S(\overline{\pi})$ denote the unique irreducible admissible representation of $\GL_{2}(F)$ which appears as a subrepresentation of $\rho(\mu^{2}_{1},\mu^{2}_{2})$. Then
+$$
+\begin{cases}
+L(s,\overline{\pi},\chi)=L(s,S(\overline{\pi})\otimes \chi),\\
+\widetilde{L}(s,\overline{\pi},\chi)=L(s,S(\overline{\pi})\otimes \chi^{-1}),
+\end{cases}
+$$
+and
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(s,S(\overline{\pi})\otimes \chi, \psi),
+$$
+the $L$ and $\epsilon$ factors on the right being those of \cite{Jacquet-Langlands}.
+
+\subsection{Stability}\label{art1-sec6.6}
+
+Given $\overline{\pi}$ and $\psi$, it can be shown that if $F$ is non-archi\-medean, and $\chi$ is sufficiently highly ramified, the corresponding $L$ and $\epsilon$-factors stabilize. More precisely, for all $\chi$ sufficiently highly ramified,
+$$
+L(s,\overline{\pi},\chi)=1=\widetilde{L}(s,\overline{\pi},\chi),
+$$
+and
+\setcounter{equation}{0}
+\begin{equation}
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(s,\omega_{\pi}\chi,\psi)\in (s,\chi,\psi)\label{art1-eq6.6.1}
+\end{equation}
+
+In \eqref{art1-eq6.6.1}, $\omega_{\pi}$ is the character of $F^{x}$ defined by the equation
+\begin{equation}
+\omega_{\pi}(a)=\omega_{\overline{\pi}}(a^{2})\label{art1-eq6.6.2}
+\end{equation}
+
+\section{A Local Shimura Correspondence}\label{art1-sec7}
+
+Suppose $\overline{\pi}$ is an irreducible admissible (genuine) representation of $\overline{G}_{F}$ and $\omega_{\overline{\pi}}$ is its central character.
+
+\subsection{}\label{art1-sec7.1}\pageoriginale
+Fixing a non-trivial character $\psi$ of $F$, we call an irreducible admissible representation $\pi$ of $G_{F}$ a {\em Shimura image of $\overline{\pi}$} if
+
+\subsubsection{}\label{art1-sec7.1.1}
+the central character $\omega_{\pi}$ of $\pi$ is such that
+$$
+\omega_{\pi}(a)=\omega_{\overline{\pi}}(a^{2}), \ a\in F^{x};
+$$
+
+\subsubsection{}\label{art1-sec7.1.2}
+for any quasi-character $\chi$ of $F^{x}$,
+$$
+\begin{cases}
+L(s,\overline{\pi},\chi)=L(s,\pi\otimes \chi),\\
+\widetilde{L}(s,\overline{\pi},\chi)=L(s,\widetilde{\pi}\otimes \chi^{-1}),
+\end{cases}
+$$
+and
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\epsilon(s,\pi\otimes \chi,\psi).
+$$
+
+\subsection{}\label{art1-sec7.2}
+If the Shimura image of $\overline{\pi}$ exists, it is unique, and independent of $\psi$. We denote it by $S(\overline{\pi})$.
+
+\subsection{}\label{art1-sec7.3}
+From Section \ref{art1-sec6} it follows that $S(\overline{\pi})$ exists whenever $\overline{\pi}$ is not a supercuspidal representation (not of the form $r_{\nu}$). Indeed in this case,
+$$
+\overline{\pi}=\overline{\pi}(\mu_{1},\mu_{2})\text{~ implies~ } S(\overline{\pi})=\pi(\mu^{2}_{1},\mu^{2}_{2}).
+$$
+In particular,
+$$
+\overline{\pi}=r_{\nu}(\nu(-1)=-1)\text{~ implies~ } (\overline{\pi})=\pi(\nu|~|^{1/2}_{F},\nu|~|_{F}^{1/2}).
+$$
+On the other hand, as we shall see, if $\overline{\pi}$ is supercuspidal (but not of the form $r_{\nu}$) its image $S(\overline{\pi})$ must also be supercuspidal.
+
+\subsection{}\label{art1-sec7.4}
+In case $F=\mathbb{R}$, and $\overline{\pi}$ corresponds to a discrete series representation of ``lowest weight $k/2$'', $S(\overline{\pi})$ corresponds to a discrete series representation of lowest weight $k-1$; cf. \cite{Ge}, \S4.
+
+\subsection{Connections with Shimura's theory}\label{art1-sec7.5}
+~
+
+The fact that $S$ takes $\overline{\pi}(\mu_{1},\mu_{2})$ to $\pi(\mu^{2}_{1},\mu^{2}_{2})$ means (in the non-archi\-medean unramified situation) that eigenvalues for the Hecke algebras are preserved. See \S5.3 of \cite{Ge} for a careful analysis of this phenomenon. Keeping in mind (\ref{art1-sec7.4}), it follows that our local Shimura correspondence is consistent with the map defined globally (and classically) in \cite{Shim}.
+
+\subsection{}\label{art1-sec7.6}\pageoriginale
+Summing up, Shimura's correspondence operates locally as follows:
+\begin{center}
+\tabcolsep=10pt
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{c|c}
+$\overline{\pi}$ & $\pi=S(\overline{\pi})$\\
+\hline
+principal series & principal series\\
+$\overline{\pi}(\mu_{1},\mu_{2})$ & $\pi(\mu^{2}_{1},\mu^{2}_{2})$\\
+\hline
+special representation & special rep\\
+$\overline{\pi}(\nu|~|^{1/4},\nu|~|^{-1/4})$ & $\Sp(\nu^{2})$\\
+\hline
+Weil $r_{\nu}$ & special rep\\
+$(\nu(-1)=-1)$ & $\Sp(\nu)$\\
+\hline
+Weil $r_{\nu}$ & one-dimensional rep\\
+$(\nu(-1)=1)$ & $\nu\circ \det$
+\end{tabular}
+\end{center}
+Note {\em all} special representations arise as Shimura images (whereas a principal series thus arises if it corresponds to even-or squared-characters of $F^{*}$); for the supercuspidal representations, see \cite{Flicker} and \cite{Meister}.
+
+\bigskip
+\begin{center}
+{\large\bfseries Chapter \thnum{II}.\label{art1-chap-II} Global Theory}
+\end{center}
+\smallskip
+
+Throughout this Chapter, $F$ will denote an arbitrary $A$-field of characteristic not equal to two, $\mathbb{A}$ its ring of adeles, and
+$$
+\psi=\prod\limits_{v}\psi_{v}
+$$
+a non-trivial character of $F\backslash \mathbb{A}$.
+
+\section{The Metaplectic Group}\label{art1-sec8}
+
+For each place $v$ of $F$ we defined in \S\ref{art1-sec1} a ``local'' metaplectic group $\overline{G}_{v}=\overline{G}_{F_{v}}$. Roughly speaking, the adelic metaplectic group $\overline{G}_{A}$ is a product of the local groups $\overline{G}_{v}$.
+
+More precisely, recall that if $v$ is non-archimedean and ``odd'', $\overline{G}_{v}$ splits over $K_{v}=\GL_{2}(O_{F_{v}})$. Thus we can consider the restricted direct product
+$$
+\widetilde{G}=\prod\limits_{v}\overline{G}_{v}(K_{v}).
+$$
+
+The\pageoriginale metaplectic group $\overline{G}_{A}$ is obtained by taking the quotient of $\widetilde{G}$ by
+$$
+\widetilde{Z}_{e}=\left\{\prod\limits_{v}\epsilon_{v}\in \prod\limits_{v}Z_{2}:\epsilon_{v}=1\text{~ for all but an even number of } v\right\}.
+$$
+In particular, we can view $\overline{G}_{A}$ as a group of pairs $\{(h,\zeta):h\in G_{A},\zeta\in Z_{2}\}$, with multiplication given by
+$$
+(h_{1},\zeta_{1})(h_{2},\zeta_{2})=(h_{1}h_{2},\beta(h_{1},h_{2})\zeta_{1}\zeta_{2}),
+$$
+and $\beta$ a product of the local two-cocycles defining $\overline{G}_{v}$. The fact that the exact sequence
+$$
+1\to Z_{2}\to \overline{G}_{A}\to G_{A}\to 1
+$$
+splits over the discrete subgroup
+$$
+G_{F}=\GL_{2}(F)
+$$
+is equivalent to the quadratic reciprocity law for $F$; cf. \cite{Weil}.
+
+\section[Automorphic Representations of Half-Integral Weight]{Automorphic Representations of Half-Integral\break Weight}\label{art1-sec9}
+
+\subsection{}\label{art1-sec9.1}
+Recall that $\overline{G}_{A}$ is the quotient of $\prod\limits_{v}\overline{G}_{v}=\widetilde{G}_{A}$ by the subgroup $\widetilde{Z}_{e}$.
+
+\subsection{}\label{art1-sec9.2}
+Suppose that for each place $v$ of $F$ we are given an irreducible admissible genuine representation $(\overline{\pi}_{v},V_{v})$ of $\overline{G}_{v}$. Suppose also that for almost every finite $v$, $\overline{\pi}_{v}$ is class 1. Then for almost every $v$ we can choose a $K_{v}$-fixed vector $e_{v}$ in $V_{v}$ and define a restricted tensor product space 
+$$
+V=\bigotimes\limits_{v}V_{v}(e_{v}).
+$$
+The resulting representation of $\widetilde{G}_{A}$ in $V$ given by
+\setcounter{equation}{0}
+\begin{equation}
+\overline{\pi}=\bigotimes\limits_{v}\overline{\pi}_{v}\label{art1-eq9.2.1}
+\end{equation}
+is trivial on $\widetilde{Z}_{e}$ and defines an irreducible admissible representation of $\overline{G}_{A}$.
+
+Conversely, suppose $\overline{\pi}$ is an irreducible unitary representation of $\overline{G}_{A}$. Following step by step the arguments of \S9 of \cite{Jacquet-Langlands} we can show that $\overline{\pi}$ must be of the form \eqref{art1-eq9.2.1} with each $\overline{\pi}_{v}$ determined uniquely by $\overline{\pi}$.
+
+\subsection{}\label{art1-sec9.3}
+Let $\omega$ denote a character of $(\mathbb{A}^{x})^{2}$ trivial on $(F^{x})^{2}$. Proceeding as in \S10 of \cite{Jacquet-Langlands} we can introduce a space $\overline{A}(\omega)$ of {\em automorphic forms on} $\overline{G}_{A}$. Each $\varphi$ in $\overline{A}(\omega)$ is a genuine $C^{\infty}$ function on $G_{F}\backslash \overline{G}_{A}$ which is\pageoriginale ``slowly increasing'' and transforms under the center (of $\overline{G}_{A}$) according to $\omega$. The group $\overline{G}_{A}$ acts as expected in $\overline{A}(\omega)$ by right translations.
+
+By $A_{0}(\omega)$ we denote the subspace of $\omega$-cuspidal functions, those $\varphi$ in $A_{0}(\omega)$ such that
+\begin{itemize}
+\item[(i)] the constant term
+$$
+\varphi_{0}(g)=\int\limits_{F\backslash \mathbb{A}}\varphi\left(\begin{bmatrix} 1 & x\\ 0 & 1\end{bmatrix}g\right)\dx=0
+$$
+for each $g$ in $\overline{G}_{\mathbb{A}}$;
+
+\item[(ii)] the integral
+$$
+\int\limits_{Z^{2}_{\mathbb{A}}G_{F}\backslash \overline{G}_{\mathbb{A}}}|\varphi(g)|^{2}dg
+$$
+is finite. This space of cusp forms is clearly stable under the action of $\overline{G}_{\mathbb{A}}$, and each $\varphi$ in $\overline{A}_{0}(\omega)$ is rapidly decreasing.
+\end{itemize}
+
+\subsection{}\label{art1-sec9.4}
+An irreducible admissible representation $\overline{\pi}$ of $\overline{G}_{\mathbb{A}}$ is called {\em auto-morphic} (respectively {\em cuspidal}) of half-integral weight if it is a constituent of some $\overline{A}(\omega)$ (resp. $\overline{A}_{0}(\omega)$).
+
+\section{Fourier Expansions}\label{art1-sec10}
+
+Suppose $\varphi$ is an automorphic form on $\overline{G}_{\mathbb{A}}$, and $\psi=\Pi \psi_{v}$ is a fixed non-trivial character of $F\backslash \mathbb{A}$.
+
+\subsection{}\label{art1-sec10.1}
+Since
+$$
+\varphi\left(\begin{bmatrix} 1 & x\\ 0 & 1\end{bmatrix}g\right)
+$$
+is a $C^{\infty}$ function on $F\backslash \mathbb{A}$ for each fixed $g$, $\varphi(g)$ admits a Fourier expansion in terms of the characters of $F\backslash \mathbb{A}$. But each non-trivial character $\psi$ of $F\backslash \mathbb{A}$ is of the form
+\setcounter{equation}{0}
+\begin{equation}
+\psi'(x)=\psi^{\delta}(x)=\psi(\delta x)\label{art1-eq10.1.1}
+\end{equation}
+for some $\delta\in F^{x}$. Thus
+\begin{equation}
+\varphi \left(\begin{bmatrix} 1 & x\\ 0 & 1\end{bmatrix}g\right)=\varphi_{0}(g)+\sum\limits_{\delta\in F^{x}}W^{\psi^{\delta}}_{\varphi}(g)\psi (\delta x),\label{art1-eq10.1.2}
+\end{equation}
+with
+\begin{equation}
+W^{\psi^{\delta}}_{\varphi}(g)=\int\limits_{F\backslash \mathbb{A}}\varphi \left(\left(\begin{matrix} 1 & x\\ 0 & 1\end{matrix}\right)g\right)\psi^{-1}(\delta x)\dx.\label{art1-eq10.1.3}
+\end{equation}
+On\pageoriginale the other hand, it is easy to check that
+\begin{equation}
+W^{\psi^{\delta}}_{\varphi}(g)=W^{\psi}_{\varphi}\left(\left(\begin{matrix}\delta & 0\\ 0 & 1\end{matrix}\right)g\right).\label{art1-eq10.1.4}
+\end{equation}
+Thus we also have
+\begin{equation}
+\varphi (g)=\varphi_{0}(g)+\sum\limits_{\delta \in F^{x}}W^{\psi}_{\varphi}\left(\left(\begin{matrix} \delta & 0\\ 0 & 1\end{matrix}\right)g\right).\label{art1-eq10.1.5}
+\end{equation}
+In other words---modulo its constant term--$\varphi(g)$ is completely determined by its {\em first Fourier coefficient}
+\begin{equation}
+W^{\psi}_{\varphi}(g)=\int\limits_{F\backslash \mathbb{A}}\varphi\left(\left(\begin{matrix} 1 & x\\ 0 & 1\end{matrix}\right)g\right)\psi(-x)\dx.
+\end{equation}
+We call this function a $\psi$-Whittaker function since
+$$
+W\left(\begin{bmatrix} 1 & x \\ 0 & 1\end{bmatrix} g\right)=\psi(x)W(g), \ x\in \mathbb{A}.
+$$
+Now we must refine this notation to bring into play the local theory of \S\ref{art1-sec3}.
+
+\subsection{}\label{art1-sec10.2}
+Suppose $\overline{\pi}=\otimes \overline{\pi}_{v}$ is any automorphic representation of half-integral weight. Suppose in addition that $\overline{\pi}$ actually occurs as a sub-representation (as opposed to subquotient) of some $\overline{A}(\omega)$, say in the space $V_{\overline{\pi}}$. Then $\omega$ must be the central character $\omega_{\overline{\pi}}$ of $\overline{\pi}$.
+
+Now let $\Omega(\omega_{\overline{\pi}})$ denote the set of (genuine) characters of $Z_{F}\backslash \overline{Z}_{\mathbb{A}}$ whose restriction to $\overline{Z}^{2}_{\mathbb{A}}$ agrees with $\omega_{\overline{\pi}}$. Then each $\varphi$ in $V_{\overline{\pi}}$ has a Fourier expansion of the form
+\setcounter{equation}{0}
+\begin{equation}
+\varphi(g)=\varphi_{0}(g)+\sum\limits_{\mu\in \Omega(\omega_{\overline{\pi}})}\sum\limits_{\delta\in F^{x}}W^{\psi^{\delta,\mu}}_{\varphi}(g)\label{art1-eq10.2.1}
+\end{equation}
+with
+\begin{equation}
+W^{\psi^{\delta,\mu}}_{\varphi}(g)=\int\limits_{\overline{Z}^{2}_{\mathbb{A}}\backslash \overline{Z}_{\mathbb{A}}}\int\limits_{F\backslash \mathbb{A}}\varphi\left(\overline{Z}\left(\begin{matrix} 1 & x\\ 0 & 1\end{matrix}\right)g\right)\psi^{-1}(\delta x)\mu^{-1}(\overline{z})\dx\dz.\label{art1-eq10.2.2}
+\end{equation}
+The $(\psi,\mu)$ refinement of \eqref{art1-eq10.1.4} is
+\begin{equation}
+W^{\psi^{\delta,\mu}}_{\varphi}(g)=W^{\psi,\mu^{\delta}}_{\varphi}\left(\begin{bmatrix}\delta & 0\\ 0 & 1\end{bmatrix}g\right)\label{art1-eq10.2.3}
+\end{equation}
+where
+$$
+\mu^{\delta}(\overline{z})=\mu\left(\begin{bmatrix} \delta & 0\\ 0 & 1\end{bmatrix}^{-1}\overline{z}\begin{bmatrix} \delta & 0\\ 0 & 1\end{bmatrix}\right), \ z\in \overline{Z}_{\mathbb{A}}.
+$$
+Note\pageoriginale that for any $\mu$,
+\begin{equation}
+W^{\psi,\mu}_{\varphi}\left(\overline{z}\left(\begin{matrix} 1 & x\\ 0 & 1\end{matrix}\right)g\right)=\psi(x)\mu(\overline{z})W(g), \ z\in\overline{Z}_{\mathbb{A}}, \ x\in F.\label{art1-eq10.2.4}
+\end{equation}
+
+\subsection{}\label{art1-sec10.3}
+For any $\mu$ in $\Omega(\omega_{\overline{\pi}})$, let $\mathscr{W}(\overline{\pi},\psi,\mu)$ denote a $(\psi,\mu)$-Whittaker space for $\overline{\pi}$ (analogous to the local definition (\ref{art1-defi3.1}); the crucial property of course is \eqref{art1-eq10.2.4}). Let $\Omega(\pi,\psi)$ denote the set of $\mu$ in $\Omega(\omega_{\overline{\pi}})$ such that $\mathscr{W}(\overline{\pi},\psi,\mu)$ exists; if $\Omega(\pi,\psi)$ is a singleton set we call $\overline{\pi}$ {\em distinguished}.
+
+For $\overline{\pi}$ and $\varphi$ as in (\ref{art1-sec10.2}), $W^{\psi,\mu}_{\varphi}(g)$ is clearly non-zero for at least one $\mu$, and therefore $\mathscr{W}(\overline{\pi},\psi,\mu)$ exists for at least one $\mu$ ($\psi$ being supposed fixed). If $W^{\psi,\mu}_{\varphi}(g)\neq 0$ for exactly one $\mu$ in $\Omega(\omega_{\overline{\pi}})$, we say $\varphi$ is {\em distinguished}. We note that $\overline{\pi}$ distinguished implies any $\varphi$ in $V_{\overline{\pi}}$ is distinguished.
+
+Of course if $\overline{\pi}=\otimes \overline{\pi}_{v}$ is any irreducible admissible representation of $\overline{G}_{\mathbb{A}}$, we might be inclined to call $\overline{\pi}$ distinguished if each $\overline{\pi}_{v}$ is distinguished in the local sense. Fortunately these notions are compatible. Indeed in \cite{GePS 2} we prove that an automorphic subrepresentation $\overline{\pi}$ of $\overline{A}$ is distinguished in the above sense if and only if each $\overline{\pi}_{v}$ is.
+
+If $\overline{\pi}$ is a distinguished subrepresentation of $\overline{A}(\omega_{\overline{\pi}})$ and $\varphi\in V_{\overline{\pi}}$, then \eqref{art1-eq10.2.3} implies
+\setcounter{equation}{0}
+\begin{equation}
+\varphi(g)=\varphi_{0}(g)=\sum\limits_{\delta\in F^{x}}W^{\psi,\mu}_{\varphi}\left(\begin{bmatrix} \delta & 0\\ 0 & 1\end{bmatrix}g\right),\label{art1-eq10.3.1}
+\end{equation}
+a familiar $\GL_{2}$-type Fourier expansion. In particular, if $\overline{\pi}$ is cuspidal, the first Fourier coefficient $W^{\psi,\mu}_{\varphi}(g)$ completely determines $\varphi$ through the expansion
+$$
+\varphi(g)=\sum\limits_{\delta\in F^{x}}W\left(\begin{matrix} \delta & 0\\ 0 & 1\end{matrix}\right)g),
+$$
+and we have:
+
+\medskip
+\noindent
+{\bf Theorem \thnum{10.3.2}.\label{art1-thm10.3.2}}~{\em Every distinguished cuspidal representation of half-integral weight occurs exactly once in $\overline{A}_{0}$.}
+\smallskip
+
+\subsection{}\label{art1-sec10.4}
+Let us explain the classical significance of a {\em distinguished} cusp form. Suppose
+$$
+f(z)=\sum a(n)e^{2\pi inz}
+$$
+is\pageoriginale a cusp form of weight $k/2$, and an eigenfunction for all Hecke operators. Since most of these operators act as the zero map, one can't expect their eigenvalues to relate many of the coefficients $a(n)$. In fact, if $T(p^{2})f=\omega_{p}f$, then $\omega_{p}$ serves to relate $a(t)$ only to the coefficients $a(tp^{2})$; in particular, the first Fourier coefficient does {\em not} always determine $f$. In other words, there is more than ``one orbit'' of coefficients.
+
+On the other hand, if $f$ is ``distinguished'', i.e., if there is a $t$ such that $a(n)=0$ unless $n=tm^{2}$ for some $m$, then $f$ {\em is} determined by just one coefficient (and the knowledge of the $\omega_{p}$'s). This is consistent with \eqref{art1-eq10.3.1}.
+
+Note that in our representation theoretic set-up, our $\varphi$ in $V_{\overline{\pi}}$ is assumed to be an eigenfunction of the Hecke operators. The fact that $\varphi$ is distinguished means exactly that $W^{\psi,\mu}_{\varphi}\neq 0$ for exactly ``one orbit of characters''. In particular, the relation \eqref{art1-eq10.2.3} implies that if $\delta\not\in (F^{x})^{2}$, then
+$$
+W^{\psi^{\delta,\mu}}_{\varphi}(g)=W^{\psi^{\delta},\mu}_{\varphi}(g)=W^{\psi,\mu^{\delta}}_{\varphi}\left(\left(\begin{matrix} \delta & 0\\ 0 & 1\end{matrix}\right)g\right)=0.
+$$
+In classical terms, if $\varphi$ corresponds to the form $f(z)$, then 
+\begin{align*}
+f(z) &= \sum\limits_{\delta}\sum\limits_{n}a(\delta n^{2})e^{2\pi i\delta n^{2}z}\\
+&= \sum\limits_{n}a(\delta_{0}n^{2})e^{2\pi i\delta_{0}n^{2}z}
+\end{align*}
+
+For more details, see \cite{GePS 2} and \cite{Shim}.
+
+Examples of distinguished automorphic representations will now be described.
+
+\section{Theta-Representations}\label{art1-sec11}
+
+\subsection{}\label{art1-sec11.1}
+Suppose $\chi=\prod\limits_{v}\chi_{v}$ is any character of $F^{x}\backslash \mathbb{A}^{x}$. Since almost every $\chi_{v}$ is unramified, we can define an irreducible admissible representation of $\overline{G}_{\mathbb{A}}$ through the formula
+$$
+r_{\chi}=\otimes r_{\chi_{v}},
+$$
+where $r_{\chi_{v}}$ is the local theta-representation described in Section \ref{art1-sec4}.
+
+\subsection{}\label{art1-sec11.2}
+In \cite{GePS2} we show that $r_{\chi}$ occurs in a subspace of $\chi$-automorphic forms on $\overline{G}_{\mathbb{A}}$. In particular, $r_{\chi}$ defines a {\em distinguished} automorphic representation of half-integral weight.
+
+Our\pageoriginale construction
+$$
+\chi\to r_{\chi}
+$$
+generalizes the classical construction of theta-series associated with\break Dirichlet characters. To wit, suppose $\chi:(\mathbb{Z}/N\mathbb{Z})^{x}\to \mathbb{C}$ is a primitive Dirichlet character, and $\chi(-1)=1$ say. Then
+$$
+\theta_{\chi}(z)=\sum\limits^{\infty}_{n=-\infty}\chi(n)e^{2\pi in^{2}z}
+$$
+defines a ``distinguished'' modular form of weight $\frac{1}{2}$, level $4N^{2}$, and character $\chi$.
+
+If $\chi=\Pi \chi_{v}$ is not {\em totally even}, i.e., $\chi_{v}(-1)=-1$ for at least one $v$, then $r_{\chi}$ is actually cuspidal.
+
+\subsection{}\label{art1-sec11.3}
+In \cite{GePS} we conjectured that every distinguished cuspidal representation of half-integral weight is of the form $r_{\chi}$ for some $\chi$. In \cite{GePS2} we show that this follows from the Shimura correspondence established in this paper; cf. \S\ref{art1-sec16},
+
+\bigskip
+\begin{center}
+{\large\bfseries Chapter \thnum{III}.\label{art1-chap-III} A Generalized Shimura Correspondence}
+\end{center}
+\smallskip
+
+\section{A Shimura-Type Zeta Integral}\label{art1-sec12}
+
+Suppose $\overline{\pi}=\otimes \overline{\pi}_{v}$ is an automorphic cuspidal representation of half-integral weight and $\chi=\prod\limits_{v}\chi_{v}$ is a grossencharacter of $F$. Having introduced $L$ and $\epsilon$ factors for each $\overline{\pi}_{v}$ and $\chi_{v}$, we want to prove that the product
+$$
+L(s,\overline{\pi},\chi)=\prod\limits_{v}L(s,\overline{\pi}_{v},\chi_{v})
+$$
+converges in some half-plane, continues to a meromorphic function in $\mathbb{C}$, and satisfies a functional equation of the form
+$$
+L(s,\overline{\pi},\chi)=\left(\prod\limits_{v}\in (s,\overline{\pi}_{v},\chi_{v}\psi_{v})\right)\widetilde{L}(1-s,\overline{\pi},\chi).
+$$
+To do this, we have to introduce a zeta-integral of Shimura type that essentially equals $L(s,\overline{\pi},\chi)$.
+
+\subsection{}\label{art1-sec12.1}
+Let $\overline{A}_{0}(\omega_{\overline{\pi}})$ denote the space of cusp forms which transform under\pageoriginale $\overline{Z}_{\mathbb{A}}^{2}$ according to the character $\omega_{\overline{\pi}}$, and suppose $\overline{\pi}$ occurs in the space $V_{\overline{\pi}}$ in $\overline{A}_{0}(\omega_{\overline{\pi}})$. If $\varphi\in V_{\overline{\pi}}$ then
+\setcounter{equation}{0}
+\begin{equation}
+\varphi(g)=\sum\limits_{\mu}\sum\limits_{\delta\in F^{x}}W^{\psi,\mu^{\delta}}_{\varphi}\left(\left(\begin{matrix} \delta & 0\\ 0 & 1\end{matrix}\right)g\right)\label{art1-eq12.1.1}
+\end{equation}
+Recall that the first summation extends over all characters $\mu'$ of $Z_{F}\backslash \overline{Z}_{\mathbb{A}}$ whose restriction to $\overline{Z}_{\mathbb{A}}^{2}$ is $\omega_{\overline{\pi}}$.
+
+
+Now fix
+$$
+\mu=\bigotimes\limits_{v}\mu_{v}\quad\text{in}\quad \Omega(\overline{\pi},\psi),
+$$
+and fix the embedding $V_{\overline{\pi}}$ so that $W^{\psi,\mu}_{\varphi}(g)\neq 0$. Given by character
+$$
+\chi=\Pi \chi_{v}
+$$
+of $F^{x}\backslash \mathbb{A}^{x}$, let $\mu_{\chi}$ denote the unique element of the singleton set $\Omega(r_{\chi},\psi^{-1})$. These $\mu$, $\mu_{\chi}$ determine Whittaker models $\mathscr{W}(\overline{\pi},\psi,\mu)$ and $\mathscr{W}(r_{\chi},\psi,\mu_{\chi})$. To define our global analogue of the local zeta functions $\psi(s,W,W_{\chi},\Phi)$ we need first to describe some Eisenstein series on $\GL_{2}(\mathbb{A})$.
+
+\subsection{}\label{art1-sec12.2}
+If $\Phi=\prod\limits_{v}\Phi_{v}$ is in $S(\mathbb{A}\times \mathbb{A})$, set
+\setcounter{equation}{0}
+\begin{equation}
+F_{s}(g)=F^{\Phi}_{s}(g)=|\det g|^{s}\int\limits_{F^{x}}\Phi((0,t)g)|t|^{2s}\omega_{*}(t)d^{x}t,\label{art1-eq12.2.1}
+\end{equation}
+with $\omega_{*}$ the (ordinary) character of $F^{x}\backslash A^{x}$ given by the formula
+$$
+\omega_{*}=\mu\mu_{\chi}=\mu\chi\mu_{\psi}-1;
+$$
+cf. \eqref{art1-eq5.1.3}, \eqref{art1-eq5.2.1}, and \eqref{art1-eq5.2.2}. The integral in \eqref{art1-eq12.2.1} converges for $\rRe(s)\gg 0$ and defines an element
+$$
+F_{s}=\Pi f_{s,v}
+$$
+in the induced space $\rho\left(s-\frac{1}{2},\left(\frac{1}{2}-s\right)\omega^{-1}_{*}\right)$. Moreover, the series
+$$
+\sum\limits_{\gamma\in B_{F}\backslash G_{F}}F_{s}(\gamma_{g})=E(g,F,s)
+$$
+converges for $\rRe(s)\gg 0$, and defines an automorphic form on $\GL_{2}$, the {\em Eisenstein series} $E(g,F,s)$; cf. p. 117 of \cite{Ja} (taking $\mu_{1}=\alpha^{s}\frac{1}{2}$, $\mu_{2}=\alpha^{\frac{1}{2}-a}\omega^{-1}_{*}$).
+
+\medskip
+\noindent
+{\bf Remark \thnum{12.3}.\label{art1-rem12.3}}~$E(g,F,s)$\pageoriginale extends to a meromorphic function in $\mathbb{C}$ with functional equation
+\setcounter{equation}{0}
+\begin{equation}
+E(g,F^{\Phi},s)=E(g,F^{\widehat{\Phi}},1-s);\label{art1-eq12.3.1}
+\end{equation}
+here, as in the local theory, $\widehat{\Phi}$ is the twisted Fourier transform $\widehat{\Phi}(x,y)=\int\Phi(u,v)\psi(yu-vx)\du \dv$, with $\du$ and $\dv$ the self-dual measure on $\mathbb{A}$; cf. Prop. 19.3 of \cite{Ja}. We also know that the only poles of $E(g,F,s)$ are simple, and occur for $|~|^{2-2s}_{\mathbb{A}}=\omega_{*}$ and $|~|^{2s}_{\mathbb{A}}=\omega^{-1}_{*}$.
+
+\setcounter{subsection}{3}
+\subsection{}\label{art1-sec12.4}
+Given $\overline{\pi},\psi,\mu,\chi$, and $F_{s}$ as above, we define our zeta integral by the equation
+\setcounter{equation}{0}
+\begin{equation}
+\psi^{*}(s,\varphi,\theta_{\chi},F)=\int\limits_{Z^{2}_{\mathbb{A}}G_{F}\backslash G_{\mathbb{A}}}\varphi(g)\theta_{\chi}(g)E(g,F,s)\dg.\label{art1-eq12.4.1}
+\end{equation}
+Here $\varphi\in V_{\overline{\pi}}$, and
+\begin{equation}
+\theta_{\chi}(g)=\sum\limits_{\delta\in F^{x}}W^{\psi^{-1},\mu\chi}\left(\begin{bmatrix} \delta & 0\\ 0 & 1\end{bmatrix}g\right)+\theta_{0}(g)\label{art1-eq12.4.2}
+\end{equation}
+belongs to the space of the automorphic distinguished representation $r_{\chi}$. Since the theta-function $\theta_{\chi}$ is also slowly increasing, and since $\varphi(g)$ is a cusp form, the integral in \eqref{art1-eq12.4.1} converges in some right half-plane, and its analytic properties in all of $\mathbb{C}$ are reflected by those of $E(g,F,s)$. In particular, we have:
+
+\medskip
+\noindent
+{\bf Proposition \thnum{12.5}.\label{art1-prop12.5}}~{\em For any choice of $\varphi$, $\theta_{\chi}$, and $F_{s}:$}
+\begin{itemize}
+\item[(i)] {\em the function $\psi^{*}(s,\varphi,\theta_{\chi},F)$ extends to a meromorphic function in $\mathbb{C}$ with functional equation}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+\begin{equation}
+\psi^{*}(1-s,\varphi,\theta_{\chi},F^{\widehat{\Phi}})=\psi^{*}(s,\varphi,\theta_{\chi},F^{\Phi}).\label{art1-eq12.5.1}
+\end{equation}
+
+\item[(ii)] {\em All poles of $\psi^{*}$ are simple, with residues proportional to}
+\begin{equation}
+\int\limits_{Z^{2}_{\mathbb{A}}G_{F}\backslash G_{\mathbb{A}}}|\det g|^{s_{0}}\varphi(g)\theta_{\chi}(g)dg.\label{art1-eq12.5.2}
+\end{equation}
+
+\item[(iii)] {\em $\psi^{*}$ is bounded at infinity in vertical strips of finite width.}
+\end{itemize}
+
+\medskip
+\noindent
+{\bf Corollary \thnum{12.6}.\label{art1-coro12.6}}~{\em If $\overline{\pi}$ is not of the form $r_{\nu}$ for any grossencharacter $\nu$, then $\psi^{*}(s,\varphi,\theta_{\chi},V)$ is actually entire.}
+
+\begin{proof}
+If\pageoriginale $\psi^{*}(s,\varphi,\theta_{\chi},F)$ has a pole, the residue \eqref{art1-eq12.5.2} is non-zero for some $s_{0}$. In other words, the bilinear form on $V_{\overline{\pi}}\times V_{r_{\chi}}$ defined by
+$$
+(\varphi,\theta_{\chi})\to \int\limits_{Z^{2}_{\mathbb{A}}G_{F}\backslash G_{\mathbb{A}}}|\det g|^{s_{0}}\varphi(g)\theta_{\chi}(g)\dg
+$$
+is not identically zero, and $|~|^{s_{0}}_{\mathbb{A}}\otimes\overline{\pi}$ is equivalent to $\widetilde{r}_{\chi}$. Since $\widetilde{r}_{\chi}\approx r_{\chi^{-1}}$, this contradicts our hypothesis.
+\end{proof}
+
+\section{An Euler Product Expansion}\label{art1-sec13}
+
+\subsection{}\label{art1-sec13.1}
+To relate $L(s,\overline{\pi},\chi)$ to $\psi^{*}(s,\varphi,\theta_{\chi},F)$ we need to express $\psi^{*}$ as a product of local integrals of the form $\psi(s,W_{v},W_{\chi_{v}},\Phi_{v})$. In greater generality, this Euler product decomposition is sketched in \cite{Piatetski-Shapiro}. To treat the explicit case at hand, we assume that the ``first Fourier coefficients'' $W^{\psi,\mu}_{\varphi}(g)$ and $W^{\psi^{-1},\mu_{\chi}}$ of $\varphi(g)$ and $\theta_{\chi}$ (cf. \eqref{art1-eq12.1.1} and \eqref{art1-eq12.4.2}) are of the form
+$$
+W^{\psi,\mu}_{\varphi}(g)=\prod\limits_{v}W_{v}(g)
+$$
+and
+$$
+W^{\psi^{-1},\mu_{\chi}}(g)=\prod W_{\chi_{v}}(g),
+$$
+with $W_{v}\in \mathscr{W}(\overline{\pi}_{v},\psi_{v},\mu_{v})$ and $W_{\chi_{v}}(g)\in \mathscr{W}(r_{\chi_{v}},\psi^{-1})$.
+
+\medskip
+\noindent
+{\bf Proposition \thnum{13.2}.\label{art1-prop13.2}}~{\em With $\varphi,\theta_{\chi}$, and $F^{\Phi}_{s}$ as above, and $\rRe(s)\gg 0$,}
+$$
+\psi^{*}(s,\varphi,\theta_{\chi},F^{\Phi})=\prod\limits_{v}\Psi(s,W_{v},W_{\chi_{v}},\Phi_{v}).
+$$
+(Recall the local zeta-functions $\Psi$ are defined by \eqref{art1-eq5.1.1}.)
+
+\begin{proof}
+Replacing $E$ by the series defining it, we have
+\begin{align*}
+\psi^{*}(s,\varphi,\theta_{\chi},F^{\Phi}) &= \int\limits_{Z^{2}_{\mathbb{A}}G_{F}\backslash G_{\mathbb{A}}}\varphi(g)\theta_{\chi}(g)E(g,F,s)\dg.\\[4pt]
+&=\int\limits_{Z^{2}_{\mathbb{A}}B_{F}\backslash G_{\mathbb{A}}}\varphi(g)\theta_{\chi}(g)F^{\Phi}_{s}(g)\dg
+\end{align*}
+Setting $B^{0}=ZN=\left\{\left[\begin{smallmatrix} a & x\\ 0 & a\end{smallmatrix}\right]\right\}$, we may write
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+\begin{align}
+\theta_{\chi}(g) &=\theta_{0}(g)+\sum\limits_{B^{0}_{F}\backslash B_{F}}W^{\psi^{-1},\mu\chi}(bg),\notag\\
+\psi^{*}(s,\varphi,\theta_{\chi},F) &= \int\limits_{Z^{2}_{\mathbb{A}}B_{F}\backslash G_{\mathbb{A}}}\varphi(g)\theta_{0}(g)F_{s}(g)\dg\notag\\
+&\quad + \int\limits_{Z^{2}_{\mathbb{A}}B^{0}_{F}\backslash G_{\mathbb{A}}}\varphi(g)W^{\psi^{-1},\mu\chi}(g)F_{s}(g)\dg\label{art13.2.1}
+\end{align}\pageoriginale
+
+We claim now that the first term on the right side of \eqref{art1-eq13.2.1} is zero, i.e., the constant term $\theta_{0}(g)$ contributes nothing to $\psi^{*}$. Indeed $\theta_{0}(g)F_{s}(g)$ is left $N_{\mathbb{A}}$-invariant, and $\varphi(g)$ is a cuspidal.
+
+Thus we have
+\begin{align}
+\psi^{*}(s,\varphi,\theta_{\chi},F) &= \int\limits_{Z^{2}_{\mathbb{A}}B^{0}_{F}\backslash G_{\mathbb{A}}}\varphi(g)W^{\psi^{-1},\mu\chi}(g)F_{s}(g)\dg\notag\\
+&= \int\limits_{B_{\mathbb{A}}\backslash G_{\mathbb{A}}}I(g)F_{s}(g)\dg\label{art1-eq13.2.2}
+\end{align}
+where
+$$
+I(g)=\int\limits_{Z^{2}_{\mathbb{A}}B^{0}_{F}\backslash B_{\mathbb{A}}}\varphi(bg)W^{\psi^{-1},\mu\chi}(bg)\omega^{*}(b)db
+$$
+and $\omega^{*}$ is the character of $B_{\mathbb{A}}$ defined by
+$$
+\omega^{*}\left(\begin{matrix} a_{1} & x\\ 0 & a_{2}\end{matrix}\right)=\left|\frac{a_{1}}{a_{2}}\right|^{2s}\omega^{-1}_{*}(a_{2}).
+$$
+To continue, we compute
+\begin{align*}
+I(g) &= \int\limits_{B^{0}_{\mathbb{A}}\backslash B_{\mathbb{A}}} \left(\int\limits_{Z^{2}_{\mathbb{A}}\backslash B^{0}_{F}B^{0}_{\mathbb{A}}}\varphi(b'bg)W^{\psi^{-1},\mu\chi}(b'bg)\omega^{*}(bb')db'\right)db\\
+&= \int\limits_{B^{0}_{\mathbb{A}}\backslash B_{\mathbb{A}}}\omega^{*}(b)W^{\psi^{-1},\mu\chi}(bg)\sum\limits_{\mu}\sum\limits_{\delta}W^{\psi,\mu'}(bg)\\
+&\quad \left(\int\limits_{Z^{2}_{\mathbb{A}}\backslash Z_{\mathbb{A}}}\int\limits_{F_{\mathbb{A}}}\psi^{\delta}(x)\psi(-x)(\mu)^{-1}(z)\mu'(z)\dx\dz\right)db
+\end{align*}
+But\pageoriginale the integral in parenthesis is zero unless $\delta=1$ and $\mu'=\mu$, in which case it equals $1$. Thus we have
+$$
+I(g)=\int\limits_{B^{0}_{\mathbb{A}}\backslash B_{\mathbb{A}}}\omega^{*}(b)W^{\psi,\mu}_{\varphi}(bg)W^{\psi^{-1},\mu\chi}(bg)db.
+$$
+Plugging this expression into \eqref{art1-eq13.2.2} gives
+\begin{align*}
+\psi^{*}(s,\varphi,\theta_{\chi},F) &= \int\limits_{B_{\mathbb{A}}\backslash G_{\mathbb{A}}}\left(\int\limits_{B^{0}_{\mathbb{A}}\backslash B_{\mathbb{A}}}W^{\psi,\mu}_{\varphi}(bg)W^{\psi^{-1},\mu\chi}(bg)F^{\Phi}_{s}(bg)db\right)dg\\
+&= \int\limits_{N_{\mathbb{A}}Z_{\mathbb{A}}\backslash G_{\mathbb{A}}}W^{\psi,\mu}_{\varphi}(g)W^{\psi^{-1},\mu\chi}(g)F_{s}(g)dg
+\end{align*}
+So taking into account the infinite product expression for $W_{\varphi}$, $W^{\psi^{-1},\mu\chi}$, and $F_{s}=\Pi f_{s,v}$, we obtain the desired Euler product expansion for $\psi^{*}$.
+\end{proof}
+
+\noindent
+{\bf Theorem \thnum{13.3}.\label{art1-thm13.3}}~{\em Suppose $\overline{\pi}$ is any cuspidal representation of half-integral weight. If $\chi=\Pi \chi_{v}$ is any character of $F^{x}\backslash \mathbb{A}^{x}$ set}
+$$
+L(s,\overline{\pi},\chi)=\prod\limits_{v}L(s,\overline{\pi}_{v},\chi_{v})
+$$
+{\em and}
+$$
+\widetilde{L}(s,\overline{\pi},\chi)=\prod\limits_{v}\widetilde{L}(s,\overline{\pi}_{v},\chi_{v}).
+$$
+{\em Then}
+\begin{itemize}
+\item[(i)] {\em these infinite products converge in some half-plane $\rRe(s)>s_{0}$;}
+
+\item[(ii)] {\em $L$ and $\widetilde{L}$ extend meromorphically to all of $\mathbb{C}$, are bounded in vertical strips of finite width, and satisfy the functional equation}
+$$
+L(s,\overline{\pi},\chi)=\epsilon(s,\overline{\pi},\chi)\widetilde{L}(1-s,\overline{\pi},\chi)
+$$
+{\em with}
+$$
+\epsilon(s,\overline{\pi},\chi)=\prod\limits_{v}\in (s,\overline{\pi}_{v},\chi_{v},\psi_{v});
+$$
+
+\item[(iii)] {\em the only poles of $L(s,\overline{\pi},\chi)$ are simple, and these occur only if $\overline{\pi}$ is of the form $r_{v}$ for some character $\nu$ of $F^{x}\backslash \mathbb{A}^{x}$.}
+\end{itemize}
+
+\begin{proof}
+For almost every $v$, $\overline{\pi}_{v}$ is of the form $\overline{\pi}(\nu^{1}_{v},\nu^{2}_{v})$, with $\nu^{i}_{v}(x)=|x|^{t_{i},v}$, and
+$$
+-t_{0}\leq t_{i,v}\leq t_{0}(\text{independent of~ } v)
+$$
+Therefore,\pageoriginale since
+$$
+L(s,\overline{\pi}(\nu^{1}_{v},\nu^{2}_{v}))=\left(\dfrac{1}{1-q^{-2t_{1},v^{-s'}}}\right)\left(\dfrac{1}{1-q^{-2t_{2,v}-s'}}\right)
+$$
+the infinite products in question converge.
+
+Now fix a set $S$ outside of which everything is unramified, i.e., if $v\not\in S$, $v$ is finite and odd, $\overline{\pi}_{v}$ and $\chi_{v}$ are class $1$, $\psi_{v}$ has conductor $O_{F_{v}}$, $\mu_{v}$ is trivial on $O^{x}_{F_{v}}$, and $W_{v}$, $W_{\chi_{v}}$ and $\Phi_{v}$ are chosen so that
+$$
+\Psi(s,W_{v},W_{\chi_{v}},\Phi_{v})=L(s,\overline{\pi}_{v},\chi_{v})
+$$
+and
+$$
+\epsilon(s,\overline{\pi}_{v},\chi_{v},\psi_{v})=1;
+$$
+cf. \eqref{art1-eq6.2.3}. For $v$ inside $S$, choose $W_{v}$, $W_{\chi_{v}}$ and $\Phi_{v}$ so that 
+$$
+\Psi(s,W_{v},W_{\chi_{v}},\Phi_{v})=L(s,\overline{\pi}_{v},\chi_{v})
+$$ 
+modulo a non-vanishing entire factor. Then since $\psi^{*}(s,\varphi,\theta_{\chi},F)$ has the analytic properties asserted in parts (ii) and (iii), so does $L(s,\overline{\pi}_{v},\chi_{v})$.
+
+To establish the functional equation, we simply compute (using the local functional equations and \eqref{art1-eq12.5.1}):
+\begin{align*}
+L(s,\overline{\pi},\chi) &= \prod\limits_{v\in S}L(s,\overline{\pi}_{v},\chi_{v})\prod\limits_{v\not\in S}L(s,\overline{\pi}_{v},\chi_{v})\\[4pt]
+&= \prod\limits_{v\in S} \frac{L(s,\overline{\pi}_{v},\chi_{v})}{\Psi(s,W_{v},W_{\chi_{v}},\Phi_{v})}\left(\prod\limits_{\text{all~} v}\Psi(s,W_{v},W_{\chi_{v}},\Phi_{v})\right)\\[4pt]
+&= \left(\prod\limits_{v\in S}\in (s,\overline{\pi}_{v},\chi_{v},\psi_{v})\frac{\widetilde{L}(1-s,\overline{\pi}_{v},\chi_{v})}{\widetilde{\Psi}(1-s,W_{v},W_{\chi_{v}},\Phi_{v})}\right)\\[4pt]
+&\qquad x\psi^{*}(s,\varphi,\theta_{\chi},F^{\Phi})\\[4pt]
+&=\prod\limits_{v\in S}\frac{\epsilon(s,\overline{\pi}_{v},\chi_{v},\psi_{v})\widetilde{L}(1-s,\overline{\pi}_{v},\chi_{v})}{\widetilde{\Psi}(1-s,W_{v},W_{\chi_{v}},\Phi_{v})}\prod\limits_{\text{all~}v}\widetilde{\Psi}(1-s,W_{v},W_{\chi_{v}},\widehat{\Phi}_{v})\\[4pt]
+&= \prod\limits_{v\in S}\in(s,\overline{\pi}_{v},\chi_{v},\psi_{v})\prod\limits_{\text{all~}v}\widetilde{L}(1-s,\overline{\pi}_{v},\chi_{v})\\[4pt]
+&= \epsilon(s,\overline{\pi},\chi)\widetilde{L}(1-s,\overline{\pi},\chi),
+\end{align*}
+as was to be shown.
+\end{proof}
+
+\medskip
+\noindent
+{\bf Remark \thnum{13.4}.\label{art1-rem13.4}}~Since\pageoriginale $L(s,\overline{\pi},\chi)$ doesn't depend on $\psi$ (or $\mu$), neither does the product
+$$
+\epsilon(s,\overline{\pi},\chi,\psi)=\prod\limits_{v}\epsilon(s,\overline{\pi}_{v},\chi_{v},\psi_{v}).
+$$
+
+\section{A Generalized Shimura Correspondence}\label{art1-sec14}
+
+\subsection{}\label{art1-sec14.1}
+Suppose $\overline{\pi}=\otimes \overline{\pi}_{v}$ is an irreducible admissible (genuine) representation of $\overline{G}_{\mathbb{A}}$ with central character $\omega_{\overline{\pi}}$, and $\pi=\otimes \pi_{v}$ is an irreducible admissible representation of $G_{\mathbb{A}}$. Then we say $\pi$ is the {\em Shimura image} of $\overline{\pi}$, and write $\pi=S(\overline{\pi})$, if each $\pi_{v}=S(\overline{\pi}_{v})$, i.e., each $\pi_{v}$ is the local Shimura image of $\overline{\pi}_{v}$.
+
+\medskip
+\noindent
+{\bf Example \thnum{14.2}.\label{art1-exam14.2}}~Suppose $\overline{\pi}=r_{\chi}$, with $\chi=\Pi \chi_{v}$ a grossencharacter of $F$. Then for each $v$, $S(r_{\chi_{v}})$ is defined, and for almost every $v$, $S(r_{\chi_{v}})$ is one-dimensional and class $1$. The resulting representation
+$$
+S(\overline{\pi})=\otimes S(r_{\chi_{v}})
+$$
+is always automorphic, by the criterion of \cite{Langlands}.
+
+Our purpose now is to show that {\em any} unitary {\em cuspidal} representation of half-integral weight has an automorphic Shimura image, and this image is actually cuspidal if $\pi\neq r_{\nu}$ for any $\nu$.
+
+\section{The Theorem}\label{art1-sec15}
+
+\noindent
+{\bf Theorem \thnum{15.1}.\label{art1-thm15.1}}~{\em Suppose $\overline{\pi}=\otimes \overline{\pi}_{v}$ is a unitary cuspidal representation of half-integral weight. Then:}
+\begin{itemize}
+\item[(i)] {\em $S(\overline{\pi})=\otimes S(\overline{\pi}_{v})$ exists};
+
+\item[(ii)] {\em $S(\overline{\pi})$ is automorphic, and is cuspidal if and only if $\overline{\pi}$ is not of the form $r_{\nu}$ for any character $\nu$ of $F^{x}\backslash A^{x}$}.
+\end{itemize}
+
+\setcounter{subsection}{1}
+\subsection{Proof.}\label{art1-sec15.2}
+Because of Example \ref{art1-exam14.2}, we may assume $\overline{\pi}\neq r_{\nu}$ for any $\nu$.
+
+\subsection{}\label{art1-sec15.3}
+Fixing $\psi$, let $T$ be the set of places where $S(\overline{\pi}_{v})=\pi_{\nu}$ may not be defined. According to Section \ref{art1-sec7}, $T$ is precisely the set of finite places where $\overline{\pi}_{v}$ is supercuspidal but not a theta-representation.
+
+For almost all $v\not\in T$, $\overline{\pi}_{v}$ is a class 1 representation of the form $\overline{\pi}(\mu_{1},\mu_{2})$ (possibly of the form $\overline{\pi}(\nu^{1/2}_{v}|~|_{v}^{-1/4},\nu^{1/2}|~|_{v}^{1/4})$. Thus $S(\overline{\pi}_{v})=\overline{\pi}(\mu^{2}_{1},\mu^{2}_{2})$\pageoriginale is class 1 (though possibly one-dimensional) for $v\not\in T$, and we can define
+\setcounter{equation}{0}
+\begin{equation}
+\pi^{T}=\bigotimes\limits_{v\not\in T}\pi_{v}=\bigotimes\limits_{v\not\in T}S(\overline{\pi}_{v}),\label{art1-eq15.3.1}
+\end{equation}
+a representation of the restricted product $\overline{G}^{T}=\bigotimes\limits_{v\not\in T}\overline{G}_{v}$.
+
+If $\chi=\Pi \chi_{v}$ is any character of $F^{x}\backslash A^{x}$, consider the infinite products 
+\begin{equation}
+L(s,\pi^{T}\otimes \chi)=\prod\limits_{v\not\in T}L(s,\pi_{v}\otimes \chi_{v})\label{art1-eq15.3.2}
+\end{equation}
+and
+$$
+L(s,\widetilde{\pi}^{T}\otimes \chi^{-1})=\prod\limits_{v\not\in T}L(s,\widetilde{\pi}_{v}\otimes \chi_{v}^{-1})
+$$
+These products converge absolutely for $\rRe(s)\gg 0$ since for almost all $v\not\in T$, $\mu_{i,v}(x)=|x|^{t_{i},v}$, and for some $t_{0}$ independent of $v$,
+\begin{equation}
+-t_{o}\leq t_{i,v}\leq t_{o}\label{art1-eq15.3.3}
+\end{equation}
+To conclude that $L(s,\pi^{T}\otimes \chi)$ extends to the $L$-function of an automorphic cuspidal representation of $\GL_{2}(\mathbb{A})$ we need to know that $L(s,\pi^{T}\otimes \chi)$ satisfies certain analytic properties. In particular, we need to exploit the relation between $L(s,\pi^{T}\otimes \chi)$ and the Euler product $L(s,\overline{\pi},\chi)$.
+
+From Theorem \ref{art1-thm12.9} (and our assumption on $\overline{\pi}$) we know that for {\em any} character $\chi=\Pi \chi_{v}$ of $F^{x}\backslash A^{x}$,
+$$
+L(s,\overline{\pi},\chi)=\prod\limits_{v}L(s,\overline{\pi}_{v},\chi_{v})
+$$
+and
+$$
+\widetilde{L}(s,\overline{\pi},\chi)=\prod \widetilde{L}(s,\overline{\pi}_{v},\chi_{v})
+$$
+are entire functions, bounded in vertical strips of finite width, and such that
+\begin{equation}
+L(s,\overline{\pi},\chi)=\left(\prod\in (s,\overline{\pi}_{v},\chi_{v},\psi_{v})\right)\widetilde{L}(1-s,\overline{\pi},\chi).\label{art1-eq15.3.4}
+\end{equation}
+On the other hand, we also know from \ref{art1-sec6.6} that if $\chi_{v}$ is sufficiently highly ramified for $v\in T$,
+$$
+\begin{cases}
+L(s,\overline{\pi},\chi)=\prod\limits_{v\not\in T}L(s,\overline{\pi}_{v},\chi_{v})=L(s,\pi^{T}\otimes \chi),\\[4pt]
+\widetilde{L}(s,\overline{\pi}\chi)=\prod\limits_{v\not\in T}\widetilde{L}(s,\overline{\pi}_{v},\chi_{v})=L(s,\widetilde{\pi}^{T}\otimes \chi^{-1}),
+\end{cases}
+$$
+and,\pageoriginale for $v\in T$,
+$$
+\epsilon(s,\overline{\pi}_{v},\chi_{v},\psi_{v})=\epsilon(s,\omega_{\pi}v\chi_{v},\psi_{v})\in (s,\chi_{v},\psi_{v}).
+$$
+Recall that
+\begin{equation}
+\omega_{\pi_{v}}(a)=\omega_{\overline{\pi}_{v}}(a^{2}),\label{art1-eq15.3.5}
+\end{equation}
+and $\omega_{\pi}=\Pi \omega_{\pi_{v}}$ defines a grossencharacter of $F$.
+
+Thus we know that for all $\chi=\Pi \chi_{v}$ highly ramified inside $T$, $L(s,\pi^{T}\otimes\chi)$ and $L(s,\widetilde{\pi}^{T}\otimes \chi^{-1})$ are entire functions, bounded in vertical strips of finite width, and such that
+\begin{align}
+L(s,\pi^{T}\otimes \chi) &= \left(\prod\limits_{v\not\in T}\in (s,\pi_{v}\otimes \chi_{v})\right)\left(\prod \in (s,\omega_{\pi_{v}}\chi_{v},\psi_{v})\right.\\[3pt]
+&\qquad \in (s,\chi_{v},\psi_{v})\Big)\times L(1-s,\widetilde{\pi}^{T}\otimes \chi^{-1})\notag
+\end{align}
+Therefore, applying the almost everywhere converse theorem for $\GL(2)$ stated in our Appendix (with $\eta=\omega_{\pi}$) we conclude that either:
+\begin{itemize}
+\item[(i)] $\bigotimes\limits_{v\not\in T}\pi_{v}$ extends to a cuspidal representation $\pi$ which occurs in $A_{0}(\omega_{\pi})$, or
+
+\item[(ii)] there are grossencharacters $\mu$ and $\nu$ of $F$ such that $\otimes \pi_{v}$ extends a quotient $\pi$ of $\rho(\mu,\nu)$ (with every component of $\pi$ infinite-dimen\-sional).
+\end{itemize}
+
+It remains to show that the $v$-th component of $\pi$ equals $S(\overline{\pi}_{v})$ for each $v\in T$, and that possibility (ii) can't occur.
+
+\subsection{}\label{art1-sec15.4}
+In either case, (i) or (ii), we know that
+\setcounter{equation}{0}
+\begin{equation}
+L(s,\pi\otimes \chi)=\prod\limits_{v}\in (s,\pi_{v},\psi_{v})L(1-s,\widetilde{\pi}\otimes \chi^{-1})\label{art1-eq15.4.1}
+\end{equation}
+for {\em all} grossencharacters $\chi$. Therefore, by \eqref{art1-eq15.3.4} and \eqref{art1-eq15.3.6} we conclude that for all $\chi$,
+\begin{equation}
+\prod\limits_{v\in T}\frac{L(s,\overline{\pi}_{v},\chi_{v})}{L(s,\pi_{v}\otimes \chi_{v})}=\prod\limits_{v\in T}\frac{\epsilon(s,\overline{\pi}_{v},\chi_{v},\psi_{v})}{\epsilon(s,\pi_{v}\otimes \chi_{v},\psi_{v})}\frac{\widetilde{L}(1-s,\overline{\pi}_{v},\chi_{v})}{L(1-s,\widetilde{\pi}_{v}\otimes \chi^{-1}_{v})}\label{art1-eq15.4.2}
+\end{equation}
+
+Now fix $v_{0}\in T$ and let $\chi_{v_{0}}$ denote an arbitrary character of $F^{x}$. Choose $\chi=\Pi \chi_{v}$ so that its $v_{0}$-th component is $\chi_{v_{0}}$, but for each $v\in T-\{v_{0}\}$, $\chi_{v}$ is so\pageoriginale highly ramified so that \eqref{art1-eq6.6.1} holds. Then \eqref{art1-eq15.4.2} reads
+\begin{align}
+& \frac{\epsilon(s,\overline{\pi}_{v_{0}},\chi_{v_{0}},\psi_{v_{0}})\widetilde{L}(1-s,\overline{\pi}_{v_{0}},\chi_{v_{0}})}{L(s,\overline{\pi}_{v_{0}},\chi_{v_{0}})}\label{art1-eq15.4.3}\\[4pt]
+= &\dfrac{\epsilon(s,\pi_{v_{0}}\otimes \chi_{v_{0}},\psi_{v_{0}})L(1-s,\widetilde{\pi}_{v_{0}}\otimes \chi^{-1}_{v_{0}})}{L(s,\pi_{v_{0}}\otimes \chi_{v_{0}})}\notag
+\end{align}
+
+Recall that $v_{0}\in T$ implies $\overline{\pi}_{v_{0}}$ is supercuspidal and not a theta representation. Therefore, by \ref{art1-sec6.1}, $L(s,\overline{\pi}_{v_{0}},\chi_{v_{0}})=1=\widetilde{L}(1-s,\overline{\pi}_{v_{0}},\chi_{v_{0}})$, and \eqref{art1-eq15.4.3} implies
+\begin{equation}
+\frac{L(1-s,\widetilde{\pi}_{v_{0}}\otimes \chi_{v_{0}}^{-1})}{L(s,\pi_{v_{0}}\otimes \chi_{v_{0}})}=\dfrac{\epsilon(s,\overline{\pi}_{v_{0}},\chi_{v_{0}},\psi_{v_{0}})}{\epsilon(s,\pi_{v_{0}}\otimes \chi_{v_{0}},\psi_{v_{0}})}\label{art1-eq15.4.4}
+\end{equation}
+i.e. the quotient $L(1-s,\widetilde{\pi}_{v_{0}}\otimes \chi^{-1}_{v_{0}})/L(s,\pi_{v_{0}}\otimes \chi_{v_{0}})$ is monomial. Since $\chi_{v_{0}}$ is arbitrary, it is easy to check this implies $\pi_{v_{0}}$ must be super-cuspidal. (Indeed for other possible $\pi_{v_{0}}$, we could choose $\chi_{v_{0}}$ so that the quotient would be a rational function of $q^{-s}$). Thus
+$$
+L(s,\pi_{v_{0}}\otimes \chi_{v_{0}})=1=L(1-s,\widetilde{\pi}_{v_{0}}\otimes \chi_{v_{0}}^{-1})
+$$
+and \eqref{art1-eq15.4.4} implies $\pi_{v_{0}}=S(\overline{\pi}_{v_{0}})$.
+
+\medskip
+\noindent
+{\bf Remark \thnum{15.5}.\label{art1-rem15.5}}~If the set $T$ is non-empty--as we have assumed it is--our Main Theorem is already proved. Indeed in this case, we have just shown that $S(\overline{\pi}_{v})$ still exists for all $v$. Moreover, we have shown that $\pi_{v}=S(\overline{\pi}_{v})$ must be supercuspidal for $v\in T$. Thus $S(\overline{\pi})=\otimes S(\overline{\pi}_{v})$ must be cuspidal automorphic (since possibility (ii) in \S\ref{art1-sec15.3} implies $\pi_{v}$ is a quotient of $\rho(\mu_{v},\nu_{v})$ for all $v$).
+
+On the other hand, if $T$ is empty, then $S(\overline{\pi}_{v})$ exists {\em a priori}, for all $v$, but $\pi=\otimes S(\overline{\pi}_{v})$ is not {\em a priori} cuspidal. To complete the proof in this case it remains to note that now
+$$
+L(s,\pi\otimes \chi)=L(s,\overline{\pi},\chi)
+$$
+and
+$$
+L(s,\widetilde{\pi}\otimes \chi^{-1})=\widetilde{L}(s,\overline{\pi},\chi)
+$$
+for\pageoriginale {\em all} grossencharacters $\chi$. Thus, by the well-known $\GL_{2}$ theory, $\pi$ must be cuspidal.
+
+\setcounter{subsection}{5}
+\subsection{Corollary (Existence of a Generalized Shimura Correspon\-dence)}\label{art1-sec15.6}
+
+Given any cuspidal representation $\overline{\pi}$ of half-integral weight over $F$, there exists an automorphic representation
+$$
+\pi=S(\overline{\pi})
+$$
+of $\GL_{2}(\mathbb{A}_{F})$ such that for any grossencharacter $\chi$ of $F$,
+$$
+L(s,\pi\otimes \chi)=L(s,\overline{\pi},\chi),
+$$
+and $S(\overline{\pi})$ is cuspidal if and only if $\overline{\pi}$ is not of the form $r_{\nu}$ for any $\nu$.
+
+We call $S:\overline{\pi}\to \pi$ the Shimura map. Its ``kernel''---those cuspidal $\overline{\pi}$ which map to {\em non}-cuspidal $\pi$---consists precisely of those $\overline{\pi}$ which come from automorphic forms on $\GL(1)$. That a similar situation arises with the lifting of cusp forms from $\GL(2)$ to $\GL(3)$ (cf. \cite{GeJa}) cannot be coincidental.
+
+\medskip
+\noindent
+{\bf Remark \thnum{15.7}.\label{art1-rem15.7}}~Though we have not written down all the details, it seems likely we can prove that the $L$ and $\epsilon$ factors of $\overline{\pi}_{v}$ (and their twists by $\chi_{v}$) completely determine $\overline{\pi}_{v}$.
+
+From this it follows that
+\begin{itemize}
+\item[(i)] the Shimura map $S:\overline{\pi}\to \pi$ is $1$-to-$1$; and
+
+\item[(ii)] strong multiplicity one holds for $\overline{A}_{0}(\omega)$.
+\end{itemize}
+
+Apparently similar (and even stronger) results have been obtained by Flicker using the trace formula. Thus we shall not pursue these questions further.
+
+\medskip
+\noindent
+{\bf Corollary \thnum{15.8}.\label{art1-coro15.8}}~(A Weak Ramanujan-Peterson Theorem for $\overline{G}$).~{\em If $\overline{\pi}=\otimes \overline{\pi}_{v}$ is a unitary cuspidal representation of half-integral weight, and $v$ is a complex place, then $\overline{\pi}_{v}$ cannot belong to the ``outer half'' of the complementary series for $\overline{G}_{v}=\GL_{2}(\mathbb{C})xZ_{2}$; cf. \cite{Ge} Section 4, especially p. 85.}
+
+\begin{proof}
+Suppose $v$ is complex, and $\overline{\pi}_{v}=\overline{\pi}_{v}(\mu_{1},\mu_{2})$ is as above. Then\pageoriginale $S(\overline{\pi}_{v})=\pi(\mu^{2}_{1},\mu^{2}_{2})$ is no longer unitary, contradicting the unitarity of the cuspidal representation $S(\overline{\pi})=\bigotimes\limits_{v}S(\overline{\pi}_{v})$ in $A_{0}(\omega_{\pi})$.
+\end{proof}
+
+\section{Applications and Concluding Remarks}\label{art01-sec16}
+
+\subsection{}\label{art1-sec16.1}
+In \cite{GePS 2} we treat the following Corollaries to our Main Theorem \ref{art1-thm15.1}:
+
+\medskip
+\noindent
+{\bf Theorem \thnum{A}.\label{art1-thm-A}}~{\em If $\overline{\pi}$ is a distinguished cuspidal representation of half-integral weight then}
+$$
+\overline{\pi}=r_{\chi}
+$$
+{\em for some grossencharacter $\chi$ of $F$}.
+\smallskip
+
+The classical interpretation of Theorem \ref{art1-thm-A} is as follows. Suppose
+$$
+f(z)=\sum\limits^{\infty}_{n=1}a(n)e^{2\pi inz}
+$$
+is a cusp form of weight $k/2$ which is ``distinguished'', i.e, there is a square-free integer $t$ such that $a(n)=0$ unless $n=tm^{2}$ for some $m$. Then $f$ must be of weight $1/2$ or $3/2$ {\em and} of the form
+$$
+f(z)=\sum\limits^{\infty}_{n=-\infty}\chi(n)n^{\nu}e^{2\pi it n^{2}z}=\theta_{\chi}(tz)
+$$
+for some Dirichlet character $\chi$ (with $\chi(-1)=(-1)^{\nu}$). In this form the result was first established in \cite{Vigneras}.
+
+\medskip
+\noindent
+{\bf Theorem \thnum{B}.\label{art1-thm-B}}~{\em Suppose $\overline{\pi}=\otimes \overline{\pi}_{v}$ is a cuspidal representation with the property that for at least one place $v_{0}$, $\overline{\pi}_{v}=r_{\chi_{v_{0}}}$ with $\chi_{v_{0}}$ an even character of $F^{x}_{v_{0}}$. Then}
+$$
+\overline{\pi}=r_{\chi}
+$$
+{\em for some grossencharacter $\chi$ of $F$}.
+\smallskip
+
+Since this theorem results immediately from the existence (and local properties) of the Shimura correspondence it also appears in the recent work of Flicker's already alluded to.
+
+\begin{coro*}
+Suppose\pageoriginale $\overline{\pi}=\otimes \overline{\pi}_{v}$ is a cuspidal representation ``of weight $1/2$'', i.e., for at least one archimedean place $v_{0}$, $\overline{\pi}_{v_{0}}$ is the ``even'' piece of the Weil representation. Then there exists a grossencharacter $\chi$ of $F$ such that
+$$
+\overline{\pi}=r_{\chi}.
+$$
+\end{coro*}
+
+In particular, taking $F=\bQ$ we obtain an alternate proof of the fact that linear combinations of the theta-series
+$$
+\theta_{\chi}(tz)=\sum\limits^{\infty}_{n=-\infty}\chi(n)e^{2\pi in^{2}tz}
+$$
+exhaust the modular forms of weight $1/2$ (as $\chi$ runs through the set of primitive ``even'' Dirichlet characters); this result is the principal theorem of \cite{Serre-Stark}.
+
+\medskip
+\noindent
+{\bf Concluding Remarks.}
+\smallskip
+\begin{itemize}
+\item[(i)] The Shimura image of any {\em cusp} form of weight $k/2$, $k\geq 5$, must again be a cusp form. Indeed it cannot be of the form $\theta_{\chi}$, and Theorem \ref{art1-thm15.1} implies that only the $\theta_{\chi}$'s can map to {\em non}-cusp forms. By the same token, if $f$ is a cusp form of weight $3/2$, it is mapped to a {\em cuspidal} form of weight 2 iff it is orthogonal to the space spanned by $\theta_{\chi}$'s. This settles the first conjecture of problem (C) on p. 478 of \cite{Shim}; the Corollary to Theorem \ref{art1-thm-B} settles the second.
+
+\item[(ii)] In \cite{Flicker} the image of $S$ is characterized and a multiplicity one result is obtained for the {\em full} cuspidal spectrum of $\overline{G}_{\mathbb{A}}$. This resolves question (A) of \cite{Shim}, p. 476, and vastly improves our own Theorem \ref{art1-thm10.3.2}.
+\end{itemize}
+
+\medskip
+\noindent
+{\bf Appendix}
+\smallskip
+
+We reformulate the ``almost everywhere converse theorem'' of\break \cite{Jacquet-Langlands} and \cite{Weil 2}.
+
+The hypotheses below are slightly stronger than those of\break \cite{Jacquet-Langlands}, but they are quite tractable and seem to suffice for applications; cf. \cite{PS 2} for best possible results.
+
+\medskip
+\noindent
+{\bf Hypothesis.}~Suppose\pageoriginale we are given:
+\begin{itemize}
+\item[(i)] a non-trivial character $\psi=\Pi\psi_{v}$ of $F\backslash \mathbb{A}$, and a character\break $\eta=\prod\limits_{\eta}\eta_{v}$ of $F^{x}\backslash A^{x}$;
+
+\item[(ii)] a finite set of finite places $T$, and an irreducible admissible representation $\pi^{T}=\bigotimes\limits_{v\not\in T}\pi_{v}$ of $\bigotimes\limits_{v\not\in T}G_{v}$ satisfying the following conditions:
+\begin{itemize}
+\item[(a)] the central character of $\pi^{T}$ is $\bigotimes\limits_{v\not\in T}\eta_{v}$,
+
+\item[(b)] whenever $\pi_{v}=\pi(\mu_{v},\nu_{v})$ is class 1, and $v\not\in T$ is finite,
+\begin{align*}
+& |\widetilde{\omega}_{v}|^{t}<|\mu_{v}(\widetilde{\omega}_{v})|<|\widetilde{\omega}_{v}|^{-t}\\[4pt]
+& |\widetilde{\omega}_{v}|^{t}<|\nu_{v}(\widetilde{\omega}_{v})|<|\widetilde{\omega}_{v}|^{-t}
+\end{align*}
+(here $t>0$ is a real number independent of $v$, and $\widetilde{\omega}_{v}$ is a local uniformizing variable at $v$); and
+
+\item[(c)] for any grossencharacter $\chi=\prod\limits_{v}\chi_{v}$, sufficiently highly ramified inside $T$, the infinite products
+$$
+L(s,\pi,\chi)=\prod\limits_{v\not\in T}L(s,\pi_{v}\otimes \chi_{v})
+$$
+and
+$$
+L(s,\widetilde{\pi}^{T},\chi^{-1})=\prod\limits_{v\not\in T}L(s,\widetilde{\pi}_{v}\otimes \chi^{-1}_{v})
+$$
+continue to entire functions on $\mathbb{C}$, bounded in vertical strips of finite width, such that
+\begin{gather*}
+L(s,\pi^{T},\chi)=L(1-s,\widetilde{\pi}^{T},\chi^{-1})\times\left(\prod\limits_{v\not\in T}\in (s,\pi_{v}\otimes \chi_{v},\psi_{v})\right)\\
+\left(\prod\limits_{v\in T}\in (s,\chi_{v},\psi_{v})\in (s,\chi_{v}\eta_{v},\psi_{v}).\right)
+\end{gather*}
+\end{itemize}
+\end{itemize}
+Then:
+
+\medskip
+\noindent
+{\bf Conclusion.}~Either
+\begin{itemize}
+\item[(i)] $\pi^{T}=\bigotimes\limits_{v\not\in T}\pi_{v}$ extends to a cuspidal representation $\pi$ in $A_{0}(\eta)$, or
+
+\item[(ii)] there exist grossencharacters $\mu$ and $\nu$ of $F$, with $\mu\nu=\eta$, such that $\pi^{T}$ extends to an automorphic representation $\pi$, with $\pi$ a quotient of $\rho(\mu,\nu)$.
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem[Flicker]{Flicker} FLICKER,\pageoriginale Y., ``Automorphic forms on covering groups of $\GL(2)$'', {\em Inventiones mathematicae}, 57, {\em pp.} 119--182 (1980).
+
+\bibitem[Ge]{Ge} GELBART, S., {\em Weil's  Representation and the Spectrum of the Metaplectic Group,} Springer Lecture Notes, No. 530, 1976.
+
+\bibitem[Ge HPS]{Ge HPS}----------, R. HOWE, and I.I., PIATETSKI-SHAPIRO, ``Uniqueness and Existence of Whittaker Models for the Metaplectic Group'', {\em Israel J. Math.,} 34, pp. 21--37 (1979). 
+
+\bibitem[Ge Ja]{Ge Ja} GELBART, S., and H. JACQUET, ``A Relation between Automorphic Representations of GL(2) and GL(3)'', {\em Ann. Ecole Normale Superieure}, 4$^{\text{e}}$ serie, t. 11, 1978, p. 471--542. 
+
+\bibitem[Ge PS]{Ge PS} GELBART, S., and I. I. PIATETSKI-SHAPIRO, ``Automorphic L-functions of half-integral weight'', {\em Proc. N.A.S., U.S.A.,} Vol. 75, No. 4, pp. 1620--1623, April 1978. 
+
+\bibitem[Ge PS2]{Ge PS2}------------------------, ``Distinguished Representations and Modular Forms of half-integral weight'', {\em Inventiones Mathematicae,} 59, pp. 145--188 (1980).  
+
+\bibitem[Ge Sa]{Ge Sa} GELBART, S. and P. J. SALLY, ``Intertwining Operators and Automorphic Forms for the Metaplectic Group'', {\em Proc. N.A.S., U.S.A.,} Vol. 72, No. 4, pp. 1406--1410, April 1975.  
+
+\bibitem[Ho]{Ho} HOWE, R., ``$\theta$-series and automorphic forms'', in {\em Proc. Sym. Pure Math.,} Vol. 33, 1979. 
+
+\bibitem[Ho PS]{Ho PS}----------, and I. I. PIATETSKI-SHAPIRO, ``A Counterexample to the Generalized Ramanujan Conjecture'', in {\em Proc. Symp. Pure. Math.,} Vo. 33, A.M.S., 1979. 
+
+\bibitem[Ja]{Ja} JACQUET, H., {\em Automorphic Forms on GL(2): Part II,} Springer Lecture Notes, Vol. 278, 1972. 
+
+\bibitem[Jacquet-Langlands]{Jacquet-Langlands} JACQUET, H., and R. P. LANGLANDS, {\em Automorphic Forms on GL(2),} Springer Lecture Notes, Vol. 114, 1970. 
+
+\bibitem[Kubota]{Kubota} KUBOTA, T., {\em Automorphic Functions and the Reciprocity Law in a Number Field}, Kyoto University Press, Kyoto, Japan, 1969. 
+
+\bibitem[Langlands]{Langlands} LANGLANDS, R. P., ``On the notion of an automorphic form'', {\em Proc. Symp. Pure Math.,} Vol. 33, 1979, A.M.S. 
+
+\bibitem[Langlands 2]{Langlands}----------, ``Automorphic Representations, Shimura Varieties and\pageoriginale Motives'', {\em Proc. Symp. Pure Math.,} Vol. 33, A.M.S., 1979.
+
+\bibitem[Meister]{Meister} MEISTER, J., ``Supercuspidal Representations of the Metaplectic Group'', Cornell University Ph.D. Thesis, 1979; {\em Trans. A.M.S.,} to appear. 
+
+\bibitem[Moen]{Moen} MOEN, C., Ph.D. thesis, University of Chicago, 1979. 
+
+\bibitem[Moore]{Moore} MOORE, C., ``Group Extensions of p-adic linear groups'', {\em Pub. Math. I.H.E.S.,} No. 35, 1968. 
+
+\bibitem[Niwa]{Niwa} NIWA, S., ``Modular forms of half-integral weight and the integral of certain functions'', {\em Nagoya J. of Math.,} 56, 1975. 
+
+\bibitem[PS]{PS} PIATETSKI-SHAPIRO, I.I., ``Distinguished representations and Tate theory for a reductive group'', {\em Proceedings,} International Congress of Mathematicians, Helsinki, 1978, 
+
+\bibitem[PS 2]{PS 2}----------------, On the Weil-Jacquet-Langlands theorem, in {\em Lie Groups and their Representations}, Halstead, New York, 1975. 
+
+\bibitem[RS]{RS} RALLIS, S., and G. SCHIFFMANN, ``Repr\'esentations Supercuspidales du Groupe M\'etaplectique,'' {\em J. Math. Kyoto Univ.} 17--3 (1977). 
+
+\bibitem[Se-St]{Se-St} SERRE, J. P., and H. STARK, ``Modular forms of weight 1/2'', in Springer Lecture Notes, Vol. 627, 1977. 
+
+\bibitem[Shim]{Shim} SHIMURA, G., ``On modular forms of half-integral weight'', {\em Ann. Math.} 97 (1973), pp. 440-481. 
+
+\bibitem[Shintani]{Shintani} SHINTANI, T., ``On the construction of holomorphic cusp forms of half-integral weight'', {\em Nagoya J. of Math.,} 58 (1975). 
+
+\bibitem[Vigneras]{Vigneras} VIGNERAS, M. F., ``Facteurs gamma et \'equations fonctionelles'', in Springer Lecture Notes, Vol. 627, 1977. 
+
+\bibitem[Weil]{Weil} WEIL, A., ``Sur certaines groupes d'operateurs unitaires'', {\em Acta Math.} 111 (1964), pp. 143--211. 
+
+\bibitem[Weil 2]{Weil 2}----------, {\em Dirichlet Series and Automorphic Forms,} Springer Lecture Notes, Vol. 189, 1971. 
+\end{thebibliography}
