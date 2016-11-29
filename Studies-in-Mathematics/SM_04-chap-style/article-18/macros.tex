@@ -1,0 +1,257 @@
+\usepackage{graphicx,xspace,fancybox}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+\newcounter{pageoriginal}
+
+
+\usepackage[papersize={140mm,215mm},textwidth=110mm,
+textheight=170mm,headheight=6mm,headsep=4mm,topmargin=17.5mm,botmargin=1.15cm,
+leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
+
+\marginparwidth=10pt
+\marginparsep=10pt
+\marginparpush=5pt
+%\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+\newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\xspace\textbf{\thepageoriginal}}
+} 
+\let\pageoriginaled\pageoriginale
+
+
+\newtheorem{appthm}[equation]{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\newtheoremstyle{romanexam}{10pt}{10pt}{ }%
+{}{\bfseries}{.}{ }{}
+\theoremstyle{romanexam}
+\newtheorem{romanexam}{Example}
+\renewcommand{\theromanexam}{\Roman{romanexam}}
+\renewcommand{\thesection}{\Roman{section}}
+
+\newtheoremstyle{alphaclaim}{10pt}{10pt}{ }%
+{}{\bfseries}{.}{ }{#1 (#2)}
+\theoremstyle{alphaclaim}
+\newtheorem{alphaclaim}{Claim}
+\renewcommand{\thealphaclaim}{\Alph{alphaclaim}}
+\renewcommand{\thesection}{\Alph{section}}
+
+\newtheoremstyle{remark}{10pt}{10pt}{ }%
+{}{\bfseries}{.}{ }{}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{example}[theorem]{Example}
+
+\newtheoremstyle{nonum}{}{}{\itshape}{}{\bfseries}{\kern -2pt{\bf.}}{ }{#1 \mdseries
+{\bf #3}}
+\theoremstyle{nonum}
+
+\newtheorem{lemma*}{Lemma}	
+\newtheorem{theorem*}{Theorem}	
+\newtheorem{maintheorem*}{Main Theorem}
+\newtheorem{prop*}{Proposition}	
+\newtheorem{defi*}{Definition}
+\newtheorem{coro*}{Corollary}
+
+\newtheoremstyle{mynonum}{}{}{ }{}{\bfseries}{\kern -2pt{\bf.}}{ }{#1 \mdseries
+{\bf #3}}
+\theoremstyle{mynonum}
+\newtheorem{remark*}{Remark}	
+\newtheorem{remarks*}{Remarks}	
+\newtheorem{exer*}{Exercise}	
+\newtheorem{example*}{Example}	
+\newtheorem{examples*}{Examples}	
+\newtheorem{note*}{Note}
+\newtheorem{problem}{Problem}
+\newtheorem{notation*}{Notation}
+\newtheorem{conjecture*}{Conjecture}
+
+\def\ophi{\overset{o}{\phi}}
+
+\def\oval#1{\text{\cornersize{2}\ovalbox{$#1$}}}
+
+
+\newcommand*\mycirc[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=.7pt](C) {#1};\:
+}
+
+\DeclareMathOperator{\Card}{\mathrm{Card}}
+\DeclareMathOperator{\Ker}{\mathrm{Ker}}
+\DeclareMathOperator{\Quot}{\mathrm{Quot}}
+\DeclareMathOperator{\gr}{\mathrm{gr}}
+\DeclareMathOperator{\Proj}{\mathrm{Proj}}
+\DeclareMathOperator{\Hom}{\mathrm{Hom}}
+\DeclareMathOperator{\pr}{\mathrm{pr}}
+\DeclareMathOperator{\rad}{\mathrm{rad}}
+\DeclareMathOperator{\Aut}{\mathrm{Aut}}
+\DeclareMathOperator{\Spec}{\mathrm{Spec}}
+
+
+
+\def\uub#1{\underline{\underline{#1}}}
+\def\ub#1{\underline{#1}}
+\def\os#1{\overset{#1}}
+\def\us#1{\underset{#1}}
+\def\ob#1{\overbrace{#1}}
+\def\ool#1{\overline{\overline{#1}}}
+\def\ol#1{\overline{#1}}
+\def\set#1{\left\{{#1}\right\}}
+\def\oset#1{\left({#1}\right)}
+\def\cset#1{\left[{#1}\right]}
+\def\mset#1{\left|{#1}\right|}
+\def\aset#1{\left<{#1}\right>}
+
+
+\font\bigsymb=cmsy10 at 4pt
+\def\bigdot{{\kern1.2pt\raise 1.5pt\hbox{\bigsymb\char15}}}
+\def\overdot#1{\overset{\bigdot}{#1}}
+
+\makeatletter
+%\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+%                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+%                                     {1.5ex \@plus .2ex}%
+%                                     {\bf}}%
+%\renewcommand\section{\@startsection {section}{1}{0mm}%
+%                                   {3.25ex \@plus 0.5ex \@minus .2ex}%
+%                                   {-0.8ex \@plus.2ex}%
+%                                   {\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {3.25ex\@plus 1ex \@minus .2ex}%
+                                     {-1.5ex}%
+                                     {\bf}}%
+
+\renewcommand\thesection{\@arabic\c@section}
+%\renewcommand\thesubsection{({\thechapter.\thesection.\@arabic\c@subsection})}
+
+\renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname}\hspace{0.3em}}
+\makeatother
+
+\def\fibreproduct#1#2#3{#1{\displaystyle\mathop{\times}_{#3}}#2}
+\let\fprod\fibreproduct
+
+\def\fibreoproduct#1#2#3{#1{\displaystyle\mathop{\otimes}_{#3}}#2}
+\let\foprod\fibreoproduct
+
+
+\def\cf{{cf.}\kern.3em}
+\def\Cf{{Cf.}\kern.3em}
+\def\eg{{e.g.}\kern.3em}
+\def\ie{{i.e.}\kern.3em}
+\def\iec{{i.e.,}\kern.3em}
+\def\idc{{id.,}\kern.3em}
+\def\resp{{resp.}\kern.3em}
+\def\mod{{\rm{mod}}\kern.3em}
+
+\def\bfb{\mathbf{b}}
+\def\bfA{\mathbf{A}}
+\def\bfB{\mathbf{B}}
+\def\bfC{\mathbf{C}}
+\def\bfD{\mathbf{D}}
+\def\bfE{\mathbf{E}}
+\def\bfF{\mathbf{F}}
+\def\bff{\mathbf{f}}
+\def\bfG{\mathbf{G}}
+\def\bfH{\mathbf{H}}
+\def\bfI{\mathbf{I}}
+\def\bfJ{\mathbf{J}}
+\def\bfK{\mathbf{K}}
+\def\bfL{\mathbf{L}}
+\def\bfM{\mathbf{M}}
+\def\bfN{\mathbf{N}}
+\def\bfO{\mathbf{O}}
+\def\bfP{\mathbf{P}}
+\def\bfR{\mathbf{R}}
+\def\bfS{\mathbf{S}}
+\def\bfs{\mathbf{s}}
+\def\bfT{\mathbf{T}}
+\def\bfV{\mathbf{V}}
+\def\bfW{\mathbf{W}}
+\def\bfZ{\mathbf{Z}}
+\def\bfQ{\mathbf{Q}}
+\def\SL{\mathbf{SL}}
+\def\Sp{\mathbf{Sp}}
+\def\GL{\mathbf{GL}}
+\def\PSL{\mathbf{PSL}}
+\def\Ad{\mathbf{Ad}}
+
+
+\def\sB{\mathscr{B}}
+\def\sF{\mathscr{F}}
+\def\sG{\mathscr{G}}
+\def\sN{\mathscr{N}}
+\def\sO{\mathscr{O}}
+\def\sS{\mathscr{S}}
+\def\sR{\mathscr{R}}
+\def\sY{\mathscr{Y}}
+\def\sE{\mathscr{E}}
+
+\def\bbF{\mathbb{F}}
+\def\bbN{\mathbb{N}}
+\def\bbQ{\mathbb{Q}}
+\def\bbR{\mathbb{R}}
+\def\bbW{\mathbb{W}}
+\def\bbZ{\mathbb{Z}}
+
+\def\frakm{\mathfrak{m}}
+
+
+\def\frakM{\mathfrak{M}}
+
+
+
+\def\calO{\mathcal{O}}
+
+
+\makeatletter
+%\renewcommand\chaptermark[1]{\markboth{\thechapter. #1}{}}
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \thispagestyle{empty}\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+%\renewcommand\tableofcontents{%
+%    \if@twocolumn
+%      \@restonecoltrue\onecolumn
+%    \else
+%      \@restonecolfalse
+%    \fi
+%    \chapter*{\contentsname
+%        \@mkboth{%
+%           \contentsname}{\contentsname}}%
+%    \@starttoc{toc}%
+%    \if@restonecol\twocolumn\fi
+%    }
+\makeatother
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+
+%\lhead[\small\em \thepage]{}
+%\rhead[]{\small\em \thepage}
+%\chead[\small\em \leftmark]{\small\em \rightmark}
+%\cfoot[]{}
+%\rfoot[\href{../toc.pdf}{\footnotesize\color{red}{\bf\em Table of Contents}}]{\href{../toc.pdf}{\footnotesize\color{red}{\bf\em Table of Contents}}}
+
+\lhead[\small\em \thepage]{}
+\rhead[]{\small\em \thepage}
+\chead[\small\em \leftmark]{\small\em \rightmark}
+\cfoot[]{}
+
+
+%\makeatletter
+%\renewenvironment{subequations}{%
+%  \refstepcounter{equation}%
+%  \protected@edef\theparentequation{\theequation}%
+%  \setcounter{parentequation}{\value{equation}}%
+%  \setcounter{equation}{0}%
+%  \def\theequation{\Alph{equation}\theparentequation}%
+%  \ignorespaces
+%}{%
+%  \setcounter{equation}{\value{parentequation}}%
+%  \ignorespacesafterend
+%}
+%\makeatother
+
