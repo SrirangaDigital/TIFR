@@ -1,0 +1,99 @@
+\chapter{Vector Bundles}\label{chap2}
+
+\section*{(Smooth) Vector bundles}
+\pageoriginale
+
+Let $M$ be a smooth $n$-manifold. A smooth (real) vector bundle of rank $m$ over $M$ is a smooth $(n+m)$ manifold together with a smooth map $\pi:E\to M$ such that the following two conditions are satisfied: 
+\begin{itemize}
+\item[(i)] For each $x\in M$, $\pi^{-1}(x)$ has the structure of an $m$-dimensional vector space over $\mathbb{R}$.
+
+\item[(ii)] For each $x\in M$, there exists an (open) neighbourhood $U$ of $m$ and a diffeomorphism
+$$
+\tau : \pi^{-1}(U)\to U\times \mathbb{R}^{m}
+$$
+such that the diagram
+\[
+\xymatrix{
+\pi^{-1}(U)\ar[dr]_{\pi}\ar[rr]^{\tau} & & U\times \mathbb{R}^{m}\ar[dl]^{P_{U}}\\
+& U &
+}
+\]
+commutes and such that the induced map
+$$
+\tau_{x}:\pi^{-1}(x)\to x\in \mathbb{R}^{m}=\mathbb{R}^{m}
+$$
+is a bijective linear map for each $m\in U$.
+
+($p_{U}:U\times \mathbb{R}^{m}\to U$ is the natural projection onto $U$).
+
+If $M$ is a smooth manifold, $M\times \mathbb{R}^{m}$, has a structure of a vector bundle over $M$. This bundle is called the trivial bundle of\pageoriginale rank $m$ over $M$.
+
+If $E_{1}$ and $E_{2}$ are vector bundles over $M$. An isomorphism from $E_{1}$ onto $E_{2}$ is a diffeomorphism $\phi:E_{1}\to E_{2}$ such that the diagram
+\[
+\xymatrix{
+E_{1}\ar[dr]_{\pi_{1}}\ar[rr]^{\phi} & & E_{2}\ar[dl]^{\pi_{2}}\\
+ & M &
+}
+\]
+commutes and such that for each $x\in M$, the induced map $\phi_{x}:\pi^{-1}(x)\to \pi^{-1}_{2}(x)$ is an isomorphism of vector spaces. By definition every vector bundle is locally (on $M$) isomorphic to the trivial bundle.
+
+Let $U$ be an open subset of $M$. A section of $E$ over $U$ is a map $\sigma:U\to E$ such that for $x\in U$ we have $(\pi\circ\sigma)(x)=x$. A section is said to be smooth if $\sigma$ is smooth. A {\em frame} of $E$ over $U$ is a set of smooth sections $\{\sigma_{1},\ldots,\sigma_{m}\}$ over $U$ such that for each $x\in U$, $\{\sigma_{1}(x),\ldots,\sigma_{m}(x)\}$ form a base for $\pi^{-1}(x)$. If there is a frame over $U$, the restriction of $E$ to $U$ is trivial. If $\sigma$ is a section over $U$, and if we write $\sigma(x)=\sum\limits^{m}_{i=1}f_{i}(x)\sigma_{i}(x)$, the section $\sigma$ is smooth if and only the real valued functions $f_{i}$ are smooth in $U$. The trivial bundle has an obvious canonical frame given by $x\hookrightarrow \{(x,e_{1}),\ldots,(x,e_{m})\}$ where $(e_{1},\ldots,e_{m})$ is the canonical base of $\mathbb{R}^{m} : e_{1}=(1,0,\ldots,0),\ldots,e_{m}=(0,0,\ldots,1)$. If $\sigma$ is a section of the trivial bundle. $\sigma(x)=(x,f(x)),f(x)\in \mathbb{R}^{m}$. Thus a section of the trivial bundle is the same as a function on $M$ with values in $\mathbb{R}^{m}$. 
+\end{itemize}
+
+Hereafter\pageoriginale we shall mean by a section a smooth section. Note that sections of $E$ over $U$ form a vector space.
+
+\section*{The tangent bundle}
+
+Let $M$ be a smooth manifold. Put $T(M)=\coprod\limits_{x\in M}T_{x}(M)$ (disjoint union) and let $\pi:T(M)\to M$ the natural projection (if $v\in T_{x}(M)$, $\pi(v)=x$). Then $\pi:T(M)\to M$ has a natural structure of a vector bundle of rank $n(n=\dim M)$.
+
+First suppose that $\Omega$ is an open subset of $\mathbb{R}^{n}$. If $L\in T_{a}(\Omega)$, $a\in \Omega$, we can write
+$$
+L=\sum\limits^{n}_{i=1}\lambda_{i}\left(\dfrac{\partial}{\partial x_{i}}\right), \ \lambda_{i}\in \mathbb{R}.
+$$
+
+We thus have a map
+\begin{align*}
+& \tau : T(\Omega)\to \Omega\times \mathbb{R}^{n}\\[3pt]
+& \tau(a,L)=(a,\lambda_{1},\ldots,\lambda_{n})
+\end{align*}
+with $p_{\Omega}\circ \tau =\pi$. The map $\tau$ is a bijection and we can transport the structure of the trivial vector bundle on $\Omega\times \mathbb{R}^{n}$ to get a structure of a vector bundle on $T(\Omega)$.
+
+Let now $(U_{\alpha},\phi_{\alpha})$ be a chart. The tangent map associated to $\phi$ induces a bijection $T(M)|_{U_{\alpha}}{\displaystyle{\mathop{=}\limits_{\text{def}}}}\pi^{-1}(U_{\alpha})\to T(\phi_{\alpha}(U))$ and, as above, we have a bijection of $T(\phi_{\alpha}(U))$ with $\phi_{\alpha}(U)\times \mathbb{R}^{n}$.
+
+Composing these maps we have a bijection
+$$
+\psi_{\alpha} : \pi^{-1}(U_{\alpha})\to \phi_{\alpha}(U)\times \mathbb{R}^{n}.
+$$
+We define a topology on $\pi^{-1}(U_{\alpha})$ by requiring $\psi_{\alpha}$ to be a homeomorphism and\pageoriginale then a topology of $T(M)$ by declaring that a subset of $T(M)$ is open if and only if its intersection with each $\pi^{-1}(U_{\alpha})$ is open in $\pi^{-1}(U_{\alpha})$. Take for charts on $T(M)$ the $(\pi^{-1}(U_{\alpha}),\psi_{\alpha})$. If $U_{\alpha}\cap U_{\beta}\neq \emptyset$, the map $\psi_{\beta}\circ \psi^{-1}_{\alpha}:\phi_{\alpha}(U_{\alpha}\cap U_{\beta})\times \mathbb{R}^{n}+\phi_{\beta}(U_{\alpha}\cap U_{\beta})\times \mathbb{R}^{n}$ is given by 
+$$
+(a,\lambda_{1},\ldots,\lambda_{n})+(\varphi_{\beta}\circ \phi^{-1}_{\alpha}(a),\mu_{1},\ldots,\mu_{n})
+$$
+where $\mu_{i}:\sum\limits^{n}_{i=1}\lambda_{j}\dfrac{\partial f_{i}}{\partial x_{j}}(a)$, with $f_{1},\ldots,f_{n}$ being the components of $\phi_{\beta}\circ \phi^{-1}_{\alpha}$ (i.e., $\phi_{\beta}\circ \phi^{-1}_{\alpha}=(f_{1},\ldots,f_{n})$). This shows the compatibility condition of the charts on overlans. It is clear that $T(M)$, with this smooth structure is a vector bundle of rank $n$ over $M$. We call $T(M)$ the {\em tangent bundle} of $M$.
+
+A section of $T(M)$ is called a {\em vector field}.
+
+\section*{The dual vector bundle}
+
+Let $E$ be a vector bundle on $M$. For $x\in M$ we shall denote by $E_{x}$ the fibre $\pi^{-1}(x)$ of $E$ over $x$. Let $E^{*}=\coprod\limits_{x\in M}E^{*}_{x}$, where $E^{*}_{x}$ the dual of the vector space $E_{x}$. We have a natural projection $\widetilde{\pi}:E^{*}\to M$. Let $U$ be an open covering of $M$ with 
+\[
+\xymatrix{
+\pi^{-1}(U_{\alpha})\ar[dr]_{\pi}\ar[rr]^{\tau} & & U_{\alpha}\times \mathbb{R}^{m}\ar[dl]\\
+ & U_{\alpha}
+}
+\]
+Let $\tau^{*}_{x}:(\mathbb{R}^{n})^{*}\to E^{*}_{x}$ be the transpose of $\tau_{x}:E_{x}\to \mathbb{R}^{n}$ and $\tau^{*-1}_{x}:E^{*}_{x}\to (\mathbb{R}^{n})^{*}$ the inverse isomorphism. The $\tau^{*-1}_{x}$ given :
+\[
+\xymatrix{
+\widetilde{\tau}_{\alpha}:\widetilde{\pi}^{-1}(U_{\alpha})\ar[dr]\ar[rr] & & U_{\alpha}\times (\mathbb{R}^{n})^{*}\simeq U_{\alpha}\times \mathbb{R}^{n}\ar[dl]\\
+ & U_{\alpha} &
+}
+\]\pageoriginale
+using that $(\mathbb{R}^{n})^{*}$ is naturally isomorphic to $\mathbb{R}^{n}$. Using the $\widetilde{\tau}_{\alpha}$ we define a structure of a vector bundle on $E^{*}$ with the property that for each $\alpha$, $\widetilde{\tau}_{\alpha}$ is an isomorphism of vector bundles. $E^{*}$ is called the {\em dual bundle} of $E$.
+
+The dual bundle of the tangent bundle $T(M)$ is called the {\em cotangent bundle}.
+
+Suppose that $\{\sigma_{1},\ldots,\sigma_{m}\}$ is a frame for $E$ over an open set $U$. For $x\in U$, let $\{\sigma^{*}_{1}(x),\ldots,\sigma^{*}_{m}(x)\}$ be the dual base of $E^{*}_{x}$ \{dual to the base $\sigma_{1}(x),\ldots,\sigma_{m}(x)$ of $E_{x}$\}. Let $\sigma^{*}_{i}$ be the section of $E^{*}$ given by $x\mapsto \sigma^{*}_{i}(x)$. Then $\{\sigma^{*}_{1},\ldots,\sigma^{*}_{m}\}$ is a frame for $E^{*}$ over $U$.
+
+If $E$ and $F$ are vector bundles over $M$, then $E\oplus F=\coprod\limits_{x\in M}E_{x}\oplus F_{x}$ has a natural structure of a vector bundle called the direct sum of $E$ and $F$. We shall also define the tensor product $E\otimes F$ of two vector bundles and the exterior products $\Lambda^{P}E$ of a vector bundle $E$.
+
+

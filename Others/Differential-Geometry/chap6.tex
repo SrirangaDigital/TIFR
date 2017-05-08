@@ -1,0 +1,119 @@
+\chapter{Flows and Lie Derivatives}
+
+\section*{Flows and local flows}
+\pageoriginale
+
+A smooth action of the additive group $\mathbb{R}$ on a smooth manifold $M$ is called a {\em flow} (or a one-parameter group of diffeomorphisms) on $M$. If $\varphi_{t}:M\to M$ is defined by $\phi_{t}(x)=\varphi(t,x)$, for $t\in \mathbb{R}$, we have $\varphi_{t+s}(x)=\phi_{t}\circ \phi_{s}(x)$, for $t$, $s\in \mathbb{R}$ and $x\in M$.
+
+A {\em local flow} on $M$ is a smooth map $\phi:I\times U\to M$, where $I$ is an open interval in $\mathbb{R}$ containing the origin and $U$ an open subset of $M$, satisfying the following conditions.
+\begin{itemize}
+\item[(1)] For any $t\in I$, the map $\phi_{t}:U\to M$ defined by $x\mapsto \varphi(t,x)$, $x\in U$, is a diffeomorphism of $U$ onto an open subset of $M$.
+
+\item[(2)] $\phi_{0}=\Iid_{U}$, where $\Iid_{U}$ is the identity map of $U$.
+
+\item[(3)] If $s$, $t$, $s+t\in I$ and $x$, $\phi_{t}(x)\in U$, then we have $\phi_{s+t}(x)=\phi_{s}(\phi_{t}(x))$.
+\end{itemize}
+(Note that since $\phi_{t}(x)\in U$, $\phi_{s}(\phi_{t}(x))$ is defined).
+
+A local flow is also called local one parameter group of (local) diffeomorphisms.
+
+\section*{Lie bracket of vector fields}
+
+Let $X$ and $Y$ be two vector fields defined in an open set $U$ of $M$. If $X$ is a vector field (over $U$) and $a\in U$, we denote the value of $X$ at $a$, which is an element of $T_{a}(M)$, by $X(a)$ or $X_{a}$.
+
+We now define a new vector field, $[X,Y]$, on $U$ by setting, for $a\in U$,
+$$
+[X,Y]_{a}(f)=X_{a}(Yf)-Y_{a}(Xf)
+$$
+where\pageoriginale $f$ is a smooth function defined in a neighbourhood of $\underline{a}$ and $Yf$ (resp. $Xf$) is the smooth function in a neighbourhood of a defined by $(Yf)(x)=Y_{x}f$ (resp. $(Xf)(x)=X_{x}f$). The vector field $[X,Y]$ is called the (Lie) bracket of $X$ and $Y$.
+
+The vector fields over $M$ form a Lie algebra over $\mathbb{R}$, under the bracket operation : i.e.,
+\begin{itemize}
+\item[(1)] $(X,Y)\mapsto [X,Y]$ is bilinear over $\mathbb{R}$
+$$
+\text{e.g.~ } [\lambda_{1}x_{1}+\lambda_{2}x_{2},Y]=\lambda_{1}[X_{1},Y]+\lambda_{2}[X_{2},Y],\lambda_{1},\lambda_{2}\in \mathbb{R}
+$$
+
+\item[(2)] $[X,X]=0$ (and $[X,Y]=-[Y,X]$).
+
+\item[(3)] Jacobi identity :
+$$
+[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0,
+$$
+for any three vector fields $X$, $Y$, $Z$.
+\end{itemize}
+
+\section*{The vector filed associated to a flow}
+
+Let $\varphi:\mathbb{R}\times M\to M$ be a flow on $M$.
+
+Let $a\in M$ and define $\chi_{a}:\mathbb{R}\to M$ by $\chi_{a}(t)=\phi(t,a)$. Let $X(a)=T_{0}(\chi_{a})\left(\left(\dfrac{d}{dt}\right)_{0}\right)$ where $\left(\dfrac{d}{dt}\right)_{0}$ is the value of the vector field $\dfrac{d}{dt}$ (on $\mathbb{R}$) at $0\in \mathbb{R}$. (Sometimes we write $T_{s}(\chi_{a})\left(\dfrac{d}{dt}\right)_{s}=\left(\dfrac{d\chi(t)}{dt}\right)_{s}$ for $s\in \mathbb{R}$). Then $a\mapsto X(a)$ is a vector field on $M$, denoted by $X$. This vector field is the vector field associated to the flow, or the infinitesimal transformation of the flow.
+
+\begin{lemma}\label{chap6-lem6.1}
+Let $s\in \mathbb{R}$. We have
+$$
+\left(\dfrac{d}{dt}\chi_{a}(t)\right)_{s}=x(X_{a}(s)).
+$$
+\end{lemma}
+
+Let\pageoriginale $X$ be a vector field on $X$ and $\wp : I\to M$ a smooth map, where $I$ is an open interval in $\mathbb{R}$. We say that $\wp$ is an integral curve of $X$, if for each $s\in \mathbb{R}$, we have
+$$
+\left(\dfrac{d}{dt}\wp (t)\right)_{s}=X(\wp(s)).
+$$
+By the above lemma, each of the `orbit maps' $\chi_{a}$ are integral curves for the vector field associated with the flow.
+
+\section*{Local flows associated to a vector field}
+
+\begin{theorem}\label{chap6-thm6.2}
+Let $X$ be a vector field over $M$ and $U$ a relatively compact open subset of $M$. Then there exists a local flow $\phi:I\times U\to M$ such that for $a\in U$, the map $t\mapsto \varphi(t,a)$ from $I$ to $M$ is an integral curve for the vector field $X$.
+\end{theorem}
+
+The result is proved using the following theorem on ordinary differential equations depending on parameters:
+
+Let $\Omega$ be an open subset of $\mathbb{R}^{n}$ and $F:\Omega\to \mathbb{R}^{n}$ a smooth map. Let $a\in \Omega$. Then there exist an interval $I$ containing $0$ and an open set $V$ in $\mathbb{R}^{n}$, $a\in V$, and a (unique) smooth map $\phi:I\times V\to \Omega$ such that
+\begin{itemize}
+\item[(1)] $\phi(0,x)=x$, $x\in V$
+
+\item[(2)] $\dfrac{\partial \phi(t,x)}{\partial t}=F(\phi(t,x))$, $t\in I$, $x\in V$.
+\end{itemize}
+
+\noindent
+{\bf Corollary \thnum{6.2.1.}\label{chap6-coro6.2.1}}~{\em Let $M$ be a compact manifold and $X$ a vector field on $M$. Then there exists a flow (unique) on $M$ whose associated vector field is $X$.}
+
+\begin{proof}
+Since\pageoriginale $M$ is compact we have by the theorem, a local flow $\phi:I\times M\to M$. Let $s\in \mathbb{R}$ and let $n$ be an integer such that $s/n\in I$. Put $\phi_{s}=(\phi_{s/n})^{n}=\phi_{s/n}\circ\ldots\circ \phi_{s/n}$ ($n$ times), i.e. $\phi(s,x)=\phi_{s}(x)$.
+\end{proof}
+
+\begin{remark}\label{chap6-rem6.3}
+Let $A:M\to N$ be a diffeomorphism and $X$ a vector field on $M$. We define a vector field $A_{*}(X)$ on $N$ by : 
+$$
+A_{*}(X)(y)=T_{A^{-1}(y)}(A)(X(A^{-1}y)),
+$$
+for $y\in N$. If $\varphi_{t}$ is the local flow generated by $X$ then $A\circ \varphi_{t}\circ A^{-1}$ is the local flow generated by $A_{*}(X)$. In particular, when $M=N$, we have $A_{*}(X)=X$ if and only if $A\circ \varphi_{t}\circ A^{-1}=\varphi_{t}$ i.e., $A$ and $\varphi_{t}$ commute. 
+\end{remark}
+
+\section*{Lie derivatives of vector fields with respect to a vector field}
+
+Let $X$ and $Y$ be vector fields on $M$. We shall define a vector field, $\theta_{X}(Y)$, called the Lie derivative of $Y$ with respect to $X$.
+
+Let $a\in M$. Let $\varphi_{t}$ be the local flow generated by $X$, defined in a neighbourhood of $a$ (We shall assume that $I$ is symmetric around $0$). Define $Z_{a}(t)\in T_{a}(M)$ by :
+$$
+Z_{a}(t)=T_{\varphi_{t}(a)}(\varphi^{-1}_{t})(Y(\varphi_{t}(a)))
+$$
+(Here $t\in I'$, where $0\in I'\subset I$ is an interval such that $\varphi_{t}(a)\in U$, for $t\in I'$)
+
+We define :
+$$
+\theta_{X}(Y)(a)=\dfrac{d}{dt}z_{a}(t)\big|_{t=0}
+$$
+where the term on the right is the derivative at $0$ of the function $t\mapsto Z_{a}(t)$\pageoriginale which has values in the (finite dimensional) vector space $T_{a}(M)$. Using the chain rule we have
+
+\begin{lemma}\label{chap6-lem6.4}
+
+\end{lemma}
+
+
+
+
+
+
