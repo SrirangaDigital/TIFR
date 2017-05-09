@@ -1,0 +1,110 @@
+\chapter{Principal Bundles and Associated Bundles}
+
+\section*{Principal bundles}
+
+\label{page43}
+
+Let $U$ be a manifold and $G$ a Lie group. We make $G$ act on $U\times G$ on the right as follows: $((x,s),g)\mapsto (x,sg)$, for $x\in U$, $s$, $g\in G$. Note that the action of $G$ is free i.e., if $y\in U\times G$ and $yg=g$, $g\in G$, then $g=e$. Moreover given $y_{1}$, $y_{2}$ with $\pr_{U}(y_{1})=\pr_{U}(y_{2})$ then there exists a unique element $g\in G$ with $y_{2}=y_{1}g$ i.e., $G$ acts simply transitively on the fibres of the map $U\times G\to U$.
+
+We now consider the situation where a Lie group $G$ acts on a manifold $p$, where the situation is `locally' as above.
+
+\begin{defi*}
+Let $\pi:P\to M$ be a map of smooth manifolds. Suppose that a Lie group $G$ acts on the right on $P$ and that every point $x\in M$ has a neighbourhood $U$ and a diffeomorphism $\tau : U\times G\to \pi^{-1}(U)$ such that
+\begin{itemize}
+\item[(i)] the diagram
+\[
+\xymatrix{
+U\times G\ar[dr]_{p_{U}}\ar[rr]^-{\tau} & & \pi^{-1}(U)\ar[dl]^{\pi}\\
+ & U & 
+}
+\]
+commutes, and
+
+\item[(ii)] $\tau(x,sg)=\tau(x,s)g$, for $x\in P$, $s$, $g\in G$. Then we say that $P$ is\pageoriginale a principal handle over $M$ with structure group $G$, or simply that $P$ is a principal $G$-bundle over $M$.
+\end{itemize}
+\end{defi*}
+
+\begin{remarks*}
+\begin{itemize}
+\item[(1)] $G$ acts freely on $P$.
+
+\item[(2)] $G$ acts simply transitively on each fibre of $\pi:P\to M$.
+\end{itemize}
+\end{remarks*}
+
+\section*{The bundle of frames associated to a vector bundle}
+
+As an example of a principal bundle, we shall associate to a vector bundle $E$ of rank $m$ over $M$, a principal bundle over $M$ with $\GL(m,\mathbb{R})$ as structure group, called the bundle of frames of $E$. Let $P$ be the set of linear isomorphisms of $\mathbb{R}^{m}$ into the fibres of $E$ (If $\varphi:\mathbb{R}^{m}\to E_{x}$ is an isomorphism and $(e_{1},\ldots,e_{m})$ is the canonical basis in $\mathbb{R}^{m}$, then $(\varphi(e_{1}),\ldots,(e_{m}))$ is a basis in $E_{x}$; conversely given a basis $(f_{1},\ldots,f_{m})$ of $E_{x}$ there exists a unique isomorphism of $\mathbb{R}^{m}$ into $E_{x}$ sending $e_{i}$ into $f_{i}$. Thus $P$ can be identified with the set of basis (`frames') in the different fibres of $E$. This explains the terminology). We make $\GL(m,\mathbb{R})$ act on $P$ as follows: if $x\in M$, $\varphi:\mathbb{R}^{m}\to E_{x}$ an isomorphism and $g\in \GL(m,\mathbb{R})$, then $((x,\varphi),g)\mapsto (x,\varphi\circ g)$, $g$ being considered as an isomorphism $\mathbb{R}^{m}\to \mathbb{R}^{m}$. $P$ has a natural structure of a manifold (in fact it is an open subset of $E\otimes\cdot\otimes E$, $m$ times) and becomes a principal $\GL(m,\mathbb{R})$ bundle under this action.
+
+Note that if there is a smooth section of $P$ (i.e., a smooth map $\sigma:M\to P$, with $\pi\circ \sigma=\Iid_{M}$) the vector bundle $E$ is trivial.
+
+\section*{Morphisms of bundles. Gauge transformations}
+
+Let $P$ and $P'$ be principal $G$-bundles over $M$ and $M'$ respectively. A morphism or a bundle homomorphism from $P$ to $P'$ is a smooth\pageoriginale map $h:P\to P'$ such that $h(pg)=h(p)\cdot g$, for $p\in p$ and $g\in G$.
+
+It is easily seen that $h$ induces a smooth map $\underline{h}:M\to M'$ such that the diagram
+\[
+\xymatrix@=1.5cm{
+P\ar[d]^{\pi}\ar[r]^{h} & P'\ar[d]^{\pi'}\\
+M\ar[r]_{\underline{h}} & M'
+}
+\]
+commutes.
+
+If $M=M'$ and if there is a morphism $h:P\to P'$ such that the induced map $\underline{h}:M\to N$ is the identity we say that $P$ and $P'$ are isomorphic. (In this case it is easy to see that $h:P\to P'$ is bijective and $h^{-1}:P'\to P$ is a morphism).
+
+If $P$ is a principal $G$-bundle over $M$, a morphism of $P$ into $P$, which induces identity on the base is called a gauge transformation (such a morphism is an automorphism of $P$). The gauge transformations of $P$ form a group, called the group of gauge transformations of the principal, bundle $G$.
+
+A bundle isomorphic to the trivial bundle $M\times G$ is called trivial.
+
+\begin{proposition}\label{chap10-prop10.1}
+Let $P$ be a principal $G$ bundle over $M$. Then the following conditions are equivalent.
+\begin{itemize}
+\item[\rm(1)] $P$ is trivial.
+
+\item[\rm(2)] There exists a smooth section $\sigma:M\to P$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+(1)\pageoriginale $\Rightarrow$ (2) is clear, since the trivial bundle admits for instance the section $x\mapsto (x,e)$. To prove (2) $\Rightarrow$ (1) let $h'(P)$ be the unique element in $G$ such that $\sigma(\pi(p))h'(p)=p$, for $p\in P$. Then $h:P\to M\times G$ defined by $h(p)=(\pi(p),h'(p))$ is an isomorphism of $G$-bundles.
+\end{proof}
+
+\section*{Associated bundles}
+
+Let $P$ be a principal $G$-bundle over $M$ and $F$ a manifold with a left action of $G$. Consider the action of $G$ on $P\times F$ given by:
+$$
+((p,f),g)\mapsto (pg,g^{-1}f).
+$$
+One can show that $P\times F$ is a principal $G$-bundle over the quotient space $(P\times F)/G$. We denote $(P\times F)/G$ by $\fprod{P}{F}{G}$. The map $(p,f)\mapsto \pi(p)$ induces a map $\fprod{P}{F}{G}\to M$, which is called the bundle associated to $P$ by the action of $G$ on $F$. If $p\in P$, $p$ induces a diffeomorphism of $F$ with the fibre over $\pi(p)$ of the map $\fprod{P}{F}{G}\to M$.
+
+Any structure on $F$ invariant under the action can be put on the fibres of the associated bundle.
+
+As an example let $F$ be a finite dimensional vector space and $\rho:G\to \Aut(F)$ be a (smooth) homomorphism so that $G$ acts on $F$ by linear transformations. Then $\fprod{P}{F}{G}$ is a vector bundle over $M$, called the vector bundle associated to the representation $\rho$. 
+
+\section*{Extension and restriction of the structure group}
+\pageoriginale
+
+Let $P$ be a principal $G_{1}$ bundle and $\rho:G_{1}\to G_{2}$ a homomorphism of Lie groups. We can then define a principal $G_{2}$-bundle over $M$, as follows. $G_{1}$ operates on $G_{2}$ by $(g_{1},g_{2})\mapsto \rho(g_{1})\cdot g_{2}$, $g_{i}\in G_{i}$. The action of $G_{2}$ on $P\times G_{2}$ given by $(p,s)s'=(p,ss')$, $p\in P$, $s$, $s'\in G_{2}$ goes over into an action of $G_{2}$ on the associated bundle $\fprod{P}{G_{2}}{G_{1}}$ and makes of it a principal $G_{2}$ bundle. This $G_{2}$ is bundle is said to be obtained by extension of the structure group by $\rho$.
+
+Suppose that $H$ is a Lie subgroup of $G$ and $P$ a $G$-bundle over $M$. If there exists an $H$-principal bundle $Q$ over $M$ such that the $G$-bundle, obtained from $Q$ by extension of the structure group by the inclusion map $H\to G$, is isomorphic to $P$ (as a $G$-bundle), we say that the structure group of $P$ can be reduced to $H$.
+
+\section*{The pull-back (or inverse image) of a bundle}
+
+Let $P$ be a principal $G$-bundle over $M$ and $f:N\to M$ be a smooth map of manifolds. Let $\fprod{P}{M}{N}$ be the subset of $P\times N$ consisting of points $(p,y)$ with $\pi(p)=f(y)(p\in P,y\in N)$. $G$ acts on $\fprod{P}{M}{N}$ by $(p,y)g=(pg,y)$. With this action $\fprod{P}{M}{N}$ becomes a principal $G$-bundle on $N$, called the pull-back of $P$ by $f$ (and sometimes denoted by $f^{*}(P)$). We have a commutative diagram
+\[
+\xymatrix@=1.5cm{
+f^{*}(P)\ar[r]\ar[d] & P\ar[d]^{\pi}\\
+N\ar[r]_-{f} & M
+}
+\]
+(The\pageoriginale maps $f^{*}(P)\to P$ and $f^{*}(P)\to N$ are given by the restrictions of the projections of $P\times N$ onto $P$ and $N$ respectively.)
+
+
+
+
+
+
+
+
+
