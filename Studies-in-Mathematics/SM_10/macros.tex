@@ -418,3 +418,25 @@ leftmargin=15mm,rightmargin=15mm,footskip=0.6cm]{zwpagelayout}
 
 \renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname}\hspace{0.3em}}
 \makeatother
+
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\section*{\bibname}%
+      \@mkboth{\slshape\small\bibname}{\slshape\small\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
