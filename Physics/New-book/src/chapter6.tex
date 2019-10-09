@@ -1,0 +1,296 @@
+\chapter{}\label{chap6}
+
+\section*{Theory of Group Representation}
+
+\subsection*{Representation}
+An group of concrete mathematical entities, which is homomorphic to the original group is called representation.
+
+We restrict ourselves to square matrix representation.
+
+If $\Gamma(A)$ is a matrix representing group element $A$.
+
+Then \fbox{$\Gamma(A)\cdot \Gamma(B)=\Gamma(AB)$}.
+\begin{itemize}
+\item They must satisfy group multiplication table.
+
+\item $\Gamma(E)=E$, the unit matrix.
+
+\item No. of rows/columns $\to$ dimensionality of the representation.
+
+\item If each element is represented by a distinct matrix, two groups are isomorphic and the representation is called {\bf True} or {\bf Faithful} representation.
+
+\item Several elements can be represented by a single matrix $\to$ homomorphic case.
+\begin{itemize}
+\item[(a)] {\em Elements Corresponding to unit matrix form an invariant subgroup.}
+
+\item[(b)] {\em Elements Corresponding to each of the other matrices of the representation form distinct coset of the invariant subgroup}.
+
+\item[(c)] These matrices form a true representation of the Factor Group of this invariant subgroup.
+\end{itemize}
+
+\item $2\times 2$ matrices introduced earlier form a true representation of the example group.
+
+\item Another representation can be the determinants of the matrices as $|\Gamma(A)|\cdot |\Gamma(B)|=|\Gamma(A)\Gamma(B)|=|\Gamma(AB)|$.
+
+\item This operation reduces the matrices to ordinary numbers. e.g., $\pm 1$ give an one dimensional representation.
+
+This is no longer a true representation as many elements are represented by single number.
+
+{\bf 2 matrices for 6 elements!}
+
+\item All elements may be associated to unit `element $\to$ {\bf identical representation}'
+
+\item Similarity transformation leaves matrix equation unchanged. e.g.,
+\begin{align*}
+\Gamma'(A) &= S^{-1}\Gamma(A)S\\
+\therefore\quad \Gamma'(A)\Gamma'(B) &= S^{-1}\Gamma(A)SS^{-1}\Gamma(B)S\\
+ &= S^{-1}\Gamma(A)\Gamma(B)S=S^{-1}\Gamma(AB)S=\Gamma'(AB)
+\end{align*}
+$\therefore$ \ $\Gamma'$ form a representation if $\Gamma$ does.
+
+$\Rightarrow$ \ All these representations created by various `$S$' are {\bf equivalent} $\Rightarrow$ Operations are same, coordinate system may have changed.
+\end{itemize}
+
+\noindent
+{\bf Reducible representation :} say $\Gamma^{(1)}(A)$ and $\Gamma^{(2)}(A)$ are two representation of $A$. Then $\Gamma(A)=\left(\begin{smallmatrix} \Gamma^{(1)}(A) & 0\\ 0 & \Gamma^{(2)}(A)\end{smallmatrix}\right)$ is also a representation of $A$.
+
+[One can conceal this block form by similarity transformation]
+
+$\Gamma(A)$ is called reducible representation of $A$.
+
+\subsection*{Irreducible representation}
+
+If a representation cannot be reduced to a representation of lower dimensionality, it is called {\bf irreducible representation}.
+
+Reducible representations can be reduced to block form by similarity transformation and it is expressed as,
+$$
+\Gamma=\Gamma^{(1)}+\Gamma^{(2)}\Rightarrow \Gamma=\sum\limits_{i}a_{i}\Gamma^{(1)}
+$$
+$a_{i}$ is an integer telling how often $\Gamma^{(i)}$ appears in $\Gamma$.
+
+\section*{In Quantum Mechanics}
+\begin{itemize}
+\item Each irreducible representation display the transformation property of a set of degenerate eigen functions.
+
+\item No. of irreducible representation = No. of distinct energy levels.
+\end{itemize}
+
+\section*{Orthogonality Theorem}
+
+\begin{lemma*}
+Any representation by matrices with non-vanishing determinants is equivalent through a similarity transformation to a representation by unitary matrices.
+\end{lemma*}
+
+\begin{proof}
+Lets assume matrix $A_{i}$ represents the element $A_{i}$. Then we can construct a Hermitian matrix
+$$
+H=\sum\limits^{h}_{i=1}A_{i}A^{+}_{i}
+$$
+Hermition $\Rightarrow H^{+}=H$ as $H^{*}_{ji}=H_{ij}$.
+
+We know Hermitian matrix can be diagonalized by unitary matrix transformation made up from orthonormal eigen vectors found by solving the seaslar equation $H\psi=E\psi$
+\begin{align*}
+\therefore\quad d &= U^{-1}HU=\sum\limits^{h}_{i=1}U^{-1}A_{i}A_{i}^{+}U\\
+                  &= \sum\limits^{h}_{i=1}U^{-1}A_{i}UU^{-1}A_{i}^{+}U=\sum\limits^{h}_{i=1}A'_{i}A'^{+}_{i}\quad \fbox{$A'_{i}=U^{-1}A_{i}V$}
+\end{align*}
+$d$ is diagonal and has real positive elements.
+
+$\therefore$ \ one can form diagonal matrices $d^{\frac{1}{2}}$ and $d^{\frac{-1}{2}}$ 
+
+$\therefore$ \ We can write
+$$
+E=d^{\frac{-1}{2}}\sum\limits^{h}_{i=1}A'_{i}A'^{+}_{i}d^{\frac{-1}{2}}
+$$
+$E\to$ unit matrix.
+
+We can define a new set of elements $A''_{j}=d^{\frac{-1}{2}}A'_{j}d^{\frac{1}{2}}$
+\begin{align*}
+\therefore~ A''_{j}A''^{+}_{j} &= d^{\frac{-1}{2}}A'_{j}d^{\frac{1}{2}}\left[d^{\frac{-1}{2}}\sum\limits_{i}A'_{i}A'^{+}_{i}d^{\frac{-1}{2}}\right]d^{\frac{1}{2}}A'^{+}_{j}d^{\frac{-1}{2}}\\
+A''^{+}_{j} &= d\left(d^{\frac{-1}{2}}A'_{j}d^{\frac{1}{2}}\right)^{+}\\
+&= d^{\frac{-1}{2}}\sum\limits_{i}A'_{j}A'_{i}A'^{+}_{i}A'^{+}_{j}d^{\frac{-1}{2}}\\
+&= d^{\frac{-1}{2}}\sum\limits_{i}A'_{j}A'_{i}(A'_{j}A'_{i})^{+}d^{\frac{-1}{2}}\\
+&= d^{\frac{-1}{2}}\sum\limits_{k}A'_{k}A'^{+}_{k}A'^{+}_{k}d^{\frac{-1}{2}}=E \Leftarrow \text{using rearrangement theorem.}
+\end{align*}
+$A''_{j}A''^{+}_{j}=E\Rightarrow A''_{j}$ is unitary matrix. Hence, one can always construct \fbox{$A''_{j}=d^{\frac{-1}{2}}U^{-1}A_{j}U d^{\frac{1}{2}}$} which is unitary.
+\end{proof}
+
+\noindent
+{\bf Schur's Lemma:}~Any matrix, which commutes with all matrices of an irreducible representation must be a constant matrix.
+
+$\Rightarrow$ If a non-constant commuting matrix exists, the representation is reducible.
+
+\begin{proof}
+Let $M$ be the commuting matrix. $A_{i}M=MA_{i}$, $i=1,2\ldots h$ $\therefore$ $M^{+}A_{i}^{+}=A^{+}_{i}M^{+}$.
+
+Multiply $A_{i}$ on both sides. $\Rightarrow A_{i}M^{+}=M^{+}A_{i}$ assuming $A^{+}_{i}A_{i}=E$ from Lemma 1.
+
+$\therefore$ if $M$ commutes, $M^{+}$ also commutes.
+
+$\therefore$ We can form Hermitian matrices. $H_{1}=M+M^{+}$ and $H_{2}=i(M-M^{+})$
+\begin{itemize}
+\item Now, Hermitian matrices can be reduced to diagonal matrix via unitary transformation.
+
+\item Since $H_{1}$ and $H_{2}$ are Hermitian 
+
+$\therefore$ $H_{1}$ and $H_{2}$ can be diagonalized.
+
+$\therefore$ $M=H_{1}-iH_{2}$ can also be diagonalized.
+$$
+\therefore \ d=U^{-1}MU
+$$
+$d\to$ diagonal matrix.
+
+Lets define $A'_{i}=U^{-1}A_{i}U$
+$$
+\therefore\quad A'_{i}d=dA'_{i}
+$$
+invariance of matrix equations under unitary transformation. We have to show $d$ is constant. 
+\begin{gather*}
+A'_{i}d=dA'_{i}\Rightarrow (A'_{i})_{\mu\nu}d_{\mu\nu}=d_{\mu\mu}(A'_{i})_{\mu\nu}\\
+a\cdot (A'_{i})_{\mu\nu}(d_{\nu\nu}-d_{\mu\mu})=0\quad i=1,2,\ldots h
+\end{gather*}
+If $d_{\nu\nu}\neq d_{\mu\mu}\Rightarrow (A'_{i})_{\mu\nu}=0$ for all $A'_{i}$ and hence $U$ has brought $A_{i}$ to block form off diagonal $=0$ element.
+
+If representation s irreducible \fbox{$d_{\nu\nu}=d_{\mu\mu}$} $\Rightarrow$ constant.
+\end{itemize}
+\end{proof}
+
+\setcounter{lem}{2}
+\begin{lem}\label{lec6-lem3}
+If we have two irreducible representation of the same group $\Gamma^{(1)}(A_{i})$ and $\Gamma^{(2)}(A_{i})$ of dimensionality $l_{1}$ and $l_{2}$ and if a rectangular matrix $M$ exists such that
+\begin{equation*}
+\fbox{$M\Gamma^{(1)}(A_{i})=\Gamma^{(2)}(A_{i})M$} \ i=1,2,\ldots h\tag{A}\label{lec6-eqA}
+\end{equation*}
+then
+\begin{itemize}
+\item[(i)] if $l_{1}\neq l_{2}$, $M=0$
+\item[(ii)] if $l_{1}=l_{2}$, $M=0$ or $|M|\neq 0$
+\end{itemize}
+for $|M|\neq 0$ case, $M$ has an inverse and hence one can write
+$$
+\fbox{$M\Gamma^{(1)}(A_{i})M^{-1}=\Gamma^{(2)}(A_{i})$}
+$$
+$\Gamma^{(1)}$ and $\Gamma^{(2)}$ are equivalent.
+\end{lem}
+
+\begin{proof}
+Again consider unitary representation from Lemma 1 and assume $l_{1}\leq l_{2}$ without loss of generality.
+
+Take adjoint of equation \eqref{lec6-eqA}
+$$
+\Gamma^{(1)}(A_{i})^{+}M^{+}=M^{+}\Gamma^{(2)}(A_{i})^{+}
+$$
+as,
+$$
+\Gamma^{(1)}(A^{-1}_{i})M^{+}=M^{+}\Gamma^{(2)}(A^{-1}_{i})
+$$
+$A_{i}\to$ Unitary
+
+$\therefore \ A^{+}_{i}=A^{-1}_{i}$
+
+$\therefore \ \Gamma(A_{i})^{+}=\Gamma(A_{i})^{-1}=\Gamma(A^{-1}_{i})$
+
+Use equation \eqref{lec6-eqA} for $A^{-1}_{i}$ as well as $A_{i}$
+
+Premultiply by $M$
+$$
+\therefore  \ \Gamma^{(2)}(A^{-1}_{i})M_{1}M^{+}=MM^{+}\Gamma^{(2)}(A^{-1}_{i})
+$$
+$M\Gamma^{(1)}(A^{-1}_{i})$
+
+$\therefore \ MM^{+}$ commutes with all matrices in $\Gamma^{(2)}$
+
+$\therefore \ MM^{+}=CE$
+
+Consider first $l_{1}=l_{2}$ \ $\therefore \ M$ is a square matrix.
+$$
+\therefore\quad |M|=C^{l_{1}}
+$$
+\begin{itemize}
+\item[(ii)] If $C\neq 0$, $|M|\neq 0 \ \therefore \ M$ has an inverse
+
+$\therefore \ \Gamma^{(1)}$ and $\Gamma^{(2)}$ are equivalent.
+
+if $C=0$, then $MM^{+}=0 \ \therefore \ \sum\limits_{\nu}M_{\mu\nu}M^{+}_{\nu\lambda}=0$ for all $\mu$, $\lambda$
+
+if $\mu=\lambda \ \Rightarrow \ \sum\limits_{\nu}|M_{\mu\nu}|^{2}=0 \ \therefore \ M_{\mu\nu}=0 \ \Rightarrow \ M=0$
+
+\item[(i)] Now, $l_{1}<l_{2}$ case $M$ has $l_{1}$ column and $l_{2}$ rows.
+
+We can fill $M$ to $l_{2}\times l_{2}$ matrix by putting `$0$' in $(l_{2}-l_{1})$ columns. From inspection the New matrix $N$ is such that $NN^{+}=MM^{+}$ since $N$ has `$0$' filled columns. 
+
+$|N|=0 \ \therefore \ MM^{+}$ has `$0$' determinant.
+$$
+MM^{+}=CE \Rightarrow C=0 \ \therefore \ M=0
+$$
+\end{itemize}
+\end{proof}
+
+\section*{Great Orthogonality Theorem}
+
+If we consider all inequivalent, irreducible, unitary representations of a group, then
+$$
+\fbox{$\sum\limits_{R}\Gamma^{(i)}(R)^{*}_{\mu\nu}\Gamma^{(i)}(R)_{\alpha\beta}=\dfrac{h}{l_{i}}\delta_{ij}\delta_{\mu\alpha}\delta_{\nu\beta}$}
+$$
+$R=E,A_{2}\ldots A_{n}$; $l_{i}$ is dimensionality of $\Gamma^{(i)}$.
+
+\begin{proof}
+Lets consider the case of two inequivalent representation $\Gamma^{(1)}$ and $\Gamma^{(2)}$. Then we may construct a matrix $M$ satisfying Lemma \ref{lec6-lem3}.
+$$
+M=\sum\limits_{R}\Gamma^{(2)}(R)\times \Gamma^{(1)}(R^{-1})
+$$
+(row $\times$ column) $X\to$ arbitrary $l_{2}\times l_{1}$ matrix.
+\begin{align*}
+\therefore \ \Gamma^{(2)}(S)M &= \sum\limits_{R}\Gamma^{(2)}(S)\Gamma^{(2)}(R)\times \Gamma^{(1)}(R^{-1})\\[3pt]
+&= \sum\limits_{R}\Gamma^{(2)}(S)\Gamma^{(2)}(R)\times \Gamma^{(1)}(R^{-1})\Gamma^{(1)}(S^{-1})\Gamma^{(1)}(S)\\[3pt]
+&= \sum\limits_{R}\Gamma^{2}(SR)\times \Gamma^{1}((SR)^{-1})\Gamma^{(1)}(S)\\
+&\qquad \text{via rearrangement theorem}\\
+&= \left[\sum\limits_{R}\Gamma^{(2)}(R)\times \Gamma^{(1)}(R^{-1})\right]\Gamma^{(1)}(S)
+\end{align*}
+\begin{gather*}
+\therefore \ \fbox{$\Gamma^{(2)}(S)M=M\Gamma^{(1)}(S)$}\Rightarrow M=0\\
+\therefore \ M_{\alpha\mu}=0=\sum\limits_{R}\sum\limits_{k\lambda}\Gamma^{(2)}(R)_{\alpha k}X_{k\lambda}\Gamma^{(1)}(R)_{\lambda \mu}
+\end{gather*}
+Since $X$ is arbitrary, we may set $X_{k\lambda}=0$ except $X_{\beta \nu}=1$
+$$
+\therefore \ \sum\limits_{R}\Gamma^{(2)}(R)_{\alpha\beta}\Gamma^{(1)}(R^{-1})_{\nu\mu}=0
+$$
+using unitary property of $\Gamma^{(1)}$ we have the equivalent form
+\begin{equation*}
+\fbox{$\sum\limits_{R}\Gamma^{(1)}(R)^{*}_{\mu\nu}\Gamma^{(2)}(R)_{\alpha\beta}=0$}\tag{1}\label{lec6-eq1}
+\end{equation*}
+$\Rightarrow$ \ completes proof of $\delta_{ij}$.
+\end{proof}
+
+Now lets consider $i=j=1$
+$$
+\therefore\quad M=\sum\limits_{R}\Gamma^{(1)}(R)\times \Gamma^{(1)}(R^{-1})
+$$
+using Schar's Lemma $M=CE$
+
+Thus taking $\mu\mu'$ element
+$$
+\sum\limits_{k,\lambda}\sum\limits_{R}\Gamma^{(1)}(R)_{\mu k}X_{k\lambda}\Gamma^{(1)}(k^{-1})_{\nu\mu'}=c\delta_{\mu\mu'}
+$$
+Choose $X_{k\lambda}=0$ and $X_{\nu\nu'}=1$
+
+Then
+$$
+\sum\limits_{k}\Gamma^{(1)}(R)_{\mu\nu}\Gamma^{(1)}(R^{-1})_{\nu'\mu'}=C_{\nu\nu'}\delta_{\mu'\mu'}
+$$
+Now, if $\mu=\mu'$ and take sum over $\mu$
+\begin{align*}
+& \sum\limits_{R}\sum\limits_{\mu}\Gamma^{(1)}(R)_{\mu\nu}\Gamma^{(1)}(R^{-1})_{\nu'\mu}=C_{\nu\nu'}\sum\limits_{\mu}\delta_{\mu\mu}\\
+\text{or}\quad & \fbox{$\sum\limits_{R}\Gamma^{(1)}(R^{-1}R)_{\nu'\nu}=l_{1}C_{\nu\nu'}$} \ l_{1}\to \text{dimension}
+\end{align*}
+\fbox{L.H.S. $=\sum\limits_{R}\Gamma^{(1)}(E)_{\nu'\nu}=h\Gamma^{(1)}(E)_{\nu'\nu}=h\delta_{\nu'\nu}$}
+
+\smallskip
+
+From above two equations
+\begin{align*}
+l_{i}C_{\nu\nu'} &= h\delta_{\nu'\nu}\\
+c,C_{\nu\nu'} &= \dfrac{h}{l_{i}}\delta_{\nu'\nu}\\
+\therefore\quad \sum\limits_{R}\Gamma^{(1)}(R)_{\mu\nu}\Gamma^{(1)}(R^{-1})\nu'\nu' &= \dfrac{h}{\mu}\delta_{\mu'\mu}\delta_{\nu'\nu}
+\end{align*}
+
