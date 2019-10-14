@@ -208,6 +208,94 @@ $$
 No. of times various irreducible representation appear in a reducible representation is uniquely determined by the character of the reducible representation $\to$ provided the character table of the group is known.
 
 \section*{Regular representation}
-%page 19
 
+Make a group multiplication table as
+\begin{itemize}
+\item[(i)] Elements along now and their inversed along column.
 
+\item[(ii)] For element $R\to$ put $R=1$ and all others $=0$
+
+the representation is a regular representation of $R$.
+\end{itemize}
+
+\begin{example*}
+For our example group.
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+ & E & A & B & C & D & F\\
+\hline
+E^{-1} & E & A & B & C & D & F\\
+\hline
+A^{-1} & A & E & D & F & B & C\\
+\hline
+B^{-1} & B & F & E & D & C & A\\
+\hline
+C^{-1} & C & D & F & E & A & B\\
+\hline
+D^{-1} & F & B & C & A & E & D\\
+\hline
+F^{-1} & D & C & A & B & F & E\\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+{\bf Figures}
+\end{center}
+\begin{align*}
+\therefore\quad \Gamma^{\text{reg}}(A) &= 
+\left(
+\begin{matrix}
+0 & 1 & 0 & 0 & 0 & 0\\
+1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0
+\end{matrix}
+\right)\\
+\therefore\quad X^{\text{[reg]}}(E) &=h\quad X^{\text{reg}}(R)=0\quad \text{for}\quad R\neq E
+\end{align*}
+We want to prove the following
+$$
+\fbox{$\Gamma^{\text{reg}}(BC)_{A^{-1}_{k}A_{i}}=\sum\limits_{A_{j}}\Gamma^{\text{reg}}(B)_{A^{-1}_{k}A_{j}}\Gamma^{\text{reg}}(C)_{A^{-1}_{j}A_{i}}$}
+$$
+$A_{i}$, $A_{j}$, $A_{k}\to$ are row and column indices in rearranged multiplication table.
+\end{example*}
+
+Take R.H.S.
+\begin{align*}
+\Gamma^{\text{reg}}(B)_{A^{-1}_{k}A_{j}} &= \left[\left.
+\begin{array}{l}
+1 \text{ when } A_{k^{-1}}A_{j}=B\\
+0 \text{ otherwise}
+\end{array}
+\right|\right.\quad \text{from definition}\\
+\Gamma^{\text{reg}}(C)_{A^{-1}_{j}A_{i}} &= \left[
+\begin{array}{l}
+1 \text{ when } A^{-1}_{j}A_{1}=C\\
+=0 \text{ otherwise}
+\end{array}
+\right.
+\end{align*}
+$\therefore \ $ R.H.S. will be unity when $BC=(A_{k^{-1}}A_{j})(A_{j^{-1}}A_{i})=A_{k^{-1}}A_{i}$.
+
+This is the left hand side.
+
+$\therefore \ $ \fbox{$\Gamma^{\text{reg}}(BC)=\Gamma^{\text{reg}}(B)\Gamma^{\text{reg}}(C)$}
+
+$\therefore \ \Gamma^{\text{reg}}$ forms a representation.
+
+\smallskip
+
+\noindent
+\textbf{Celebrated Theorem:}~ A regular representation contains each irreducible representation a number of times equal to its dimensionality $\to\Gamma^{(i)}$ appears $l_{i}$ times.
+
+\begin{proof}
+We know $a_{j}=\dfrac{1}{h}\sum\limits_{R}x^{j}(R)X^{\text{reg}}(R)=\dfrac{1}{h}X^{(j)}(E)\cdot h=l_{j}$ as $X^{\text{reg}}(E)=h$ and $X^{\text{reg}}(R)=0$ for $R\neq E$ (prooved)
+
+Now, dimensionality of $\Gamma^{\text{reg}}=h=$ sum of dimensionalities of all irreducible representation.
+$$
+\therefore\quad \fbox{$h=\sum\limits_{j}l_{j}\times l_{j}=\sum\limits_{j}l^{2}_{j}$}\quad\text{OR}\quad \fbox{$h=\Gamma^{\text{reg}}(E)=\sum\limits_{i}l_{i}X^{i}(E)=\sum\limits_{i}l_{i}^{2}$}
+$$
+\end{proof}

@@ -1,0 +1,268 @@
+\chapter{}\label{lec9}
+
+\section*{Start from projection operator}
+
+Multiply $\Gamma^{(i)}(R)^{*}_{\lambda'k'}$ from the left and employ great orthogonality theorem -
+\begin{align*}
+\sum\limits_{R}\Gamma^{(i)}(R)^{*}_{\lambda'k'}P_{R}\phi^{(j)}_{k} &= \sum\limits_{R}\sum\limits_{\lambda}\Gamma^{(i)}(R)^{*}_{\lambda'k'}\phi^{(j)}_{\lambda}\Gamma^{(j)}(R)_{\lambda k}\\
+&= \frac{h}{l_{j}}\delta_{ij}\delta_{kk'}\phi^{(j)}_{\lambda'}\\
+\therefore\quad \phi^{(j)}_{\lambda}=\frac{l_{j}}{h}\sum\limits_{R}\Gamma^{(j)}(R)^{*}_{\lambda k}P_{R}\phi^{(j)}_{k}=P^{(j)}_{\lambda k}\phi^{(j)}_{k}
+\end{align*}
+Here
+$$
+\fbox{$P^{(j)}_{\lambda k}=\frac{l_{j}}{h}\sum\limits_{R}\Gamma^{(j)}(R)^{*}_{\lambda k} P_{R}$}
+$$
+So if we know $\phi^{(j)}_{k}$ we can get all the partners by employing $P^{(j)}_{\lambda k}$ on $\phi^{(j)}_{k}$.
+\begin{gather*}
+P^{(j)}_{kk}\phi^{(j)}_{k}=\dfrac{l_{j}}{h}\sum\limits_{R}\Gamma^{(j)}(R)^{*}_{kk}P_{R}\phi^{(j)}_{k}-\mathfrak{g}_{h}\sum\limits_{R}\sum\limits^{l_{j}}_{\lambda=1}\Gamma^{(j)}(R)^{*}_{kk}\Gamma^{(j)}(R)_{\lambda k}\phi^{(j)}_{\lambda}\\
+a, \ \fbox{$P^{(j)}_{kk}\phi^{(j)}_{k}=\phi^{(j)}_{k}$}
+\end{gather*}
+
+\begin{theorem*}
+If $\Gamma^{(1)}$, $\Gamma^{(2)}\ldots \Gamma^{(l)}$ are all the distinct irreducible representation of a group operator, $P_{R}$, then any function $F$ in the space operated on by $P_{R}$ can be decomposed into the form
+$$
+\fbox{$F=\sum\limits^{C}_{j=1}\sum\limits^{l_{i}}_{k=1}f^{(j)}_{k}$}
+$$
+$f^{(j)}_{k}$ belongs to $k^{\text{th}}$ row of $j^{\text{th}}$ irred repr.
+\end{theorem*}
+
+\begin{proof}
+Consider $F_{1}F'_{2}$, $F'_{3}\ldots F'_{n}$ are obtained via operation of $P_{E}$, $P_{A_{2}},P_{A_{3}}\ldots P_{A_{n}}$ on $F$. Discard all function not linearly independent of the others.
+
+Say $F_{1}F_{2}\ldots F_{n}$ are `$n$' distinct functions remaining from above group. Orthogonalize them.
+
+These functions form the basis of a unitary representation of the group \fbox{$P_{S}P_{R}F=P_{SR}F$} satisfie in the space spanned by the set by construction.
+
+Say, $F_{1},F_{2},F_{3}\ldots F_{n}$ form $n$-dimensional representation $\Gamma$
+$$
+\therefore\quad P_{R}F_{k}=\sum\limits^{n}_{i=1}F_{i}\Gamma(R)_{i_{k}}
+$$
+\begin{itemize}
+\item[(i)] If $\Gamma$ is irreducible representation $F_{k}$ belong to a particular row, `$k$' of the representation.
+
+\item[(ii)] If $T$ is not irreducible, then $\Gamma$ can be brought to block form by a similarity {\bf transformation}.
+\begin{equation*}
+\alpha\Gamma(R)\alpha =
+\left(
+\begin{matrix}
+T(R) & 0 & 0\\
+0 & T^{(j)}(R) & 0\\
+0 & 0 & \ldots
+\end{matrix}
+\right)\tag{A}\label{lec9-eqA}
+\end{equation*}
+\end{itemize}
+
+The matrix $\alpha$ defines a set of functions $F''_{k}$ which transform as above and hence are the functions of the type $f^{(j)}_{k}$ for various value of `$j$' and `$k$'.
+
+Using $\alpha^{-1}$ we may express $F_{k}$, and in particular $F$, a linear combination of $F''_{k}$ or $f^{(j)}_{k}$. (proved)
+
+Now,
+\begin{align*}
+P_{R}f^{(j')}_{k'} &= \sum\limits^{n}_{i=1}f_{i}^{(j')}\Gamma^{(j')}(R)_{ik'}\\
+P^{(j)}_{kk}f^{(j')}_{k'} &= \frac{l_{i}}{h}\sum\limits_{R}\Gamma^{(j)}(R)_{kk}P_{R}f_{k'}\\
+&= \sum\limits^{n}_{i=1}\sum\limits_{R}\frac{l_{j}}{h}\Gamma^{(j)}(R)^{*}_{kk}f^{(j')}_{i}\Gamma^{(j')}(R)_{ik'}\\
+&= \delta_{kk'}\delta_{jj'}f^{(j)}_{k}
+\end{align*}
+$$
+\therefore\quad \fbox{$P^{(j)}_{kk}F=f^{(j)}_{k}$}\Rightarrow P^{(j)}_{kk}
+$$
+is the projection operator which projects out part of any function to the $k^{\text{th}}$ row of $j^{\text{th}}$ representation.
+
+Such a projection is called {\bf idempotent}
+$$
+a_{1}\fbox{$P^{(j)}_{kk}P^{(j)}_{kk}=P^{(j)}_{kk}$}
+$$
+all powers of the operators are equal.
+\end{proof}
+
+\begin{theorem*}
+Two functions belonging to two different representations (irreducible) or to different rows of same unitary representation are orthogonal.
+\end{theorem*}
+
+\begin{proof}
+This is valid for any $R\in \mathfrak{g}$. $\therefore$ \ One can sum over, $R$ and divide by `$h$'
+\begin{align*}
+\left(\phi^{(j)}_{k},\psi^{(j')}_{k'}\right) &= \left(P_{R}\phi^{(j)}_{k},P_{R}\psi^{(j')}_{k'}\right)\\
+                             &= \sum\limits_{\lambda\lambda'}\Gamma^{(j)}(R)^{*}_{\lambda k}\Gamma^{(j')}(R)_{\lambda'k'}\left(\phi^{(j)}_{\lambda},\psi^{(j')}_{\lambda'}\right)
+\end{align*}
+Take sum over $R$ and divide by `$h$' use great orthogonality theorem
+$$
+\fbox{$\left(\phi^{(j)}_{k},\psi^{(j')}_{k'}\right)=\delta_{jj'}\delta_{kk'}\sum\limits^{l_{i}}_{\lambda=1}\left(\phi^{(j)}_{\lambda},\psi^{(j)}_{\lambda}\right)/l_{j}$}
+$$
+(prooved) Here $(\phi^{(j)}_{k},\psi^{(j)}_{k})$ is independent of $k$.
+\end{proof}
+
+Take sum of projection operators $\to$ less detailed information but good enough in many cases.
+$$
+P^{(j)}=\sum\limits_{k}P^{(j)}_{kk}=\dfrac{l_{j}}{h}\sum\limits_{R}X^{(j)}(R)^{*}P_{R}
+$$
+
+Any function $f^{(j)}$ expressible as a sum of functions belonging only to rows within the $j^{\text{th}}$ representation will satisfy $P^{(j)}f^{(j)}=f^{(j)}$.
+$$
+\to \fbox{$P^{(j)}F=f^{(j)}$}
+$$
+$\therefore \ P^{(j)}$ projects out the part of an arbitrary function, $F$ belonging to $j^{\text{th}}$ representation.
+
+\begin{example*}
+Consider a group of $E$, $\sigma$, $\gamma \ \to$ reflectino $\to n$ to $-x$.
+
+This has two classes and two one dimensional irreducible representation.
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
+\hline
+ & E & \sigma\\
+\hline
+\Gamma^{1} & 1 & 1\\
+\Gamma^{2} & 1 & -1 
+\end{tabular}
+\end{center}
+$P^{1}$ can be defined as $\dfrac{1}{2}(P_{E}+P_{\sigma})$ and $P^{(2)}=\dfrac{1}{2}(P_{E}-P_{\sigma})$
+$$
+\therefore\quad P^{(1)}F(x)=\dfrac{1}{2}\left[F(x)+F(-x)\right]\quad P^{(2)}F(x)=\dfrac{1}{2}(F(x)-F(-x))
+$$
+Evidently, these two function are `even' and `odd' similar to $\Gamma^{(1)}$ and $\Gamma^{(2)}$ respectively.
+\end{example*}
+
+\section*{Direct Product Group}
+\begin{align*}
+\mathfrak{g}_{a} &= E,A_{2},A_{3},\ldots A_{h_{a}}\\
+\mathfrak{g}_{b} &= E, B_{2},B_{3},\ldots B_{h_{b}}
+\end{align*}
+Operators of one type commutes with the other types.
+
+$\therefore \ \mathfrak{g}_{a}\times \mathfrak{g}_{b}=E,A_{2},A_{3}\ldots A_{h_{a}},B_{2},A_{2}B_{2},\ldots A_{h_{a}}B_{2},\ldots A_{h_{a}}B_{h_{b}}$
+
+Order of the group $=h_{a}h_{b}$
+\begin{itemize}
+\item Both groups have one common element, $E$
+
+\item Elements of direct product group follow closure property since $A_{k'}$ and $B_{l}$ commutes.
+\begin{align*}
+(A_{k}B_{l})(A_{k},B_{l'}) &= (A_{k}A_{k'})(BB_{ll'})\\
+&= A_{j}B_{m}\to A_{j}\in \mathfrak{g}_{a}; \ B_{m}\in \mathfrak{g}_{b}\\
+&\in \mathfrak{g}_{a}\times \mathfrak{g}_{b}
+\end{align*}
+$\therefore \ \mathfrak{g}_{a}\times \mathfrak{g}_{b}$ is closed and satisfy the properties of a group.
+\end{itemize}
+
+\section*{Representation}
+\begin{itemize}
+\item Irreducible representation of the component group also form irreducible representation of the Direct product group.
+
+\item Group element representation requires 4 indices.
+
+e.g., \fbox{$(A\times B)_{i_{k},j_{l}}=A_{ij}B_{kl}$}
+
+\item They follow group multiplication property
+\begin{align*}
+& \Gamma^{(a\times b)}(A_{k}B_{l})\Gamma^{(a\times b)}(A_{k'}B_{l'})=\left[\Gamma^{(a)}(A_{k})\times \Gamma^{(b)}(B_{l})\right]\left[\Gamma^{a}(A_{k'})\times \Gamma^{(b)}(B_{l'})\right]\\
+&\quad \Gamma^{(a)}(A_{k})\Gamma^{(a)}(A_{k'})\times \Gamma^{(b)}(B_{l})\Gamma^{(b)}(B_{l'})\\
+&= \Gamma^{(a)}(A_{k}A_{k'})\times \Gamma^{(b)}(B_{l}B_{l'})\\
+&= \Gamma^{(a\times b)}(A_{k}A_{k'}B_{l}B_{l'})
+\end{align*}
+
+\item Direct product of two irreducible representation form an irreducible representation of the direct product group.
+\end{itemize}
+$l^{(a)}_{1},l^{(a)}_{2}\ldots $ and $l^{(b)}_{1}$, $l^{(b)}_{2}\ldots$ are the dimensionalities of the irreducible representations of $\mathfrak{g}_{a}$ and $\mathfrak{g}_{b}$
+$$
+\therefore\quad \sum (l^{a}_{i})^{2}=h_{a}\quad\text{and}\quad \sum\limits_{i}(l^{b}_{i})^{2}=h_{b}
+$$
+In direct product group, the dimensionalities will be 
+\begin{align*}
+l_{ij} &= l^{a}_{i}l^{b}_{j}\\
+\sum\limits_{ij}l^{2}_{ij} &= \sum\limits_{ij}(l^{a}_{i}l^{b}_{j})^{2}=\sum\limits_{i}(l^{a}_{i})^{2}\sum\limits_{j}(l^{b}_{j})^{2}=h_{a}\cdot h_{b}=h
+\end{align*}
+$\therefore$ \ There can be no other irreducible representation.
+
+$\Rightarrow$ \ This shows, how an extra quantum number arised due to additional commuting symmetry operator.
+
+\section*{Class Structure and Character}
+
+Character of direct product representation is the product of the characters of component representation.
+\begin{align*}
+X^{(a\times b)}(A_{k}B_{l}) &= \sum\limits_{ij}\Gamma^{(a\times b)}(A_{k}B_{l})_{ij,ij}\\
+&= \sum\limits_{ij}\Gamma^{(a)}(A_{k})_{ii}\Gamma^{(b)}(B_{l})_{jj}\\
+&= \sum\limits_{i}\Gamma^{(a)}(A_{k})_{ii}\sum\limits_{j}\Gamma^{(b)}(B_{l})_{jj}=X^{(a)}(A_{k})X^{b}(B_{l})
+\end{align*}
+
+\begin{example*}
+Consider a direct product group of
+$$
+\text{and}\quad 
+\left.
+\begin{array}{l}
+D_{3} = E,A,B,C,D,F\\
+S= E,\sigma_{h}
+\end{array}
+\right|\quad h=6\times 2=12
+$$
+product group is $D_{3h}=D_{3}\times S$ the elements commute as there is no difference is rotation is done first or reflection.
+
+Multiplication table
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
+S & E & \sigma_{h}\\
+\hline
+E & E & \sigma_{h}\\
+\sigma_{h} & \sigma_{h} & E
+\end{tabular}
+\end{center}
+
+Character table
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
+S & E & \sigma_{h}\\
+\hline
+T^{(+)} & 1 & 1\\
+T^{(+)} & 1 & -1
+\end{tabular}
+\end{center}
+
+$\therefore$ \ Character table of $D_{3h}$
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+D_{3h} & E & (ABC) & (DF) & \sigma_{h} & \sigma_{h}(ABC) & \sigma_{h}(DF)\\
+\hline
+\Gamma^{1+} & 1 & 1 & 1 & 1 & 1 & 1\\
+\Gamma^{2+} & 1 & -1 & 1 & 1 & -1 & 1\\
+\Gamma^{3+} & 2 & 0 & -1 & 2 & 0 & 1\\
+\Gamma^{1-} & 1 & 1 & 1 & -1 & -1 & -1\\
+\Gamma^{2-} & 1 & -1 & 1 & -1 & 1 & -1\\
+\Gamma^{3-} & 2 & 0 & -1 & -2 & 0 & 1\\
+\hline
+\end{tabular}
+\end{center}
+Going from $D_{3}$ to $D_{3h}$ dimensionalities of representations has not changed.
+\end{example*}
+
+\section*{Direct product representation within a group}
+
+Create a new representation $\Gamma$ from $\Gamma^{(1)}$ and $\Gamma^{(2)}$ of the same group.
+
+Let the bases are $\phi_{1},\phi_{2},\phi_{3}\ldots \phi_{n}$ and $\psi_{1},\psi_{2},\psi_{3}\ldots\psi_{m}$ 
+
+$T^{(1)}\to n$ dimensional and $\Gamma^{(2)} m$ dimensional.
+\begin{align*}
+P_{R}(\phi_{R}\psi_{\lambda}) &= \sum\limits_{k'}\phi_{k'}\Gamma^{(1)}(R)_{k'k}\sum\limits_{\lambda'}\psi_{\lambda'}\Gamma^{(2)}(R)_{\lambda'\lambda}\\
+&=\sum\limits_{k'\lambda'}\phi_{k'}\psi_{\lambda'}\Gamma^{(1)}(R)_{k'k}\Gamma^{2}(R)_{\lambda'\lambda}\\
+&=\sum\limits_{k',\lambda'}\phi_{k'}\psi_{\lambda'}\Gamma(R)_{k'\lambda',k\lambda}
+\end{align*}
+$\therefore \ \Gamma(R)=\Gamma^{(1)}(R)\times \Gamma^{(2)}(R)$ form a representation with basis functions $\phi_{k}\psi_{\lambda}$.
+\begin{itemize}
+\item $X(R)=X^{(1)}(R)X^{(2)}(R)$
+
+\item {\bf This representation is reducible} $\leftarrow$ This is the difference with the previous case.
+\end{itemize}
+
+As total No. of distinct irreducible representation is fixed.
+
+
+
+
+
+
+
+
+
