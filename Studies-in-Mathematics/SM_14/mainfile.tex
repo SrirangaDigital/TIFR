@@ -1,0 +1,88 @@
+\documentclass[a4paper,openany,11pt]{book}
+\usepackage{amsmath}
+\usepackage{amsthm,mathrsfs,array}
+\usepackage[dvips,breaklinks]{hyperref}
+\usepackage{txfonts}
+\usepackage[all]{xy}
+\usepackage{multirow}
+\usepackage{epsfig}
+\usepackage{float,longtable,enumerate,xfrac}
+%\usepackage{subeqn}
+\usepackage{lipsum}
+\usepackage{mathabx}
+\usepackage{amsxtra}
+%\usepackage{minitoc}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\renewcommand{\bibname}{References}
+
+%\renewcommand{\mtctitle}{Table of Contents}
+
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\MakeRobust{\ref}% avoid expanding it when in a textual label
+
+
+
+\makeatletter
+\newcommand{\labeltext}[2]{%
+  \@bsphack
+  \csname phantomsection\endcsname % in case hyperref is used
+  \def\@currentlabel{#1}{\label{#2}}%
+  \@esphack
+}
+\makeatother
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+       \par\nobreak
+        \vskip 0\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Large \bf \thechapter\break  #1 \par\nobreak
+    \vskip 20\p@
+  }}
+
+\c@tocdepth=0
+\makeatother
+
+\makeatletter
+\newcommand{\thnum}[1]{#1\renewcommand{\@currentlabel}{#1}}
+\makeatother
+
+\floatstyle{plain}
+\floatplacement{Figure}{H}
+\input macros
+%\textwidth=11cm
+%\textheight=17cm
+\allowdisplaybreaks
+
+\hfuzz=1pt
+
+%\dominitoc[c]
+%\nomtcpagenumbers
+%\setcounter{minitocdepth}{3}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\begin{document}
+
+\frontmatter
+%\input preface
+
+\newpage
+\lhead[]{}
+\rhead[]{}
+\tableofcontents
+
+\mainmatter
+\input src/chapter1
+
+\end{document}
