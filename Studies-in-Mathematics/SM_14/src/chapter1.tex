@@ -32,9 +32,523 @@ From now on we omit the $\sim$ and we ``identify'' $T^{m}_{a}F$ and $J^{m}(T^{m}
 An increasing, continuous, concave function $\alpha:[0,\infty[\to [0,\infty[$ with $\alpha(0)=0$ is called a modulus of continuity.
 \end{definition}
 
-\begin{thm}\label{chap1-thm2.2}
+\begin{theorem}\label{chap1-thm2.2}
 The following statements are equivalent:
-\end{thm}
+\end{theorem}
 
-\subsubsection{}%2.2.1 - numbers are not displayed
+\setcounter{subsection}{2}
+\subsubsection{}\label{chap1-sec2.2.1}
+{\em $(R^{m}_{x}F)^{k}(y)=o(|x-y|^{m-|k|})$ for $x$, $y$ in $K$ and $|k|\leq m$, as $|x-y|\to 0$.}
+
+\subsubsection{}\label{chap1-sec2.2.2}
+{\em There exists a modulus of continuity $\alpha$ such that $|(R^{m}_{x}F)^{k}(y)|\leq |x-y|^{m-|k|}\alpha(|x-y|)$ for $x$, $y$ in $K$ and $|k|\leq m$.}
+
+\subsubsection{}\label{chap1-sec2.2.3}
+{\em There exists a modulus of continuity $\alpha_{1}$ such that $|T^{m}_{x}F(z)-T^{m}_{y}F(z)|\leq \alpha_{1}(|x-y|)(|x-z|^{m}+|y-z|^{m})$ for $x$, $y$ in $K$, $z$ in $\bfR^{n}$.}
+
+{\em In addition, if \eqref{chap1-sec2.2.2} is true, we can choose $\alpha_{1}=c\alpha$, $c$ depending only on $m$ and $n$. If \eqref{chap1-sec2.2.3} is true, we can choose $\alpha=c\alpha_{1}$, $c$ depending only on $m$ and $n$.}
+
+\begin{proof}
+Evidently \eqref{chap1-sec2.2.2} implies \eqref{chap1-sec2.2.1}. Suppose that \eqref{chap1-sec2.2.1} is true. Then $\beta(t)$ defined by $\sup\limits_{\substack{x,y\in K\\ x\neq y\\ |x-y|\leq t\\ |k|\leq m}}\dfrac{|(R^{m}_{x}F)^{k}(y)|}{|x-y|^{m-|k|}}$ is an increasing function, continuous at zero with $\beta(0)=0$. Hence we can choose a modulus of continuity $\alpha$ such that $\alpha(t)\geq \beta(t)$ for all $t$ (consider the convex envelope of the positive $t$-axis and the graph of $\beta$). Therefore \eqref{chap1-sec2.2.1} implies \eqref{chap1-sec2.2.2}. Note that $\alpha$ is constant for $t\geq \diam K$ and equal to $\beta(\diam K)$.
+
+Now suppose that \eqref{chap1-sec2.2.2} is true. Using \eqref{chap1-eq1.5} and \eqref{chap1-eq1.6} we have
+$$
+T^{m}_{x}F(z)-T^{m}_{y}F(z)=\sum\limits_{|k|\leq m}\dfrac{(z-x)^{k}}{k!}(R^{m}_{y}F)^{k}(x).
+$$
+Hence
+\begin{align*}
+|T^{m}_{x}F(z)-T^{m}_{y}F(z)| &\leq \sum\limits_{|k|\leq m}\dfrac{|z-x|^{|k|}}{k!}|x-y|^{m-|k|}\alpha(|x-y|)\\
+&\leq c\alpha (|x-y|)(|x-z|^{m}+|y-z|^{m}),
+\end{align*}
+where $c$ depends only on $m$ and $n$. Taking $\alpha_{1}=c\alpha$, we see that \eqref{chap1-sec2.2.3} holds.
+
+We shall now prove that \eqref{chap1-sec2.2.3} implies \eqref{chap1-sec2.2.2}. Again by \eqref{chap1-eq1.6} we have for all $z$ in $\bfR^{n}$, $x$, $y$ in $K$
+$$
+\left|\sum\limits_{|k|\leq m}(R^{m}_{y}F)^{k}(x)\dfrac{(z-x)^{k}}{k!}\right|\leq \alpha_{1}(|x-y|)(|x-z|^{m}+|y-z|^{m}).
+$$
+Writing $z-x=|x-y|(z'-x)$, $|x-y|=\lambda$, we have
+$$
+\left|\sum\limits_{|k|\leq m}\dfrac{\lambda^{|k|}}{k!}(z'-x)^{k}(R^{m}_{y}F)^{k}(x)\right|\leq c\alpha_{1}(|x-y|)\lambda^{m}(1+|z'-x|^{m})
+$$
+where $c$ is a constant depending only on $m$ and $n$. Fixing $x$ and $y$ and treating sum on the left as polynomial in $z'-x$, (observing that the coefficients are determined linearly in terms of the values of the polynomial at a suitable finite system of points) we see that there exists a constant $c_{1}$ depending only on $m$ and $n$ such that
+$$
+\left|\dfrac{\lambda^{|k|}}{k!}(R^{m}_{y}F)^{k}(x)\right|\leq c_{1}\alpha_{1}(|x-y|)\lambda^{m}
+$$
+which implies \eqref{chap1-sec2.2.2}.
+
+The last assertion is evident from the proof.
+\end{proof}
+
+\begin{definition}\label{chap1-defi2.3}
+$\scrE^{m}(K)$ is the space of all those $F$ in $J^{m}(K)$ for which any one of \eqref{chap1-sec2.2.1}, \eqref{chap1-sec2.2.2}, \eqref{chap1-sec2.2.3} is true. Each such $F$ is called a Whitney function of class $C^{m}$ on $K$. {\em (They are not usual functions of course, but this will not lead to any confusion.)}
+
+A modulus of continuity verifying \eqref{chap1-sec2.2.2} is called a modulus of continuity for $F$.
+\end{definition}
+
+We define
+\begin{gather*}
+||F||^{K}_{m}=|F|^{K}_{m}+\sup\limits_{\substack{x,y\in K\\ x\neq y\\ |k|\leq m}}\dfrac{|(R^{m}_{x}F)^{k}(y)|}{|x-y|^{m-k}},\\
+||F||'^{K}_{m}=|F|^{K}_{m}+\sup\limits_{\substack{x,y\in K, x\neq y\\ |k|\leq m\\ z\in \bfR^{n}}}\dfrac{|T^{m}_{x}F(z)-T^{m}_{y}F(z)|}{|x-z|^{m}+|y-z|^{m}}.
+\end{gather*}
+(We usually omit the index $K$.) There exist constants $c$ and $c_{1}$ depending only on $m$ and $n$ such that
+$$
+||F||_{m}\leq c ||F||'_{m}\leq c_{1}||F||_{m}.
+$$
+(Proof is similar to the preceding one.)
+
+\begin{remark}\label{chap1-rem2.4}
+We also note that we can choose $\alpha$ and $\alpha_{1}$ in \eqref{chap1-sec2.2.2} and \eqref{chap1-sec2.2.3} such that
+$$
+||F||_{m}=|F|_{m}+\alpha(\diam K), ||F||'_{m}=|F|_{m}+\alpha_{1}(\diam K).
+$$
+
+The preceding norms being equivalent, we shall omit the prime and denote by $||F||_{m}$ one or the other. Under these norms, $\scrE^{m}(K)$ is a Banach space, the proof of which is left to the reader.
+\end{remark}
+
+\begin{remark}\label{chap1-rem2.5}
+Let $\alpha$ denote a modulus of continuity for $F$. Then there exists a constant $c$ depending only on $m$ and $n$ such that for any $F$ in $J^{m}(K)$, $x$, $y$ in $K$ and $|k|\leq m$, we have
+$$
+|D^{k}\circ T^{m}_{x}F(z)-D^{k}\circ T^{m}_{y}F(z)|\leq c\alpha (|x-y|)(|x-z|^{m-|k|}+|y-z|^{m-|k|}).
+$$
+
+The proof is similar to the proof of the fact that \eqref{chap1-sec2.2.2} implies \eqref{chap1-sec2.2.3}.
+\end{remark}
+
+\section{The extension theorem of Whitney}\label{chap1-sec3}
+
+We shall first prove an important
+
+\begin{lemma}\label{chap1-lem3.1}
+Given any compact set $K$ in $\bfR^{n}$ there exists a family of functions $\phi_{i}(i\in I)$ each $\in \scrE(\bfR^{n}-K)$ satisfying the following properties:
+\end{lemma}
+
+\setcounter{subsection}{1}
+\subsubsection{}\label{chap1-sec3.1.1}
+$0\leq \phi_{i}$ for $i\in I$
+
+\subsubsection{}\label{chap1-sec3.1.2}
+$\supp \phi_{i}(i\in I)$ {\em is a locally finite family and if $N(x)$ denotes the number of $\supp \phi_{i}$ to which $x$ belongs, then $N(x)\leq 4^{n}$}
+
+\subsubsection{}\label{chap1-sec3.1.3}
+$\sum\limits_{i\in I}\phi_{i}(x)=1$ {\em for all $x$ in $\bfR^{n}-K$;}
+
+\subsubsection{}\label{chap1-sec3.1.4}
+{\em for $i\in I$, one has $2d(\supp \phi_{i},K)\geq \diam (\supp \phi_{i})$;}
+
+\subsubsection{}\label{chap1-sec3.1.5}
+{\em there exists a constant $C_{k}$ depending only on $k$ and $n$ such that for $x\in \bfR^{n}-K$,}
+$$
+|D^{k}\phi_{i}(x)|\leq C_{k}\left(1+\dfrac{1}{d(x,K)^{|k|}}\right).
+$$
+
+\begin{proof}
+For $p\geq 0$, we divide $\bfR^{n}$ into closed cubes each with sides of length $\dfrac{1}{2^{p}}$ by the planes $x_{v}=\dfrac{j_{v}}{2^{p}}$ where $1\leq v\leq n$ and $j_{1},j_{2},\ldots, j_{n}$ run through all integers.
+
+Let $K_{0}$ be the family of all cubes $S$ of the 0th division such that $d(S,K)\geq \surd n$. We inductively define $K_{p}(p>0)$ to be the family of all cubes $S$ of the $p$th division which are not contained in any cube of $K_{p-1}$ and are such that $d(S,K)\geq \dfrac{\surd n}{2^{p}}$. Let $I=\bigcup\limits_{p\geq 0}K_{p}$. Let us consider a $C^{\infty}$-function $\psi$ such that $0\leq \psi \leq 1$, $\psi(x)=1$ if $|x_{i}|\leq \frac{1}{2}$ for $1\leq i\leq n$; $\psi(x)=0$ if $|x_{i}|\geq \frac{3}{4}$ for one $i$. For any $S\in I$, let $\psi_{S}$ be defined as $\psi_{S}(x)=\psi\left(\dfrac{x-x_{S}}{l_{S}}\right)$ where $x_{S}$ is the center, $l_{S}$ is the length of a side of $S$. By the construction of $I$, $\supp \psi_{S}(S\in I)$ form a locally finite family. Therefore, we can define $\psi_{S}(x)=\dfrac{\psi_{S}(x)}{\sum\limits_{T\in I}\psi_{T}(x)}$. Now it is easy to verify that this family $\psi_{s}(S\in I)$ satisfies $1$., 2. and 3.
+
+As for 4., we observe that
+$$
+d(\supp \psi_{S},K)\geq \dfrac{3\surd n \ l_{S}}{4}\geq \dfrac{\diam (\supp \psi_{S})}{2}
+$$
+Now to prove 5. By definition
+$$
+|D^{k}\psi_{S}(x)|=\left|\dfrac{1}{l^{|k|}_{S}}D^{k}\psi\left(\dfrac{x-x_{S}}{l_{S}}\right)\right|\leq \dfrac{C}{l^{|k|}_{S}}
+$$
+where $C$ is a constant depending only on $k$. But in view of 2., for $x$ in $\bfR^{n}-K$,
+$$
+1\leq \sum\limits_{S\in I}\psi_{S}(x)\leq 4^{n}.
+$$
+Therefore we get, by Leibniz's formula, $|D^{k}\psi_{S}(x)|\leq \dfrac{C'}{l^{|k|}_{S}}$ where $C'$ depends only on $k$ and $n$. Therefore if $l_{S}=1$, $|D^{k}\psi_{S}(x)|\leq C'$ And if $l_{S}<1$, we find that for $x$ in $\supp\psi_{S}$, $d(x,K)\geq \dfrac{\surd nl_{S}}{2}$ and so in any case for $x\in \bfR^{n}-K$,
+$$
+\left|D^{k}\psi_{S}(x)\right|\leq C'\left(1+\left(\dfrac{\surd n}{2d(x,K)}\right)^{|k|}\right).
+$$
+\end{proof}
+
+\begin{theorem}[Whitney {[1]}.]\label{chap1-thm3.2}
+There exists a linear mapping $W:\scrE^{m}(K)\to \scrE^{m}$ such that for every $F$ in $\scrE^{m}(K)$ and every $x\in K$, $D^{k}W \ F(x)=f^{k}(x)$ for $|k|\leq m$.
+\end{theorem}
+
+\begin{proof}
+For every $S$ in $I$, choose a point $a_{S}$ in $K$ such that $d(\supp \psi_{S},K)=d(\supp \psi_{S},a_{S})$. Let $\widetilde{f}$ be a function defined on $\bfR^{n}$ as follows
+\begin{align*}
+\widetilde{f}(x) &= f^{0}(x)\text{ for } x\in K;\\
+\widetilde{f}(x) &= \sum\limits_{S\in I}\psi_{S}(x)T^{m}_{a_{S}}F(x)\text{ if $x$ is not in $K$.}
+\end{align*}
+Obviously $\widetilde{f}$ is infinitely differentiable on $\bfR^{n}-K$. For $|k|\leq m$, define $\widetilde{f}^{k}$ as follows
+\begin{align*}
+\widetilde{f}^{k}(x) &= f^{k}(x)\text{ if $x$ is in $K$;}\\
+\widetilde{f}^{k}(x) &= D^{k}\widetilde{f}(x)\text{ if $x$ is not in $K$.}
+\end{align*}
+Let $L$ be a cube such that $K\subset \overset{\circ}{L}$ and $\lambda = \sup\limits_{x\in L}d(x,K)$. Then we prove the following, where $\alpha$ denotes a modules of continuity satisfying \eqref{chap1-sec2.2.3}:
+\end{proof}
+
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{0}
+\subsubsection{}\label{chap1-sec3.2.1}
+There exists a constant $C$ depending only on $m$, $n$ and $\lambda$ such that for every $k$ with $|k|\leq m$, for $a$ in $K$, $x$ in $L$, one has
+$$
+|\widetilde{f}^{k}(x)-D^{k}T^{m}_{a}F(x)|\leq C\alpha (|x-a|)|x-a|^{m-|k|}.
+$$
+\subsubsection{}\label{chap1-sec3.2.2}
+For every $k$ with $|k|>m$, there exists a constant $C_{k}$ depending only on $k$, $n$ and $\lambda$ such that for $x$ in $L-K$, one has:
+$$
+|D^{k}f(x)|\leq \dfrac{C_{k}\alpha(d(x,K))}{d(x,K)^{|k|-m}}.
+$$
+In fact one has, for every $x$ in $L-K$,
+$$
+\widetilde{f}(x)-T^{m}_{a}F(x)=\sum\limits_{S\in I}\psi_{S}(x)(T^{m}_{aS}F(x)-T^{m}_{a}F(x)).
+$$
+Hence applying Leibniz's formula, one has
+$$
+D^{k}\widetilde{f}(x)-D^{k}T^{m}_{a}F(x)=\sum\limits_{S\in I}\sum\limits_{l\leq k}\binom{k}{l}D^{l}\psi_{S}(x)D^{k-l}[T^{m}_{aS}F(x)-T^{m}_{a}F(x)].
+$$
+We consider those terms for which $l=0$.
+
+For $x\in \supp \psi_{S}$, obviously $d(x,K)\leq |x-a|$ and by \eqref{chap1-sec3.1.4}, $d(x,K)\leq |x-a_{S}|\leq 3d(x,K)$ so that
+$$
+\alpha(|a-a_{S}|)\leq \alpha(|x-a|+|x-a_{S}|)\leq \alpha(4|x-a|)\leq 4\alpha(|x-a|)
+$$
+(due to the concavity of $\alpha$). Now appealing to Remark \ref{chap1-rem2.5} and Lemma \ref{chap1-lem3.1}, we obtain an estimate of the type \eqref{chap1-sec3.2.1}. Now, if $l\neq 0$, the sum $\sum\limits_{S\in I}D^{l}\psi_{S}(x)D^{k-l}[T^{m}_{aS}F(x)-T^{m}_{a}F(x)]$ is equal, since $\sum\limits_{S\in I}D^{l}\psi_{S}(x)=0$, to $\sum\limits_{S\in I}D^{l}\psi_{S}(x)D^{k-l}[T^{m}_{aS}F(x)-T^{m}_{b}F(x)]$ for any $b\in K$. If $b$ is so chosen that $|x-b|=d(x,K)$, we may argue as above and we obtain \eqref{chap1-sec3.2.1} for each such sum.
+
+This gives us \eqref{chap1-sec3.2.1} when $x\not\in K$. But for $x$ in $K$, \eqref{chap1-sec3.2.1} results from the definition of $\scrE^{m}(K)$ and $\alpha$.
+
+To prove \eqref{chap1-sec3.2.2}, proceed in the same way choosing a point $a$ in $K$ such that $|x-a|=d(x,K)$ and observing that
+$$
+D^{k}T^{m}_{a}F(x)=0,\text{ and } D^{k-l}[T^{m}_{a}F(x)-T^{m}_{a}F(x)]=0
+$$
+if $|k-l|>m$.
+
+We assert now that $\widetilde{f}$ is of class $C^{m}$ and that for $|k|\leq m$, $D^{k}\widetilde{f}=f^{k}$. Then by defining $WF=f$, the theorem will be proved. For this, we proceed by induction and suppose that the result is true for all $l$ with $l<k$. We can write $k=l+(j)$ where $|l|=|k|-1$, $(j)=(0,\quad ,1,0,\ldots,0)$ with $1$ in the $j$th place and all others equal to zero.
+
+We then prove that one has for every $a$ in $K$, $\dfrac{\partial \widetilde{f}^{l}}{\partial x_{j}}(x)=f^{k}(x)$ which will prove the result because one knows already that $f$ is of class $C^{\infty}$ outside $K$. For this, apply \eqref{chap1-sec3.2.1} replacing $k$ by $l$. Retaining only in the first member, terms of degree $0$ and $1$ in $(x-a)$, it follows, for $x$ in $L$,
+$$
+\widetilde{f}^{l}(x)-f^{l}(a)-\sum\limits^{n}_{i=1}(x_{i}-a_{i})\widetilde{f}^{l+(i)}(a)=o(|x-a|)
+$$
+which implies the desired result.
+
+We shall now prove some complements to Whitney's theorem, due to Glaeser [1]. The $W:\scrE^{m}(K)\to \scrE^{m}$ which we have constructed induces in an obvious manner a map from $\scrE^{m}(K)$ to $\scrE^{m}(L)$. We denote by $\widetilde{F}$ the image of $WF$ in $\scrE^{m}(L)$, and we denote by $\alpha$ a modulus of continuity of $F$.
+
+\begin{Complement}\label{chap1-com3.3}
+For $|k|>m$, $x$ in $L-K$, there exists a constant $C$ depending only on $k$, $n$ and $\lambda$ such that $|D^{k}\widetilde{F}(x)|\leq \dfrac{C\alpha(d(x,K))}{d(x,K)^{|k|-m}}$.
+\end{Complement}
+
+This is a restatement of \eqref{chap1-sec3.2.2}
+
+\begin{remark}\label{chap1-rem3.4}
+We observe that $||~||_{m}$, $|~|_{m}$ are equivalent on $\scrE^{m}(L)$. Also, let $F$ be in $\scrE^{m}(L)$, and suppose that $\alpha$ is a modulus of continuity for every $f^{k}$, $|k|=m$ (i.e. $|f^{k}(x)-f^{k}(y)|\leq \alpha(|x-y|)$ for $x$, $y\in L$); then a constant (depending only on $m$ and $n$) multiple of $\alpha$ is a modulus of continuity for $F$. These are easily verified by Taylor's formula. The same result is true for many other compact sets (for instance the convex ones), but it is not true in general.
+\end{remark}
+
+\begin{Complement}\label{chap1-com3.5}
+There exists a constant $C$ depending only on $m$, $n$ and $\lambda$ such that $||\widetilde{F}||^{L}_{m}\leq C||F||^{K}_{m}$ for all $F$ in $\scrE^{m}(K)$.
+\end{Complement}
+
+\begin{proof}
+In view of the preceding remarks, we need only prove this for $|\widetilde{F}|^{L}_{m}$ instead of $||\widetilde{F}||^{L}_{m}$. Take any $x$ in $L$, $a$ in $K$. By \eqref{chap1-sec3.2.1}, we have for $|k|\leq m$,
+$$
+\left|\widetilde{f}^{k}(x)-\sum\limits_{|l|\leq m-|k|}\dfrac{(x-a)^{l}}{l!}\widetilde{f}^{k+l}(a)\right|\leq C\alpha(|x-a|)|x-a|^{m-|k|}
+$$
+and hence it follows (Remark \ref{chap1-rem2.4}) that $|\widetilde{f}^{k}(x)|\leq C(\lambda,m,n)||F||_{m}$.
+\end{proof}
+
+\begin{Complement}\label{chap1-com3.6}
+There exists a constant $C$ depending only on $m$, $n$ and $\lambda$ such that if $\alpha$ is a modulus of continuity verifying \eqref{chap1-sec2.2.3}, then $C\alpha$ is a modulus of continuity for $\widetilde{F}$.
+\end{Complement}
+
+\begin{proof}
+In view of Remark \ref{chap1-rem3.4}, it suffices to find such a modulus of continuity for each $\widetilde{f}^{k}$, $|k|=m$. Let $x$, $y\in L$. If one of them belongs to $K$, then by \eqref{chap1-sec3.2.1} we see that $|\widetilde{f}^{k}(x)-\widetilde{f}^{k}(y)|\leq C\alpha (|x-y|)$.
+
+Now suppose that $x$, $y$ are in $L-K$.
+\begin{description}
+\item[Case (i).] Suppose that $d(x,K)\geq 2|x-y|$. Using the mean-value theorem we have
+$$
+\widetilde{f}^{k}(x)-\widetilde{f}^{k}(y)=\sum\limits^{n}_{i=1}(x_{i}-y_{i})\dfrac{\partial \widetilde{f}^{k}}{\partial x_{i}}(z)
+$$
+where $z$ belongs to the segment joining $x$ and $y$. Hence in virtue of \eqref{chap1-sec3.2.2}
+$$
+|\widetilde{f}^{k}(x)-\widetilde{f}^{k}(y)|\leq \dfrac{C\alpha(d(z,K))}{d(z,K)}|x-y|
+$$
+where $C$ depends only on $m$, $n$ and $\lambda$. But by hypothesis $d(z,K)\geq |x-y|$ and so by the concavity of $\alpha$,
+$$
+\dfrac{\alpha(d(z,K))}{d(z,K)}|x-y|\leq \alpha(|x-y|).
+$$
+
+\item[Case (ii).] Suppose that $d(x,K)<2|x-y|$. Select $a$, $b$ in $K$ such that
+$$
+|x-a|=d(x,K),\quad |y-b|=d(y,K).
+$$
+Then we have
+$$
+|y-b|\leq 3|x-y|,\quad |a-b|\leq 6|x-y|.
+$$
+\end{description}
+
+Writing
+$$
+\widetilde{f}^{k}(x)-\widetilde{f}^{k}(y)=\widetilde{f}^{k}(x)-\widetilde{f}^{k}(a)+\widetilde{f}^{k}(a)-\widetilde{f}^{k}(b)+\widetilde{f}^{k}(b)-\widetilde{f}^{k}(y)
+$$
+and using \eqref{chap1-sec3.2.2}, we obtain the result.
+
+Note that the hypothesis of concavity on $\alpha$ is essential here. (For instance, one can find a compact connected $K$ and a continuous non-constant function for $K$ with $t^{3/2}$ as modulus of continuity; but, obviously, $f$ cannot be extended to a cube with the same modulus of continuity for the extension! cf. Glaeser [1].)
+\end{proof}
+
+\section{Whitney's theorem for the \boldmath$C^{\infty}$-case}\label{chap1-sec4}
+
+We adopt the same notations as before. Let $\scrI^{m}(K;L)$ denote the family of those jets of $\scrE^{m}(L)$, the restrictions of which to $K$ are zero. Let $i_{m}\scrI^{m}(K;L)\to \scrE^{m}(L)$ be the canonical injection, $\psi_{m}:\scrE^{m}(L)\to \scrE^{m}(K)$ be the natural restriction map. Now Theorem \ref{chap1-thm3.2} can be stated as
+$$
+\text{\em The sequence } 0\to \scrI^{m}(K;L)\xrightarrow{i_{m}}\scrE^{m}(L)\xrightarrow{\psi_{m}}\scrE^{m}(K)\to 0\text{\em \ is exact.}
+$$
+
+Let $\eta_{m}J^{m+1}(K)\to J^{m}(K)$ be defined as $\eta_{m}(F)=(f^{k})_{|k|\leq m}$. Obviously $\eta_{m}(\scrE^{m+1}(K))\subset \scrE^{m}(K)$. Also if $\eta_{m}:J^{m+1}(L)\to J^{m}(L)$ is the analogue of the previous map for $L$, $\eta_{m}(\scrI^{m+1}(K;L))\subset \scrI^{m}(K;L)$. Moreover $\eta_{m}$ is injective on $\scrE^{m+1}(L)$.
+
+We consider the projective limits, $\varprojlim J^{m}(K)=J(K)$, $\varprojlim \scrE^{m}(L)=\scrE(L)$, $\varprojlim\scrE^{m}(K)=\scrE(K)$, $\varprojlim\scrI^{m}(K;L)=\scrI(K;L)$. Elements of $J(K)$ are called $C^{\infty}$-jets on $K$, and elements of $\scrE(K)$, $C^{\infty}$ functions on $K$ in the sense of Whitney. Obviously, $\scrE(L)$ can be identified with the usual $C^{\infty}$-functions on the cube $L$. Defining $i=\varprojlim i_{m}$, $\psi=\varprojlim \psi_{m}$, we have the following theorem:
+
+\begin{theorem}\label{chap1-thm4.1}
+The following sequence
+$$
+0\to \scrI(K;L)\xrightarrow{i}\scrE(L)\xrightarrow{\psi}\scrE(K)\to 0
+$$
+is exact.
+\end{theorem}
+
+To prove this, we need the following
+
+\begin{lemma}\label{chap1-lem4.2}
+There exist constants $C_{k}\geq 0$, depending only on $k$ in $\bfN^{n}$ with the following property:
+
+given $K$ a compact subset of $\bfR^{n}$ and $\delta>0$, there exists a $C^{\infty}$-function $\alpha$ on $\bfR^{n}$ which verifies
+\begin{itemize}
+\item[\rm(i)] $\alpha=0$ on a neighbourhood of $K$, $\alpha(x)=1$ when $d(x,K)\geq \delta$ and $\alpha\geq 0$ everywhere,
+
+\item[\rm(ii)] for every $x$ in $\bfR^{n}$ and every $k$
+$$
+|D^{k}\alpha(x)|\leq \dfrac{C_{k}}{\delta^{|k|}}.
+$$
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Consider a non-negative function $\phi$ in $\scrE(\bfR^{n})$, with $\phi=1$ if $|x|\leq \frac{1}{4}$, $\psi=0$ if $|x|\geq \frac{3}{8}$, $\int\phi=1$ and define $\phi_{\delta}(x)=\dfrac{1}{\delta^{n}}\phi\left(\dfrac{x}{\delta}\right)$. Take now the characteristic function $\alpha'$ of the set $\left\{x|d(x,K)\geq \dfrac{\delta}{2}\right\}$ and set $\alpha=\alpha' \ \phi_{\delta}$.
+\end{proof}
+
+\begin{lemma}\label{chap1-lem4.3}
+$\scrI(K;L)$ is dense in $\scrI^{m}(K;L)$.
+\end{lemma}
+
+Actually, we prove that those $F$ in $\scrI(K;L)$ which vanish in a neighbourhood of $K$ are dense in $\scrI^{m}(K;L)$.
+
+Take any $F$ in $\scrI^{m}(K;L)$ and $K_{1}=\{x|d(x,K)\leq \delta\}$. Consider the function $\alpha$ (depending on $K$ and $\delta$) obtained in the preceding lemma. Denote $F\alpha$ by $F_{\delta}$. One verifies immediately by Leibniz's formula that $F_{\delta}$ tends to $F$ in $\scrE^{m}(L)$ as $\delta\to 0$. Therefore the class of functions in $\scrE^{m}(L)$ which vanish in a neighbourhood of $K$ is dense in $\scrI^{m}(K;L)$. (This can also be proved using Whitney's theorem!) The result follows immediately by regularization.
+
+\medskip
+\noindent
+{\bf Proof of Theorem \ref{chap1-thm4.1}.}~Let $F$ be in $\scrE(K)$ and for $m\geq 0$, $F_{m}$ denote $F$ as an element of $\scrE^{m}(K)$. Let $\widetilde{F}_{m}=WF_{m}$ be a Whitney extension of $F_{m}$ to $L$. Since $\widetilde{F}_{m}-\widetilde{F}_{m-1}$ is in $\scrI^{m-1}(K;L)$, by the lemma, there exists a $H_{m-1}$ in $\scrI(K;L)$ such that
+$$
+||\widetilde{F}_{m}-\widetilde{F}_{m-1}-H_{m-1}||_{m-1}\leq 1/2^{m}.
+$$
+Now let us consider
+$$
+\widetilde{F}(x)=\widetilde{F}_{0}(x)+\sum\limits_{m\geq 1}\left\{\widetilde{F}_{m}(x)-\widetilde{F}_{m-1}(x)-H_{m-1}(x)\right\}.
+$$
+It is easy to verify that $\widetilde{F}$ is a $C^{\infty}$-function and the $C^{\infty}$-jet induced by it, when restricted to $K$, is $F$.
+
+\section{Regularly situated sets}\label{chap1-sec5}
+
+Let $X$ be a closed subset of an open set $\Omega$ in $\bfR^{n}\cdot J^{m}(\Omega)$, $J^{m}(X)$, $J(\Omega)$, $J(X)$ are defined in the usual way. Define $\scrE^{m}(X)$ to be the family of all jets $F$ in $J^{m}(X)$ such that given any compact set $K$ in $X$, the restriction $F|K$ of $F$ to $K$ is in $\scrE^{m}(K)$. Define
+$$
+||F||^{K}_{m}=||F|K||^{K}_{m}.
+$$
+This $||F||^{K}_{m}$ is a seminorm on $\scrE^{m}(X)$ for all $K$ in $X$. Now provide $\scrE^{m}(X)$ with the topology defined by the totality of these seminorms. Obviously $\scrE^{m}(X)$ is a Fr\'echet space.
+
+$\scrE(X)$ is defined to be the family of all jets $F$ in $J(X)$ such that given any compact set $K$ in $X$, $F|K$ is in $\scrE(K)$. For all $m\geq 0$ and all $K$ in $X$, $||F||^{K}_{m}$ defines a seminorm on $\scrE(X)$. $\scrE(X)$ provided with the topology defined by the totality of these seminorms is a Fr\'echet space.
+
+When $X=\Omega$, $\scrE^{m}(\Omega)$ (resp. $\scrE(\Omega)$) defined in the preceding way is identified with the space of usual $C^{m}$ (resp. $C^{\infty}$) functions on $\Omega$.
+
+\begin{definition}\label{chap1-defi5.1}
+Let $X$, $Y$ be closed subsets of an open set $\Omega$ such that $X\subset Y\cdot \scrI^{m}(X;Y)$ is defined to be the class of all jets $F$ in $\scrE^{m}(Y)$ the restrictions of which to $X$ are zero.
+
+When $m=\infty$, we shall denote this space by $\scrI(X;Y)$.
+\end{definition}
+
+In order to avoid possible confusion, we refer to an element of $\scrI^{m}(X;Y)$ (resp. $\scrI(X;Y)$) as a Whitney function of order $m$ (resp. of infinite order) on {\em $Y$ $m$-flat on $X$} (resp. {\em flat on} $X$).
+
+\begin{proposition}\label{chap1-prop5.2}
+Let $X$, $Y$ be closed subsets of an open set $\Omega$ such that $X\subset Y$. Then $\scrI(X;Y)$ is dense in $\scrI^{m}(X;Y)$.
+\end{proposition}
+
+Actually those $F\in \scrI(X;Y)$ which are flat in a neighbourhood of $X$ are dense in $\scrI^{m}(X;Y)$.
+
+\begin{proof}
+Evident by the statement made in Lemma \ref{chap1-lem4.3}.
+\end{proof}
+
+\begin{proposition}\label{chap1-prop5.3}
+The sequences
+\[
+\xymatrix{
+0\ar[r] & \scrI^{m}(X;\Omega)\ar[r]^-{i_{m}} & \scrE^{m}(\Omega)\ar[r]^-{\psi_{m}} & \scrE^{m}(X)\ar[r] & 0,\\
+0\ar[r] & \scrI(X;\Omega)\ar[r]^-{i} & \scrE(\Omega)\ar[r]^-{\psi} & \scrE(X)\ar[r] & 0
+}
+\]
+are exact.
+\end{proposition}
+
+($i_{m}$ and $i$ are the canonical injections and $\psi_{m}$ and $\psi$ are the canonical restriction maps.)
+
+\begin{proof}
+Immediate by a partition of unity.
+\end{proof}
+
+Now, let $X$, $Y$ be closed subsets of $\Omega$, an open set in $\bfR^{n}$. Let $\delta$ be the `diagonal mapping'
+$$
+\scrE(X\cup Y)\to \scrE(X)\oplus \scrE(Y)
+$$
+defined by
+$$
+\delta(F)=(F|X,F|Y),
+$$
+and $\pi$ the mapping $\scrE(X)\oplus \scrE(Y)\to \scrE(X\cap Y)$ defined by
+$$
+\pi(F,G)=(F|X\cap Y)-(G|X\cap Y).
+$$
+
+Obviously $\delta$ is injective, $\pi$ is surjective $\pi\circ \delta=0$; moreover $\Iim \delta$ is dense in $\ker \pi$.
+
+For, let $(F,G)$ be in $\ker \pi$. We can suppose that $G=0$. (If not, extend $G$ to $\widetilde{G}$ in $\scrE(X\cup Y)$ by Proposition \ref{chap1-prop5.4} and take $(F,G)-\delta\widetilde{G}$ instead of $(F,G)$.) Therefore one has $F|X\cap Y=0$, i.e. $F$ is in $\scrI(X\cap Y;X)$. Then by Proposition \ref{chap1-prop5.3}, $F$ is the limit of a sequence $\{F_{m}\}$ flat on a neighbourhood of $X\cap Y$ and one has, obviously, $(F_{m},0)\in \Iim \delta$ which proves the result.
+
+\begin{definition}\label{chap1-defi5.4}
+Two closed subsets $X$, $Y$ of an open set $\Omega$ are said to be regularly situated if $\Iim \delta=\ker \pi$ or equivalently if the sequence
+$$
+0\to \scrE(X\cup Y)\xrightarrow{\delta}\scrE(X)\oplus \scrE(Y)\xrightarrow{\pi}\scrE(X\cap Y)\to 0
+$$
+is exact.
+\end{definition}
+
+\begin{theorem}[{\L}ojasiewicz {[1]}]\label{chap1-thm5.5}
+Given $X$, $Y$ closed in an open set $\Omega$ a necessary and sufficient condition that they are regularly situated is the following : Either $X\cap Y=\emptyset$ or
+
+$(\Lambda)$ Given any pair of compact sets $K\subset X$, $L\subset Y$, there exists a pair of constants $C>0$ and $\alpha>0$ such that, for every $x$ in $K$, one has $d(x,L)\geq C \ d(x,X\cap Y)^{\alpha}$, ($d$ denoting the euclidean distance in $\bfR^{n}$).
+\end{theorem}
+
+Direct verification of the fact that the condition is symmetric with respect to $X$ and $Y$ is left to the reader.
+
+\begin{proof}
+\begin{itemize}
+\item[(a)] $(\Lambda)\Rightarrow$ ``$\ker \pi=\Iim \delta$'' Let $f=(f^{k})$ (resp. $g=g^{k}$) be an element of $\scrE(X)$ (resp. $\scrE(Y)$); suppose that $f=g$ on $X\cap Y$. Define $h=(h^{k})$ in $J(X\cup Y)$ by $h^{k}=f^{k}$ on $X$ and $h^{k}=g^{k}$ on $Y$ and it is sufficient to prove that $h\in \scrE(X\cup Y)$.
+
+Let $M$ be a compact subset of $X\cup Y$ and set $X\cap M=K$, $Y\cap M=L$. We should verify that for every $m$ in $\bfN$ and every $k$ in $\bfN^{n}$, there exists a $c'>0$ such that for every $x$ in $M$ and every $y$ in $M$:
+$$
+\left|h^{k}(x)-\sum\limits_{|l|\leq m}h^{k+1}(y)\dfrac{(x-y)^{l}}{l!}\right|\leq c'||x-y||^{m}.
+$$
+
+The case when $x$ and $y$ both belong to $X$, or both belong to $Y$, is immediate. Therefore, suppose that, for instance $x\in X$, $y\in Y$. If we extend $g$ to $\widetilde{g}\in \scrE(X\cup Y)$, and replace $f$ by $f-\widetilde{g}$, it reduces to the case when $g=0$ and consequently $f|X\cap Y=0$; in this case our inequality can be written simply as
+$$
+|f^{k}(x)|\leq c'||x-y||^{m}.
+$$
+
+By hypothesis, we can find a $z\in X\cap Y$ such that one has $||x-y||\geq \dfrac{c}{2}||x-z||^{\alpha}$; we can suppose that when $x$ varies in $K$, and $y$ in $L$, $z$ varies in a compact subset of $X\cap Y$. Let $m'$ be an integer such that $\alpha m\leq m'$; as $||x-z||$ is bounded, one has $||x-z||^{m'}\leq c''||x-y||^{m}$, with $c''\geq 0$. Since $f\in \scrE(X)$, we have
+$$
+\left|f^{k}(x)-\sum\limits_{|l|\leq m'}f^{k+l}(z)\dfrac{(x-z)^{l}}{l!}\right|\leq c_{1}||x-z||^{m'}
+$$
+therefore, since $f=0$ on $X\cap Y$,
+$$
+|f^{k}(x)|\leq c_{1}||x-z||^{m'}\leq c''c_{1}||x-y||^{m'},
+$$
+which gives the result.
+
+\item[(b)] ``$\ker \pi =\Iim \delta$'' $\Rightarrow (\Lambda)$.
+
+By hypothesis, the image of $\delta$ is closed and therefore $\delta$ is a homomorphism; let $M$ be a compact subset of $X\cup Y$. For every $f$ in $\scrE(X\cup Y)$, there exists in particular a seminorm $p$ on $\scrE(X)$ and a seminor $q$ on $\scrE(Y)$ such that one has, for every $x$ in $M$ and every $y$ in $M$
+$$
+\left| f^{0}(x)-f^{0}(y)-\sum\limits^{n}_{i=1}(x_{i}-y_{i})f^{(i)}(y)\right|\leq (p(f)+q(f))||x-y||.
+$$
+
+In particular, if $f$ is zero on $Y$, setting $X\cap M=K$, $Y\cap M=L$, this means that for every $x$ in $K$, $|f(x)|\leq p(f)d(x,L)$.
+
+``Lifting'' the preceding inequality to $\scrE(\Omega)$ one finds the following: there exists a compact $N\subset \Omega$, an integer $m\geq 0$ and a $C>0$ such that, for every $F$ in $\scrE(\Omega)$, flat on $Y$ and every $x\in K$ one has
+$$
+|F(x)|\leq C|F|^{N}_{m}\cdot d(x,L).
+$$
+
+Let $\phi$ be a $C^{\infty}$-function with support in the unit ball, with $\phi(0)=1$. For any $x_{0}\in K$, apply the preceding inequality to the function $x\to \phi \left(\dfrac{x-x_{0}}{\epsilon}\right)$ with $\epsilon=d(x_{0},X\cap Y)$. That gives
+$$
+1\leq \dfrac{C}{\epsilon^{m}}d(x,L)|\phi|^{N}_{m}
+$$
+which proves the result at once.
+\end{itemize}
+\end{proof}
+
+\begin{remark}\label{chap1-rem5.6}
+Naturally we ask whether an analogue of Theorem \ref{chap1-thm5.5} is valid for $\scrE^{m}(X)$, $\scrE^{m}(Y)$, $\scrE^{m}(X\cup Y)$, i.e. whether the sequence
+$$
+0\to \scrE^{m}(X\cup Y)\to \scrE^{m}(X)\oplus \scrE^{m}(Y)\to \scrE^{m}(X\cap Y)\to 0
+$$
+is exact for finite $m$. The results are the following:
+
+If $m=0$, the sequence is always exact (trivial).
+
+If $0<m$, $X$ and $Y$ are ``$m$-regularly situated'' if the condition $(\Lambda)$ is replaced by an analogous one with $\alpha=1$.
+\end{remark}
+
+(Proof similar to the preceding one.) This is of course much more restrictive than $(\Lambda)$.
+
+\section{A theorem of composition\protect\footnotemark[1]}
+\footnotetext[1]{The results of this section and the next will not be used in the rest of this book, except in Chap. V, \S5, (iii).}
+
+Let $\scrO$ be an open set $\subset \bfR^{m}$, $\Omega$ an open set $\subset \bfR^{n}$, and $g:\scrO\to \Omega$, $f:\Omega\to \bfR$ two mappings of class $C^{s}$. Set $A^{0}=\Omega$ and $A^{r}=\{x\in \Omega|D^{k}f(x)=0 \text{ for } 1\leq |k|\leq r\}$ $(1\leq r\leq s)$.
+
+The theorem of composition which we have in mind is based on the following remark.
+
+{\em Let $y\in \scrO$ be such that $x=g(y)\in A^{r}$. The derivatives (of order $\leq s$) of $f\circ g$ at $y$ do not depend on the derivatives of $g$ of order $>s-r$.}
+
+In fact, let $y\in \scrO$ and $x=g(y)$. The formula for the differentiation of composite functions can be written
+$$
+T^{s}_{y}(f\circ g)=T^{s}_{x}f(T^{s}_{y}g(z))\mod (z-y)^{s+1};
+$$
+this identity means that the two expressions above, considered as polynomials in $z$, are congruent modulo the ideal generated by the $(z-y)^{l}$, $|l|=s+1$. This formula can also be written in the form $T^{s}_{y}(f\circ g)(z)=$
+$$
+f(x)+\sum\limits^{s}_{|k|=1}\dfrac{D^{k}f(x)}{k!}\left[\sum\limits^{s}_{|l|=1}\dfrac{D^{l}g(y)}{l!}(z-y)^{l}\right]^{k}\mod (z-y)^{s+1}.
+$$
+For a fixed $k=(k_{1},\ldots,k_{n})$, the bracket occuring on the right can be written
+$$
+\dfrac{1}{l^{1}!\ldots l^{n}!}[D^{l^{1}}g_{1}(y)]^{k_{1}}\quad [D^{l^{n}}g_{n}(y)]^{k_{n}}(z_{1}-y_{1})^{k_{1}l^{1}}\quad (z_{n}-y_{n})^{k_{n}l^{n}},
+$$
+where $g=(g_{1},\ldots,g_{n})$ and the sum is over systems $(l^{1},\ldots,l^{n})$ for which $l^{i}\in \bfN^{n}$, $|l^{i}|\geq 1$ for each $i$; only those $(l^{i})$ for which $k_{1}l^{1}+\cdots + k_{n}l^{n}\leq s$ occur here. However, if $|k|\geq r$, these conditions imply that $|l^{i}|\leq s-r$ for each $i$. Hence, for $x\in A^{r}$, we have 
+$$
+T^{s}_{y}(f\circ g)(z)=T^{s}_{x}f[T^{s-r}_{y}g(z)]\mod (z-y)^{s+1},
+$$
+and the result follows.
+
+Let $\Omega$, $f$, $A^{i}$ be as above. Let $r$ be an integer with $1\leq r\leq s$, and let $K$ be a compact subset of $\bfR^{m}$ and $G$ a system of $n$ elements of $\scrE^{s-r}(K)$ which we consider as a ``function'' with values in $\bfR^{n}$, and suppose that $g_{0}(K)=G(K)\subset A^{r}$. The calculations made above lead us to define a jet $\in J^{s}(X)$, which we denote $f\circ G$, by means of the formula
+$$
+T^{s}_{y}(f\circ G)(z)=T^{s}_{x}f(T^{s-r}_{y}G(z))\mod (z-y)^{s+1},
+$$
+where $y\in K$, $x=G(y)\in A^{r}$.
+
+\begin{theorem}[M. Kneser {[1]}, see also G. Glaeser {[1]}.]\label{chap1-thm6.1}
+For $1\leq r<s$, we have $f\circ G\in \scrE^{s}(K)$.
+\end{theorem}
+
+\begin{proof}
+We have to prove that for a certain modulus of continuity $\alpha$, we have
+\setcounter{equation}{1}
+\begin{align}
+& |T^{s}_{y_{1}}(f\circ G)(z)-T^{s}_{y_{2}}(f\circ G)(z)|\leq \alpha (|y_{1}-y_{2}|)\times\notag\\
+&\hspace{3.8cm} \times (|y_{1}-z|^{s}+|y_{2}-z|^{s})\label{chap1-eq6.2}
+\end{align}
+for $y_{1}\in K$, $y_{2}\in K$, $z\in \bfR^{m}$. Let $B$ be an open ball in $\bfR^{m}$ for which $K\subset B$. It is enough to prove this estimate for $z\in B$ (to see this, one has only to repeat the argument given for the implication \eqref{chap1-sec2.2.3} $\Rightarrow$ \eqref{chap1-sec2.2.2}, using \eqref{chap1-sec2.2.3} only for $z\in B$).
+\begin{itemize}
+\item[(i)] Let us first show that it is sufficient to establish the following formula:
+\begin{align}
+& |T^{s}_{x_{1}}f(T^{s-r}_{y_{1}}G(z))-T^{s}_{x_{2}}f(T^{s-r}_{y_{2}}G(z))|\leq \alpha(|y-y_{2}|)\times\notag\\
+&\hspace{4.4cm} \times (|y_{1}-z|^{s}+|y_{2}-z|^{s})\label{chap1-eq6.3}
+\end{align}
+for $y_{1}$, $y_{2}\in K$, $x_{1}=G(y_{1})$, $x_{2}=G(y_{2})$, $z\in B$ and a suitable modulus $\alpha$ of continuity. For this purpose, it suffices to verify that the terms on the left in \eqref{chap1-eq6.2} and \eqref{chap1-eq6.3} differ only by terms satisfying the required inequality. Now, this difference is a sum of terms of the form
+$$
+h(y_{1})(z-y_{1})^{k}-h(y_{2})(z-y_{2})^{k}
+$$
+with a continuous $h$, and $|k|>s$. If we write this in the form
+%page 27
+\end{itemize}
+\end{proof}
+
+
 
