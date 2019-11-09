@@ -1,0 +1,187 @@
+\chapter{ANALYTIC AND DIFFERENTIABLE ALGEBRAS}\label{chap3}
+
+\section{Local R-algebras.}\label{chap3-sec1}
+
+In this chapter, rings and algebras are supposed to be commutative with a unit and modules over these rings and algebras are supposed to be unitary. Further if $A$ is a ring, we say that an $A$-module is ``finite over $A$'' if it is of finite type as an $A$-module.
+
+Let $A$ be a local ring, i.e. a ring possessing a proper ideal $\frakm(A)$ containing all other proper ideals, which consists necessarily of all non-invertible elements of $A$. Let us recall the following result which we shall have frequently to use.
+
+\begin{proposition}[Nakayama's lemma.]\label{chap3-prop1.1}
+Let $M$ be an $A$-module of finite type and $M'$ a submodule of $M$ satisfying
+\begin{align*}
+M &= M'+\frakm(A)M.\\
+\text{Then we have}\qquad M' &= M.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+If we set $N=M/M'$, we have $N=\mathfrak{m}(A)N$, and we have to show that $N$ reduces to $\{0\}$. Now, let $n_{1},\ldots,n_{p}$ be a system of generators of $N$. There exist elements
+$$
+a_{ij}\in \mathfrak{m}(A)\quad (1\leq i\leq p, 1\leq j\leq p)
+$$
+such that
+$$
+n_{i}=\sum\limits^{p}_{j=1}a_{ij}n_{j},
+$$
+and since $\det (\delta_{ij}-a_{ij})\not\in \mathfrak{m}(A)$ ($\delta_{ij}$ being the Kronecker symbol), we have $n_{i}=0$ for every $i$.
+
+Let now $A$ be a local $\bfR$-algebra and $1$ its unit element. If $A\neq \{0\}$ (which we suppose in all that follows), the element $1$ defines an injection $\epsilon:\bfR\to A$ by $\epsilon(\alpha)=\alpha 1$.
+
+{\em In all that follows, the following hypotheses are made (explicitly or implicitly) when we speak of local $\bfR$-algebras.}
+\begin{description}
+\item[(\thnum{1.2};\label{chap3-id1.2} i)] {\em $\mathfrak{m}(A)$ is finite over $A$.}
+
+\item[(1.2; ii)] {\em The composite $\bfR\xrightarrow{\epsilon}A\to A/\mathfrak{m}(A)$ is bijective.}
+\end{description}
+
+Let us recall that if $\frakp$ is an ideal of $A$, we may put on $A$ a structure of topological algebra (called the $\frakp$-adic topology) by requiring that the powers $\frakp^{k}$ ($k$ an integer $>0$) constitute a fundamental system of neighbourhoods of $0$. For this topology to be Hausdorff, it is necessary and sufficient that
+$$
+\bigcap\limits_{k}\frakp^{k}=\{0\}.
+$$
+If $\frakp=\frakm(A)$, we call this the ``Krull topology of $A$'' (or simply ``topology of $A$'' if no confusion is possible). The $\frakp$-adic topology on $A$ coincides with the Krull topology if and only if there is an integer $k$ such that $\frakm^{k}(A)\subset \frakp$; in this case, we shall say that $\frakp$ is {\em an ideal of definition} of $A$.
+\end{proof}
+
+\setcounter{theorem}{2}
+\begin{proposition}\label{chap2-prop1.3}
+For $\frakp$ to be an ideal of definition, it is necessary and sufficient that $A/\frakp$ be finite over $\bfR$.
+\end{proposition}
+
+In fact, since $\frakm(A)$ is finite over $A$, $\frakm^{k}(A)$ is finite over $A$ for every $k$, so that $\frakm^{k}(A)/\frakm^{k+1}(A)$ is finite over $A/\frakm(A)\simeq \bfR$. Hence, for each $k$, $A/\frakm^{k}(A)$ is finite over $\bfR$. If $\frakp$ is an ideal of definition, $A/\frakp$ is therefore finite over $\bfR$.
+
+Conversely, suppose that $A/\frakp$ is finite over $\bfR$. The $\frakm^{k}(A/\frakp)$ form a decreasing sequence of finite modules over $\bfR$, and the sequence is therefore stationary. By Nakayama's lemma, we have, for a certain $k$, $\frakm^{k}(A/\frakp)=\{0\}$, whence $\frakm^{k}(A)\subset\frakp$.
+
+Let $\widehat{A}$ be the algebra obtained by making Hausdorff the completion of $A$ for the Krull topology\footnote[1]{In what follows, we shall say ``completion'' for this Hausdorff completion, and ``complete'' for rings which are Hausdorff and complete.}. It is obvious that $\widehat{A}$ can be identified with the projective limit $\varprojlim A/\frakm^{k}(A)$, that $\widehat{A}$ is again a local $\bfR$-algebra (satisfying (i) and (ii)), and that the natural mappings $A/\frakm^{k}(A)\to \widehat{A}/\frakm^{k}(\widehat{A})$ are isomorphisms. (We leave the details to the reader.)
+
+Let $x_{1},\ldots,x_{p}$ be elements of $\frakm(A)$. We define, in an obvious way, a mapping of the ring $\bfR[[X_{1},\ldots,X_{p}]]$ of formal power series into $\widehat{A}$. This mapping will be surjective if (and only if) $x_{1},\ldots,x_{p}$ are generators of $\frakm(A)$ over $A$. Consequently, $\widehat{A}$ is a quotient of an algebra of formal power series. It follows from this that $\widehat{A}$ is noetherian. (We shall, furthermore, recall the proof of this fact later on.)
+
+Let now $A$ and $B$ be two local $\bfR$-algebras, and $u$ a homomorphism (which, in what follows, will always be supposed unitary) $A\to B$. We have $u^{-1}(\frakm(B))=\frakm(A)$: in fact, the $\bfR$-linear mapping $A/u^{-1}(\frakm(B))\to B/\frakm(B)$ is not zero, since $u(1)=1$, so that the mapping is surjective; hence $u^{-1}(\frakm(B))$ is maximal and thus equal to $\frakm(A)$. A fortiori, we have $u(\frakm(A))\subset \frakm(B)$; in other words, $u$ is local, that is, continuous with respect to the Krull topology. It follows that $u$ induces a homomorphism $\widehat{u}:\widehat{A}\to \widehat{B}$, which is again local, and a homomorphism
+$$
+\overline{u}:A/\frakm(A)\to B/B \ u (\frakm(A)).
+$$
+This last mapping coincides with the canonical injection
+$$
+\epsilon:\bfR\to B/B \ u(\frakm(A)).
+$$
+In what follows, we shall equip $B$ with the structure of $A$-module defined by $u$. We shall write therefore
+\begin{gather*}
+ab(a\in A, b\in B)\text{ for } u(a)b,\\
+\frakm(A)B\text{ for } B \ u(\frakm(A)),
+\end{gather*}
+and so on.
+
+\begin{definition}\label{chap3-defi1.4}
+\begin{itemize}
+\item[(i)] We say that $u$ is finite if $B$ is finite over $A$. 
+
+\item[(ii)] We say that $u$ is quasi-finite if $\overline{u}$ is finite, that is, if $B/\frakm(A)B$ is finite over $\bfR$.
+\end{itemize}
+\end{definition}
+
+By Proposition \ref{chap3-prop1.3}, $u$ is quasi-finite if and only if $\frakm(A)B$ is an ideal of definition of $B$. It is clear that every finite homomorphism is quasi-finite; but in general, the converse is false (counter example: $A=$ ring of convergent power series in $n\geq 1$ variables, $B$ its completion). One of the main objects of this course is to prove that this converse (called the ``preparation theorem'') is true in a certain number of cases. Let us note at once the following
+
+\begin{proposition}[The formal preparation theorem.]\label{chap3-prop1.5}
+If $A$ and $B$ are complete (and Hausdorff) and if $u:A\to B$ is quasi-finite, then $u$ is finite.
+\end{proposition}
+
+We shall utilise this proposition here, but postpone its proof to \S\ref{chap3-sec3}.
+
+Let us go back to the general case : the map $u:A\to B$ being continuous defines, by passage to completions, a mapping $\widehat{u}:\widehat{A}\to \widehat{B}$ (and, by composition, a mapping $A\to \widehat{B}$ which we shall use incidentally).
+
+\begin{proposition}\label{chap3-prop1.6}
+The properties ``$u$ quasi-finite'', ``$\widehat{u}$ quasi-finite'' and ``$\widehat{u}$ finite'' are equivalent. If they are satisfied, the canonical mapping
+$$
+B/\frakm(A)B\to \widehat{B}/\frakm(\widehat{A})\widehat{B}
+$$
+is bijective.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{chap3-prop1.5}, ``$\widehat{u}$ finite'' and ``$\widehat{u}$ quasi-finite'' are equivalent. Let us prove the equivalence of ``$u$ quasi-finite'' and ``$\widehat{u}$ quasi-finite''. For this, it is sufficient to prove that $\frakm(A)B$ is an ideal of definition of $B$ if and only if $\frakm(\widehat{A})\widehat{B}$ is an ideal of definition of $\widehat{B}$.
+
+Let $\frakp$ be an ideal in $B$. For each $r$, the canonical mapping
+$$
+(\frakp+\frakm^{r}(B))/\frakm^{r}(B)\to (\frakp\widehat{B}+\frakm^{r}(\widehat{B}))/\frakm^{r}(\widehat{B})
+$$
+is evidently bijective. Put $\frakp=\frakm(A)B$, and remark that $\frakm(A)\widehat{B}+\frakm^{r}(\widehat{B})$ is closed (since it contains $\frakm^{r}(\widehat{B}))$, hence is equal to $\frakm(\widehat{A})\widehat{B}+\frakm^{r}(\widehat{B})$. We obtain thus an isomorphism
+\setcounter{equation}{6}
+\begin{equation}
+(\frakm(A)B+\frakm^{r}(B))/\frakm^{r}(B)\xrightarrow{\sim}(\frakm(\widehat{A})\widehat{B}+\frakm^{r}(\widehat{B}))/\frakm^{r}(\widehat{B}).\label{chap3-eq1.7}
+\end{equation}
+
+Suppose now that $\frakm(A)B\supset \frakm^{k}(B)$. Using this isomorphism for $r=k+1$, we obtain $\frakm(\widehat{A})\widehat{B}+\frakm^{k+1}(\widehat{B})\supset \frakm^{k}(\widehat{B})$. Applying Nakayama's lemma to the couple $\frakm^{k}(\widehat{B})$, $\frakm(\widehat{A})\widehat{B}\cap \frakm^{k}(B)$, we find that $\frakm(\widehat{A})\widehat{B}\supset \frakm^{k}(\widehat{B})$. Conversely, the same argument shows that $\frakm(\widehat{A})\widehat{B}\supset \frakm^{k}(\widehat{B})$ implies that $\frakm(A)B\supset \frakm^{k}(B)$, whence the result.
+
+Finally, suppose that $\frakm(A)B\supset \frakm^{k}(B)$. The preceding result, together with the isomorphism \eqref{chap3-eq1.7} for $r=k$ gives an isomorphism
+$$
+\frakm(A)B/\frakm^{k}(B)\xrightarrow{\sim}\frakm(\widehat{A})\widehat{B}/\frakm^{k}(B).
+$$
+The isomorphism stated in Proposition \ref{chap3-prop1.6} follows from this, the isomorphism
+$$
+B/\frakm(A)B\simeq (B/\frakm^{k}(B))/(\frakm(A)B/\frakm^{k}(B)),
+$$
+and the corresponding isomorphism for the completions.
+\end{proof}
+
+Proposition \ref{chap3-prop1.6} has the following corollary which is useful for applications.
+
+\begin{corollary}\label{chap3-coro1.8}
+Let $u:A\to B$ be a homomorphism of local $\bfR$-algebras and let $b_{1},\ldots,b_{p}$ be a finite family of elements of $B$. Let us denote by $\widehat{b}_{i}$ their images in $\widehat{B}$ and by $\overline{b}_{i}$ their images in $B/\frakm(A)B$. The following properties are equivalent.
+\begin{itemize}
+\item[\rm(i)] $\widehat{b}_{1},\ldots,\widehat{b}_{p}$ generate $\widehat{B}$ over $\widehat{A}$.
+
+\item[\rm(ii)] $\overline{b}_{1},\ldots,\overline{b}_{p}$ generate $B/\frakm(A)B$ over $\bfR$.
+
+\item[\rm(iii)] $\overline{\widehat{b}}_{1},\ldots,\overline{\widehat{b}}_{p}$ generate $\widehat{B}/\frakm(\widehat{A})\widehat{B}$ over $\bfR$.
+
+Furthermore, if $u$ is finite, they are equivalent to
+
+\item[\rm(iv)] $b_{1},\ldots,b_{p}$ generate $B$ over $A$.
+\end{itemize}
+\end{corollary}
+
+The equivalence of (ii) and (iii) follows from the isomorphism (\ref{chap3-prop1.6}). On the other hand, it is obvious that (iv) implies (ii). If $u$ is finite, (ii) implies (iv) by Nakayama's lemma. Taking into account Proposition \ref{chap3-prop1.5}. the equivalence of (i) and (iii) is proved in the same way.
+
+\section{Analytic and differentiable algebras}\label{chap3-sec2}
+
+In what follows, we denote respectively by $\scrO_{n}$, $\scrE_{n}$ the rings of germs at $0$ in $\bfR^{n}$ of real analytic and $C^{\infty}$ functions with real values, and by $\scrF_{n}$ the ring of formal power series in $n$ indeterminates over $\bfR$. One has obvious mappings $\scrO_{n}\to \scrE_{n}$ (an injection), $\scrO_{n}\to \scrF_{n}$ and $\scrE_{n}\to \scrF_{n}$ (Taylor expansion at $0$). These rings are local $\bfR$-algebras satisfying (\ref{chap3-id1.2}). The only point which is not entirely obvious is the fact that $\scrE_{n}$ satisfies (\ref{chap3-id1.2}; ii), which fact results from the following lemma in which $x_{1},\ldots,x_{n}$ stand for coordinates in $\bfR^{n}$.
+
+\begin{lemma}\label{chap3-lem2.1}
+Let $f\in \scrE_{n}$ and $k$ be an integer $\leq n$. Suppose that 
+$$
+f(0,\ldots,0,x_{k+1},\ldots,x_{n})=0.
+$$
+There exist then $h_{i}\in \scrE_{n}$, $i=1,\ldots,k$ with
+$$
+f=\sum\limits^{k}_{i=1}x_{i}h_{i}.
+$$
+\end{lemma}
+
+\begin{proof}
+We may, in fact, take
+$$
+h_{i}=\int\limits^{1}_{0}\dfrac{\partial f}{\partial x_{i}}(tx_{1},\ldots,tx_{k},x_{k+1},\ldots,x_{n})dt.
+$$
+It follows from this lemma that $x_{1},\ldots,x_{n}$ form a system of generators of $\frakm(\scrE_{n})$ over $\scrE_{n}$. One also deduces from it at once that $\scrF_{n}$ is the completion of $\scrE_{n}$ for the Krull topology, the corresponding fact for $\scrO_{n}$ instead of $\scrE_{n}$ being obvious. We note also an important difference between the two cases: while the mapping $\scrO_{n}\to \scrF_{n}$ is {\em injective}, the mapping $\scrE_{n}\to \scrF_{n}$ is surjective (Chapter \ref{chap1}, \S\ref{chap1-sec4}), so that $\scrE_{n}$ is, in some sense, ``complete but not Hausdorff''.
+\end{proof}
+
+\begin{definition}\label{chap3-defi2.2}
+By a differentiable algebra, we mean a local $\bfR$-algebra together with a surjective homomorphism $\scrE_{n}\xrightarrow{\pi}A$ (which is assumed unitary). Replacing $\scrE_{n}$ by $\scrO_{n}$ (resp. $\scrF_{n}$), we define in the same way an analytic (resp. formal) algebra.
+\end{definition}
+
+We will now define the morphisms of differentiable algebras. First, if $A=\scrE_{n}$, $B=\scrE_{m}$, a homomorphism $u:A\to B$ is called a morphism if there exists a germ $\phi$ (at 0) of $C^{\infty}$-mapping from $\bfR^{m}$ into $\bfR^{n}$, $\phi(0)=0$, such that for any $f\in \scrE_{n}$, we have $u(f)=f\circ \phi$ ($\phi$ if it exists, is obviously unique). In the general case, let $\scrE_{n}\xrightarrow{\pi}A$, $\scrE_{m}\xrightarrow{\psi}B$ be two differentiable algebras and $u$ a homomorphism $A\to B$. We say that $u$ is a morphism if there exists a morphism $\widetilde{u}:\scrE_{n}\to \scrE_{m}$ such that the following diagram is commutative:
+\[
+\xymatrix{
+\scrE_{n}\ar[d]_{\pi}\ar[r]^{\widetilde{u}} & \scrE_{m}\ar[d]^{\psi}\\
+A\ar[r]_{u} & B
+}
+\]
+
+It is evident that the composite of two morphisms is a morphism. In accordance with general definitions in a category, we say that a morphism $u$ is an isomorphism if there exists a morphism $v:B\to A$ such that $v\circ u=$ identity, $u\circ v=$ identity (it is in fact sufficient that $u$ be bijective; this results easily from the considerations that follow).
+
+\begin{proposition}\label{chap3-prop2.3}
+Given a differentiable algebra $\scrE_{m}\xrightarrow{\pi}B$ and $n$ elements $b_{i}\in \frakm(B)$, there is one and only one morphism $u:\scrE_{n}\to B$ such that $u(x_{i})=b_{i}$ ($x_{i}$ standing for the coordinates in $\bfR^{n}$).
+\end{proposition}
+
+\begin{proof}
+%page 42
+\end{proof}
+

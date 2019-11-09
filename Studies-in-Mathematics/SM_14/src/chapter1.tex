@@ -546,9 +546,99 @@ $$
 h(y_{1})(z-y_{1})^{k}-h(y_{2})(z-y_{2})^{k}
 $$
 with a continuous $h$, and $|k|>s$. If we write this in the form
-%page 27
+$$
+\{h(y_{1})-h(y_{2})\}(z-y_{1})^{k}+h(y_{2})\{(z-y_{1})^{k}-(z-y_{2})^{k}\}
+$$
+and mojorise the two terms in the obvious way, we obtain the required result (note that the restriction $z\in B$ is essential since we have $|k|>s$).
+
+\item[(ii)] Let us write the term on the left in \eqref{chap1-eq6.3} in the form
+\begin{align}
+& \{T^{s}_{x_{1}}f(T^{s-r}_{y_{1}}G(z))-T^{s}_{x_{1}}f(T^{s-r}_{y_{2}}G(z))\}+\notag\\
+& \hspace{2.5cm} +\{T^{s}_{x_{1}}f(T^{s-r}_{y_{2}}G(z))-T^{s}_{x_{2}}f(T^{s-r}_{y_{2}}G(z))\}.\label{chap1-eq6.4}
+\end{align}
+The second term is majorised, in absolute value, by
+$$
+\alpha (|x_{1}-x_{2}|)(|x_{1}-x_{2}|^{s}+|T^{s-r}_{y_{2}}G(z)-x_{2}|^{s}).
+$$
+Since $r<s$, we have $|x_{1}-x_{2}|=|G(y_{1})-G(y_{2})|\leq C|y_{1}-y_{2}|$, $(y_{1},y_{2}\in K)$ and 
+\begin{equation}
+|T^{s-r}_{y_{2}}G(z)-x_{2}|\leq C|z-y_{2}|(x\in B, y_{2}\in K),\label{chap1-eq6.5}
+\end{equation}
+which gives us the required estimate for the second term.
+
+\item[(iii)] It remains to majorise the first term in \eqref{chap1-eq6.4}. Let us put $T^{s-r}_{y_{i}}G(z)=u_{i}(i=1,2)$. We have
+\begin{equation}
+T^{s}_{x_{1}}f(u_{1})-T^{s}_{x_{1}}f(u_{2})=\sum\limits_{1\leq |k|\leq s}\dfrac{1}{k!}D^{k}_{u_{1}}T^{s}_{x}f(u_{1})(u_{2}-u_{1})^{k},\label{chap1-eq6.6}
+\end{equation}
+and
+\begin{equation}
+|u_{2}-u_{1}|\leq \alpha(|y_{2}-y_{1}|)(|z-y_{1}|^{s-r}+|z-y_{2}|^{s-r})(y_{1},y_{2}\in K, z\in \bfR^{m});\label{chap1-eq6.7}
+\end{equation}
+here $\alpha$ is a suitable modulus of continuity.
+
+The right hand side of \eqref{chap1-eq6.6} is estimated as follows.
+
+If $1\leq |k|\leq r$, in $D^{k}_{u_{1}}T^{s}_{x_{1}}f(u_{1})=T^{s-|k|}_{x_{1}}D^{k}f(u_{1})$,
+
+the terms containing $(u_{1}-x_{1})^{l}$ are zero if $|l|\leq r-|k|$. Hence, if $y_{1}\in K$, $z\in B$, we have
+$$
+|D^{k}_{u_{1}}T^{s}_{x_{2}}f(u_{1})|\leq C|x_{1}-u|^{r-|k|+1}.
+$$
+Using \eqref{chap1-eq6.5} and \eqref{chap1-eq6.7} we easily obtain the required estimate from this. Finally, if $|k|>r$, we have $|u_{2}-u_{1}|^{k}\leq C|u_{2}-u_{1}|^{r+1}$, which, with \eqref{chap1-eq6.7} and the obvious inequality $(s-r)(r+1)\geq s$, gives us the required result.
 \end{itemize}
 \end{proof}
 
+\section{The theorem of Sard}\label{chap1-sec7}
 
+Let $\Omega$ be an open set in $\bfR^{n}$ and $f$ a mapping $\Omega\to \bfR^{p}$ of class $C^{s}$, $s\geq 1$. As in \S6, let us set $A^{0}=\Omega$ and 
+$$
+A^{r}=\{x\in \Omega|D^{k}f(x)=0\text{ for } 1\leq |k|\leq r\}, \text{ where } 1\leq r\leq s.
+$$
+
+\begin{lemma}\label{chap1-lem7.1}
+For $r\geq \dfrac{n}{p}$, $f(A^{r})$ has measure zero.
+\end{lemma}
+
+\begin{proof}
+Let $K$ be a closed cube $\subset \Omega$. It is obviously sufficient to prove that $f(A^{r}\cap K)$ has measure zero.
+
+There exists a modulus $\alpha$ of continuity such that for $x\in K\cap A^{r}$ and any $y\in K$ we have $|f(x)-f(y)|\leq |x-y|^{r}\alpha(|x-y|)$. Let $l$ be the length of the edge of $K$. Let us divide $K$ into $N^{n}$ equal cubes $K_{i}$, $1\leq i\leq N^{n}$. Let $J$ be the set of indices $i$ for which $K_{i}$ meets $A^{r}$. If $x$, $y\in K_{j}$, $j\in J$, we have $|f(x)-f(y)|\leq C\left(\dfrac{l}{N}\right)^{r}\alpha\left(\dfrac{l}{N}\right)$ with $C=2(\surd n)^{r+1}$. The volume $V_{j}$ of $f(K_{j})$ is therefore at most $N^{n}C'\left(\dfrac{l}{N}\right)^{pr}\alpha \left(\dfrac{l}{N}\right)^{p}C'$ being a constant depending only on $n$ and $p$. The volume of $f(K\cap A^{r})$ is therefore at most $C'N^{n}\left(\dfrac{l}{N}\right)^{pr}\alpha\left(\dfrac{l}{N}\right)^{p}$. Choosing $N$ large enough and using our hypothesis that $n-pr\leq 0$ we obtain the required result.
+\end{proof}
+
+\begin{remark}\label{chap1-rem7.2}
+If $n<p$, the same argument shows that $f(\Omega)$ has measure zero if $f$ is of class $C^{1}$.
+\end{remark}
+
+\begin{lemma}\label{chap1-lem7.3}
+If $s\geq \dfrac{n}{p}$, $f(A^{1})$ has measure zero.
+\end{lemma}
+
+\begin{proof}
+By Lemma \ref{chap1-lem1}, the result is true for $p=n$. Keeping $p$ fixed, we shall use induction on $n$. Suppose therefore that the lemma has already been established for $n-1$. We shall show that for $1\leq r<s$, $f(A^{r}-A^{r+1})$ has measure zero, which implies our result, since, by the preceding lemma, $f(A^{s})$ has measure zero.
+
+Let $x\in A^{r}\ldots A^{r+1}$ and set $f=(f_{1},\ldots,f_{p})$. There exists $i$, $1\leq i\leq n$, $j$, $1\leq j\leq p$, and $k\in \bfN^{n}$, $|k|=r$, such that $\dfrac{\partial}{\partial x_{i}}D^{k}f_{j}(x)\neq 0$. Near $x$, the set of points of $\Omega$ which satisfy $D^{k}f_{j}(x)=0$ is therefore a submanifold of class $C^{s-r}$. Hence there is an open set $U\subset \Omega$ with $x\in U$, an open set $\scrO\subset \bfR^{n-1}$ and a proper mapping $g:\scrO\to U$ of class $C^{s-r}$ such that $U\cap A^{r}\subset g(\scrO)$.
+
+Let $K$ be a compact set in $U$ with $x\in \overset{\circ}{K}$. Set $L=g^{-1}(K)$ and $B^{r}=L\cap g^{-1}(A^{r})$. By Theorem \ref{chap1-thm6.1} and the extension theorem, there exists $h:\scrO\to \bfR^{p}$ of class $C^{s}$ coinciding with $f\circ g$ on $B^{r}$ and satisfying $D^{k}h(y)=0$ for $y\in B^{r}$, $1\leq |k|\leq r$.
+
+By induction, $f\circ g(B^{r})$, hence $f(A^{r}\cap K)$, is of measure zero. Since $A^{r}-A^{r+1}$ is a countable union of compact sets, $f(A^{r}-A^{r+1})$ has measure zero and the lemma follows.
+
+The above lemma is due to A. P. Morse [1] (at least if $p=1$). The method used is due to M. Kneser [1].
+\end{proof}
+
+\begin{theorem}[Sard {[1]}.]\label{chap1-thm7.4}
+Let $K$ be the set of critical points of $f$ (i.e. the set of points where the differential map $f'$ has rank $<p$). If $s\geq \max (1,n-p+1)$, then $f(K)$ has measure zero.
+\end{theorem}
+
+\begin{proof}
+For $n<p$, this follows from Remark \ref{chap1-rem7.2}. Suppose therefore that $n\geq p$. For $0\leq r<p$, let $K^{r}$- be the set of points of $\Omega$ where $f'$ has rank $r$, and let $a\in K^{r}$. We shall show that there exists a neighbourhood $U$ of a such that $f(U\cap K^{r-})$ has measure zero. Since $K^{r}$ is locally closed in $\Omega$, hence a countable union of compact subsets of $\Omega$, the theorem follows from this.
+
+We can find a neighbourhood $U$ of $a$, a neighbourhood $V$ of $f(a)$ and changes of coordinates of class $C^{s}$ in $U$ and $V$ such that, in the new coordinates, $f$ is given by the system of equations
+\begin{align*}
+& y_{i}=x_{i}, 1\leq i\leq r,\\
+& y_{i}=f_{i}(x_{1},\ldots,x_{n}),r+1\leq i\leq p.
+\end{align*}
+The $f_{i}$ are of class $C^{s}$ and for a point $(x_{1},\ldots,x_{n})\in U$ to belong to $K^{r}$, it is necessary and sufficient that $\dfrac{\partial f_{i}}{\partial x_{j}}(x_{1},\ldots,x_{n})=0$ for $i\geq r+1$, $j\geq r+1$.
+
+Let $E(x_{1},\ldots,x_{r})$ (resp. $F(x_{1},\ldots,x_{r})$) be the set of points of $U$ (resp. $V$) whose first $r$ coordinates are $x_{1},\ldots,x_{r}$. From the inequality $s\geq n-p+1$, we deduce that $s\geq \dfrac{n-r}{p-r}$; fixing $x_{1},\ldots,x_{r}$ and applying (\ref{chap1-lem7.3}) to $(f_{r+1},\ldots,f_{p})$ considered as a function of $(x_{r+1},\ldots,x_{n})$, we find that $f(K^{r}\cap E(x_{1},\ldots,x_{r}))$ has measure zero in $F(x_{1},\ldots,x_{r})$. By the Lebesgue-Fubini theorem, $f(U\cap K^{r})$ has measure zero, and the theorem is established.
+\end{proof}
 
