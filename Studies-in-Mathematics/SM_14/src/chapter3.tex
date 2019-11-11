@@ -182,6 +182,462 @@ Given a differentiable algebra $\scrE_{m}\xrightarrow{\pi}B$ and $n$ elements $b
 \end{proposition}
 
 \begin{proof}
-%page 42
+For each $i$, let us choose an $f_{i}\in \scrE_{m}$ satisfying $\pi(f_{i})=b_{i}$, and let $v$ be the morphism $\scrE_{n}\to \scrE_{m}$ defined by $v(x_{i})=f_{i}$, i.e. the morphism induced by the mapping $(y_{1},\ldots,y_{m})\to (f_{1},\ldots,f_{n})$ from $\bfR^{m}\to \bfR^{n}$. Then $u=\pi\circ v$ has the required property. To prove the uniqueness, let us choose $f'_{i}\in \scrE_{m}$ with $\pi(f'_{i})=b_{i}$ and let us denote by $\mathfrak{I}$ the ideal $\pi^{-1}(0)$. It is sufficient to prove that for any $g\in \scrE_{n}$, we have
+$$
+g(f_{1},\ldots,f_{n})-g(f'_{1},\ldots,f'_{n})\in \frakI.
+$$
+Now, Lemma \ref{chap3-lem2.1} shows that there exist functions $h_{i}\in \scrE_{2n}$ satisfying
+$$
+g(f_{1},\ldots,f_{n})-g(f'_{1},\ldots,f'_{n})=\sum\limits^{n}_{i=1}(f_{i}-f'_{i})h_{i}(f_{1},\ldots,f_{n},f'_{1},\ldots,f'_{n}),
+$$
+and the result follows.
+
+It will be convenient to denote the element $u(g)$ constructed in the above proposition by $g(b_{1},\ldots,b_{n})$. The reader will verify easily that a homomorphism $u:A\to B$ is a morphism if and only if it has the following property: for any $a_{1},\ldots,a_{p}\in \frakm(A)$ and $f\in\scrE_{p}$, we have
+$$
+u(f(a_{1},\ldots,a_{p}))=f(u(a_{1}),\ldots,u(a_{p}))
+$$
+(in other words: $u$ is compatible with composition by differentiable functions).
 \end{proof}
 
+\begin{remark}\label{chap3-rem2.4}
+As far as I am aware, one does not know at present whether every homomorphism $A\to B$ (as $\bfR$-algebras) is a morphism. One does not even know whether two differentiable algebras which are isomorphic as $\bfR$-algebras are also isomorphic as differentiable algebras. It is precisely this fact which has forced us to adopt the preceding definitions rather than the ``naive'' definitions, with which we will not be able to work.
+
+We adopt analogous definitions also in the case of formal and analytic rings, leaving to the reader the task of formulating them explicitly. This is only provisional, till the preparation theorem is proved: we shall see in \S\ref{chap3-sec3}, as a consequence of this theorem, that any homomorphism of analytic (resp. formal) $\bfR$-algebras is a morphism.
+\end{remark}
+
+\section{The preparation theorem for formal and analytic algebras}\label{chap3-sec3}
+
+\begin{theorem}\label{chap3-thm3.1}
+Let $u$ be a morphism of analytic (resp. formal) algebras. Then $u$ is quasi-finite if and only if $u$ is finite.
+\end{theorem}
+
+\begin{proof}
+We shall give the proof in the case of analytic algebras, leaving to the reader the task of treating that of formal algebras.
+
+Let, then $\scrO_{n}\xrightarrow{\pi}A$, $\scrO_{m}\xrightarrow{\psi}B$ be two analytic algebras, and $u$ a morphism $A\to B$, which we suppose quasi-finite. The problem reduces to proving that $u$ is finite.
+\begin{itemize}
+\item[(A)] {\em Reduction to the regular case. $(A=\scrO_{n},B=\scrO_{m})$.}
+
+In the first place, $u\circ \pi$ is again quasi-finite, and if it is finite, then so is $u$; we may, therefore, suppose that $A=\scrO_{n}$ (and $\pi=$ identity).
+
+Let us now put $\frakp=\ker\psi$; the second reduction consists in reducing to the case when $\frakp$ is finitely generated (property which is, a posteriori, true of all ideals since $\scrO_{m}$ is noetherian, but which we cannot use here!). For this, let $\widetilde{u}$ be a morphism $\scrO_{n}\to \scrO_{m}$ such that $u=\psi\circ \widetilde{u}$. Since $\frakm(\scrO_{n})B$ is an ideal of definition of $B$, $\frakp+\frakm(\scrO_{n})\scrO_{m}$ is an ideal of definition of $\scrO_{m}$, hence contains $\frakm^{k}(\scrO_{m})$ for a certain $k$. It follows that there exists an ideal $\frakp'\subset \frakp$ {\em finitely generated over $\scrO_{m}$,} such that
+$$
+\frakp'+\frakm(\scrO_{n})\scrO_{m}+\frakm^{k+1}(\scrO_{m})\supset \frakm^{k}(\scrO_{m}).
+$$
+By Nakayama's lemma, we deduce from this that $\frakp'+\frakm(\scrO_{n})\scrO_{m}\supset \frakm^{k}(\scrO_{m})$. Let us now put $B'=\scrO_{m}/\frakp'$, $\psi':\scrO_{m}\to B'$ the natural projection and let $u'=\psi'\circ u$. Then $u'$ is again quasi-finite, and if it is finite, then so is $u$.
+
+Let us, therefore, suppose that $\frakp$ is finitely generated, and let $g_{1},\ldots,g_{p}$ be a system of generators. Let us denote by $y_{i}(1\leq i\leq n)$ resp. $z_{j}(n+1\leq j\leq n+p)$ generators of the maximal ideal of $\scrO_{n}$ (resp. $\scrO_{n+p}$), and let $v$ be the morphism $\scrO_{n+p}\to \scrO_{m}$ defined by the formulas
+\begin{align*}
+& v(z_{i})=\widetilde{u}(y_{i}), \ 1\leq i\leq n\\
+& v(z_{n+j})=g_{j}, \ 1\leq j\leq p.
+\end{align*}
+The morphism $v$ is still quasi-finite; if $v$ is finite, then so is $u$. We are thus reduced, after a change of notation, to the case $A=\scrO_{n}$, $B=\scrO_{m}$.
+
+\item[(B)] {\rm Proof in the regular case.} (cf. Houzel [1]).
+
+Let us denote by $x_{1},\ldots,x_{n}$ (resp. $y_{1},\ldots,y_{m}$) coordinates in $\scrO^{n}$ (resp. $\scrO^{m}$). Let us put $\phi_{i}=u(x_{i})$, and let $\phi$ be the mappings $(\phi_{1},\ldots,\phi_{n})$ of $\bfR^{m}\to \bfR^{n}$. By hypothesis, we have $u(f)=f\circ \phi$ for $f\in \scrO_{n}$. Since $u$ is quasi-finite, there is an $r$ such that $\frakm(\scrO_{n})\scrO_{m}\supset \frakm^{r}(\scrO_{m})$. If for an $m$-tuple $k=(k_{1},\ldots,k_{m})\in \bfN^{m}$, we set as usual: $|k|=k_{1}+\cdots+k_{m}$, $y^{k}=y^{k_{1}}_{1}\ldots y^{k_{m}}_{m}$, we have, for $|k|=r$, the formula
+\setcounter{equation}{1}
+\begin{equation}
+y^{k}=\sum\limits^{n}_{i=1}\lambda_{k^{i}}\phi_{i}, \ \lambda_{k^{i}}\in \scrO_{m}.\label{chap3-eq3.2}
+\end{equation}
+We shall prove that the $y^{k}$ with $|k|\leq r$ generate $\scrO_{m}$ over $\scrO_{n}$. For this, let $f\in \scrO_{m}$. If we denote by $\pi(f)$ the terms of degree $<r$ in $f$ we can write $f$ in the form
+\begin{equation}
+f=\pi(f)+\sum\limits_{|k|=r}y^{k}\sigma_{k}(f),\text{ where } \sigma_{k}(f)\in \scrO_{m}.\label{chap3-eq3.3}
+\end{equation}
+Using \eqref{chap3-eq3.2}, we obtain from this an expression of $f$ in the form
+\begin{equation}
+f=\tau(f)+\sum\limits^{n}_{i=1}\phi_{i}\rho_{i}(f),\text{ where } \rho_{i}(f)\in \scrO_{m}.\label{chap3-eq3.4}
+\end{equation}
+[The $\sigma$ and the $\rho$ are not, in general, unique, but this causes no trouble.]
+
+Applying the same formula to the $\rho_{i}$ and iterating this procedure, one obtains for $p\in \bfN$,
+\begin{align*}
+f=\tau(f) +\quad & + \sum\limits\limits_{1\leq i_{1},\ldots,i_{p}\leq n}\phi_{i_{1}}\ldots \phi_{i_{p}}\tau_{i_{1}\ldots i_{p}}(f)+\\
+&+ \sum\limits_{1\leq i_{1},\ldots,i_{p}+1\leq n}\phi_{i_{1}}\ldots \phi_{i_{p+1}}\rho_{i_{1}\ldots i_{p+1}}(f).\tag{3.4p}\label{chap3-eq3.4p}
+\end{align*}
+Here the $\tau$ are polynomials of degree $\leq r-1$ in $y$ and the $\rho$ are functions in $\scrO_{m}$. Since the last term belongs to $\frakm^{p+1}(\scrO_{n})$, we see already that this defines a series converging formally to $f$. We have thus only to prove that for a suitable choice of the $\tau$, the family
+\begin{equation}
+x_{i_{1}}\ldots x_{i_{p}}\tau_{i_{1}\ldots i_{p}}(f)\label{chap3-eq3.5}
+\end{equation}
+(which has values in the space of polynomials of degree $\leq r-1$ in $y$) is summable in a neighbourhood of the origin.
+\end{itemize}
+
+For this, let $R>0$ and $f=\sum a_{k}y^{k}$. Let us put $|f|_{R}=\sum | a_{k} |R^{|k|}$. The mapping $f\to |f|_{R}$ has all the usual properties of norms, except that it may take the value $+\infty$. For $f$ fixed, the function $R\to |f|_{R}$ is increasing and finite for $R$ small enough. Finally, a straight-forward calculation shows that $|fg|_{R}\leq |f|_{R}|g|_{R}$.
+
+In \eqref{chap3-eq3.3}, we have $|\tau (f)|_{R}\leq |f|_{R}$, and, if we choose the $\sigma$ suitably, we will have, for any $R>0$,
+$$
+|\sigma_{k}(f)|_{R}\leq \dfrac{1}{R^{r}}|f|_{R}.
+$$
+Let us choose $R_{0}$ such that $|\lambda_{ki}|_{R_{0}}<\infty$ for all $(k,i)$. Substituting in \eqref{chap3-eq3.3} the expressions for the $y^{k}$ given by \eqref{chap3-eq3.2}, we obtain, for $R<R_{0}$, the following estimate in \eqref{chap3-eq3.4}:
+$$
+|\rho_{i}(f)|_{R}\leq \dfrac{C}{R^{r}}|f|_{R}\text{ with $C$ independent of $R$.}
+$$
+Iterating this, we find that we can choose the $\tau_{i_{1}\ldots i_{p}}$ in such a way that, for $R<R_{0}$, we have
+$$
+|\tau_{i_{1}\ldots i_{p}}(f)|_{R}\leq \dfrac{C^{p}}{R^{rp}}|f|_{R}.
+$$
+Finally, choosing $R<R_{0}$ such that $|f|_{R}<\infty$, we conclude from the above inequality that the family \eqref{chap3-eq3.5} is summable in $|x_{i}|\leq \rho$ for $\rho\leq R^{r}/nC$, which proves the theorem.
+
+In the following corollaries, we consider $\scrO_{n-1}$(resp. $\scrF_{n-1}$) as imbedded in $\scrO_{n}$ (resp. $\scrF_{n}$) by means of the morphism $\pi^{*}$ induced by the projection $\pi:(x_{1},\ldots,x_{n})\to (x_{1},\ldots,x_{n-1})$.
+\end{proof}
+
+\setcounter{theorem}{5}
+\begin{corollary}[Division algorithm]\label{chap3-coro3.6}
+Let $\Phi\in \scrO_{n}$ be such that $\Phi(0,\quad,0,x_{n})=x^{p}_{n}g(x_{n})$, $g(0)\neq 0$. For any $f\in \scrO_{n}$, there exist $Q\in \scrO_{n}$ and $R\in \scrO_{n-1}[x_{n}]$ with degree $R<p$, such that $f=\Phi Q+R$. Moreover $Q$ and $R$ are uniquely determined by these conditions.
+
+Also, the statement remains valid if we replace $\scrO_{n}$, $\scrO_{n-1}$ by $\scrF_{n}$, $\scrF_{n-1}$.
+\end{corollary}
+
+Let $A=\scrO_{n-1}$, $B=\scrO_{n}/(\Phi)$ and let $u$ be the composite of $\pi^{*}$ and the canonical mapping $\scrO_{n}\to \scrO_{n}/(\Phi)$. It is obvious that the images of $1$, $x_{n},\ldots,x^{p-1}_{n}$ in $B/\frakm(A)B$ form a basis of the latter space over $\bfR$. By our theorem, and Nakayama's lemma $(1,x_{n},\ldots,x^{p-1}_{n})$ is a system of generators of $B$ over $A$, whence the existence of $Q$ and $R$.
+
+To prove the uniqueness, let us write $\Phi=\Sigma \Phi_{k}$, $\Phi_{k}$ being a convergent series in $x_{n}$ with coefficients which are homogeneous polynomials of degree $k$ in $(x_{1},\ldots,x_{n-1})$. Suppose further that there exist $Q\in \scrO_{n}$, $R\in \scrO_{n-1}[x_{n}]$, $\deg R<p$, for which $0=\Phi Q+R$ and $Q\neq 0$, $R\neq 0$. Let us write $Q=\Sigma Q_{k}$, $R=\Sigma R_{k}$ in the same way as above, and let $l$ be the smallest integer such that $Q_{l}\neq 0$ or $R_{l}\neq 0$. We have $\Phi_{0}Q_{l}+R_{l}=0$; but $\Phi_{0}Q_{l}$ contains $x^{p}_{n}$ as factor, so that $Q_{l}=R_{l}=0$, a contradiction.
+
+\begin{corollary}[Weierstrass]\label{chap3-coro3.7}
+With the same hypotheses as in the preceding corollary, there exists $Q\in \scrO_{n}$ with $Q(0)\neq 0$ and a distinguished polynomial $P\in \scrO_{n-1}[x_{n}]$ (i.e. a monic polynomial, all of whose other coefficients are zero at the origin) such that $P=\Phi Q$. Further, $P$ and $Q$ are completely determined by these conditions. The statement remains valid with $\scrF_{n}$, $\scrF_{n-1}$ instead of $\scrO_{n}$, $\scrO_{n-1}$.
+\end{corollary}
+
+We have only to apply \eqref{chap3-eq3.6} to $f=x^{p}_{n}$ and take $P=x^{p}_{n}-R$ (it is easy to verify that $P$ is distinguished and that $Q(0)\neq 0$).
+
+\begin{theorem}\label{chap3-thm3.8}
+Analytic (resp. formal) algebras are noetherian.
+\end{theorem}
+
+\begin{proof}
+It is sufficient to prove that $\scrO_{n}$ (resp. $\scrF_{n}$) is noetherian. Let $\frakp\neq \{0\}$ be an ideal in $\scrO_{n}$ and let $f\in \frakp$, $f\neq 0$. By a linear change of coordinates, we may suppose that $f(0,\ldots,0,x_{n})\neq 0$, and it is enough to prove that the image $\overline{\frakp}$ of $\frakp$ in $\scrO_{n}/(f)$ is finite over $\scrO_{n}$. A fortiori, it is sufficient to prove that $\overline{\frakp}$ is finite over $\scrO_{n-1}$. This follows from the induction hypothesis and the fact that $\scrO_{n}/(f)$ is finite over $\scrO_{n-1}$.
+\end{proof}
+
+\begin{theorem}\label{chap3-thm3.9}
+The ring $\scrO_{n}$ (resp. $\scrF_{n}$) is factorial.
+\end{theorem}
+
+\begin{proof}
+The ring $\scrO_{n}$ is obviously an integral domain. In view of the theorem above, it is sufficient to prove the following: if $f\in \scrO_{n}$ is irreducible, then $f$ is prime. We proceed by induction on $n$, and suppose that $\scrO_{n-1}$ is factorial, so that (Gauss' theorem) $\scrO_{n-1}[x_{n}]$ is factorial. By a change of coordinates and multiplication by an invertible factor, we may suppose that $f$ is a distinguished polynomial in $x_{n}$. The theorem results from the next lemma, which is a little stronger.
+\end{proof}
+
+\begin{lemma}\label{chap3-lem3.10}
+Let $P\in \scrO_{n-1}[x_{n}]$ be a distinguished polynomial, irreducible in $\scrO_{n-1}[x_{n}]$. Then $P$ is prime in $\scrO_{n}$.
+\end{lemma}
+
+\begin{proof}
+Let $gh\in \scrO_{n}$ be such that $P$ divides $gh$. Let $\overline{g}$ and $\overline{h}$ be the remainders of $g$ and $h$ after division by $P$. $P$ divides $\overline{g} \ \overline{h}$ in $\scrO_{n}$. Because of our inductive hypothesis, $P$ is prime in $\scrO_{n-1}[x_{n}]$, so that it suffices to prove that $P$ divides $\overline{g} \ \overline{h}$ in $\scrO_{n-1}[x_{n}]$.
+
+Now, we have on the one hand $\overline{g}\overline{h}=PQ$, $Q\in \scrO_{n}$, and on the other (euclidean division) $\overline{g}\overline{h}=PQ'+R'$, $Q'$, $R'\in \scrO_{n-1}[x_{n}]$, $\deg R'<\deg P$. Because of the uniqueness in \eqref{chap3-eq3.6}, we have necessarily $Q=Q'$, $R'=0$, whence the lemma.
+\end{proof}
+
+\begin{remark}\label{chap3-rem3.11}
+Let $P\in \scrO_{n-1}[x_{n}]$ be distinguished. One verifies easily that $P$ admits a decomposition into irreducible factors which are all distinguished polynomials in $x_{n}$.
+\end{remark}
+
+Theorem \ref{chap3-thm3.8} will enable us to apply some of the theorems of local algebra to analytic and formal rings. We recall some of these results. Let $A$ be a local ring, $E$ and $A$-module. We define the structure of a topological group on $E$, ``the Krull topology'', by taking, for a fundamental system of neighbourhoods of $0$, the sets $\frakm^{k}(A)E$. [If $E=A$, this coincides with the definition given in \S\ref{chap3-sec1}; further, we could also consider the $\frakp$-adic topology of $E$ for an arbitrary ideal $\frakp$ of $A$, but we will not need this.]
+
+Let $F$ be a submodule of $E$. It is obvious that the Krull topology of $E/F$ is the quotient topology of that on $E$. To study the topology of $F$, we use the following result.
+
+\begin{theorem}[Artin-Rees]\label{chap3-thm3.12}
+Suppose that $A$ is noetherian, and that $E$ is finite over $A$. There is an integer $p>0$ such that, for $n>p$, we have, (writing $\frakm$ for $\frakm(A)$)
+$$
+F\cap \frakm^{n}E=\frakm^{n-p}.(F\cap \frakm^{p}(E)).
+$$
+\end{theorem}
+
+For the proof, see e.g. Bourbaki [2].
+\begin{corollary}[Krull]\label{chap3-coro3.13}
+With the same hypothesis
+\begin{itemize}
+\item[\rm(i)] the Krull topology of $F$ coincides with the topology induced on $F$ by the Krull topology of $E$;
+
+\item[\rm(ii)] $E$ is hausdorff;
+
+\item[\rm(iii)] $F$ is closed.
+\end{itemize}
+\end{corollary}
+(i) follows trivially from (\ref{chap3-thm3.12}). To prove (ii), we apply (i) with $F=$ closure of $0$, $\overline{0}=\cap \frakm^{n}E$: we have $\frakm\overline{0}=\overline{0}$, whence (Proposition \ref{chap3-prop1.1}), $\overline{0}=0$. Finally (iii) follows from (ii) applied to $E/F$.
+
+From this and Theorem \ref{chap3-thm3.8}, we deduce that {\em formal and analytic algebras are hausdorff}. We will deduce from this a result stated at the end of \S\ref{chap3-sec2}.
+
+\begin{proposition}\label{chap3-prop3.14}
+Every homomorphism of analytic (resp. formal) algebras is a morphism.
+\end{proposition}
+
+\begin{proof}
+Let $\scrO_{n}\xrightarrow{\pi}A$, $\scrO_{m}\xrightarrow{\psi}B$ and let $u$ be a (unitary $\bfR$-algebra) homomorphism $A\to B$. Let $x_{1},\ldots,x_{n}$ be coordinates in $\bfR^{n}$ and let $\widetilde{u}$ be the morphism $\scrO_{n}\to B$ defined by $\widetilde{u}(x_{i})=u\circ \pi(x_{i})$ (Proposition \ref{chap3-prop2.3}). It is sufficient to prove that, for any $f\in \scrO_{n}$, we have $\widetilde{u}(f)=u\circ \pi(f)$. Now this formula is true if $f$ is a polynomial in $x_{1},\ldots,x_{n}$. Since $B$ is hausdorff and the two sides of our formula depend continuously on $f$, the result is obtained by passage to the limit.
+\end{proof}
+
+\begin{remark}\label{chap3-rem3.15}
+The same argument proves the following: let $\scrE_{n}\to A$, $\scrE_{m}\to B$ be two differentiable algebras. If $B$ is hausdorff every homomorphism $A\to B$ is a morphism. We shall see that, in general, $B$ is not hausdorff, so that this does not answer the question raised in \ref{chap3-rem2.4}.
+\end{remark}
+
+Let $A$ be a local ring, $\frakp$ an ideal of $A$ with $\frakp\neq A$. Then $A/\frakp$ is a local ring and we have $\frakm^{k}(A/\frakp)=\frakm^{k}(A)(A/\frakp)$. Consequently, the topology of the local ring $A/\frakp$ and the $A$-module $A/\frakp$ coincide.
+
+Let us take $A=\scrF_{n}$ which is complete; since $\frakp$ is closed in $\scrF_{n}$, $\scrF_{n}/\frakp$ is again a complete $\scrF_{n}$-module, and hence a complete local ring. Consequently, we obtain
+
+\begin{proposition}\label{chap3-prop3.16}
+Every formal algebra is complete.
+\end{proposition}
+
+Take now $A=\scrE_{n}$. The mapping of ``Taylor expansion'' $\scrE_{n}\to \scrF_{n}$ is surjective, and its kernel is the ideal $\frakm^{\infty}(\scrE_{n})=\cap \frakm^{k}(\scrE_{n})$ of functions flat at $0$. $\scrF_{n}$ can therefore be identified with the completion $\widehat{\scrE}_{n}$ of $\scrE_{n}$.
+
+Let $\frakp$ be an ideal of $\scrE_{n}$, $\widetilde{\frakp}=(\frakp+\frakm^{\infty}(\scrE_{n}))/\frakm^{\infty}(\scrE_{n})$ its image in $\scrF_{n}$. We have an isomorphism $\scrE_{n}/(\frakp+\frakm^{\infty}(\scrE_{n}))\to \scrF_{n}/\widetilde{\frakp}$; in particular, the first space is hausdorff (and even complete) and $\frakp+\frakm^{\infty}(\scrE_{n})$ is therefore closed. Put $B=\scrE_{n}/\frakp$, and $\frakm^{\infty}(B)=\cap \frakm^{k}(B)$. We have obviously an injection $i:(\frakp+\frakm^{\infty}(\scrE_{n}))/\frakp\to \frakm^{\infty}(B)$, and since $\frakp+\frakm^{\infty}(\scrE_{n})$ is closed in $\scrE_{n}$, $(\frakp+\frakm^{\infty}(\scrE_{n}))/\frakp$ is closed in $B$, and hence $i$ is an isomorphism. Denoting by $\widehat{B}$ the completion of $B$, and using the fact that $\scrF_{n}/\widetilde{\frakp}$ is complete, we deduce from this the
+
+\begin{proposition}\label{chap3-prop3.17}
+The canonical mappings
+$$
+\scrF_{n}/\widetilde{\frakp}\simeq \scrE_{n}/(\frakp+\frakm^{\infty}(\scrE_{n}))\to B/\frakm^{\infty}(B)\to \widehat{B}
+$$
+are isomorphisms.
+\end{proposition}
+
+In particular, the completion of a differentiable algebra is simply the largest hausdorff quotient; and for a differentiable algebra to be complete, it is necessary and sufficient that it be hausdorff, or again, that it be isomorphic (as a local algebra) to a formal algebra.
+
+\section{Analytic algebras: completion and coherence}\label{chap3-sec4}
+
+A. \textsc{Flat modules.} We recall here a certain number of definitions and elementary properties, and refer to Serre [1] or Bourbaki [1] for the proofs. [These proofs are, moreover, almost all immediate so that it would be a good exercise for the reader to reconstruct them.]
+
+Let us also state that the concept of flatness finds its natural interpretation in homological algebra. We will not develop this point of view here.
+
+\begin{definition}\label{chap3-defi4.1}
+Let $A$ be a ring, $E$ an $A$-module. We say that $E$ is flat if the following equivalent conditions are satisfied.
+\begin{itemize}
+\item[\rm(i)] For every exact sequence $M'\to M\to M''$ of $A$-modules, the sequence $E\otimes_{A}M'\to E\otimes_{A}M\to E\otimes_{A}M''$ is exact.
+
+\item[\rm(ii)] For any ideal $\frakI$ of $A$, the natural map $\frakI\otimes_{A}E\to E$ is injective.
+\end{itemize}
+\end{definition}
+
+The property (ii) can be interpreted in the following way. Let $f=(f_{1},\ldots,f_{n})\in A^{n}$. Let us denote by $R(f,E)$ (the ``relations of $f$ in $E$'') the submodule of $E^{n}$ consisting of the $(e_{1},\ldots,e_{n})$ verifying $\Sigma f_{i}e_{i}=0$. Then
+
+\begin{proposition}\label{chap3-prop4.2}
+$E$ is flat if and only if for every $n$ and $f\in A^{n}$, we have $R(f,E)=R(f,A)E$.
+\end{proposition}
+
+\begin{remark}\label{chap3-rem4.3}
+Let $f=(f_{1},\quad,f_{n})$ be a system of $n$ elements of $A^{m}$. We may again define $R(f,E)$ as the submodule of $E^{n}$ consisting of the $(e_{1},\quad e_{n})$ for which $\Sigma f_{i}e_{i}=0$. Using induction and Proposition \ref{chap3-prop4.2}, we see that if $E$ is flat, we have again $R(f,E)=R(f,A)E$.
+\end{remark}
+
+\begin{proposition}\label{chap3-prop4.4}
+\begin{itemize}
+\item[\rm(i)] Let $0\to M'\to M\to M''\to 0$ be an exact sequence of $A$-modules. If $M'$ and $M''$ are flat, then so is $M$. If $M$ and $M''$ are flat, so is $M'$
+
+\item[\rm(ii)] Let $A\to B$ be a homomorphism of rings such that $B$ is flat as an $A$-module. If $M$ is a flat $B$-module, then $M$, considered as an $A$-module, is again flat.
+
+\item[\rm(iii)] Let $0\to M'\to M\to M''\to 0$ be an exact sequence of $A$-modules and suppose that $M''$ is flat. For any $A$-module $E$, the sequence
+$$
+0\to M'\otimes_{A}E\to M\otimes_{A}E\to M''\otimes_{A}E\to 0
+$$
+is again exact.
+\end{itemize}
+\end{proposition}
+
+\begin{proposition}\label{chap3-prop4.5}
+Let $E$ be a flat $A$-module, $M'$ and $M''$ two submodules of $M$. Consider $M'\otimes_{A}E$ (resp. $M''\otimes_{A}E$) as a submodule of $M\otimes_{A}E$ by means of the natural injection $M'\otimes_{A}E\to M\otimes_{A}E$ (resp. etc...). Then, we have
+$$
+(M'\cap M'')\otimes_{A}E=(M'\otimes_{A}E)\cap (M''\otimes_{A}E).
+$$
+\end{proposition}
+[One uses the exact sequence
+$$
+0\to M/(M'\cap M'')\xrightarrow{i}M/M'\oplus M/M''\xrightarrow{\delta}M/(M'+M'')\to 0
+$$
+where
+$$
+i(x)=(x\mod M',x\mod M'')
+$$
+and
+$$
+\delta(x',x'')=x'\mod (M'+M'')-x''\mod (M'+M''),
+$$
+and the exact sequence obtained by tensoring with $E$.]
+
+\begin{definition}\label{chap3-defi4.6}
+Let $A$ be a ring, $E$ an $A$-module. We say that $E$ is faithfully flat if it has the following properties
+\begin{itemize}
+\item[\rm(i)] $E$ is flat.
+
+\item[\rm(ii)] For any $A$-module $M$, $E\otimes_A M=\{0\}$ implies that $M=\{0\}$.
+\end{itemize}
+\end{definition}
+[It is sufficient to require (ii) for modules of finite type.]
+
+Let $B$ be a ring containing $A$. For $B$ to be a faithfully flat $A$-module, it is necessary and sufficient that it verify one of the following equivalent conditions.
+\begin{itemize}
+\item[(i)] $B/A$ is a flat $A$-module.
+
+\item[(ii)] $B$ is flat and, for any ideal $\frakI$ of $A$, we have $(\frakI B)\cap A=\frakI$.
+\end{itemize}
+
+We shall have occasion to study the following more general situation.
+
+\begin{proposition}\label{chap3-prop4.7}
+Let $A\subset B\subset C$ be three rings having the following properties:
+\begin{itemize}
+\item[\rm(i)] $C$ is faithfully flat over $A$.
+
+\item[\rm(ii)] For any ideal $\frakI$ of $A$, we have $(\frakI C)\cap B=\frakI B$.
+\end{itemize}
+Then $B$ is faithfully flat over $A$.
+\end{proposition}
+
+\begin{proof}
+In fact, let us consider the following exact sequence of $A$-modules
+$$
+0\to B/A\to C/A\to C/B\to 0.
+$$
+
+We wish to show that $B/A$ is flat, and we know that $C/A$ is flat. It is, therefore, enough to show that $C/B$ is flat (Proposition \ref{chap3-prop4.4}). Consider the following commutative diagram
+\[
+\xymatrix{
+\frakI\otimes B\ar[d]\ar[r] & \frakI\otimes C\ar[d]\ar[r] & \frakI\otimes (C/B)\ar[d]\ar[r] & 0\\
+\frakI B\ar[r] & \frakI C\ar[r] & \frakI (C/B)\ar[r] & 0.
+}
+\]
+The first row is exact, since the tensor product is right exact, and the second row is exact because of the hypothesis (ii). Now, the first and third vertical arrows are surjective and the second is bijective; hence the third is bijective, whence the result.
+\end{proof}
+
+\begin{remark}\label{chap3-rem4.8}
+Let us consider again the situation of the preceding proposition, and let $F\subset E$ be two $A$-modules. To simplify the notation, let us put $FB=F\otimes_{A}B$, and let us define $FC$, $EB,\ldots$ in the same way. Consider the following commutative diagram:
+\[
+\xymatrix{
+ & 0\ar[d] & 0\ar[d] & 0\ar[d] & \\
+0\ar[r] & FB\ar[d]\ar[r] & FC\ar[d]\ar[r] & F(C/B)\ar[d]\ar[r] & 0\\
+0\ar[r] & EB\ar[r] & EC\ar[r] & E(C/B)\ar[r] & 0
+}
+\]
+Since $B$, $C$, $C/B$ are flat, the columns in this diagram are exact, and the rows are also exact because of Proposition \ref{chap3-prop4.4}, (iii) and the fact that $C/B$ is flat. We deduce immediately that if we consider $FB$, $FC$, $EB$ as submodules of $EC$, we have $FC\cap EB=FB$. [This formula, with $E=A$, $F=\frakI$ an ideal in $A$, is nothing but condition (ii) of Proposition \ref{chap3-prop4.7}.]
+\end{remark}
+
+B.~\textsc{Completion of analytic algebras.} Let $A$ be a noetherian local ring, $E$ an $A$-module of finite type furnished with the Krull topology, and $\widehat{E}$ the completion of $E$. One has the following result (Serre [1]; see also Bourbaki [1].)
+
+\begin{theorem}\label{chap3-thm4.9}
+\begin{itemize}
+\item[\rm(i)] The natural map $\widehat{A}\otimes_{A}E\to \widehat{E}$ is an isomorphism.
+
+\item[\rm(ii)] $\widehat{A}$ is faithfully flat over $A$.
+\end{itemize}
+\end{theorem}
+
+Let us recall rapidly the proof. In the first place, if $0\to E'\to E\to E''\to 0$ is an exact sequence of $A$-modules of finite type, the topology of $E'$ is induced by that of $E$, and the topology of $E''$, which is trivially the quotient of that of $E$ are hausdorff (Corollary \ref{chap3-coro3.13}). From properties of the completion of topological groups, we deduce that the sequence $0\to \widehat{E}'\to \widehat{E}\to \widehat{E}''\to 0$ is exact. From this we deduce, by a well-known method, that for any exact sequence $E'\to E\to E''$ of $A$-modules of finite type, the sequence $\widehat{E}'\to \widehat{E}\to \widehat{E}''$ is exact.
+
+Let us apply this to a presentation of $E$, i.e. to an exact sequence $A^{p}\to A^{q}\to E\to 0$. We obtain (i); the fact that $\widehat{A}$ is flat over $A$ is then immediate.
+
+Finally, any $E$ of finite type is hausdorff, so that the mapping $E\to \widehat{E}$ is injective; in particular, $\widehat{E}=\{0\}$ implies that $E=\{0\}$, which completes the proof of (ii).
+
+Let $\frakp$ be an ideal in $A$, $B=A/\frakp$. The ``intrinsic'' topology of $B$ and its topology as $A$-module coincide. Consequently 
+$$
+\widehat{B}\simeq \widehat{A}/\widehat{\frakp}\simeq (A/\frakp)\otimes_{A}\widehat{A}\text{ and } \widehat{\frakp}\simeq \widehat{A}\otimes_{A}\frakp;
+$$
+so that $\widehat{\frakp}$ is the closure of $\frakp$ in $\widehat{A}$. If we take $A=\scrO_{n}$, we have, obviously, $\widehat{A}=\scrF_{n}$. The preceding results give then a description of the completions of analytic algebras.
+
+Theorem \ref{chap3-thm4.9}, together with Proposition \ref{chap3-prop4.7}, has the following consequence.
+
+\begin{proposition}\label{chap3-prop4.10}
+Let $A\subset B$ be two noetherian local rings such that the mapping $\widehat{A}\to \widehat{B}$ is an isomorphism. Then $B$ is faithfully flat over $A$.
+\end{proposition}
+
+\begin{example}\label{chap3-exam4.11}
+Let $R_{n}$ be the field $\bfR(x_{1},\ldots,x_{n})$ of rational functions and $S_{n}$ the subring of fractions whose denominator does not vanish at the origin. We have an obvious injection $S_{n}\to \scrO_{n}$ and the two completions are equal to $\scrF_{n}$. Hence $\scrO_{n}$ is faithfully flat over $S_{n}$. Since $S_{n}$ is trivially flat over $\bfR[x_{1},\ldots,x_{n}]$, we deduce that $\scrO_{n}$ is flat over $\bfR[x_{1},\ldots,x_{n}]$.
+\end{example}
+
+One could show, in the same way, that $\scrO_{n}$ is flat over $\scrO_{n-1}[x_{n}]$ (imbedded in $\scrO_{n}$ in the obvious way).
+
+C.~\textsc{Coherence.} Let $\scrU$ be the set of open neighbourhoods of $0$ in $\bfR^{n}$; for $V\in \scrU$, let $\widetilde{\scrO}_{n}(V)=\prod\limits_{x\in V}\widetilde{\scrO}_{n,x}$ and let us denote by $\scrO_{n}(V)$ the space of real valued analytic functions on $V$. We obtain a mapping $\scrO_{n}(V)\to \widetilde{\scrO}_{n}(V)$ by associating to $f\in \scrO_{n}(V)$ the collection of the Taylor series of $f$ at the various points of $V$. Let $\widetilde{\scrO}_{n}$ be the inductive limit $\widetilde{\scrO}_{n}(V)$ following the filtered set $\scrU$; the above mapping defines an injection $\scrO_{n}\to \widetilde{\scrO}_{n}$ (which we shall refer to as the canonical injection).
+
+Starting with $\scrF_{n}$ instead of $\scrO_{n}$, we can define a ring $\widetilde{\scrF}_{n}$ and a canonical injection $\scrE_{n}\to \widetilde{\scrF}_{n}$ (obtained by associating to each $f\in \scrE_{n}$ the germ at $0$ of the collection of the Taylor series of $f$ at points near $0$). Finally, from the injection $\scrO_{n}\to \scrF_{n}$, we obtain in the obvious way an injection $\widetilde{\scrO}_{n}\to \widetilde{\scrF}_{n}$ and the following diagram is commutative
+\[
+\xymatrix{
+\scrO_{n}\ar[d]\ar[r] & \widetilde{\scrO}_{n}\ar[d]\\
+\scrF_{n}\ar[r] & \widetilde{\scrF}_{n}
+}
+\]
+
+One of the main results of this course is to establish that the triple $(\scrO_{n},\scrE_{n},\widetilde{\scrF}_{n})$ satisfies the hypotheses of Proposition \ref{chap3-prop4.7}. We shall take up in Chapter \ref{chap6} the condition (ii) which is more difficult, and we shall establish (i) here. For this we need a definition and some results, which we do not number formally since they will not be used outside this article.
+
+Let $A$ be a ring and $E$ an $A$-module. We say that $E$ is {\em quasi-flat} if, for any ideal $\frakI\subset A$ of {\em finite presentation} (i.e. for which there is an exact sequence $A^{p}\to A^{q}\to \frakI\to 0$), the mapping $\frakI\otimes_{A}E\to E$ is injective. This is equivalent to saying that for any $f\in A^{q}$ such that $R(f,A)$ is of finite type, we have $R(f,E)=R(f,A)E$.
+
+If $A$ is noetherian, ``quasi-flat'' is equivalent with ``flat'' since any ideal is of finite presentation. On the other hand, if we have a ring homomorphism $A\to B$ and a $B$-module, $E$, ``$E$ quasi-flat over $B$'' and ``$B$ quasi-flat over $A$'' imply ``$E$ quasi-flat over $A$''. (Proof left to the reader.)
+
+\begin{examples*}
+From the fact that $\scrF_{n}$ is flat over $\scrO_{n}$, we deduce at once that $\widetilde{\scrF}_{n}$ is quasi-flat over $\widetilde{\scrO}_{n}$. In the same way, $\widetilde{\scrO}_{n}$ is quasi-flat over $\widetilde{\scrO}_{n-1}[x_{n}]$ (cf. Example \ref{chap3-exam4.11}). This being the case, the theorem we have in view is the following.
+\end{examples*}
+
+\begin{theorem}[Oka]\label{chap3-thm4.12}
+$\widetilde{\scrO}_{n}$ is faithfully flat over $\scrO_{n}$.
+\end{theorem}
+
+\begin{proof}
+It is obviously sufficient to show that $\widetilde{\scrO}_{n}$ is flat over $\scrO_{n}$. The proof is by induction on $n$. The result being trivial for $n=0$, suppose the theorem proved for $n-1$. Let $\frakI$ be an ideal in $\scrO_{n}$. Let us prove that the map $\frakI\otimes_{\scrO_{n}}\widetilde{\scrO}_{n}\to \widetilde{\scrO}_{n}$ is injective. If $\frakI=0$, this is trivial. If $\frakI\neq 0$, we may suppose, by an application of \ref{chap3-coro3.7}, that after a linear change of coordinates, $\frakI$ contains a distinguished polynomial in $x_{n}$, say $f$. Applying \ref{chap3-coro3.6}, we find that there is an ideal $\frakI'\subset\scrO_{n-1}[x_{n}]$ such that
+$$
+\frakI=\frakI'\scrO_{n}\simeq \frakI'\otimes_{\scrO_{n-1}[x_{n}]}\scrO_{n}.
+$$
+Hence $\frakI\otimes_{\scrO_{n}}\widetilde{\scrO}_{n}\simeq \otimes_{\scrO_{n-1}[x_{n}]}\scrO_{n}$, and it is sufficient to verify that $\widetilde{\scrO}_{n}$ is flat over $\scrO_{n-1}[x_{n}]$. Now, by induction, $\widetilde{\scrO}_{n-1}$ is flat over $\scrO_{n-1}$. One deduces at once that $\widetilde{\scrO}_{n-1}[x_{n}]$ is flat over $\scrO_{n-1}[x_{n}]$. Since $\widetilde{\scrO}_{n}$ is quasi-flat over $\widetilde{\scrO}_{n-1}[x_{n}]$, it is quasi-flat, hence flat over the noetherian ring $\scrO_{n-1}[x_{n}]$. The theorem follows.
+\end{proof}
+
+\begin{corollary}\label{chap3-coro4.13}
+$\widetilde{F}_{n}$ is faithfully flat over $\scrO_{n}$.
+\end{corollary}
+
+In fact, $\widetilde{\scrF}_{n}$ is quasi-flat over $\widetilde{\scrO}_{n}$, and $\widetilde{\scrO}_{n}$ is flat over $\scrO_{n}$.
+
+\begin{remark}\label{chap3-rem4.14}
+The theorem of Oka is usually stated somewhat differently.
+\end{remark}
+
+(C) Let $f=(f_{1},\ldots,f_{n})$ be analytic functions in a neighbourhood of $0$, and $g_{i}$, $1\leq i\leq q$, be $p$-tuples of analytic functions in a neighbourhood of $0$ such that their germs $g^{0}_{i}$ at $0$ generate $R(f^{0},\scrO_{n})$. Then, for any point $a$ sufficiently near $0$, the $g^{a}_{i}$ generate $R(f^{a},\scrO_{n})$.
+
+Using the interpretation of flatness in terms of relations, it is clear that (C) implies (\ref{chap3-thm4.12}). Conversely, let us prove (C) using (\ref{chap3-thm4.12}). If (C) were false, there would exist a sequence $a_{k}$ of points tending to $0$ and $\gamma_{k}\in R(f^{a_{k}},\scrO_{n})$ such that $\gamma_{k}$ is not a linear combination of the $g^{a_{k}}_{i}$. Consider in $\widetilde{\scrO}^{p}_{n}$ the germ defined by $\gamma=\gamma_{k}$ at $a_{k}$, $\gamma=0$ otherwise. This germ does not belong to $R(f^{0},\scrO_{n})\widetilde{\scrO}_{n}$, which is absurd.
+
+\section{Dimension of analytic algebras and analytic germs}
+
+A.~\textsc{The concept of dimension.} Let us recall the following definition.
+
+\begin{definition}\label{chap3-defi5.1}
+Let $A$ be a noetherian local ring. By the dimension of $A$ (written $\dim A$) we mean the largest integer $n$ for which there exists a strictly decreasing sequence $\frakp_{0}=\frakm(A)$, $\frakp_{1},\ldots,\frakp_{n}$ of prime ideals of $A$.
+\end{definition}
+
+One proves the following results (see Zariski-Samuel [1]).
+
+\begin{proposition}\label{chap3-prop5.2}
+For any noetherian local ring $A$,
+\begin{itemize}
+\item[(i)] $\dim A$ is finite and equal to the minimum number of generators of an ideal of definition of $A$;
+
+\item[(ii)] we have $\dim A=\dim \widehat{A}$.
+\end{itemize}
+
+It follows at once from (i) that $\dim\scrO_{n}=\dim \scrF_{n}=n$.
+\end{proposition}
+
+\begin{theorem}[Cohen-Seidenberg]\label{chap3-thm5.3}
+Given two noetherian local rings $A$ and $B$ with $A\subset B$ and $B$ finite over $A$, we have $\dim A=\dim A$.
+\end{theorem}
+
+The inequality $\dim B\leq \dim A$ results immediately from \ref{chap3-prop5.2} (i) since any ideal of definition of $A$ generates an ideal of definition of $B$ (cf. \S\ref{chap3-sec1}). It would also result from the following proposition, which we shall need in any case.
+
+\begin{proposition}\label{chap3-prop5.4}
+Let $A$ and $B$ be two rings with $A\subset B$, $B$ finite over $A$, and let $\frakp$ and $\frakq$ be two ideals of $B$, $\frakp$ being prime, such that $\frakp\subset\frakq$, $\frakp\neq \frakq$. Then $\frakp\cap A\neq \frakq\cap A$.
+\end{proposition}
+
+\begin{proof}
+Passing to the quotient by $\frakp$, we are reduced to the case when $\frakp=\{0\}$ and $A$ and $B$ are integral domains. Let $\overline{A}$ (resp. $\overline{B}$) be the quotient field of $A$ (resp. $B$). Since $\overline{A}[B]$ is a finite $\overline{A}$ algebra which is an integral domain, it is a field, so that $\overline{A}[B]=\overline{B}$. Let $f\in \frakq$, $f\neq 0$. We have $\dfrac{1}{f}=\dfrac{b}{a}$ with $b\in B$, $a\in A$, $a\neq 0$. We have $a=fb\in \frakq\cap A$, whence the proposition.
+\end{proof}
+
+B.~\textsc{Integral analytic algebras.} Let $\frakp$ be an ideal in $\scrO_{n}$, and $A=\scrO_{n}/\frakp$. Let $g_{1},\ldots,g_{p}\in \frakm(\scrO_{n})$, and $\overline{g}_{1}$,\quad $\overline{g}_{p}$ their canonical images in $A$. Recall that there is a unique morphism $u:\scrO_{p}\to A$ with $u(y_{i})=\overline{g}_{i}$ ($y_{1},\ldots,y_{p}$ are the coordinates of $\bfR^{p}$). If $u$ is injective, we say that $g_{1},\ldots,g_{p}$ are analytically independent modulo $\frakp$ (or that $\overline{g}_{1},\ldots,\overline{g}_{p}$ are analytically independent).
+
+Put $k=\dim A$; clearly we have $0\leq k\leq n$.
+
+\begin{theorem}\label{chap3-thm5.5}
+Under the above hypotheses, we may make a linear change of coordinates in $\bfR^{n}$ such that, $x_{1},\ldots,x_{n}$ being the new coordinates, we have
+\begin{itemize}
+\item[\rm(i)] $x_{1},\ldots,x_{k}$ are analytically independent modulo $\frakp$,
+
+\item[\rm(ii)] the morphism $\scrO_{k}\to A$ defined by $\overline{x}_{1},\ldots,\overline{x}_{k}$ is finite.
+\end{itemize}
+\end{theorem}
+
+Consider the set $(E)$ of couples $(\underline{f},S)$ where $\underline{f}=(f_{1},\ldots,f_{l})$ is a family of elements of $\frakp$, all $\neq 0$, and $S$ is a system $(x_{1},\quad,x_{n})$ of coordinates obtained by linear change from the canonical system having the following properties for $1\leq p\leq l$.
+\begin{itemize}
+\item[(a)] $f_{p}\in \scrO_{n-p+1}$, i.e. $f_{p}$ depends only on $x_{1},\ldots,x_{n-p+1}$; 
+
+\item[(b)] $f_{p}(0,\ldots,0,x_{n-p+1})\neq 0$.
+\end{itemize}
+We say that such a couple is maximal if there is no couple $(\underline{f}',S')\in (E)$ with $\underline{f}'=(f_{1},\ldots,f_{l},g)$ and $S'$ being obtained from $S$ by linear change of the $n-1$ first coordinates {\em among themselves}. Let us take such a maximal couple (which evidently exists). By applying the preparation theorem, we see that $A$ is finite over $\scrO_{n-l}$. On the other hand, the mapping $\scrO_{n-l}\to A$ is injective: if it were not, there would be a $g\in \scrO_{n-l}\cap \frakp$, $g\neq 0$, and by a linear change of the first $n-l$ coordinates among themselves, we could ensure that $g(0,\ldots,0,x_{n-l})\neq 0$.
+
+%raghu, page 59
