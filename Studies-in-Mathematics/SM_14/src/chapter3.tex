@@ -390,7 +390,7 @@ In particular, the completion of a differentiable algebra is simply the largest 
 
 \section{Analytic algebras: completion and coherence}\label{chap3-sec4}
 
-A. \textsc{Flat modules.} We recall here a certain number of definitions and elementary properties, and refer to Serre [1] or Bourbaki [1] for the proofs. [These proofs are, moreover, almost all immediate so that it would be a good exercise for the reader to reconstruct them.]
+A.~\textsc{Flat modules.} We recall here a certain number of definitions and elementary properties, and refer to Serre [1] or Bourbaki [1] for the proofs. [These proofs are, moreover, almost all immediate so that it would be a good exercise for the reader to reconstruct them.]
 
 Let us also state that the concept of flatness finds its natural interpretation in homological algebra. We will not develop this point of view here.
 
@@ -504,6 +504,7 @@ Let us consider again the situation of the preceding proposition, and let $F\sub
 Since $B$, $C$, $C/B$ are flat, the columns in this diagram are exact, and the rows are also exact because of Proposition \ref{chap3-prop4.4}, (iii) and the fact that $C/B$ is flat. We deduce immediately that if we consider $FB$, $FC$, $EB$ as submodules of $EC$, we have $FC\cap EB=FB$. [This formula, with $E=A$, $F=\frakI$ an ideal in $A$, is nothing but condition (ii) of Proposition \ref{chap3-prop4.7}.]
 \end{remark}
 
+\noindent
 B.~\textsc{Completion of analytic algebras.} Let $A$ be a noetherian local ring, $E$ an $A$-module of finite type furnished with the Krull topology, and $\widehat{E}$ the completion of $E$. One has the following result (Serre [1]; see also Bourbaki [1].)
 
 \begin{theorem}\label{chap3-thm4.9}
@@ -640,4 +641,60 @@ Consider the set $(E)$ of couples $(\underline{f},S)$ where $\underline{f}=(f_{1
 \end{itemize}
 We say that such a couple is maximal if there is no couple $(\underline{f}',S')\in (E)$ with $\underline{f}'=(f_{1},\ldots,f_{l},g)$ and $S'$ being obtained from $S$ by linear change of the $n-1$ first coordinates {\em among themselves}. Let us take such a maximal couple (which evidently exists). By applying the preparation theorem, we see that $A$ is finite over $\scrO_{n-l}$. On the other hand, the mapping $\scrO_{n-l}\to A$ is injective: if it were not, there would be a $g\in \scrO_{n-l}\cap \frakp$, $g\neq 0$, and by a linear change of the first $n-l$ coordinates among themselves, we could ensure that $g(0,\ldots,0,x_{n-l})\neq 0$.
 
-%raghu, page 59
+By (\ref{chap3-thm5.3}), we have $\dim A=n-l$, and the theorem follows. From now onwards, we suppose that $\frakp$ is prime, and we retain the preceding notation. Let $\overline{\scrO}_{k}$ (resp. $\overline{A}$) be the quotient field of $\scrO_{k}$ (resp. $A$). $\overline{A}$ is a finite algebraic extension of $\overline{\scrO}_{k}$.
+
+\begin{proposition}\label{chap3-prop5.6}
+For any $f\in A$ (resp. $\frakm(A)$), the minimal polynomial of $f$ over $\overline{\scrO}_{k}$ has its coefficients in $\scrO_{k}$ (resp. $\frakm(\scrO_{k})$ and is distinguished).
+\end{proposition}
+
+\begin{proof}
+$\scrO_{k}$ is factorial, hence integrally closed. Since any $f\in A$ is integral over $\scrO_{k}$, its minimal polynomial, $P$, has its coefficients in $\scrO_{k}$. Let us show that if $f\in \frakm(A)$, $F$ is distinguished. If it were not, we would have $P=P'P''$ with $P'\in \scrO_{k}[t]$ distinguished and $P''\in \scrO_{k+1}$ (and in fact $P''\in \scrO_{k}[t]$, but this has no importance) is invertible in $\scrO_{k+1}$. Hence $P''(x_{1},\quad,x_{k},f)$ is invertible in $\scrO_{k}$, and $P'(x_{1},\ldots,x_{k},f)=0$, and $P$ is not the minimal polynomial of $f$ (if $P''$ is not constant). The proposition follows.
+
+In the same situation, the preparation theorem shows that the classes $\overline{x}_{k+1},\ldots,\overline{x}_{n}$ of $x_{k+1},\ldots,x_{n}$ modulo $\frakp$ generate $A$ as an $\scrO_{k}$-algebra. A fortiori, they generate $\overline{A}$ over $\overline{\scrO}_{k}$. It follows from the theorem of the primitive element that, by a linear change of coordinates of $x_{k+1},\ldots,x_{n}$ among themselves, we may suppose that $\overline{A}=\overline{\scrO}_{k}[\overline{x}_{k+1}]$. Let, then, $P$ be the minimal polynomial of $\overline{x}_{k+1}$, $\Delta$ its discriminant, and let $p=\deg P=[\overline{A}:\overline{\scrO}_{k}]$.
+\end{proof}
+
+\begin{proposition}\label{chap3-prop5.7}
+For any $f\in \overline{A}$, integral over $A$, there exists a unique $Q\in \scrO_{k}[t]$, $\deg Q<p$, such that $\Delta f=Q(\overline{x}_{k+1})$.
+\end{proposition}
+
+\begin{proof}
+Let $\sigma_{1},\ldots,\sigma_{p}$ be the $\overline{\scrO}_{k}$-isomorphisms of $\overline{A}$ in an algebraic closure of $\overline{\scrO}_{k}$. For $0\leq i\leq p-1$, we have
+$$
+\sigma_{1}(\overline{x}^{i}_{k+1}f)+\cdots+\sigma_{p}(\overline{x}^{i}_{k+1}f)=a^{(i)}\in \scrO_{k}
+$$
+(since $\scrO_{k}$ is integrally closed). If we identify $A$ with $\sigma_{1}(A)$ and solve these equations for $\sigma_{1}(f)$, we obtain a $Q$ with the required property. The uniqueness is obvious.
+\end{proof}
+
+\noindent
+C.~\textsc{Real analytic germs.} To conclude this chapter, we shall recall rapidly some results which we require. Let $\Omega$ be an open set in $\bfR^{n}$. A closed set $F\subset \Omega$ is called analytic if, in a neighbourhood of each of its points, $F$ is the set of common zeros of a finite family of analytic functions. Let us take a point of $\bfR^{n}$, say $0$. If we identify two analytic sets defined in two neighbourhoods of $0$ if they coincide in a third neighbourhood of $0$, we define the notion of a (real) analytic germ at $0$. To any such germ, $E$, we make correspond the ideal $\frakI(E)\subset \scrO_{n}$ of germs of analytic functions which are zero on $E$. Conversely, to any ideal $\frakp\subset \scrO_{n}$, we make correspond the germ $V(\frakp)$ defined by the vanishing of a finite system of generators of the ideal. (It is obvious that $V(\frakp)$ does not depend on the system chosen.) We always have $V(\frakI(E))=E$ and $\frakI(V(\frakp))\supset \frakp$, but, in general $\frakI(V(\frakp))\neq \frakp$.
+
+A finite union (resp. intersection) of analytic germs is defined in the obvious way, and is again an analytic germ.
+
+We say that a germ $E$ is reducible if we have $E=E'\cup E''$ with $E\neq E'$, $E\neq E''$, and it is irreducible if this is not the case. One verifies at once that $E$ is irreducible if and only if $\frakI(E)$ is prime. Any decreasing sequence of analytic germs is stationary (since $\scrO_{n}$ is noetherian). We deduce that every analytic germ can be decomposed in a unique way into a finite set of irreducible germs, none of which is contained in the union of the others. We call these the irreducible components.
+
+Let $E$ be an analytic germ. The dimension of $E$ (written $\dim E$) is the dimension of $\scrO_{n}/\frakI(E)$. If $E=\bigcup\limits^{p}_{i=1}E_{i}$, we have obviously $\frakI(E)=\bigcap\limits^{p}_{i=1}\frakI(E_{i})$. We deduce from this and Definition \ref{chap3-defi5.1} that the dimension of $E$ is equal to the largest dimension of its irreducible components.
+
+Let $E$ be irreducible, and $\dim E=k$. Let $\frakp=\frakI(E)$, and apply to $\frakp$ the considerations of \S\ref{chap3-sec5}.B. Using the notation of Proposition \ref{chap3-prop5.7}, let us denote by $Q_{k+2},\ldots Q_{n}$, the polynomials associated to $\overline{x}_{k+2},\ldots,\overline{x}_{n}$.
+
+\begin{proposition}\label{chap3-prop5.8}
+Let $\overline{E}$ be an analytic set in a neighbourhood of $0$ whose germ $E$ at $0$ is irreducible. In a neighbourhood of $0$, the set of points $x=(x_{1},\ldots,x_{n})$ satisfying $x\in \overline{E}$, $\Delta(x_{1},\ldots,x_{k})\neq 0$ coincides with the set
+\begin{align*}
+& P(x_{1},\ldots,x_{k},x_{k+1})=0\\
+& \Delta(x_{1},\ldots,x_{k})x_{k+j}-Q_{k+j}(x_{1},\ldots,x_{k},x_{k+1})=0, 2\leq j\leq n-k\\
+& \Delta (x_{1},\ldots,x_{k})\neq 0.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+Let $\frakq$ be the ideal in $\scrO_{n}$ generated by $P$ and the $\Delta x_{k+j}-Q_{k+j}$. Clearly $\frakq\subset \frakp$, and it is sufficient to show that for any $f\in \frakp$, there is an integer $p$ such that $\Delta^{p}f\in \frakq$. For this, denote by $\widetilde{\scrO}_{k}$ (resp. $\widetilde{\scrO}_{n},\widetilde{\frakp},\widetilde{\frakq}$) the localisation of $\scrO_{k}$ (resp. $\scrO_{n}$, $\frakp$, $\frakq$) with respect to $\Delta$, i.e. the set of fractions $f/\Delta^{p}$ with $f\in \scrO_{k}$ (resp. $\scrO_{n}$, $\frakp$, $\frakq$). We have to show that $\widetilde{\frakp}=\widetilde{\frakq}$, or that the natural surjection $\widetilde{\scrO}_{n}/\widetilde{\frakq}\to \widetilde{\scrO}_{n}/\widetilde{\frakp}$ is bijective.
+
+The ring $\widetilde{\scrO}_{k}$ can be considered, in a natural way, as a subring of the two preceding rings, and, if we denote by $x'_{k+j}$ (resp. $x''_{k+j}$) the image of $x_{k+j}$ in $\widetilde{\scrO}_{n}/\widetilde{\frakp}$ (resp. $\widetilde{\scrO}_{n}/\widetilde{\frakq}$), we have the following isomorphisms:
+$$
+\widetilde{\scrO}_{n}/\widetilde{\frakp}\simeq \widetilde{\scrO}_{k}[x'_{k+1}]\simeq \widetilde{\scrO}_{k}[x''_{k+1}]\simeq \widetilde{\scrO}_{k}[t]/(P)
+$$
+(the first follows from \ref{chap3-prop5.7}). Thus we have only to show that $x''_{k+1}$ generates $\widetilde{\scrO}_{n}/\widetilde{\frakq}$. Now, because of the equations $x''_{k+j}=\dfrac{Q_{k+j}}{\Delta}$, we have $x''_{k+j}\in \widetilde{\scrO}_{k}[x''_{k+1}]$. Consequently, the result will be proved if we show that modulo $\frakq$, every element of $\widetilde{\scrO}_{n}$ is equivalent to an element of $\widetilde{\scrO}_{k}[x_{k+1},\ldots,x_{n}]$. Now, if $P_{k+j}$ is the minimal polynomial of $\overline{x}_{k+j}$ over $\scrO_{k}$, $(2\leq j\leq n-k)$, the above isomorphisms show that $P_{k+j}(x''_{k+j})=0$, so that $P_{k+j}\in \widetilde{\frakq}$. This, together with the preparation theorem (more precisely, formula (\ref{chap3-coro3.6}) applied successively to $P$, $P_{k+2},\ldots,P_{n}$) implies the requied result.
+\end{proof}
+
+\begin{remark}\label{chap3-rem5.9}
+One must pay attention to the fact that, contrary to the complex case, a prime ideal $\frakp\subset \scrO_{n}$ is not necessarily of the form $\frakI(E)$: in other words, the ``Nullstellensatz'' is {\em false} in the real domain. (Counter-example: $n=2$, $\frakp=$ principal ideal generated by $x^{2}_{1}+x^{2}_{2}$!)
+\end{remark}
